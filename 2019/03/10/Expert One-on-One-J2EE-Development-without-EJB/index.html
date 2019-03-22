@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Expert One-on-One J2EE Development without EJB | Zyumin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="+ [Chapeter 1](#chapeter-1)   - [EJB存在的问题](#ejb存在的问题)   - [J2EE还剩下什么](#j2ee还剩下什么)     * [J2EE 在易用性方面存在着严重的问题](#j2ee-在易用性方面存在着严重的问题)     * [J2EE 项目具备架构重构能力的关键](#j2ee-项目具备架构重构能力的关键) + [Chapeter 5 EJB的5">
+<meta name="keywords" content="j2ee,spring,ejb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Expert One-on-One J2EE Development without EJB">
+<meta property="og:url" content="http://yoursite.com/2019/03/10/Expert One-on-One-J2EE-Development-without-EJB/index.html">
+<meta property="og:site_name" content="Zyumin">
+<meta property="og:description" content="+ [Chapeter 1](#chapeter-1)   - [EJB存在的问题](#ejb存在的问题)   - [J2EE还剩下什么](#j2ee还剩下什么)     * [J2EE 在易用性方面存在着严重的问题](#j2ee-在易用性方面存在着严重的问题)     * [J2EE 项目具备架构重构能力的关键](#j2ee-项目具备架构重构能力的关键) + [Chapeter 5 EJB的5">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1g18zgtukb9j31kz0u0af4.jpg">
+<meta property="og:updated_time" content="2019-03-20T02:01:19.753Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Expert One-on-One J2EE Development without EJB">
+<meta name="twitter:description" content="+ [Chapeter 1](#chapeter-1)   - [EJB存在的问题](#ejb存在的问题)   - [J2EE还剩下什么](#j2ee还剩下什么)     * [J2EE 在易用性方面存在着严重的问题](#j2ee-在易用性方面存在着严重的问题)     * [J2EE 项目具备架构重构能力的关键](#j2ee-项目具备架构重构能力的关键) + [Chapeter 5 EJB的5">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1g18zgtukb9j31kz0u0af4.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Zyumin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Zyumin</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">保持自驱和热情</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Expert One-on-One-J2EE-Development-without-EJB" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/10/Expert One-on-One-J2EE-Development-without-EJB/" class="article-date">
+  <time datetime="2019-03-10T11:45:57.000Z" itemprop="datePublished">2019-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Expert One-on-One J2EE Development without EJB
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<pre><code>+ [Chapeter 1](#chapeter-1)
+  - [EJB存在的问题](#ejb存在的问题)
+  - [J2EE还剩下什么](#j2ee还剩下什么)
+    * [J2EE 在易用性方面存在着严重的问题](#j2ee-在易用性方面存在着严重的问题)
+    * [J2EE 项目具备架构重构能力的关键](#j2ee-项目具备架构重构能力的关键)
++ [Chapeter 5 EJB的5年间](#chapeter-5-ejb的5年间)
++ [Chapter 6 轻量级容器](#chapter-6-轻量级容器)
++ [Chapter 7 轻量级容器](#chapter-7-轻量级容器)
++ [Chapter8 基于AOP概念的声明性中间件](#chapter8-基于aop概念的声明性中间件)
++ [Chapter9 事务管理](#chapter9-事务管理)
+    * [传统J2EE 事务管理](#传统j2ee-事务管理)
+    * [J2EE容器作为事务协调器](#j2ee容器作为事务协调器)
+    * [轻量级事务基础设施](#轻量级事务基础设施)
+    * [Spring Framework的事务管理](#spring-framework的事务管理)
+      + [事务声明](#事务声明)
+      + [编程式事务处理](#编程式事务处理)
+      + [声明式事务管理](#声明式事务管理)
+    * [事务管理策略](#事务管理策略)
++ [Chapter10 持久化](#chapter10-持久化)
+</code></pre><ul>
+<li><a href="#">——————————————————</a><pre><code>* [依赖注入模式](#依赖注入模式)
+* [是什么？](#是什么)
+* [MVC](#mvc)
+* [异常处理](#异常处理)
+* [数据持久层](#数据持久层)
+  + [事务管理](#事务管理)
+  + [持久层封装](#持久层封装)
+</code></pre></li>
+</ul>
+<!-- tocstop -->
+<p>[TOC]</p>
+<p>我想要获得什么。</p>
+<p>​    架构师的思维，当一个框架不符合主流时候是怎么思考的，spring是为解决什么问题出现的？</p>
+<p>大概是这样一种思维</p>
+<p>​    不符合的原因  </p>
+<p>​    指出我们正在需要的是什么。</p>
+<p>​    替代方案</p>
+<h3><span id="chapeter-1">Chapeter 1</span></h3><p>Why  without ？</p>
+<h4><span id="ejb存在的问题">EJB存在的问题</span></h4><ul>
+<li>EJB规范中的一些部分已经过时,J2SE1.3引入的动态代理(dynamicproxy)</li>
+<li><p>EJB和RMI之间那种传统的紧密关系也开始显得有些不合时宜(local 和 remote 的调用？)这一方面是因为webservices 的迅速发展，另一方面是因为人们发现:很多时候 EJB 只需要本地接口</p>
+</li>
+<li><p>EJB 最善于实现业务对象分布的体系结构，然而这种体系结构究竟有多大程度的普遍性</p>
+</li>
+<li>SLSB （无状态session bean）和 MDB 使用较多，整个容器成本高昂</li>
+<li>EJB的复杂性，EJB规范的复杂性 -&gt;开发效率</li>
+<li>TDD流行 ，难以测试</li>
+<li>对于 EJB 致力解决的中间件问题，面向方面的程序设计(Aspect Oriented Programming，AOP）</li>
+</ul>
+<p>EJB 试图解决太多的问题，其中很多问题本不应该由它来解决的。</p>
+<h4><span id="j2ee还剩下什么">J2EE还剩下什么</span></h4><p>​    EJB只是J2EE的一种实现框架。因为这些库和框架不仅可以让我们摆脱使用 J2EE 服务的复杂度，而且也不会招致 EJB 所带来的复杂度。</p>
+<p>​    J2EE 都是一个伟大的成功:</p>
+<ul>
+<li>它成功地在从前没有标准的地方建立了标准;</li>
+<li>它大大提升了企业级软件的开放程度;</li>
+<li>并且它得到了整个行业和开发者的广泛认可。</li>
+</ul>
+<h5><span id="j2ee-在易用性方面存在着严重的问题">J2EE 在易用性方面存在着严重的问题</span></h5><p><em>Core J2EE Patterns</em></p>
+<p> 书中已经开始提倡使 用普通 Java 对象。</p>
+<p>以规范为驱动的问题</p>
+<p>有状态 session bean，状态的复制带来了很多微妙棘手的问题，所以大多数架构师总是尽量避免使用有状态 session bean。 </p>
+<p>如果希望开发者遵循 J2EE 规范，那么 J2EE 规范首先必须是一个实用、易用的规范。</p>
+<h5><span id="j2ee-项目具备架构重构能力的关键">J2EE 项目具备架构重构能力的关键</span></h5><p>​    简单、效率、面向对象（思想）、业务需求至上、可测试性</p>
+<p> 􏰀 遵循良好的 OO 设计法则，并且始终针对接口编程、而非针对类编程。这是经典图书 </p>
+<p>Design Patterns 教给我们的基本常识，可惜人们常常忽视了这一点。 </p>
+<p>​    􏰀 将EJB之类的技术隐藏在普通Java对象背后。 </p>
+<p>利用现有的框架提供这些基础设施服务</p>
+<p>spring</p>
+<p>​    基础框架的设计甚至早于<em>Expert One-on-One J2EE Design and Development</em>的写作，<br>它们来自我过去几个商业项目的经验。</p>
+<h3><span id="chapeter-5-ejb的5年间">Chapeter 5 EJB的5年间</span></h3><p>不应该以规范先行  ，而应该开源引导</p>
+<p>EJB出现的背景，制定标准 （好处是 强制接口实现分离 、容器的概念、管理对象，粗粒度）</p>
+<p>rmi到Ws （SOAP 是基于 XML 的简易协议，可使应用程序在 HTTP 之上进行信息交换。使用描述语言WSDL）</p>
+<p>需要EJB中的什么（从中获取价值，并用简单的方式实现）</p>
+<p>​    声明式事务（编程式事务可以解决复杂的事务、 JTA webLogic）</p>
+<p>​    远程调用（协议。JMS、 ws）</p>
+<p>​    集群（web层、数据访问层、数据库。真正限制是在数据访问 吞吐、并置的应用更有效）</p>
+<p>​    线程池（避免jvm垃圾回收、tomcat的线程池）和资源池</p>
+<p>​    安全（web层、tomcat filter、springmvc filter）</p>
+<p>​    管理业务对象（JNDI、重量级工厂 、ioc抄袭、spring提供基于配置 而不是代码、picoContainer、EJB提供了一个重量级工厂（实现、部署EJB、使用JNDI 应用代码）、消除了接口与实现之间的耦合。）</p>
+<p>​    </p>
+<p>总结</p>
+<p>​    SLSB、 MDB      entity beans 性能、最好设计成哑数据（贫血模型） 不包含业务逻辑</p>
+<p>不想要什么</p>
+<p>​    容器的锁定</p>
+<p>​        限制应用服务器的选择</p>
+<p>​        只使用一小部分，却要接受其复杂性（不能按需引入）</p>
+<p>​        业务对象会被EJB API浸入</p>
+<p>​        不能在容器之外复用业务逻辑</p>
+<p>​    丑陋的结构、泛滥的类</p>
+<p>​        实现一个session bean ，至少需要三个Java源文件home接口 、组件接口 、bean实现类。通常还需要业务接口，来保持bean和组件的同步。</p>
+<p>​    部署描述文件的地狱</p>
+<p>​        描述文件冗长，依赖代码生成工具，不可手工维护</p>
+<p>​    ==类加载器的地狱==</p>
+<p>​        EJB容器与web容器使用的不是一个类加载器</p>
+<p>​        EJB类加载器是WAR类加载器的父亲。 EJB类加载器不能看到WAR类加载器加载的类？</p>
+<p>​    测试</p>
+<p>​        依赖容器导致问题</p>
+<p>简单的事情变困难</p>
+<p>​    用EJB实现singleton</p>
+<p>​    在EJB容器启动时做一些处理 （servelt listener 、web的listener 或者是bean的初始化后置操作等 、同时提供了依赖关系和顺序的支持）</p>
+<p>​    在EJB之间以及EJB和EJB容器外的对象之间的共享配置</p>
+<p>​    不能自由访问其他Java API  禁止访问一些Java API</p>
+<p>EJB3.0（JSR 220 2003年6月）</p>
+<p>​    主要动机是容易使用 降低EJB开发者使用时的复杂度，改良EJB的体系架构</p>
+<p>​        使用源码级元数据 -&gt;废除部署描述文件。</p>
+<p>​        提供一个简单、基于元数据标注的依赖注入机制。</p>
+<p>​        采用新的持久化机制。Hibernate采用的持久化方式</p>
+<p>​        </p>
+<p>​    时间太长、不大可能引入AOP方案、还是依赖特定EJB容器。（从最近看webflux的做法，决定减少对servelt的依赖可以看出。不强依赖于Servelt，从而达到不依赖于特定服务器）        </p>
+<p>​        </p>
+<p>YAGNI     </p>
+<h3><span id="chapter-6-轻量级容器">Chapter 6 轻量级容器</span></h3><p>容器需提供</p>
+<p>​    生命周期，回调</p>
+<p>​    查看服务 容器的核心是工厂</p>
+<p>​    配置管理 统一方法来配置运行其中的对象</p>
+<p>​    依赖管理</p>
+<p>增值</p>
+<p>​    企业级服务 ，事务管理或其他声明式服务</p>
+<p>​    线程管理</p>
+<p>​    对象池</p>
+<p>​    集群服务</p>
+<p>​    管理 jmx或暴露接口</p>
+<p>​    远程服务 http 多协议</p>
+<p>​        暴露</p>
+<p>​        消费</p>
+<p>​    可定制性和扩展性</p>
+<p>EJB容器 管理的是粗粒度的组件（多个对象组合）</p>
+<p>IOC</p>
+<p>利用DI 消除lookup代码，让容器自动决定对象间的依赖关系</p>
+<p>依赖查找 容器管理对象的生命周期，受管对象则负责查找自己的依赖关系 JNDI</p>
+<p>依赖注入 让容器全权去负责依赖查询，受管对象暴露Java Bean 的setter 方法或带参数的构造。（或者通过元数据） </p>
+<p>​    设值方法注入 建立在JavaBean规范之上</p>
+<p>​    构造注入（picoContainer团队发明）</p>
+<p>可以指定init 和 destroy 方法</p>
+<p>注入异常检查</p>
+<p>自动装配 通过类型</p>
+<p>对于可移植性 </p>
+<p>​    减少代码对容器的依赖</p>
+<p>​    企业服务依赖容器，尽量以声明式而非编程式</p>
+<p>代码风格</p>
+<p> 针对接口</p>
+<p>优先使用strategy设计模式</p>
+<p>明确每个对象责任，不要大而全 （大一统，而是应该职责明确，抽成组件化）</p>
+<p>能依靠容器解决的问题，就不要自己编写代码</p>
+<p>为什么spring 能从轻量级框架中脱引而出，提供企业级服务的框架紧密合作，允许开发者通过编程方式或声明方式轻松地访问各种企业级服务。（粘合剂作用，例如整合ssh）</p>
+<h3><span id="chapter-7-轻量级容器">Chapter 7 轻量级容器</span></h3><p>spring不重复造轮子 例如没有logger组件</p>
+<p>工厂bean 主要在spring框架内部使用</p>
+<p>​    例如 </p>
+<p>​        JndiObjectFactoryBean</p>
+<p>​        ProxyFactoryBean</p>
+<p>​        TransactionProxyFactoryBean</p>
+<p>​        RmiProxyFactoryBean</p>
+<p>spring以统一的方式为多种j2ee服务提供了抽象，使得开发者灵活选择各种资源定位策略</p>
+<p>最好不要依赖servlet环境，应该尽量使用spring的抽象，因为这样就不会依赖于任何环境</p>
+<p>ApplicationContext</p>
+<p>​    ApplicationEvent</p>
+<p>​    MessageResource</p>
+<p>​    ResourceLoader. use Resource</p>
+<p>BeanFactoryAware</p>
+<p>ApplicationContextAware</p>
+<p>​     ResoureLoaderAware </p>
+<p>BeanFactory的后处理</p>
+<p>​    允许在底层bean工厂读取bean声明以后进行后处理，可以覆盖某个属性值，或是为某些属性提供占位值。</p>
+<p>​    参考现成的实现</p>
+<p>​        PropertyOverriderConfigurer</p>
+<p>​        PropertyPlaceholderConfigurer</p>
+<p>BeanPostProcessor</p>
+<p>​        可以用于AOP代理</p>
+<p>IoC容器强大在于：它几乎可以用于配置任何对象、框架和应用</p>
+<h3><span id="chapter8-基于aop概念的声明性中间件">Chapter8 基于AOP概念的声明性中间件</span></h3><p>​    为何AOP对J2EE的未来至关重要</p>
+<p>​    为何AOP是J2EE without EJB的关键</p>
+<p>OOP 有些时候无法避免代码重复</p>
+<p>概念</p>
+<p>aspect  方面</p>
+<p>adivce 增强，拦截器</p>
+<p>Join point  连接点</p>
+<p>Point cut 切入点</p>
+<p>历史</p>
+<p>​    一些OOP设计模式已经解决了AOP希望解决的部分问题</p>
+<p>​    Decorator</p>
+<p>​    Observer</p>
+<p>​    Chain of Responsibility</p>
+<p>使用OO设计模式，不可能做到既保持被增强方法的强类型性、又不必自己动手为每个方法编写转发代码</p>
+<p>​    拦截器 如 servlet 、EJB 等 ，存在的问题是 它们将被拦截的代码与特点的API或上下文环境绑在一起，大多损失了强类型性。</p>
+<p>AOP的实现策略</p>
+<p>​    J2SE动态代理    </p>
+<p>​         java1.3y引入动态代理，调用必要的拦截器链，最后一个拦截器借助反射调用目标对象</p>
+<p>​        好处：标准的语言特征</p>
+<p>​        局限：针对接口</p>
+<p>​        实现：spring</p>
+<p>​    动态字节码生成</p>
+<p>​        CGLIB包，被应用在Hibernate 2.x版本中，并被证明是一种成熟的技术</p>
+<p>​        存在的问题，通过继承来实现代理的，所以无法为final方法提供代理</p>
+<p>​        实现：spring、Hibernate</p>
+<p>​    Java代码生成 </p>
+<p>​        OOP设计模式，EJB代码生成策略，预设的方式，由于动态代理和动态字节码生成技术的出现，这种做法逐渐退出</p>
+<p>​    使用定制的类加载器</p>
+<p>​        对某个类的所有实例进行增强</p>
+<p>​        风险：偏离了Java标准</p>
+<p>​        实现：JBoss4、AspectWerkz</p>
+<p>​    语言扩展 </p>
+<p>​        实现：AspectJ</p>
+<p>springAOP的缺点</p>
+<p>​    不支持字段拦截，但是封装性考虑是不应该</p>
+<p>​    只有通过SpringIoc容器获取的对象才能进行增强，不能在类装载器层面进行增强</p>
+<p>​    拦截器代码中没有强类型检查</p>
+<p>AOP风险</p>
+<p>​    拦截字段的风险 ，破坏封装性</p>
+<p>​    太多的方面，维护</p>
+<p>​    正交性，不依赖顺序，独立</p>
+<p>​    测试 AOP提升可测试性，单元测试专注于业务逻辑</p>
+<p>​    调试 </p>
+<p>​    性能 粒度</p>
+<p>​        如果你给细粒度的持久化对象加上AOP增强，在每次操作将会有数百个持久化对象被创建出来，那么才会有开销问题。</p>
+<p>​    一次涉及反射的方法调用需要耗费的时间是毫秒级的 </p>
+<p>​    一次数据库只读访问的时间开销通常是数十毫秒</p>
+<p>​    通过浏览器访问web页面的网络延迟则是百毫秒级</p>
+<p>AOP设计建议</p>
+<p>​    渐进式、实用至上的方式来使用AOP</p>
+<p>​    将AOP应用于业务对象，最有价值的用途就是在业务方法的粒度上提供通用的企业级服务</p>
+<p>​    典型问题：</p>
+<p>​        调用堆跟踪和性能监控</p>
+<p>​        审计</p>
+<p>​        消息通知（例如当特定的异常抛出时给管理员发送电子邮件）</p>
+<p>​    不建议在非常细粒度的对象（例如持久化对象）进行增强</p>
+<p>springAOP</p>
+<p>​    一个可移植的服务层，类似于JTA、JDBC和别的底层API（将声明性服务从EJB容器中解耦出来，J2ee）</p>
+<p>​    一种基于AOP的服务获取机制，基于Java</p>
+<h3><span id="chapter9-事务管理">Chapter9  事务管理</span></h3><p>​    在一个 web层 、业务对象层 、数据访问层中，事务管理属于业务对象层，通过将数据库切换到手工提交事务的模式。</p>
+<p>​    这种模式业务对象层和数据访问层都绑定到了特定的事务处理策略和数据访问策略。</p>
+<p>​    分离这些关注点。</p>
+<p>​        业务对象划分抽象事务，而无需关注事务涉及的数据库资源</p>
+<p>​        数据访问对象获取数据库资源，无需关注数据库资源如何加入事务</p>
+<h5><span id="传统j2ee-事务管理">传统J2EE 事务管理</span></h5><p>​    使用全局容器事务：事务由应用服务器来管理，登记所有参与事务的资源。一旦数据访问对象使用了涉及事务的资源，应用服务器容器将根据需要进行提交或回滚。</p>
+<p>​    底层设施是由容器实现的JTA，全局事务管理使用CMT</p>
+<h5><span id="j2ee容器作为事务协调器">J2EE容器作为事务协调器</span></h5><p>​    具备分布式事务的处理能力，应该完整支持遵循X/Open XA规范的两阶段提交协议（2-Phase-Commit）</p>
+<p>​    第一阶段 事务协调器向所有相关资源发布 ‘准备’指令</p>
+<p>​    第二阶段 等所有的资源准备好以后触发实际的提交动作</p>
+<p>​    一、参与事务的资源必须被正确地配置好，例如JDBC，通过javax.sql.XADataSource接口实现类来建立JNDI DataSource</p>
+<p>​    J2EE 1.3 引入参与事务的资源的统一模型 java连接器架构 （Java Connector Architecture）</p>
+<p>​    二、使用特定的服务器特性来获取JTA内置的TransactionManage对象，TransactionManage对象允许数据访问框架注册到实物同步回调接口上</p>
+<p>​    编程式事务管理（使用java代码）  通过JNDI,直接使用JTA UserTransaction （多个受控异常，没有共同父类，事务处理代码污染业务对象）</p>
+<p>​    声明式事务管理（使用xml配置，注解的方式） 组件模型CMT ，建立在JTA基础设施之上的服务(只有EJB才能使用，解决了80%的问题，必须使用全局事务管理，EJB2.0才支持本地接口)</p>
+<h5><span id="轻量级事务基础设施">轻量级事务基础设施</span></h5><p>​    提供的功能：</p>
+<p>​    可编程的事务声明和一致的异常处理机制。错误是不可恢复的，所以应该采用非受控异常，并且所有的异常应该继承自一个公共的基础父类</p>
+<p>​    在OPJO上面实现声明式事务，无需绑定重量级组件模型</p>
+<p>​    可插入的事务策略，以及让资源能够自动加入事务的手段</p>
+<p>​    为采用分布式容器事务而需要的JTA</p>
+<p>​    独立的JDBC数据源</p>
+<p>​    独立的JDO PersistenceManagerFactory</p>
+<p>​    独立的Hibernate SessionFactory</p>
+<p>不应该依赖J2EE容器提供的服务，例如JNDI数据源。</p>
+<p>切换事务策略和资源定义应该是可配置的。</p>
+<h5><span id="spring-framework的事务管理">Spring Framework的事务管理</span></h5><p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1g18zgtukb9j31kz0u0af4.jpg" alt="image-20190320090427683"></p>
+<h6><span id="事务声明">事务声明</span></h6><p>事务的属性 TransactionDefinition</p>
+<p>​    事务传播类型 required 、supports 、mandatory、  requires new 、not support、 never</p>
+<p>​    隔离级别 default 、ru、 rc、 rr 、serializable</p>
+<p>​    超时</p>
+<p>​    只读</p>
+<p>基础设施接口 PlatfromTransactionManager</p>
+<p>​    抽象了实际的具体事务策略，针对一个给定的TransactionDefinition符合一个TransactionStatus对象，并且对这个状态对象触发提交或回滚操作。</p>
+<p>TransactionStatus对象代表当前运行中的事务。</p>
+<p>​    setRollbackOnly 不会抛出异常</p>
+<blockquote>
+<p>Invoking this method outside a Spring transactionally advised AOP invocation is a programming error and will result in a runtime exception.</p>
+</blockquote>
+<h6><span id="编程式事务处理">编程式事务处理</span></h6><p>直接使用 PlatfromTransactionManager</p>
+<p>事务模板 TransactionTemplate</p>
+<p>​    比直接使用JTA简单</p>
+<h6><span id="声明式事务管理">声明式事务管理</span></h6><p>​    避免EJB带来的缺陷</p>
+<p>通用的 Aop ProxyFactoryBean 和 TransactionInterceptor</p>
+<p>​    由于TransactionInterceptor是通过ThreadLocal来存取事务状态对象的。</p>
+<p>一站式 TransactionProxyFactoryBean</p>
+<p>​    优点：</p>
+<p>​    把关联的配置组织在一起</p>
+<p>​    不需要了解整个拦截器链</p>
+<p>​    代理接口通过目标类自动确定，并不需要显示的指定    </p>
+<p>​    缺点：</p>
+<p>​    丧失了更强的可配置能力</p>
+<p>源代码级别的元数据（注解）</p>
+<p>1.2开始支持，基于JDK5 </p>
+<h5><span id="事务管理策略">事务管理策略</span></h5><p>​    DataSourceTransactionManager</p>
+<p>​    JtaTransactionManager</p>
+<p>​    JdoTransactionManager</p>
+<p>​    HibernateTransactionManager</p>
+<h3><span id="chapter10-持久化">Chapter10  持久化</span></h3><p>​    推荐Martin FOwler在 Patterns of Enterprise Application Architecture (POEAA) </p>
+<hr>
+<h1><span id="">——————————————————</span></h1><h5><span id="依赖注入模式">依赖注入模式</span></h5><p>Spring通过依赖注入模式，将依赖关系从编码中脱离出来，从而大大降低了组件之间的耦合，<br>实现了组件真正意义上的即插即用。这也是Spring最具价值的特性之一。</p>
+<p>面向接口编程。</p>
+<p>若没有spring 自己实现这些 ，往往这些系统开发中最常见的需求，会导致我们的代码迅速膨胀。</p>
+<p>单例 </p>
+<p>读配置</p>
+<p>init </p>
+<p>lazy loading</p>
+<hr>
+<h5><span id="是什么">是什么？</span></h5><p>Spring是笔者所见过的，最具实际意义的Java开发框架。</p>
+<p>​    首先，Spring涵盖了应用系统开发所涉及的大多数技术范畴，包括MVC、ORM以及Remote<br>Interface等，这些技术往往贯穿了大多数应用系统的开发过程。Spring从开发者的角度对这些技术内<br>容进行了进一步的封装和抽象，使得应用开发更为简便。</p>
+<p>​    其次，Spring并非一个强制性框架，它提供了很多独立的组件可供选择。</p>
+<hr>
+<h5><span id="mvc">MVC</span></h5><p>​    而对于 Spring 而言，首先，它提供了一个相当灵活和可扩展的 MVC 实现，与 WebWork2相比，它在依赖注入方面、AOP 等方面更加优秀，但在 MVC 框架与底层构架的分离上又与Webworks 存在着一定差距(Spring 的 MVC 与 Servlet API 相耦合，难于脱离 Servlet容器独立运行，在这点的扩展性上，比 Webwork2 稍逊一筹)。</p>
+<p>​    所以现在才有去servlet化</p>
+<h5><span id="异常处理">异常处理</span></h5><p>Web应用中对于异常的处理方式与其他形式的应用并没有太大的不同――通过try/catch 语句针对不同的异常进行相应处理。 </p>
+<p>但是在具体实现中，由于异常层次、种类繁杂，我们往往很难在Servlet、JSP层妥善的处 理好所有异常情况，代码中大量的try/catch代码显得尤为凌乱。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们通常面对下面两个主要问题:</span><br></pre></td></tr></table></figure>
+<ol>
+<li>对异常实现集中式处理 </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">典型情况:对数据库异常记录错误日志。一般处理方法无外两种，一是在各处数据库 访问代码的异常处理中，加上日志记录语句。二是将在数据访问代码中将异常向上抛 出，并在上层结构中进行集中的日志记录处理。</span><br></pre></td></tr></table></figure>
+<p>第一种处理方法失之繁琐、并且导致系统难以维护，假设后继需求为“对于数据库异 常，需记录日志，并发送通知消息告知系统管理员”。我们不得不对分散在系统中的各 处代码进行整改，工作量庞大。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">第二种处理方法实现了统一的异常处理，但如果缺乏设计，往往使得上层异常处理过</span><br><span class="line">于复杂。</span><br></pre></td></tr></table></figure>
+<p>这里，我们需要的是一个设计清晰、成熟可靠的集中式异常处理方案。 </p>
+<p>2 对未捕获异常的处理<br>     对于Unchecked Exception而言，由于代码不强制捕获，往往被程序员所忽略，如果 运行期产生了Unchecked Exception，而代码中又没有进行相应的捕获和处理，则我 们可能不得不面对尴尬的500服务器内部错误提示页面。 这里，我们需要一个全面而有效的异常处理机制。 </p>
+<p>同时，目前大多数服务器也都支持在Web.xml中通过</p>
+<p><error-page>(Websphere/Weblogic)或者<error-code>(Tomcat)节点配置特定异常情<br>况的显示页面。</error-code></error-page></p>
+<p>​    Spring MVC中提供了一个通用的异常处理机制，它提供了一个成熟的，简洁清晰的异常处<br>理方案。如果基于Spring MVC开发Web应用，那么利用这套现成的机制进行异常处理也更加自<br>然和有效。</p>
+<hr>
+<h5><span id="数据持久层">数据持久层</span></h5><h6><span id="事务管理">事务管理</span></h6><p>对于 J2EE 应用程序而言，事务的处理一般有两种模式: </p>
+<ol>
+<li>依赖特定事务资源的事务处理 这是应用开发中最常见的模式，即通过特定资源提供的事务机制进行事务管理。 如通过 JDBC、JTA 的 rollback、commit 方法;Hibernate Transaction 的 rollback、commit 方法等。这种方法大家已经相当熟悉。 （Spring 简化JDBC）</li>
+<li>依赖容器的参数化事务管理 通过容器提供的集约式参数化事务机制，实现事务的外部管理，如 EJB 中的事 务管理模式。 （通过 Spring 实现基于容器的事务管理，Spring的事务管理是基于动态 AOP）</li>
+</ol>
+<p>与EJB事务管理的不同</p>
+<ol>
+<li>Spring 可以将任意 Java Class 纳入事务管理</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这里的 UserDAO 只是我们编写的一个普通 Java Class，其中包含了一些 基本的数据应用逻辑。通过 Spring，我们即可简单的实现事务的可配置</span><br></pre></td></tr></table></figure>
+<p>化。也就是说，我们可以随意为某个类的某个方法指定事务管理机制。 与之对比，如果使用 EJB 容器提供的事务管理功能，我们不得不按照 EJB 规范编将 UserDAO 进行改造，将其转换为一个标准的 EJB。 </p>
+<ol start="2">
+<li>Spring 事务管理并不依赖特定的事务资源。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EJB 容器必须依赖于 JTA 提供事务支持。而 Spring 的事务管理则支持 JDBC、JTA 等多种事务资源。这为我们提供了更多的选择，从而也使得 我们的系统部署更加灵活。</span><br></pre></td></tr></table></figure>
+<h6><span id="持久层封装">持久层封装</span></h6><p>​    JDBCTemplate 模板应用的典范。特别是回调(CallBack)的使用，这带来了极强的灵活性和<br>扩展性。使得整个模板结构清晰高效</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/10/Expert One-on-One-J2EE-Development-without-EJB/" data-id="cjtjoe4ib000lv49ch623aprg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ejb/">ejb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/j2ee/">j2ee</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/10/Expert-One-on-One-J2EE-Design-and-Development-总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Expert One-on-One J2EE Design and Development</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ejb/">ejb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ioc/">ioc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/j2ee/">j2ee</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-mvc/">spring-mvc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-webflux/">spring-webflux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/summary/">summary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/">tomcat</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ejb/" style="font-size: 10px;">ejb</a> <a href="/tags/ioc/" style="font-size: 10px;">ioc</a> <a href="/tags/j2ee/" style="font-size: 15px;">j2ee</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring-mvc</a> <a href="/tags/spring-webflux/" style="font-size: 10px;">spring-webflux</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/10/Expert One-on-One-J2EE-Development-without-EJB/">Expert One-on-One J2EE Development without EJB</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/10/Expert-One-on-One-J2EE-Design-and-Development-总结/">Expert One-on-One J2EE Design and Development</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/03/spring-ioc/">spring-ioc</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/02/spring/">spring</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/03/servlet-springmvc/">servlet_spring-mvc</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 zhengyumin<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
