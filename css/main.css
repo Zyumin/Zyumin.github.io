@@ -1829,7 +1829,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #627f7e;
+  background: #04cf3c;
 }
 .feed-link,
 .chat {
@@ -2840,4 +2840,22 @@ ul.breadcrumb li+li:last-child {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+body {
+  background: url("/images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+.main-inner {
+  opacity: 0.8;
+}
+.content {
+  border-radius: 10px;
+  margin-top: 60px;
+  background: #e2f5f7 none repeat scroll !important;
+}
+.header-inner {
+  opacity: 0.8;
 }
