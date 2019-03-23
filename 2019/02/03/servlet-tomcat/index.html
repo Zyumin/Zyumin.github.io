@@ -7,20 +7,20 @@
   
   <title>servlet_tomcat | Zyumin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="servlet容器 Tomcat 1 Tomcat的顶层结构 2 Tomcat的启动过程 2.1Catalina的启动过程 2.2 Server的启动过程 2.3 Service的启动过程   3 请求处理 3.1 Connector的结构 3.2 Pipeline-Value管道        servlet容器 Tomcat 1 Tomcat的顶层结构123456789Catalina 管">
+  <meta name="description" content="阅读的目的？我想要从中获得什么？ ​    对tomcat容器的分析 总结">
 <meta name="keywords" content="servlet,tomcat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="servlet_tomcat">
 <meta property="og:url" content="http://yoursite.com/2019/02/03/servlet-tomcat/index.html">
 <meta property="og:site_name" content="Zyumin">
-<meta property="og:description" content="servlet容器 Tomcat 1 Tomcat的顶层结构 2 Tomcat的启动过程 2.1Catalina的启动过程 2.2 Server的启动过程 2.3 Service的启动过程   3 请求处理 3.1 Connector的结构 3.2 Pipeline-Value管道        servlet容器 Tomcat 1 Tomcat的顶层结构123456789Catalina 管">
+<meta property="og:description" content="阅读的目的？我想要从中获得什么？ ​    对tomcat容器的分析 总结">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79gy1fztadjl1lbj31680mmtd6.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fyasgs52ycj30wk0k6jxv.jpg">
-<meta property="og:updated_time" content="2019-02-03T08:42:15.952Z">
+<meta property="og:updated_time" content="2019-03-23T03:50:27.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="servlet_tomcat">
-<meta name="twitter:description" content="servlet容器 Tomcat 1 Tomcat的顶层结构 2 Tomcat的启动过程 2.1Catalina的启动过程 2.2 Server的启动过程 2.3 Service的启动过程   3 请求处理 3.1 Connector的结构 3.2 Pipeline-Value管道        servlet容器 Tomcat 1 Tomcat的顶层结构123456789Catalina 管">
+<meta name="twitter:description" content="阅读的目的？我想要从中获得什么？ ​    对tomcat容器的分析 总结">
 <meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNc79gy1fztadjl1lbj31680mmtd6.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Zyumin" type="application/atom+xml">
@@ -94,7 +94,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!-- toc -->
+        <p>阅读的目的？我想要从中获得什么？</p>
+<p>​    对tomcat容器的分析 总结</p>
+<a id="more"></a>
+<!-- toc -->
 <ul>
 <li><a href="#servlet容器-tomcat">servlet容器 Tomcat</a><ul>
 <li><a href="#1-tomcat的顶层结构">1 Tomcat的顶层结构</a></li>
@@ -178,7 +181,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/03/servlet-tomcat/" data-id="cjtky5izs000mzn9c4gvtm0oq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/03/servlet-tomcat/" data-id="cjtkz013m000rhc9cp89x1ybt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/servlet/">servlet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tomcat/">tomcat</a></li></ul>
@@ -214,38 +217,6 @@
           <aside id="sidebar">
   
     
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ejb/">ejb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ioc/">ioc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/j2ee/">j2ee</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-mvc/">spring-mvc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-webflux/">spring-webflux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/summary/">summary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/">tomcat</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/ejb/" style="font-size: 10px;">ejb</a> <a href="/tags/ioc/" style="font-size: 10px;">ioc</a> <a href="/tags/j2ee/" style="font-size: 15px;">j2ee</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring-mvc</a> <a href="/tags/spring-webflux/" style="font-size: 10px;">spring-webflux</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
   <div class="widget-wrap">
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
@@ -275,6 +246,33 @@
     </div>
   </div>
 
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ejb/" style="font-size: 10px;">ejb</a> <a href="/tags/ioc/" style="font-size: 10px;">ioc</a> <a href="/tags/j2ee/" style="font-size: 15px;">j2ee</a> <a href="/tags/servlet/" style="font-size: 15px;">servlet</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring-mvc</a> <a href="/tags/spring-webflux/" style="font-size: 10px;">spring-webflux</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  
+    
+  
+    
+  
+    
   
 </aside>
         
