@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="阅读的目的？我想要从中获得什么？ ​    j2ee的相关历史，spring的诞生背景，理念">
+<meta name="keywords" content="j2ee,spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Expert One-on-One J2EE Design and Development">
+<meta property="og:url" content="http://yoursite.com/2019/03/10/Expert-One-on-One-J2EE-Design-and-Development-总结/index.html">
+<meta property="og:site_name" content="Zyumin">
+<meta property="og:description" content="阅读的目的？我想要从中获得什么？ ​    j2ee的相关历史，spring的诞生背景，理念">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-23T03:47:53.627Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Expert One-on-One J2EE Design and Development">
+<meta name="twitter:description" content="阅读的目的？我想要从中获得什么？ ​    j2ee的相关历史，spring的诞生背景，理念">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/10/Expert-One-on-One-J2EE-Design-and-Development-总结/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Expert One-on-One J2EE Design and Development | Zyumin</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemsope="" itemtype="http://schema.org/WPHeader">
+	  <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zyumin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">保持自驱和热情</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/Zyumin" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/Expert-One-on-One-J2EE-Design-and-Development-总结/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhengyumin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zyumin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Expert One-on-One J2EE Design and Development
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-10 19:45:18" itemprop="dateCreated datePublished" datetime="2019-03-10T19:45:18+08:00">2019-03-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-23 11:47:53" itemprop="dateModified" datetime="2019-03-23T11:47:53+08:00">2019-03-23</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/03/10/Expert-One-on-One-J2EE-Design-and-Development-总结/" class="leancloud_visitors" data-flag-title="Expert One-on-One J2EE Design and Development">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">7.3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">7 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>阅读的目的？我想要从中获得什么？</p>
+<p>​    j2ee的相关历史，spring的诞生背景，理念</p>
+<a id="more"></a>
+<!-- toc -->
+<ul>
+<li><a href="#chapter-1">Chapter 1</a></li>
+<li><a href="#chapter-2">Chapter 2</a></li>
+<li><a href="#chapter3">Chapter3</a></li>
+<li><a href="#chapter4-j2ee项目的实际技术与编程标准">Chapter4 J2EE项目的实际技术与编程标准</a></li>
+<li><a href="#chapter-5-chapter-9">Chapter 5-Chapter 9</a><ul>
+<li><a href="#chpter-6">Chpter 6</a></li>
+<li><a href="#chapter-7">Chapter 7</a></li>
+<li><a href="#chapter-8">Chapter 8</a></li>
+<li><a href="#chapter-9-实际数据存取">Chapter 9 实际数据存取</a></li>
+</ul>
+</li>
+<li><a href="#chapter-11">==Chapter 11==</a><ul>
+<li><a href="#the-problem">The Problem</a></li>
+<li><a href="#using-a-framework-to-configure-application-components">Using a Framework to Configure Application Components</a><ul>
+<li><a href="#using-javabeans">Using JavaBeans</a></li>
+<li><a href="#using-a-bean-factory">Using a “Bean Factory”</a></li>
+<li><a href="#application-context-goals">Application Context Goals</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<p>Expert One-on-One J2EE Design and Development</p>
+<p>##### </p>
+<p>[TOC]</p>
+<p>有点乱，待整理</p>
+<p>重点章节。 4（Design and Standards）、9（data access）、11（Infrastructure）、12-13（web Tier）</p>
+<p>4 Design Techniques and Coding<br>Standards for J2EE Projects</p>
+<p>9 Practical Data Access</p>
+<p>11 Infrastructure and Application Implementation </p>
+<p>12 Web-Tier MVC Design</p>
+<p>13 Views in the Web Tier</p>
+<h3><span id="chapter-1">Chapter 1</span></h3><p>J2EE Architectures</p>
+<p>Summary </p>
+<ul>
+<li><p>体系分层</p>
+<p>  ​    EIS层 企业信息系统层 数据访问层？ dao层</p>
+<p>  ​    中间层 业务对象 bizservice</p>
+<p>  ​    用户接口层UI层 web层</p>
+<p>  ​    web 层</p>
+<p>  ​        模型 vo?  Model-&gt; json</p>
+<p>  ​        视图  html   ui框架jsp 渲染引擎？-&gt;前端控制</p>
+<p>  ​        控制器 不应该有业务逻辑  负责转发 struct—&gt;controller</p>
+<p>  ​    控制流程是一种 command的设计模式</p>
+</li>
+</ul>
+<pre><code>可移植性？
+
+通过使用一个抽象层（Abstraction layer），可以利用松耦合把该应用的奇遇部分与必须用一种平台特有方式来实现的任何部分隔离开。
+
+
+
+抽象层指一个其本身就独立于平台的接口。
+
+​    spi的思想、 插拔式
+</code></pre><h3><span id="chapter-2">Chapter 2</span></h3><p>选择一个应用服务器标准 </p>
+<p>​    得到支持的规范</p>
+<p>​    sun资源 CTS  ECPerf </p>
+<p>​    成本</p>
+<p>​    开发与部署</p>
+<p>​        启动速度 部署速度 内存需求</p>
+<p>​        额外步骤。编写部署描述符？</p>
+<p>​        热部署的能力</p>
+<p>​        服务器所提供的管理工具的完善度</p>
+<p>​        SNMP（Simple Network Management Protocol）和JMX的管理标准集成度</p>
+<p>​        运行时候错误报告的质量    </p>
+<p>​    文档质量</p>
+<p>​    可移植性的含义</p>
+<p>​        应用在应用服务器之间的可以移植性</p>
+<p>​        应用在服务器操作系统之间的可移植性</p>
+<p>​        更改J2EE应用所依赖的重要资源的能力 数据库切换？</p>
+<p>​    发布管理 指：保证一个应用发布从‘开发’ 、‘测试’到‘生产’到发展是可逆和可重复的</p>
+<h3><span id="chapter3">Chapter3</span></h3><p>​    单元测试的重要性</p>
+<h3><span id="chapter4-j2ee项目的实际技术与编程标准">Chapter4    J2EE项目的实际技术与编程标准</span></h3><p>​    J2EE应用的OO设计推荐标准</p>
+<ul>
+<li><p>利用接口来实现松耦合</p>
+</li>
+<li><p>首选对象合成而非具体继承性</p>
+</li>
+<li><p>Template Method设计模式  将特定步骤留给子类实现</p>
+</li>
+<li><p>Strategy  将特定步骤抽成一个接口。在具体继承性和接口委托之间进行折衷的例子</p>
+</li>
+<li><p>使用回调来实现可扩展 这是Strategy设计模式的一种特殊模式</p>
+</li>
+</ul>
+<p>​            jdbcTemplate</p>
+<p>​                query(String sql,RowCallBackHandler callbackHandler)</p>
+<p>​                public interface RowCallBackHandler{<br>​                        void processRow(ResultSet rs) throws SQLException</p>
+<p>​                }</p>
+<ul>
+<li>Observer设计模式。实现关系分离 </li>
+</ul>
+<p>​                例如处理登陆的对象为什么需要知道管理员的电子邮件地址、或者说如何发送邮件</p>
+<p>​                核心职责被淹没在特性中</p>
+<p>​                publisher-&gt;events-&gt;Observer</p>
+<ul>
+<li><p>考虑合并方法参数 Command</p>
+</li>
+<li><p>异常处理-已检查或未检查异常</p>
+</li>
+</ul>
+<p>​            使用已检查异常会特有引起几个问题：</p>
+<p>​                太多代码</p>
+<p>​                难以读懂的代码</p>
+<p>​                异常的无止休封装</p>
+<p>​            一个异常相当于来自方法的一个可替代返回值的地方</p>
+<p>​            已检查异常要比错误返回码好得多    </p>
+<p>​            如果调用代码能够对该异常做些切合实际的事情可以使用，否则使用未检查异常RuntimeException，选择是否捕捉，依赖应用服务器容器来捕捉.（而不是jvm）    </p>
+<p>​            对异常进行详细描写</p>
+<ul>
+<li><p>使用反射 Factory</p>
+<p>  误解 </p>
+<p>  ​        使用反射的代码是慢的 </p>
+<p>  ​        过分复杂</p>
+<p>  ​    如果使用得当，反射不会降低性能。正确使用反射实际哈桑应该改进代码可维护性。</p>
+<p>  ​    反射的直接使用应该仅局限于基础结构类。</p>
+</li>
+<li><p>使用Java组件来实现灵活性</p>
+</li>
+<li><p>使用应用组册表来实现单例 Singleton Prototype Factory</p>
+<p>  ​    支持接口</p>
+<p>  ​    普通javabean</p>
+<p>  ​    配置源上下文统一管理</p>
+<p>  ​    为什么不适用jndi ? 复杂 单一</p>
+</li>
+</ul>
+<p>编程规范</p>
+<p>​    一个方法只应有一项明确的责任，而且所有操作都应该在同一个抽象级别上</p>
+<p>​    避免代码重复</p>
+<p>​    避免字面常量</p>
+<p>​    可见度和作用范围尽可能小</p>
+<p>​    内部类和接口 避免空间污染 </p>
+<p>​    使用final关键字</p>
+<p>​        开放式封闭原理：对扩展开放，对修改封闭。覆盖具体方法实际上是修改。</p>
+<p>​        和抽象方法联合使用，保护超类的完整性。</p>
+<p>​    使用界定符</p>
+<p>实现一个框架</p>
+<p>​    向现有框架学习</p>
+<p>​    明确目标 、作用范围、 用最小复杂性来实现最大价值 </p>
+<p>​        Pareto Principle（2/8原则） 某个特定功能很难实现，问问自己是不是必不可少的，能不能实现其价值的大部分</p>
+<h3><span id="chapter-5-chapter-9">Chapter 5-Chapter 9</span></h3><h4><span id="chpter-6">Chpter 6</span></h4><p>高速缓存，减少没必要的调用和消耗</p>
+<p>DATA ACCESS</p>
+<p>DB mysql自身</p>
+<p>DB组件 hibernate缓存</p>
+<p>应用层</p>
+<p>​    分布式缓存 redis  </p>
+<p>​    单机jvm缓存 map  guava cache  </p>
+<p>HTTP 304</p>
+<h4><span id="chapter-7">Chapter 7</span></h4><p>RDBMS 与 ODBMS</p>
+<p>范式化数据 消除数据冗余度</p>
+<p>O/R 映射 尝试将Java对象的状态映射到RDMBMS上</p>
+<p>用于OLTP，不适用于OLAP</p>
+<h4><span id="chapter-8">Chapter 8</span></h4><p>​    关于Session Beans 和 Entity Beans的讨论</p>
+<p>​    实体组件 分布式、共享的、事务性、持久性对象</p>
+<p>​    Entity Bean 是一种糟糕的设计 ，不应该绑定在EJB容器上，应该交由专用的方案解决</p>
+<p>​    无法继承，不具备java对象</p>
+<h4><span id="chapter-9-实际数据存取">Chapter 9 实际数据存取</span></h4><p>JDBCTemplete</p>
+<p>​    较高级的抽象 RDBMS建模为Java对象</p>
+<h3><span id="chapter-11">==Chapter 11==</span></h3><h5><span id="the-problem">The Problem</span></h5><p>​    Without such infrastructure, configuration management is usually haphazard. J2EE applications often hold configuration in a variety of formats, such as properties files, XML documents (an increasingly popular choice), EJB JAR and WAR development descriptors, and database tables. </p>
+<p>没有这样的基础设施，配置管理通常是随意的。 J2EE应用程序通常以各种格式进行配置，例如属性文件，XML文档（越来越流行的选择），EJB JAR和WAR开发描述符以及数据库表。</p>
+<p>More seriously, application classes are bloated by configuration management code irrelevant to business responsibilities</p>
+<p>应用程序类因与业务职责无关的配置管理代码而膨胀。</p>
+<p>Equally harmfully, without a central infrastructure for configuration management, application code is to<br>likely to use variety to approaches to locating application objects. The Singleton design pattern is often<br>overused, resulting in problems we’ll discuss below. Alternatively, some application objects may be bound<br>to JNDI or attached to the global ServletContext (in web applications), both of which approaches<br>may complicate testing outside a JNDI server. Each application object is usually reconfigured<br>independently.</p>
+<p>​    通过各种方式去获取配置。每个应用程序对象通常都是独立重新配置的。</p>
+<h5><span id="using-a-framework-to-configure-application-components">Using a Framework to Configure Application Components</span></h5><p>外部化配置和OO设计</p>
+<p>使用javaBean beanWapper</p>
+<h6><span id="using-javabeans">Using JavaBeans</span></h6><p>​    If we make all application components JavaBeans, we maximize our ability to separate </p>
+<p>configuration data from application code </p>
+<p>​    However, manipulating beans is more complex, and requires the use of<br>reflection to instantiate objects and invoke methods by name. The core JavaBeans API does not provide<br>the ability to perform some useful operations on beans, such as</p>
+<p>why ？</p>
+<p>​    This provides the ability to manipulate beanseasily and adds the enhanced functionality described above, while respecting andavoiding duplicating the standard JavaBeans infrastructure.(andavoiding避免)</p>
+<h6><span id="using-a-bean-factory">Using a “Bean Factory”</span></h6><p>why?</p>
+<p>​    The com.interface21.beans.factory package defines a way of obtaining beans by<br>name from a central configuration repository using a “bean factory”. ==The goal of a bean==<br>==factory is to remove any need for individual Java objects to read configuration properties==<br>==or instantiate objects. Instead, configuration is read by a central component, the bean==<br>==factory, and the bean properties exposed by each application object are set to reflect==<br>configuration data.== The factory then makes available instances of beans, each with a<br>unique name. Sophisticated object graphs can be created within the bean factory, as<br>managed beans may reference other beans within the same factory.</p>
+<p>对外暴露BeanWapper</p>
+<h6><span id="application-context-goals">Application Context Goals</span></h6><p>​    Building on the bean factory, an application context provides a namespace for the JavaBeans that compose an application or subsystem, and the ability to share working objects at run time. The com.interface21.context.ApplicationContext interface extends the ListableBeanFact interface, adding the ability to: </p>
+<p>o Publish events using the Observer design pattern. As we discussed in Chapter 4, the Observer design pattern provides the ability to decouple application components and achieve clean separation of concerns. </p>
+<p>o Participate in a hierarchy of application contexts. Application contexts can have parent contexts, allowing developers to choose the amount of configuration shared between subsystems. </p>
+<p>o Share working objects between application components at run time. </p>
+<p>o Look up messages by string name, allowing support for internationalization. </p>
+<p>o Facilitate testing. With an application context, as well as a bean factory, it’s often possible to provide a test implementation that enables application code to be tested outside an application server. </p>
+<p>o Provide consistent configuration management in different types of applications. Application contexts behave the same way in different kinds of applications, such as Swing GUI applications or web applications, and inside and outside a J2EE application server. </p>
+<p>web层 （不是本周重点）</p>
+<p>性能框架测试（不是本周重点）</p>
+<hr>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/j2ee/" rel="tag"># j2ee</a>
+          
+            <a href="/tags/spring/" rel="tag"># spring</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/03/spring-ioc/" rel="next" title="spring-ioc">
+                <i class="fa fa-chevron-left"></i> spring-ioc
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/10/Expert One-on-One-J2EE-Development-without-EJB/" rel="prev" title="Expert One-on-One J2EE Development without EJB">
+                Expert One-on-One J2EE Development without EJB <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzM0Ny8xOTg4OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="zhengyumin">
+            
+              <p class="site-author-name" itemprop="name">zhengyumin</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Zyumin" title="GitHub &rarr; https://github.com/Zyumin" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Chapter 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Chapter 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Chapter3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Chapter4    J2EE项目的实际技术与编程标准</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">Chapter 5-Chapter 9</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.1.</span> <span class="nav-text">Chpter 6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.2.</span> <span class="nav-text">Chapter 7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.3.</span> <span class="nav-text">Chapter 8</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.4.</span> <span class="nav-text">Chapter 9 实际数据存取</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">==Chapter 11==</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">6.0.1.</span> <span class="nav-text">The Problem</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">6.0.2.</span> <span class="nav-text">Using a Framework to Configure Application Components</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#undefined"><span class="nav-number">6.0.2.1.</span> <span class="nav-text">Using JavaBeans</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#undefined"><span class="nav-number">6.0.2.2.</span> <span class="nav-text">Using a “Bean Factory”</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#undefined"><span class="nav-number">6.0.2.3.</span> <span class="nav-text">Application Context Goals</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhengyumin</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="Symbols count total">165k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="Reading time total">2:30</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2019/03/10/Expert-One-on-One-J2EE-Design-and-Development-总结/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'D2GGMftjnaihnt6xGsBOCK1T-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'D2GGMftjnaihnt6xGsBOCK1T-gzGzoHsz',
+                'X-LC-Key': '42G22rkOJK422bv0XSJhBrW6',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
