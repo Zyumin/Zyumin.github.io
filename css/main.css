@@ -1829,7 +1829,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #04cf3c;
+  background: #db22e3;
 }
 .feed-link,
 .chat {
@@ -2849,7 +2849,7 @@ body {
   background-position: center;
 }
 .main-inner {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .content {
   border-radius: 10px;
