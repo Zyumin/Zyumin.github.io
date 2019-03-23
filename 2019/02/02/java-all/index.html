@@ -98,196 +98,121 @@
         <p>阅读的目的？我想要从中获得什么？</p>
 <p>​    对java知识体系的整理，把知识从点到线 面的</p>
 <a id="more"></a>
-<h2><span id="知识体系总结">知识体系总结</span></h2><hr>
+<h2 id="知识体系总结"><a href="#知识体系总结" class="headerlink" title="知识体系总结"></a>知识体系总结</h2><hr>
 <!-- toc -->
-<ul>
-<li><a href="#基础">基础</a><ul>
-<li><a href="#英语">英语</a></li>
-<li><a href="#linux-计算机基础-原理">linux / 计算机基础、原理</a></li>
-<li><a href="#网络编程-tcpip协议-http">网络编程 tcp/ip协议  http</a></li>
-<li><a href="#数据结构和算法">数据结构和算法</a></li>
-<li><a href="#数据库mysql">数据库MySQL</a></li>
-</ul>
-</li>
-<li><a href="#java-sejava-standard-edition">Java SE（Java Standard Edition）</a><ul>
-<li><a href="#java语言语法基础">Java语言/语法基础</a></li>
-<li><a href="#集合框架">集合框架</a></li>
-<li><a href="#java-io网络">Java IO/网络</a></li>
-<li><a href="#多线程">多线程</a></li>
-<li><a href="#jvm">JVM</a></li>
-<li><a href="#版本特征-待整理">版本特征 ==待整理==</a></li>
-<li><a href="#其他">其他</a><ul>
-<li><a href="#classloder">classLoder</a></li>
-<li><a href="#java官方订阅">java官方订阅</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#java-eeenterprise-edition">Java EE（Enterprise Edition）</a><ul>
-<li><a href="#spring-spring-boot">Spring /Spring boot</a></li>
-<li><a href="#其他-1">其他</a><ul>
-<li><a href="#web-framework框架性能">web Framework框架性能</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#重视规范">重视规范</a><ul>
-<li><a href="#jvm规范">JVM规范</a></li>
-<li><a href="#jsr规范">JSR规范</a></li>
-<li><a href="#ietf规范">IETF规范</a></li>
-<li><a href="#消息规范">消息规范</a></li>
-<li><a href="#关系型数据库规范">关系型数据库规范</a></li>
-<li><a href="#reactive-规范">Reactive 规范</a></li>
-</ul>
-</li>
-<li><a href="#高效优雅">高效/优雅</a></li>
-<li><a href="#框架中间件">框架/中间件</a><ul>
-<li><a href="#web栈">Web栈</a></li>
-<li><a href="#关系型数据库">关系型数据库</a></li>
-<li><a href="#nosql">NoSQL</a></li>
-<li><a href="#rpc">RPC</a></li>
-<li><a href="#任务调度">任务调度</a></li>
-<li><a href="#消息服务">消息服务</a></li>
-<li><a href="#客户端">客户端</a></li>
-<li><a href="#web容器">Web容器</a></li>
-</ul>
-</li>
-<li><a href="#微服务演变">微服务演变</a><ul>
-<li><a href="#服务调用">服务调用</a></li>
-<li><a href="#分布式配置">分布式配置</a></li>
-<li><a href="#服务注册发现">服务注册/发现</a></li>
-<li><a href="#路由负载均衡">路由/负载均衡</a></li>
-<li><a href="#熔断限流">熔断/限流</a></li>
-<li><a href="#网关">网关</a></li>
-<li><a href="#其他-2">其他</a></li>
-<li><a href="#spring-cloud-侵入式">Spring Cloud （侵入式）</a></li>
-<li><a href="#service-mesh-非侵入式">Service Mesh （非侵入式）</a></li>
-</ul>
-</li>
-<li><a href="#大数据生态">大数据生态</a></li>
-<li><a href="#其他-3">其他</a><ul>
-<li><a href="#开阔视野">开阔视野</a></li>
-<li><a href="#性能压力测试调优">性能/压力测试/调优</a></li>
-<li><a href="#前端基础">前端基础</a></li>
-<li><a href="#态度">态度</a></li>
-<li><a href="#学习方法">学习方法</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
 <p>[TOC]</p>
 <hr>
-<h4><span id="基础">基础</span></h4><h5><span id="英语">英语</span></h5><p>​    了解一手资料，官方文档，github资料 </p>
+<h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><h5 id="英语"><a href="#英语" class="headerlink" title="英语"></a>英语</h5><p>​    了解一手资料，官方文档，github资料 </p>
 <p>​    书籍📚《程序员英语》 </p>
-<h5><span id="linux-计算机基础-原理">linux / 计算机基础、原理</span></h5><p>​    linux常用命令，问题定位需要知道 </p>
+<h5 id="linux-计算机基础、原理"><a href="#linux-计算机基础、原理" class="headerlink" title="linux / 计算机基础、原理"></a>linux / 计算机基础、原理</h5><p>​    linux常用命令，问题定位需要知道 </p>
 <p>​    计算机原理这里，基于冯诺伊曼模型建造的计算机分为4个子系统：存储器、算术逻辑单元、控制单元、和输入/输出单元</p>
 <p>​    书籍📚《linux鸟哥私房菜》、《计算机原理》、《深入理解计算机原理》、《程序是怎么跑起来的》</p>
-<h5><span id="网络编程-tcpip协议-http">网络编程 tcp/ip协议  http</span></h5><p>​    TPC/IP协议是传输层协议，主要解决数据如何在网络中传输，而HTTP是应用层协议，主要解决如何包装数据，IP想像成一种高速公路，TCP和UDP是高速公路上的“卡车”，它们携带的货物就是像HTTP，HTTP协议即超文本传送协议(Hypertext Transfer Protocol )</p>
+<h5 id="网络编程-tcp-ip协议-http"><a href="#网络编程-tcp-ip协议-http" class="headerlink" title="网络编程 tcp/ip协议  http"></a>网络编程 tcp/ip协议  http</h5><p>​    TPC/IP协议是传输层协议，主要解决数据如何在网络中传输，而HTTP是应用层协议，主要解决如何包装数据，IP想像成一种高速公路，TCP和UDP是高速公路上的“卡车”，它们携带的货物就是像HTTP，HTTP协议即超文本传送协议(Hypertext Transfer Protocol )</p>
 <p>​    书籍📚《http权威指南》、《tcp/ip详解》、《图解http》、《网络是怎么链接的》</p>
-<h5><span id="数据结构和算法">数据结构和算法</span></h5><p>​    数据结构和算法，常见的排序类型，知道时间复杂度，空间复杂度等概念，==实现方面可以看jdk的集合类==</p>
+<h5 id="数据结构和算法"><a href="#数据结构和算法" class="headerlink" title="数据结构和算法"></a>数据结构和算法</h5><p>​    数据结构和算法，常见的排序类型，知道时间复杂度，空间复杂度等概念，==实现方面可以看jdk的集合类==</p>
 <p>​    书籍📚 《算法》</p>
-<h5><span id="数据库mysql">数据库MySQL</span></h5><p>​    关系型数据库，事务隔离级别、对应解决的问题，懂的索引（b+ tree 以及相关优化）、锁（MVCC实现相关、 间隙锁），调优，定位问题</p>
+<h5 id="数据库MySQL"><a href="#数据库MySQL" class="headerlink" title="数据库MySQL"></a>数据库MySQL</h5><p>​    关系型数据库，事务隔离级别、对应解决的问题，懂的索引（b+ tree 以及相关优化）、锁（MVCC实现相关、 间隙锁），调优，定位问题</p>
 <p>​    书籍📚 《高性能MySQL》</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mysql分析。—-》https://mp.weixin.qq.com/s/213sPk-0RtWwwX6YotN6eQ</span><br><span class="line">原因</span><br><span class="line">1.硬件问题。如网络速度慢，内存不足，I/O吞吐量小，磁盘空间满了等。</span><br><span class="line"></span><br><span class="line">2.没有索引或者索引失效。（一般在互联网公司，DBA会在半夜把表锁了，重新建立一遍索引，因为当你删除某个数据的时候，索引的树结构就不完整了。所以互联网公司的数据做的是假删除.一是为了做数据分析,二是为了不破坏索引 ）</span><br><span class="line"></span><br><span class="line">3.数据过多（分库分表）</span><br><span class="line"></span><br><span class="line">4.服务器调优及各个参数设置（调整my.cnf</span><br><span class="line">切入点</span><br><span class="line">1.先观察，开启慢查询日志，设置相应的阈值（比如超过3秒就是慢SQL），在生产环境跑上个一天过后，看看哪些SQL比较慢。</span><br><span class="line"></span><br><span class="line">2.Explain和慢SQL分析。比如SQL语句写的烂，索引没有或失效，关联查询太多（有时候是设计缺陷或者不得以的需求）等等。</span><br><span class="line"></span><br><span class="line">3.Show Profile是比Explain更近一步的执行细节，可以查询到执行每一个SQL都干了什么事，这些事分别花了多少秒。</span><br><span class="line"></span><br><span class="line">4.找DBA或者运维对MySQL进行服务器的参数调优。</span><br></pre></td></tr></table></figure>
-<h4><span id="java-sejava-standard-edition">Java SE（Java Standard Edition）</span></h4><h5><span id="java语言语法基础">Java语言/语法基础</span></h5><p>​    对象：封装性、派生性、多态性</p>
+<h4 id="Java-SE（Java-Standard-Edition）"><a href="#Java-SE（Java-Standard-Edition）" class="headerlink" title="Java SE（Java Standard Edition）"></a>Java SE（Java Standard Edition）</h4><h5 id="Java语言-语法基础"><a href="#Java语言-语法基础" class="headerlink" title="Java语言/语法基础"></a>Java语言/语法基础</h5><p>​    对象：封装性、派生性、多态性</p>
 <p>​    切面： Java动态代理 字节码提升</p>
 <p>​    元编程 ：泛型、 反射、 注解</p>
 <p>​    函数编程：函数式编程、Stream API设计</p>
 <p>​    书籍📚 《Thinking in java》 《core Java》 《SCJP考试指南》《java8函数式编程》</p>
 <p>​    文档 官方指导文档：<a href="https://docs.oracle.com/javase/tutorial/index.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/index.html</a></p>
-<h5><span id="集合框架">集合框架</span></h5><p>​    Java Collections Framework Java Collections主要包括以下三部分：接口（Interface）、实现（Implemention）和算法（Algorithm）</p>
-<h5><span id="java-io网络">Java IO/网络</span></h5><p>​     文件流、 java网络编程  、阻塞IO、非阻塞IO</p>
+<h5 id="集合框架"><a href="#集合框架" class="headerlink" title="集合框架"></a>集合框架</h5><p>​    Java Collections Framework Java Collections主要包括以下三部分：接口（Interface）、实现（Implemention）和算法（Algorithm）</p>
+<h5 id="Java-IO-网络"><a href="#Java-IO-网络" class="headerlink" title="Java IO/网络"></a>Java IO/网络</h5><p>​     文件流、 java网络编程  、阻塞IO、非阻塞IO</p>
 <p>​    书籍📚《NIO与Socket》、《Netty权威指南》、《Netty实战》</p>
 <p>​    可以沿着这个路线深入学习，socket -&gt; Netty  -&gt; dubbo </p>
 <p>​    Socket是应用层与TCP/IP协议族通信的中间软件抽象层，它是一组接口。在设计模式中，Socket其实就是一个门面模式，它把复杂的TCP/IP协议族隐藏在Socket接口后面，对用户来说，一组简单的接口就是全部，让Socket去组织数据，以符合指定的协议。Socket 只是个接口不是协议</p>
 <p>​    netty资料：==待整理==</p>
 <p><a href="https://mp.weixin.qq.com/s/nVqjSbocs4kFFz2pJqovhQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/nVqjSbocs4kFFz2pJqovhQ</a><br><a href="https://mp.weixin.qq.com/s/WBV4Tm-I5VNWXqjxMgw0yw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/WBV4Tm-I5VNWXqjxMgw0yw</a><br><a href="https://www.jianshu.com/p/cde27461c226" target="_blank" rel="noopener">https://www.jianshu.com/p/cde27461c226</a><br><a href="https://mp.weixin.qq.com/s/zf_LY0MSD4S4p0wXKOyhZg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/zf_LY0MSD4S4p0wXKOyhZg</a></p>
-<h5><span id="多线程">多线程</span></h5><p>​    ==J.U.C== ，多线程的整个体系基于volatile 、cas -&gt;aqs，通常需要了解的 JMM内存模型、锁、线程池、工具类 </p>
+<h5 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h5><p>​    ==J.U.C== ，多线程的整个体系基于volatile 、cas -&gt;aqs，通常需要了解的 JMM内存模型、锁、线程池、工具类 </p>
 <p>​    书籍📚《Java并发编程艺术》 、《并发编程实践》 翻译不太好，建议看英文版、《Concurrent_Programming_in_Java》并发框架的作者DougLea写的</p>
-<h5><span id="jvm">JVM</span></h5><p>​    调优，问题定位，常用的工具，jstack 等，字节码、编译过程、垃圾收集器、即时编译等、虚拟机规范</p>
+<h5 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h5><p>​    调优，问题定位，常用的工具，jstack 等，字节码、编译过程、垃圾收集器、即时编译等、虚拟机规范</p>
 <p>​    书籍📚《深入理解 Java 虚拟机》</p>
-<h5><span id="版本特征-待整理">版本特征 ==待整理==</span></h5><p>​    JDK发展史：从几个角度看 jvm特性、并发工具、语言特性 ，例如</p>
+<h5 id="版本特征-待整理"><a href="#版本特征-待整理" class="headerlink" title="版本特征 ==待整理=="></a>版本特征 ==待整理==</h5><p>​    JDK发展史：从几个角度看 jvm特性、并发工具、语言特性 ，例如</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">JDK1.0版本：JAVA 虚拟机、AWT</span><br><span class="line">JDK1.1版本:JAR文件格式、JDBC、JavaBeans、RMI、Java语法：内部类（Inner Class）和反射（Reflection）</span><br><span class="line">JDK1.2版本:Java技术体系拆分为3个方向（面向桌面应用开发J2SE/面向企业级开发的J2EE/面向手机等移动端开发的J2ME）</span><br><span class="line">      代表性技术：EJB、Java plugin-in、JavaIDL、Swing</span><br><span class="line">      虚拟机中内置了JIT(JUST IN TIME)编译器、3个虚拟机并存（Classic VM /HotSpot VM/Exact VM）</span><br><span class="line">      语言和API级别上：添加了strictfp关键字与Collections集合类</span><br><span class="line">JDK1.3版本:一些类库（数学运算和新的Timer API）/JNDI服务作为平台级服务提供、使用CORBA IIOP来实现RMI通信/添加了JavaSound类库</span><br><span class="line">JDK1.4版本：正则表达式、异常链、NIO、日志类、XML解析器、XSLT转换器</span><br><span class="line">JDK1.5版本：语法：自动装箱、泛型、动态注解、枚举、可变长参数、遍历循环（foreach循环）jmx 元数据(注解); 引入Instrumentation(Agent，jvm级别的AOP)</span><br><span class="line">      虚拟机和API:改进了Java的内存模型、提供了Java.util.concurrent并发包</span><br><span class="line">JDK1.6版本：终结了J2ME/J2SE/J2EE的命名方式，启用Java SE6/Java EE6/Java ME6的命名方式</span><br><span class="line">      提供动态语言支持（通过内置的Mozilla javaScript Rhion引擎实现）</span><br><span class="line">      提供编译API和微型HTTP服务器API，增强Instrumentation，虚拟机启动后的</span><br><span class="line">      虚拟机改进：锁与同步、垃圾收集、类加载</span><br><span class="line">JDK1.7版本：nio2 try resource autocloseable JVM新增了一套叫做invokedynamic的指令为为支持动态类型化程序语言的实现；并发API新增了轻量级的分支/合并（Fork/Join）框架</span><br><span class="line">      Java开源</span><br><span class="line">      提供新的G1收集器（G1在发布时依然处于Experimental状态）</span><br><span class="line">      加强对非Java语言的调用支持（JSR-292到目前没有完全实现定型）、升级类加载架构</span><br><span class="line">JDK1.8版本：Lambda表达式、Coin</span><br><span class="line">JDK1.9版本：flow reative 模块化</span><br><span class="line">JDK10版本：var 垃圾收集改进</span><br><span class="line">JDK11版本：httpclient 垃圾收集改进 Epsilon 垃圾收集器被称为“no-op”收集器，将处理内存分配而不实施任何实际的内存回收机制</span><br></pre></td></tr></table></figure>
-<h5><span id="其他">其他</span></h5><h6><span id="classloder">classLoder</span></h6><p>​    双亲委派，以及怎么破坏双亲委派，在spring和tomcat中的体现</p>
+<h5 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h5><h6 id="classLoder"><a href="#classLoder" class="headerlink" title="classLoder"></a>classLoder</h6><p>​    双亲委派，以及怎么破坏双亲委派，在spring和tomcat中的体现</p>
 <p>​    文档：<a href="https://zhuanlan.zhihu.com/p/51374915?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/51374915?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336</a></p>
-<h6><span id="java官方订阅">java官方订阅</span></h6><p>​    获取了解最新变化情况</p>
+<h6 id="java官方订阅"><a href="#java官方订阅" class="headerlink" title="java官方订阅"></a>java官方订阅</h6><p>​    获取了解最新变化情况</p>
 <p>​    文档：mail.openjdk.java.net Mailing Lists</p>
-<h4><span id="java-eeenterprise-edition">Java EE（Enterprise Edition）</span></h4><p>​    常用的技术栈spring + springmvc + mybatis(或者其他的orm框架) ，这里建议学习j2ee的常用规范</p>
-<h5><span id="spring-spring-boot">Spring /Spring boot</span></h5><p>​    ==注意关注版本特征==</p>
+<h4 id="Java-EE（Enterprise-Edition）"><a href="#Java-EE（Enterprise-Edition）" class="headerlink" title="Java EE（Enterprise Edition）"></a>Java EE（Enterprise Edition）</h4><p>​    常用的技术栈spring + springmvc + mybatis(或者其他的orm框架) ，这里建议学习j2ee的常用规范</p>
+<h5 id="Spring-Spring-boot"><a href="#Spring-Spring-boot" class="headerlink" title="Spring /Spring boot"></a>Spring /Spring boot</h5><p>​    ==注意关注版本特征==</p>
 <p>​    spring 实现了大部分的j2ee规范，本身主要是DI（管理对象之间的关系）和AOP（切面编程） ，深度学习源码和理解它的优秀思想（简单，开放），springmvc</p>
 <p>​    SpringBoot的简化配置，部署，自动装配。</p>
 <p>​    书籍📚《spring实战》、《spring技术内幕》、《spring源码剖析》、《Expert One-on-One J2EE Design and Development》《Expert One-on-One J2EE Development without EJB》 spring作者写的书</p>
 <p>​    文档：spring 动态代理 <a href="https://mp.weixin.qq.com/s/vCZP8sPrtnXWvg6IlcHQOg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/vCZP8sPrtnXWvg6IlcHQOg</a></p>
 <p>​            特性 <a href="https://mp.weixin.qq.com/s/09lMCJKvACOU_umkzu2StQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/09lMCJKvACOU_umkzu2StQ</a></p>
-<h5><span id="其他">其他</span></h5><h6><span id="web-framework框架性能">web Framework框架性能</span></h6><p>​    关注常用框架性能</p>
+<h5 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h5><h6 id="web-Framework框架性能"><a href="#web-Framework框架性能" class="headerlink" title="web Framework框架性能"></a>web Framework框架性能</h6><p>​    关注常用框架性能</p>
 <p>​    文档 <a href="https://www.techempower.com/benchmarks/#section=data-r17" target="_blank" rel="noopener">https://www.techempower.com/benchmarks/#section=data-r17</a>    </p>
-<h4><span id="重视规范">重视规范</span></h4><h5><span id="jvm规范">JVM规范</span></h5><p>​    Java语言规范、Java虚拟机规范、Java内存模型规范</p>
+<h4 id="重视规范"><a href="#重视规范" class="headerlink" title="重视规范"></a>重视规范</h4><h5 id="JVM规范"><a href="#JVM规范" class="headerlink" title="JVM规范"></a>JVM规范</h5><p>​    Java语言规范、Java虚拟机规范、Java内存模型规范</p>
 <p>​    书籍📚/文档：官方文档 ==待补充==</p>
-<h5><span id="jsr规范">JSR规范</span></h5><p>​    Servlet、REST、JDBC、JNDI、JPA、JTA、Bean Validation、JMS等</p>
+<h5 id="JSR规范"><a href="#JSR规范" class="headerlink" title="JSR规范"></a>JSR规范</h5><p>​    Servlet、REST、JDBC、JNDI、JPA、JTA、Bean Validation、JMS等</p>
 <p>​    书籍📚/文档：JSR <a href="https://jcp.org/en/jsr/platform" target="_blank" rel="noopener">https://jcp.org/en/jsr/platform</a></p>
 <p>​    Servlet :  servlet规范 -&gt; springMVC -&gt; servelt容器 tomcat jetty</p>
 <p>​    JNDI: Java Naming and Directory Interface，JNDI避免了程序与数据库之间的紧耦合，使应用更加易于配置、易于部署。 SPI  <a href="https://www.zhihu.com/question/49667892/answer/404097870" target="_blank" rel="noopener">https://www.zhihu.com/question/49667892/answer/404097870</a>    /   <a href="https://blog.hhui.top/hexblog/2017/05/26/SPI%E6%A1%86%E6%9E%B6%E5%AE%9E%E7%8E%B0%E4%B9%8B%E6%97%85%E4%B8%80%EF%BC%9A%E8%83%8C%E6%99%AF%E4%BB%8B%E7%BB%8D/#%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%9A-Z-blog" target="_blank" rel="noopener">https://blog.hhui.top/hexblog/2017/05/26/SPI%E6%A1%86%E6%9E%B6%E5%AE%9E%E7%8E%B0%E4%B9%8B%E6%97%85%E4%B8%80%EF%BC%9A%E8%83%8C%E6%99%AF%E4%BB%8B%E7%BB%8D/#%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%9A-Z-blog</a></p>
 <p>​    restful风格 —–》〉 <a href="https://mp.weixin.qq.com/s/_CeSX_lSoyg9zPxs52twRA" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/_CeSX_lSoyg9zPxs52twRA</a></p>
-<h5><span id="ietf规范">IETF规范</span></h5><p>​    URL/URI、HTTP、REST、WebSockets等</p>
+<h5 id="IETF规范"><a href="#IETF规范" class="headerlink" title="IETF规范"></a>IETF规范</h5><p>​    URL/URI、HTTP、REST、WebSockets等</p>
 <p>​    书籍📚/文档：RFC 2616 新标准</p>
-<h5><span id="消息规范">消息规范</span></h5><p>​    AMQP、MQTT</p>
+<h5 id="消息规范"><a href="#消息规范" class="headerlink" title="消息规范"></a>消息规范</h5><p>​    AMQP、MQTT</p>
 <p>​    书籍📚/文档：官方文档 ==待补充==</p>
-<h5><span id="关系型数据库规范">关系型数据库规范</span></h5><p>​    SQL99、SQL03等</p>
+<h5 id="关系型数据库规范"><a href="#关系型数据库规范" class="headerlink" title="关系型数据库规范"></a>关系型数据库规范</h5><p>​    SQL99、SQL03等</p>
 <p>​    书籍📚/文档：官方文档 ==待补充==</p>
-<h5><span id="reactive-规范">Reactive 规范</span></h5><p>​    Reactive Manifesto、Reactive Streams    </p>
+<h5 id="Reactive-规范"><a href="#Reactive-规范" class="headerlink" title="Reactive 规范"></a>Reactive 规范</h5><p>​    Reactive Manifesto、Reactive Streams    </p>
 <p>​    书籍📚/文档：官方文档 ==待补充==</p>
-<h4><span id="高效优雅">高效/优雅</span></h4><p>​    多看，多写模仿，例如spring中的设计模式，tomcat中的设计模式</p>
+<h4 id="高效-优雅"><a href="#高效-优雅" class="headerlink" title="高效/优雅"></a>高效/优雅</h4><p>​    多看，多写模仿，例如spring中的设计模式，tomcat中的设计模式</p>
 <p>​    常用工具Git、Maven 、Nginx</p>
 <p>​    书籍📚/文档 ：《Maven实战》、《Effective Java》、《重构》、《Head First设计模式》、《测试驱动开发 by Example》、《程序员修炼之道》翻译不太好</p>
-<h4><span id="框架中间件">框架/中间件</span></h4><p>​    关注常用框架，以及生命周期Attic—–&gt; <a href="https://attic.apache.org/，注意主流框架的版本特征" target="_blank" rel="noopener">https://attic.apache.org/，注意主流框架的版本特征</a> / 使用了什么设计模式</p>
-<h5><span id="web栈">Web栈</span></h5><p>​    Struts、 Spring </p>
-<h5><span id="关系型数据库">关系型数据库</span></h5><p>​     MyBatis、Hiberante、JPA</p>
-<h5><span id="nosql">NoSQL</span></h5><p>​      Redis 、Mongo、 ELasticSearch、Hbase</p>
-<h5><span id="rpc">RPC</span></h5><p>​    CXF(WebServices)、Spring Cloud Feign(REST)、Dubbo (多协议)</p>
-<h5><span id="任务调度">任务调度</span></h5><p>​    Java Timer/ScheduleExecutorService、 Spring @Scheduled</p>
-<h5><span id="消息服务">消息服务</span></h5><p>​    ActiveMQ（JMS）、RabbitMQ（AMQP）、Kafka</p>
-<h5><span id="客户端">客户端</span></h5><p>​    HttpClient(HTTP) 、Spring RestTemplate ( REST )</p>
-<h5><span id="web容器">Web容器</span></h5><p>​    Tomcat、Jetty​    </p>
+<h4 id="框架-中间件"><a href="#框架-中间件" class="headerlink" title="框架/中间件"></a>框架/中间件</h4><p>​    关注常用框架，以及生命周期Attic—–&gt; <a href="https://attic.apache.org/，注意主流框架的版本特征" target="_blank" rel="noopener">https://attic.apache.org/，注意主流框架的版本特征</a> / 使用了什么设计模式</p>
+<h5 id="Web栈"><a href="#Web栈" class="headerlink" title="Web栈"></a>Web栈</h5><p>​    Struts、 Spring </p>
+<h5 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h5><p>​     MyBatis、Hiberante、JPA</p>
+<h5 id="NoSQL"><a href="#NoSQL" class="headerlink" title="NoSQL"></a>NoSQL</h5><p>​      Redis 、Mongo、 ELasticSearch、Hbase</p>
+<h5 id="RPC"><a href="#RPC" class="headerlink" title="RPC"></a>RPC</h5><p>​    CXF(WebServices)、Spring Cloud Feign(REST)、Dubbo (多协议)</p>
+<h5 id="任务调度"><a href="#任务调度" class="headerlink" title="任务调度"></a>任务调度</h5><p>​    Java Timer/ScheduleExecutorService、 Spring @Scheduled</p>
+<h5 id="消息服务"><a href="#消息服务" class="headerlink" title="消息服务"></a>消息服务</h5><p>​    ActiveMQ（JMS）、RabbitMQ（AMQP）、Kafka</p>
+<h5 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h5><p>​    HttpClient(HTTP) 、Spring RestTemplate ( REST )</p>
+<h5 id="Web容器"><a href="#Web容器" class="headerlink" title="Web容器"></a>Web容器</h5><p>​    Tomcat、Jetty​    </p>
 <p>书籍📚/资料</p>
 <p>​    《大型网络架构与中间件》、《Tomcat架构解析》</p>
 <p>​         tomcat设计模式 <a href="https://www.cnblogs.com/coldridgeValley/p/6606271.html" target="_blank" rel="noopener">https://www.cnblogs.com/coldridgeValley/p/6606271.html</a></p>
 <p>​    </p>
-<h4><span id="微服务演变">微服务演变</span></h4><p>​    SOA向微服务的演变，衍生了许多技术，CAP 、BASE理论</p>
-<h5><span id="服务调用">服务调用</span></h5><p>​    如何高并发、高可用</p>
-<h5><span id="分布式配置">分布式配置</span></h5><p>​    Nacos、Spring Cloud Feign</p>
-<h5><span id="服务注册发现">服务注册/发现</span></h5><p>​    zk、Eureka Consul。对比，使用场景。 cp、ap</p>
+<h4 id="微服务演变"><a href="#微服务演变" class="headerlink" title="微服务演变"></a>微服务演变</h4><p>​    SOA向微服务的演变，衍生了许多技术，CAP 、BASE理论</p>
+<h5 id="服务调用"><a href="#服务调用" class="headerlink" title="服务调用"></a>服务调用</h5><p>​    如何高并发、高可用</p>
+<h5 id="分布式配置"><a href="#分布式配置" class="headerlink" title="分布式配置"></a>分布式配置</h5><p>​    Nacos、Spring Cloud Feign</p>
+<h5 id="服务注册-发现"><a href="#服务注册-发现" class="headerlink" title="服务注册/发现"></a>服务注册/发现</h5><p>​    zk、Eureka Consul。对比，使用场景。 cp、ap</p>
 <p>​    书籍📚：《proxys到zookeeper一致性协议》</p>
-<h5><span id="路由负载均衡">路由/负载均衡</span></h5><p>​    Netflix Ribbon</p>
-<h5><span id="熔断限流">熔断/限流</span></h5><p>​    Spring Cloud Hystrix</p>
+<h5 id="路由-负载均衡"><a href="#路由-负载均衡" class="headerlink" title="路由/负载均衡"></a>路由/负载均衡</h5><p>​    Netflix Ribbon</p>
+<h5 id="熔断-限流"><a href="#熔断-限流" class="headerlink" title="熔断/限流"></a>熔断/限流</h5><p>​    Spring Cloud Hystrix</p>
 <p>相关技术：</p>
 <p>​    限流 -》RateLimiter是Guava的concurrent包下的一个用于限制访问频率的类.</p>
-<h5><span id="网关">网关</span></h5><p>​    Spring Cloud Zuul     </p>
-<h5><span id="其他">其他</span></h5><p>​    分布式锁    </p>
+<h5 id="网关"><a href="#网关" class="headerlink" title="网关"></a>网关</h5><p>​    Spring Cloud Zuul     </p>
+<h5 id="其他-2"><a href="#其他-2" class="headerlink" title="其他"></a>其他</h5><p>​    分布式锁    </p>
 <p>​    分布式事务 <a href="https://mp.weixin.qq.com/s/oKOzvN49zOhl8cwliy3SEg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/oKOzvN49zOhl8cwliy3SEg</a></p>
 <p>​        XA两阶段提交的不足  XA三阶段</p>
 <p>​    解决一致性问题，raft、Gossip （redis）、Paxos(zk)</p>
-<h5><span id="spring-cloud-侵入式">Spring Cloud （侵入式）</span></h5><p>​    可以看看springCloud都做了些什么实现</p>
+<h5 id="Spring-Cloud-（侵入式）"><a href="#Spring-Cloud-（侵入式）" class="headerlink" title="Spring Cloud （侵入式）"></a>Spring Cloud （侵入式）</h5><p>​    可以看看springCloud都做了些什么实现</p>
 <p>​    Compare with k8s  <a href="https://en.wikipedia.org/wiki/Kubernetes#Comparison_to_Spring_Cloud" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Kubernetes#Comparison_to_Spring_Cloud</a></p>
 <p>​    相关文档/书籍📚：《领域驱动》、《SpringCloud微服务实践》</p>
-<h5><span id="service-mesh-非侵入式">Service Mesh （非侵入式）</span></h5><p>​    kubernetes 为基础，docker为容器（<a href="https://zhuanlan.zhihu.com/p/54512286?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336）" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/54512286?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336）</a></p>
+<h5 id="Service-Mesh-（非侵入式）"><a href="#Service-Mesh-（非侵入式）" class="headerlink" title="Service Mesh （非侵入式）"></a>Service Mesh （非侵入式）</h5><p>​    kubernetes 为基础，docker为容器（<a href="https://zhuanlan.zhihu.com/p/54512286?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336）" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/54512286?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336）</a></p>
 <p>​    相关技术：CI/CD 持续集成</p>
 <p>相关文档/书籍📚：《Docker进阶与实战》</p>
-<h4><span id="大数据生态">大数据生态</span></h4><p>​    Kafka zookeeper flume</p>
+<h4 id="大数据生态"><a href="#大数据生态" class="headerlink" title="大数据生态"></a>大数据生态</h4><p>​    Kafka zookeeper flume</p>
 <p>​    实时 sparker</p>
 <p>​    离线 hive</p>
-<h4><span id="其他">其他</span></h4><h6><span id="开阔视野">开阔视野</span></h6><p>​    正所谓站的高看得远，多关注业界发展。 </p>
+<h4 id="其他-3"><a href="#其他-3" class="headerlink" title="其他"></a>其他</h4><h6 id="开阔视野"><a href="#开阔视野" class="headerlink" title="开阔视野"></a>开阔视野</h6><p>​    正所谓站的高看得远，多关注业界发展。 </p>
 <p>​    相关资料：<a href="https://www.zhihu.com/question/305924723/answer/556971474?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336" target="_blank" rel="noopener">https://www.zhihu.com/question/305924723/answer/556971474?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336</a></p>
 <p>​    <a href="https://mp.weixin.qq.com/s/CPUaB60pue0Zf3fUL9xqvw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/CPUaB60pue0Zf3fUL9xqvw</a></p>
 <p>​    <a href="http://www.iocoder.cn/chinese-comment-repository/?xing" target="_blank" rel="noopener">http://www.iocoder.cn/chinese-comment-repository/?xing</a></p>
-<h6><span id="性能压力测试调优">性能/压力测试/调优</span></h6><p>​    懂常用性能指标，以及如何预估性能</p>
+<h6 id="性能-压力测试-调优"><a href="#性能-压力测试-调优" class="headerlink" title="性能/压力测试/调优"></a>性能/压力测试/调优</h6><p>​    懂常用性能指标，以及如何预估性能</p>
 <p>​    相关资料：</p>
 <p>​    <a href="https://mp.weixin.qq.com/s/w0TxuFQZAIED879JRax8vg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/w0TxuFQZAIED879JRax8vg</a></p>
 <p>​    <a href="https://mp.weixin.qq.com/s/Lz4cEt0LY_Fvqz2zAgOafw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Lz4cEt0LY_Fvqz2zAgOafw</a></p>
-<h6><span id="前端基础">前端基础</span></h6><p>​    除了html、css、javascript 相关、 一些前端框架也需要了解Vue、React</p>
+<h6 id="前端基础"><a href="#前端基础" class="headerlink" title="前端基础"></a>前端基础</h6><p>​    除了html、css、javascript 相关、 一些前端框架也需要了解Vue、React</p>
 <p>​    前后端分离/单页面应用—》〉<a href="https://blog.csdn.net/Nicorui/article/details/74945839" target="_blank" rel="noopener">https://blog.csdn.net/Nicorui/article/details/74945839</a></p>
 <p>​    书籍📚《Javascript DOM编程艺术》</p>
-<h6><span id="态度">态度</span></h6><p>​    保持自我驱动和热情/不满足于完成预期</p>
-<h6><span id="学习方法">学习方法</span></h6><p>是什么 </p>
+<h6 id="态度"><a href="#态度" class="headerlink" title="态度"></a>态度</h6><p>​    保持自我驱动和热情/不满足于完成预期</p>
+<h6 id="学习方法"><a href="#学习方法" class="headerlink" title="学习方法"></a>学习方法</h6><p>是什么 </p>
 <p>​    官方、wiki、同类技术对比、组成部分</p>
 <p>为什么</p>
 <p>​    解决了什么问题、没有出现之前怎么做</p>
@@ -300,11 +225,9 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2019/02/02/java-all/" data-id="cjtl1wnka0004ex9c60anmkaf" class="article-share-link" data-share="baidu" data-title="java_all">Share</a>
+        <a data-url="http://yoursite.com/2019/02/02/java-all/" data-id="cjtl217bg0003009c6z82covs" class="article-share-link" data-share="baidu" data-title="java_all">Share</a>
       
 
-      
-        <a href="http://yoursite.com/2019/02/02/java-all/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
@@ -336,10 +259,6 @@
   
 </article>
 
-
-  <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2019/02/02/java-all/" data-title="java_all" data-url="http://yoursite.com/2019/02/02/java-all/"></div>
-  </section>
 </section>
       
       <aside id="sidebar">
@@ -447,20 +366,6 @@
 </div>
 
 <!-- totop end -->
-
-<!-- 多说公共js代码 start -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"reqianduan"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共js代码 end -->
 
 
 <!-- 百度分享 start -->
