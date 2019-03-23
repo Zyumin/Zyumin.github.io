@@ -7,19 +7,19 @@
   
   <title>Expert One-on-One J2EE Development without EJB | Zyumin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="+ [Chapeter 1](#chapeter-1)   - [EJB存在的问题](#ejb存在的问题)   - [J2EE还剩下什么](#j2ee还剩下什么)     * [J2EE 在易用性方面存在着严重的问题](#j2ee-在易用性方面存在着严重的问题)     * [J2EE 项目具备架构重构能力的关键](#j2ee-项目具备架构重构能力的关键) + [Chapeter 5 EJB的5">
+  <meta name="description" content="Chapeter 1 EJB存在的问题 J2EE还剩下什么 J2EE 在易用性方面存在着严重的问题 J2EE 项目具备架构重构能力的关键     Chapeter 5 EJB的5年间 Chapter 6 轻量级容器 Chapter 7 轻量级容器 Chapter8 基于AOP概念的声明性中间件 Chapter9 事务管理 传统J2EE 事务管理 J2EE容器作为事务协调器 轻量级事务基础设施">
 <meta name="keywords" content="j2ee,spring,ejb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Expert One-on-One J2EE Development without EJB">
 <meta property="og:url" content="http://yoursite.com/2019/03/10/Expert One-on-One-J2EE-Development-without-EJB/index.html">
 <meta property="og:site_name" content="Zyumin">
-<meta property="og:description" content="+ [Chapeter 1](#chapeter-1)   - [EJB存在的问题](#ejb存在的问题)   - [J2EE还剩下什么](#j2ee还剩下什么)     * [J2EE 在易用性方面存在着严重的问题](#j2ee-在易用性方面存在着严重的问题)     * [J2EE 项目具备架构重构能力的关键](#j2ee-项目具备架构重构能力的关键) + [Chapeter 5 EJB的5">
+<meta property="og:description" content="Chapeter 1 EJB存在的问题 J2EE还剩下什么 J2EE 在易用性方面存在着严重的问题 J2EE 项目具备架构重构能力的关键     Chapeter 5 EJB的5年间 Chapter 6 轻量级容器 Chapter 7 轻量级容器 Chapter8 基于AOP概念的声明性中间件 Chapter9 事务管理 传统J2EE 事务管理 J2EE容器作为事务协调器 轻量级事务基础设施">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1g18zgtukb9j31kz0u0af4.jpg">
-<meta property="og:updated_time" content="2019-03-20T02:01:19.753Z">
+<meta property="og:updated_time" content="2019-03-23T03:29:29.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Expert One-on-One J2EE Development without EJB">
-<meta name="twitter:description" content="+ [Chapeter 1](#chapeter-1)   - [EJB存在的问题](#ejb存在的问题)   - [J2EE还剩下什么](#j2ee还剩下什么)     * [J2EE 在易用性方面存在着严重的问题](#j2ee-在易用性方面存在着严重的问题)     * [J2EE 项目具备架构重构能力的关键](#j2ee-项目具备架构重构能力的关键) + [Chapeter 5 EJB的5">
+<meta name="twitter:description" content="Chapeter 1 EJB存在的问题 J2EE还剩下什么 J2EE 在易用性方面存在着严重的问题 J2EE 项目具备架构重构能力的关键     Chapeter 5 EJB的5年间 Chapter 6 轻量级容器 Chapter 7 轻量级容器 Chapter8 基于AOP概念的声明性中间件 Chapter9 事务管理 传统J2EE 事务管理 J2EE容器作为事务协调器 轻量级事务基础设施">
 <meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1g18zgtukb9j31kz0u0af4.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Zyumin" type="application/atom+xml">
@@ -94,43 +94,51 @@
     <div class="article-entry" itemprop="articleBody">
       
         <!-- toc -->
-<pre><code>+ [Chapeter 1](#chapeter-1)
-  - [EJB存在的问题](#ejb存在的问题)
-  - [J2EE还剩下什么](#j2ee还剩下什么)
-    * [J2EE 在易用性方面存在着严重的问题](#j2ee-在易用性方面存在着严重的问题)
-    * [J2EE 项目具备架构重构能力的关键](#j2ee-项目具备架构重构能力的关键)
-+ [Chapeter 5 EJB的5年间](#chapeter-5-ejb的5年间)
-+ [Chapter 6 轻量级容器](#chapter-6-轻量级容器)
-+ [Chapter 7 轻量级容器](#chapter-7-轻量级容器)
-+ [Chapter8 基于AOP概念的声明性中间件](#chapter8-基于aop概念的声明性中间件)
-+ [Chapter9 事务管理](#chapter9-事务管理)
-    * [传统J2EE 事务管理](#传统j2ee-事务管理)
-    * [J2EE容器作为事务协调器](#j2ee容器作为事务协调器)
-    * [轻量级事务基础设施](#轻量级事务基础设施)
-    * [Spring Framework的事务管理](#spring-framework的事务管理)
-      + [事务声明](#事务声明)
-      + [编程式事务处理](#编程式事务处理)
-      + [声明式事务管理](#声明式事务管理)
-    * [事务管理策略](#事务管理策略)
-+ [Chapter10 持久化](#chapter10-持久化)
-</code></pre><ul>
-<li><a href="#">——————————————————</a><pre><code>* [依赖注入模式](#依赖注入模式)
-* [是什么？](#是什么)
-* [MVC](#mvc)
-* [异常处理](#异常处理)
-* [数据持久层](#数据持久层)
-  + [事务管理](#事务管理)
-  + [持久层封装](#持久层封装)
-</code></pre></li>
+<ul>
+<li><a href="#chapeter-1">Chapeter 1</a><ul>
+<li><a href="#ejb存在的问题">EJB存在的问题</a></li>
+<li><a href="#j2ee还剩下什么">J2EE还剩下什么</a><ul>
+<li><a href="#j2ee-在易用性方面存在着严重的问题">J2EE 在易用性方面存在着严重的问题</a></li>
+<li><a href="#j2ee-项目具备架构重构能力的关键">J2EE 项目具备架构重构能力的关键</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chapeter-5-ejb的5年间">Chapeter 5 EJB的5年间</a></li>
+<li><a href="#chapter-6-轻量级容器">Chapter 6 轻量级容器</a></li>
+<li><a href="#chapter-7-轻量级容器">Chapter 7 轻量级容器</a></li>
+<li><a href="#chapter8-基于aop概念的声明性中间件">Chapter8 基于AOP概念的声明性中间件</a></li>
+<li><a href="#chapter9-事务管理">Chapter9 事务管理</a><ul>
+<li><a href="#传统j2ee-事务管理">传统J2EE 事务管理</a></li>
+<li><a href="#j2ee容器作为事务协调器">J2EE容器作为事务协调器</a></li>
+<li><a href="#轻量级事务基础设施">轻量级事务基础设施</a></li>
+<li><a href="#spring-framework的事务管理">Spring Framework的事务管理</a><ul>
+<li><a href="#事务声明">事务声明</a></li>
+<li><a href="#编程式事务处理">编程式事务处理</a></li>
+<li><a href="#声明式事务管理">声明式事务管理</a></li>
+</ul>
+</li>
+<li><a href="#事务管理策略">事务管理策略</a></li>
+</ul>
+</li>
+<li><a href="#chapter10-持久化">Chapter10 持久化</a><ul>
+<li><a href="#or映射发展史">O/R映射发展史</a></li>
+</ul>
+</li>
 </ul>
 <!-- tocstop -->
 <p>[TOC]</p>
-<p>我想要获得什么。</p>
+<p>阅读的目的？我想要从中获得什么？</p>
 <p>​    架构师的思维，当一个框架不符合主流时候是怎么思考的，spring是为解决什么问题出现的？</p>
-<p>大概是这样一种思维</p>
-<p>​    不符合的原因  </p>
-<p>​    指出我们正在需要的是什么。</p>
-<p>​    替代方案</p>
+<p>​    spring相关的发展历史</p>
+<ul>
+<li><p>不符合的原因  </p>
+</li>
+<li><p>分析我们真正需要的是什么。</p>
+</li>
+<li><p>替代方案，解决方法</p>
+</li>
+</ul>
 <h3><span id="chapeter-1">Chapeter 1</span></h3><p>Why  without ？</p>
 <h4><span id="ejb存在的问题">EJB存在的问题</span></h4><ul>
 <li>EJB规范中的一些部分已经过时,J2SE1.3引入的动态代理(dynamicproxy)</li>
@@ -380,57 +388,28 @@
 <p>​    JdoTransactionManager</p>
 <p>​    HibernateTransactionManager</p>
 <h3><span id="chapter10-持久化">Chapter10  持久化</span></h3><p>​    推荐Martin FOwler在 Patterns of Enterprise Application Architecture (POEAA) </p>
-<hr>
-<h1><span id="">——————————————————</span></h1><h5><span id="依赖注入模式">依赖注入模式</span></h5><p>Spring通过依赖注入模式，将依赖关系从编码中脱离出来，从而大大降低了组件之间的耦合，<br>实现了组件真正意义上的即插即用。这也是Spring最具价值的特性之一。</p>
-<p>面向接口编程。</p>
-<p>若没有spring 自己实现这些 ，往往这些系统开发中最常见的需求，会导致我们的代码迅速膨胀。</p>
-<p>单例 </p>
-<p>读配置</p>
-<p>init </p>
-<p>lazy loading</p>
-<hr>
-<h5><span id="是什么">是什么？</span></h5><p>Spring是笔者所见过的，最具实际意义的Java开发框架。</p>
-<p>​    首先，Spring涵盖了应用系统开发所涉及的大多数技术范畴，包括MVC、ORM以及Remote<br>Interface等，这些技术往往贯穿了大多数应用系统的开发过程。Spring从开发者的角度对这些技术内<br>容进行了进一步的封装和抽象，使得应用开发更为简便。</p>
-<p>​    其次，Spring并非一个强制性框架，它提供了很多独立的组件可供选择。</p>
-<hr>
-<h5><span id="mvc">MVC</span></h5><p>​    而对于 Spring 而言，首先，它提供了一个相当灵活和可扩展的 MVC 实现，与 WebWork2相比，它在依赖注入方面、AOP 等方面更加优秀，但在 MVC 框架与底层构架的分离上又与Webworks 存在着一定差距(Spring 的 MVC 与 Servlet API 相耦合，难于脱离 Servlet容器独立运行，在这点的扩展性上，比 Webwork2 稍逊一筹)。</p>
-<p>​    所以现在才有去servlet化</p>
-<h5><span id="异常处理">异常处理</span></h5><p>Web应用中对于异常的处理方式与其他形式的应用并没有太大的不同――通过try/catch 语句针对不同的异常进行相应处理。 </p>
-<p>但是在具体实现中，由于异常层次、种类繁杂，我们往往很难在Servlet、JSP层妥善的处 理好所有异常情况，代码中大量的try/catch代码显得尤为凌乱。 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们通常面对下面两个主要问题:</span><br></pre></td></tr></table></figure>
-<ol>
-<li>对异常实现集中式处理 </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">典型情况:对数据库异常记录错误日志。一般处理方法无外两种，一是在各处数据库 访问代码的异常处理中，加上日志记录语句。二是将在数据访问代码中将异常向上抛 出，并在上层结构中进行集中的日志记录处理。</span><br></pre></td></tr></table></figure>
-<p>第一种处理方法失之繁琐、并且导致系统难以维护，假设后继需求为“对于数据库异 常，需记录日志，并发送通知消息告知系统管理员”。我们不得不对分散在系统中的各 处代码进行整改，工作量庞大。 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">第二种处理方法实现了统一的异常处理，但如果缺乏设计，往往使得上层异常处理过</span><br><span class="line">于复杂。</span><br></pre></td></tr></table></figure>
-<p>这里，我们需要的是一个设计清晰、成熟可靠的集中式异常处理方案。 </p>
-<p>2 对未捕获异常的处理<br>     对于Unchecked Exception而言，由于代码不强制捕获，往往被程序员所忽略，如果 运行期产生了Unchecked Exception，而代码中又没有进行相应的捕获和处理，则我 们可能不得不面对尴尬的500服务器内部错误提示页面。 这里，我们需要一个全面而有效的异常处理机制。 </p>
-<p>同时，目前大多数服务器也都支持在Web.xml中通过</p>
-<p><error-page>(Websphere/Weblogic)或者<error-code>(Tomcat)节点配置特定异常情<br>况的显示页面。</error-code></error-page></p>
-<p>​    Spring MVC中提供了一个通用的异常处理机制，它提供了一个成熟的，简洁清晰的异常处<br>理方案。如果基于Spring MVC开发Web应用，那么利用这套现成的机制进行异常处理也更加自<br>然和有效。</p>
-<hr>
-<h5><span id="数据持久层">数据持久层</span></h5><h6><span id="事务管理">事务管理</span></h6><p>对于 J2EE 应用程序而言，事务的处理一般有两种模式: </p>
-<ol>
-<li>依赖特定事务资源的事务处理 这是应用开发中最常见的模式，即通过特定资源提供的事务机制进行事务管理。 如通过 JDBC、JTA 的 rollback、commit 方法;Hibernate Transaction 的 rollback、commit 方法等。这种方法大家已经相当熟悉。 （Spring 简化JDBC）</li>
-<li>依赖容器的参数化事务管理 通过容器提供的集约式参数化事务机制，实现事务的外部管理，如 EJB 中的事 务管理模式。 （通过 Spring 实现基于容器的事务管理，Spring的事务管理是基于动态 AOP）</li>
-</ol>
-<p>与EJB事务管理的不同</p>
-<ol>
-<li>Spring 可以将任意 Java Class 纳入事务管理</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这里的 UserDAO 只是我们编写的一个普通 Java Class，其中包含了一些 基本的数据应用逻辑。通过 Spring，我们即可简单的实现事务的可配置</span><br></pre></td></tr></table></figure>
-<p>化。也就是说，我们可以随意为某个类的某个方法指定事务管理机制。 与之对比，如果使用 EJB 容器提供的事务管理功能，我们不得不按照 EJB 规范编将 UserDAO 进行改造，将其转换为一个标准的 EJB。 </p>
-<ol start="2">
-<li>Spring 事务管理并不依赖特定的事务资源。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EJB 容器必须依赖于 JTA 提供事务支持。而 Spring 的事务管理则支持 JDBC、JTA 等多种事务资源。这为我们提供了更多的选择，从而也使得 我们的系统部署更加灵活。</span><br></pre></td></tr></table></figure>
-<h6><span id="持久层封装">持久层封装</span></h6><p>​    JDBCTemplate 模板应用的典范。特别是回调(CallBack)的使用，这带来了极强的灵活性和<br>扩展性。使得整个模板结构清晰高效</p>
+<h5><span id="or映射发展史">O/R映射发展史</span></h5><p>1997-1998 TopLink,CocoBase ODMG</p>
+<p>1999-2001 entity bean , JDO</p>
+<p>​    entity bean ,j2ee ejb 1.1的发布，崛起，但是并没有促进O/R映射的发展，反而是阻碍</p>
+<p>​    JDO java Data Objects</p>
+<p>2002-2003: TopLink, Hibernate,ibatis数据库层</p>
+<p>​    TopLink Oracle收购，提供类似JDO 的API</p>
+<p>​    Hibernate 在JDBC之上提供一层薄薄的封装，在提供完全透明的持久化机制的同时，又提供尽可能多的灵活性。</p>
+<p>​    ibatis 以SQL映射的形式提供了简单的O/R映射</p>
+<p>2004：JDO稳步发展 Hibernate飞黄腾达</p>
+<p>​    Hibernate成为JBoss4.0 CMP引擎的基石</p>
+<p>11 May 2006：</p>
+<p>​    The final release date of the JPA 1.0 specification was 11 May 2006 as part of <a href="https://en.wikipedia.org/wiki/Java_Community_Process" target="_blank" rel="noopener">Java Community Process</a> JSR 220. </p>
+<p>10 December 2009</p>
+<p>​    The JPA 2.0 specification was released 10 December 2009 (The Java EE 6 platform requires JPA 2.0<a href="https://en.wikipedia.org/wiki/Java_Persistence_API#cite_note-1" target="_blank" rel="noopener">[1]</a>.) </p>
+<p>22 April 2013</p>
+<p>​    The JPA 2.1 specification was released 22 April 2013 (The Java EE 7 platform requires JPA 2.1<a href="https://en.wikipedia.org/wiki/Java_Persistence_API#cite_note-2" target="_blank" rel="noopener">[2]</a>.)</p>
+<p>entity bean败笔</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/10/Expert One-on-One-J2EE-Development-without-EJB/" data-id="cjtjoe4ib000lv49ch623aprg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/10/Expert One-on-One-J2EE-Development-without-EJB/" data-id="cjtkxq5x5000k8z9c817lg5so" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ejb/">ejb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/j2ee/">j2ee</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
