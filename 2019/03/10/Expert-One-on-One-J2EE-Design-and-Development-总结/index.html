@@ -433,6 +433,34 @@
           
 
           
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time"></span>
+              
+            </div>
+          
 
           
 
@@ -453,6 +481,30 @@
 <p>​    j2ee的相关历史，spring的诞生背景，理念</p>
 <a id="more"></a>
 <!-- toc -->
+<ul>
+<li><a href="#chapter-1">Chapter 1</a></li>
+<li><a href="#chapter-2">Chapter 2</a></li>
+<li><a href="#chapter3">Chapter3</a></li>
+<li><a href="#chapter4-j2ee项目的实际技术与编程标准">Chapter4 J2EE项目的实际技术与编程标准</a></li>
+<li><a href="#chapter-5-chapter-9">Chapter 5-Chapter 9</a><ul>
+<li><a href="#chpter-6">Chpter 6</a></li>
+<li><a href="#chapter-7">Chapter 7</a></li>
+<li><a href="#chapter-8">Chapter 8</a></li>
+<li><a href="#chapter-9-实际数据存取">Chapter 9 实际数据存取</a></li>
+</ul>
+</li>
+<li><a href="#chapter-11">==Chapter 11==</a><ul>
+<li><a href="#the-problem">The Problem</a></li>
+<li><a href="#using-a-framework-to-configure-application-components">Using a Framework to Configure Application Components</a><ul>
+<li><a href="#using-javabeans">Using JavaBeans</a></li>
+<li><a href="#using-a-bean-factory">Using a “Bean Factory”</a></li>
+<li><a href="#application-context-goals">Application Context Goals</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
 <p>Expert One-on-One J2EE Design and Development</p>
 <p>##### </p>
 <p>[TOC]</p>
@@ -463,7 +515,7 @@
 <p>11 Infrastructure and Application Implementation </p>
 <p>12 Web-Tier MVC Design</p>
 <p>13 Views in the Web Tier</p>
-<h3 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h3><p>J2EE Architectures</p>
+<h3><span id="chapter-1">Chapter 1</span></h3><p>J2EE Architectures</p>
 <p>Summary </p>
 <ul>
 <li><p>体系分层</p>
@@ -486,7 +538,7 @@
 抽象层指一个其本身就独立于平台的接口。
 
 ​    spi的思想、 插拔式
-</code></pre><h3 id="Chapter-2"><a href="#Chapter-2" class="headerlink" title="Chapter 2"></a>Chapter 2</h3><p>选择一个应用服务器标准 </p>
+</code></pre><h3><span id="chapter-2">Chapter 2</span></h3><p>选择一个应用服务器标准 </p>
 <p>​    得到支持的规范</p>
 <p>​    sun资源 CTS  ECPerf </p>
 <p>​    成本</p>
@@ -503,8 +555,8 @@
 <p>​        应用在服务器操作系统之间的可移植性</p>
 <p>​        更改J2EE应用所依赖的重要资源的能力 数据库切换？</p>
 <p>​    发布管理 指：保证一个应用发布从‘开发’ 、‘测试’到‘生产’到发展是可逆和可重复的</p>
-<h3 id="Chapter3"><a href="#Chapter3" class="headerlink" title="Chapter3"></a>Chapter3</h3><p>​    单元测试的重要性</p>
-<h3 id="Chapter4-J2EE项目的实际技术与编程标准"><a href="#Chapter4-J2EE项目的实际技术与编程标准" class="headerlink" title="Chapter4    J2EE项目的实际技术与编程标准"></a>Chapter4    J2EE项目的实际技术与编程标准</h3><p>​    J2EE应用的OO设计推荐标准</p>
+<h3><span id="chapter3">Chapter3</span></h3><p>​    单元测试的重要性</p>
+<h3><span id="chapter4-j2ee项目的实际技术与编程标准">Chapter4    J2EE项目的实际技术与编程标准</span></h3><p>​    J2EE应用的OO设计推荐标准</p>
 <ul>
 <li><p>利用接口来实现松耦合</p>
 </li>
@@ -572,7 +624,7 @@
 <p>​    向现有框架学习</p>
 <p>​    明确目标 、作用范围、 用最小复杂性来实现最大价值 </p>
 <p>​        Pareto Principle（2/8原则） 某个特定功能很难实现，问问自己是不是必不可少的，能不能实现其价值的大部分</p>
-<h3 id="Chapter-5-Chapter-9"><a href="#Chapter-5-Chapter-9" class="headerlink" title="Chapter 5-Chapter 9"></a>Chapter 5-Chapter 9</h3><h4 id="Chpter-6"><a href="#Chpter-6" class="headerlink" title="Chpter 6"></a>Chpter 6</h4><p>高速缓存，减少没必要的调用和消耗</p>
+<h3><span id="chapter-5-chapter-9">Chapter 5-Chapter 9</span></h3><h4><span id="chpter-6">Chpter 6</span></h4><p>高速缓存，减少没必要的调用和消耗</p>
 <p>DATA ACCESS</p>
 <p>DB mysql自身</p>
 <p>DB组件 hibernate缓存</p>
@@ -580,33 +632,33 @@
 <p>​    分布式缓存 redis  </p>
 <p>​    单机jvm缓存 map  guava cache  </p>
 <p>HTTP 304</p>
-<h4 id="Chapter-7"><a href="#Chapter-7" class="headerlink" title="Chapter 7"></a>Chapter 7</h4><p>RDBMS 与 ODBMS</p>
+<h4><span id="chapter-7">Chapter 7</span></h4><p>RDBMS 与 ODBMS</p>
 <p>范式化数据 消除数据冗余度</p>
 <p>O/R 映射 尝试将Java对象的状态映射到RDMBMS上</p>
 <p>用于OLTP，不适用于OLAP</p>
-<h4 id="Chapter-8"><a href="#Chapter-8" class="headerlink" title="Chapter 8"></a>Chapter 8</h4><p>​    关于Session Beans 和 Entity Beans的讨论</p>
+<h4><span id="chapter-8">Chapter 8</span></h4><p>​    关于Session Beans 和 Entity Beans的讨论</p>
 <p>​    实体组件 分布式、共享的、事务性、持久性对象</p>
 <p>​    Entity Bean 是一种糟糕的设计 ，不应该绑定在EJB容器上，应该交由专用的方案解决</p>
 <p>​    无法继承，不具备java对象</p>
-<h4 id="Chapter-9-实际数据存取"><a href="#Chapter-9-实际数据存取" class="headerlink" title="Chapter 9 实际数据存取"></a>Chapter 9 实际数据存取</h4><p>JDBCTemplete</p>
+<h4><span id="chapter-9-实际数据存取">Chapter 9 实际数据存取</span></h4><p>JDBCTemplete</p>
 <p>​    较高级的抽象 RDBMS建模为Java对象</p>
-<h3 id="Chapter-11"><a href="#Chapter-11" class="headerlink" title="==Chapter 11=="></a>==Chapter 11==</h3><h5 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h5><p>​    Without such infrastructure, configuration management is usually haphazard. J2EE applications often hold configuration in a variety of formats, such as properties files, XML documents (an increasingly popular choice), EJB JAR and WAR development descriptors, and database tables. </p>
+<h3><span id="chapter-11">==Chapter 11==</span></h3><h5><span id="the-problem">The Problem</span></h5><p>​    Without such infrastructure, configuration management is usually haphazard. J2EE applications often hold configuration in a variety of formats, such as properties files, XML documents (an increasingly popular choice), EJB JAR and WAR development descriptors, and database tables. </p>
 <p>没有这样的基础设施，配置管理通常是随意的。 J2EE应用程序通常以各种格式进行配置，例如属性文件，XML文档（越来越流行的选择），EJB JAR和WAR开发描述符以及数据库表。</p>
 <p>More seriously, application classes are bloated by configuration management code irrelevant to business responsibilities</p>
 <p>应用程序类因与业务职责无关的配置管理代码而膨胀。</p>
 <p>Equally harmfully, without a central infrastructure for configuration management, application code is to<br>likely to use variety to approaches to locating application objects. The Singleton design pattern is often<br>overused, resulting in problems we’ll discuss below. Alternatively, some application objects may be bound<br>to JNDI or attached to the global ServletContext (in web applications), both of which approaches<br>may complicate testing outside a JNDI server. Each application object is usually reconfigured<br>independently.</p>
 <p>​    通过各种方式去获取配置。每个应用程序对象通常都是独立重新配置的。</p>
-<h5 id="Using-a-Framework-to-Configure-Application-Components"><a href="#Using-a-Framework-to-Configure-Application-Components" class="headerlink" title="Using a Framework to Configure Application Components"></a>Using a Framework to Configure Application Components</h5><p>外部化配置和OO设计</p>
+<h5><span id="using-a-framework-to-configure-application-components">Using a Framework to Configure Application Components</span></h5><p>外部化配置和OO设计</p>
 <p>使用javaBean beanWapper</p>
-<h6 id="Using-JavaBeans"><a href="#Using-JavaBeans" class="headerlink" title="Using JavaBeans"></a>Using JavaBeans</h6><p>​    If we make all application components JavaBeans, we maximize our ability to separate </p>
+<h6><span id="using-javabeans">Using JavaBeans</span></h6><p>​    If we make all application components JavaBeans, we maximize our ability to separate </p>
 <p>configuration data from application code </p>
 <p>​    However, manipulating beans is more complex, and requires the use of<br>reflection to instantiate objects and invoke methods by name. The core JavaBeans API does not provide<br>the ability to perform some useful operations on beans, such as</p>
 <p>why ？</p>
 <p>​    This provides the ability to manipulate beanseasily and adds the enhanced functionality described above, while respecting andavoiding duplicating the standard JavaBeans infrastructure.(andavoiding避免)</p>
-<h6 id="Using-a-“Bean-Factory”"><a href="#Using-a-“Bean-Factory”" class="headerlink" title="Using a “Bean Factory”"></a>Using a “Bean Factory”</h6><p>why?</p>
+<h6><span id="using-a-bean-factory">Using a “Bean Factory”</span></h6><p>why?</p>
 <p>​    The com.interface21.beans.factory package defines a way of obtaining beans by<br>name from a central configuration repository using a “bean factory”. ==The goal of a bean==<br>==factory is to remove any need for individual Java objects to read configuration properties==<br>==or instantiate objects. Instead, configuration is read by a central component, the bean==<br>==factory, and the bean properties exposed by each application object are set to reflect==<br>configuration data.== The factory then makes available instances of beans, each with a<br>unique name. Sophisticated object graphs can be created within the bean factory, as<br>managed beans may reference other beans within the same factory.</p>
 <p>对外暴露BeanWapper</p>
-<h6 id="Application-Context-Goals"><a href="#Application-Context-Goals" class="headerlink" title="Application Context Goals"></a>Application Context Goals</h6><p>​    Building on the bean factory, an application context provides a namespace for the JavaBeans that compose an application or subsystem, and the ability to share working objects at run time. The com.interface21.context.ApplicationContext interface extends the ListableBeanFact interface, adding the ability to: </p>
+<h6><span id="application-context-goals">Application Context Goals</span></h6><p>​    Building on the bean factory, an application context provides a namespace for the JavaBeans that compose an application or subsystem, and the ability to share working objects at run time. The com.interface21.context.ApplicationContext interface extends the ListableBeanFact interface, adding the ability to: </p>
 <p>o Publish events using the Observer design pattern. As we discussed in Chapter 4, the Observer design pattern provides the ability to decouple application components and achieve clean separation of concerns. </p>
 <p>o Participate in a hierarchy of application contexts. Application contexts can have parent contexts, allowing developers to choose the amount of configuration shared between subsystems. </p>
 <p>o Share working objects between application components at run time. </p>
@@ -815,7 +867,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-1"><span class="nav-number">1.</span> <span class="nav-text">Chapter 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-2"><span class="nav-number">2.</span> <span class="nav-text">Chapter 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter3"><span class="nav-number">3.</span> <span class="nav-text">Chapter3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter4-J2EE项目的实际技术与编程标准"><span class="nav-number">4.</span> <span class="nav-text">Chapter4    J2EE项目的实际技术与编程标准</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-5-Chapter-9"><span class="nav-number">5.</span> <span class="nav-text">Chapter 5-Chapter 9</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Chpter-6"><span class="nav-number">5.1.</span> <span class="nav-text">Chpter 6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Chapter-7"><span class="nav-number">5.2.</span> <span class="nav-text">Chapter 7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Chapter-8"><span class="nav-number">5.3.</span> <span class="nav-text">Chapter 8</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Chapter-9-实际数据存取"><span class="nav-number">5.4.</span> <span class="nav-text">Chapter 9 实际数据存取</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-11"><span class="nav-number">6.</span> <span class="nav-text">==Chapter 11==</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#The-Problem"><span class="nav-number">6.0.1.</span> <span class="nav-text">The Problem</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Using-a-Framework-to-Configure-Application-Components"><span class="nav-number">6.0.2.</span> <span class="nav-text">Using a Framework to Configure Application Components</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Using-JavaBeans"><span class="nav-number">6.0.2.1.</span> <span class="nav-text">Using JavaBeans</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Using-a-“Bean-Factory”"><span class="nav-number">6.0.2.2.</span> <span class="nav-text">Using a “Bean Factory”</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Application-Context-Goals"><span class="nav-number">6.0.2.3.</span> <span class="nav-text">Application Context Goals</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Chapter 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Chapter 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Chapter3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Chapter4    J2EE项目的实际技术与编程标准</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">Chapter 5-Chapter 9</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.1.</span> <span class="nav-text">Chpter 6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.2.</span> <span class="nav-text">Chapter 7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.3.</span> <span class="nav-text">Chapter 8</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">5.4.</span> <span class="nav-text">Chapter 9 实际数据存取</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">==Chapter 11==</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">6.0.1.</span> <span class="nav-text">The Problem</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">6.0.2.</span> <span class="nav-text">Using a Framework to Configure Application Components</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#undefined"><span class="nav-number">6.0.2.1.</span> <span class="nav-text">Using JavaBeans</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#undefined"><span class="nav-number">6.0.2.2.</span> <span class="nav-text">Using a “Bean Factory”</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#undefined"><span class="nav-number">6.0.2.3.</span> <span class="nav-text">Application Context Goals</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -843,7 +895,21 @@
   <span class="author" itemprop="copyrightHolder">zhengyumin</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="Symbols count total"></span>
+  
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="Reading time total"></span>
   
 </div>
 

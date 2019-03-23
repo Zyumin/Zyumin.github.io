@@ -436,6 +436,34 @@
           
 
           
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time"></span>
+              
+            </div>
+          
 
           
 
@@ -456,29 +484,82 @@
 <p>​    spring按模块总结 ，ioc和aop是spring的核心 基础</p>
 <a id="more"></a>
 <!-- toc -->
-<h2 id="IoC-container-IoC-容器"><a href="#IoC-container-IoC-容器" class="headerlink" title="IoC container(IoC 容器)"></a>IoC container(IoC 容器)</h2><hr>
+<ul>
+<li><a href="#ioc-containerioc-容器">IoC container(IoC 容器)</a><ul>
+<li><a href="#问题">问题</a><ul>
+<li><a href="#ioc">IOC</a><ul>
+<li><a href="#从-依赖反转-到-依赖注入">从 ‘依赖反转’ 到 ‘依赖注入’</a></li>
+<li><a href="#从-对象-对象-到-对象-ioc容器-对象">从 ‘对象-对象’ 到 ‘对象-IOC容器-对象’</a></li>
+<li><a href="#对象的分类">对象的分类</a></li>
+<li><a href="#与ejb的关系-对比">与EJB的关系、对比</a></li>
+</ul>
+</li>
+<li><a href="#di">DI</a><ul>
+<li><a href="#依赖查找dependency-lookup">依赖查找(Dependency Lookup)</a></li>
+<li><a href="#依赖注入dependency-injection">依赖注入(Dependency Injection)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#模块">模块</a><ul>
+<li><a href="#从beans说起">从Beans说起</a><ul>
+<li><a href="#bean-的创建">Bean 的创建</a></li>
+<li><a href="#bean-的定义">Bean 的定义</a></li>
+<li><a href="#bean-的解析">Bean 的解析</a></li>
+<li><a href="#spring-bean-封装机制">Spring Bean 封装机制</a><ul>
+<li><a href="#beanwrapper">BeanWrapper</a></li>
+</ul>
+</li>
+<li><a href="#bean-factory">Bean Factory</a></li>
+</ul>
+</li>
+<li><a href="#容器context">容器Context</a><ul>
+<li><a href="#core">Core</a></li>
+<li><a href="#~~spel~~"><del>SpEL</del></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#规范">规范</a><ul>
+<li><a href="#java-beans">Java Beans</a></li>
+<li><a href="#dependency-injection-jsr-330httpswwwjcporgenjsrdetailid330">Dependency Injection (<a href="https://www.jcp.org/en/jsr/detail?id=330" target="_blank" rel="noopener">JSR 330</a>)</a></li>
+<li><a href="#bean-validation-jsr-303httpsjcporgenjsrdetailid303">Bean Validation (<a href="https://jcp.org/en/jsr/detail?id=303" target="_blank" rel="noopener">JSR 303</a>)</a></li>
+<li><a href="#common-annotations-jsr-250httpsjcporgenjsrdetailid250">Common Annotations (<a href="https://jcp.org/en/jsr/detail?id=250" target="_blank" rel="noopener">JSR 250</a>)</a></li>
+</ul>
+</li>
+<li><a href="#api-doc">API-Doc</a><ul>
+<li><a href="#beans">beans</a></li>
+<li><a href="#context">context</a></li>
+<li><a href="#core">core</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h2><span id="ioc-containerioc-容器">IoC container(IoC 容器)</span></h2><hr>
 <p>[TOC]</p>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><hr>
+<h3><span id="问题">问题</span></h3><hr>
 <p>​    思考如下问题</p>
 <p>​    首先了解为啥需要这个模块？</p>
 <p>​    它是啥，这个模块都有啥？</p>
 <p>​    根据什么来的，实现了哪些规范？</p>
-<h4 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h4><h5 id="从-‘依赖反转’-到-‘依赖注入’"><a href="#从-‘依赖反转’-到-‘依赖注入’" class="headerlink" title="从 ‘依赖反转’ 到 ‘依赖注入’"></a>从 ‘依赖反转’ 到 ‘依赖注入’</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In early 2004, Martin Fowler asked the readers of his site: when talking about Inversion of Control: “the question is, what aspect of control are [they] inverting?”</span><br></pre></td></tr></table></figure>
+<h4><span id="ioc">IOC</span></h4><h5><span id="从-依赖反转-到-依赖注入">从 ‘依赖反转’ 到 ‘依赖注入’</span></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In early 2004, Martin Fowler asked the readers of his site: when talking about Inversion of Control: “the question is, what aspect of control are [they] inverting?”</span><br></pre></td></tr></table></figure>
 <p>​    2004年，Martin Fowler 对依赖反转 提出了问题，并获得结论，依赖对象的获得被反转了，基于这个结论提出了个更好的名字，依赖注入。如果对象的引用或依赖关系的管理由具体对象来完成，会导致代码高度耦合和可测试性的降低。</p>
-<h5 id="从-‘对象-对象’-到-‘对象-IOC容器-对象’"><a href="#从-‘对象-对象’-到-‘对象-IOC容器-对象’" class="headerlink" title="从 ‘对象-对象’ 到 ‘对象-IOC容器-对象’"></a>从 ‘对象-对象’ 到 ‘对象-IOC容器-对象’</h5><p>​    依赖反转是一种设计模式，实现有很多种方式，ioc容器式实现这个模式的载体，管理对象，对象之间的关系</p>
+<h5><span id="从-对象-对象-到-对象-ioc容器-对象">从 ‘对象-对象’ 到 ‘对象-IOC容器-对象’</span></h5><p>​    依赖反转是一种设计模式，实现有很多种方式，ioc容器式实现这个模式的载体，管理对象，对象之间的关系</p>
 <p>​    </p>
-<h5 id="对象的分类"><a href="#对象的分类" class="headerlink" title="对象的分类"></a>对象的分类</h5><p>​    数据对象<br>​    数据处理对象 不常发生变化，是系统中基础的部分，不涉及数据和状态共享的问题，依赖关系比较稳定，单例</p>
+<h5><span id="对象的分类">对象的分类</span></h5><p>​    数据对象<br>​    数据处理对象 不常发生变化，是系统中基础的部分，不涉及数据和状态共享的问题，依赖关系比较稳定，单例</p>
 <p>存在于应用系统，但是对象的管理交给了容器（平台）</p>
-<h5 id="与EJB的关系、对比"><a href="#与EJB的关系、对比" class="headerlink" title="与EJB的关系、对比"></a>与EJB的关系、对比</h5><p>​    一方面，spring，ioc提供了一个基本的JavaBean容器，通过Ioc模式管理依赖关系，并通过依赖注入和AOP切面增强了<br>​    为JavaBean这样的POJO对象赋予事务管理、生命周期管理等基本功能；为防止注入异常，嗨提供特定依赖的检查。</p>
+<h5><span id="与ejb的关系-对比">与EJB的关系、对比</span></h5><p>​    一方面，spring，ioc提供了一个基本的JavaBean容器，通过Ioc模式管理依赖关系，并通过依赖注入和AOP切面增强了<br>​    为JavaBean这样的POJO对象赋予事务管理、生命周期管理等基本功能；为防止注入异常，嗨提供特定依赖的检查。</p>
 <p>​    EJB组件需要编写远程/本地接口、Home接口以及Bean的实现类，需要依赖EJB容器 JBOSS，查找其他EJB组件也需要通过诸如JNDI这样的方式，从而造成了对EJB容器和技术规范的依赖。</p>
 <p>​    spring把EJB组件还原成了POJO对象或者JavaBean对象，降低了应用开发对传统J2EE技术规范的依赖。<br>但是因为封装、抽象的太好了，反而让J2EE的初学者忽略了相关规范</p>
 <p>​    另一方面，通过可读的文本来完成配置，并且还能通过工具对这些配置信息进行可视化管理和浏览。并且如果耦合关系需要变动，并不需要重新修改和编译Java源代码，符合面向对象设计原则的开闭原则。如果结合OSGI还能提高应用的动态部署能力            </p>
-<h4 id="DI"><a href="#DI" class="headerlink" title="DI"></a>DI</h4><h5 id="依赖查找-Dependency-Lookup"><a href="#依赖查找-Dependency-Lookup" class="headerlink" title="依赖查找(Dependency Lookup)"></a>依赖查找(Dependency Lookup)</h5><p>​    ID、别名、名称查找<br>​        BeanFactory#getBean(String) : Object </p>
+<h4><span id="di">DI</span></h4><h5><span id="依赖查找dependency-lookup">依赖查找(Dependency Lookup)</span></h5><p>​    ID、别名、名称查找<br>​        BeanFactory#getBean(String) : Object </p>
 <p>​    类型查找<br>​        BeanFactory#getBean(Class) : T </p>
 <p>​    注解查找<br>​        ListableBeanFactory#getBeansWithAnnotation(Class) </p>
 <p>​    FactoryBean 查找<br>​        FactoryBean#getObject() </p>
 <p>​    ObjectFactory 查找<br>​              ObjectFactory#getObject()</p>
-<h5 id="依赖注入-Dependency-Injection"><a href="#依赖注入-Dependency-Injection" class="headerlink" title="依赖注入(Dependency Injection)"></a>依赖注入(Dependency Injection)</h5><p>​    方法<br>​        Spring @Autowired </p>
+<h5><span id="依赖注入dependency-injection">依赖注入(Dependency Injection)</span></h5><p>​    方法<br>​        Spring @Autowired </p>
 <p>​        Java @Resource </p>
 <p>​        Java EE @Inject<br>​    注入方式  </p>
 <p>​        接口、setter、构造器</p>
@@ -517,30 +598,30 @@
 <p> 中的Action)，此时Type2类型的依赖注入机制就体现出其局限性，难以完成我们期望的功能。</p>
 </li>
 </ol>
-<h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><hr>
+<h3><span id="模块">模块</span></h3><hr>
 <p>​    官方网站提过：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">At the heart are the modules of the core container, including a configuration model and a dependency injection mechanism.</span><br></pre></td></tr></table></figure>
 <p>​    从之前的module图可以知道有如下四部分。</p>
 <p>​    </p>
-<h4 id="从Beans说起"><a href="#从Beans说起" class="headerlink" title="从Beans说起"></a>从Beans说起</h4><p>​    Spring 就是面向 Bean 的编程（BOP,Bean Oriented Programming），Bean 在 Spring 中作用就像 Object 对 OOP 的意义一样，没有对象的概念就像没有面向对象编程，Spring 中没有 Bean 也就没有 Spring 存在的意义</p>
+<h4><span id="从beans说起">从Beans说起</span></h4><p>​    Spring 就是面向 Bean 的编程（BOP,Bean Oriented Programming），Bean 在 Spring 中作用就像 Object 对 OOP 的意义一样，没有对象的概念就像没有面向对象编程，Spring 中没有 Bean 也就没有 Spring 存在的意义</p>
 <p>​    这个包下的所有类主要解决了三件事：Bean 的定义、Bean 的创建以及对 Bean 的解析</p>
-<h5 id="Bean-的创建"><a href="#Bean-的创建" class="headerlink" title="Bean 的创建"></a>Bean 的创建</h5><p>​    Spring Bean 的创建时典型的工厂模式，它的顶级接口是 <code>BeanFactory</code></p>
+<h5><span id="bean-的创建">Bean 的创建</span></h5><p>​    Spring Bean 的创建时典型的工厂模式，它的顶级接口是 <code>BeanFactory</code></p>
 <p>​    <code>BeanFactory</code> 有三个子类：</p>
 <p>​        <code>ListableBeanFactory</code> 接口 ：表示这些 Bean 是可列表的</p>
 <p>​        <code>HierarchicalBeanFactory</code>  ：表示的这些 Bean 是有继承关系的，有父bean</p>
 <p>​        <code>AutowireCapableBeanFactory</code> ：接口定义 Bean 的自动装配规则</p>
 <p>​    上述的接口共同定义了 Bean 的集合、Bean 之间的关系、以及 Bean 行为，它们的默认实现类是 <code>DefaultListableBeanFactory</code></p>
 <p>​    todo ==DefaultListableBeanFactory的子类分析==</p>
-<h5 id="Bean-的定义"><a href="#Bean-的定义" class="headerlink" title="Bean 的定义"></a>Bean 的定义</h5><p>​    Bean 的定义主要有 BeanDefinition 描述，主要来自两方面</p>
+<h5><span id="bean-的定义">Bean 的定义</span></h5><p>​    Bean 的定义主要有 BeanDefinition 描述，主要来自两方面</p>
 <p>​        XML定义，</p>
 <p>​        注解扫描 @Service @Entity @Bean @Configuration</p>
-<h5 id="Bean-的解析"><a href="#Bean-的解析" class="headerlink" title="Bean 的解析"></a>Bean 的解析</h5><p>​    把xml解析成Resource类            </p>
-<h5 id="Spring-Bean-封装机制"><a href="#Spring-Bean-封装机制" class="headerlink" title="Spring Bean 封装机制"></a>Spring Bean 封装机制</h5><p>​    Spring 从核心而言，是一个 DI 容器，其设计哲学是提供一种无侵入式的高扩展性框架。即无需代码中涉及 Spring 专有类（指Bean），即可将其纳入 Spring 容器进行管理。 </p>
+<h5><span id="bean-的解析">Bean 的解析</span></h5><p>​    把xml解析成Resource类            </p>
+<h5><span id="spring-bean-封装机制">Spring Bean 封装机制</span></h5><p>​    Spring 从核心而言，是一个 DI 容器，其设计哲学是提供一种无侵入式的高扩展性框架。即无需代码中涉及 Spring 专有类（指Bean），即可将其纳入 Spring 容器进行管理。 </p>
 <p>​    作为对比，EJB 则是一种高度侵入性的框架规范，它制定了众多的接口和编码规范，要求实现者必须 遵从。侵入性的后果就是，一旦系统基于侵入性框架设计开发，那么之后任何脱离这个框架的企图都将付 出极大的代价。 </p>
 <p>​    Spring 大量引入了 Java 的 Reflection 机制，通过动态 调用的方式避免硬编码方式的约束，并在此基础上建立了其核心组件 BeanFactory，以此作为其依赖注入 机制的实现基础。 </p>
 <p>org.springframework.beans 包中包括了这些核心组件的实现类，核心中的核心为 BeanWrapper<br>和 BeanFactory 类。</p>
-<h6 id="BeanWrapper"><a href="#BeanWrapper" class="headerlink" title="BeanWrapper"></a>BeanWrapper</h6><p>​    这个BeanWrapper的功能很简单，提供一个设置JavaBean属性的通用方法， 动态设置一个对象属性</p>
-<h5 id="Bean-Factory"><a href="#Bean-Factory" class="headerlink" title="Bean Factory"></a>Bean Factory</h5><p>​    负责创建并维护Bean实例。 </p>
+<h6><span id="beanwrapper">BeanWrapper</span></h6><p>​    这个BeanWrapper的功能很简单，提供一个设置JavaBean属性的通用方法， 动态设置一个对象属性</p>
+<h5><span id="bean-factory">Bean Factory</span></h5><p>​    负责创建并维护Bean实例。 </p>
 <p>Bean Factory负责根据配置文件创建Bean实例，可以配置的项目有:</p>
 <ol>
 <li>Bean属性值及依赖关系(对其他Bean的引用)  property</li>
@@ -549,7 +630,7 @@
 <li>Bean的依赖关系。 depends-on（通过depends-on指定其依赖关系可保证在此Bean加载之前，首先对depends-on所指定的资源进行加载）</li>
 </ol>
 <p>​    </p>
-<h4 id="容器Context"><a href="#容器Context" class="headerlink" title="容器Context"></a>容器Context</h4><p>​    BeanFactory提供了针对Java Bean的管理功能，而ApplicationContext提供了一个更为框架化的 实现(从上面的示例中可以看出，BeanFactory的使用方式更加类似一个API，而非Framework style)。 </p>
+<h4><span id="容器context">容器Context</span></h4><p>​    BeanFactory提供了针对Java Bean的管理功能，而ApplicationContext提供了一个更为框架化的 实现(从上面的示例中可以看出，BeanFactory的使用方式更加类似一个API，而非Framework style)。 </p>
 <p>​    ApplicationContext覆盖了BeanFactory的所有功能，并提供了更多的特性。此外， ApplicationContext为与现有应用框架相整合，提供了更为开放式的实现(如对于Web应用，我们可以在 web.xml中对ApplicationContext进行配置)。 </p>
 <p>​    ApplicationContext 是 Context 的顶级父类，他除了能标识一个应用环境的基本信息外，他还继承了五个接口，这五个接口主要是扩展了 Context 的功能。下面是 Context 的类结构图</p>
 <p><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1g0prh3oklzj31tk0qq781.jpg" alt="image-20190303180157960"></p>
@@ -563,30 +644,30 @@
 <li>事件传播 事件传播特性为系统中状态改变时的检测提供了良好支持。 </li>
 <li>多实例加载 可以在同一个应用中加载多个Context实例。 </li>
 </ol>
-<h5 id="Core"><a href="#Core" class="headerlink" title="Core"></a>Core</h5><p>​    其实 Core 就是发现、建立和维护每个 Bean 之间的关系所需要的一些列的工具，从这个角度看来，Core 这个组件叫 Util 更能让你理解。</p>
+<h5><span id="core">Core</span></h5><p>​    其实 Core 就是发现、建立和维护每个 Bean 之间的关系所需要的一些列的工具，从这个角度看来，Core 这个组件叫 Util 更能让你理解。</p>
 <p>下图是 Resource 相关的类结构图：</p>
 <p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1g0prtjnknbj31wk0rkgp4.jpg" alt="image-20190303181354519"></p>
 <p>​    从上图可以看出 Resource 接口封装了各种可能的资源类型，也就是对使用者来说屏蔽了文件类型的不同。</p>
 <p>​    对资源的提供者来说，如何把资源包装起来交给其他人用这也是一个问题，我们看到 Resource 接口继承了 InputStreamSource 接口，这个接口中有个 getInputStream 方法，返回的是 InputStream 类。这样所有的资源都被可以通过 InputStream 这个类来获取，所以也屏蔽了资源的提供者。</p>
 <p>​    另外还有一个问题就是加载资源的问题，也就是资源的加载者要统一，从上图中可以看出这个任务是由 ResourceLoader 接口完成，他屏蔽了所有的资源加载者的差异，只需要实现这个接口就可以加载所有的资源，他的默认实现是 DefaultResourceLoader。</p>
-<h5 id="SpEL"><a href="#SpEL" class="headerlink" title="SpEL"></a><del>SpEL</del></h5><p><strong>如何创建 BeanFactory 工厂</strong></p>
+<h5><span id="spel"><del>SpEL</del></span></h5><p><strong>如何创建 BeanFactory 工厂</strong></p>
 <p><strong>如何创建 Bean 实例并构建 Bean 的关系网</strong></p>
-<h3 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h3><hr>
+<h3><span id="规范">规范</span></h3><hr>
 <p>实现了哪些规范？</p>
-<h4 id="Java-Beans"><a href="#Java-Beans" class="headerlink" title="Java Beans"></a>Java Beans</h4><p>​            内省</p>
+<h4><span id="java-beans">Java Beans</span></h4><p>​            内省</p>
 <p>​            基础核心特性:反射(Reflection) </p>
 <p>​            附加特性:引用(Reference)<br>​                Reference<br>​                                SoftReference<br>​                                WeakReference<br>​                                PhantomReference<br>​                                FinalReference<br>​                       BeanInfo<br>​                               BeanDescriptor<br>​                      PropertyDescriptor<br>​                            事件: PropertyChangeEvent<br>​                                java.util.EventObject </p>
 <p>​                            监听器: PropertyChangeListener<br>​                                             java.util.EventListener<br>​                              MethodDescriptor</p>
-<h4 id="Dependency-Injection-JSR-330"><a href="#Dependency-Injection-JSR-330" class="headerlink" title="Dependency Injection (JSR 330)"></a>Dependency Injection (<a href="https://www.jcp.org/en/jsr/detail?id=330" target="_blank" rel="noopener">JSR 330</a>)</h4><h4 id="Bean-Validation-JSR-303"><a href="#Bean-Validation-JSR-303" class="headerlink" title="Bean Validation (JSR 303)"></a>Bean Validation (<a href="https://jcp.org/en/jsr/detail?id=303" target="_blank" rel="noopener">JSR 303</a>)</h4><h4 id="Common-Annotations-JSR-250"><a href="#Common-Annotations-JSR-250" class="headerlink" title="Common Annotations (JSR 250)"></a>Common Annotations (<a href="https://jcp.org/en/jsr/detail?id=250" target="_blank" rel="noopener">JSR 250</a>)</h4><h3 id="API-Doc"><a href="#API-Doc" class="headerlink" title="API-Doc"></a>API-Doc</h3><hr>
+<h4><span id="dependency-injection-jsr-330">Dependency Injection ()</span></h4><h4><span id="bean-validation-jsr-303">Bean Validation ()</span></h4><h4><span id="common-annotations-jsr-250">Common Annotations ()</span></h4><h3><span id="api-doc">API-Doc</span></h3><hr>
 <p><a href="https://docs.spring.io/spring/docs/5.1.5.RELEASE/javadoc-api/" target="_blank" rel="noopener">https://docs.spring.io/spring/docs/5.1.5.RELEASE/javadoc-api/</a></p>
-<h4 id="beans"><a href="#beans" class="headerlink" title="beans"></a>beans</h4><p>Package org.springframework.beans Description</p>
+<h4><span id="beans">beans</span></h4><p>Package org.springframework.beans Description</p>
 <p>This package contains interfaces and classes for manipulating Java beans. It is used by most other Spring packages.</p>
 <p>A BeanWrapper object may be used to set and get bean properties, singly or in bulk.</p>
 <p>The classes in this package are discussed in Chapter 11 of <a href="https://www.amazon.com/exec/obidos/tg/detail/-/0764543857/" target="_blank" rel="noopener">Expert One-On-One J2EE Design and Development</a> by Rod Johnson (Wrox, 2002).</p>
-<h4 id="context"><a href="#context" class="headerlink" title="context"></a>context</h4><p>Package org.springframework.context Description</p>
+<h4><span id="context">context</span></h4><p>Package org.springframework.context Description</p>
 <p>This package builds on the beans package to add support for message sources and for the Observer design pattern, and the ability for application objects to obtain resources using a consistent API.</p>
 <p>There is no necessity for Spring applications to depend on ApplicationContext or even BeanFactory functionality explicitly. One of the strengths of the Spring architecture is that application objects can often be configured without any dependency on Spring-specific APIs.</p>
-<h4 id="core"><a href="#core" class="headerlink" title="core"></a>core</h4><p>Package org.springframework.core Description</p>
+<h4><span id="core">core</span></h4><p>Package org.springframework.core Description</p>
 <p>Provides basic classes for exception handling and version detection, and other core helpers that are not specific to any part of the framework.</p>
 
       
@@ -787,7 +868,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IoC-container-IoC-容器"><span class="nav-number">1.</span> <span class="nav-text">IoC container(IoC 容器)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">1.1.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IOC"><span class="nav-number">1.1.1.</span> <span class="nav-text">IOC</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#从-‘依赖反转’-到-‘依赖注入’"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">从 ‘依赖反转’ 到 ‘依赖注入’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#从-‘对象-对象’-到-‘对象-IOC容器-对象’"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">从 ‘对象-对象’ 到 ‘对象-IOC容器-对象’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对象的分类"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">对象的分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#与EJB的关系、对比"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">与EJB的关系、对比</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DI"><span class="nav-number">1.1.2.</span> <span class="nav-text">DI</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#依赖查找-Dependency-Lookup"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">依赖查找(Dependency Lookup)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#依赖注入-Dependency-Injection"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">依赖注入(Dependency Injection)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块"><span class="nav-number">1.2.</span> <span class="nav-text">模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#从Beans说起"><span class="nav-number">1.2.1.</span> <span class="nav-text">从Beans说起</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Bean-的创建"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">Bean 的创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Bean-的定义"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">Bean 的定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Bean-的解析"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">Bean 的解析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Bean-封装机制"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">Spring Bean 封装机制</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#BeanWrapper"><span class="nav-number">1.2.1.4.1.</span> <span class="nav-text">BeanWrapper</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Bean-Factory"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">Bean Factory</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#容器Context"><span class="nav-number">1.2.2.</span> <span class="nav-text">容器Context</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Core"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Core</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SpEL"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">SpEL</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规范"><span class="nav-number">1.3.</span> <span class="nav-text">规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java-Beans"><span class="nav-number">1.3.1.</span> <span class="nav-text">Java Beans</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dependency-Injection-JSR-330"><span class="nav-number">1.3.2.</span> <span class="nav-text">Dependency Injection (JSR 330)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bean-Validation-JSR-303"><span class="nav-number">1.3.3.</span> <span class="nav-text">Bean Validation (JSR 303)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Common-Annotations-JSR-250"><span class="nav-number">1.3.4.</span> <span class="nav-text">Common Annotations (JSR 250)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API-Doc"><span class="nav-number">1.4.</span> <span class="nav-text">API-Doc</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#beans"><span class="nav-number">1.4.1.</span> <span class="nav-text">beans</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#context"><span class="nav-number">1.4.2.</span> <span class="nav-text">context</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#core"><span class="nav-number">1.4.3.</span> <span class="nav-text">core</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">IoC container(IoC 容器)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.</span> <span class="nav-text">IOC</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">从 ‘依赖反转’ 到 ‘依赖注入’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">从 ‘对象-对象’ 到 ‘对象-IOC容器-对象’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">对象的分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">与EJB的关系、对比</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.2.</span> <span class="nav-text">DI</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">依赖查找(Dependency Lookup)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">依赖注入(Dependency Injection)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.</span> <span class="nav-text">从Beans说起</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">Bean 的创建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">Bean 的定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">Bean 的解析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">Spring Bean 封装机制</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.4.1.</span> <span class="nav-text">BeanWrapper</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">Bean Factory</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.</span> <span class="nav-text">容器Context</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Core</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">SpEL</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.1.</span> <span class="nav-text">Java Beans</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.2.</span> <span class="nav-text">Dependency Injection ()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.3.</span> <span class="nav-text">Bean Validation ()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.4.</span> <span class="nav-text">Common Annotations ()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">API-Doc</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.1.</span> <span class="nav-text">beans</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.2.</span> <span class="nav-text">context</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.3.</span> <span class="nav-text">core</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -815,7 +896,21 @@
   <span class="author" itemprop="copyrightHolder">zhengyumin</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="Symbols count total"></span>
+  
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="Reading time total"></span>
   
 </div>
 
