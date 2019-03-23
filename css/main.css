@@ -1054,6 +1054,31 @@ pre .javascript .function {
 .comments {
   margin: 60px 20px 0;
 }
+.back-to-top {
+  box-sizing: border-box;
+  position: fixed;
+  bottom: -100px;
+  right: 30px;
+  z-index: 1050;
+  padding: 0 6px;
+  width: 24px;
+  background: #222;
+  font-size: 12px;
+  opacity: 0.6;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  transition-property: bottom;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+}
+.back-to-top.back-to-top-on {
+  bottom: 30px;
+}
+.back-to-top:hover {
+  color: #fc6423;
+}
 .header {
   background: transparent;
 }
@@ -1250,12 +1275,12 @@ pre .javascript .function {
 }
 @media (min-width: 992px) {
   .posts-expand .post-body {
-    text-align: ;
+    text-align: justify;
   }
 }
 @media (max-width: 991px) {
   .posts-expand .post-body {
-    text-align: ;
+    text-align: justify;
   }
 }
 .posts-expand .post-body h2,
@@ -1476,9 +1501,6 @@ pre .javascript .function {
 .posts-expand .post-meta time {
   border-bottom: 1px dashed #999;
   cursor: help;
-}
-.post-symbolscount {
-  display: inline-block;
 }
 .post-meta-divider {
   margin: 0 0.5em;
@@ -1748,7 +1770,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff4eff;
+  background: #36acf9;
 }
 .feed-link,
 .chat {
@@ -1835,6 +1857,36 @@ pre .javascript .function {
 .sidebar-panel-active {
   display: block;
 }
+.site-state {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-align: center;
+  margin-top: 10px;
+}
+.site-state-item {
+  padding: 0 15px;
+  border-left: 1px solid #eee;
+}
+.site-state-item:first-child {
+  border-left: none;
+}
+.site-state-item a {
+  border-bottom: none;
+}
+.site-state-item-count {
+  display: block;
+  text-align: center;
+  color: inherit;
+  font-weight: 600;
+  font-size: 16px;
+}
+.site-state-item-name {
+  font-size: 13px;
+  color: #999;
+}
 .post-toc-empty {
   font-size: 14px;
   color: #666;
@@ -1905,13 +1957,10 @@ pre .javascript .function {
 .footer-inner {
   text-align: center;
 }
-#animate {
-  animation: iconAnimate 1.33s ease-in-out infinite;
-}
 .with-love {
   display: inline-block;
   margin: 0 5px;
-  color: user;
+  color: #808080;
 }
 .powered-by,
 .theme-info {

@@ -38,10 +38,6 @@
 
 
 
-  
-  
-  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
-
 
 
 
@@ -76,12 +72,12 @@
     root: '/',
     scheme: 'Pisces',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    back2top: ,
-    back2top_sidebar: ,
-    fancybox: true,
-    fastclick: ,
-    lazyload: ,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
@@ -219,10 +215,12 @@
     
     
     
+      
+    
 
     
 
-    <a href="/" rel="section">Home</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
 
   </li>
         
@@ -234,10 +232,12 @@
     
     
     
+      
+    
 
     
 
-    <a href="/about/" rel="section">About</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
 
   </li>
         
@@ -249,10 +249,12 @@
     
     
     
+      
+    
 
     
 
-    <a href="/tags/" rel="section">Tags</a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
 
   </li>
         
@@ -264,10 +266,12 @@
     
     
     
+      
+    
 
     
 
-    <a href="/categories/" rel="section">Categories</a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
 
   </li>
         
@@ -279,10 +283,12 @@
     
     
     
+      
+    
 
     
 
-    <a href="/archives/" rel="section">Archives</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
 
   </li>
 
@@ -524,6 +530,56 @@
           </div>
 
           
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
 
           
 
@@ -561,7 +617,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">zhengyumin</span>
 
@@ -571,7 +627,11 @@
 </div>
 
 
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
+
+
+  <span class="post-meta-divider">|</span>
 
 
 
@@ -593,6 +653,11 @@
       </div>
     </footer>
 
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
 
     
@@ -621,8 +686,6 @@
 
 
 
-  
-
 
 
 
@@ -645,9 +708,6 @@
 
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
 
 
   
@@ -693,74 +753,6 @@
 
 
   
-  
-  <script>
-    
-    function showTime(Counter) {
-      var entries = [];
-      var $visitors = $('.leancloud_visitors');
-
-      $visitors.each(function() {
-        entries.push( $(this).attr('id').trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { '$in': entries } }) })
-        .done(function({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for (var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if (countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function ({ responseJSON }) {
-          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
-        });
-    }
-    
-
-    $(function() {
-      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'D2GGMftjnaihnt6xGsBOCK1T-gzGzoHsz')
-        .done(function({ api_server }) {
-          var Counter = function(method, url, data) {
-            return $.ajax({
-              method: method,
-              url: 'https://' + api_server + '/1.1' + url,
-              headers: {
-                'X-LC-Id': 'D2GGMftjnaihnt6xGsBOCK1T-gzGzoHsz',
-                'X-LC-Key': '42G22rkOJK422bv0XSJhBrW6',
-                'Content-Type': 'application/json',
-              },
-              data: data
-            });
-          };
-          
-            if ($('.post-title-link').length >= 1) {
-              showTime(Counter);
-            }
-          
-        });
-    });
-  </script>
-
-
 
   
 
