@@ -105,7 +105,8 @@
 <meta property="og:description" content="阅读的目的？我想要从中获得什么？ ​    架构师的思维，当一个框架不符合主流时候是怎么思考的，spring是为解决什么问题出现的？ ​    spring相关的发展历史  不符合的原因   分析我们真正需要的是什么。 替代方案，解决方法">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1g18zgtukb9j31kz0u0af4.jpg">
-<meta property="og:updated_time" content="2019-03-24T11:25:53.705Z">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1g1e5z44nkbj31m60t2ade.jpg">
+<meta property="og:updated_time" content="2019-03-24T12:52:48.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Expert One-on-One J2EE Development without EJB">
 <meta name="twitter:description" content="阅读的目的？我想要从中获得什么？ ​    架构师的思维，当一个框架不符合主流时候是怎么思考的，spring是为解决什么问题出现的？ ​    spring相关的发展历史  不符合的原因   分析我们真正需要的是什么。 替代方案，解决方法">
@@ -380,7 +381,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-24 19:25:53" itemprop="dateModified" datetime="2019-03-24T19:25:53+08:00">2019-03-24</time>
+                <time title="修改时间：2019-03-24 20:52:48" itemprop="dateModified" datetime="2019-03-24T20:52:48+08:00">2019-03-24</time>
               
             
           </span>
@@ -419,7 +420,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">11k</span>
+                <span title="本文字数">12k</span>
               
 
               
@@ -433,7 +434,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">10 分钟</span>
+                <span title="阅读时长">11 分钟</span>
               
             </div>
           
@@ -462,14 +463,11 @@
 <li>替代方案，解决方法</li>
 </ul>
 <a id="more"></a>
-<p>[TOC]</p>
 <h3 id="Chapeter-1"><a href="#Chapeter-1" class="headerlink" title="Chapeter 1"></a>Chapeter 1</h3><p>Why  without ？</p>
 <h4 id="EJB存在的问题"><a href="#EJB存在的问题" class="headerlink" title="EJB存在的问题"></a>EJB存在的问题</h4><ul>
 <li>EJB规范中的一些部分已经过时,J2SE1.3引入的动态代理(dynamicproxy)</li>
-<li><p>EJB和RMI之间那种传统的紧密关系也开始显得有些不合时宜(local 和 remote 的调用？)这一方面是因为webservices 的迅速发展，另一方面是因为人们发现:很多时候 EJB 只需要本地接口</p>
-</li>
-<li><p>EJB 最善于实现业务对象分布的体系结构，然而这种体系结构究竟有多大程度的普遍性</p>
-</li>
+<li>EJB和RMI之间那种传统的紧密关系也开始显得有些不合时宜(local 和 remote 的调用？)这一方面是因为webservices 的迅速发展，另一方面是因为人们发现:很多时候 EJB 只需要本地接口</li>
+<li>EJB 最善于实现业务对象分布的体系结构，然而这种体系结构究竟有多大程度的普遍性</li>
 <li>SLSB （无状态session bean）和 MDB 使用较多，整个容器成本高昂</li>
 <li>EJB的复杂性，EJB规范的复杂性 -&gt;开发效率</li>
 <li>TDD流行 ，难以测试</li>
@@ -483,11 +481,9 @@
 <li>它大大提升了企业级软件的开放程度;</li>
 <li>并且它得到了整个行业和开发者的广泛认可。</li>
 </ul>
-<h5 id="J2EE-在易用性方面存在着严重的问题"><a href="#J2EE-在易用性方面存在着严重的问题" class="headerlink" title="J2EE 在易用性方面存在着严重的问题"></a>J2EE 在易用性方面存在着严重的问题</h5><p><em>Core J2EE Patterns</em></p>
-<p> 书中已经开始提倡使 用普通 Java 对象。</p>
-<p>以规范为驱动的问题</p>
-<p>有状态 session bean，状态的复制带来了很多微妙棘手的问题，所以大多数架构师总是尽量避免使用有状态 session bean。 </p>
-<p>如果希望开发者遵循 J2EE 规范，那么 J2EE 规范首先必须是一个实用、易用的规范。</p>
+<h5 id="J2EE-在易用性方面存在着严重的问题"><a href="#J2EE-在易用性方面存在着严重的问题" class="headerlink" title="J2EE 在易用性方面存在着严重的问题"></a>J2EE 在易用性方面存在着严重的问题</h5><p><em>Core J2EE Patterns</em>，书中已经开始提倡使 用普通 Java 对象。</p>
+<h6 id="以规范为驱动的问题"><a href="#以规范为驱动的问题" class="headerlink" title="以规范为驱动的问题"></a>以规范为驱动的问题</h6><p>​    有状态 session bean，状态的复制带来了很多微妙棘手的问题，所以大多数架构师总是尽量避免使用有状态 session bean。 </p>
+<p>​    如果希望开发者遵循 J2EE 规范，那么 J2EE 规范首先必须是一个实用、易用的规范。</p>
 <h5 id="J2EE-项目具备架构重构能力的关键"><a href="#J2EE-项目具备架构重构能力的关键" class="headerlink" title="J2EE 项目具备架构重构能力的关键"></a>J2EE 项目具备架构重构能力的关键</h5><p>​    简单、效率、面向对象（思想）、业务需求至上、可测试性</p>
 <p> 􏰀 遵循良好的 OO 设计法则，并且始终针对接口编程、而非针对类编程。这是经典图书 </p>
 <p>Design Patterns 教给我们的基本常识，可惜人们常常忽视了这一点。 </p>
@@ -495,36 +491,44 @@
 <p>利用现有的框架提供这些基础设施服务</p>
 <p>spring</p>
 <p>​    基础框架的设计甚至早于<em>Expert One-on-One J2EE Design and Development</em>的写作，<br>它们来自我过去几个商业项目的经验。</p>
-<h3 id="Chapeter-5-EJB的5年间"><a href="#Chapeter-5-EJB的5年间" class="headerlink" title="Chapeter 5 EJB的5年间"></a>Chapeter 5 EJB的5年间</h3><p>不应该以规范先行  ，而应该开源引导</p>
-<p>EJB出现的背景，制定标准 （好处是 强制接口实现分离 、容器的概念、管理对象，粗粒度）</p>
+<h3 id="Chapeter-5-EJB的5年间"><a href="#Chapeter-5-EJB的5年间" class="headerlink" title="Chapeter 5   EJB的5年间"></a>Chapeter 5   EJB的5年间</h3><h4 id="不应该以规范先行-，而应该开源引导"><a href="#不应该以规范先行-，而应该开源引导" class="headerlink" title="不应该以规范先行  ，而应该开源引导"></a>不应该以规范先行  ，而应该开源引导</h4><p>​    EJB出现的背景，制定标准 （好处是 强制接口实现分离 、容器的概念、管理对象，粗粒度）</p>
 <p>rmi到Ws （SOAP 是基于 XML 的简易协议，可使应用程序在 HTTP 之上进行信息交换。使用描述语言WSDL）</p>
-<p>需要EJB中的什么（从中获取价值，并用简单的方式实现）</p>
-<p>​    声明式事务（编程式事务可以解决复杂的事务、 JTA webLogic）</p>
-<p>​    远程调用（协议。JMS、 ws）</p>
-<p>​    集群（web层、数据访问层、数据库。真正限制是在数据访问 吞吐、并置的应用更有效）</p>
-<p>​    线程池（避免jvm垃圾回收、tomcat的线程池）和资源池</p>
-<p>​    安全（web层、tomcat filter、springmvc filter）</p>
-<p>​    管理业务对象（JNDI、重量级工厂 、ioc抄袭、spring提供基于配置 而不是代码、picoContainer、EJB提供了一个重量级工厂（实现、部署EJB、使用JNDI 应用代码）、消除了接口与实现之间的耦合。）</p>
+<h4 id="需要EJB中的什么（从中获取价值，并用简单的方式实现）"><a href="#需要EJB中的什么（从中获取价值，并用简单的方式实现）" class="headerlink" title="需要EJB中的什么（从中获取价值，并用简单的方式实现）"></a>需要EJB中的什么（从中获取价值，并用简单的方式实现）</h4><ul>
+<li>声明式事务（编程式事务可以解决复杂的事务、 JTA webLogic）</li>
+<li>远程调用（协议。JMS、 ws）</li>
+<li>集群（web层、数据访问层、数据库。真正限制是在数据访问 吞吐、并置的应用更有效）</li>
+<li>线程池（避免jvm垃圾回收、tomcat的线程池）和资源池</li>
+<li>安全（web层、tomcat filter、springmvc filter）</li>
+<li>管理业务对象（JNDI、重量级工厂 、ioc抄袭、spring提供基于配置 而不是代码、picoContainer、EJB提供了一个重量级工厂（实现、部署EJB、使用JNDI 应用代码）、消除了接口与实现之间的耦合。）</li>
+</ul>
 <p>​    </p>
 <p>总结</p>
 <p>​    SLSB、 MDB      entity beans 性能、最好设计成哑数据（贫血模型） 不包含业务逻辑</p>
-<p>不想要什么</p>
-<p>​    容器的锁定</p>
+<h4 id="不想要什么"><a href="#不想要什么" class="headerlink" title="不想要什么"></a>不想要什么</h4><ul>
+<li>容器的锁定</li>
+</ul>
 <p>​        限制应用服务器的选择</p>
 <p>​        只使用一小部分，却要接受其复杂性（不能按需引入）</p>
 <p>​        业务对象会被EJB API浸入</p>
 <p>​        不能在容器之外复用业务逻辑</p>
-<p>​    丑陋的结构、泛滥的类</p>
+<ul>
+<li>丑陋的结构、泛滥的类</li>
+</ul>
 <p>​        实现一个session bean ，至少需要三个Java源文件home接口 、组件接口 、bean实现类。通常还需要业务接口，来保持bean和组件的同步。</p>
-<p>​    部署描述文件的地狱</p>
+<ul>
+<li>部署描述文件的地狱</li>
+</ul>
 <p>​        描述文件冗长，依赖代码生成工具，不可手工维护</p>
-<p>​    ==类加载器的地狱==</p>
+<ul>
+<li>==类加载器的地狱==</li>
+</ul>
 <p>​        EJB容器与web容器使用的不是一个类加载器</p>
 <p>​        EJB类加载器是WAR类加载器的父亲。 EJB类加载器不能看到WAR类加载器加载的类？</p>
-<p>​    测试</p>
+<ul>
+<li>测试</li>
+</ul>
 <p>​        依赖容器导致问题</p>
-<p>简单的事情变困难</p>
-<p>​    用EJB实现singleton</p>
+<h4 id="简单的事情变困难"><a href="#简单的事情变困难" class="headerlink" title="简单的事情变困难"></a>简单的事情变困难</h4><p>​    用EJB实现singleton</p>
 <p>​    在EJB容器启动时做一些处理 （servelt listener 、web的listener 或者是bean的初始化后置操作等 、同时提供了依赖关系和顺序的支持）</p>
 <p>​    在EJB之间以及EJB和EJB容器外的对象之间的共享配置</p>
 <p>​    不能自由访问其他Java API  禁止访问一些Java API</p>
@@ -533,17 +537,13 @@
 <p>​        使用源码级元数据 -&gt;废除部署描述文件。</p>
 <p>​        提供一个简单、基于元数据标注的依赖注入机制。</p>
 <p>​        采用新的持久化机制。Hibernate采用的持久化方式</p>
-<p>​        </p>
-<p>​    时间太长、不大可能引入AOP方案、还是依赖特定EJB容器。（从最近看webflux的做法，决定减少对servelt的依赖可以看出。不强依赖于Servelt，从而达到不依赖于特定服务器）        </p>
-<p>​        </p>
+<p>​    时间太长、不大可能引入AOP方案、还是依赖特定EJB容器。（从最近看webflux的做法，决定减少对servelt的依赖可以看出。不强依赖于Servelt，从而达到不依赖于特定服务器）            </p>
 <p>YAGNI     </p>
-<h3 id="Chapter-6-轻量级容器"><a href="#Chapter-6-轻量级容器" class="headerlink" title="Chapter 6 轻量级容器"></a>Chapter 6 轻量级容器</h3><p>容器需提供</p>
-<p>​    生命周期，回调</p>
+<h3 id="Chapter-6-轻量级容器"><a href="#Chapter-6-轻量级容器" class="headerlink" title="Chapter 6 轻量级容器"></a>Chapter 6 轻量级容器</h3><h4 id="容器需提供的服务"><a href="#容器需提供的服务" class="headerlink" title="容器需提供的服务"></a>容器需提供的服务</h4><p>​    生命周期，回调</p>
 <p>​    查看服务 容器的核心是工厂</p>
 <p>​    配置管理 统一方法来配置运行其中的对象</p>
 <p>​    依赖管理</p>
-<p>增值</p>
-<p>​    企业级服务 ，事务管理或其他声明式服务</p>
+<h4 id="增值服务"><a href="#增值服务" class="headerlink" title="增值服务"></a>增值服务</h4><p>​    企业级服务 ，事务管理或其他声明式服务</p>
 <p>​    线程管理</p>
 <p>​    对象池</p>
 <p>​    集群服务</p>
@@ -599,34 +599,46 @@
 <p>​    为何AOP是J2EE without EJB的关键</p>
 <p>OOP 有些时候无法避免代码重复</p>
 <p>概念</p>
-<p>aspect  方面</p>
-<p>adivce 增强，拦截器</p>
-<p>Join point  连接点</p>
-<p>Point cut 切入点</p>
+<ul>
+<li>aspect  方面</li>
+<li>adivce 增强，拦截器</li>
+<li>Join point  连接点</li>
+<li>Point cut 切入点</li>
+</ul>
 <p>历史</p>
-<p>​    一些OOP设计模式已经解决了AOP希望解决的部分问题</p>
+<p>一些OOP设计模式已经解决了AOP希望解决的部分问题</p>
 <p>​    Decorator</p>
 <p>​    Observer</p>
 <p>​    Chain of Responsibility</p>
 <p>使用OO设计模式，不可能做到既保持被增强方法的强类型性、又不必自己动手为每个方法编写转发代码</p>
 <p>​    拦截器 如 servlet 、EJB 等 ，存在的问题是 它们将被拦截的代码与特点的API或上下文环境绑在一起，大多损失了强类型性。</p>
 <p>AOP的实现策略</p>
-<p>​    J2SE动态代理    </p>
+<ul>
+<li>J2SE动态代理    </li>
+</ul>
 <p>​         java1.3y引入动态代理，调用必要的拦截器链，最后一个拦截器借助反射调用目标对象</p>
 <p>​        好处：标准的语言特征</p>
 <p>​        局限：针对接口</p>
 <p>​        实现：spring</p>
-<p>​    动态字节码生成</p>
+<ul>
+<li>动态字节码生成</li>
+</ul>
 <p>​        CGLIB包，被应用在Hibernate 2.x版本中，并被证明是一种成熟的技术</p>
 <p>​        存在的问题，通过继承来实现代理的，所以无法为final方法提供代理</p>
 <p>​        实现：spring、Hibernate</p>
-<p>​    Java代码生成 </p>
+<ul>
+<li>Java代码生成 </li>
+</ul>
 <p>​        OOP设计模式，EJB代码生成策略，预设的方式，由于动态代理和动态字节码生成技术的出现，这种做法逐渐退出</p>
-<p>​    使用定制的类加载器</p>
+<ul>
+<li>使用定制的类加载器</li>
+</ul>
 <p>​        对某个类的所有实例进行增强</p>
 <p>​        风险：偏离了Java标准</p>
 <p>​        实现：JBoss4、AspectWerkz</p>
-<p>​    语言扩展 </p>
+<ul>
+<li>语言扩展 </li>
+</ul>
 <p>​        实现：AspectJ</p>
 <p>springAOP的缺点</p>
 <p>​    不支持字段拦截，但是封装性考虑是不应该</p>
@@ -654,14 +666,15 @@
 <p>springAOP</p>
 <p>​    一个可移植的服务层，类似于JTA、JDBC和别的底层API（将声明性服务从EJB容器中解耦出来，J2ee）</p>
 <p>​    一种基于AOP的服务获取机制，基于Java</p>
-<h3 id="Chapter-9-事务管理"><a href="#Chapter-9-事务管理" class="headerlink" title="Chapter 9  事务管理"></a>Chapter 9  事务管理</h3><p>​    在一个 web层 、业务对象层 、数据访问层中，事务管理属于业务对象层，通过将数据库切换到手工提交事务的模式。</p>
-<p>​    这种模式业务对象层和数据访问层都绑定到了特定的事务处理策略和数据访问策略。</p>
-<p>​    分离这些关注点。</p>
-<p>​        业务对象划分抽象事务，而无需关注事务涉及的数据库资源</p>
-<p>​        数据访问对象获取数据库资源，无需关注数据库资源如何加入事务</p>
-<h5 id="传统J2EE-事务管理"><a href="#传统J2EE-事务管理" class="headerlink" title="传统J2EE 事务管理"></a>传统J2EE 事务管理</h5><p>​    使用全局容器事务：事务由应用服务器来管理，登记所有参与事务的资源。一旦数据访问对象使用了涉及事务的资源，应用服务器容器将根据需要进行提交或回滚。</p>
+<h3 id="Chapter-9-事务管理"><a href="#Chapter-9-事务管理" class="headerlink" title="Chapter 9  事务管理"></a>Chapter 9  事务管理</h3><p>​    在一个 web层 、业务对象层 、数据访问层中，事务管理属于业务对象层，通过将数据库切换到手工提交事务的模式。这种模式业务对象层和数据访问层都绑定到了特定的事务处理策略和数据访问策略。</p>
+<p>​    需要分离这些关注点</p>
+<ul>
+<li>业务对象划分抽象事务，而无需关注事务涉及的数据库资源</li>
+<li>数据访问对象获取数据库资源，无需关注数据库资源如何加入事务</li>
+</ul>
+<h4 id="传统J2EE-事务管理"><a href="#传统J2EE-事务管理" class="headerlink" title="传统J2EE 事务管理"></a>传统J2EE 事务管理</h4><p>​    使用全局容器事务：事务由应用服务器来管理，登记所有参与事务的资源。一旦数据访问对象使用了涉及事务的资源，应用服务器容器将根据需要进行提交或回滚。</p>
 <p>​    底层设施是由容器实现的JTA，全局事务管理使用CMT</p>
-<h5 id="J2EE容器作为事务协调器"><a href="#J2EE容器作为事务协调器" class="headerlink" title="J2EE容器作为事务协调器"></a>J2EE容器作为事务协调器</h5><p>​    具备分布式事务的处理能力，应该完整支持遵循X/Open XA规范的两阶段提交协议（2-Phase-Commit）</p>
+<h4 id="J2EE容器作为事务协调器"><a href="#J2EE容器作为事务协调器" class="headerlink" title="J2EE容器作为事务协调器"></a>J2EE容器作为事务协调器</h4><p>​    具备分布式事务的处理能力，应该完整支持遵循X/Open XA规范的两阶段提交协议（2-Phase-Commit）</p>
 <p>​    第一阶段 事务协调器向所有相关资源发布 ‘准备’指令</p>
 <p>​    第二阶段 等所有的资源准备好以后触发实际的提交动作</p>
 <p>​    一、参与事务的资源必须被正确地配置好，例如JDBC，通过javax.sql.XADataSource接口实现类来建立JNDI DataSource</p>
@@ -669,7 +682,7 @@
 <p>​    二、使用特定的服务器特性来获取JTA内置的TransactionManage对象，TransactionManage对象允许数据访问框架注册到实物同步回调接口上</p>
 <p>​    编程式事务管理（使用java代码）  通过JNDI,直接使用JTA UserTransaction （多个受控异常，没有共同父类，事务处理代码污染业务对象）</p>
 <p>​    声明式事务管理（使用xml配置，注解的方式） 组件模型CMT ，建立在JTA基础设施之上的服务(只有EJB才能使用，解决了80%的问题，必须使用全局事务管理，EJB2.0才支持本地接口)</p>
-<h5 id="轻量级事务基础设施"><a href="#轻量级事务基础设施" class="headerlink" title="轻量级事务基础设施"></a>轻量级事务基础设施</h5><p>​    提供的功能：</p>
+<h4 id="轻量级事务基础设施"><a href="#轻量级事务基础设施" class="headerlink" title="轻量级事务基础设施"></a>轻量级事务基础设施</h4><p>​    提供的功能：</p>
 <p>​    可编程的事务声明和一致的异常处理机制。错误是不可恢复的，所以应该采用非受控异常，并且所有的异常应该继承自一个公共的基础父类</p>
 <p>​    在OPJO上面实现声明式事务，无需绑定重量级组件模型</p>
 <p>​    可插入的事务策略，以及让资源能够自动加入事务的手段</p>
@@ -677,10 +690,9 @@
 <p>​    独立的JDBC数据源</p>
 <p>​    独立的JDO PersistenceManagerFactory</p>
 <p>​    独立的Hibernate SessionFactory</p>
-<p>不应该依赖J2EE容器提供的服务，例如JNDI数据源。</p>
-<p>切换事务策略和资源定义应该是可配置的。</p>
-<h5 id="Spring-Framework的事务管理"><a href="#Spring-Framework的事务管理" class="headerlink" title="Spring Framework的事务管理"></a>Spring Framework的事务管理</h5><p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1g18zgtukb9j31kz0u0af4.jpg" alt="image-20190320090427683"></p>
-<h6 id="事务声明"><a href="#事务声明" class="headerlink" title="事务声明"></a>事务声明</h6><p>事务的属性 TransactionDefinition</p>
+<p>不应该依赖J2EE容器提供的服务，例如JNDI数据源。切换事务策略和资源定义应该是可配置的。</p>
+<h4 id="Spring-Framework的事务管理"><a href="#Spring-Framework的事务管理" class="headerlink" title="Spring Framework的事务管理"></a>Spring Framework的事务管理</h4><p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1g18zgtukb9j31kz0u0af4.jpg" alt="image-20190320090427683"></p>
+<h5 id="事务声明"><a href="#事务声明" class="headerlink" title="事务声明"></a>事务声明</h5><p>事务的属性 TransactionDefinition</p>
 <p>​    事务传播类型 required 、supports 、mandatory、  requires new 、not support、 never</p>
 <p>​    隔离级别 default 、ru、 rc、 rr 、serializable</p>
 <p>​    超时</p>
@@ -692,10 +704,10 @@
 <blockquote>
 <p>Invoking this method outside a Spring transactionally advised AOP invocation is a programming error and will result in a runtime exception.</p>
 </blockquote>
-<h6 id="编程式事务处理"><a href="#编程式事务处理" class="headerlink" title="编程式事务处理"></a>编程式事务处理</h6><p>直接使用 PlatfromTransactionManager</p>
+<h5 id="编程式事务处理"><a href="#编程式事务处理" class="headerlink" title="编程式事务处理"></a>编程式事务处理</h5><p>直接使用 PlatfromTransactionManager</p>
 <p>事务模板 TransactionTemplate</p>
 <p>​    比直接使用JTA简单</p>
-<h6 id="声明式事务管理"><a href="#声明式事务管理" class="headerlink" title="声明式事务管理"></a>声明式事务管理</h6><p>​    避免EJB带来的缺陷</p>
+<h5 id="声明式事务管理"><a href="#声明式事务管理" class="headerlink" title="声明式事务管理"></a>声明式事务管理</h5><p>​    避免EJB带来的缺陷</p>
 <p>通用的 Aop ProxyFactoryBean 和 TransactionInterceptor</p>
 <p>​    由于TransactionInterceptor是通过ThreadLocal来存取事务状态对象的。</p>
 <p>一站式 TransactionProxyFactoryBean</p>
@@ -711,7 +723,7 @@
 <p>​    JtaTransactionManager</p>
 <p>​    JdoTransactionManager</p>
 <p>​    HibernateTransactionManager</p>
-<h3 id="Chapter-10-持久化"><a href="#Chapter-10-持久化" class="headerlink" title="Chapter 10 持久化"></a>Chapter 10 持久化</h3><h4 id="常见持久化策略"><a href="#常见持久化策略" class="headerlink" title="常见持久化策略"></a>常见持久化策略</h4><h5 id="持久化策略概览"><a href="#持久化策略概览" class="headerlink" title="持久化策略概览"></a>持久化策略概览</h5><p>​    推荐Martin Fowler在 Patterns of Enterprise Application Architecture (POEAA) </p>
+<h3 id="Chapter10-持久化"><a href="#Chapter10-持久化" class="headerlink" title="Chapter10 持久化"></a>Chapter10 持久化</h3><h4 id="常见持久化策略"><a href="#常见持久化策略" class="headerlink" title="常见持久化策略"></a>常见持久化策略</h4><h5 id="持久化策略概览"><a href="#持久化策略概览" class="headerlink" title="持久化策略概览"></a>持久化策略概览</h5><p>​    推荐Martin Fowler在 Patterns of Enterprise Application Architecture (POEAA) </p>
 <p>​    基于SQL  直接操作关系模型，事务脚本（transaction script ），业务逻辑组织在一个过程中，适用于集合查询和批量更新。</p>
 <p>​    基于O/R 映射（对象-关系映射）  ，查询相对简单，只需要取出很少的几行数据，并对这些数据进行选择新的更新。这些数据实体通常可以映射到持久化的Java对象，组成了领域模型（domain model），业务逻辑表现为对象之间的交互，而不是直接操作数据库里的表和字段。</p>
 <p>​    一种简单的O/R映射就是active record ，一行记录都由对应的gateway类的一个实例来表现，这个持久化类提供insert、update、delete。每张表通常还有一个finder类。 将持久化操作定义在领域类内部。</p>
@@ -739,6 +751,7 @@
 <p>​    ibatis 以SQL映射的形式提供了简单的O/R映射</p>
 <p>2004：JDO稳步发展 Hibernate飞黄腾达</p>
 <p>​    Hibernate成为JBoss4.0 CMP引擎的基石</p>
+<p>JPA</p>
 <p>11 May 2006：</p>
 <p>​    The final release date of the JPA 1.0 specification was 11 May 2006 as part of <a href="https://en.wikipedia.org/wiki/Java_Community_Process" target="_blank" rel="noopener">Java Community Process</a> JSR 220. </p>
 <p>10 December 2009</p>
@@ -782,8 +795,34 @@
 <p>​    显示更新被修改对象</p>
 <p>​    将应用层面的值转换成数据库兼容的值</p>
 <p>没有实现工作单元和身份对应表，它不那么复杂。</p>
-<p>​    </p>
-<p>​    </p>
+<h5 id="JDO"><a href="#JDO" class="headerlink" title="JDO"></a>JDO</h5><p>​    规范</p>
+<p>​    JDOQL java查询API</p>
+<h5 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h5><p>​    目标是在JDBC上提供一层薄薄的封装，同时提供完善的透明持久化；为应用程序增加O/R映射的语意，但又不脱离底层的关系数据库。</p>
+<p>​    查询语言HQL提供了连接、统计函数等重要的关系型概念，与SQL不同是，查询是以领域对象熟悉的形式表现出来的。</p>
+<p>​    核心连接接口是net.sf.hibernate.Session</p>
+<p>​    快照对比 变更侦测 借助CGLIB以动态字节码生成的方式为持久对象创建运行时代理，从而降低了快照对比的性能损耗</p>
+<h6 id="状态管理"><a href="#状态管理" class="headerlink" title="状态管理"></a>状态管理</h6><p>​    允许将持久对象断开与Session的关联，稍后又可以很容易地重建关联，持久化对象发送到客户端层，对象会暂时从事务中脱离，当用户提交时又回到事务。</p>
+<p>​    好处就是：使得借助版本或时间戳实现跨多个请求、多个Session实例的乐观锁成为可能。</p>
+<p>​    较为放松的状态管理源自 快照比较的变更侦测方式， 刷新数据库的时候将快照与持久对象的当前内容进行比较。从而将需要发出的更新语句减少到最低限度</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@org</span>.hibernate.annotations.Entity(dynamicInsert = <span class="keyword">true</span>, dynamicUpdate = <span class="keyword">true</span>)</span><br></pre></td></tr></table></figure>
+<p>### </p>
+<h6 id="延迟加载"><a href="#延迟加载" class="headerlink" title="延迟加载"></a>延迟加载</h6><h4 id="数据访问对象模式"><a href="#数据访问对象模式" class="headerlink" title="数据访问对象模式"></a>数据访问对象模式</h4><p>​    DAO 时最为重要的J2EE模式之一，也是GoF Strategy模式的一种特殊形式。</p>
+<h5 id="DAO和透明化持久化"><a href="#DAO和透明化持久化" class="headerlink" title="DAO和透明化持久化"></a>DAO和透明化持久化</h5><p>​    典型的DAO 接口只针对相对简单、细粒度的持久化机制，当对象状态发送改变时，必须显式调用存储操作。他们没有区分一等对象（领域对象）和二等对象（从属性的领域对象，生命周期由父对象控制）。 JDBC</p>
+<p>​    透明持久化解决方案，只需要对一等对象进行持久化操作，从属对象的操作则通过级联更新或删除隐含进行。（persistence by reachability） ps:复杂 不可控</p>
+<h5 id="DAO设计中的问题"><a href="#DAO设计中的问题" class="headerlink" title="DAO设计中的问题"></a>DAO设计中的问题</h5><p>​    数据访问操作的粒度</p>
+<p>​    透明持久度和对象状态</p>
+<p>​    事务范围和延迟加载</p>
+<h5 id="DAO基础设施的问题"><a href="#DAO基础设施的问题" class="headerlink" title="DAO基础设施的问题"></a>DAO基础设施的问题</h5><p>​    同之前资源处理问题有写关系</p>
+<p>组装</p>
+<p>参与事务</p>
+<p>异常处理</p>
+<p>​    这些问题属于中间层领地，应该由应用框架来提供各种库与组件之间的整合办法。</p>
+<h4 id="使用spring框架进行数据访问"><a href="#使用spring框架进行数据访问" class="headerlink" title="使用spring框架进行数据访问"></a>使用spring框架进行数据访问</h4><p>​    bean工厂和上下文容器可以轻松装配</p>
+<p>​    清晰的事务模型</p>
+<p>​    通用的数据库访问异常体系，很好地定义了事务与连接的关系，尤其是如何在事务之间重复使用连接，</p>
+<p>​    对于各种持久化方式，Spring用形式统一的模板机制解决了关闭连接、处理异常等问题</p>
+<p>下图是访问异常体系</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1g1e5z44nkbj31m60t2ade.jpg" alt="image-20190324203729362"></p>
 
       
     </div>
@@ -833,6 +872,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/24/19年3月18-24/" rel="prev" title="19年3月18-24">
+                19年3月18-24 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -908,7 +951,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -945,7 +988,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -998,7 +1043,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapeter-1"><span class="nav-number">1.</span> <span class="nav-text">Chapeter 1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#EJB存在的问题"><span class="nav-number">1.1.</span> <span class="nav-text">EJB存在的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#J2EE还剩下什么"><span class="nav-number">1.2.</span> <span class="nav-text">J2EE还剩下什么</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#J2EE-在易用性方面存在着严重的问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">J2EE 在易用性方面存在着严重的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#J2EE-项目具备架构重构能力的关键"><span class="nav-number">1.2.2.</span> <span class="nav-text">J2EE 项目具备架构重构能力的关键</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapeter-5-EJB的5年间"><span class="nav-number">2.</span> <span class="nav-text">Chapeter 5 EJB的5年间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-6-轻量级容器"><span class="nav-number">3.</span> <span class="nav-text">Chapter 6 轻量级容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-7-Spring框架介绍"><span class="nav-number">4.</span> <span class="nav-text">Chapter 7 Spring框架介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-8-基于AOP概念的声明性中间件"><span class="nav-number">5.</span> <span class="nav-text">Chapter 8 基于AOP概念的声明性中间件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-9-事务管理"><span class="nav-number">6.</span> <span class="nav-text">Chapter 9  事务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#传统J2EE-事务管理"><span class="nav-number">6.0.1.</span> <span class="nav-text">传统J2EE 事务管理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#J2EE容器作为事务协调器"><span class="nav-number">6.0.2.</span> <span class="nav-text">J2EE容器作为事务协调器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#轻量级事务基础设施"><span class="nav-number">6.0.3.</span> <span class="nav-text">轻量级事务基础设施</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Framework的事务管理"><span class="nav-number">6.0.4.</span> <span class="nav-text">Spring Framework的事务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#事务声明"><span class="nav-number">6.0.4.1.</span> <span class="nav-text">事务声明</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#编程式事务处理"><span class="nav-number">6.0.4.2.</span> <span class="nav-text">编程式事务处理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#声明式事务管理"><span class="nav-number">6.0.4.3.</span> <span class="nav-text">声明式事务管理</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#事务管理策略"><span class="nav-number">6.0.5.</span> <span class="nav-text">事务管理策略</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-10-持久化"><span class="nav-number">7.</span> <span class="nav-text">Chapter 10 持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见持久化策略"><span class="nav-number">7.1.</span> <span class="nav-text">常见持久化策略</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#持久化策略概览"><span class="nav-number">7.1.1.</span> <span class="nav-text">持久化策略概览</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#选择持久化映射"><span class="nav-number">7.1.2.</span> <span class="nav-text">选择持久化映射</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#何时使用O-R映射"><span class="nav-number">7.1.2.1.</span> <span class="nav-text">何时使用O/R映射</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#使用O-R映射到好处"><span class="nav-number">7.1.2.2.</span> <span class="nav-text">使用O/R映射到好处</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#持久化发展史"><span class="nav-number">7.2.</span> <span class="nav-text">持久化发展史</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#关系型映射发展史"><span class="nav-number">7.2.1.</span> <span class="nav-text">关系型映射发展史</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#O-R映射发展史"><span class="nav-number">7.2.2.</span> <span class="nav-text">O/R映射发展史</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#entity-bean败笔"><span class="nav-number">7.2.3.</span> <span class="nav-text">entity bean败笔</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实践中的数据访问技术"><span class="nav-number">7.3.</span> <span class="nav-text">实践中的数据访问技术</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#资源管理"><span class="nav-number">7.3.1.</span> <span class="nav-text">资源管理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JDBC"><span class="nav-number">7.3.2.</span> <span class="nav-text">JDBC</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iBATIS-SQL映射"><span class="nav-number">7.3.3.</span> <span class="nav-text">iBATIS SQL映射</span></a></li></ol></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapeter-1"><span class="nav-number">1.</span> <span class="nav-text">Chapeter 1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#EJB存在的问题"><span class="nav-number">1.1.</span> <span class="nav-text">EJB存在的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#J2EE还剩下什么"><span class="nav-number">1.2.</span> <span class="nav-text">J2EE还剩下什么</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#J2EE-在易用性方面存在着严重的问题"><span class="nav-number">1.2.1.</span> <span class="nav-text">J2EE 在易用性方面存在着严重的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#以规范为驱动的问题"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">以规范为驱动的问题</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#J2EE-项目具备架构重构能力的关键"><span class="nav-number">1.2.2.</span> <span class="nav-text">J2EE 项目具备架构重构能力的关键</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapeter-5-EJB的5年间"><span class="nav-number">2.</span> <span class="nav-text">Chapeter 5   EJB的5年间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不应该以规范先行-，而应该开源引导"><span class="nav-number">2.1.</span> <span class="nav-text">不应该以规范先行  ，而应该开源引导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#需要EJB中的什么（从中获取价值，并用简单的方式实现）"><span class="nav-number">2.2.</span> <span class="nav-text">需要EJB中的什么（从中获取价值，并用简单的方式实现）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不想要什么"><span class="nav-number">2.3.</span> <span class="nav-text">不想要什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简单的事情变困难"><span class="nav-number">2.4.</span> <span class="nav-text">简单的事情变困难</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-6-轻量级容器"><span class="nav-number">3.</span> <span class="nav-text">Chapter 6 轻量级容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#容器需提供的服务"><span class="nav-number">3.1.</span> <span class="nav-text">容器需提供的服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#增值服务"><span class="nav-number">3.2.</span> <span class="nav-text">增值服务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-7-Spring框架介绍"><span class="nav-number">4.</span> <span class="nav-text">Chapter 7 Spring框架介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-8-基于AOP概念的声明性中间件"><span class="nav-number">5.</span> <span class="nav-text">Chapter 8 基于AOP概念的声明性中间件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-9-事务管理"><span class="nav-number">6.</span> <span class="nav-text">Chapter 9  事务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#传统J2EE-事务管理"><span class="nav-number">6.1.</span> <span class="nav-text">传统J2EE 事务管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#J2EE容器作为事务协调器"><span class="nav-number">6.2.</span> <span class="nav-text">J2EE容器作为事务协调器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#轻量级事务基础设施"><span class="nav-number">6.3.</span> <span class="nav-text">轻量级事务基础设施</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-Framework的事务管理"><span class="nav-number">6.4.</span> <span class="nav-text">Spring Framework的事务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#事务声明"><span class="nav-number">6.4.1.</span> <span class="nav-text">事务声明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编程式事务处理"><span class="nav-number">6.4.2.</span> <span class="nav-text">编程式事务处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#声明式事务管理"><span class="nav-number">6.4.3.</span> <span class="nav-text">声明式事务管理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#事务管理策略"><span class="nav-number">6.4.4.</span> <span class="nav-text">事务管理策略</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter10-持久化"><span class="nav-number">7.</span> <span class="nav-text">Chapter10 持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见持久化策略"><span class="nav-number">7.1.</span> <span class="nav-text">常见持久化策略</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#持久化策略概览"><span class="nav-number">7.1.1.</span> <span class="nav-text">持久化策略概览</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#选择持久化映射"><span class="nav-number">7.1.2.</span> <span class="nav-text">选择持久化映射</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#何时使用O-R映射"><span class="nav-number">7.1.2.1.</span> <span class="nav-text">何时使用O/R映射</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#使用O-R映射到好处"><span class="nav-number">7.1.2.2.</span> <span class="nav-text">使用O/R映射到好处</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#持久化发展史"><span class="nav-number">7.2.</span> <span class="nav-text">持久化发展史</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#关系型映射发展史"><span class="nav-number">7.2.1.</span> <span class="nav-text">关系型映射发展史</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#O-R映射发展史"><span class="nav-number">7.2.2.</span> <span class="nav-text">O/R映射发展史</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#entity-bean败笔"><span class="nav-number">7.2.3.</span> <span class="nav-text">entity bean败笔</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实践中的数据访问技术"><span class="nav-number">7.3.</span> <span class="nav-text">实践中的数据访问技术</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#资源管理"><span class="nav-number">7.3.1.</span> <span class="nav-text">资源管理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JDBC"><span class="nav-number">7.3.2.</span> <span class="nav-text">JDBC</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iBATIS-SQL映射"><span class="nav-number">7.3.3.</span> <span class="nav-text">iBATIS SQL映射</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JDO"><span class="nav-number">7.3.4.</span> <span class="nav-text">JDO</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate"><span class="nav-number">7.3.5.</span> <span class="nav-text">Hibernate</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#状态管理"><span class="nav-number">7.3.5.1.</span> <span class="nav-text">状态管理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#延迟加载"><span class="nav-number">7.3.5.2.</span> <span class="nav-text">延迟加载</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据访问对象模式"><span class="nav-number">7.4.</span> <span class="nav-text">数据访问对象模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#DAO和透明化持久化"><span class="nav-number">7.4.1.</span> <span class="nav-text">DAO和透明化持久化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DAO设计中的问题"><span class="nav-number">7.4.2.</span> <span class="nav-text">DAO设计中的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DAO基础设施的问题"><span class="nav-number">7.4.3.</span> <span class="nav-text">DAO基础设施的问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用spring框架进行数据访问"><span class="nav-number">7.5.</span> <span class="nav-text">使用spring框架进行数据访问</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1031,7 +1076,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">165k</span>
+    <span title="站点总字数">168k</span>
   
 
   
@@ -1040,7 +1085,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:30</span>
+    <span title="站点阅读时长">2:33</span>
   
 </div>
 
