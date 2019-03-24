@@ -419,7 +419,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">7.4k</span>
+                <span title="本文字数">7.2k</span>
               
 
               
@@ -457,42 +457,11 @@
 <p>​    spring发展历史的总结，出现的背景，以及相关内容的总结</p>
 <a id="more"></a>
 <!-- toc -->
-<ul>
-<li><a href="#spring">Spring</a><ul>
-<li><a href="#spring-发展史">Spring 发展史</a><ul>
-<li><a href="#由来">由来</a><ul>
-<li><a href="#开端-j2ee">开端 J2EE</a></li>
-<li><a href="#繁琐的ejb-inversion-of-control-dependency-injection">繁琐的EJB ：Inversion of Control / Dependency Injection</a></li>
-<li><a href="#annotation">Annotation</a></li>
-<li><a href="#微服务的崛起">微服务的崛起</a></li>
-<li><a href="#反应式编程">反应式编程</a></li>
-</ul>
-</li>
-<li><a href="#版本特征">版本特征</a></li>
-</ul>
-</li>
-<li><a href="#javabeans的发展史">JavaBeans的发展史</a><ul>
-<li><a href="#客户端">客户端</a></li>
-<li><a href="#model">Model</a></li>
-<li><a href="#enterprise-java-bean">Enterprise Java bean</a><ul>
-<li><a href="#j2ee">J2EE</a></li>
-<li><a href="#j2ee-粘合剂ejb">J2EE 粘合剂：EJB</a></li>
-</ul>
-</li>
-<li><a href="#pojo">POJO</a></li>
-</ul>
-</li>
-<li><a href="#spring-framework-module">Spring Framework Module</a></li>
-<li><a href="#spring理念">spring理念</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
 <p>[TOC]</p>
-<h2><span id="spring">Spring</span></h2><p>​    <a href="https://en.wikipedia.org/wiki/Spring_Framework" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Spring_Framework</a></p>
+<h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><p>​    <a href="https://en.wikipedia.org/wiki/Spring_Framework" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Spring_Framework</a></p>
 <p>​    <a href="https://docs.spring.io/spring/docs/" target="_blank" rel="noopener">https://docs.spring.io/spring/docs/</a></p>
-<h3><span id="spring-发展史">Spring 发展史</span></h3><hr>
-<h4><span id="由来">由来</span></h4><h5><span id="开端-j2ee">开端 J2EE</span></h5><p>​    解决了什么问题？为什么需要？</p>
+<h3 id="Spring-发展史"><a href="#Spring-发展史" class="headerlink" title="Spring 发展史"></a>Spring 发展史</h3><hr>
+<h4 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h4><h5 id="开端-J2EE"><a href="#开端-J2EE" class="headerlink" title="开端 J2EE"></a>开端 J2EE</h5><p>​    解决了什么问题？为什么需要？</p>
 <p>​        applications are often slow, unduly complex, and take too long to develop.Rod Johnson believes that the problem lies not in J2EE itself, but in that it is often used badly</p>
 <p>​    Rod Johnson 2002-10 写了 Expert One-on-One J2EE Design and Development </p>
 <p>​    在这 本书中 讲解了何时使用EJB（需要分布式事务和消息的时候使用） 以及J2EE走向何方，写了interface21包 来简化J2EE的开发，提出了using a Framework to Configure Application Components ，其中提及 使用 javaBeans、 BeanFactory、applictionContext (简化、参考ejb)来简化J2EE开发， 以及如何简化EJB的使用 ，通过抽象EJB的 Bean，将使用EJB的代码与依赖JNDI和EJB API的代码分离。</p>
@@ -502,29 +471,29 @@
 <p>​               Spring MVC</p>
 <p>​               spring 1.2    支持注解，要求jdk1.5</p>
 <p>​                粘合剂     把Struts,Hibernate等黏合到一起，史称SSH。 </p>
-<h5><span id="繁琐的ejb-inversion-of-control-dependency-injection">繁琐的EJB ：Inversion of Control / Dependency Injection</span></h5><p>​    解决了什么问题？为什么需要？</p>
+<h5 id="繁琐的EJB-：Inversion-of-Control-Dependency-Injection"><a href="#繁琐的EJB-：Inversion-of-Control-Dependency-Injection" class="headerlink" title="繁琐的EJB ：Inversion of Control / Dependency Injection"></a>繁琐的EJB ：Inversion of Control / Dependency Injection</h5><p>​    解决了什么问题？为什么需要？</p>
 <p>​        In early 2004, Martin Fowler asked the readers of his site: when talking about Inversion of Control: “the question is, what aspect of control are [they] inverting?”</p>
 <p>​        我们曾经在无数的书籍和文章中看到，EJB是J2EE的核心技术之一，EJB太繁琐，约束太多，依赖EJB容器，轻量级j2ee</p>
 <p>​    Rod Johnson等写了</p>
 <p>​    2004-6  J2EE Development without EJB（讨论了我们真正需要EJB的什么，如何同样实现这些功能）</p>
 <p>​    2005-7  Professional Java Development with the Spring Framework</p>
 <p>​    </p>
-<h5><span id="annotation">Annotation</span></h5><p>​    解决了什么问题？为什么需要？</p>
+<h5 id="Annotation"><a href="#Annotation" class="headerlink" title="Annotation"></a>Annotation</h5><p>​    解决了什么问题？为什么需要？</p>
 <p>​        基于注解的依赖注入和组件扫描 @Autowise @Configurable</p>
 <p>​    2006年发布Spring 2.0 </p>
 <p>​        Ruby on Rails的框架突然崛起，约定重于配置，Don’t repeat yourself的思想随着RoR深入人心。</p>
 <p>​    2007年发布Spring 2.5 。</p>
 <p>​    2009年Spring 3.0 RESTful的支持</p>
 <p>​    </p>
-<h5><span id="微服务的崛起">微服务的崛起</span></h5><p>​    解决了什么问题？为什么需要？</p>
+<h5 id="微服务的崛起"><a href="#微服务的崛起" class="headerlink" title="微服务的崛起"></a>微服务的崛起</h5><p>​    解决了什么问题？为什么需要？</p>
 <p>​        xml配置繁琐，自动装配springboot， 微服务等兴起 </p>
 <p>​    2013年12月 Spring4.0 支持jdk8</p>
 <p>​    2014  Spring Boot 约定大于配置</p>
 <p>​    2015 Spring Cloud</p>
-<h5><span id="反应式编程">反应式编程</span></h5><p>​    解决了什么问题？为什么需要？</p>
+<h5 id="反应式编程"><a href="#反应式编程" class="headerlink" title="反应式编程"></a>反应式编程</h5><p>​    解决了什么问题？为什么需要？</p>
 <p>​        高并发，IO密集型应用，同步阻塞的模型，受连接池等约束，反应式编程 reactive stream</p>
 <p>​    2017年9月     Spring 5.0  WebFlux</p>
-<h4><span id="版本特征">版本特征</span></h4><table>
+<h4 id="版本特征"><a href="#版本特征" class="headerlink" title="版本特征"></a>版本特征</h4><table>
 <thead>
 <tr>
 <th>Version</th>
@@ -569,8 +538,8 @@
 <p>Spring Framework 4.3 has been released on 10 June 2016 and will be supported until 2020.<a href="https://en.wikipedia.org/wiki/Spring_Framework#cite_note-8" target="_blank" rel="noopener">[8]</a> It <em>“will be the final generation within the general Spring 4 system requirements (Java 6+, Servlet 2.5+), […]”</em>.<a href="https://en.wikipedia.org/wiki/Spring_Framework#cite_note-9" target="_blank" rel="noopener">[9]</a></p>
 <p>Spring 5 is announced to be built upon <a href="https://en.wikipedia.org/wiki/Reactive_Streams" target="_blank" rel="noopener">Reactive Streams</a> compatible Reactor Core.<a href="https://en.wikipedia.org/wiki/Spring_Framework#cite_note-10" target="_blank" rel="noopener">[10]</a></p>
 <hr>
-<h3><span id="javabeans的发展史">JavaBeans的发展史</span></h3><hr>
-<h4><span id="客户端">客户端</span></h4><p>​    一开始的目标是客户端</p>
+<h3 id="JavaBeans的发展史"><a href="#JavaBeans的发展史" class="headerlink" title="JavaBeans的发展史"></a>JavaBeans的发展史</h3><hr>
+<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><p>​    一开始的目标是客户端</p>
 <p>javaBeans</p>
 <p>《javaBeans规范》</p>
 <ol>
@@ -580,8 +549,8 @@
 <li>我们得提供一个所谓的自省/反射机制， 这样能在运行时查看java bean 的各种信息“</li>
 <li>这个类应该是可以序列化的， 即可以把bean的状态保存的硬盘上， 以便以后来恢复。 </li>
 </ol>
-<h4><span id="model">Model</span></h4><p>​    Model-View-Controller  -》struct -〉spring</p>
-<h4><span id="enterprise-java-bean">Enterprise Java bean</span></h4><h5><span id="j2ee">J2EE</span></h5><p>​    1998年发表 JDK1.2 并分为标准版(Standard Edition，<a href="https://baike.baidu.com/item/J2SE" target="_blank" rel="noopener">J2SE</a>), 企业版(Enterprise Edition，J2EE)，微型版(MicroEdition，<a href="https://baike.baidu.com/item/J2ME" target="_blank" rel="noopener">J2ME</a>)。J2EE便由此诞生。</p>
+<h4 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h4><p>​    Model-View-Controller  -》struct -〉spring</p>
+<h4 id="Enterprise-Java-bean"><a href="#Enterprise-Java-bean" class="headerlink" title="Enterprise Java bean"></a>Enterprise Java bean</h4><h5 id="J2EE"><a href="#J2EE" class="headerlink" title="J2EE"></a>J2EE</h5><p>​    1998年发表 JDK1.2 并分为标准版(Standard Edition，<a href="https://baike.baidu.com/item/J2SE" target="_blank" rel="noopener">J2SE</a>), 企业版(Enterprise Edition，J2EE)，微型版(MicroEdition，<a href="https://baike.baidu.com/item/J2ME" target="_blank" rel="noopener">J2ME</a>)。J2EE便由此诞生。</p>
 <p>​    四层模型</p>
 <p>​        客户层组件 ：运行在客户端机器上的客户层组件</p>
 <p>​        session bean</p>
@@ -591,7 +560,7 @@
 <p>​        message-driven beans.</p>
 <p>​        信息系统层 : EIS服务器上的<a href="https://baike.baidu.com/item/%E4%BC%81%E4%B8%9A%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">企业信息系统</a>（Enterprise information system）层软件</p>
 <p>​                </p>
-<h5><span id="j2ee-粘合剂ejb">J2EE 粘合剂：EJB</span></h5><p>​    EJB(Enterprise JavaBean) 是J2EE的一种规范。设计目标与核心应用是部署分布式应用程序。</p>
+<h5 id="J2EE-粘合剂：EJB"><a href="#J2EE-粘合剂：EJB" class="headerlink" title="J2EE 粘合剂：EJB"></a>J2EE 粘合剂：EJB</h5><p>​    EJB(Enterprise JavaBean) 是J2EE的一种规范。设计目标与核心应用是部署分布式应用程序。</p>
 <p>​    EJB 1.0 (1998-03-24)</p>
 <p>​    EJB 2.0, final release (2001-08-22)</p>
 <p>​    EJB 3.0, final release (2006-05-11)</p>
@@ -602,13 +571,13 @@
 <p>​        JTA</p>
 <p>​        Java mail</p>
 <p>​        部署、集群</p>
-<h4><span id="pojo">POJO</span></h4><p>​    EJB容器：Enterprise java bean 容器。更具有行业领域特色。他提供给运行在其中的组件EJB各种管理功能</p>
+<h4 id="POJO"><a href="#POJO" class="headerlink" title="POJO"></a>POJO</h4><p>​    EJB容器：Enterprise java bean 容器。更具有行业领域特色。他提供给运行在其中的组件EJB各种管理功能</p>
 <p>​    -》JavaBean容器</p>
 <p>​    轻量级javaBeans 没有规范</p>
 <p>​    spring</p>
 <hr>
 <p>### </p>
-<h3><span id="spring-framework-module">Spring Framework Module</span></h3><p>Show a picture (从spring 4.3.x中扒的，因为spring5的找不到这个module图了)</p>
+<h3 id="Spring-Framework-Module"><a href="#Spring-Framework-Module" class="headerlink" title="Spring Framework Module"></a>Spring Framework Module</h3><p>Show a picture (从spring 4.3.x中扒的，因为spring5的找不到这个module图了)</p>
 <p><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1g0pnp0m1luj313l0u0ju7.jpg" alt="image-20190303154934664"></p>
 <p>The Spring Framework includes several modules that provide a range of services:</p>
 <ul>
@@ -625,7 +594,7 @@
 <li>Remote management: configurative exposure and management of Java objects for local or remote configuration via <a href="https://en.wikipedia.org/wiki/Java_Management_Extensions" target="_blank" rel="noopener">Java Management Extensions</a> (JMX)</li>
 <li><a href="https://en.wikipedia.org/wiki/Software_testing" target="_blank" rel="noopener">Testing</a>: support classes for writing unit tests and integration tests</li>
 </ul>
-<h3><span id="spring理念">spring理念</span></h3><hr>
+<h3 id="spring理念"><a href="#spring理念" class="headerlink" title="spring理念"></a>spring理念</h3><hr>
 <p>核心IOC和AOP</p>
 <p>​    javaEE的服务都被抽象到Ioc容器中，并通过AOP进行有效封装，因为依赖注入到特性，这些复杂的依赖关系的管理被反转并交给容器，使复杂的依赖关系管理从应用解放出来。</p>
 <p>非侵入式、面向接口、体系结构的选择</p>
@@ -846,7 +815,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">Spring 发展史</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.</span> <span class="nav-text">由来</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">开端 J2EE</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">繁琐的EJB ：Inversion of Control / Dependency Injection</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">Annotation</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">微服务的崛起</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.5.</span> <span class="nav-text">反应式编程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.2.</span> <span class="nav-text">版本特征</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">JavaBeans的发展史</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.3.</span> <span class="nav-text">Enterprise Java bean</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">J2EE</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">J2EE 粘合剂：EJB</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.4.</span> <span class="nav-text">POJO</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">Spring Framework Module</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">spring理念</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring"><span class="nav-number">1.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-发展史"><span class="nav-number">1.1.</span> <span class="nav-text">Spring 发展史</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#由来"><span class="nav-number">1.1.1.</span> <span class="nav-text">由来</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#开端-J2EE"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">开端 J2EE</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#繁琐的EJB-：Inversion-of-Control-Dependency-Injection"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">繁琐的EJB ：Inversion of Control / Dependency Injection</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Annotation"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">Annotation</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#微服务的崛起"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">微服务的崛起</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#反应式编程"><span class="nav-number">1.1.1.5.</span> <span class="nav-text">反应式编程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版本特征"><span class="nav-number">1.1.2.</span> <span class="nav-text">版本特征</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaBeans的发展史"><span class="nav-number">1.2.</span> <span class="nav-text">JavaBeans的发展史</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#客户端"><span class="nav-number">1.2.1.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Model"><span class="nav-number">1.2.2.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Enterprise-Java-bean"><span class="nav-number">1.2.3.</span> <span class="nav-text">Enterprise Java bean</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#J2EE"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">J2EE</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#J2EE-粘合剂：EJB"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">J2EE 粘合剂：EJB</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POJO"><span class="nav-number">1.2.4.</span> <span class="nav-text">POJO</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Framework-Module"><span class="nav-number">1.3.</span> <span class="nav-text">Spring Framework Module</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring理念"><span class="nav-number">1.4.</span> <span class="nav-text">spring理念</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -879,7 +848,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">165k</span>
+    <span title="站点总字数">164k</span>
   
 
   
@@ -888,7 +857,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:30</span>
+    <span title="站点阅读时长">2:29</span>
   
 </div>
 
