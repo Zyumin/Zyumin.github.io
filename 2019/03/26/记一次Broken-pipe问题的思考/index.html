@@ -104,14 +104,15 @@
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:description" content="​    今天遇到一个Broken pipe的问题，觉得挺有意思的就记录一下，因为这整个过程还是涉及挺多相关知识的（nginx 、tomcat 、内存查看等），例如是为了找到运行机器ip，通过查询nginx的access.log 获取错误机器ip， 收获挺多。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1g1g9hxu9n8j31040fo0v2.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1g1g0k4t1gkj315a0fo40s.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1g1g0strvuej31cm0pk42c.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcgy1g1g1lpoleaj31g50u07df.jpg">
-<meta property="og:updated_time" content="2019-03-26T08:01:21.128Z">
+<meta property="og:updated_time" content="2019-03-26T08:11:18.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次Broken pipe问题的思考">
 <meta name="twitter:description" content="​    今天遇到一个Broken pipe的问题，觉得挺有意思的就记录一下，因为这整个过程还是涉及挺多相关知识的（nginx 、tomcat 、内存查看等），例如是为了找到运行机器ip，通过查询nginx的access.log 获取错误机器ip， 收获挺多。">
-<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1g1g0k4t1gkj315a0fo40s.jpg">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1g1g9hxu9n8j31040fo0v2.jpg">
 
 
 
@@ -365,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-03-26 10:53:37 / 修改时间：16:01:21" itemprop="dateCreated datePublished" datetime="2019-03-26T10:53:37+08:00">2019-03-26</time>
+              <time title="创建时间：2019-03-26 10:53:37 / 修改时间：16:11:18" itemprop="dateCreated datePublished" datetime="2019-03-26T10:53:37+08:00">2019-03-26</time>
             
 
             
@@ -449,8 +450,10 @@
 <p>然后就返回错误。</p>
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.net.SocketException: Broken pipe</span><br><span class="line">   at java.net.SocketOutputStream.socketWrite0(Native Method) ~[?:<span class="number">1.6</span>.0_25]</span><br><span class="line">   at java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:<span class="number">92</span>) ~[?:<span class="number">1.6</span>.0_25]</span><br><span class="line">   at java.net.SocketOutputStream.write(SocketOutputStream.java:<span class="number">136</span>) ~[?:<span class="number">1.6</span>.0_25]</span><br><span class="line">   at org.apache.coyote.http11.InternalOutputBuffer.realWriteBytes(InternalOutputBuffer.java:<span class="number">216</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.tomcat.util.buf.ByteChunk.flushBuffer(ByteChunk.java:<span class="number">487</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.tomcat.util.buf.ByteChunk.append(ByteChunk.java:<span class="number">373</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.coyote.http11.InternalOutputBuffer$OutputStreamOutputBuffer.doWrite(InternalOutputBuffer.java:<span class="number">239</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.coyote.http11.filters.IdentityOutputFilter.doWrite(IdentityOutputFilter.java:<span class="number">93</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.coyote.http11.AbstractOutputBuffer.doWrite(AbstractOutputBuffer.java:<span class="number">192</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.coyote.Response.doWrite(Response.java:<span class="number">506</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:<span class="number">405</span>) ~[catalina.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   ... <span class="number">67</span> more</span><br></pre></td></tr></table></figure>
 <h2 id="猜测思路"><a href="#猜测思路" class="headerlink" title="猜测思路"></a>猜测思路</h2><p>​    因为在选择当天数据的时候导出是没有问题的，而选择7天的时候就报错了。初步的现状认定就是响应时间长，或者文件过大导致。</p>
-<h4 id="猜测一：-查询出来的数据太多，导致内存不足，一直full-gc-，导致响应变慢"><a href="#猜测一：-查询出来的数据太多，导致内存不足，一直full-gc-，导致响应变慢" class="headerlink" title="猜测一： 查询出来的数据太多，导致内存不足，一直full gc ，导致响应变慢"></a>猜测一： 查询出来的数据太多，导致内存不足，一直full gc ，导致响应变慢</h4><p>​    通过<code>jstat  -gcutil  pid</code>    命令查看，发现并没有吃满内存，只是young gc 频繁了点。</p>
-<h4 id="猜测二：-查询出来的数据太大，tomcat容器有限制"><a href="#猜测二：-查询出来的数据太大，tomcat容器有限制" class="headerlink" title="猜测二： 查询出来的数据太大，tomcat容器有限制"></a>猜测二： 查询出来的数据太大，tomcat容器有限制</h4><p>​    又想是否是导出文件太大，tomcat 会对这个限制，然后去google了一波‘tomcat response body size limit’ 发现并没有相关资料</p>
+<p>猜测一： 查询出来的数据太多，导致内存不足，一直full gc ，导致响应变慢</p>
+<p>​    通过<code>jstat  -gcutil  pid</code>    命令查看，发现并没有吃满内存，只是young gc 频繁了点。</p>
+<p>猜测二： 查询出来的数据太大，tomcat容器有限制</p>
+<p>​    又想是否是导出文件太大，tomcat 会对这个限制，然后去google了一波‘tomcat response body size limit’ 发现并没有相关资料</p>
 <p>有的只是tomcat会对post 请求body做限制，默认是2m</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Having said that*, if this is the issue, you should have got an exception on the lines of `Post data too big` in tomcat</span><br></pre></td></tr></table></figure>
 <p>于是上官网<a href="http://tomcat.apache.org/tomcat-7.0-doc/connectors.html#HTTP" target="_blank" rel="noopener">http://tomcat.apache.org/tomcat-7.0-doc/connectors.html#HTTP</a> （从错误信息里获取到的版本是7.0.82） 也没有发现什么说明。（简略翻了一下，或许是没找到）</p>
@@ -473,10 +476,10 @@
 <ol>
 <li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;tomcat-embed-core&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;7.0.82&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 <p> 然后定位到报错位置org.apache.coyote.http11.InternalOutputBuffer.OutputStreamOutputBuffer#doWrite</p>
+<p> <img src="https://ws4.sinaimg.cn/large/006tKfTcgy1g1g9hxu9n8j31040fo0v2.jpg" alt="image-20190326161033556"></p>
+<p>这里的socketBuffer，定义如下</p>
 </li>
 </ol>
-<pre><code>![image-20190326105105703](https://ws4.sinaimg.cn/large/006tKfTcgy1g1g8z0xiw6j31a60j0whx.jpg)
-</code></pre><p> 这里的socketBuffer，定义如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Socket buffer.</span><br><span class="line"> */</span><br><span class="line">private ByteChunk socketBuffer;</span><br></pre></td></tr></table></figure>
 <p>查看ByteChunk的定义，发现它是封装了一层byte[]</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- This class is used to represent a chunk of bytes, and</span><br><span class="line">- utilities to manipulate byte[].</span><br></pre></td></tr></table></figure>
@@ -716,7 +719,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#业务场景"><span class="nav-number">1.</span> <span class="nav-text">业务场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#猜测思路"><span class="nav-number">3.</span> <span class="nav-text">猜测思路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#猜测一：-查询出来的数据太多，导致内存不足，一直full-gc-，导致响应变慢"><span class="nav-number">3.0.1.</span> <span class="nav-text">猜测一： 查询出来的数据太多，导致内存不足，一直full gc ，导致响应变慢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#猜测二：-查询出来的数据太大，tomcat容器有限制"><span class="nav-number">3.0.2.</span> <span class="nav-text">猜测二： 查询出来的数据太大，tomcat容器有限制</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#解决过程"><span class="nav-number">4.</span> <span class="nav-text">解决过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tomcat源码"><span class="nav-number">4.0.1.</span> <span class="nav-text">Tomcat源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#超时时间"><span class="nav-number">4.0.2.</span> <span class="nav-text">超时时间</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#业务场景"><span class="nav-number">1.</span> <span class="nav-text">业务场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#猜测思路"><span class="nav-number">3.</span> <span class="nav-text">猜测思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决过程"><span class="nav-number">4.</span> <span class="nav-text">解决过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tomcat源码"><span class="nav-number">4.0.1.</span> <span class="nav-text">Tomcat源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#超时时间"><span class="nav-number">4.0.2.</span> <span class="nav-text">超时时间</span></a></li></ol></li></ol></div>
             
 
           </div>
