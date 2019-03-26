@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1g1g0k4t1gkj315a0fo40s.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1g1g0strvuej31cm0pk42c.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcgy1g1g1lpoleaj31g50u07df.jpg">
-<meta property="og:updated_time" content="2019-03-26T03:43:23.434Z">
+<meta property="og:updated_time" content="2019-03-26T08:01:21.128Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次Broken pipe问题的思考">
 <meta name="twitter:description" content="​    今天遇到一个Broken pipe的问题，觉得挺有意思的就记录一下，因为这整个过程还是涉及挺多相关知识的（nginx 、tomcat 、内存查看等），例如是为了找到运行机器ip，通过查询nginx的access.log 获取错误机器ip， 收获挺多。">
@@ -365,7 +365,7 @@
                 
               
 
-              <time title="创建时间：2019-03-26 10:53:37 / 修改时间：11:43:23" itemprop="dateCreated datePublished" datetime="2019-03-26T10:53:37+08:00">2019-03-26</time>
+              <time title="创建时间：2019-03-26 10:53:37 / 修改时间：16:01:21" itemprop="dateCreated datePublished" datetime="2019-03-26T10:53:37+08:00">2019-03-26</time>
             
 
             
@@ -409,7 +409,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">5.3k</span>
+                <span title="本文字数">5.2k</span>
               
 
               
@@ -445,37 +445,37 @@
       
         <p>​    今天遇到一个Broken pipe的问题，觉得挺有意思的就记录一下，因为这整个过程还是涉及挺多相关知识的（nginx 、tomcat 、内存查看等），例如是为了找到运行机器ip，通过查询nginx的access.log 获取错误机器ip， 收获挺多。</p>
 <a id="more"></a>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.net.SocketException: Broken pipe</span><br><span class="line">   at java.net.SocketOutputStream.socketWrite0(Native Method) ~[?:<span class="number">1.6</span>.0_25]</span><br><span class="line">   at java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:<span class="number">92</span>) ~[?:<span class="number">1.6</span>.0_25]</span><br><span class="line">   at java.net.SocketOutputStream.write(SocketOutputStream.java:<span class="number">136</span>) ~[?:<span class="number">1.6</span>.0_25]</span><br><span class="line">   at org.apache.coyote.http11.InternalOutputBuffer.realWriteBytes(InternalOutputBuffer.java:<span class="number">216</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.tomcat.util.buf.ByteChunk.flushBuffer(ByteChunk.java:<span class="number">487</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.tomcat.util.buf.ByteChunk.append(ByteChunk.java:<span class="number">373</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.coyote.http11.InternalOutputBuffer$OutputStreamOutputBuffer.doWrite(InternalOutputBuffer.java:<span class="number">239</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.coyote.http11.filters.IdentityOutputFilter.doWrite(IdentityOutputFilter.java:<span class="number">93</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.coyote.http11.AbstractOutputBuffer.doWrite(AbstractOutputBuffer.java:<span class="number">192</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.coyote.Response.doWrite(Response.java:<span class="number">506</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:<span class="number">405</span>) ~[catalina.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   ... <span class="number">67</span> more</span><br></pre></td></tr></table></figure>
-<p>业务场景是这样的，查询Mongo ，然后导出Execl</p>
-<p>猜测思路</p>
-<p>因为在选择当天数据的时候导出是没有问题的，而选择7天的时候就报错了。</p>
+<h2 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h2><p>​    springmvc 发送请求，根据筛选查询MongoDB ，然后将查询结果导出Execl，响应时间比较久，</p>
+<p>然后就返回错误。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.net.SocketException: Broken pipe</span><br><span class="line">   at java.net.SocketOutputStream.socketWrite0(Native Method) ~[?:<span class="number">1.6</span>.0_25]</span><br><span class="line">   at java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:<span class="number">92</span>) ~[?:<span class="number">1.6</span>.0_25]</span><br><span class="line">   at java.net.SocketOutputStream.write(SocketOutputStream.java:<span class="number">136</span>) ~[?:<span class="number">1.6</span>.0_25]</span><br><span class="line">   at org.apache.coyote.http11.InternalOutputBuffer.realWriteBytes(InternalOutputBuffer.java:<span class="number">216</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.tomcat.util.buf.ByteChunk.flushBuffer(ByteChunk.java:<span class="number">487</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.tomcat.util.buf.ByteChunk.append(ByteChunk.java:<span class="number">373</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.coyote.http11.InternalOutputBuffer$OutputStreamOutputBuffer.doWrite(InternalOutputBuffer.java:<span class="number">239</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.coyote.http11.filters.IdentityOutputFilter.doWrite(IdentityOutputFilter.java:<span class="number">93</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.coyote.http11.AbstractOutputBuffer.doWrite(AbstractOutputBuffer.java:<span class="number">192</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.coyote.Response.doWrite(Response.java:<span class="number">506</span>) ~[tomcat-coyote.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:<span class="number">405</span>) ~[catalina.jar:<span class="number">7.0</span>.82]</span><br><span class="line">   ... <span class="number">67</span> more</span><br></pre></td></tr></table></figure>
+<h2 id="猜测思路"><a href="#猜测思路" class="headerlink" title="猜测思路"></a>猜测思路</h2><p>​    因为在选择当天数据的时候导出是没有问题的，而选择7天的时候就报错了。初步的现状认定就是响应时间长，或者文件过大导致。</p>
+<h4 id="猜测一：-查询出来的数据太多，导致内存不足，一直full-gc-，导致响应变慢"><a href="#猜测一：-查询出来的数据太多，导致内存不足，一直full-gc-，导致响应变慢" class="headerlink" title="猜测一： 查询出来的数据太多，导致内存不足，一直full gc ，导致响应变慢"></a>猜测一： 查询出来的数据太多，导致内存不足，一直full gc ，导致响应变慢</h4><p>​    通过<code>jstat  -gcutil  pid</code>    命令查看，发现并没有吃满内存，只是young gc 频繁了点。</p>
+<h4 id="猜测二：-查询出来的数据太大，tomcat容器有限制"><a href="#猜测二：-查询出来的数据太大，tomcat容器有限制" class="headerlink" title="猜测二： 查询出来的数据太大，tomcat容器有限制"></a>猜测二： 查询出来的数据太大，tomcat容器有限制</h4><p>​    又想是否是导出文件太大，tomcat 会对这个限制，然后去google了一波‘tomcat response body size limit’ 发现并没有相关资料</p>
+<p>有的只是tomcat会对post 请求body做限制，默认是2m</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Having said that*, if this is the issue, you should have got an exception on the lines of `Post data too big` in tomcat</span><br></pre></td></tr></table></figure>
+<p>于是上官网<a href="http://tomcat.apache.org/tomcat-7.0-doc/connectors.html#HTTP" target="_blank" rel="noopener">http://tomcat.apache.org/tomcat-7.0-doc/connectors.html#HTTP</a> （从错误信息里获取到的版本是7.0.82） 也没有发现什么说明。（简略翻了一下，或许是没找到）</p>
+<p><a href="http://tomcat.apache.org/tomcat-7.0-doc/config/http.html" target="_blank" rel="noopener">http://tomcat.apache.org/tomcat-7.0-doc/config/http.html</a>  ,（这里可以关注下timeout相关配置，另外也可以看下tomcat的异常定义）</p>
+<table>
+<thead>
+<tr>
+<th><strong>Attribute</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>maxPostSize</code></td>
+<td>The maximum size in bytes of the POST which will be handled by the container FORM URL parameter parsing. The limit can be disabled by setting this attribute to a value less than zero. If not specified, this attribute is set to 2097152 (2 megabytes). Note that the <a href="http://tomcat.apache.org/tomcat-7.0-doc/config/filter.html#Failed_Request_Filter" target="_blank" rel="noopener"><code>FailedRequestFilter</code></a> can be used to reject requests that exceed this limit.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h2><h4 id="Tomcat源码"><a href="#Tomcat源码" class="headerlink" title="Tomcat源码"></a>Tomcat源码</h4><p>于是直接下载源码查看，通过在maven配置</p>
 <ol>
-<li>因为之前没有遇到这个问题，所以以为是内存查询爆了，通过</li>
-</ol>
-<p><code>jstat  -gcutil  pid</code>    命令查看，发现并没有吃满内存，只是young gc 频繁了点。</p>
-<ol start="2">
-<li><p>思考，是否是导出文件太大，tomcat 会对这个限制，然后去google了一波‘tomcat response body size limit’ 发现并没有相关资料</p>
-<p> 有的只是tomcat会对post 请求body做限制，默认是2m</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Having said that*, if this is the issue, you should have got an exception on the lines of `Post data too big` in tomcat</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<pre><code>于是上官网&lt;http://tomcat.apache.org/tomcat-7.0-doc/connectors.html#HTTP&gt; （从错误信息里获取到的版本是7.0.82） 也没有发现什么说明。（简略翻了一下，或许是没找到）
-
-http://tomcat.apache.org/tomcat-7.0-doc/config/http.html  ,（这里可以关注下timeout相关配置，另外也可以看下tomcat的异常定义）
-
-| **Attribute** | **Description**                                              |
-| ------------- | ------------------------------------------------------------ |
-| `maxPostSize` | The maximum size in bytes of the POST which will be handled by the container FORM URL parameter parsing. The limit can be disabled by setting this attribute to a value less than zero. If not specified, this attribute is set to 2097152 (2 megabytes). Note that the [`FailedRequestFilter`](http://tomcat.apache.org/tomcat-7.0-doc/config/filter.html#Failed_Request_Filter) can be used to reject requests that exceed this limit. |
-
-
-
-于是直接下载源码查看，通过在maven配置
-</code></pre><ol start="3">
 <li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;tomcat-embed-core&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;7.0.82&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 <p> 然后定位到报错位置org.apache.coyote.http11.InternalOutputBuffer.OutputStreamOutputBuffer#doWrite</p>
 </li>
 </ol>
-<pre><code>![image-20190326105105703](https://ws4.sinaimg.cn/large/006tKfTcgy1g1g09lolsej31a60j077q.jpg)
+<pre><code>![image-20190326105105703](https://ws4.sinaimg.cn/large/006tKfTcgy1g1g8z0xiw6j31a60j0whx.jpg)
 </code></pre><p> 这里的socketBuffer，定义如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Socket buffer.</span><br><span class="line"> */</span><br><span class="line">private ByteChunk socketBuffer;</span><br></pre></td></tr></table></figure>
 <p>查看ByteChunk的定义，发现它是封装了一层byte[]</p>
@@ -487,25 +487,24 @@ http://tomcat.apache.org/tomcat-7.0-doc/config/http.html  ,（这里可以关注
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Make space for len chars. If len is small, allocate a reserve space too.</span></span><br><span class="line"><span class="comment"> * Never grow bigger than limit.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">makeSpace</span><span class="params">(<span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">byte</span>[] tmp = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> newSize;</span><br><span class="line">    <span class="keyword">int</span> desiredSize=end + count;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Can't grow above the limit</span></span><br><span class="line">    <span class="keyword">if</span>( limit &gt; <span class="number">0</span> &amp;&amp;</span><br><span class="line">        desiredSize &gt; limit) &#123;</span><br><span class="line">        desiredSize=limit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>( buff==<span class="keyword">null</span> ) &#123;</span><br><span class="line">        <span class="keyword">if</span>( desiredSize &lt; <span class="number">256</span> )</span><br><span class="line">         &#123;</span><br><span class="line">            desiredSize=<span class="number">256</span>; <span class="comment">// take a minimum</span></span><br><span class="line">        &#125;</span><br><span class="line">        buff=<span class="keyword">new</span> <span class="keyword">byte</span>[desiredSize];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// limit &lt; buf.length ( the buffer is already big )</span></span><br><span class="line">    <span class="comment">// or we already have space XXX</span></span><br><span class="line">    <span class="keyword">if</span>( desiredSize &lt;= buff.length ) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// grow in larger chunks</span></span><br><span class="line">    <span class="keyword">if</span>( desiredSize &lt; <span class="number">2</span> * buff.length ) &#123;</span><br><span class="line">        newSize= buff.length * <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>( limit &gt;<span class="number">0</span> &amp;&amp;</span><br><span class="line">            newSize &gt; limit ) &#123;</span><br><span class="line">            newSize=limit;</span><br><span class="line">        &#125;</span><br><span class="line">        tmp=<span class="keyword">new</span> <span class="keyword">byte</span>[newSize];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        newSize= buff.length * <span class="number">2</span> + count ;</span><br><span class="line">        <span class="keyword">if</span>( limit &gt; <span class="number">0</span> &amp;&amp;</span><br><span class="line">            newSize &gt; limit ) &#123;</span><br><span class="line">            newSize=limit;</span><br><span class="line">        &#125;</span><br><span class="line">        tmp=<span class="keyword">new</span> <span class="keyword">byte</span>[newSize];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    System.arraycopy(buff, start, tmp, <span class="number">0</span>, end-start);</span><br><span class="line">    buff = tmp;</span><br><span class="line">    tmp = <span class="keyword">null</span>;</span><br><span class="line">    end=end-start;</span><br><span class="line">    start=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>再根据错误信息 定位到如下</p>
 <p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1g1g0strvuej31cm0pk42c.jpg" alt="image-20190326110936819"></p>
-<p>发现是在 从服务向客户端写buffer的时候出错。</p>
-<p>于是猜测是由于<strong>查询时间过长， 客户端由于超时断开，服务端还在写数据，</strong>这个时候就会报出这个错误。</p>
-<p>查看客户端的超时时间，使用的是chrom（<a href="https://cs.chromium.org/chromium/src/net/socket/client_socket_pool.cc?sq=package:chromium&amp;l=25" target="_blank" rel="noopener">https://cs.chromium.org/chromium/src/net/socket/client_socket_pool.cc?sq=package:chromium&amp;l=25</a>）</p>
+<p>发现是在 从服务向客户端写buffer的时候出错。于是猜测是由于<strong>查询时间过长， 客户端由于超时断开，服务端还在写数据，</strong>这个时候就会报出这个错误。</p>
+<h4 id="超时时间"><a href="#超时时间" class="headerlink" title="超时时间"></a>超时时间</h4><ol>
+<li>查看客户端的超时时间，使用的是chrom（<a href="https://cs.chromium.org/chromium/src/net/socket/client_socket_pool.cc?sq=package:chromium&amp;l=25" target="_blank" rel="noopener">https://cs.chromium.org/chromium/src/net/socket/client_socket_pool.cc?sq=package:chromium&amp;l=25</a>）</li>
+</ol>
 <p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1g1g1lpoleaj31g50u07df.jpg" alt="image-20190326113723854"></p>
-<p>实际请求并没有怎么长，等待个十秒左右就返回错误了</p>
-<p>于是想到还有个nginx配置，查看发现配置为</p>
+<p>​    默认是5分钟，实际请求并没有怎么长，等待个十秒左右就返回错误了</p>
+<ol start="2">
+<li>于是想到还有个nginx配置，查看发现配置为</li>
+</ol>
 <p>keepalive_timeout  8 8;</p>
 <p>这里通过查询相关资料发现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keepalive_timeout timeout [header_timeout];</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>第一个参数：设置keep-alive客户端连接在服务器端保持开启的超时值（默认75s）；值为0会禁用keep-alive客户端连接；</p>
-</li>
-<li><p>第二个参数：可选、在响应的header域中设置一个值“Keep-Alive: timeout=time”；通常可以不用设置；</p>
-</li>
-<li><p>注：keepalive_timeout默认75s</p>
-</li>
-</ul>
-<pre><code>​    所以这里的超时时间是8s，于是修改keepalive_timeout为60s后，刷新配置，重新测试，发现可以导出了。
-</code></pre>
+<p>​    </p>
+<p>keepalive_timeout timeout [header_timeout];</p>
+<p>​    第一个参数：设置keep-alive客户端连接在服务器端保持开启的超时值（默认75s）；值为0会禁用keep-alive客户端连接；</p>
+<p>​    第二个参数：可选、在响应的header域中设置一个值“Keep-Alive: timeout=time”；通常可以不用设置；</p>
+<p>​    注：keepalive_timeout默认75s</p>
+<p>​    所以这里的超时时间是8s，于是修改keepalive_timeout为60s后，刷新配置，重新测试，发现可以导出了。</p>
+
       
     </div>
 
@@ -598,8 +597,17 @@ http://tomcat.apache.org/tomcat-7.0-doc/config/http.html  ,（这里可以关注
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -697,6 +705,23 @@ http://tomcat.apache.org/tomcat-7.0-doc/config/http.html  ,（这里可以关注
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#业务场景"><span class="nav-number">1.</span> <span class="nav-text">业务场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#猜测思路"><span class="nav-number">3.</span> <span class="nav-text">猜测思路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#猜测一：-查询出来的数据太多，导致内存不足，一直full-gc-，导致响应变慢"><span class="nav-number">3.0.1.</span> <span class="nav-text">猜测一： 查询出来的数据太多，导致内存不足，一直full gc ，导致响应变慢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#猜测二：-查询出来的数据太大，tomcat容器有限制"><span class="nav-number">3.0.2.</span> <span class="nav-text">猜测二： 查询出来的数据太大，tomcat容器有限制</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#解决过程"><span class="nav-number">4.</span> <span class="nav-text">解决过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tomcat源码"><span class="nav-number">4.0.1.</span> <span class="nav-text">Tomcat源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#超时时间"><span class="nav-number">4.0.2.</span> <span class="nav-text">超时时间</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
