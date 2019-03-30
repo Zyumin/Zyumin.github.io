@@ -106,7 +106,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1g1l1l6bkkfj313i0o4gok.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1g1l35it2ghj325a03saat.jpg">
-<meta property="og:updated_time" content="2019-03-30T12:40:30.853Z">
+<meta property="og:updated_time" content="2019-03-30T12:53:27.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次mysql查询in的思考">
 <meta name="twitter:description" content="从一个日常的in 查询的优化说起​    业务场景需要 select * from table where id in( )， 然后就会抛出一个问题，使用in 会不会走索引？ ​    对于这个问题，因为之前在网上看过说不会，说会的，充斥着各种说法，然后自己对这块也是很久之前看过。参考了一些资料。写下自己的思考。 ​    其实关于这个问题，我们需要缩小范围，首先是确定版本，版本意识很重要，这里我">
@@ -364,7 +364,7 @@
                 
               
 
-              <time title="创建时间：2019-03-30 20:39:49 / 修改时间：20:40:30" itemprop="dateCreated datePublished" datetime="2019-03-30T20:39:49+08:00">2019-03-30</time>
+              <time title="创建时间：2019-03-30 20:39:49 / 修改时间：20:53:27" itemprop="dateCreated datePublished" datetime="2019-03-30T20:39:49+08:00">2019-03-30</time>
             
 
             
@@ -408,7 +408,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.6k</span>
+                <span title="本文字数">2.7k</span>
               
 
               
@@ -548,6 +548,11 @@
 <li>扫描额外的记录（通常是未走索引，正确使用索引的姿势）</li>
 </ul>
 <p>非正常情况下，即一些非可控因素 ，锁的占用，连接数耗尽等。</p>
+<p>参考：</p>
+<ul>
+<li>高性能MySQL</li>
+<li><a href="https://dev.mysql.com/doc/refman/5.5/en/execution-plan-information.html" target="_blank" rel="noopener">8.8 Understanding the Query Execution Plan</a></li>
+</ul>
 
       
     </div>
