@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g3o8y6q3isj30jg0ds0ts.jpg">
-<meta property="og:updated_time" content="2019-06-03T12:39:43.364Z">
+<meta property="og:updated_time" content="2019-06-03T12:52:32.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式理论基础">
 <meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g3o8y6q3isj30jg0ds0ts.jpg">
@@ -360,7 +360,7 @@
                 
               
 
-              <time title="创建时间：2019-06-03 20:34:37 / 修改时间：20:39:43" itemprop="dateCreated datePublished" datetime="2019-06-03T20:34:37+08:00">2019-06-03</time>
+              <time title="创建时间：2019-06-03 20:34:37 / 修改时间：20:52:32" itemprop="dateCreated datePublished" datetime="2019-06-03T20:34:37+08:00">2019-06-03</time>
             
 
             
@@ -404,7 +404,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">842</span>
+                <span title="本文字数">832</span>
               
 
               
@@ -440,18 +440,47 @@
       
         <p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g3o8y6q3isj30jg0ds0ts.jpg" alt="image-20190603203643748"></p>
 <a id="more"></a>
-<h2 id="分布式理论基础"><a href="#分布式理论基础" class="headerlink" title="分布式理论基础"></a>分布式理论基础</h2><h3 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h3><h4 id="网络通信异常"><a href="#网络通信异常" class="headerlink" title="网络通信异常"></a>网络通信异常</h4><p>​        延迟</p>
+<h2 id="分布式理论基础"><a href="#分布式理论基础" class="headerlink" title="分布式理论基础"></a>分布式理论基础</h2><h3 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h3><h4 id="网络通信异常"><a href="#网络通信异常" class="headerlink" title="网络通信异常"></a>网络通信异常</h4><p>​        网络延迟</p>
 <h4 id="网络分区"><a href="#网络分区" class="headerlink" title="网络分区"></a>网络分区</h4><p>​        脑裂 两个独立集群</p>
-<h4 id="三态"><a href="#三态" class="headerlink" title="三态"></a>三态</h4><h5 id="成功"><a href="#成功" class="headerlink" title="成功"></a>成功</h5><h5 id="失败"><a href="#失败" class="headerlink" title="失败"></a>失败</h5><h5 id="超时"><a href="#超时" class="headerlink" title="超时"></a>超时</h5><p>​            发送过程丢失 、结果反馈丢失</p>
-<h3 id="从ACID-到CAP-BASE"><a href="#从ACID-到CAP-BASE" class="headerlink" title="从ACID 到CAP/ BASE"></a>从ACID 到CAP/ BASE</h3><h4 id="传统DBMS-中的ACID"><a href="#传统DBMS-中的ACID" class="headerlink" title="传统DBMS 中的ACID"></a>传统DBMS 中的ACID</h4><h5 id="Atomicity-原子性"><a href="#Atomicity-原子性" class="headerlink" title="Atomicity 原子性"></a>Atomicity 原子性</h5><h5 id="Isolation-隔离线"><a href="#Isolation-隔离线" class="headerlink" title="Isolation 隔离线"></a>Isolation 隔离线</h5><p>​        level  </p>
-<p>​            r u </p>
-<p>​            r c </p>
-<p>​            r r </p>
-<p>​            s  </p>
-<h5 id="Consistency-一致性"><a href="#Consistency-一致性" class="headerlink" title="Consistency 一致性"></a>Consistency 一致性</h5><h5 id="Durability-持久性"><a href="#Durability-持久性" class="headerlink" title="Durability 持久性"></a>Durability 持久性</h5><h4 id="CAP"><a href="#CAP" class="headerlink" title="CAP"></a>CAP</h4><h5 id="A-高可用"><a href="#A-高可用" class="headerlink" title="A 高可用"></a>A 高可用</h5><h5 id="C-一致性"><a href="#C-一致性" class="headerlink" title="C 一致性"></a>C 一致性</h5><h5 id="P-分区-副本"><a href="#P-分区-副本" class="headerlink" title="P 分区 副本"></a>P 分区 副本</h5><p>在C和A之中寻找平衡</p>
-<h4 id="BASE"><a href="#BASE" class="headerlink" title="BASE"></a>BASE</h4><h5 id="Basically-Acaliable"><a href="#Basically-Acaliable" class="headerlink" title="Basically Acaliable"></a>Basically Acaliable</h5><p>​    响应时间损失</p>
-<p>​    功能上降级</p>
-<h5 id="Soft-state"><a href="#Soft-state" class="headerlink" title="Soft state"></a>Soft state</h5><h5 id="Eventually-consistent"><a href="#Eventually-consistent" class="headerlink" title="Eventually consistent"></a>Eventually consistent</h5><p>不止分布式环境,现代数据库主从复制</p>
+<h4 id="三态"><a href="#三态" class="headerlink" title="三态"></a>三态</h4><ul>
+<li>成功 </li>
+<li>失败 </li>
+<li>超时  <ul>
+<li>发送过程丢失</li>
+<li>结果反馈丢失</li>
+</ul>
+</li>
+</ul>
+<p>​             </p>
+<h3 id="从ACID-到CAP-BASE"><a href="#从ACID-到CAP-BASE" class="headerlink" title="从ACID 到CAP/ BASE"></a>从ACID 到CAP/ BASE</h3><h4 id="传统DBMS-中的ACID"><a href="#传统DBMS-中的ACID" class="headerlink" title="传统DBMS 中的ACID"></a>传统DBMS 中的ACID</h4><ul>
+<li>Atomicity 原子性   </li>
+<li>Isolation 隔离线<ul>
+<li>未授权读取(<em>RU</em>); </li>
+<li>授权读取(<em>RC</em>); </li>
+<li>可重复读取(<em>RR</em>); </li>
+<li>串行化(<em>S</em>)</li>
+</ul>
+</li>
+<li>Consistency 一致性</li>
+<li>Durability 持久性</li>
+</ul>
+<p>​    </p>
+<h4 id="CAP"><a href="#CAP" class="headerlink" title="CAP"></a>CAP</h4><ul>
+<li>A 高可用 </li>
+<li>C 一致性 </li>
+<li>P 分区 副本</li>
+</ul>
+<p>在C和A之中寻找平衡</p>
+<h4 id="BASE"><a href="#BASE" class="headerlink" title="BASE"></a>BASE</h4><ul>
+<li>Basically Acaliable <ul>
+<li>响应时间损失</li>
+<li>功能上降级</li>
+</ul>
+</li>
+<li>Soft state</li>
+<li>Eventually consistent</li>
+</ul>
+<p>不止分布式环境,现代数据库主从复制</p>
 <h3 id="一致性协议"><a href="#一致性协议" class="headerlink" title="一致性协议"></a>一致性协议</h3><p>​    一致性问题的解法就是分布式时钟，分布式事务与一致性算法。 </p>
 <p>​    选举、多数派、租约</p>
 <p>​    顺序时钟</p>
@@ -679,7 +708,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式理论基础"><span class="nav-number">1.</span> <span class="nav-text">分布式理论基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存在的问题"><span class="nav-number">1.1.</span> <span class="nav-text">存在的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络通信异常"><span class="nav-number">1.1.1.</span> <span class="nav-text">网络通信异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络分区"><span class="nav-number">1.1.2.</span> <span class="nav-text">网络分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三态"><span class="nav-number">1.1.3.</span> <span class="nav-text">三态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#成功"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">成功</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#失败"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">失败</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#超时"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">超时</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从ACID-到CAP-BASE"><span class="nav-number">1.2.</span> <span class="nav-text">从ACID 到CAP/ BASE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#传统DBMS-中的ACID"><span class="nav-number">1.2.1.</span> <span class="nav-text">传统DBMS 中的ACID</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Atomicity-原子性"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">Atomicity 原子性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Isolation-隔离线"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">Isolation 隔离线</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Consistency-一致性"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">Consistency 一致性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Durability-持久性"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">Durability 持久性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CAP"><span class="nav-number">1.2.2.</span> <span class="nav-text">CAP</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#A-高可用"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">A 高可用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#C-一致性"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">C 一致性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#P-分区-副本"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">P 分区 副本</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BASE"><span class="nav-number">1.2.3.</span> <span class="nav-text">BASE</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Basically-Acaliable"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">Basically Acaliable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Soft-state"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">Soft state</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Eventually-consistent"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">Eventually consistent</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一致性协议"><span class="nav-number">1.3.</span> <span class="nav-text">一致性协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#XA-规范"><span class="nav-number">1.3.1.</span> <span class="nav-text">XA 规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2PC"><span class="nav-number">1.3.2.</span> <span class="nav-text">2PC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3PC"><span class="nav-number">1.3.3.</span> <span class="nav-text">3PC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Paxos算法"><span class="nav-number">1.3.4.</span> <span class="nav-text">Paxos算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bully算法"><span class="nav-number">1.3.5.</span> <span class="nav-text">Bully算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Raft协议"><span class="nav-number">1.3.6.</span> <span class="nav-text">Raft协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZAB协议"><span class="nav-number">1.3.7.</span> <span class="nav-text">ZAB协议</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式理论基础"><span class="nav-number">1.</span> <span class="nav-text">分布式理论基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存在的问题"><span class="nav-number">1.1.</span> <span class="nav-text">存在的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络通信异常"><span class="nav-number">1.1.1.</span> <span class="nav-text">网络通信异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络分区"><span class="nav-number">1.1.2.</span> <span class="nav-text">网络分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三态"><span class="nav-number">1.1.3.</span> <span class="nav-text">三态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从ACID-到CAP-BASE"><span class="nav-number">1.2.</span> <span class="nav-text">从ACID 到CAP/ BASE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#传统DBMS-中的ACID"><span class="nav-number">1.2.1.</span> <span class="nav-text">传统DBMS 中的ACID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CAP"><span class="nav-number">1.2.2.</span> <span class="nav-text">CAP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BASE"><span class="nav-number">1.2.3.</span> <span class="nav-text">BASE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一致性协议"><span class="nav-number">1.3.</span> <span class="nav-text">一致性协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#XA-规范"><span class="nav-number">1.3.1.</span> <span class="nav-text">XA 规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2PC"><span class="nav-number">1.3.2.</span> <span class="nav-text">2PC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3PC"><span class="nav-number">1.3.3.</span> <span class="nav-text">3PC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Paxos算法"><span class="nav-number">1.3.4.</span> <span class="nav-text">Paxos算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bully算法"><span class="nav-number">1.3.5.</span> <span class="nav-text">Bully算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Raft协议"><span class="nav-number">1.3.6.</span> <span class="nav-text">Raft协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZAB协议"><span class="nav-number">1.3.7.</span> <span class="nav-text">ZAB协议</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
