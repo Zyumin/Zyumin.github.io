@@ -96,25 +96,24 @@
 
 
 
-  <meta name="description" content="###  3月 第三周 18-24 记录 ​    复习Web ​        Model-View-Controller 延迟 ​        Servlet API (JSR 340)  延迟 ​        WebSocket API (JSR 356)  暂不关心 ​    MQ : JMS (JSR 914) ​    RPC:RMI 当你发现自己的才华撑不起野心时，就请安静下来学">
-<meta name="keywords" content="week">
+  <meta name="keywords" content="distributed">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3月第三周知识点记录">
-<meta property="og:url" content="http://yoursite.com/2019/03/24/3月第三周知识点记录/index.html">
+<meta property="og:title" content="Zookeeper深入浅出">
+<meta property="og:url" content="http://yoursite.com/2019/06/03/Zookeeper深入浅出/index.html">
 <meta property="og:site_name" content="Zyumin">
-<meta property="og:description" content="###  3月 第三周 18-24 记录 ​    复习Web ​        Model-View-Controller 延迟 ​        Servlet API (JSR 340)  延迟 ​        WebSocket API (JSR 356)  暂不关心 ​    MQ : JMS (JSR 914) ​    RPC:RMI 当你发现自己的才华撑不起野心时，就请安静下来学">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-30T03:36:14.576Z">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g3oa9o62xsj30u01hcjvp.jpg">
+<meta property="og:updated_time" content="2019-06-03T13:23:09.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3月第三周知识点记录">
-<meta name="twitter:description" content="###  3月 第三周 18-24 记录 ​    复习Web ​        Model-View-Controller 延迟 ​        Servlet API (JSR 340)  延迟 ​        WebSocket API (JSR 356)  暂不关心 ​    MQ : JMS (JSR 914) ​    RPC:RMI 当你发现自己的才华撑不起野心时，就请安静下来学">
+<meta name="twitter:title" content="Zookeeper深入浅出">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g3oa9o62xsj30u01hcjvp.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/24/3月第三周知识点记录/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/03/Zookeeper深入浅出/">
 
 
 
@@ -124,7 +123,7 @@
   };
 </script>
 
-  <title>3月第三周知识点记录 | Zyumin</title>
+  <title>Zookeeper深入浅出 | Zyumin</title>
   
 
 
@@ -318,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/3月第三周知识点记录/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/03/Zookeeper深入浅出/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhengyumin">
@@ -335,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">3月第三周知识点记录
+          <h1 class="post-title" itemprop="name headline">Zookeeper深入浅出
 
               
             
@@ -361,24 +360,12 @@
                 
               
 
-              <time title="创建时间：2019-03-24 20:55:31" itemprop="dateCreated datePublished" datetime="2019-03-24T20:55:31+08:00">2019-03-24</time>
+              <time title="创建时间：2019-06-03 21:15:05 / 修改时间：21:23:09" itemprop="dateCreated datePublished" datetime="2019-06-03T21:15:05+08:00">2019-06-03</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-30 11:36:14" itemprop="dateModified" datetime="2019-05-30T11:36:14+08:00">2019-05-30</time>
               
             
           </span>
@@ -392,7 +379,7 @@
 
           
           
-            <span id="/2019/03/24/3月第三周知识点记录/" class="leancloud_visitors" data-flag-title="3月第三周知识点记录">
+            <span id="/2019/06/03/Zookeeper深入浅出/" class="leancloud_visitors" data-flag-title="Zookeeper深入浅出">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -417,7 +404,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.9k</span>
+                <span title="本文字数">1.6k</span>
               
 
               
@@ -431,7 +418,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">1 分钟</span>
               
             </div>
           
@@ -451,73 +438,100 @@
       
 
       
-        <p>### </p>
-<p>3月 第三周 18-24 记录</p>
-<p>​    复习Web</p>
-<p>​        Model-View-Controller 延迟</p>
-<p>​        Servlet API (<a href="https://jcp.org/en/jsr/detail?id=340" target="_blank" rel="noopener">JSR 340</a>)  延迟</p>
-<p>​        WebSocket API (<a href="https://www.jcp.org/en/jsr/detail?id=356" target="_blank" rel="noopener">JSR 356</a>)  暂不关心</p>
-<p>​    MQ : JMS (<a href="https://jcp.org/en/jsr/detail?id=914" target="_blank" rel="noopener">JSR 914</a>)</p>
-<p>​    RPC:RMI</p>
-<p>当你发现自己的才华撑不起野心时，就请安静下来学习吧</p>
+        <p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g3oa9o62xsj30u01hcjvp.jpg" alt="image-20190603212216698"></p>
 <a id="more"></a>
-<h2 id="周一"><a href="#周一" class="headerlink" title="周一"></a>周一</h2><p>JTA </p>
-<p>分而治之的思想  、 多线程、大数据 </p>
-<p>​    负载均衡 解决单机处理问题  垂直扩展（单机机器性能）和水平扩展（增加多台机器分担）</p>
-<p>​    负载均衡策略的优劣及其实现的难易程度有两个关键因素：负载均衡算法；对网络系统状况的检测方式和能力。</p>
-<p>​    轮训 、加权、最少连接数、响应速度、随机、处理能力</p>
-<p>​    硬件（DNS ）和软件</p>
-<p>​    LVS的NAT和DR。责任分离</p>
-<p><a href="https://www.cnblogs.com/kevingrace/p/6137881.html" target="_blank" rel="noopener">https://www.cnblogs.com/kevingrace/p/6137881.html</a></p>
-<p>网络模型</p>
-<p><a href="https://juejin.im/post/59a0472f5188251240632f92" target="_blank" rel="noopener">https://juejin.im/post/59a0472f5188251240632f92</a></p>
-<p>反射和字节码（ASM AOP思想）</p>
-<p><a href="http://www.fanyilun.me/2015/10/29/Java%E5%8F%8D%E5%B0%84%E5%8E%9F%E7%90%86/" target="_blank" rel="noopener">http://www.fanyilun.me/2015/10/29/Java%E5%8F%8D%E5%B0%84%E5%8E%9F%E7%90%86/</a></p>
-<h2 id="周二"><a href="#周二" class="headerlink" title="周二"></a>周二</h2><p>jvm <a href="https://blog.csdn.net/zhoufanyang_china/article/details/54601311,对象" target="_blank" rel="noopener">https://blog.csdn.net/zhoufanyang_china/article/details/54601311,对象</a><br>    对象头 信息和指针<br>    实例数据<br>    对齐填充</p>
-<p>限流</p>
-<p>redis+lua在集群里控制方法的调用量了</p>
-<p>单机 令牌（也可以全局发牌） 或者juc信号量 、 guava的 limitrater</p>
-<p>mysql版本、学习</p>
-<p>mysql sending data</p>
-<p>explain</p>
-<p>iostat IOPS</p>
-<p> mysql: show processlist 详解</p>
-<p><a href="https://zhuanlan.zhihu.com/p/30743094" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/30743094</a></p>
-<h2 id="周三"><a href="#周三" class="headerlink" title="周三"></a>周三</h2><p>JMM 规范 <a href="https://www.jcp.org/en/jsr/detail?id=133" target="_blank" rel="noopener">https://www.jcp.org/en/jsr/detail?id=133</a></p>
-<p><a href="http://www.fanyilun.me/2015/10/29/Java%E5%8F%8D%E5%B0%84%E5%8E%9F%E7%90%86/" target="_blank" rel="noopener">http://www.fanyilun.me/2015/10/29/Java%E5%8F%8D%E5%B0%84%E5%8E%9F%E7%90%86/</a></p>
-<p>Spring 自定义注解</p>
-<p><a href="https://apollochen123.github.io/2018/05/25/%E7%94%B1%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E6%89%AB%E6%8F%8F%E7%94%9F%E6%88%90SpringBean%E5%85%A8%E8%BF%87%E7%A8%8B/" target="_blank" rel="noopener">https://apollochen123.github.io/2018/05/25/%E7%94%B1%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3%E6%89%AB%E6%8F%8F%E7%94%9F%E6%88%90SpringBean%E5%85%A8%E8%BF%87%E7%A8%8B/</a></p>
-<p>jdk介绍<br><a href="https://www.jianshu.com/p/f98c3acd8df8" target="_blank" rel="noopener">https://www.jianshu.com/p/f98c3acd8df8</a></p>
-<p>离职 瓶颈和薪资</p>
-<p>《未来架构：从服务化到云原生》</p>
-<p>springboot  :<a href="http://blog.yuqiyu.com/" target="_blank" rel="noopener">http://blog.yuqiyu.com/</a></p>
-<p>线程？    </p>
-<p><a href="https://mp.weixin.qq.com/s/2ZjgLI3lgJJjpAjPdb9XSw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/2ZjgLI3lgJJjpAjPdb9XSw</a></p>
-<h2 id="周四"><a href="#周四" class="headerlink" title="周四"></a>周四</h2><p>全局异常处理—&gt;常用注解</p>
-<p>@ControllerAdvice</p>
-<p>@ResponseStatus </p>
-<p>@ExceptionHandler</p>
-<p>压缩协议</p>
-<p>Protocol Buffers - PB协议概述</p>
-<p>如何验证 java 的双亲委派机制</p>
-<p>虚拟机</p>
-<p>测试</p>
-<p><a href="https://www.cnkirito.moe/java-jmh/" target="_blank" rel="noopener">https://www.cnkirito.moe/java-jmh/</a></p>
-<p><a href="https://www.zhihu.com/question/58735131" target="_blank" rel="noopener">https://www.zhihu.com/question/58735131</a></p>
-<h2 id="周五"><a href="#周五" class="headerlink" title="周五"></a>周五</h2><p>https</p>
-<p><a href="https://www.jianshu.com/p/b0b6b88fe9fe" target="_blank" rel="noopener">https://www.jianshu.com/p/b0b6b88fe9fe</a></p>
-<p>统一版本管理</p>
-<p><a href="https://maven.apache.org/maven-ci-friendly.html" target="_blank" rel="noopener">https://maven.apache.org/maven-ci-friendly.html</a></p>
-<p>spring 初始化</p>
-<p>Springboot 工程</p>
-<p>jpa <a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repository-query-keywords" target="_blank" rel="noopener">https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repository-query-keywords</a></p>
-<p>周六日总结</p>
+<h3 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h3><ul>
+<li>简单设计模型。<ul>
+<li>共享、树形结构的名字空间</li>
+</ul>
+</li>
+<li>可以构建集群<ul>
+<li>(扩容、缩容 支持不好  需要全部重启 ,或一台台重启)</li>
+</ul>
+</li>
+<li>顺序访问</li>
+<li>高性能 <ul>
+<li>内存,直接服务所有非事务请求,适合读多写少</li>
+</ul>
+</li>
+</ul>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="集群角色"><a href="#集群角色" class="headerlink" title="集群角色"></a>集群角色</h4><p>​    传统Master/Slave (redis/es)</p>
+<p>​    引入 Leader 、Follower 和 Observer(不参与投票、不写事务日志)角色 </p>
+<h4 id="会话-Session"><a href="#会话-Session" class="headerlink" title="会话(Session)"></a>会话(Session)</h4><p>​    TCP长连接 、Watch、SessionTimeout</p>
+<h4 id="数据节点-Znode"><a href="#数据节点-Znode" class="headerlink" title="数据节点(Znode)"></a>数据节点(Znode)</h4><p>​    持久节点和临时节点( 与Session有关)、顺序节点</p>
+<h4 id="版本-保证分布式数据原子性操作、乐观锁"><a href="#版本-保证分布式数据原子性操作、乐观锁" class="headerlink" title="版本(保证分布式数据原子性操作、乐观锁)"></a>版本(保证分布式数据原子性操作、乐观锁)</h4><p>​    Znode会有一个Stat 分别是 version.、cversion 、aversion(ACL)</p>
+<h4 id="Watcher-客户端线程、客户端WatchManager和服务器"><a href="#Watcher-客户端线程、客户端WatchManager和服务器" class="headerlink" title="Watcher(客户端线程、客户端WatchManager和服务器)"></a>Watcher(客户端线程、客户端WatchManager和服务器)</h4><p>​    允许用户在指定节点注册一些Watcher,并且在特定事件触发,服务端会进行通知.但具体的内容还需要客户端自己去拉取.</p>
 <ul>
-<li style="list-style: none"><input type="checkbox"> hibernate反射运用场景？</li>
-<li style="list-style: none"><input type="checkbox"> mybatis和hibernate？</li>
-<li style="list-style: none"><input type="checkbox"> Spring 一个请求一个线程？线程池？</li>
-<li style="list-style: none"><input type="checkbox"> spring观察者模式是怎么实现的？具体回调方式？</li>
-<li style="list-style: none"><input type="checkbox"> 为什么抛异常，而不是返回一个状态码？ 统一处理？性能影响？</li>
+<li>客户端注册Watcher</li>
+<li>服务端Watcher处理<ul>
+<li>ServerCnxn 是客户端和服务端的连接接口(NIOServerCnxn和NettyServerCnxn)</li>
+</ul>
+</li>
+<li>客户端回调Watcher</li>
+</ul>
+<p>​    </p>
+<p>特性</p>
+<ul>
+<li>一次性(需要重复注册)</li>
+<li>客户端串行执行</li>
+<li>轻量  </li>
+</ul>
+<p>​        通知状态、事件类型、节点路径</p>
+<h4 id="ACL-Access-Control-Lists-类似UNIX文件系统的权限控制"><a href="#ACL-Access-Control-Lists-类似UNIX文件系统的权限控制" class="headerlink" title="ACL(Access Control Lists 类似UNIX文件系统的权限控制)"></a>ACL(Access Control Lists 类似UNIX文件系统的权限控制)</h4><ul>
+<li>权限模式(Scheme)</li>
+<li>授权对象(ID)</li>
+<li>权限(permission)</li>
+</ul>
+<p>​        CREATE、READ、WRITE、DELETE、ADMIN</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li>数据发布/订阅  </li>
+<li>分布式协调/通知 </li>
+<li>集群管理</li>
+<li>Master选举</li>
+<li>分布式锁(羊群效应,Watcher只关注比自己低的)</li>
+<li>分布式队列</li>
+</ul>
+<h3 id="ZAB协议"><a href="#ZAB协议" class="headerlink" title="ZAB协议"></a>ZAB协议</h3><p>核心是定义了对于那些会改变ZooKeeper服务器数据状态的事务请求的处理方式:</p>
+<p>所有事务请求由一个全局唯一服务器处理 Leader</p>
+<p>Leader 负责将客户端事务请求转换成一个事务Proposal .分发给集群中的所有Follower</p>
+<p>等待所有服务器反馈,一旦超过半数Follower服务器正确反馈 Leader 会再次向所有Follower服务器分发commit</p>
+<h4 id="两个过程"><a href="#两个过程" class="headerlink" title="两个过程"></a>两个过程</h4><p>奔溃恢复(初始化和选举) </p>
+<p>​            基本特征</p>
+<p>​                确保那些已经在Leader服务器上提交的事务最终被所有服务器提交</p>
+<p>​                确保丢弃那些只在Leader服务器上提出的事务</p>
+<p>​            数据同步            </p>
+<p>消息广播 </p>
+<p>​            事务全局单调递增唯一ID (事务ID :包含epoch 选举周期) 和myid(机器序号唯一id)  ,为每个Follower分配一个FIFO队列 ,Follower接收后回写入事务日志,本地磁盘(基于FIFO 特性的TCP协议。保证消息广播过程中消息接收与发送的顺序性)</p>
+<h4 id="四个阶段"><a href="#四个阶段" class="headerlink" title="四个阶段"></a>四个阶段</h4><ul>
+<li>选举 <ul>
+<li>根据Vote(zxid,myid). electionEpoch当前选举周期。 state LOOKING</li>
+</ul>
+</li>
+<li>发现<ul>
+<li>Follower将最后epoch发送给准Leader</li>
+<li>收到过半Quorum 生成新epoch 给这些过半Follower</li>
+<li>反馈ACK和历史Proposal集合 ,  Leader 从中选择事务集合</li>
+</ul>
+</li>
+<li>同步<ul>
+<li>Leader 将事务集合 发给所有Quorum</li>
+</ul>
+</li>
+<li>广播<ul>
+<li>开始接收客户端请求,并进行消息广播流程</li>
+</ul>
+</li>
+</ul>
+<p>节点状态</p>
+<ul>
+<li>LOOKING </li>
+<li>FOLLOWING</li>
+<li>LEADING</li>
+</ul>
+<p>ZAB和Paxos本质区别</p>
+<ul>
+<li>ZAB协议主要用于构建一个高可用的分布式数据主备系统</li>
+<li>Paxos算法用于构建一个分布式的一致性状态机系统</li>
 </ul>
 
       
@@ -542,7 +556,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/week/" rel="tag"># week</a>
+            <a href="/tags/distributed/" rel="tag"># distributed</a>
           
         </div>
       
@@ -555,8 +569,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/10/Expert One-on-One-J2EE-Development-without-EJB/" rel="next" title="Expert One-on-One J2EE Development without EJB">
-                <i class="fa fa-chevron-left"></i> Expert One-on-One J2EE Development without EJB
+              <a href="/2019/06/03/分布式理论基础/" rel="next" title="分布式理论基础">
+                <i class="fa fa-chevron-left"></i> 分布式理论基础
               </a>
             
           </div>
@@ -564,10 +578,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/26/记一次Broken-pipe问题的思考/" rel="prev" title="记一次Broken pipe问题的思考">
-                记一次Broken pipe问题的思考 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -739,7 +749,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#周一"><span class="nav-number">1.</span> <span class="nav-text">周一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#周二"><span class="nav-number">2.</span> <span class="nav-text">周二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#周三"><span class="nav-number">3.</span> <span class="nav-text">周三</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#周四"><span class="nav-number">4.</span> <span class="nav-text">周四</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#周五"><span class="nav-number">5.</span> <span class="nav-text">周五</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计目标"><span class="nav-number">1.</span> <span class="nav-text">设计目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#集群角色"><span class="nav-number">2.1.</span> <span class="nav-text">集群角色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#会话-Session"><span class="nav-number">2.2.</span> <span class="nav-text">会话(Session)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据节点-Znode"><span class="nav-number">2.3.</span> <span class="nav-text">数据节点(Znode)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版本-保证分布式数据原子性操作、乐观锁"><span class="nav-number">2.4.</span> <span class="nav-text">版本(保证分布式数据原子性操作、乐观锁)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Watcher-客户端线程、客户端WatchManager和服务器"><span class="nav-number">2.5.</span> <span class="nav-text">Watcher(客户端线程、客户端WatchManager和服务器)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ACL-Access-Control-Lists-类似UNIX文件系统的权限控制"><span class="nav-number">2.6.</span> <span class="nav-text">ACL(Access Control Lists 类似UNIX文件系统的权限控制)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">3.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZAB协议"><span class="nav-number">4.</span> <span class="nav-text">ZAB协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#两个过程"><span class="nav-number">4.1.</span> <span class="nav-text">两个过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四个阶段"><span class="nav-number">4.2.</span> <span class="nav-text">四个阶段</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -920,7 +930,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/03/24/3月第三周知识点记录/'
+    refer: '2019/06/03/Zookeeper深入浅出/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
