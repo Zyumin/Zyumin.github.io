@@ -1829,7 +1829,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1c6bc6;
+  background: #2f0b9e;
 }
 .feed-link,
 .chat {
@@ -2841,9 +2841,9 @@ ul.breadcrumb li+li:last-child {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-ul {
-  list-style-type: disc;
+.posts-expand .post-body ul li {
+  list-style: disc;
 }
-li {
-  list-style-type: circle;
+.posts-expand .post-body li ul li {
+  list-style: circle;
 }
