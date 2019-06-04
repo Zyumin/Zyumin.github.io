@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="MySQL版本特征 2001 , 3.23    诞生, MyISAM代替ISAM ,引入全文索引和复制   2003 , 4.0  新语法的支持  UNION、多表DELETE语法 复制优化 , 两个线程来实现复制 InnoDB成为标准配备   行级锁、外键 查询缓存   2005 , 4.1  ​    新语法支持  子查询、INSERT ON DUPLICATE KEY UPDATE ​">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL深入浅出">
+<meta property="og:url" content="http://yoursite.com/2019/06/04/MySQL深入浅出/index.html">
+<meta property="og:site_name" content="Zyumin">
+<meta property="og:description" content="MySQL版本特征 2001 , 3.23    诞生, MyISAM代替ISAM ,引入全文索引和复制   2003 , 4.0  新语法的支持  UNION、多表DELETE语法 复制优化 , 两个线程来实现复制 InnoDB成为标准配备   行级锁、外键 查询缓存   2005 , 4.1  ​    新语法支持  子查询、INSERT ON DUPLICATE KEY UPDATE ​">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g3ph297snqj30ia0sfjue.jpg">
+<meta property="og:updated_time" content="2019-06-04T14:42:29.495Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL深入浅出">
+<meta name="twitter:description" content="MySQL版本特征 2001 , 3.23    诞生, MyISAM代替ISAM ,引入全文索引和复制   2003 , 4.0  新语法的支持  UNION、多表DELETE语法 复制优化 , 两个线程来实现复制 InnoDB成为标准配备   行级锁、外键 查询缓存   2005 , 4.1  ​    新语法支持  子查询、INSERT ON DUPLICATE KEY UPDATE ​">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g3ph297snqj30ia0sfjue.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/04/MySQL深入浅出/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>MySQL深入浅出 | Zyumin</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemsope="" itemtype="http://schema.org/WPHeader">
+	  <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zyumin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">保持自驱和热情</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/Zyumin" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/04/MySQL深入浅出/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhengyumin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zyumin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySQL深入浅出
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-04 22:02:31 / 修改时间：22:42:29" itemprop="dateCreated datePublished" datetime="2019-06-04T22:02:31+08:00">2019-06-04</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/06/04/MySQL深入浅出/" class="leancloud_visitors" data-flag-title="MySQL深入浅出">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">16k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">14 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g3ph297snqj30ia0sfjue.jpg" alt="image-20190604220256224"></p>
+<h3 id="MySQL版本特征"><a href="#MySQL版本特征" class="headerlink" title="MySQL版本特征"></a>MySQL版本特征</h3><ul>
+<li><p>2001 , 3.23  </p>
+<ul>
+<li>诞生, MyISAM代替ISAM ,引入全文索引和复制</li>
+</ul>
+</li>
+<li><p>2003 , 4.0</p>
+<ul>
+<li>新语法的支持  UNION、多表DELETE语法</li>
+<li>复制优化 , 两个线程来实现复制</li>
+<li>InnoDB成为标准配备   行级锁、外键</li>
+<li>查询缓存</li>
+</ul>
+</li>
+<li><p>2005 , 4.1</p>
+<ul>
+<li>​    新语法支持  子查询、INSERT ON DUPLICATE KEY UPDATE</li>
+<li>​    支持UTF-8字符集</li>
+<li>​    支持新的二级协议和prepared语句</li>
+</ul>
+</li>
+<li><p>2006 , 5.0</p>
+<ul>
+<li>​    企业级特征 视图、触发器、存储过程、函数</li>
+</ul>
+</li>
+<li><p>2008 , 5.1 </p>
+<ul>
+<li>​    分区</li>
+<li>​    基于行复制</li>
+<li>​    plugin API</li>
+</ul>
+</li>
+<li><p>2010 , 5.5</p>
+<ul>
+<li>​    InnoDB成为默认引擎</li>
+<li>​    半同步插件</li>
+<li>​    线程池</li>
+</ul>
+</li>
+<li><p>2013, 5.7</p>
+<ul>
+<li>​    JSON支持</li>
+</ul>
+</li>
+<li><p>2016, 8.0</p>
+<p>  <a href="https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html</a></p>
+</li>
+</ul>
+<h3 id="Schema与数据类型优化"><a href="#Schema与数据类型优化" class="headerlink" title="Schema与数据类型优化"></a>Schema与数据类型优化</h3><h4 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h4><ul>
+<li>​    最小的通常更好 占用更少的磁盘、内存和CPU缓存</li>
+<li>​    简单就好 简单数据类型的操作通常需要更少的CPU周期</li>
+<li>​    尽量避免NULL  ,NULL columns require additional space in the row to record whether their values are NULL. For MyISAM tables, each NULL column takes one bit extra, rounded up to the nearest byte</li>
+</ul>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><h5 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h5><p>​        类型<br>​            TINYINT（8）<br>​            SMALLINT（16）<br>​            MEDIUMINT（32）<br>​            INT（64）<br>​            BIGINT（128）<br>​        属性<br>​            UNSIGNED<br>​            宽度</p>
+<h5 id="实数类型"><a href="#实数类型" class="headerlink" title="实数类型"></a>实数类型</h5><p>​        标准的浮点运算进行近似计算<br>​            FLOAT<br>​            DOUBLE<br>​        精确<br>​            DECIMAL</p>
+<h5 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h5><p>​        VARCHAR<br>​            它比定长类型更节省空间<br>​            需要使用1或2个额外字节记录字符串的长度<br>​            适用场合<br>​                字符串列的最大长度比平均长度大很多<br>​                列的更新很少，碎片少<br>​            会保留末尾空格<br>​        CHAR<br>​            适合存储很短的字符串，或者所有值都接近同一个长度<br>​            经常变更的数据<br>​            会删除末尾空格</p>
+<h5 id="BLOB和TEXT类型"><a href="#BLOB和TEXT类型" class="headerlink" title="BLOB和TEXT类型"></a>BLOB和TEXT类型</h5><p>​            BLOB 二进制<br>​            TEXT 字符方式存储<br>​            Tips:当值太大时候，InnoDB会使用专门的“外部”存储区域进行存储，行内存储指针</p>
+<h5 id="枚举ENUM"><a href="#枚举ENUM" class="headerlink" title="枚举ENUM"></a>枚举ENUM</h5><p>​            优势<br>​                存储枚举非常紧凑<br>​                在列表中保存为整数，在表.frm文件中保存”数字-字符串”映射关系表<br>​            劣势<br>​                字符串列表是固定的，修改必须使用ALTER TABLE</p>
+<h5 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h5><p>​        DATETIME<br>​            存储范围 从1001年到9999年，精度为秒<br>​            格式 YYYYMMDDHHMMSS<br>​            使用8个字节<br>​            与时区无关<br>​        TIMESTAMP<br>​            存储范围 从1970到2038年<br>​            格式 保存了从1970年以来的秒数 和UNIX时间戳相同<br>​            只使用4个字节<br>​            和时区有关<br>​<br>​        Tips:如果需要保存更小粒度的时间,可以使用BIGINT存储</p>
+<h5 id="位数据类型"><a href="#位数据类型" class="headerlink" title="位数据类型"></a>位数据类型</h5><p>​        BIT、SET</p>
+<h5 id="选择标识符（主键）"><a href="#选择标识符（主键）" class="headerlink" title="选择标识符（主键）"></a>选择标识符（主键）</h5><p>​        整数类型<br>​            很快，并且可以使用AUTO_INCREMENT<br>​        字符串类型<br>​            消耗空间<br>​            比较计算速度慢<br>​            随机字符串<br>​                类型<br>​                    MD5 SHA1<br>​                    UUID 分布不均，但有一定顺序<br>​                问题<br>​                    INSERT变慢<br>​                        磁盘随机访问<br>​                        页分裂<br>​                        磁盘碎片<br>​                    SELECT变慢<br>​                        随机I/O<br>​                    导致缓存效果差</p>
+<h4 id="Schema设计中的陷阱"><a href="#Schema设计中的陷阱" class="headerlink" title="Schema设计中的陷阱"></a>Schema设计中的陷阱</h4><ul>
+<li>​    太多的列<ul>
+<li>从行缓冲中将编码过的列转换成行数据结构的操作代价非常的高</li>
+</ul>
+</li>
+<li>太多的关联<ul>
+<li>限制 最多只能61张表,经验法则单个查询最好在12个表以内</li>
+</ul>
+</li>
+<li>过度枚举</li>
+<li>NULL</li>
+</ul>
+<h4 id="范式和反范式"><a href="#范式和反范式" class="headerlink" title="范式和反范式"></a>范式和反范式</h4><h5 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h5><p>​        是什么 :每个数据会出现并且只有一次<br>​        优点<br>​            更新操作比反范式快<br>​            修改更少数据<br>​            更少的DISTINCT或者GROUP BY<br>​        缺点<br>​            需要表关联<br>​            分散了索引</p>
+<h5 id="反范式"><a href="#反范式" class="headerlink" title="反范式"></a>反范式</h5><p>​        是什么<br>​            信息是冗余的，可能会存储在多个地方<br>​        优点<br>​            不需要表关联，数据比内存大时，有时候全表扫描会更快，避免了随机I/O<br>​            更有效的索引策略<br>​        缺点<br>​            对应范式的优点<br>​    </p>
+<h5 id="混用"><a href="#混用" class="headerlink" title="混用"></a>混用</h5><p>​        最常见的反范式化数据的方法<br>​            复制<br>​            缓存<br>​            高效获取，排序的需要</p>
+<p>##### </p>
+<h4 id="缓存表和汇总表"><a href="#缓存表和汇总表" class="headerlink" title="缓存表和汇总表"></a>缓存表和汇总表</h4><h5 id="汇总表"><a href="#汇总表" class="headerlink" title="汇总表"></a>汇总表</h5><p>​        保存使用GROUP BY语句聚合数据的表<br>​        逻辑上非冗余<br>​        适用场景<br>​            准实时数据<br>​            局部热点<br>​                最活跃用户<br>​                最常见标签</p>
+<h5 id="缓存表"><a href="#缓存表" class="headerlink" title="缓存表"></a>缓存表</h5><p>​        来存储可以比较简单从schema表获取的<br>​        逻辑上冗余<br>​        适用场景<br>​            查询语句需要特殊的表和索引结构<br>​            适用不同的存储引擎，适用MyISAM做全文搜索</p>
+<h5 id="维护还是定时重建"><a href="#维护还是定时重建" class="headerlink" title="维护还是定时重建"></a>维护还是定时重建</h5><p>​        定期重建<br>​            节约资源，保持表不会有很多碎片，有序索引<br>​            使用“影子表”</p>
+<h5 id="物化视图"><a href="#物化视图" class="headerlink" title="物化视图"></a>物化视图</h5><p>​        预先计算并且存储在磁盘上的表，可以通过各种各样的策略刷新和更新</p>
+<h5 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h5><p>​        串行执行<br>​        预先建立多行，选择一个随机槽更新<br>​        ON DUPLICATE KEY 不用预先生成行<br>​        防止表变大，定时聚合到0号槽，并删除其他的槽 事务保证原子性</p>
+<h4 id="加快ALTER-TABLE操作的速度"><a href="#加快ALTER-TABLE操作的速度" class="headerlink" title="加快ALTER TABLE操作的速度"></a>加快ALTER TABLE操作的速度</h4><h5 id="ALTER-TABLE"><a href="#ALTER-TABLE" class="headerlink" title="ALTER TABLE"></a>ALTER TABLE</h5><p>​        MODIFY COLUMN<br>​            会直接修改.frm文件<br>​        ALTER COLUMN<br>​            会引起表重建</p>
+<h5 id="不会重建表的情况"><a href="#不会重建表的情况" class="headerlink" title="不会重建表的情况"></a>不会重建表的情况</h5><p>​        移除一个列的AUTO_INCREMENT属性<br>​        增加、移除，或更改ENUM和SET常量</p>
+<h5 id="存在的的问题"><a href="#存在的的问题" class="headerlink" title="存在的的问题"></a>存在的的问题</h5><p>​        MYSQL会在没必要的时候也重建表</p>
+<h5 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h5><p>​        为想要的表结构创建一个新的.frm文件，然后用它替换掉已经存在的那张表的.frm文件</p>
+<h5 id="InnoDB的快速在线索引创建功能"><a href="#InnoDB的快速在线索引创建功能" class="headerlink" title="InnoDB的快速在线索引创建功能"></a>InnoDB的快速在线索引创建功能</h5><p>​        先删除所有的非唯一索引<br>​        增加新的列<br>​        最后重新创建删除掉的索引</p>
+<h3 id="高性能索引"><a href="#高性能索引" class="headerlink" title="高性能索引"></a>高性能索引</h3><h4 id="索引基础、类型"><a href="#索引基础、类型" class="headerlink" title="索引基础、类型"></a>索引基础、类型</h4><p>​        B-tree<br>​            实现<br>​                MyISAM<br>​                    通过物理位置引用被索引的行<br>​                    优点<br>​                        使用前缀压缩技术，索引更小<br>​                        存储物理位置（指针），空间占用更少<br>​                    缺点<br>​                        物理位置变化，需要修改二级索引指针地址<br>​                InnoDB<br>​                    根据主键引用被索引的行<br>​                    优点<br>​                        数据位置变换时，不需要修改二级索引<br>​                        额外拥有主键，不需要回表<br>​                    缺点<br>​                        占用内存空间多<br>​            适用类型<br>​                全值匹配<br>​                匹配最左前缀<br>​                匹配列前缀<br>​                匹配范围值<br>​                精确匹配某一列并范围匹配另外一列<br>​                只访问索引的查询<br>​            限制<br>​                不按照最左列开始查找，无法适用索引<br>​                不能跳过索引的列<br>​                如果查询某个列的范围查询，其右边的所有列都无法使用索引优化<br>​        哈希索引<br>​            只有Memory引擎显示支持<br>​            优点<br>​                命中快<br>​            限制<br>​                不能通过索引来避免读取行<br>​                不是顺序存储，无法用于排序<br>​                不支持部分索引列查找<br>​                只能支持等值比较查询<br>​                哈希冲突<br>​            InnoDB “自适应哈希索引”<br>​                某些索引值被使用非常频繁时，会在内存中基于B-Tree索引上再创建哈希索引，这样让B-Tree也具有哈希索引的一些优点<br>​            创建自定义哈希索引<br>​                场景<br>​                    需要存储大量URL，并根据URL进行搜索查找<br>​                实现<br>​                    删除原来URL的索引，新增url_crc索引列<br>​                    哈希算法<br>​                        CRC32<br>​                        强加密型<br>​                            SHA1<br>​                            MD5<br>​                问题<br>​                    当URL变化时，需要维护哈希值<br>​                    解决方法<br>​                        使用触发器更新索引<br>​            处理哈希冲突<br>​                查询条件需要包含哈希前的URL和哈希后的索引，确保唯一性<br>​        空间索引R-Tree<br>​            GIS支持并不完善<br>​        全文索引<br>​            适用于MATCH AGAINST</p>
+<h4 id="索引的优点"><a href="#索引的优点" class="headerlink" title="索引的优点"></a>索引的优点</h4><p>​        大大减少了服务器需要扫描的数据量<br>​        帮助服务器避免排序和临时表<br>​        将随机I/O变为顺序I/O</p>
+<h4 id="如何评价一个索引"><a href="#如何评价一个索引" class="headerlink" title="如何评价一个索引"></a>如何评价一个索引</h4><p>​        一星<br>​            索引将相关的记录放到一起<br>​        二星<br>​            索引中的数据顺序和查找中的排列顺序一致<br>​        三星<br>​            索引中的列包含了查询中需要的全部列</p>
+<h4 id="高性能的索引策略"><a href="#高性能的索引策略" class="headerlink" title="高性能的索引策略"></a>高性能的索引策略</h4><p>​        独立的列<br>​            是指所有列不能是表达式的一部分，也不能是函数的参数<br>​        前缀索引和索引选择性<br>​            选择性<br>​                不重复的索引值和数据表的记录总数的比值<br>​            前缀选择性<br>​                必须使用<br>​                    BLOB<br>​                    TEXT<br>​                    VARCHAR<br>​            如何计算合适的前缀长度<br>​                需要找到最见的值的列表<br>​                使前缀的选择性接近于完整列的选择性<br>​            前缀索引的问题(无法使用)<br>​                GROUP BY<br>​                ORDER BY<br>​        多列索引<br>​            “索引合并”策略<br>​                一定程度上可以使用表上的多个单列索引来定位指定的行<br>​            type<br>​                index_merge<br>​            规范问题<br>​                当需要对多个索引做相交操作时（AND），通常意味着需要一个包含所有相关列的多列索引<br>​                当需要对多个索引做联合操作时（OR），通常需要耗费大量CPU和内存资源再算法的缓存、排序和合并操作上<br>​                优化器不会计算到查询成本<br>​        选择合适的索引列顺序<br>​            经验法则<br>​                将选择性最高的列放再所有的最前列，在不考虑分组和排序时<br>​        聚簇索引<br>​            如果没有定义主键，会选择一个唯一的非空索引代替，如果没有，则会隐式定义一个主键来作为聚簇索引<br>​            优点<br>​                可以把相关数据保存在一起，只需从磁盘读取很少的数据页<br>​                数据访问更快，索引和数据保存在同一个B-Tree<br>​                使用覆盖索引扫描的查询可以直接使用页节点中的主键值<br>​            缺点<br>​                最大限度提高I/O密集型应用性能，但是如果数据全部加载在内存中，顺序就没那么重要了<br>​                插入速度依赖插入顺序，按照主键顺序插入最快<br>​                更新索引代价很高，会将更新的行移动到新位置<br>​                页分裂，导致占用更多空间<br>​                可能导致全表扫描变慢，行稀疏，或页分裂导致数据存储不连续<br>​                二级索引包含主键，占用空间可能会很大<br>​                二级索引需要两次查找，自适应哈希<br>​            叶子节点<br>​                主键值<br>​                事务ID<br>​                用于事务和MVCC的回滚指针<br>​                非主键列<br>​            UUID插入的问题<br>​                写入的目标页可能已经被刷到磁盘上并从缓存中移除，或者还没有加载到缓存，插入之前不得不先从磁盘读取目标页到内存<br>​                写入乱序，频繁分裂页，导致大量的移动操作和空间占用<br>​                页分裂会导致页变得稀疏并被不规则填充，会有碎片<br>​                必要使用OPTIMIZE TABLE 重建表，和优化页的填充<br>​            顺序主键什么时候会造成更坏的结果<br>​                并发插入导致间隙锁竞争<br>​                AUTO_INCREMENT锁机制<br>​        覆盖索引<br>​            好处<br>​                索引条目小于数据行大小，减少数据量访问<br>​                无需回表，顺序I/O<br>​                对于MyISAM内存中只缓存索引，数据依赖操作系统缓存，访问数据需要系统调用<br>​            index condition pushdown(ICP)<br>​                发送查询数据到引擎层<br>​        使用索引扫描来做排序<br>​            如果索引不能覆盖查询的全部列，那就不得不每扫描一条索引记录就都回表查询一次对应的行，通常比顺序地全表扫描慢<br>​            为什么<br>​                只有当索引的列顺序和ORDER BY字句的顺序完全一致，并且所有列的排序方向都一样，才能使用索引对结果做排序<br>​                如果关联表，则只有当ORDER BY字句引用的字段全部为第一个表时，才能使用索引做排序<br>​            不能使用索引做排序的查询<br>​                使用不同排序方向<br>​                OREDR BY子句引用了一个不在索引的列<br>​                WHERE 和 OREDR BY中的列无法组成索引的最左前缀<br>​                第一个列上是范围条件，无法使用索引其他列<br>​        压缩索引<br>​            MyISAM压缩索引<br>​                压缩块使用更少的空间<br>​                    十分之一<br>​                操作更慢<br>​                    无法使用二分查找<br>​        冗余和重复索引<br>​            重复索引（去除）<br>​                相同的列<br>​                相同的顺序<br>​                相同的类型<br>​            冗余索引（适当）<br>​                应该尽量扩展已有的索引而不是创建新索引（冗余）<br>​                需要使用的场景<br>​                    避免已有索引变大<br>​                    排序、分组需要<br>​        未使用索引<br>​            有可能是唯一约束，用于避免重复数据<br>​        索引和锁<br>​            作用<br>​                索引能够减少锁的数量<br>​            原因<br>​                InnoDB只有在访问行的时候才会对其加锁<br>​            细节（InnoDB）<br>​                二级索引共享锁<br>​                主键索引排他锁</p>
+<h4 id="维护索引和表"><a href="#维护索引和表" class="headerlink" title="维护索引和表"></a>维护索引和表</h4><p>​        找到损坏的表<br>​            CHECK TABLE<br>​        更新索引统计信息<br>​            innoDB 5.5 随机索引访问进行评估并存储在内存中<br>​            基数(Cardinality)<br>​                SHOW INDEX FROM<br>​                存储引擎估算索引列有多少个不同的取值<br>​        减少索引和数据碎片<br>​            问题<br>​                碎片<br>​                    数据行被存储在多个地方，多个片段中<br>​                行碎片<br>​                    逻辑上顺序的页或者行，在磁盘上不是顺序存储<br>​                剩余空间碎片<br>​                    数据页存在大量剩余空间<br>​            解决方法<br>​                OPTIMIZE TABLE<br>​                导出再导入<br>​            存储引擎<br>​                InnoDB 新增“在线”添加和删除索引功能<br>​                MyISAM 通过排序算法重建索引消除碎片</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>​        原则<br>​            单行访问效率低<br>​            顺序访问范围数据快<br>​                顺序IO<br>​                无需排序操作<br>​            覆盖索引，无需回表，避免单行访问<br>​        如何判断索引合理<br>​            响应时间找出慢查询<br>​            检查<br>​                schema<br>​                SQL<br>​                索引<br>​            判断<br>​                是否扫描了太多的行<br>​                是否做了很多额外排序<br>​                使用了临时表<br>​                随机I/O<br>​                太多回表查询<br>​            解决</p>
+<h3 id="查询性能优化"><a href="#查询性能优化" class="headerlink" title="查询性能优化"></a>查询性能优化</h3><h4 id="为什么查询会慢"><a href="#为什么查询会慢" class="headerlink" title="为什么查询会慢"></a>为什么查询会慢</h4><p>​        响应时间<br>​        任务<br>​            子任务组成<br>​            优化子任务<br>​                消除子任务<br>​                减少子任务查询次数<br>​                加快子任务查询速度<br>​        生命周期<br>​            客户端<br>​                发送请求<br>​            服务器<br>​                缓存查询<br>​                解析<br>​                优化器优化<br>​                执行<br>​        时间花费<br>​            网络<br>​            CPU计算<br>​            生成统计信息和执行计划<br>​            锁等待</p>
+<h4 id="慢查询的基础：优化数据访问"><a href="#慢查询的基础：优化数据访问" class="headerlink" title="慢查询的基础：优化数据访问"></a>慢查询的基础：优化数据访问</h4><p>​        是否检索大量超过需要的数据<br>​            查询不需要的记录<br>​            多表关联时返回全部的列<br>​            总是取出全部列<br>​            查询重复的数据<br>​        分析大量超过需要的行<br>​            指标<br>​                响应时间<br>​                    服务时间<br>​                    排队时间<br>​                扫描行数<br>​                    访问类型<br>​                        全表扫描<br>​                        索引扫描<br>​                        范围扫描<br>​                        唯一索引扫描<br>​                        常数引用<br>​                返回行数<br>​                    扫描的行数对返回的行数的比率<br>​                        通常1：1到1：10之间<br>​            WHERE条件<br>​                在索引中使用WHERE条件过滤不匹配记录，存储引擎层<br>​                使用索引覆盖查询，直接从索引中过滤不需要的记录并返回命中结果，服务层，无需回表<br>​                从数据表中返回，然后过滤不满足条件的记录，服务层<br>​            优化<br>​                索引覆盖<br>​                改变库表结果<br>​                    使用汇总表<br>​                重写查询</p>
+<h4 id="重构查询方式"><a href="#重构查询方式" class="headerlink" title="重构查询方式"></a>重构查询方式</h4><p>​        一个复杂查询还是多个简单查询<br>​        切分查询<br>​            分而治之，每个查询功能一样<br>​        分解关联查询<br>​            优势<br>​                让缓存效率更高<br>​                执行单个查询可以减少锁的竞争<br>​                在应用层做关联，可以更容易对数据库进行拆分，更容易做到高性能和可扩展<br>​                可以减少冗余记录的查询<br>​                哈希关联，而不是嵌套循环关联</p>
+<h4 id="查询执行的基础"><a href="#查询执行的基础" class="headerlink" title="查询执行的基础"></a>查询执行的基础</h4><p>​        做了什么<br>​            1.客户端发送查询给服务器<br>​            2.服务器检查缓存<br>​            3.服务器进行SQL解析、预处理，再由优化器生成对应的执行计划<br>​            4.MySQL根据优化器生成的执行计划，调用存储引擎的API来执行查询<br>​            5.将结果返回给客户端<br>​        MySQL客户端/服务器通信协议<br>​            通信协议<br>​                半双工<br>​                优点<br>​                    简单快速<br>​                缺点<br>​                    流量控制<br>​            通信过程<br>​                客户端用一个单独的数据包将查询传给服务器，max_allowed_packet<br>​                服务器返回多个数据包，必须完整接收<br>​                多数连接MySQL的库函数都可以获得全部结果集并缓存到内存里<br>​                    原因<br>​                        MySQL通常需要等所有的数据已经发送给客户端才释放这条查询所占用的资源，所以这样可以减少服务器的压力<br>​            查询状态<br>​                Sleep<br>​                Query<br>​                Locked<br>​                Analyzing and statistics<br>​                Copying to tmp table[on disk]<br>​                Sorting result<br>​                Sending data<br>​        查询缓存（Query Cache）<br>​            解析一个查询语句之前如果查询缓存是打开的，通过一个对大小写敏感的哈希查找实现的<br>​            缓存命中率<br>​        查询优化处理<br>​            是什么<br>​                将一个SQL转换成执行计划，再按照执行计划和存储引擎进行交互<br>​            语法解析器和预处理<br>​                是什么<br>​                    通过关键字将SQL语句进行解析，并生成一颗对应的‘解析树’<br>​                解析器<br>​                    使用语法规则验证和解析查询<br>​                预处理器<br>​                    做了什么<br>​                        根据一些MySQL规则进一步解析树是否合法<br>​                        验证权限<br>​                    例如<br>​                        检查数据表和列是否存在<br>​                        解析名字和别名<br>​            查询优化器<br>​                基于成本的优化器<br>​                    尝试预测一个查询使用了某种执行计划时的成本，并选择其中成本最小的一个<br>​                导致选择错误执行计划的原因<br>​                    统计信息不准确<br>​                    执行计划汇总的成本估算不等同于实际执行的成本<br>​                    最优是基于成本，而有些时候并不是最快<br>​                    不考虑其他并发执行的查询<br>​                    并不是任何时候都基于成本的优化，有时会基于一些固定的规则<br>​                    不会考虑不受其控制的操作成本<br>​                优化策略<br>​                    静态优化<br>​                        编译时优化，直接对解析树进行分析，并完成优化<br>​                    动态优化<br>​                        和查询的上下文有关，每次查询都重新评估<br>​                能够处理的优化类型<br>​                    重新定义关联表的顺序<br>​                    将外连接转换成内连接<br>​                    使用等价变换规则<br>​                    优化COUNT() MIN() MAX()<br>​                    预估并转化为常数表达式<br>​                    覆盖索引扫描<br>​                    子查询优化<br>​                    提前终止查询<br>​                    等值传播<br>​                    列表IN()的比较<br>​                数据和索引的统计信息<br>​                    存储引擎提供给优化器<br>​                        每个表或者索引有多少个页面<br>​                        每个表的每个索引的基数是多少<br>​                        数据行和索引长度<br>​                        索引的分布信息<br>​                MySQL如何执行关联查询<br>​                    策略<br>​                        对任何关联都执行嵌套循环关联操作<br>​                    泳道图<br>​                执行计划<br>​                    左侧深度优先的指令树<br>​                关联查询优化器<br>​                    通过评估不同顺序时的成本来选择一个代价最小的关联顺序<br>​                    当关联表超过optimizer_search_depth的限制<br>​                        选择‘贪婪’搜索模式<br>​                排序优化<br>​                    排序算法<br>​                        两次传输排序<br>​                            1.读取行指针和需要排序的字段，对其进行排序<br>​                            2.再根据排序结果读取所要的数据行<br>​                        单次传输排序<br>​                            读取所需要的所有列，排序，直接返回排序结果<br>​                    对于关联排序<br>​                        如果关联操作中ORDER BY子句中所有列都来自关联的第一个表，则处理关联第一个表的时候就进行文件排序<br>​                        否则，都会将关联结果存放到一个临时表，然后所有关联结束后，再进行文件排序<br>​                    ICP<br>​        查询执行引擎<br>​            根据执行计划给出的指令执行，调用存储引擎实现的接口来完成，查询中的每一个表由一个handler的实例表示<br>​            如果是所有存储引擎共有的特性则由服务器层实现<br>​        返回结果给客户端<br>​            不需要结果集，则返回影响到的行数<br>​            如果查询缓存开启，将结果存放到查询缓存中<br>​            增量、逐步的过程<br>​                好处<br>​                    服务器端无需存储太多的结果<br>​                    客户端第一时间获得返回结果<br>​                细节<br>​                    1.每一行都以一个满足MySQL客户端/服务器端通信协议的封包发送<br>​                    2.在通过TCP协议进行传输<br>​                    3.可能会缓存封包，并批量传输</p>
+<h4 id="查询优化器的局限"><a href="#查询优化器的局限" class="headerlink" title="查询优化器的局限"></a>查询优化器的局限</h4><p>​        关联子查询<br>​        UNION的限制<br>​        索引合并优化<br>​        等值传递<br>​        并行执行<br>​        哈希关联<br>​        松散索引扫描<br>​        最大值和最小值的优化<br>​        在同一个表上查询和更新</p>
+<h4 id="查询优化器的提示（hint）"><a href="#查询优化器的提示（hint）" class="headerlink" title="查询优化器的提示（hint）"></a>查询优化器的提示（hint）</h4><p>​        HIGH_PRIORITY 和LOW_PRIORITY<br>​        DELAYED<br>​        STRAIGHT_JOIN<br>​        SQL_SMALL_RESULT和SQL_BIG_RESULT<br>​        SQL_BUFFER_RESULT<br>​        SQL_CACHE 和 SQL_NO_CACHE<br>​        SQL_CACLC_FOUND_ROWS<br>​        FOR UPDATE和LOCK IN SHARE MODE<br>​        USE INDEX、IGNORE INDEX 和FORCE INDEX</p>
+<h4 id="优化特定类型的查询"><a href="#优化特定类型的查询" class="headerlink" title="优化特定类型的查询"></a>优化特定类型的查询</h4><p>​        优化COUNT查询<br>​            COUNT 作用<br>​                统计某个列值的数量<br>​                统计结果集行数<br>​            MyISAM神话<br>​                只有在没有任何WHERE条件的COUNT(*)<br>​            简单优化<br>​                通过反转条件<br>​                如何在同一个查询中统计同一个列的不同值数量<br>​            使用相似值<br>​                EXPLAIN出来的优化器估算的行数<br>​            更复杂的优化<br>​                覆盖索引<br>​                增加汇总表<br>​                外部缓存<br>​                    Memcached<br>​        优化关联查询<br>​            注意<br>​                只需要在关联顺序中的第二个表的相应列上创建索引<br>​                确保任何的GROUP BY 和 ORDER BY中的表达式只涉及到一个表中的列<br>​            优化子查询<br>​            优化GROUP BY 和 DISTINCT<br>​            优化GROUP BY WITH ROLLUP<br>​        优化LIMIT分页<br>​            偏移量非常大的时候，需要查询很多的行数，但只返回很少的记录<br>​            LIMIT和OFFSET<br>​                使用书签记录上次取数据的位置<br>​            汇总表,冗余表<br>​        优化 SQL_CALC_FOUND_ROWS<br>​            更好的设计是将具体的页数缓存‘下一页’，例如每页显示20条记录，则用LIMIT返回21条，如果第21条存在，那么就显示‘下一页’按钮<br>​            先获取并缓存较多的数据<br>​        优化UNION查询<br>​            使用UNION ALL<br>​        使用用户自定义变量</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/03/Zookeeper深入浅出/" rel="next" title="Zookeeper深入浅出">
+                <i class="fa fa-chevron-left"></i> Zookeeper深入浅出
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzM0Ny8xOTg4OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="zhengyumin">
+            
+              <p class="site-author-name" itemprop="name">zhengyumin</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Zyumin" title="GitHub &rarr; https://github.com/Zyumin" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL版本特征"><span class="nav-number">1.</span> <span class="nav-text">MySQL版本特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Schema与数据类型优化"><span class="nav-number">2.</span> <span class="nav-text">Schema与数据类型优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原则"><span class="nav-number">2.1.</span> <span class="nav-text">原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型"><span class="nav-number">2.2.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#整数类型"><span class="nav-number">2.2.1.</span> <span class="nav-text">整数类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实数类型"><span class="nav-number">2.2.2.</span> <span class="nav-text">实数类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串类型"><span class="nav-number">2.2.3.</span> <span class="nav-text">字符串类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BLOB和TEXT类型"><span class="nav-number">2.2.4.</span> <span class="nav-text">BLOB和TEXT类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#枚举ENUM"><span class="nav-number">2.2.5.</span> <span class="nav-text">枚举ENUM</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#日期和时间"><span class="nav-number">2.2.6.</span> <span class="nav-text">日期和时间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#位数据类型"><span class="nav-number">2.2.7.</span> <span class="nav-text">位数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#选择标识符（主键）"><span class="nav-number">2.2.8.</span> <span class="nav-text">选择标识符（主键）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Schema设计中的陷阱"><span class="nav-number">2.3.</span> <span class="nav-text">Schema设计中的陷阱</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范式和反范式"><span class="nav-number">2.4.</span> <span class="nav-text">范式和反范式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#范式"><span class="nav-number">2.4.1.</span> <span class="nav-text">范式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#反范式"><span class="nav-number">2.4.2.</span> <span class="nav-text">反范式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#混用"><span class="nav-number">2.4.3.</span> <span class="nav-text">混用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存表和汇总表"><span class="nav-number">2.5.</span> <span class="nav-text">缓存表和汇总表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#汇总表"><span class="nav-number">2.5.1.</span> <span class="nav-text">汇总表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缓存表"><span class="nav-number">2.5.2.</span> <span class="nav-text">缓存表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#维护还是定时重建"><span class="nav-number">2.5.3.</span> <span class="nav-text">维护还是定时重建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#物化视图"><span class="nav-number">2.5.4.</span> <span class="nav-text">物化视图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#计数器"><span class="nav-number">2.5.5.</span> <span class="nav-text">计数器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加快ALTER-TABLE操作的速度"><span class="nav-number">2.6.</span> <span class="nav-text">加快ALTER TABLE操作的速度</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ALTER-TABLE"><span class="nav-number">2.6.1.</span> <span class="nav-text">ALTER TABLE</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#不会重建表的情况"><span class="nav-number">2.6.2.</span> <span class="nav-text">不会重建表的情况</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存在的的问题"><span class="nav-number">2.6.3.</span> <span class="nav-text">存在的的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决方法"><span class="nav-number">2.6.4.</span> <span class="nav-text">解决方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#InnoDB的快速在线索引创建功能"><span class="nav-number">2.6.5.</span> <span class="nav-text">InnoDB的快速在线索引创建功能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高性能索引"><span class="nav-number">3.</span> <span class="nav-text">高性能索引</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#索引基础、类型"><span class="nav-number">3.1.</span> <span class="nav-text">索引基础、类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#索引的优点"><span class="nav-number">3.2.</span> <span class="nav-text">索引的优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何评价一个索引"><span class="nav-number">3.3.</span> <span class="nav-text">如何评价一个索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高性能的索引策略"><span class="nav-number">3.4.</span> <span class="nav-text">高性能的索引策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#维护索引和表"><span class="nav-number">3.5.</span> <span class="nav-text">维护索引和表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">3.6.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询性能优化"><span class="nav-number">4.</span> <span class="nav-text">查询性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么查询会慢"><span class="nav-number">4.1.</span> <span class="nav-text">为什么查询会慢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#慢查询的基础：优化数据访问"><span class="nav-number">4.2.</span> <span class="nav-text">慢查询的基础：优化数据访问</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重构查询方式"><span class="nav-number">4.3.</span> <span class="nav-text">重构查询方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询执行的基础"><span class="nav-number">4.4.</span> <span class="nav-text">查询执行的基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询优化器的局限"><span class="nav-number">4.5.</span> <span class="nav-text">查询优化器的局限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询优化器的提示（hint）"><span class="nav-number">4.6.</span> <span class="nav-text">查询优化器的提示（hint）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化特定类型的查询"><span class="nav-number">4.7.</span> <span class="nav-text">优化特定类型的查询</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhengyumin</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">202k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">3:03</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2019/06/04/MySQL深入浅出/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'D2GGMftjnaihnt6xGsBOCK1T-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'D2GGMftjnaihnt6xGsBOCK1T-gzGzoHsz',
+                'X-LC-Key': '42G22rkOJK422bv0XSJhBrW6',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
