@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g3ph297snqj30ia0sfjue.jpg">
-<meta property="og:updated_time" content="2019-06-05T04:45:28.826Z">
+<meta property="og:updated_time" content="2019-06-05T11:46:08.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL深入浅出">
 <meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g3ph297snqj30ia0sfjue.jpg">
@@ -377,7 +377,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-05 12:45:28" itemprop="dateModified" datetime="2019-06-05T12:45:28+08:00">2019-06-05</time>
+                <time title="修改时间：2019-06-05 19:46:08" itemprop="dateModified" datetime="2019-06-05T19:46:08+08:00">2019-06-05</time>
               
             
           </span>
@@ -710,7 +710,7 @@
 <p>优化index condition pushdown(ICP) , 发送查询数据到引擎层</p>
 <h4 id="使用索引扫描来做排序"><a href="#使用索引扫描来做排序" class="headerlink" title="使用索引扫描来做排序"></a>使用索引扫描来做排序</h4><h5 id="可以使用使用索引做排序的查询"><a href="#可以使用使用索引做排序的查询" class="headerlink" title="可以使用使用索引做排序的查询"></a>可以使用使用索引做排序的查询</h5><p>​    只有当索引的列顺序和ORDER BY字句的顺序完全一致，并且所有列的排序方向都一样，才能使用索引对结果做排序<br>​    如果关联表，则只有当ORDER BY字句引用的字段全部为第一个表时，才能使用索引做排序</p>
 <h5 id="不能使用索引做排序的查询"><a href="#不能使用索引做排序的查询" class="headerlink" title="不能使用索引做排序的查询"></a>不能使用索引做排序的查询</h5><p>​    使用不同排序方向<br>​    OREDR BY子句引用了一个不在索引的列<br>​    WHERE 和 OREDR BY中的列无法组成索引的最左前缀<br>​    第一个列上是范围条件，无法使用索引其他列</p>
-<h4 id="压缩索引"><a href="#压缩索引" class="headerlink" title="压缩索引"></a>压缩索引</h4><h5 id="MyISAM压缩索引-空间换时间"><a href="#MyISAM压缩索引-空间换时间" class="headerlink" title="MyISAM压缩索引(空间换时间)"></a>MyISAM压缩索引(空间换时间)</h5><p>压缩块使用更少的空间 十分之一 存在的问题, 操作更慢 无法使用二分查找</p>
+<h4 id="压缩索引"><a href="#压缩索引" class="headerlink" title="压缩索引"></a>压缩索引</h4><h5 id="MyISAM压缩索引-空间换时间"><a href="#MyISAM压缩索引-空间换时间" class="headerlink" title="MyISAM压缩索引(空间换时间)"></a>MyISAM压缩索引(空间换时间)</h5><p>​    压缩块使用更少的空间 十分之一 存在的问题, 操作更慢 无法使用二分查找</p>
 <h4 id="关于冗余和重复索引"><a href="#关于冗余和重复索引" class="headerlink" title="关于冗余和重复索引"></a>关于冗余和重复索引</h4><h5 id="重复索引（去除）"><a href="#重复索引（去除）" class="headerlink" title="重复索引（去除）"></a>重复索引（去除）</h5><h5 id="冗余索引（适当）"><a href="#冗余索引（适当）" class="headerlink" title="冗余索引（适当）"></a>冗余索引（适当）</h5><p>​    应该尽量扩展已有的索引而不是创建新索引（冗余）<br>​    需要使用新索引的场景<br>​            避免已有索引变大<br>​            排序、分组需要</p>
 <h4 id="未使用索引"><a href="#未使用索引" class="headerlink" title="未使用索引"></a>未使用索引</h4><p>​        有可能是唯一约束，用于避免重复数据</p>
 <h4 id="索引和锁的关系"><a href="#索引和锁的关系" class="headerlink" title="索引和锁的关系"></a>索引和锁的关系</h4><p>​    索引能够减少锁的数量,InnoDB只有在访问行的时候才会对其加锁<br>​    相关细节（InnoDB） 二级索引共享锁、主键索引排他锁</p>
