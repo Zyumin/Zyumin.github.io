@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g3p6yo4dhhj30go055aaj.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g3p74rq20ij30dw09qq3b.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g3p5jteoz1j30tg0mw3zr.jpg">
-<meta property="og:updated_time" content="2019-06-04T08:29:50.855Z">
+<meta property="og:updated_time" content="2019-06-05T01:31:32.295Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Zookeeper深入浅出">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g3oad10mpuj31hc0u0gp4.jpg">
@@ -381,7 +381,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-04 16:29:50" itemprop="dateModified" datetime="2019-06-04T16:29:50+08:00">2019-06-04</time>
+                <time title="修改时间：2019-06-05 09:31:32" itemprop="dateModified" datetime="2019-06-05T09:31:32+08:00">2019-06-05</time>
               
             
           </span>
@@ -456,7 +456,7 @@
       
         <p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g3oad10mpuj31hc0u0gp4.jpg" alt="image-20190603212535941"></p>
 <a id="more"></a>
-<h3 id="版本特征"><a href="#版本特征" class="headerlink" title="版本特征"></a>版本特征</h3><ul>
+<h2 id="版本特征"><a href="#版本特征" class="headerlink" title="版本特征"></a>版本特征</h2><ul>
 <li><p>25 March, 2010: release 3.3.0 available  添加Observer、四字命令功能、JMX管理</p>
 </li>
 <li><p>22 Nov, 2011: release 3.4.0 available。3.4 引入Netty 做为NIO框架处理客户端连接 , 废弃两种选举算法</p>
@@ -466,7 +466,7 @@
 </ul>
 <pre><code>最新的版本为 20 May, 2019: release 3.5.5 available  
 </code></pre><p>more  <a href="http://zookeeper.apache.org/releases.html#news" target="_blank" rel="noopener">http://zookeeper.apache.org/releases.html#news</a></p>
-<h3 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h3><ul>
+<h2 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h2><ul>
 <li><p>简单设计模型。</p>
 <ul>
 <li><p>共享、树形结构的名字空间</p>
@@ -491,12 +491,12 @@
 </ul>
 </li>
 </ul>
-<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="集群角色"><a href="#集群角色" class="headerlink" title="集群角色"></a>集群角色</h4><p>​    传统Master/Slave ( redis/es )</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="集群角色"><a href="#集群角色" class="headerlink" title="集群角色"></a>集群角色</h3><p>​    传统Master/Slave ( redis/es )</p>
 <p>​    引入 Leader 、Follower 和 Observer( 不参与投票、不写事务日志 )角色 </p>
-<h4 id="会话-Session"><a href="#会话-Session" class="headerlink" title="会话(Session)"></a>会话(Session)</h4><p>​    TCP长连接 、Watch、SessionTimeout</p>
-<h4 id="数据节点-Znode"><a href="#数据节点-Znode" class="headerlink" title="数据节点(Znode)"></a>数据节点(Znode)</h4><p>​    持久节点和临时节点( 与Session有关)、顺序节点</p>
-<h4 id="版本-保证分布式数据原子性操作、乐观锁"><a href="#版本-保证分布式数据原子性操作、乐观锁" class="headerlink" title="版本(保证分布式数据原子性操作、乐观锁)"></a>版本(保证分布式数据原子性操作、乐观锁)</h4><p>​    Znode会有一个Stat 分别是 version、cversion 、aversion( ACL )</p>
-<h4 id="Watcher-客户端线程、客户端WatchManager和服务器"><a href="#Watcher-客户端线程、客户端WatchManager和服务器" class="headerlink" title="Watcher(客户端线程、客户端WatchManager和服务器)"></a>Watcher(客户端线程、客户端WatchManager和服务器)</h4><p>​    允许用户在指定节点注册一些Watcher,并且在特定事件触发,服务端会进行通知.但具体的内容还需要客户端自己去拉取.</p>
+<h3 id="会话-Session"><a href="#会话-Session" class="headerlink" title="会话(Session)"></a>会话(Session)</h3><p>​    TCP长连接 、Watch、SessionTimeout</p>
+<h3 id="数据节点-Znode"><a href="#数据节点-Znode" class="headerlink" title="数据节点(Znode)"></a>数据节点(Znode)</h3><p>​    持久节点和临时节点( 与Session有关)、顺序节点</p>
+<h3 id="版本-保证分布式数据原子性操作、乐观锁"><a href="#版本-保证分布式数据原子性操作、乐观锁" class="headerlink" title="版本(保证分布式数据原子性操作、乐观锁)"></a>版本(保证分布式数据原子性操作、乐观锁)</h3><p>​    Znode会有一个Stat 分别是 version、cversion 、aversion( ACL )</p>
+<h3 id="Watcher-客户端线程、客户端WatchManager和服务器"><a href="#Watcher-客户端线程、客户端WatchManager和服务器" class="headerlink" title="Watcher(客户端线程、客户端WatchManager和服务器)"></a>Watcher(客户端线程、客户端WatchManager和服务器)</h3><p>​    允许用户在指定节点注册一些Watcher,并且在特定事件触发,服务端会进行通知.但具体的内容还需要客户端自己去拉取.</p>
 <ul>
 <li>客户端注册Watcher</li>
 <li>服务端Watcher处理<ul>
@@ -512,13 +512,13 @@
 <li>轻量  </li>
 </ul>
 <p>​        通知状态、事件类型、节点路径</p>
-<h4 id="ACL-Access-Control-Lists-类似UNIX文件系统的权限控制"><a href="#ACL-Access-Control-Lists-类似UNIX文件系统的权限控制" class="headerlink" title="ACL( Access Control Lists 类似UNIX文件系统的权限控制 )"></a>ACL( Access Control Lists 类似UNIX文件系统的权限控制 )</h4><ul>
+<h3 id="ACL-Access-Control-Lists-类似UNIX文件系统的权限控制"><a href="#ACL-Access-Control-Lists-类似UNIX文件系统的权限控制" class="headerlink" title="ACL( Access Control Lists 类似UNIX文件系统的权限控制 )"></a>ACL( Access Control Lists 类似UNIX文件系统的权限控制 )</h3><ul>
 <li>权限模式( Scheme )</li>
 <li>授权对象( ID )</li>
 <li>权限( permission )</li>
 </ul>
 <p>​        CREATE、READ、WRITE、DELETE、ADMIN</p>
-<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ul>
 <li>数据发布/订阅  </li>
 <li>分布式协调/通知 </li>
 <li>集群管理</li>
@@ -528,13 +528,13 @@
 </ul>
 <p>一般用于服务注册中心,如下图的Dubbo 中的Registry ,或者配置推送 ( 配置中心 规模不大的 ) </p>
 <p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g3p5jteoz1j30tg0mw3zr.jpg" alt="Architecture"></p>
-<h3 id="ZAB协议"><a href="#ZAB协议" class="headerlink" title="ZAB协议"></a>ZAB协议</h3><p>核心是定义了对于那些会改变ZooKeeper服务器数据状态的事务请求的处理方式:</p>
+<h2 id="ZAB协议"><a href="#ZAB协议" class="headerlink" title="ZAB协议"></a>ZAB协议</h2><p>核心是定义了对于那些会改变ZooKeeper服务器数据状态的事务请求的处理方式:</p>
 <ol>
 <li>所有事务请求由一个全局唯一服务器处理 Leader</li>
 <li>Leader 负责将客户端事务请求转换成一个事务Proposal .分发给集群中的所有Follower</li>
 <li>等待所有服务器反馈,一旦超过半数Follower服务器正确反馈 Leader 会再次向所有Follower服务器分发commit</li>
 </ol>
-<h4 id="两个过程"><a href="#两个过程" class="headerlink" title="两个过程"></a>两个过程</h4><h5 id="奔溃恢复-初始化和选举"><a href="#奔溃恢复-初始化和选举" class="headerlink" title="奔溃恢复(初始化和选举)"></a>奔溃恢复(初始化和选举)</h5><ul>
+<h3 id="两个过程"><a href="#两个过程" class="headerlink" title="两个过程"></a>两个过程</h3><h4 id="奔溃恢复-初始化和选举"><a href="#奔溃恢复-初始化和选举" class="headerlink" title="奔溃恢复(初始化和选举)"></a>奔溃恢复(初始化和选举)</h4><ul>
 <li>基本特征<ul>
 <li>确保那些已经在Leader服务器上提交的事务最终被所有服务器提交</li>
 <li>确保丢弃那些只在Leader服务器上提出的事务</li>
@@ -549,8 +549,8 @@
 </li>
 </ul>
 <p>​        ZKDatabase会定时向磁盘dump快照数据,再ZooKeeper服务器启动的时候,会通过磁盘上的事务日志(事务操作时间、客户端会话ID、CXID 客户端操作ID、ZXID、操作类型、节点路径、节点数据内容、节点的ACL信息、是否临时节点和父节点的子节点版本号)和快照数据文件恢复成一个完整的内存数据库</p>
-<h5 id="消息广播"><a href="#消息广播" class="headerlink" title="消息广播"></a>消息广播</h5><p>​            事务全局单调递增唯一ID (事务ID :包含epoch 选举周期) 和myid(机器序号唯一id)  ,为每个Follower分配一个FIFO队列 ,Follower接收后回写入事务日志,本地磁盘(基于FIFO 特性的TCP协议。保证消息广播过程中消息接收与发送的顺序性)</p>
-<h4 id="四个阶段"><a href="#四个阶段" class="headerlink" title="四个阶段"></a>四个阶段</h4><ul>
+<h4 id="消息广播"><a href="#消息广播" class="headerlink" title="消息广播"></a>消息广播</h4><p>​            事务全局单调递增唯一ID (事务ID :包含epoch 选举周期) 和myid(机器序号唯一id)  ,为每个Follower分配一个FIFO队列 ,Follower接收后回写入事务日志,本地磁盘(基于FIFO 特性的TCP协议。保证消息广播过程中消息接收与发送的顺序性)</p>
+<h3 id="四个阶段"><a href="#四个阶段" class="headerlink" title="四个阶段"></a>四个阶段</h3><ul>
 <li>选举 <ul>
 <li>根据Vote(zxid,myid). electionEpoch当前选举周期。 state LOOKING</li>
 </ul>
@@ -579,11 +579,11 @@
 <li><p>LEADING</p>
 </li>
 </ul>
-<h4 id="ZAB和Paxos区别"><a href="#ZAB和Paxos区别" class="headerlink" title="ZAB和Paxos区别"></a>ZAB和Paxos区别</h4><ul>
+<h3 id="ZAB和Paxos区别"><a href="#ZAB和Paxos区别" class="headerlink" title="ZAB和Paxos区别"></a>ZAB和Paxos区别</h3><ul>
 <li>ZAB协议主要用于构建一个高可用的分布式数据主备系统</li>
 <li>Paxos算法用于构建一个分布式的一致性状态机系统</li>
 </ul>
-<h3 id="缺陷和不足"><a href="#缺陷和不足" class="headerlink" title="缺陷和不足"></a>缺陷和不足</h3><p>​    官网的介绍中</p>
+<h2 id="缺陷和不足"><a href="#缺陷和不足" class="headerlink" title="缺陷和不足"></a>缺陷和不足</h2><p>​    官网的介绍中</p>
 <p><code>ZooKeeper is a distributed, open-source coordination service for distributed applications. It exposes a simple set of primitives that distributed applications can build upon to implement higher level services for synchronization, configuration maintenance, and groups and naming.</code> </p>
 <p>​    翻译如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZooKeeper是一种用于分布式应用程序的分布式开源协调服务。它公开了一组简单的原语，分布式应用程序可以构建这些原语，以实现更高级别的服务，以实现同步，配置维护以及组和命名。</span><br></pre></td></tr></table></figure>
@@ -825,7 +825,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本特征"><span class="nav-number">1.</span> <span class="nav-text">版本特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计目标"><span class="nav-number">2.</span> <span class="nav-text">设计目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">3.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#集群角色"><span class="nav-number">3.1.</span> <span class="nav-text">集群角色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#会话-Session"><span class="nav-number">3.2.</span> <span class="nav-text">会话(Session)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据节点-Znode"><span class="nav-number">3.3.</span> <span class="nav-text">数据节点(Znode)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版本-保证分布式数据原子性操作、乐观锁"><span class="nav-number">3.4.</span> <span class="nav-text">版本(保证分布式数据原子性操作、乐观锁)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Watcher-客户端线程、客户端WatchManager和服务器"><span class="nav-number">3.5.</span> <span class="nav-text">Watcher(客户端线程、客户端WatchManager和服务器)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ACL-Access-Control-Lists-类似UNIX文件系统的权限控制"><span class="nav-number">3.6.</span> <span class="nav-text">ACL( Access Control Lists 类似UNIX文件系统的权限控制 )</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">4.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZAB协议"><span class="nav-number">5.</span> <span class="nav-text">ZAB协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#两个过程"><span class="nav-number">5.1.</span> <span class="nav-text">两个过程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#奔溃恢复-初始化和选举"><span class="nav-number">5.1.1.</span> <span class="nav-text">奔溃恢复(初始化和选举)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#消息广播"><span class="nav-number">5.1.2.</span> <span class="nav-text">消息广播</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四个阶段"><span class="nav-number">5.2.</span> <span class="nav-text">四个阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZAB和Paxos区别"><span class="nav-number">5.3.</span> <span class="nav-text">ZAB和Paxos区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺陷和不足"><span class="nav-number">6.</span> <span class="nav-text">缺陷和不足</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#版本特征"><span class="nav-number">1.</span> <span class="nav-text">版本特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计目标"><span class="nav-number">2.</span> <span class="nav-text">设计目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">3.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集群角色"><span class="nav-number">3.1.</span> <span class="nav-text">集群角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#会话-Session"><span class="nav-number">3.2.</span> <span class="nav-text">会话(Session)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据节点-Znode"><span class="nav-number">3.3.</span> <span class="nav-text">数据节点(Znode)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本-保证分布式数据原子性操作、乐观锁"><span class="nav-number">3.4.</span> <span class="nav-text">版本(保证分布式数据原子性操作、乐观锁)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Watcher-客户端线程、客户端WatchManager和服务器"><span class="nav-number">3.5.</span> <span class="nav-text">Watcher(客户端线程、客户端WatchManager和服务器)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ACL-Access-Control-Lists-类似UNIX文件系统的权限控制"><span class="nav-number">3.6.</span> <span class="nav-text">ACL( Access Control Lists 类似UNIX文件系统的权限控制 )</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用场景"><span class="nav-number">4.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ZAB协议"><span class="nav-number">5.</span> <span class="nav-text">ZAB协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两个过程"><span class="nav-number">5.1.</span> <span class="nav-text">两个过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#奔溃恢复-初始化和选举"><span class="nav-number">5.1.1.</span> <span class="nav-text">奔溃恢复(初始化和选举)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#消息广播"><span class="nav-number">5.1.2.</span> <span class="nav-text">消息广播</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四个阶段"><span class="nav-number">5.2.</span> <span class="nav-text">四个阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZAB和Paxos区别"><span class="nav-number">5.3.</span> <span class="nav-text">ZAB和Paxos区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺陷和不足"><span class="nav-number">6.</span> <span class="nav-text">缺陷和不足</span></a></li></ol></div>
             
 
           </div>
@@ -858,7 +858,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">202k</span>
+    <span title="站点总字数">197k</span>
   
 
   
@@ -867,7 +867,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">3:03</span>
+    <span title="站点阅读时长">2:59</span>
   
 </div>
 
