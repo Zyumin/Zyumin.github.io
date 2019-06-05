@@ -96,14 +96,14 @@
 
 
 
-  <meta name="keywords" content="MySQL">
+  <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL深入浅出">
 <meta property="og:url" content="http://yoursite.com/2019/06/04/MySQL深入浅出/index.html">
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g3ph297snqj30ia0sfjue.jpg">
-<meta property="og:updated_time" content="2019-06-05T11:46:08.262Z">
+<meta property="og:updated_time" content="2019-06-05T13:03:16.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL深入浅出">
 <meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g3ph297snqj30ia0sfjue.jpg">
@@ -377,7 +377,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-05 19:46:08" itemprop="dateModified" datetime="2019-06-05T19:46:08+08:00">2019-06-05</time>
+                <time title="修改时间：2019-06-05 21:03:16" itemprop="dateModified" datetime="2019-06-05T21:03:16+08:00">2019-06-05</time>
               
             
           </span>
@@ -416,7 +416,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">11k</span>
+                <span title="本文字数">7.7k</span>
               
 
               
@@ -430,7 +430,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">10 分钟</span>
+                <span title="阅读时长">7 分钟</span>
               
             </div>
           
@@ -501,6 +501,7 @@
 <p>  <a href="https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html</a></p>
 </li>
 </ul>
+<hr>
 <h2 id="Schema与数据类型优化"><a href="#Schema与数据类型优化" class="headerlink" title="Schema与数据类型优化"></a>Schema与数据类型优化</h2><h3 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h3><ul>
 <li><p>最小的通常更好 占用更少的磁盘、内存和CPU缓存</p>
 </li>
@@ -508,6 +509,20 @@
 </li>
 <li><p>尽量避免NULL  </p>
 <p>  NULL columns require additional space in the row to record whether their values are NULL.<br>  For MyISAM tables, each NULL column takes one bit extra, rounded up to the nearest byte</p>
+</li>
+</ul>
+<h3 id="Schema设计中的陷阱"><a href="#Schema设计中的陷阱" class="headerlink" title="Schema设计中的陷阱"></a>Schema设计中的陷阱</h3><ul>
+<li><p>太多的列</p>
+</li>
+<li><p>从行缓冲中将编码过的列转换成行数据结构的操作代价非常的高</p>
+</li>
+<li><p>太多的关联</p>
+</li>
+<li><p>限制 最多只能61张表,经验法则单个查询最好在12个表以内</p>
+</li>
+<li><p>过度枚举</p>
+</li>
+<li><p>NULL</p>
 </li>
 </ul>
 <h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h4><ul>
@@ -584,30 +599,18 @@
 </ul>
 </li>
 </ul>
-<h3 id="Schema设计中的陷阱"><a href="#Schema设计中的陷阱" class="headerlink" title="Schema设计中的陷阱"></a>Schema设计中的陷阱</h3><ul>
-<li>太多的列<ul>
-<li>从行缓冲中将编码过的列转换成行数据结构的操作代价非常的高</li>
-</ul>
-</li>
-<li>太多的关联<ul>
-<li>限制 最多只能61张表,经验法则单个查询最好在12个表以内</li>
-</ul>
-</li>
-<li>过度枚举</li>
-<li>NULL</li>
-</ul>
 <h3 id="范式和反范式"><a href="#范式和反范式" class="headerlink" title="范式和反范式"></a>范式和反范式</h3><h4 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h4><p>​        是什么 :每个数据会出现并且只有一次<br>​        优点<br>​            更新操作比反范式快<br>​            修改更少数据<br>​            更少的DISTINCT或者GROUP BY<br>​        缺点<br>​            需要表关联<br>​            分散了索引</p>
 <h4 id="反范式"><a href="#反范式" class="headerlink" title="反范式"></a>反范式</h4><p>​        是什么<br>​            信息是冗余的，可能会存储在多个地方<br>​        优点<br>​            不需要表关联，数据比内存大时，有时候全表扫描会更快，避免了随机I/O<br>​            更有效的索引策略<br>​        缺点<br>​            对应范式的优点</p>
 <h4 id="混用"><a href="#混用" class="headerlink" title="混用"></a>混用</h4><p>​        最常见的反范式化数据的方法<br>​            复制<br>​            缓存<br>​            高效获取，排序的需要</p>
-<p>##### </p>
-<h3 id="缓存表和汇总表"><a href="#缓存表和汇总表" class="headerlink" title="缓存表和汇总表"></a>缓存表和汇总表</h3><p>​    其实这种类型的建议使用redis </p>
+<p>​    其实这种类型的建议使用redis </p>
 <h4 id="汇总表"><a href="#汇总表" class="headerlink" title="汇总表"></a>汇总表</h4><p>保存使用GROUP BY语句聚合数据的表、逻辑上非冗余</p>
 <h5 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h5><p>​        准实时数据<br>​        局部热点<br>​                最活跃用户<br>​                最常见标签</p>
 <h4 id="缓存表"><a href="#缓存表" class="headerlink" title="缓存表"></a>缓存表</h4><p>来存储可以比较简单从schema表获取的、逻辑上冗余</p>
 <h5 id="适用场景-1"><a href="#适用场景-1" class="headerlink" title="适用场景"></a>适用场景</h5><p>​            查询语句需要特殊的表和索引结构<br>​            适用不同的存储引擎，适用MyISAM做全文搜索</p>
-<h3 id="加快ALTER-TABLE操作的速度"><a href="#加快ALTER-TABLE操作的速度" class="headerlink" title="加快ALTER TABLE操作的速度"></a>加快ALTER TABLE操作的速度</h3><h4 id="ALTER-TABLE"><a href="#ALTER-TABLE" class="headerlink" title="ALTER TABLE"></a>ALTER TABLE</h4><p>​        MODIFY COLUMN ,会引起表重建<br>​        ALTER COLUMN,会直接修改.frm文件</p>
+<h3 id="加快ALTER-TABLE操作的速度"><a href="#加快ALTER-TABLE操作的速度" class="headerlink" title="加快ALTER TABLE操作的速度"></a>加快ALTER TABLE操作的速度</h3><h4 id="注意修改列的区别"><a href="#注意修改列的区别" class="headerlink" title="注意修改列的区别"></a>注意修改列的区别</h4><p>​        如MODIFY COLUMN ,会引起表重建  ALTER COLUMN,会直接修改.frm文件</p>
 <h4 id="不会重建表的情况"><a href="#不会重建表的情况" class="headerlink" title="不会重建表的情况"></a>不会重建表的情况</h4><p>​        移除一个列的AUTO_INCREMENT属性<br>​        增加、移除，或更改ENUM和SET常量</p>
 <p>​    MYSQL会在没必要的时候也重建表 , 为想要的表结构创建一个新的.frm文件，然后用它替换掉已经存在的那张表的.frm文件</p>
+<hr>
 <h2 id="高性能索引"><a href="#高性能索引" class="headerlink" title="高性能索引"></a>高性能索引</h2><h3 id="索引基础、类型"><a href="#索引基础、类型" class="headerlink" title="索引基础、类型"></a>索引基础、类型</h3><h4 id="B-tree"><a href="#B-tree" class="headerlink" title="B-tree"></a>B-tree</h4><h5 id="类型-1"><a href="#类型-1" class="headerlink" title="类型"></a>类型</h5><h6 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h6><p>​    通过物理位置引用被索引的行</p>
 <ul>
 <li><p>优点</p>
@@ -729,34 +732,31 @@
 <li>InnoDB 通过删除、再添加索引功能</li>
 <li>MyISAM 通过排序算法重建索引消除碎片</li>
 </ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h4 id="原则-1"><a href="#原则-1" class="headerlink" title="原则"></a>原则</h4><ul>
+<h3 id="索引总结"><a href="#索引总结" class="headerlink" title="索引总结"></a>索引总结</h3><h4 id="原则-1"><a href="#原则-1" class="headerlink" title="原则"></a>原则</h4><ul>
 <li>单行访问效率低</li>
 <li>顺序访问范围数据快<br>  ​    顺序IO、无需排序操作</li>
 <li>覆盖索引，无需回表，避免单行访问</li>
 </ul>
-<h4 id="如何判断索引合理"><a href="#如何判断索引合理" class="headerlink" title="如何判断索引合理"></a>如何判断索引合理</h4><h5 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h5><ul>
-<li>schema</li>
-<li>SQL</li>
-<li>索引</li>
+<h4 id="如何判断索引合理"><a href="#如何判断索引合理" class="headerlink" title="如何判断索引合理"></a>如何判断索引合理</h4><h5 id="检查设计是否合理"><a href="#检查设计是否合理" class="headerlink" title="检查设计是否合理"></a>检查设计是否合理</h5><ul>
+<li>schema , 数据结构是否合理</li>
+<li>SQL语句是否存在问题</li>
+<li>索引设计是否合理</li>
 </ul>
-<h5 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h5><ul>
+<h5 id="判断执行是否符合预期"><a href="#判断执行是否符合预期" class="headerlink" title="判断执行是否符合预期"></a>判断执行是否符合预期</h5><ul>
 <li>是否扫描了太多的行</li>
 <li>是否做了很多额外排序</li>
 <li>使用了临时表</li>
 <li>随机I/O</li>
 <li>太多回表查询</li>
 </ul>
-<h2 id="查询性能优化"><a href="#查询性能优化" class="headerlink" title="查询性能优化"></a>查询性能优化</h2><h3 id="为什么查询会慢"><a href="#为什么查询会慢" class="headerlink" title="为什么查询会慢"></a>为什么查询会慢</h3><h4 id="执行子任务"><a href="#执行子任务" class="headerlink" title="执行子任务"></a>执行子任务</h4><ul>
-<li>消除子任务</li>
-<li>减少子任务查询次数</li>
-<li>加快子任务查询速度</li>
-</ul>
-<h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><h5 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h5><p>​        发送请求</p>
-<h5 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h5><ul>
-<li>缓存查询</li>
-<li>解析</li>
-<li>优化器优化</li>
-<li>执行</li>
+<hr>
+<h2 id="查询性能优化"><a href="#查询性能优化" class="headerlink" title="查询性能优化"></a>查询性能优化</h2><h3 id="为什么查询会慢"><a href="#为什么查询会慢" class="headerlink" title="为什么查询会慢"></a>为什么查询会慢</h3><h4 id="执行任务"><a href="#执行任务" class="headerlink" title="执行任务"></a>执行任务</h4><ul>
+<li><p>消除无用子任务</p>
+</li>
+<li><p>减少子任务查询次数</p>
+</li>
+<li><p>加快子任务查询速度</p>
+</li>
 </ul>
 <h4 id="时间花费"><a href="#时间花费" class="headerlink" title="时间花费"></a>时间花费</h4><ul>
 <li>网络</li>
@@ -770,7 +770,7 @@
 <li>总是取出全部列</li>
 <li>查询重复的数据<br>  ​        </li>
 </ul>
-<h4 id="分析大量超过需要的行"><a href="#分析大量超过需要的行" class="headerlink" title="分析大量超过需要的行"></a>分析大量超过需要的行</h4><h5 id="指标"><a href="#指标" class="headerlink" title="指标"></a>指标</h5><h6 id="响应时间"><a href="#响应时间" class="headerlink" title="响应时间"></a>响应时间</h6><ul>
+<h4 id="分析为何检索大量超过需要的行"><a href="#分析为何检索大量超过需要的行" class="headerlink" title="分析为何检索大量超过需要的行"></a>分析为何检索大量超过需要的行</h4><h5 id="相关指标指标"><a href="#相关指标指标" class="headerlink" title="相关指标指标"></a>相关指标指标</h5><h6 id="响应时间"><a href="#响应时间" class="headerlink" title="响应时间"></a>响应时间</h6><ul>
 <li>服务时间</li>
 <li>排队时间</li>
 </ul>
@@ -788,22 +788,114 @@
 <li>从数据表中返回，然后过滤不满足条件的记录，服务层</li>
 </ul>
 <h5 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h5><ul>
-<li>索引覆盖</li>
-<li>改变库表结果</li>
-<li>使用汇总表</li>
-<li>重写查询</li>
+<li><p>索引覆盖</p>
+</li>
+<li><p>改变库表结果</p>
+</li>
+<li><p>使用汇总表</p>
+</li>
+<li><p>重写查询</p>
+</li>
 </ul>
-<h3 id="重构查询方式"><a href="#重构查询方式" class="headerlink" title="重构查询方式"></a>重构查询方式</h3><p>​        一个复杂查询还是多个简单查询,减少锁的占有时间<br>切分查询<br>​            分而治之，每个查询功能一样<br>​        </p>
+<h3 id="重构查询方式"><a href="#重构查询方式" class="headerlink" title="重构查询方式"></a>重构查询方式</h3><p>​        一个复杂查询还是多个简单查询,减少锁的占有时间</p>
+<p>​        </p>
 <h4 id="分解关联查询"><a href="#分解关联查询" class="headerlink" title="分解关联查询"></a>分解关联查询</h4><p>​                让缓存效率更高<br>​                执行单个查询可以减少锁的竞争<br>​                在应用层做关联，可以更容易对数据库进行拆分，更容易做到高性能和可扩展<br>​                可以减少冗余记录的查询<br>​                哈希关联，而不是嵌套循环关联</p>
-<h3 id="查询执行的基础"><a href="#查询执行的基础" class="headerlink" title="查询执行的基础"></a>查询执行的基础</h3><h4 id="一次SQL查询做了什么"><a href="#一次SQL查询做了什么" class="headerlink" title="一次SQL查询做了什么"></a>一次SQL查询做了什么</h4><p>​            1.客户端发送查询给服务器<br>​            2.服务器检查缓存<br>​            3.服务器进行SQL解析、预处理，再由优化器生成对应的执行计划<br>​            4.MySQL根据优化器生成的执行计划，调用存储引擎的API来执行查询<br>​            5.将结果返回给客户端</p>
-<h4 id="MySQL客户端-服务器通信协议"><a href="#MySQL客户端-服务器通信协议" class="headerlink" title="MySQL客户端/服务器通信协议"></a>MySQL客户端/服务器通信协议</h4><p>通信协议 ,半双工<br>优点 简单快速<br>缺点 流量控制<br>​            通信过程<br>​                客户端用一个单独的数据包将查询传给服务器，max_allowed_packet<br>​                服务器返回多个数据包，必须完整接收<br>​                多数连接MySQL的库函数都可以获得全部结果集并缓存到内存里<br>​                    原因<br>​                        MySQL通常需要等所有的数据已经发送给客户端才释放这条查询所占用的资源，所以这样可以减少服务器的压力<br>​            查询状态<br>​                Sleep<br>​                Query<br>​                Locked<br>​                Analyzing and statistics<br>​                Copying to tmp table[on disk]<br>​                Sorting result<br>​                Sending data</p>
-<h4 id="查询缓存（Query-Cache）"><a href="#查询缓存（Query-Cache）" class="headerlink" title="查询缓存（Query Cache）"></a>查询缓存（Query Cache）</h4><p>​            解析一个查询语句之前如果查询缓存是打开的，通过一个对大小写敏感的哈希查找实现的<br>​            缓存命中率</p>
-<h4 id="查询优化处理"><a href="#查询优化处理" class="headerlink" title="查询优化处理"></a>查询优化处理</h4><p>​            是什么<br>​                将一个SQL转换成执行计划，再按照执行计划和存储引擎进行交互<br>​            语法解析器和预处理<br>​                是什么<br>​                    通过关键字将SQL语句进行解析，并生成一颗对应的‘解析树’<br>​                解析器<br>​                    使用语法规则验证和解析查询<br>​                预处理器<br>​                    做了什么<br>​                        根据一些MySQL规则进一步解析树是否合法<br>​                        验证权限<br>​                    例如<br>​                        检查数据表和列是否存在<br>​                        解析名字和别名<br>​            查询优化器<br>​                基于成本的优化器<br>​                    尝试预测一个查询使用了某种执行计划时的成本，并选择其中成本最小的一个<br>​                导致选择错误执行计划的原因<br>​                    统计信息不准确<br>​                    执行计划汇总的成本估算不等同于实际执行的成本<br>​                    最优是基于成本，而有些时候并不是最快<br>​                    不考虑其他并发执行的查询<br>​                    并不是任何时候都基于成本的优化，有时会基于一些固定的规则<br>​                    不会考虑不受其控制的操作成本<br>​                优化策略<br>​                    静态优化<br>​                        编译时优化，直接对解析树进行分析，并完成优化<br>​                    动态优化<br>​                        和查询的上下文有关，每次查询都重新评估<br>​                能够处理的优化类型<br>​                    重新定义关联表的顺序<br>​                    将外连接转换成内连接<br>​                    使用等价变换规则<br>​                    优化COUNT() MIN() MAX()<br>​                    预估并转化为常数表达式<br>​                    覆盖索引扫描<br>​                    子查询优化<br>​                    提前终止查询<br>​                    等值传播<br>​                    列表IN()的比较<br>​                数据和索引的统计信息<br>​                    存储引擎提供给优化器<br>​                        每个表或者索引有多少个页面<br>​                        每个表的每个索引的基数是多少<br>​                        数据行和索引长度<br>​                        索引的分布信息<br>​                MySQL如何执行关联查询<br>​                    策略<br>​                        对任何关联都执行嵌套循环关联操作<br>​                    泳道图<br>​                执行计划<br>​                    左侧深度优先的指令树<br>​                关联查询优化器<br>​                    通过评估不同顺序时的成本来选择一个代价最小的关联顺序<br>​                    当关联表超过optimizer_search_depth的限制<br>​                        选择‘贪婪’搜索模式<br>​                排序优化<br>​                    排序算法<br>​                        两次传输排序<br>​                            1.读取行指针和需要排序的字段，对其进行排序<br>​                            2.再根据排序结果读取所要的数据行<br>​                        单次传输排序<br>​                            读取所需要的所有列，排序，直接返回排序结果<br>​                    对于关联排序<br>​                        如果关联操作中ORDER BY子句中所有列都来自关联的第一个表，则处理关联第一个表的时候就进行文件排序<br>​                        否则，都会将关联结果存放到一个临时表，然后所有关联结束后，再进行文件排序<br>​                    ICP</p>
-<h4 id="查询执行引擎"><a href="#查询执行引擎" class="headerlink" title="查询执行引擎"></a>查询执行引擎</h4><p>​            根据执行计划给出的指令执行，调用存储引擎实现的接口来完成，查询中的每一个表由一个handler的实例表示<br>​            如果是所有存储引擎共有的特性则由服务器层实现</p>
-<h4 id="返回结果给客户端"><a href="#返回结果给客户端" class="headerlink" title="返回结果给客户端"></a>返回结果给客户端</h4><p>​            不需要结果集，则返回影响到的行数<br>​            如果查询缓存开启，将结果存放到查询缓存中<br>​            增量、逐步的过程<br>​                好处<br>​                    服务器端无需存储太多的结果<br>​                    客户端第一时间获得返回结果<br>​                细节<br>​                    1.每一行都以一个满足MySQL客户端/服务器端通信协议的封包发送<br>​                    2.在通过TCP协议进行传输<br>​                    3.可能会缓存封包，并批量传输</p>
-<h3 id="查询优化器的局限"><a href="#查询优化器的局限" class="headerlink" title="查询优化器的局限"></a>查询优化器的局限</h3><p>​        关联子查询<br>​        UNION的限制<br>​        索引合并优化<br>​        等值传递<br>​        并行执行<br>​        哈希关联<br>​        松散索引扫描<br>​        最大值和最小值的优化<br>​        在同一个表上查询和更新</p>
-<h3 id="查询优化器的提示（hint）"><a href="#查询优化器的提示（hint）" class="headerlink" title="查询优化器的提示（hint）"></a>查询优化器的提示（hint）</h3><p>​        HIGH_PRIORITY 和LOW_PRIORITY<br>​        DELAYED<br>​        STRAIGHT_JOIN<br>​        SQL_SMALL_RESULT和SQL_BIG_RESULT<br>​        SQL_BUFFER_RESULT<br>​        SQL_CACHE 和 SQL_NO_CACHE<br>​        SQL_CACLC_FOUND_ROWS<br>​        FOR UPDATE和LOCK IN SHARE MODE<br>​        USE INDEX、IGNORE INDEX 和FORCE INDEX</p>
-<h3 id="优化特定类型的查询"><a href="#优化特定类型的查询" class="headerlink" title="优化特定类型的查询"></a>优化特定类型的查询</h3><p>​        优化COUNT查询<br>​            COUNT 作用<br>​                统计某个列值的数量<br>​                统计结果集行数<br>​            MyISAM神话<br>​                只有在没有任何WHERE条件的COUNT(*)<br>​            简单优化<br>​                通过反转条件<br>​                如何在同一个查询中统计同一个列的不同值数量<br>​            使用相似值<br>​                EXPLAIN出来的优化器估算的行数<br>​            更复杂的优化<br>​                覆盖索引<br>​                增加汇总表<br>​                外部缓存<br>​                    Memcached<br>​        优化关联查询<br>​            注意<br>​                只需要在关联顺序中的第二个表的相应列上创建索引<br>​                确保任何的GROUP BY 和 ORDER BY中的表达式只涉及到一个表中的列<br>​            优化子查询<br>​            优化GROUP BY 和 DISTINCT<br>​            优化GROUP BY WITH ROLLUP<br>​        优化LIMIT分页<br>​            偏移量非常大的时候，需要查询很多的行数，但只返回很少的记录<br>​            LIMIT和OFFSET<br>​                使用书签记录上次取数据的位置<br>​            汇总表,冗余表<br>​        优化 SQL_CALC_FOUND_ROWS<br>​            更好的设计是将具体的页数缓存‘下一页’，例如每页显示20条记录，则用LIMIT返回21条，如果第21条存在，那么就显示‘下一页’按钮<br>​            先获取并缓存较多的数据<br>​        优化UNION查询<br>​            使用UNION ALL<br>​        使用用户自定义变量</p>
+<h3 id="查询执行的基础"><a href="#查询执行的基础" class="headerlink" title="查询执行的基础"></a>查询执行的基础</h3><h4 id="一次SQL查询做了什么"><a href="#一次SQL查询做了什么" class="headerlink" title="一次SQL查询做了什么"></a>一次SQL查询做了什么</h4><p>​    简单来说就是, 先查询缓存,在再根据查询优化器解析成执行计划,交给执行引擎,最后将结果返回给客户端 </p>
+<p>更多可以参考<a href="https://zyumin.github.io/2019/03/30/%E8%AE%B0%E4%B8%80%E6%AC%A1mysql%E6%9F%A5%E8%AF%A2in%E7%9A%84%E6%80%9D%E8%80%83/#more" target="_blank" rel="noopener">另一篇文章中详细的介绍</a></p>
+<h4 id="MySQL客户端-服务器通信协议"><a href="#MySQL客户端-服务器通信协议" class="headerlink" title="MySQL客户端/服务器通信协议"></a>MySQL客户端/服务器通信协议</h4><h5 id="通信协议"><a href="#通信协议" class="headerlink" title="通信协议"></a>通信协议</h5><p>​    半双工,只能一方发送消息,简单快速,但缺少流量控制,全部推送完成才释放链接</p>
+<h5 id="通信过程"><a href="#通信过程" class="headerlink" title="通信过程"></a>通信过程</h5><ol>
+<li>客户端用一个单独的数据包将查询传给服务器，max_allowed_packet</li>
+<li>服务器返回多个数据包，必须完整接收</li>
+<li>多数连接MySQL的库函数都可以获得全部结果集并缓存到内存里</li>
+</ol>
+<h5 id="查询状态"><a href="#查询状态" class="headerlink" title="查询状态"></a>查询状态</h5><ul>
+<li>Sleep</li>
+<li>Query</li>
+<li>Locked</li>
+<li>Analyzing and statistics</li>
+<li>Copying to tmp table[on disk]</li>
+<li>Sorting result</li>
+<li>Sending data</li>
+</ul>
+<h4 id="查询缓存（Query-Cache）"><a href="#查询缓存（Query-Cache）" class="headerlink" title="查询缓存（Query Cache）"></a>查询缓存（Query Cache）</h4><p>​    解析一个查询语句之前如果查询缓存是打开的，通过一个对大小写敏感的哈希查找实现的,缓存命中率</p>
+<h4 id="查询优化处理"><a href="#查询优化处理" class="headerlink" title="查询优化处理"></a>查询优化处理</h4><p>​    将一个SQL转换成执行计划，再按照执行计划和存储引擎进行交互</p>
+<h5 id="语法解析器和预处理"><a href="#语法解析器和预处理" class="headerlink" title="语法解析器和预处理"></a>语法解析器和预处理</h5><p>​    通过关键字将SQL语句进行解析，并生成一颗对应的‘解析树’</p>
+<h6 id="解析器"><a href="#解析器" class="headerlink" title="解析器"></a>解析器</h6><p>​    使用语法规则验证和解析查询</p>
+<h6 id="预处理器"><a href="#预处理器" class="headerlink" title="预处理器"></a>预处理器</h6><p>​    根据一些MySQL规则进一步解析树是否合法,验证权限(例如检查数据表和列是否存在,解析名字和别名)<br>​                    </p>
+<h5 id="查询优化器"><a href="#查询优化器" class="headerlink" title="查询优化器"></a>查询优化器</h5><h6 id="基于成本的优化器"><a href="#基于成本的优化器" class="headerlink" title="基于成本的优化器"></a>基于成本的优化器</h6><p>​    尝试预测一个查询使用了某种执行计划时的成本，并选择其中成本最小的一个</p>
+<h6 id="导致选择错误执行计划的原因"><a href="#导致选择错误执行计划的原因" class="headerlink" title="导致选择错误执行计划的原因"></a>导致选择错误执行计划的原因</h6><ul>
+<li>统计信息不准确</li>
+<li>执行计划汇总的成本估算不等同于实际执行的成本</li>
+<li>最优是基于成本，而有些时候并不是最快</li>
+<li>不考虑其他并发执行的查询</li>
+<li>并不是任何时候都基于成本的优化，有时会基于一些固定的规则</li>
+<li>不会考虑不受其控制的操作成本</li>
+</ul>
+<h6 id="优化策略"><a href="#优化策略" class="headerlink" title="优化策略"></a>优化策略</h6><p>​    静态优化 编译时优化，直接对解析树进行分析，并完成优化<br>​    动态优化 和查询的上下文有关，每次查询都重新评估</p>
+<h6 id="能够处理的优化类型"><a href="#能够处理的优化类型" class="headerlink" title="能够处理的优化类型"></a>能够处理的优化类型</h6><ul>
+<li>重新定义关联表的顺序</li>
+<li>将外连接转换成内连接</li>
+<li>使用等价变换规则</li>
+<li>优化COUNT() MIN() MAX()</li>
+<li>预估并转化为常数表达式</li>
+<li>覆盖索引扫描</li>
+<li>子查询优化</li>
+<li>提前终止查询</li>
+<li>等值传播</li>
+<li>列表IN()的比较</li>
+</ul>
+<h6 id="数据和索引的统计信息"><a href="#数据和索引的统计信息" class="headerlink" title="数据和索引的统计信息"></a>数据和索引的统计信息</h6><p>​    存储引擎提供给优化器</p>
+<ul>
+<li>每个表或者索引有多少个页面</li>
+<li>每个表的每个索引的基数是多少</li>
+<li>数据行和索引长度</li>
+<li>索引的分布信息</li>
+</ul>
+<h6 id="MySQL如何执行关联查询"><a href="#MySQL如何执行关联查询" class="headerlink" title="MySQL如何执行关联查询"></a>MySQL如何执行关联查询</h6><p>​    策略  对任何关联都执行嵌套循环关联操作<br>​    泳道图</p>
+<h6 id="执行计划"><a href="#执行计划" class="headerlink" title="执行计划"></a>执行计划</h6><p>​    左侧深度优先的指令树</p>
+<h6 id="关联查询优化器"><a href="#关联查询优化器" class="headerlink" title="关联查询优化器"></a>关联查询优化器</h6><p>​        通过评估不同顺序时的成本来选择一个代价最小的关联顺序<br>​        当关联表超过optimizer_search_depth的限制选择‘贪婪’搜索模式</p>
+<h6 id="排序优化"><a href="#排序优化" class="headerlink" title="排序优化"></a>排序优化</h6><p>排序算法</p>
+<ul>
+<li><p>两次传输排序</p>
+<ul>
+<li>读取行指针和需要排序的字段，对其进行排序</li>
+<li>再根据排序结果读取所要的数据行</li>
+</ul>
+</li>
+<li><p>单次传输排序</p>
+<p>  读取所需要的所有列，排序，直接返回排序结果</p>
+</li>
+</ul>
+<p>对于关联排序<br>如果关联操作中ORDER BY子句中所有列都来自关联的第一个表，则处理关联第一个表的时候就进行文件排序</p>
+<p>否则，都会将关联结果存放到一个临时表，然后所有关联结束后，再进行文件排序<br>​</p>
+<h4 id="查询执行引擎"><a href="#查询执行引擎" class="headerlink" title="查询执行引擎"></a>查询执行引擎</h4><p>​    根据执行计划给出的指令执行，调用存储引擎实现的接口来完成，查询中的每一个表由一个handler的实例表示<br>如果是所有存储引擎共有的特性则由服务器层实现</p>
+<h4 id="返回结果给客户端"><a href="#返回结果给客户端" class="headerlink" title="返回结果给客户端"></a>返回结果给客户端</h4><p>不需要结果集，则返回影响到的行数, 如果查询缓存开启，将结果存放到查询缓存中</p>
+<p>是一个增量、逐步的过程,服务器端无需存储太多的结果,客户端第一时间获得返回结果</p>
+<ol>
+<li>每一行都以一个满足MySQL客户端/服务器端通信协议的封包发送</li>
+<li>在通过TCP协议进行传输</li>
+<li>可能会缓存封包，并批量传输</li>
+</ol>
+<h3 id="查询优化器的局限"><a href="#查询优化器的局限" class="headerlink" title="查询优化器的局限"></a>查询优化器的局限</h3><ul>
+<li>关联子查询</li>
+<li>UNION的限制</li>
+<li>索引合并优化</li>
+<li>等值传递</li>
+<li>并行执行</li>
+<li>哈希关联</li>
+<li>松散索引扫描</li>
+<li>最大值和最小值的优化</li>
+<li>在同一个表上查询和更新</li>
+</ul>
+<p>hint, 不建议使用，MySQL版本升级会让新版的优化策略失效</p>
+<h3 id="优化特定类型的查询"><a href="#优化特定类型的查询" class="headerlink" title="优化特定类型的查询"></a>优化特定类型的查询</h3><h4 id="优化COUNT查询"><a href="#优化COUNT查询" class="headerlink" title="优化COUNT查询"></a>优化COUNT查询</h4><ul>
+<li>使用相似值 EXPLAIN出来的优化器估算的行数</li>
+<li>覆盖索引</li>
+<li>增加汇总表</li>
+<li>缓存</li>
+</ul>
+<h4 id="优化关联查询"><a href="#优化关联查询" class="headerlink" title="优化关联查询"></a>优化关联查询</h4><p>​    只需要在关联顺序中的第二个表的相应列上创建索引,确保任何的GROUP BY 和 ORDER BY中的表达式只涉及到一个表中的列<br>优化子查询<br>优化GROUP BY 和 DISTINCT<br>​优化GROUP BY WITH ROLLUP (转移到应用程序中处理)</p>
+<p>#### </p>
 
       
     </div>
@@ -827,7 +919,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
           
         </div>
       
@@ -967,9 +1059,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1022,7 +1112,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL版本特征"><span class="nav-number">1.</span> <span class="nav-text">MySQL版本特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Schema与数据类型优化"><span class="nav-number">2.</span> <span class="nav-text">Schema与数据类型优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原则"><span class="nav-number">2.1.</span> <span class="nav-text">原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">2.2.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#整数类型"><span class="nav-number">2.2.1.</span> <span class="nav-text">整数类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实数类型"><span class="nav-number">2.2.2.</span> <span class="nav-text">实数类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串类型"><span class="nav-number">2.2.3.</span> <span class="nav-text">字符串类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BLOB和TEXT类型"><span class="nav-number">2.2.4.</span> <span class="nav-text">BLOB和TEXT类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#枚举ENUM"><span class="nav-number">2.2.5.</span> <span class="nav-text">枚举ENUM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日期和时间"><span class="nav-number">2.2.6.</span> <span class="nav-text">日期和时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#位数据类型"><span class="nav-number">2.2.7.</span> <span class="nav-text">位数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择标识符（主键）"><span class="nav-number">2.2.8.</span> <span class="nav-text">选择标识符（主键）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#整数类型-1"><span class="nav-number">2.2.8.1.</span> <span class="nav-text">整数类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串类型-1"><span class="nav-number">2.2.8.2.</span> <span class="nav-text">字符串类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#类型"><span class="nav-number">2.2.8.3.</span> <span class="nav-text">类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#问题"><span class="nav-number">2.2.8.4.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Schema设计中的陷阱"><span class="nav-number">2.3.</span> <span class="nav-text">Schema设计中的陷阱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#范式和反范式"><span class="nav-number">2.4.</span> <span class="nav-text">范式和反范式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#范式"><span class="nav-number">2.4.1.</span> <span class="nav-text">范式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反范式"><span class="nav-number">2.4.2.</span> <span class="nav-text">反范式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#混用"><span class="nav-number">2.4.3.</span> <span class="nav-text">混用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存表和汇总表"><span class="nav-number">2.5.</span> <span class="nav-text">缓存表和汇总表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#汇总表"><span class="nav-number">2.5.1.</span> <span class="nav-text">汇总表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#适用场景"><span class="nav-number">2.5.1.1.</span> <span class="nav-text">适用场景</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存表"><span class="nav-number">2.5.2.</span> <span class="nav-text">缓存表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#适用场景-1"><span class="nav-number">2.5.2.1.</span> <span class="nav-text">适用场景</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加快ALTER-TABLE操作的速度"><span class="nav-number">2.6.</span> <span class="nav-text">加快ALTER TABLE操作的速度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ALTER-TABLE"><span class="nav-number">2.6.1.</span> <span class="nav-text">ALTER TABLE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不会重建表的情况"><span class="nav-number">2.6.2.</span> <span class="nav-text">不会重建表的情况</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高性能索引"><span class="nav-number">3.</span> <span class="nav-text">高性能索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#索引基础、类型"><span class="nav-number">3.1.</span> <span class="nav-text">索引基础、类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#B-tree"><span class="nav-number">3.1.1.</span> <span class="nav-text">B-tree</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#类型-1"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">类型</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#MyISAM"><span class="nav-number">3.1.1.1.1.</span> <span class="nav-text">MyISAM</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#InnoDB"><span class="nav-number">3.1.1.1.2.</span> <span class="nav-text">InnoDB</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#适用类型"><span class="nav-number">3.1.1.2.</span> <span class="nav-text">适用类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#限制"><span class="nav-number">3.1.1.3.</span> <span class="nav-text">限制</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哈希索引"><span class="nav-number">3.1.2.</span> <span class="nav-text">哈希索引</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#限制-1"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">限制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#InnoDB-“自适应哈希索引”"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">InnoDB “自适应哈希索引”</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#空间索引R-Tree"><span class="nav-number">3.1.3.</span> <span class="nav-text">空间索引R-Tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全文索引"><span class="nav-number">3.1.4.</span> <span class="nav-text">全文索引</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引的优点"><span class="nav-number">3.2.</span> <span class="nav-text">索引的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何评价一个索引"><span class="nav-number">3.3.</span> <span class="nav-text">如何评价一个索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高性能的索引策略"><span class="nav-number">3.4.</span> <span class="nav-text">高性能的索引策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#独立的列"><span class="nav-number">3.4.1.</span> <span class="nav-text">独立的列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前缀索引和索引选择性"><span class="nav-number">3.4.2.</span> <span class="nav-text">前缀索引和索引选择性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#联合索引"><span class="nav-number">3.4.3.</span> <span class="nav-text">联合索引</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#选择合适的索引列顺序"><span class="nav-number">3.4.3.1.</span> <span class="nav-text">选择合适的索引列顺序</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚簇索引"><span class="nav-number">3.4.4.</span> <span class="nav-text">聚簇索引</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#优点"><span class="nav-number">3.4.4.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点"><span class="nav-number">3.4.4.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#叶子节点"><span class="nav-number">3.4.4.3.</span> <span class="nav-text">叶子节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#UUID插入的问题"><span class="nav-number">3.4.4.4.</span> <span class="nav-text">UUID插入的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#顺序主键什么时候会造成更坏的结果"><span class="nav-number">3.4.4.5.</span> <span class="nav-text">顺序主键什么时候会造成更坏的结果</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#覆盖索引"><span class="nav-number">3.4.5.</span> <span class="nav-text">覆盖索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用索引扫描来做排序"><span class="nav-number">3.4.6.</span> <span class="nav-text">使用索引扫描来做排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#可以使用使用索引做排序的查询"><span class="nav-number">3.4.6.1.</span> <span class="nav-text">可以使用使用索引做排序的查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#不能使用索引做排序的查询"><span class="nav-number">3.4.6.2.</span> <span class="nav-text">不能使用索引做排序的查询</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#压缩索引"><span class="nav-number">3.4.7.</span> <span class="nav-text">压缩索引</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#MyISAM压缩索引-空间换时间"><span class="nav-number">3.4.7.1.</span> <span class="nav-text">MyISAM压缩索引(空间换时间)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于冗余和重复索引"><span class="nav-number">3.4.8.</span> <span class="nav-text">关于冗余和重复索引</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#重复索引（去除）"><span class="nav-number">3.4.8.1.</span> <span class="nav-text">重复索引（去除）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#冗余索引（适当）"><span class="nav-number">3.4.8.2.</span> <span class="nav-text">冗余索引（适当）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#未使用索引"><span class="nav-number">3.4.9.</span> <span class="nav-text">未使用索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#索引和锁的关系"><span class="nav-number">3.4.10.</span> <span class="nav-text">索引和锁的关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#维护索引和表"><span class="nav-number">3.5.</span> <span class="nav-text">维护索引和表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#找到损坏的表"><span class="nav-number">3.5.1.</span> <span class="nav-text">找到损坏的表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新索引统计信息"><span class="nav-number">3.5.2.</span> <span class="nav-text">更新索引统计信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#减少索引和数据碎片"><span class="nav-number">3.5.3.</span> <span class="nav-text">减少索引和数据碎片</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#常见的碎片"><span class="nav-number">3.5.3.1.</span> <span class="nav-text">常见的碎片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决方法"><span class="nav-number">3.5.3.2.</span> <span class="nav-text">解决方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储引擎实现"><span class="nav-number">3.5.3.3.</span> <span class="nav-text">存储引擎实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.6.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原则-1"><span class="nav-number">3.6.1.</span> <span class="nav-text">原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何判断索引合理"><span class="nav-number">3.6.2.</span> <span class="nav-text">如何判断索引合理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#检查"><span class="nav-number">3.6.2.1.</span> <span class="nav-text">检查</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#判断"><span class="nav-number">3.6.2.2.</span> <span class="nav-text">判断</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询性能优化"><span class="nav-number">4.</span> <span class="nav-text">查询性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么查询会慢"><span class="nav-number">4.1.</span> <span class="nav-text">为什么查询会慢</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#执行子任务"><span class="nav-number">4.1.1.</span> <span class="nav-text">执行子任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生命周期"><span class="nav-number">4.1.2.</span> <span class="nav-text">生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#客户端"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#服务器"><span class="nav-number">4.1.2.2.</span> <span class="nav-text">服务器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间花费"><span class="nav-number">4.1.3.</span> <span class="nav-text">时间花费</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#慢查询的基础：优化数据访问"><span class="nav-number">4.2.</span> <span class="nav-text">慢查询的基础：优化数据访问</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#是否检索大量超过需要的数据"><span class="nav-number">4.2.1.</span> <span class="nav-text">是否检索大量超过需要的数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分析大量超过需要的行"><span class="nav-number">4.2.2.</span> <span class="nav-text">分析大量超过需要的行</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#指标"><span class="nav-number">4.2.2.1.</span> <span class="nav-text">指标</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#响应时间"><span class="nav-number">4.2.2.1.1.</span> <span class="nav-text">响应时间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#扫描行数"><span class="nav-number">4.2.2.1.2.</span> <span class="nav-text">扫描行数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#返回行数"><span class="nav-number">4.2.2.1.3.</span> <span class="nav-text">返回行数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#WHERE条件"><span class="nav-number">4.2.2.2.</span> <span class="nav-text">WHERE条件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#优化"><span class="nav-number">4.2.2.3.</span> <span class="nav-text">优化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重构查询方式"><span class="nav-number">4.3.</span> <span class="nav-text">重构查询方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分解关联查询"><span class="nav-number">4.3.1.</span> <span class="nav-text">分解关联查询</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询执行的基础"><span class="nav-number">4.4.</span> <span class="nav-text">查询执行的基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一次SQL查询做了什么"><span class="nav-number">4.4.1.</span> <span class="nav-text">一次SQL查询做了什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL客户端-服务器通信协议"><span class="nav-number">4.4.2.</span> <span class="nav-text">MySQL客户端/服务器通信协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询缓存（Query-Cache）"><span class="nav-number">4.4.3.</span> <span class="nav-text">查询缓存（Query Cache）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询优化处理"><span class="nav-number">4.4.4.</span> <span class="nav-text">查询优化处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询执行引擎"><span class="nav-number">4.4.5.</span> <span class="nav-text">查询执行引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回结果给客户端"><span class="nav-number">4.4.6.</span> <span class="nav-text">返回结果给客户端</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询优化器的局限"><span class="nav-number">4.5.</span> <span class="nav-text">查询优化器的局限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询优化器的提示（hint）"><span class="nav-number">4.6.</span> <span class="nav-text">查询优化器的提示（hint）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化特定类型的查询"><span class="nav-number">4.7.</span> <span class="nav-text">优化特定类型的查询</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL版本特征"><span class="nav-number">1.</span> <span class="nav-text">MySQL版本特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Schema与数据类型优化"><span class="nav-number">2.</span> <span class="nav-text">Schema与数据类型优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原则"><span class="nav-number">2.1.</span> <span class="nav-text">原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Schema设计中的陷阱"><span class="nav-number">2.2.</span> <span class="nav-text">Schema设计中的陷阱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">2.3.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#整数类型"><span class="nav-number">2.3.1.</span> <span class="nav-text">整数类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实数类型"><span class="nav-number">2.3.2.</span> <span class="nav-text">实数类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串类型"><span class="nav-number">2.3.3.</span> <span class="nav-text">字符串类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BLOB和TEXT类型"><span class="nav-number">2.3.4.</span> <span class="nav-text">BLOB和TEXT类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#枚举ENUM"><span class="nav-number">2.3.5.</span> <span class="nav-text">枚举ENUM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日期和时间"><span class="nav-number">2.3.6.</span> <span class="nav-text">日期和时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#位数据类型"><span class="nav-number">2.3.7.</span> <span class="nav-text">位数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择标识符（主键）"><span class="nav-number">2.3.8.</span> <span class="nav-text">选择标识符（主键）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#整数类型-1"><span class="nav-number">2.3.8.1.</span> <span class="nav-text">整数类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串类型-1"><span class="nav-number">2.3.8.2.</span> <span class="nav-text">字符串类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#类型"><span class="nav-number">2.3.8.3.</span> <span class="nav-text">类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#问题"><span class="nav-number">2.3.8.4.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#范式和反范式"><span class="nav-number">2.4.</span> <span class="nav-text">范式和反范式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#范式"><span class="nav-number">2.4.1.</span> <span class="nav-text">范式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反范式"><span class="nav-number">2.4.2.</span> <span class="nav-text">反范式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#混用"><span class="nav-number">2.4.3.</span> <span class="nav-text">混用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#汇总表"><span class="nav-number">2.4.4.</span> <span class="nav-text">汇总表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#适用场景"><span class="nav-number">2.4.4.1.</span> <span class="nav-text">适用场景</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存表"><span class="nav-number">2.4.5.</span> <span class="nav-text">缓存表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#适用场景-1"><span class="nav-number">2.4.5.1.</span> <span class="nav-text">适用场景</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加快ALTER-TABLE操作的速度"><span class="nav-number">2.5.</span> <span class="nav-text">加快ALTER TABLE操作的速度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意修改列的区别"><span class="nav-number">2.5.1.</span> <span class="nav-text">注意修改列的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不会重建表的情况"><span class="nav-number">2.5.2.</span> <span class="nav-text">不会重建表的情况</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高性能索引"><span class="nav-number">3.</span> <span class="nav-text">高性能索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#索引基础、类型"><span class="nav-number">3.1.</span> <span class="nav-text">索引基础、类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#B-tree"><span class="nav-number">3.1.1.</span> <span class="nav-text">B-tree</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#类型-1"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">类型</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#MyISAM"><span class="nav-number">3.1.1.1.1.</span> <span class="nav-text">MyISAM</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#InnoDB"><span class="nav-number">3.1.1.1.2.</span> <span class="nav-text">InnoDB</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#适用类型"><span class="nav-number">3.1.1.2.</span> <span class="nav-text">适用类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#限制"><span class="nav-number">3.1.1.3.</span> <span class="nav-text">限制</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哈希索引"><span class="nav-number">3.1.2.</span> <span class="nav-text">哈希索引</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#限制-1"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">限制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#InnoDB-“自适应哈希索引”"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">InnoDB “自适应哈希索引”</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#空间索引R-Tree"><span class="nav-number">3.1.3.</span> <span class="nav-text">空间索引R-Tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全文索引"><span class="nav-number">3.1.4.</span> <span class="nav-text">全文索引</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引的优点"><span class="nav-number">3.2.</span> <span class="nav-text">索引的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何评价一个索引"><span class="nav-number">3.3.</span> <span class="nav-text">如何评价一个索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高性能的索引策略"><span class="nav-number">3.4.</span> <span class="nav-text">高性能的索引策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#独立的列"><span class="nav-number">3.4.1.</span> <span class="nav-text">独立的列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前缀索引和索引选择性"><span class="nav-number">3.4.2.</span> <span class="nav-text">前缀索引和索引选择性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#联合索引"><span class="nav-number">3.4.3.</span> <span class="nav-text">联合索引</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#选择合适的索引列顺序"><span class="nav-number">3.4.3.1.</span> <span class="nav-text">选择合适的索引列顺序</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#聚簇索引"><span class="nav-number">3.4.4.</span> <span class="nav-text">聚簇索引</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#优点"><span class="nav-number">3.4.4.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点"><span class="nav-number">3.4.4.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#叶子节点"><span class="nav-number">3.4.4.3.</span> <span class="nav-text">叶子节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#UUID插入的问题"><span class="nav-number">3.4.4.4.</span> <span class="nav-text">UUID插入的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#顺序主键什么时候会造成更坏的结果"><span class="nav-number">3.4.4.5.</span> <span class="nav-text">顺序主键什么时候会造成更坏的结果</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#覆盖索引"><span class="nav-number">3.4.5.</span> <span class="nav-text">覆盖索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用索引扫描来做排序"><span class="nav-number">3.4.6.</span> <span class="nav-text">使用索引扫描来做排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#可以使用使用索引做排序的查询"><span class="nav-number">3.4.6.1.</span> <span class="nav-text">可以使用使用索引做排序的查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#不能使用索引做排序的查询"><span class="nav-number">3.4.6.2.</span> <span class="nav-text">不能使用索引做排序的查询</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#压缩索引"><span class="nav-number">3.4.7.</span> <span class="nav-text">压缩索引</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#MyISAM压缩索引-空间换时间"><span class="nav-number">3.4.7.1.</span> <span class="nav-text">MyISAM压缩索引(空间换时间)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于冗余和重复索引"><span class="nav-number">3.4.8.</span> <span class="nav-text">关于冗余和重复索引</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#重复索引（去除）"><span class="nav-number">3.4.8.1.</span> <span class="nav-text">重复索引（去除）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#冗余索引（适当）"><span class="nav-number">3.4.8.2.</span> <span class="nav-text">冗余索引（适当）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#未使用索引"><span class="nav-number">3.4.9.</span> <span class="nav-text">未使用索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#索引和锁的关系"><span class="nav-number">3.4.10.</span> <span class="nav-text">索引和锁的关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#维护索引和表"><span class="nav-number">3.5.</span> <span class="nav-text">维护索引和表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#找到损坏的表"><span class="nav-number">3.5.1.</span> <span class="nav-text">找到损坏的表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新索引统计信息"><span class="nav-number">3.5.2.</span> <span class="nav-text">更新索引统计信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#减少索引和数据碎片"><span class="nav-number">3.5.3.</span> <span class="nav-text">减少索引和数据碎片</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#常见的碎片"><span class="nav-number">3.5.3.1.</span> <span class="nav-text">常见的碎片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决方法"><span class="nav-number">3.5.3.2.</span> <span class="nav-text">解决方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储引擎实现"><span class="nav-number">3.5.3.3.</span> <span class="nav-text">存储引擎实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引总结"><span class="nav-number">3.6.</span> <span class="nav-text">索引总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原则-1"><span class="nav-number">3.6.1.</span> <span class="nav-text">原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何判断索引合理"><span class="nav-number">3.6.2.</span> <span class="nav-text">如何判断索引合理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#检查设计是否合理"><span class="nav-number">3.6.2.1.</span> <span class="nav-text">检查设计是否合理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#判断执行是否符合预期"><span class="nav-number">3.6.2.2.</span> <span class="nav-text">判断执行是否符合预期</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询性能优化"><span class="nav-number">4.</span> <span class="nav-text">查询性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么查询会慢"><span class="nav-number">4.1.</span> <span class="nav-text">为什么查询会慢</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#执行任务"><span class="nav-number">4.1.1.</span> <span class="nav-text">执行任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间花费"><span class="nav-number">4.1.2.</span> <span class="nav-text">时间花费</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#慢查询的基础：优化数据访问"><span class="nav-number">4.2.</span> <span class="nav-text">慢查询的基础：优化数据访问</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#是否检索大量超过需要的数据"><span class="nav-number">4.2.1.</span> <span class="nav-text">是否检索大量超过需要的数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分析为何检索大量超过需要的行"><span class="nav-number">4.2.2.</span> <span class="nav-text">分析为何检索大量超过需要的行</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#相关指标指标"><span class="nav-number">4.2.2.1.</span> <span class="nav-text">相关指标指标</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#响应时间"><span class="nav-number">4.2.2.1.1.</span> <span class="nav-text">响应时间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#扫描行数"><span class="nav-number">4.2.2.1.2.</span> <span class="nav-text">扫描行数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#返回行数"><span class="nav-number">4.2.2.1.3.</span> <span class="nav-text">返回行数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#WHERE条件"><span class="nav-number">4.2.2.2.</span> <span class="nav-text">WHERE条件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#优化"><span class="nav-number">4.2.2.3.</span> <span class="nav-text">优化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重构查询方式"><span class="nav-number">4.3.</span> <span class="nav-text">重构查询方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分解关联查询"><span class="nav-number">4.3.1.</span> <span class="nav-text">分解关联查询</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询执行的基础"><span class="nav-number">4.4.</span> <span class="nav-text">查询执行的基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一次SQL查询做了什么"><span class="nav-number">4.4.1.</span> <span class="nav-text">一次SQL查询做了什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL客户端-服务器通信协议"><span class="nav-number">4.4.2.</span> <span class="nav-text">MySQL客户端/服务器通信协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#通信协议"><span class="nav-number">4.4.2.1.</span> <span class="nav-text">通信协议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通信过程"><span class="nav-number">4.4.2.2.</span> <span class="nav-text">通信过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询状态"><span class="nav-number">4.4.2.3.</span> <span class="nav-text">查询状态</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询缓存（Query-Cache）"><span class="nav-number">4.4.3.</span> <span class="nav-text">查询缓存（Query Cache）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询优化处理"><span class="nav-number">4.4.4.</span> <span class="nav-text">查询优化处理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#语法解析器和预处理"><span class="nav-number">4.4.4.1.</span> <span class="nav-text">语法解析器和预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#解析器"><span class="nav-number">4.4.4.1.1.</span> <span class="nav-text">解析器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#预处理器"><span class="nav-number">4.4.4.1.2.</span> <span class="nav-text">预处理器</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询优化器"><span class="nav-number">4.4.4.2.</span> <span class="nav-text">查询优化器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#基于成本的优化器"><span class="nav-number">4.4.4.2.1.</span> <span class="nav-text">基于成本的优化器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#导致选择错误执行计划的原因"><span class="nav-number">4.4.4.2.2.</span> <span class="nav-text">导致选择错误执行计划的原因</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#优化策略"><span class="nav-number">4.4.4.2.3.</span> <span class="nav-text">优化策略</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#能够处理的优化类型"><span class="nav-number">4.4.4.2.4.</span> <span class="nav-text">能够处理的优化类型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#数据和索引的统计信息"><span class="nav-number">4.4.4.2.5.</span> <span class="nav-text">数据和索引的统计信息</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#MySQL如何执行关联查询"><span class="nav-number">4.4.4.2.6.</span> <span class="nav-text">MySQL如何执行关联查询</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#执行计划"><span class="nav-number">4.4.4.2.7.</span> <span class="nav-text">执行计划</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#关联查询优化器"><span class="nav-number">4.4.4.2.8.</span> <span class="nav-text">关联查询优化器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#排序优化"><span class="nav-number">4.4.4.2.9.</span> <span class="nav-text">排序优化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询执行引擎"><span class="nav-number">4.4.5.</span> <span class="nav-text">查询执行引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回结果给客户端"><span class="nav-number">4.4.6.</span> <span class="nav-text">返回结果给客户端</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询优化器的局限"><span class="nav-number">4.5.</span> <span class="nav-text">查询优化器的局限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化特定类型的查询"><span class="nav-number">4.6.</span> <span class="nav-text">优化特定类型的查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优化COUNT查询"><span class="nav-number">4.6.1.</span> <span class="nav-text">优化COUNT查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化关联查询"><span class="nav-number">4.6.2.</span> <span class="nav-text">优化关联查询</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1055,7 +1145,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">197k</span>
+    <span title="站点总字数">194k</span>
   
 
   
@@ -1064,7 +1154,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:59</span>
+    <span title="站点阅读时长">2:56</span>
   
 </div>
 
