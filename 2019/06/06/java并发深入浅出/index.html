@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g3rn5ridk4j30rs0czgo9.jpg">
-<meta property="og:updated_time" content="2019-06-06T11:43:17.049Z">
+<meta property="og:updated_time" content="2019-06-10T10:14:20.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java并发深入浅出">
 <meta name="twitter:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g3rn5ridk4j30rs0czgo9.jpg">
@@ -360,12 +360,24 @@
                 
               
 
-              <time title="创建时间：2019-06-06 19:05:01 / 修改时间：19:43:17" itemprop="dateCreated datePublished" datetime="2019-06-06T19:05:01+08:00">2019-06-06</time>
+              <time title="创建时间：2019-06-06 19:05:01" itemprop="dateCreated datePublished" datetime="2019-06-06T19:05:01+08:00">2019-06-06</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-10 18:14:20" itemprop="dateModified" datetime="2019-06-10T18:14:20+08:00">2019-06-10</time>
               
             
           </span>
@@ -404,7 +416,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">8.2k</span>
+                <span title="本文字数">8k</span>
               
 
               
@@ -474,7 +486,7 @@
 <p>  缓存和读/写缓冲区</p>
 </li>
 </ul>
-<h4 id="并发编程模型的分类"><a href="#并发编程模型的分类" class="headerlink" title="并发编程模型的分类"></a>并发编程模型的分类</h4><h5 id="写缓冲区（写读的顺序）"><a href="#写缓冲区（写读的顺序）" class="headerlink" title="写缓冲区（写读的顺序）"></a>写缓冲区（写读的顺序）</h5><p>​                    写缓冲区可以保证指令流水线持续运行，它可以避免由于处理器停顿下来等待向内存写入数据而产生的延迟<br>​                    通过以批处理的方式刷新写缓冲区，以及合并写缓存区中对一内存地址的多次写，减少内存总线的占用<br>​                    存在的问题<br>​                        写缓存区仅对自己的处理器可见，它会导致处理器执行内存操作的顺序可能会与内存实际操作顺序不一致</p>
+<h4 id="并发编程模型的分类"><a href="#并发编程模型的分类" class="headerlink" title="并发编程模型的分类"></a>并发编程模型的分类</h4><h5 id="写缓冲区（写读的顺序）"><a href="#写缓冲区（写读的顺序）" class="headerlink" title="写缓冲区（写读的顺序）"></a>写缓冲区（写读的顺序）</h5><p>写缓冲区可以保证指令流水线持续运行，它可以避免由于处理器停顿下来等待向内存写入数据而产生的延迟<br>通过以批处理的方式刷新写缓冲区，以及合并写缓存区中对一内存地址的多次写，减少内存总线的占用<br>存在的问题<br>        写缓存区仅对自己的处理器可见，它会导致处理器执行内存操作的顺序可能会与内存实际操作顺序不一致</p>
 <h5 id="内存屏障"><a href="#内存屏障" class="headerlink" title="内存屏障"></a>内存屏障</h5><ul>
 <li>LoadLoad</li>
 <li>StoreStore</li>
@@ -507,7 +519,7 @@
 <h4 id="类对初始化"><a href="#类对初始化" class="headerlink" title="类对初始化"></a>类对初始化</h4><p>​                一个类或接口类型立即被初始化对情况<br>​                    T是一个类，T对示例被创建<br>​                    T是一个类，且T中声明对一个静态方法被调用<br>​                    T中声明对一个静态字段被赋值<br>​                    T中声明对一个静态字段被使用，而且这个字段不是一个常量字段<br>​                    T是一个顶级类，而且一个断言语句嵌套在T内部被执行</p>
 <h3 id="Java内存模型综述"><a href="#Java内存模型综述" class="headerlink" title="Java内存模型综述"></a>Java内存模型综述</h3><h4 id="处理器的内存模型"><a href="#处理器的内存模型" class="headerlink" title="处理器的内存模型"></a>处理器的内存模型</h4><p>​                JMM屏蔽了不同处理器内存模型的差异</p>
 <h4 id="各种内存模型之间的关系"><a href="#各种内存模型之间的关系" class="headerlink" title="各种内存模型之间的关系"></a>各种内存模型之间的关系</h4><p>​                处理器内存模型是硬件级的内存模型<br>​                JMM语言级内存模型<br>​                顺序一致性内存模型是一个理论参考模型</p>
-<h4 id="JMM的内存可见性保证"><a href="#JMM的内存可见性保证" class="headerlink" title="JMM的内存可见性保证"></a>JMM的内存可见性保证</h4><h4 id="JSR-133对内存语义的修复"><a href="#JSR-133对内存语义的修复" class="headerlink" title="JSR-133对内存语义的修复"></a>JSR-133对内存语义的修复</h4><h2 id="Java并发编程基础"><a href="#Java并发编程基础" class="headerlink" title="Java并发编程基础"></a>Java并发编程基础</h2><h3 id="线程简介"><a href="#线程简介" class="headerlink" title="线程简介"></a>线程简介</h3><h3 id="启动和终止线程"><a href="#启动和终止线程" class="headerlink" title="启动和终止线程"></a>启动和终止线程</h3><h3 id="线程间通信"><a href="#线程间通信" class="headerlink" title="线程间通信"></a>线程间通信</h3><h4 id="通知-等待"><a href="#通知-等待" class="headerlink" title="通知/等待"></a>通知/等待</h4><p>​                监视器<br>​                对象<br>​                等待队列<br>​                同步队列</p>
+<h4 id="JMM的内存可见性保证"><a href="#JMM的内存可见性保证" class="headerlink" title="JMM的内存可见性保证"></a>JMM的内存可见性保证</h4><h4 id="JSR-133对内存语义的修复"><a href="#JSR-133对内存语义的修复" class="headerlink" title="JSR-133对内存语义的修复"></a>JSR-133对内存语义的修复</h4><h2 id="Java并发编程基础"><a href="#Java并发编程基础" class="headerlink" title="Java并发编程基础"></a>Java并发编程基础</h2><h3 id="线程简介"><a href="#线程简介" class="headerlink" title="线程简介"></a>线程简介</h3><h3 id="启动和终止线程"><a href="#启动和终止线程" class="headerlink" title="启动和终止线程"></a>启动和终止线程</h3><h3 id="线程间通信"><a href="#线程间通信" class="headerlink" title="线程间通信"></a>线程间通信</h3><h4 id="通知-等待"><a href="#通知-等待" class="headerlink" title="通知/等待"></a>通知/等待</h4><p>​    监视器<br>​    对象<br>​    等待队列<br>​    同步队列</p>
 <h4 id="等待方"><a href="#等待方" class="headerlink" title="等待方"></a>等待方</h4><p>​                获取对象锁<br>​                如果条件不满足，那么调用对象的wait()方法，被通知后仍要检查条件<br>​                条件满足则执行对应逻辑</p>
 <h4 id="通知方"><a href="#通知方" class="headerlink" title="通知方"></a>通知方</h4><p>​                获得对象的锁<br>​                改变条件<br>​                通知所有等待在对象上的线程<br>​        </p>
 <h2 id="Java中的锁"><a href="#Java中的锁" class="headerlink" title="Java中的锁"></a>Java中的锁</h2><h3 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a>Lock</h3><h3 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h3><p>​            主要使用方式是继承，推荐被定义为自定义同步组件的静态内部类</p>
@@ -565,8 +577,8 @@ TimeUnit(单位)
 <h5 id="任务优先级"><a href="#任务优先级" class="headerlink" title="任务优先级"></a>任务优先级</h5><p>​                    优先级队列</p>
 <h5 id="任务执行时间"><a href="#任务执行时间" class="headerlink" title="任务执行时间"></a>任务执行时间</h5><p>​                    使用优先级队列，让时间短的任务先执行<br>​                    交给不同规模的线程池处理</p>
 <h5 id="任务的依赖性"><a href="#任务的依赖性" class="headerlink" title="任务的依赖性"></a>任务的依赖性</h5><p>​                    依赖数据库链接池的任务，因为提交需要等待数据库返回结果，等待时间越长，空闲时间越长，所以设置线程数应该尽量大，同时注意针对这种昂贵的资源，记得使用超时机制</p>
-<h5 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h5><p>​                largestPoolSize<br>​                    最大线程数<br>​                getPoolSize<br>​                    线程池的线程数量<br>​                getActiveCount<br>​                    获取活动的线程数</p>
-<p>​                扩展，继承线程池</p>
+<h5 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h5><p>​        largestPoolSize-最大线程数<br>​        getPoolSize-线程池的线程数量<br>​        getActiveCount-获取活动的线程数</p>
+<p>​        扩展，继承线程池</p>
 
       
     </div>
@@ -614,6 +626,10 @@ TimeUnit(单位)
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/10/redis深入浅出/" rel="prev" title="redis深入浅出">
+                redis深入浅出 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -689,7 +705,7 @@ TimeUnit(单位)
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
