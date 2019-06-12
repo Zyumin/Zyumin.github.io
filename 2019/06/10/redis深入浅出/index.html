@@ -104,7 +104,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g3x0bypob8j30u70u0kjl.jpg">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g3xeyqvqyoj30zk03d3za.jpg">
-<meta property="og:updated_time" content="2019-06-11T12:35:41.276Z">
+<meta property="og:updated_time" content="2019-06-11T12:39:40.780Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis深入浅出">
 <meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g3x0bypob8j30u70u0kjl.jpg">
@@ -378,7 +378,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-11 20:35:41" itemprop="dateModified" datetime="2019-06-11T20:35:41+08:00">2019-06-11</time>
+                <time title="修改时间：2019-06-11 20:39:40" itemprop="dateModified" datetime="2019-06-11T20:39:40+08:00">2019-06-11</time>
               
             
           </span>
@@ -504,7 +504,7 @@
 </ul>
 <p> more: <a href="https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES" target="_blank" rel="noopener">https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES</a></p>
 <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>​    Redis 的字符串是动态字符串，是可以修改的字符串，内部结构实现上类似于 Java 的 ArrayList，采用预分配冗余空间的方式来减少内存的频繁分配。 当字符串长度小于 1M 时，扩容都是加倍现有的空间，如果超过 1M，扩容时一次只会多扩 1M 的空间。需要注意的是字符串最大长度为 512M。</p>
-<h3 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h3><p>​    Redis 的字典相当于 Java 语言里面的 HashMap，它是无序字典。不同的是，Redis 的字典的值只能是字符串，另外它们 rehash 的方式不一样，因为 Java 的 HashMap 在字典很大时，rehash 是个耗时的操作，需要一次性全部 rehash。Redis 为了高性能，不能堵塞服务，所以采用了渐进式 rehash 策略。(操作的时候会触发rehash,同时后台会有个定时任务在执行)</p>
+<h3 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h3><p>​    Redis 的字典相当于 Java 语言里面的 HashMap，它是无序字典。不同的是，Redis 的字典的值只能是字符串，另外它们 rehash 的方式不一样，因为 Java 的 HashMap 在字典很大时，rehash 是个耗时的操作，需要一次性全部 rehash(在concurrentHashMap中也是渐进式,而且是多线程)。Redis 为了高性能，不能堵塞服务，所以采用了渐进式 rehash 策略。(操作的时候会触发rehash,同时后台会有个定时任务在执行)</p>
 <p>​    相比字符串 ,可以进行部分获取,减少网络传输.  但hash 结构的存储消耗要高于单个字符串.</p>
 <h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p>​    Redis 的列表相当于 Java 语言里面的 LinkedList，注意它是链表而不是数组。这意味着 list 的插入和删除操作非常快，时间复杂度为 O(1)，但是索引定位很慢，时间复杂度为 O(n)，这点让人非常意外。 常用于异步队列。</p>
 <p>​    <img src="http://ww4.sinaimg.cn/large/006tNc79gy1g3xeyqvqyoj30zk03d3za.jpg" alt="image-20190611185500346"></p>
@@ -595,6 +595,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/06/12/kafka深入浅出/" rel="prev" title="kafka深入浅出">
+                kafka深入浅出 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -669,7 +673,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -724,7 +728,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -810,7 +816,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">228k</span>
+    <span title="站点总字数">230k</span>
   
 
   
@@ -819,7 +825,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:29</span>
   
 </div>
 
