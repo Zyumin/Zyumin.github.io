@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g3znqgyeikj30hs0cgglr.jpg">
-<meta property="og:updated_time" content="2019-06-13T11:35:41.945Z">
+<meta property="og:updated_time" content="2019-06-13T12:03:55.052Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spec_Java Virtual Machine">
 <meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g3znqgyeikj30hs0cgglr.jpg">
@@ -360,7 +360,7 @@
                 
               
 
-              <time title="创建时间：2019-06-13 17:25:17 / 修改时间：19:35:41" itemprop="dateCreated datePublished" datetime="2019-06-13T17:25:17+08:00">2019-06-13</time>
+              <time title="创建时间：2019-06-13 17:25:17 / 修改时间：20:03:55" itemprop="dateCreated datePublished" datetime="2019-06-13T17:25:17+08:00">2019-06-13</time>
             
 
             
@@ -404,7 +404,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.4k</span>
+                <span title="本文字数">2.6k</span>
               
 
               
@@ -418,7 +418,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -440,7 +440,7 @@
       
         <p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g3znqgyeikj30hs0cgglr.jpg" alt="img"></p>
 <a id="more"></a>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>JSR-000924 JavaTM Virtual Machine Specification<br><strong>(Close of Maintenance Review: 19 July 2004)</strong></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>JSR-000924 JavaTM Virtual Machine Specification<br><strong>(Close of Maintenance Review: 19 July 2004)</strong></p>
 <ul>
 <li>Memory Model (Chapter 8) - JSR 133 has changed the memory model. Chapter 8 of the Java Virtual Machine Specification, Second Edition is superseded by JSR 133. See chapter 17 of the <a href="https://jcp.org/aboutJava/communityprocess/maintenance/JLS/index2.html" target="_blank" rel="noopener">Java Language Specification, Third Edition</a> for details.</li>
 </ul>
@@ -455,11 +455,24 @@
 <li>Chapter 6 specifies the instruction set of the Java Virtual Machine, presenting the instructions in alphabetical order of opcode mnemonics. </li>
 <li>Chapter 7 gives a table of Java Virtual Machine opcode mnemonics indexed by opcode value. </li>
 </ul>
-<h1 id="The-Structure-of-the-Java-Virtual-Machine"><a href="#The-Structure-of-the-Java-Virtual-Machine" class="headerlink" title="The Structure of the Java Virtual Machine"></a>The Structure of the Java Virtual Machine</h1><p>运行时内存结构  、相关的包、  帧</p>
-<h1 id="Compiling-for-the-Java-Virtual-Machine"><a href="#Compiling-for-the-Java-Virtual-Machine" class="headerlink" title="Compiling for the Java Virtual Machine"></a>Compiling for the Java Virtual Machine</h1><p>将java文件编译成字节码</p>
-<h1 id="The-class-File-Format"><a href="#The-class-File-Format" class="headerlink" title="The class File Format"></a>The class File Format</h1><p>类文件</p>
-<h1 id="Loading-Linking-and-Initializing"><a href="#Loading-Linking-and-Initializing" class="headerlink" title="Loading, Linking, and Initializing"></a>Loading, Linking, and Initializing</h1><p>类加载</p>
-<h1 id="The-Java-Virtual-Machine-Instruction-Set"><a href="#The-Java-Virtual-Machine-Instruction-Set" class="headerlink" title="The Java Virtual Machine Instruction Set"></a>The Java Virtual Machine Instruction Set</h1><p>字节码指令集</p>
+<h2 id="The-Structure-of-the-Java-Virtual-Machine"><a href="#The-Structure-of-the-Java-Virtual-Machine" class="headerlink" title="The Structure of the Java Virtual Machine"></a>The Structure of the Java Virtual Machine</h2><p>运行时内存结构  、相关的包、  帧</p>
+<h2 id="Compiling-for-the-Java-Virtual-Machine"><a href="#Compiling-for-the-Java-Virtual-Machine" class="headerlink" title="Compiling for the Java Virtual Machine"></a>Compiling for the Java Virtual Machine</h2><p>将java文件编译成字节码, </p>
+<p>Double和Long 的占据两个位置</p>
+<p>synchronized 会加入monitorenter  monitorexit</p>
+<p>异常表</p>
+<h2 id="The-class-File-Format"><a href="#The-class-File-Format" class="headerlink" title="The class File Format"></a>The class File Format</h2><p>类文件结构 </p>
+<h2 id="Loading-Linking-and-Initializing"><a href="#Loading-Linking-and-Initializing" class="headerlink" title="Loading, Linking, and Initializing"></a>Loading, Linking, and Initializing</h2><p>类加载 </p>
+<h2 id="The-Java-Virtual-Machine-Instruction-Set"><a href="#The-Java-Virtual-Machine-Instruction-Set" class="headerlink" title="The Java Virtual Machine Instruction Set"></a>The Java Virtual Machine Instruction Set</h2><p>字节码指令集</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>中文资料</p>
+<p><a href="https://files-cdn.cnblogs.com/files/chanshuyi/Java虚拟机规范（JavaSE7）.pdf" target="_blank" rel="noopener">https://files-cdn.cnblogs.com/files/chanshuyi/Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%A7%84%E8%8C%83%EF%BC%88JavaSE7%EF%BC%89.pdf</a></p>
+<p>虚拟机规范 并不包含如下</p>
+<ul>
+<li><strong>Adaptive compiler</strong>: A standard interpreter is used to launch the applications. When the application runs, the code is analyzed to detect performance bottlenecks, or <em>hot spots</em>. The Java HotSpot VM compiles the performance-critical portions of the code for a boost in performance, but does not compile the seldom-used code (most of the application). The Java HotSpot VM uses the adaptive compiler to decide how to optimize compiled code with techniques such as inlining.</li>
+<li><strong>Rapid memory allocation and garbage collection</strong>: Java HotSpot technology provides rapid memory allocation for objects and fast, efficient, state-of-the-art garbage collectors.</li>
+<li><strong>Thread synchronization</strong>: Java HotSpot technology provides a thread-handling capability that is designed to scale for use in large, shared-memory multiprocessor servers.</li>
+</ul>
+<p>更多扩展 <a href="https://docs.oracle.com/en/java/javase/12/vm/java-virtual-machine-technology-overview.html#GUID-982B244A-9B01-479A-8651-CB6475019281" target="_blank" rel="noopener">https://docs.oracle.com/en/java/javase/12/vm/java-virtual-machine-technology-overview.html#GUID-982B244A-9B01-479A-8651-CB6475019281</a></p>
+<p><a href="https://www.oracle.com/technetwork/java/whitepaper-135217.html#1" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/whitepaper-135217.html#1</a></p>
 
       
     </div>
@@ -698,7 +711,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-Structure-of-the-Java-Virtual-Machine"><span class="nav-number">2.</span> <span class="nav-text">The Structure of the Java Virtual Machine</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Compiling-for-the-Java-Virtual-Machine"><span class="nav-number">3.</span> <span class="nav-text">Compiling for the Java Virtual Machine</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-class-File-Format"><span class="nav-number">4.</span> <span class="nav-text">The class File Format</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Loading-Linking-and-Initializing"><span class="nav-number">5.</span> <span class="nav-text">Loading, Linking, and Initializing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-Java-Virtual-Machine-Instruction-Set"><span class="nav-number">6.</span> <span class="nav-text">The Java Virtual Machine Instruction Set</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Structure-of-the-Java-Virtual-Machine"><span class="nav-number">2.</span> <span class="nav-text">The Structure of the Java Virtual Machine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compiling-for-the-Java-Virtual-Machine"><span class="nav-number">3.</span> <span class="nav-text">Compiling for the Java Virtual Machine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-class-File-Format"><span class="nav-number">4.</span> <span class="nav-text">The class File Format</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Loading-Linking-and-Initializing"><span class="nav-number">5.</span> <span class="nav-text">Loading, Linking, and Initializing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Java-Virtual-Machine-Instruction-Set"><span class="nav-number">6.</span> <span class="nav-text">The Java Virtual Machine Instruction Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -731,7 +744,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">232k</span>
+    <span title="站点总字数">233k</span>
   
 
   
@@ -740,7 +753,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">3:30</span>
+    <span title="站点阅读时长">3:32</span>
   
 </div>
 
