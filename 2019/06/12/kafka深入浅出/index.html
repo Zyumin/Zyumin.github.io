@@ -106,7 +106,7 @@
 <meta property="og:image" content="https://www.bonjourcs.com/2018/07/19/【Kafka-权威指南】-安装-Kafka/Kafka-Cluster.png">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g3ynxeh7x5j30u00x741w.jpg">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g3ynx9cl1xj30jq0ge3zx.jpg">
-<meta property="og:updated_time" content="2019-06-13T01:45:34.771Z">
+<meta property="og:updated_time" content="2019-06-13T01:48:11.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kafka深入浅出">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g3ymojzxi2j30u00u0gp5.jpg">
@@ -380,7 +380,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-13 09:45:34" itemprop="dateModified" datetime="2019-06-13T09:45:34+08:00">2019-06-13</time>
+                <time title="修改时间：2019-06-13 09:48:11" itemprop="dateModified" datetime="2019-06-13T09:48:11+08:00">2019-06-13</time>
               
             
           </span>
@@ -455,14 +455,14 @@
       
         <p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g3ymojzxi2j30u00u0gp5.jpg" alt="image-20190612200726343"></p>
 <a id="more"></a>
-<h2 id="为什么选择kafka"><a href="#为什么选择kafka" class="headerlink" title="为什么选择kafka"></a>为什么选择kafka</h2><ul>
+<h1 id="为什么选择kafka"><a href="#为什么选择kafka" class="headerlink" title="为什么选择kafka"></a>为什么选择kafka</h1><ul>
 <li>多个生产者</li>
 <li>多个消费者</li>
 <li>基于磁盘的数据存储</li>
 <li>伸缩性</li>
 <li>高性能</li>
 </ul>
-<h2 id="硬件选择"><a href="#硬件选择" class="headerlink" title="硬件选择"></a>硬件选择</h2><ul>
+<h1 id="硬件选择"><a href="#硬件选择" class="headerlink" title="硬件选择"></a>硬件选择</h1><ul>
 <li>磁盘吞吐量</li>
 <li>磁盘容量</li>
 <li>内存</li>
@@ -470,9 +470,9 @@
 <li>CPU</li>
 </ul>
 <p>磁盘容量和网络是瓶颈</p>
-<h2 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h2><p><img src="https://www.bonjourcs.com/2018/07/19/【Kafka-权威指南】-安装-Kafka/Kafka-Cluster.png" alt="img"></p>
+<h1 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h1><p><img src="https://www.bonjourcs.com/2018/07/19/【Kafka-权威指南】-安装-Kafka/Kafka-Cluster.png" alt="img"></p>
 <p>Topic主题:一个主题可以有多个Partition分区</p>
-<h2 id="生产者"><a href="#生产者" class="headerlink" title="生产者"></a>生产者</h2><p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g3ynxeh7x5j30u00x741w.jpg" alt="overview of producer components"></p>
+<h1 id="生产者"><a href="#生产者" class="headerlink" title="生产者"></a>生产者</h1><p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g3ynxeh7x5j30u00x741w.jpg" alt="overview of producer components"></p>
 <ol>
 <li>ProducerRecord对象需要包含目标主题和内容 (可以指定键和分区) </li>
 <li>在发送时 先序列化成字节数组  </li>
@@ -486,41 +486,41 @@
 <li>异步回调方式</li>
 </ul>
 <p>确认接收ACK机制</p>
-<h2 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h2><p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g3ynx9cl1xj30jq0ge3zx.jpg" alt="number of consumers more than number of topic partitions"></p>
+<h1 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h1><p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g3ynx9cl1xj30jq0ge3zx.jpg" alt="number of consumers more than number of topic partitions"></p>
 <p>消费者组和消费者</p>
-<h3 id="创建消费者"><a href="#创建消费者" class="headerlink" title="创建消费者"></a>创建消费者</h3><h3 id="订阅主题"><a href="#订阅主题" class="headerlink" title="订阅主题"></a>订阅主题</h3><h3 id="轮询-群组协调、分区再均衡、发送心跳、获取数据"><a href="#轮询-群组协调、分区再均衡、发送心跳、获取数据" class="headerlink" title="轮询 (群组协调、分区再均衡、发送心跳、获取数据)"></a>轮询 (群组协调、分区再均衡、发送心跳、获取数据)</h3><p>​    轮询不只获取数据那么简单,第一次调用新消费者的poll方法 它会负责查找GroupCoordinator,加入群组,接受分配的分区</p>
-<h3 id="提交和偏移量-再均衡时会被重新处理"><a href="#提交和偏移量-再均衡时会被重新处理" class="headerlink" title="提交和偏移量(再均衡时会被重新处理)"></a>提交和偏移量(再均衡时会被重新处理)</h3><p>​    自动提交,会重复处理消息 ,每隔5s, 消费者会自动从poll方法接收到最大偏移量提交上去</p>
+<h2 id="创建消费者"><a href="#创建消费者" class="headerlink" title="创建消费者"></a>创建消费者</h2><h2 id="订阅主题"><a href="#订阅主题" class="headerlink" title="订阅主题"></a>订阅主题</h2><h2 id="轮询-群组协调、分区再均衡、发送心跳、获取数据"><a href="#轮询-群组协调、分区再均衡、发送心跳、获取数据" class="headerlink" title="轮询 (群组协调、分区再均衡、发送心跳、获取数据)"></a>轮询 (群组协调、分区再均衡、发送心跳、获取数据)</h2><p>​    轮询不只获取数据那么简单,第一次调用新消费者的poll方法 它会负责查找GroupCoordinator,加入群组,接受分配的分区</p>
+<h2 id="提交和偏移量-再均衡时会被重新处理"><a href="#提交和偏移量-再均衡时会被重新处理" class="headerlink" title="提交和偏移量(再均衡时会被重新处理)"></a>提交和偏移量(再均衡时会被重新处理)</h2><p>​    自动提交,会重复处理消息 ,每隔5s, 消费者会自动从poll方法接收到最大偏移量提交上去</p>
 <p>​    同步提交</p>
 <p>​    异步提交</p>
-<h3 id="再均衡监听"><a href="#再均衡监听" class="headerlink" title="再均衡监听"></a>再均衡监听</h3><h3 id="从特定偏移量处开始处理记录"><a href="#从特定偏移量处开始处理记录" class="headerlink" title="从特定偏移量处开始处理记录"></a>从特定偏移量处开始处理记录</h3><h3 id="优雅退出"><a href="#优雅退出" class="headerlink" title="优雅退出"></a>优雅退出</h3><h2 id="深入Kafka"><a href="#深入Kafka" class="headerlink" title="深入Kafka"></a>深入Kafka</h2><h3 id="集群成员关系"><a href="#集群成员关系" class="headerlink" title="集群成员关系"></a>集群成员关系</h3><p>用zookeeper来管理集群</p>
-<h3 id="控制器-broker"><a href="#控制器-broker" class="headerlink" title="控制器 broker"></a>控制器 broker</h3><h3 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h3><p>​    每个主题被分为若干个分区,每个分区有多个副本(每个broker可以有多个副本)</p>
+<h2 id="再均衡监听"><a href="#再均衡监听" class="headerlink" title="再均衡监听"></a>再均衡监听</h2><h2 id="从特定偏移量处开始处理记录"><a href="#从特定偏移量处开始处理记录" class="headerlink" title="从特定偏移量处开始处理记录"></a>从特定偏移量处开始处理记录</h2><h2 id="优雅退出"><a href="#优雅退出" class="headerlink" title="优雅退出"></a>优雅退出</h2><h1 id="深入Kafka"><a href="#深入Kafka" class="headerlink" title="深入Kafka"></a>深入Kafka</h1><h2 id="集群成员关系"><a href="#集群成员关系" class="headerlink" title="集群成员关系"></a>集群成员关系</h2><p>用zookeeper来管理集群</p>
+<h2 id="控制器-broker"><a href="#控制器-broker" class="headerlink" title="控制器 broker"></a>控制器 broker</h2><h2 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h2><p>​    每个主题被分为若干个分区,每个分区有多个副本(每个broker可以有多个副本)</p>
 <p>​    每个分区 都有一个首领副本 所有生产者 消费者请求都会经过这个副本  和一个首选首领</p>
 <p>​    跟随者副本</p>
-<h3 id="处理请求"><a href="#处理请求" class="headerlink" title="处理请求"></a>处理请求</h3><p>​    生产请求 写入成功   acks = 0  or 1 or all</p>
+<h2 id="处理请求"><a href="#处理请求" class="headerlink" title="处理请求"></a>处理请求</h2><p>​    生产请求 写入成功   acks = 0  or 1 or all</p>
 <p>​    获取请求 零复制  broker延迟作出响应以便积累足够的数据</p>
 <p>​    其他 元数据</p>
-<h3 id="物理存储"><a href="#物理存储" class="headerlink" title="物理存储"></a>物理存储</h3><h4 id="分区分配"><a href="#分区分配" class="headerlink" title="分区分配"></a>分区分配</h4><p>​        分区是一个基本存储单元</p>
-<h4 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h4><p>​        kafka的数据不会一直保留,分区分成若干个片段  </p>
+<h2 id="物理存储"><a href="#物理存储" class="headerlink" title="物理存储"></a>物理存储</h2><h3 id="分区分配"><a href="#分区分配" class="headerlink" title="分区分配"></a>分区分配</h3><p>​        分区是一个基本存储单元</p>
+<h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3><p>​        kafka的数据不会一直保留,分区分成若干个片段  </p>
 <p>​        活跃片段永远不会被删除</p>
-<h4 id="文件格式"><a href="#文件格式" class="headerlink" title="文件格式"></a>文件格式</h4><p>​        消息、偏移量 、压缩</p>
-<h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><p>​        每个分区维护一个索引 索引把偏移量映射到片段文件和偏移量在文件里的位置</p>
-<h4 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h4><p>​        delete和compact策略</p>
+<h3 id="文件格式"><a href="#文件格式" class="headerlink" title="文件格式"></a>文件格式</h3><p>​        消息、偏移量 、压缩</p>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>​        每个分区维护一个索引 索引把偏移量映射到片段文件和偏移量在文件里的位置</p>
+<h3 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h3><p>​        delete和compact策略</p>
 <p>​        干净数据 清理过的</p>
 <p>​        污浊数据 清理后新写入的</p>
-<h2 id="可靠的数据传递"><a href="#可靠的数据传递" class="headerlink" title="可靠的数据传递"></a>可靠的数据传递</h2><h3 id="可靠性保证"><a href="#可靠性保证" class="headerlink" title="可靠性保证"></a>可靠性保证</h3><p>保证分区顺序</p>
+<h1 id="可靠的数据传递"><a href="#可靠的数据传递" class="headerlink" title="可靠的数据传递"></a>可靠的数据传递</h1><h2 id="可靠性保证"><a href="#可靠性保证" class="headerlink" title="可靠性保证"></a>可靠性保证</h2><p>保证分区顺序</p>
 <p>只有当消息写入所有同步副本.(可以选择接受不同类型的确认)</p>
 <p>只要还有一个副本是活跃的,那么已提交的消息就不会丢失了</p>
 <p>消费者只能读取已经提交的消息</p>
-<h3 id="复制-1"><a href="#复制-1" class="headerlink" title="复制"></a>复制</h3><h4 id="同步副本"><a href="#同步副本" class="headerlink" title="同步副本"></a>同步副本</h4><ul>
+<h2 id="复制-1"><a href="#复制-1" class="headerlink" title="复制"></a>复制</h2><h3 id="同步副本"><a href="#同步副本" class="headerlink" title="同步副本"></a>同步副本</h3><ul>
 <li><p>活跃会话</p>
 </li>
 <li><p>从首领获取过最新消息</p>
 </li>
 </ul>
-<h4 id="非同步副本"><a href="#非同步副本" class="headerlink" title="非同步副本"></a>非同步副本</h4><h3 id="broker配置"><a href="#broker配置" class="headerlink" title="broker配置"></a>broker配置</h3><p>复制系数</p>
+<h3 id="非同步副本"><a href="#非同步副本" class="headerlink" title="非同步副本"></a>非同步副本</h3><h2 id="broker配置"><a href="#broker配置" class="headerlink" title="broker配置"></a>broker配置</h2><p>复制系数</p>
 <p>不完全的首领选举</p>
 <p>最少同步副本</p>
-<h3 id="生产者-1"><a href="#生产者-1" class="headerlink" title="生产者"></a>生产者</h3><h3 id="消费者-1"><a href="#消费者-1" class="headerlink" title="消费者"></a>消费者</h3>
+<h2 id="生产者-1"><a href="#生产者-1" class="headerlink" title="生产者"></a>生产者</h2><h2 id="消费者-1"><a href="#消费者-1" class="headerlink" title="消费者"></a>消费者</h2>
       
     </div>
 
@@ -750,7 +750,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么选择kafka"><span class="nav-number">1.</span> <span class="nav-text">为什么选择kafka</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件选择"><span class="nav-number">2.</span> <span class="nav-text">硬件选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集群"><span class="nav-number">3.</span> <span class="nav-text">集群</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生产者"><span class="nav-number">4.</span> <span class="nav-text">生产者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消费者"><span class="nav-number">5.</span> <span class="nav-text">消费者</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建消费者"><span class="nav-number">5.1.</span> <span class="nav-text">创建消费者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#订阅主题"><span class="nav-number">5.2.</span> <span class="nav-text">订阅主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#轮询-群组协调、分区再均衡、发送心跳、获取数据"><span class="nav-number">5.3.</span> <span class="nav-text">轮询 (群组协调、分区再均衡、发送心跳、获取数据)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交和偏移量-再均衡时会被重新处理"><span class="nav-number">5.4.</span> <span class="nav-text">提交和偏移量(再均衡时会被重新处理)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#再均衡监听"><span class="nav-number">5.5.</span> <span class="nav-text">再均衡监听</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从特定偏移量处开始处理记录"><span class="nav-number">5.6.</span> <span class="nav-text">从特定偏移量处开始处理记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优雅退出"><span class="nav-number">5.7.</span> <span class="nav-text">优雅退出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深入Kafka"><span class="nav-number">6.</span> <span class="nav-text">深入Kafka</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集群成员关系"><span class="nav-number">6.1.</span> <span class="nav-text">集群成员关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制器-broker"><span class="nav-number">6.2.</span> <span class="nav-text">控制器 broker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制"><span class="nav-number">6.3.</span> <span class="nav-text">复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理请求"><span class="nav-number">6.4.</span> <span class="nav-text">处理请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物理存储"><span class="nav-number">6.5.</span> <span class="nav-text">物理存储</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分区分配"><span class="nav-number">6.5.1.</span> <span class="nav-text">分区分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件管理"><span class="nav-number">6.5.2.</span> <span class="nav-text">文件管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件格式"><span class="nav-number">6.5.3.</span> <span class="nav-text">文件格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#索引"><span class="nav-number">6.5.4.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清理"><span class="nav-number">6.5.5.</span> <span class="nav-text">清理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可靠的数据传递"><span class="nav-number">7.</span> <span class="nav-text">可靠的数据传递</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可靠性保证"><span class="nav-number">7.1.</span> <span class="nav-text">可靠性保证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制-1"><span class="nav-number">7.2.</span> <span class="nav-text">复制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#同步副本"><span class="nav-number">7.2.1.</span> <span class="nav-text">同步副本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非同步副本"><span class="nav-number">7.2.2.</span> <span class="nav-text">非同步副本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#broker配置"><span class="nav-number">7.3.</span> <span class="nav-text">broker配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生产者-1"><span class="nav-number">7.4.</span> <span class="nav-text">生产者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消费者-1"><span class="nav-number">7.5.</span> <span class="nav-text">消费者</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么选择kafka"><span class="nav-number">1.</span> <span class="nav-text">为什么选择kafka</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#硬件选择"><span class="nav-number">2.</span> <span class="nav-text">硬件选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#集群"><span class="nav-number">3.</span> <span class="nav-text">集群</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生产者"><span class="nav-number">4.</span> <span class="nav-text">生产者</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#消费者"><span class="nav-number">5.</span> <span class="nav-text">消费者</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建消费者"><span class="nav-number">5.1.</span> <span class="nav-text">创建消费者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#订阅主题"><span class="nav-number">5.2.</span> <span class="nav-text">订阅主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#轮询-群组协调、分区再均衡、发送心跳、获取数据"><span class="nav-number">5.3.</span> <span class="nav-text">轮询 (群组协调、分区再均衡、发送心跳、获取数据)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交和偏移量-再均衡时会被重新处理"><span class="nav-number">5.4.</span> <span class="nav-text">提交和偏移量(再均衡时会被重新处理)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#再均衡监听"><span class="nav-number">5.5.</span> <span class="nav-text">再均衡监听</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从特定偏移量处开始处理记录"><span class="nav-number">5.6.</span> <span class="nav-text">从特定偏移量处开始处理记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优雅退出"><span class="nav-number">5.7.</span> <span class="nav-text">优雅退出</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深入Kafka"><span class="nav-number">6.</span> <span class="nav-text">深入Kafka</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#集群成员关系"><span class="nav-number">6.1.</span> <span class="nav-text">集群成员关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制器-broker"><span class="nav-number">6.2.</span> <span class="nav-text">控制器 broker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制"><span class="nav-number">6.3.</span> <span class="nav-text">复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理请求"><span class="nav-number">6.4.</span> <span class="nav-text">处理请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#物理存储"><span class="nav-number">6.5.</span> <span class="nav-text">物理存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分区分配"><span class="nav-number">6.5.1.</span> <span class="nav-text">分区分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件管理"><span class="nav-number">6.5.2.</span> <span class="nav-text">文件管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件格式"><span class="nav-number">6.5.3.</span> <span class="nav-text">文件格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引"><span class="nav-number">6.5.4.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清理"><span class="nav-number">6.5.5.</span> <span class="nav-text">清理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可靠的数据传递"><span class="nav-number">7.</span> <span class="nav-text">可靠的数据传递</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#可靠性保证"><span class="nav-number">7.1.</span> <span class="nav-text">可靠性保证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制-1"><span class="nav-number">7.2.</span> <span class="nav-text">复制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步副本"><span class="nav-number">7.2.1.</span> <span class="nav-text">同步副本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非同步副本"><span class="nav-number">7.2.2.</span> <span class="nav-text">非同步副本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#broker配置"><span class="nav-number">7.3.</span> <span class="nav-text">broker配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生产者-1"><span class="nav-number">7.4.</span> <span class="nav-text">生产者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消费者-1"><span class="nav-number">7.5.</span> <span class="nav-text">消费者</span></a></li></ol></li></ol></div>
             
 
           </div>
