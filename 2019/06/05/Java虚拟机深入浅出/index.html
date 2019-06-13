@@ -96,14 +96,14 @@
 
 
 
-  <meta name="keywords" content="java,jvm">
+  <meta name="keywords" content="jvm,java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java虚拟机深入浅出">
 <meta property="og:url" content="http://yoursite.com/2019/06/05/Java虚拟机深入浅出/index.html">
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g3qlkg3awoj30yg0mx4qp.jpg">
-<meta property="og:updated_time" content="2019-06-05T14:28:09.477Z">
+<meta property="og:updated_time" content="2019-06-13T09:10:52.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java虚拟机深入浅出">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g3qlkg3awoj30yg0mx4qp.jpg">
@@ -360,12 +360,24 @@
                 
               
 
-              <time title="创建时间：2019-06-05 21:12:25 / 修改时间：22:28:09" itemprop="dateCreated datePublished" datetime="2019-06-05T21:12:25+08:00">2019-06-05</time>
+              <time title="创建时间：2019-06-05 21:12:25" itemprop="dateCreated datePublished" datetime="2019-06-05T21:12:25+08:00">2019-06-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-13 17:10:52" itemprop="dateModified" datetime="2019-06-13T17:10:52+08:00">2019-06-13</time>
               
             
           </span>
@@ -474,7 +486,7 @@
 <h3 id="Class类文件的结构"><a href="#Class类文件的结构" class="headerlink" title="Class类文件的结构"></a>Class类文件的结构</h3><p>​            魔数与Class文件的版本<br>​            常量池<br>​            访问标志<br>​            类索引、父类索引与接口索引集合<br>​            字段表集合<br>​            方法表集合<br>​            属性表集合</p>
 <h3 id="字节码指令简介"><a href="#字节码指令简介" class="headerlink" title="字节码指令简介"></a>字节码指令简介</h3><p>​            字节码与数据类型<br>​            加载和存储指令<br>​            运算指令<br>​            类型转换指令<br>​            对象创建与访问指令<br>​            操作数栈管理指令<br>​            控制转移指令<br>​            方法调用和返回指令<br>​            异常处理指令<br>​            同步指令</p>
 <hr>
-<h2 id="虚拟机类加载机制"><a href="#虚拟机类加载机制" class="headerlink" title="虚拟机类加载机制"></a>虚拟机类加载机制</h2><h3 id="类加载的时机"><a href="#类加载的时机" class="headerlink" title="类加载的时机"></a>类加载的时机</h3><p>​            必须初始化的情况<br>​                遇见字节码指令<br>​                    new<br>​                        使用new关键字实例化对象的时候<br>​                    getstatic<br>​                    putstatic<br>​                    invokestatic<br>​                    读取或设置一个类的静态字段，调用一个类的静态方法的时候<br>​                使用java.lang.reflect包对类进行反射调用的时候，触发其初始化<br>​                初始一个类的时候，如果发现其父类没有进行初始化，对其父类进行初始化<br>​                虚拟机启动时，用户需要指定一个要执行的主类，会先初始化这个主类<br>​                MethodHandle实例最后解析结果REF_(..)static的方法句柄，句柄对应的类没有初始化，需要先触发其初始化<br>​            类的生命周期<br>​                加载<br>​                连接<br>​                    验证<br>​                    准备<br>​                    解析<br>​                初始化<br>​                使用<br>​                卸载<br>​                类加载过程</p>
+<h2 id="虚拟机类加载机制"><a href="#虚拟机类加载机制" class="headerlink" title="虚拟机类加载机制"></a>虚拟机类加载机制</h2><h3 id="类加载的时机"><a href="#类加载的时机" class="headerlink" title="类加载的时机"></a>类加载的时机</h3><p>必须初始化的情况<br>​                遇见字节码指令<br>​                    new<br>​                        使用new关键字实例化对象的时候<br>​                    getstatic<br>​                    putstatic<br>​                    invokestatic<br>​                    读取或设置一个类的静态字段，调用一个类的静态方法的时候<br>​                使用java.lang.reflect包对类进行反射调用的时候，触发其初始化<br>​                初始一个类的时候，如果发现其父类没有进行初始化，对其父类进行初始化<br>​                虚拟机启动时，用户需要指定一个要执行的主类，会先初始化这个主类<br>​                MethodHandle实例最后解析结果REF_(..)static的方法句柄，句柄对应的类没有初始化，需要先触发其初始化<br>类的生命周期<br>加载<br>连接<br>​                    验证<br>​                    准备<br>​                    解析<br>初始化<br>使用<br>卸载<br>​                </p>
 <h3 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h3><p>​            加载<br>​                1.通过一个类的全限定名来获取定义此类的二进制字节流<br>​                    从ZIP包获取<br>​                    从网络中获取<br>​                    运行时计算生成，动态代理<br>​                    其他文件，JSP<br>​                    从数据库中读取<br>​                2.将这个字节流所代表的静态存储结构转换为方法区的运行时数据结构<br>​                3.在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口<br>​            连接<br>​                验证<br>​                    1.文件格式<br>​                        Class文件格式规范<br>​                    2.元数据<br>​                        对字节码的语义分析<br>​                    3.字节码<br>​                        通过数据流和控制流，语义是否合法和符合逻辑的<br>​                    4.符合引用<br>​                        将符号引用转化为直接引用的时候<br>​                    基于方法区的存储结构进行<br>​                准备<br>​                    为类变量分配内存并设置类变量初始化值的阶段<br>​                解析<br>​                    虚拟机将常量池内的符号引用替换为直接引用的过程<br>​                    定义解释<br>​                        符号引用<br>​                            与虚拟机布局无关，但是符号引用必须一致，因为符号引用的字面量形式明确定义在Java虚拟机规范Class文件格式汇总<br>​                        直接引用<br>​                            是直接指向目标的指针、相对偏移量或是一个能间接定位到目标的句柄，与虚拟机布局相关<br>​                    优化<br>​                        对第一次解析的结果进行缓存，在运行时常量池中记录直接引用，并把常量标识为已解析状态（除了invokedynamic）<br>​                    针对<br>​                        类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点<br>​            初始化</p>
 <h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><p>​            类与类加载器<br>​                类是否相等的比较，前提是这两个类由同一个类加载器加载的前提下才有意义<br>​            双亲委派模型<br>​                启动类加载器<br>​                扩展类加载器<br>​                应用程序类加载器<br>​            破坏双亲委派模型<br>​                第一次破坏<br>​                    原因：向前兼容<br>​                    解决方法：ClassLoader新增一个protected方法findClass<br>​                第二次破坏<br>​                    原因：基础类想要调用SPI（Service Provider Interface）<br>​                    解决方法：线程上下文类加载器<br>​                第三次破坏<br>​                    原因：追求程序的动态性，代码热替换，模块热部署<br>​                    解决方法：OSGI</p>
 <hr>
@@ -509,6 +521,12 @@
 <h5 id="2-非阻塞同步（乐观）"><a href="#2-非阻塞同步（乐观）" class="headerlink" title="2.非阻塞同步（乐观）"></a>2.非阻塞同步（乐观）</h5><p>​                指令<br>​                    Test-and-Set<br>​                    Fetch-and-Increment<br>​                    Swap<br>​                    Compare-and-Swap（CAS）<br>​                        内存位置<br>​                        旧的预期值<br>​                        新值<br>​                    Load-Linked/Store-Conditional（LL/SC）<br>​                    20世纪已存在大多数</p>
 <h5 id="3-无同步方案"><a href="#3-无同步方案" class="headerlink" title="3.无同步方案"></a>3.无同步方案</h5><p>​                可重入代码<br>​                    只要输入相同的数据，都能返回相同的结果<br>​                线程本地存储<br>​                    共享数据限制在一个线程内</p>
 <h3 id="锁优化"><a href="#锁优化" class="headerlink" title="锁优化"></a>锁优化</h3><p>​        自旋锁与自适应锁<br>​        锁消除<br>​        锁粗化<br>​        轻量级锁<br>​            CAS操作<br>​        偏向锁<br>​            当另外一个线程去尝试获取这个锁的时候，偏向模式就宣告结束</p>
+<p>参考:</p>
+<blockquote>
+<p>官方链接: <a href="https://docs.oracle.com/javase/9/vm/java-virtual-machine-technology-overview.htm#JSJVM-GUID-982B244A-9B01-479A-8651-CB6475019281" target="_blank" rel="noopener">https://docs.oracle.com/javase/9/vm/java-virtual-machine-technology-overview.htm#JSJVM-GUID-982B244A-9B01-479A-8651-CB6475019281</a></p>
+<p>语音和虚拟机规范:<a href="https://docs.oracle.com/javase/specs/index.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/specs/index.html</a></p>
+<p>深入理解Java虚拟机 —周志明</p>
+</blockquote>
 
       
     </div>
@@ -532,9 +550,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
-          
             <a href="/tags/jvm/" rel="tag"># jvm</a>
+          
+            <a href="/tags/java/" rel="tag"># java</a>
           
         </div>
       
@@ -635,7 +653,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -692,7 +710,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                      
+                    
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -778,7 +798,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">232k</span>
   
 
   
@@ -787,7 +807,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">3:29</span>
+    <span title="站点阅读时长">3:30</span>
   
 </div>
 
