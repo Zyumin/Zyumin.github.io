@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g432asdjwvj30u00k040o.jpg">
-<meta property="og:updated_time" content="2019-06-16T10:21:31.293Z">
+<meta property="og:updated_time" content="2019-06-16T10:27:45.084Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="J.U.C_InterruptedException">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g432asdjwvj30u00k040o.jpg">
@@ -360,7 +360,7 @@
                 
               
 
-              <time title="创建时间：2019-06-16 16:09:43 / 修改时间：18:21:31" itemprop="dateCreated datePublished" datetime="2019-06-16T16:09:43+08:00">2019-06-16</time>
+              <time title="创建时间：2019-06-16 16:09:43 / 修改时间：18:27:45" itemprop="dateCreated datePublished" datetime="2019-06-16T16:09:43+08:00">2019-06-16</time>
             
 
             
@@ -443,7 +443,8 @@
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​    前几天在看JSR-133的时候发现 ,Sleep和Yield ,然后忽然想起Thread 线程中有几个被@Deprecation 的方法,</p>
 <p>主要有如下几个<code>suspended</code>、<code>stop</code>  、 <code>resume</code> 官方的解释如下:</p>
 <blockquote>
-<h3 id="Why-are-Thread-suspend-and-Thread-resume-deprecated"><a href="#Why-are-Thread-suspend-and-Thread-resume-deprecated" class="headerlink" title="Why are Thread.suspend and Thread.resume deprecated?"></a>Why are <code>Thread.suspend</code> and <code>Thread.resume</code> deprecated?</h3><p><code>Thread.suspend</code> is inherently deadlock-prone. If the target thread holds a lock on the monitor protecting a critical system resource when it is suspended, no thread can access this resource until the target thread is resumed. If the thread that would resume the target thread attempts to lock this monitor prior to calling <code>resume</code>, deadlock results. Such deadlocks typically manifest themselves as “frozen” processes.</p>
+<p>Why are <code>Thread.suspend</code> and <code>Thread.resume</code> deprecated?</p>
+<p><code>Thread.suspend</code> is inherently deadlock-prone. If the target thread holds a lock on the monitor protecting a critical system resource when it is suspended, no thread can access this resource until the target thread is resumed. If the thread that would resume the target thread attempts to lock this monitor prior to calling <code>resume</code>, deadlock results. Such deadlocks typically manifest themselves as “frozen” processes.</p>
 </blockquote>
 <p>原因就是会有线程安全问题(死锁), <code>suspended</code> 期间还是会占有锁,<a href="https://docs.oracle.com/javase/8/docs/technotes/guides/concurrency/threadPrimitiveDeprecation.html" target="_blank" rel="noopener">更多相关</a></p>
 <p>然后就看到了<code>InterruptedException</code>这个异常. 之前了解过,但是没有深入理解.所以就打算好好了解下记录</p>
@@ -734,7 +735,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-are-Thread-suspend-and-Thread-resume-deprecated"><span class="nav-number">1.1.</span> <span class="nav-text">Why are Thread.suspend and Thread.resume deprecated?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-lang-Thread-interrupt"><span class="nav-number">2.</span> <span class="nav-text">java.lang.Thread#interrupt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InterruptedException是什么"><span class="nav-number">3.</span> <span class="nav-text">InterruptedException是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举个栗子"><span class="nav-number">4.</span> <span class="nav-text">举个栗子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Graceful-stop"><span class="nav-number">4.1.</span> <span class="nav-text">Graceful stop</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的做法"><span class="nav-number">4.1.1.</span> <span class="nav-text">常见的做法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更为通用的做法"><span class="nav-number">4.1.2.</span> <span class="nav-text">更为通用的做法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shutdown-和-shutdownNow"><span class="nav-number">4.2.</span> <span class="nav-text">shutdown 和 shutdownNow</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#shutdown"><span class="nav-number">4.2.1.</span> <span class="nav-text">shutdown</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shutdownNow"><span class="nav-number">4.2.2.</span> <span class="nav-text">shutdownNow</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-lang-Thread-interrupt"><span class="nav-number">2.</span> <span class="nav-text">java.lang.Thread#interrupt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InterruptedException是什么"><span class="nav-number">3.</span> <span class="nav-text">InterruptedException是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举个栗子"><span class="nav-number">4.</span> <span class="nav-text">举个栗子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Graceful-stop"><span class="nav-number">4.1.</span> <span class="nav-text">Graceful stop</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的做法"><span class="nav-number">4.1.1.</span> <span class="nav-text">常见的做法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更为通用的做法"><span class="nav-number">4.1.2.</span> <span class="nav-text">更为通用的做法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shutdown-和-shutdownNow"><span class="nav-number">4.2.</span> <span class="nav-text">shutdown 和 shutdownNow</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#shutdown"><span class="nav-number">4.2.1.</span> <span class="nav-text">shutdown</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shutdownNow"><span class="nav-number">4.2.2.</span> <span class="nav-text">shutdownNow</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
