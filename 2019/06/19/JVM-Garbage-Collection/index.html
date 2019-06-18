@@ -96,28 +96,24 @@
 
 
 
-  <meta name="description" content="从一个日常的in 查询的优化说起​    业务场景需要 select * from table where id in( )， 然后就会抛出一个问题，使用in 会不会走索引？ ​    对于这个问题，因为之前在网上看过说不会，说会的，充斥着各种说法，然后自己对这块也是很久之前看过。参考了一些资料。写下自己的思考。 ​    其实关于这个问题，我们需要缩小范围，首先是确定版本，版本意识很重要，这里我">
-<meta name="keywords" content="mysql">
+  <meta name="keywords" content="jvm,gc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记一次mysql查询in的思考">
-<meta property="og:url" content="http://yoursite.com/2019/03/30/记一次mysql查询in的思考/index.html">
+<meta property="og:title" content="JVM_Garbage Collection">
+<meta property="og:url" content="http://yoursite.com/2019/06/19/JVM-Garbage-Collection/index.html">
 <meta property="og:site_name" content="Zyumin">
-<meta property="og:description" content="从一个日常的in 查询的优化说起​    业务场景需要 select * from table where id in( )， 然后就会抛出一个问题，使用in 会不会走索引？ ​    对于这个问题，因为之前在网上看过说不会，说会的，充斥着各种说法，然后自己对这块也是很久之前看过。参考了一些资料。写下自己的思考。 ​    其实关于这个问题，我们需要缩小范围，首先是确定版本，版本意识很重要，这里我">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1g1l1l6bkkfj313i0o4gok.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1g1l35it2ghj325a03saat.jpg">
-<meta property="og:updated_time" content="2019-04-01T01:52:55.757Z">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g45s4avdwxj30u00miacx.jpg">
+<meta property="og:updated_time" content="2019-06-18T17:02:13.528Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记一次mysql查询in的思考">
-<meta name="twitter:description" content="从一个日常的in 查询的优化说起​    业务场景需要 select * from table where id in( )， 然后就会抛出一个问题，使用in 会不会走索引？ ​    对于这个问题，因为之前在网上看过说不会，说会的，充斥着各种说法，然后自己对这块也是很久之前看过。参考了一些资料。写下自己的思考。 ​    其实关于这个问题，我们需要缩小范围，首先是确定版本，版本意识很重要，这里我">
-<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1g1l1l6bkkfj313i0o4gok.jpg">
+<meta name="twitter:title" content="JVM_Garbage Collection">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g45s4avdwxj30u00miacx.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/30/记一次mysql查询in的思考/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/19/JVM-Garbage-Collection/">
 
 
 
@@ -127,7 +123,7 @@
   };
 </script>
 
-  <title>记一次mysql查询in的思考 | Zyumin</title>
+  <title>JVM_Garbage Collection | Zyumin</title>
   
 
 
@@ -321,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/30/记一次mysql查询in的思考/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/19/JVM-Garbage-Collection/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhengyumin">
@@ -338,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">记一次mysql查询in的思考
+          <h1 class="post-title" itemprop="name headline">JVM_Garbage Collection
 
               
             
@@ -364,24 +360,12 @@
                 
               
 
-              <time title="创建时间：2019-03-30 20:39:49" itemprop="dateCreated datePublished" datetime="2019-03-30T20:39:49+08:00">2019-03-30</time>
+              <time title="创建时间：2019-06-19 00:28:10 / 修改时间：01:02:13" itemprop="dateCreated datePublished" datetime="2019-06-19T00:28:10+08:00">2019-06-19</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-01 09:52:55" itemprop="dateModified" datetime="2019-04-01T09:52:55+08:00">2019-04-01</time>
               
             
           </span>
@@ -395,7 +379,7 @@
 
           
           
-            <span id="/2019/03/30/记一次mysql查询in的思考/" class="leancloud_visitors" data-flag-title="记一次mysql查询in的思考">
+            <span id="/2019/06/19/JVM-Garbage-Collection/" class="leancloud_visitors" data-flag-title="JVM_Garbage Collection">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -420,7 +404,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.7k</span>
+                <span title="本文字数">1.4k</span>
               
 
               
@@ -434,7 +418,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">1 分钟</span>
               
             </div>
           
@@ -454,118 +438,25 @@
       
 
       
-        <h3 id="从一个日常的in-查询的优化说起"><a href="#从一个日常的in-查询的优化说起" class="headerlink" title="从一个日常的in 查询的优化说起"></a>从一个日常的in 查询的优化说起</h3><p>​    业务场景需要 <code>select * from table where id in( )</code>， 然后就会抛出一个问题，使用in 会不会走索引？</p>
-<p>​    对于这个问题，因为之前在网上看过说不会，说会的，充斥着各种说法，然后自己对这块也是很久之前看过。参考了一些资料。写下自己的思考。</p>
-<p>​    其实关于这个问题，我们需要缩小范围，首先是确定版本，版本意识很重要，这里我们讨论建立在5.5.39-log 这个版本上。（使用 <code>select version()</code>; 命令可以查看当前版本）</p>
+        <p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g45s4avdwxj30u00miacx.jpg" alt="img"></p>
 <a id="more"></a>
-<p>​    </p>
-<h3 id="使用EXPLAIN"><a href="#使用EXPLAIN" class="headerlink" title="使用EXPLAIN"></a>使用<a href="https://dev.mysql.com/doc/refman/5.5/en/explain.html" target="_blank" rel="noopener"><code>EXPLAIN</code></a></h3><p>​    当您在<a href="https://dev.mysql.com/doc/refman/5.5/en/select.html" target="_blank" rel="noopener"><code>SELECT</code></a> 带有关键字的语句 之前时<a href="https://dev.mysql.com/doc/refman/5.5/en/explain.html" target="_blank" rel="noopener"><code>EXPLAIN</code></a>，MySQL会显示优化程序中有关语句执行计划的信息。也就是说，MySQL解释了它将如何处理语句，包括有关如何连接表以及以何种顺序连接的信息。</p>
-<h4 id="MySQL语句的执行过程"><a href="#MySQL语句的执行过程" class="headerlink" title="MySQL语句的执行过程"></a>MySQL语句的执行过程</h4><p>​    首先我们要了解何为执行计划，这又得从一条SQL语句的执行过程说起（这个在高性能mysql的6.4节中有介绍）</p>
-<p>整个查询流程大致如下</p>
-<ul>
-<li>客户端向 MySQL 服务器发送一条查询请求（半双工，即客户端和服务器不能互相通信）</li>
-<li>服务器首先检查查询缓存，如果命中缓存，则立刻返回存储在缓存中的结果，否则进入下一阶段。</li>
-<li>服务器进行 SQL 解析（通过语法规则来验证和解析，生成解析树）、预处理（检查要查询的数据表和数据列是否存在）、再由优化器生成最优的执行计划。</li>
-<li>MySQL 根据执行计划，调用存储引擎的 API 来执行查询。</li>
-<li>将结果返回给客户端，同时缓存查询结果。</li>
-</ul>
-<p>==简单来说，执行计划就是MySQL根据解析、处理、优化后生成的计划。==<img src="https://ws4.sinaimg.cn/large/006tKfTcgy1g1l1l6bkkfj313i0o4gok.jpg" alt="image-20190330192427534"></p>
-<h4 id="使用EXPLAIN-1"><a href="#使用EXPLAIN-1" class="headerlink" title="使用EXPLAIN"></a>使用EXPLAIN</h4><p>​    具体用法如下<code>explain select * from table where id in( )</code>，返回输出结果如下（官方网站的链接如下<a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/5.5/en/explain-output.html</a>）</p>
-<table>
-<thead>
-<tr>
-<th>Column</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html#explain_id" target="_blank" rel="noopener"><code>id</code></a></td>
-<td>The <code>SELECT</code> identifier</td>
-</tr>
-<tr>
-<td><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html#explain_select_type" target="_blank" rel="noopener"><code>select_type</code></a></td>
-<td>The <code>SELECT</code> type</td>
-</tr>
-<tr>
-<td><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html#explain_table" target="_blank" rel="noopener"><code>table</code></a></td>
-<td>The table for the output row</td>
-</tr>
-<tr>
-<td><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html#explain_partitions" target="_blank" rel="noopener"><code>partitions</code></a></td>
-<td>The matching partitions</td>
-</tr>
-<tr>
-<td><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html#explain_type" target="_blank" rel="noopener"><code>type</code></a></td>
-<td>The join type</td>
-</tr>
-<tr>
-<td><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html#explain_possible_keys" target="_blank" rel="noopener"><code>possible_keys</code></a></td>
-<td>The possible indexes to choose</td>
-</tr>
-<tr>
-<td><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html#explain_key" target="_blank" rel="noopener"><code>key</code></a></td>
-<td>The index actually chosen</td>
-</tr>
-<tr>
-<td><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html#explain_key_len" target="_blank" rel="noopener"><code>key_len</code></a></td>
-<td>The length of the chosen key</td>
-</tr>
-<tr>
-<td><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html#explain_ref" target="_blank" rel="noopener"><code>ref</code></a></td>
-<td>The columns compared to the index</td>
-</tr>
-<tr>
-<td><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html#explain_rows" target="_blank" rel="noopener"><code>rows</code></a></td>
-<td>Estimate of rows to be examined</td>
-</tr>
-<tr>
-<td><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html#explain_filtered" target="_blank" rel="noopener"><code>filtered</code></a></td>
-<td>Percentage of rows filtered by table condition</td>
-</tr>
-<tr>
-<td><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html#explain_extra" target="_blank" rel="noopener"><code>Extra</code></a></td>
-<td>Additional information</td>
-</tr>
-</tbody>
-</table>
-<p>这里我们注意点是select_type 、type、possible_keys、key、rows、Extra（更多细节可以查看官方文档）</p>
-<p><code>select_type</code> : 表示了查询的类型，常见的是SIMPLE，这个是在有子查询、联合查询需要注意的。</p>
-<p><code>type</code> ：这个字段比较重要, 它提供了判断查询是否高效的重要依据依据. 通过 <code>type</code> 字段, 我们判断此次查询是 <code>全表扫描</code> 还是 <code>索引扫描</code> 等. </p>
-<p>根据性能：</p>
-<p>ALL &lt; index &lt; range ~ index_merge &lt; ref &lt; eq_ref &lt; const &lt; system</p>
-<p>除了ALL，其他都是走索引</p>
-<p><code>possible_keys</code>：表示可以选择的索引</p>
-<p><code>key</code>：表示执行时候真正使用的索引</p>
-<p><code>ref</code> : 该<code>ref</code>列显示将哪些列或常量与列中指定的索引进行比较(例如联合索引的时候，命中了几个)，以 <code>key</code>从表中选择行。</p>
-<p><code>rows</code>：扫描的行数</p>
-<p><code>Extra</code>：也是比较重要的一个字段，常见的类型如下</p>
-<p> Using filesort，表示MySQL必须执行额外的传递以找出如何按排序顺序检索行。</p>
-<p>Using index，仅需要从索引树中获取，例如通过主键查询（聚合索引类型，所以主键上带有key的所有信息），或者是命中索引，且仅取索引上的相关字段。</p>
-<p>Using where，表示限制哪些行与下一个表匹配或发送到客户端。 除非特意打算从表中获取或检查所有行，否则如果Extra值是Using where并且表连接类型为ALL或index，则可以是查询有问题了。</p>
-<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>​    有了上述相关知识，我们就可以用<code>explain select * from table where id in( )</code> 来获取相关信息分析，可以发现 type为range ,Extra 为Using where ，是有走索引的。</p>
-<p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1g1l35it2ghj325a03saat.jpg" alt="image-20190330201851186"></p>
-<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>​    最后，再简单扩展一些MYSQL相关知识。</p>
-<h4 id="如何创建高性能的索引"><a href="#如何创建高性能的索引" class="headerlink" title="如何创建高性能的索引"></a>如何创建高性能的索引</h4><h5 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a>索引类型</h5><p>​    关于索引类型，有b-tree,哈希,r-tree,  需要重点关注Innodb引擎的索引类型b-tree ,</p>
-<p>了解聚簇索引，可以全值匹配、匹配最左前缀（例如，在使用like的时候 “a%” 索引会生效，而在使用“%a”的时候就不会生效）、匹配单列前缀、匹配范围值、只访问索引的查询（覆盖索引，索引自身包含了查询相关信息，不用再通过查询主键获取信息）。</p>
-<h5 id="索引的优点"><a href="#索引的优点" class="headerlink" title="索引的优点"></a>索引的优点</h5><ul>
-<li>索引大大减少了服务器需要扫描的数据量</li>
-<li>索引可以帮助服务器避免排序和临时表</li>
-<li>索引可以将随机I/O变成顺序I/O</li>
-</ul>
-<p>当然索引并不是万能的 ‘银弹’，需要考虑其选择的依据（ 表的大小 、数据量） ，使用的方式（怎么使用联合索引等）以及带来的问题（频繁写表的同时也会带来索引重建、修改的损耗，索引本身的存储空间占用）</p>
-<h4 id="为什么会慢查询"><a href="#为什么会慢查询" class="headerlink" title="为什么会慢查询"></a>为什么会慢查询</h4><p>正常情况下，主要有以下两类</p>
-<ul>
-<li>是否请求了不需要的数据（常见 select * ，注意这一小细节，可能会带来例如数据返回的时候会损耗时间，使用临时表等问题）</li>
-<li>扫描额外的记录（通常是未走索引，正确使用索引的姿势）</li>
-</ul>
-<p>非正常情况下，即一些非可控因素 ，锁的占用，连接数耗尽等。</p>
-<p>参考：</p>
-<ul>
-<li>高性能MySQL</li>
-<li><a href="https://dev.mysql.com/doc/refman/5.5/en/execution-plan-information.html" target="_blank" rel="noopener">8.8 Understanding the Query Execution Plan</a></li>
-</ul>
-
+<p>基于<a href="https://docs.oracle.com/en/java/javase/12/gctuning/hotspot-virtual-machine-garbage-collection-tuning-guide.pdf" target="_blank" rel="noopener">HotSpot Virtual Machine Garbage Collection Tuning Guide</a>的整理</p>
+<h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><p>The <em>Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection<br>Tuning Guide</em> describes the garbage collection methods included in the Java HotSpot<br>Virtual Machine (Java HotSpot VM) and helps you determine which one is the best for<br>your needs.</p>
+<hr>
+<p>介绍HotSpot虚拟机垃圾回收算法、 以及怎么选择最合适的一个算法</p>
+<h2 id="Introduction-to-Garbage-Collection-Tuning"><a href="#Introduction-to-Garbage-Collection-Tuning" class="headerlink" title="Introduction to Garbage Collection Tuning"></a>Introduction to Garbage Collection Tuning</h2><p>Java SE selects the most appropriate garbage collector based on the class of the computer on which the application is run.<br>However, this selection may not be optimal for every application. </p>
+<p>Users, developers,and administrators with strict performance goals or other requirements may need to<br>explicitly select the garbage collector and tune certain parameters to achieve the<br>desired level of performance.</p>
+<hr>
+<p>通常需要选择合适的垃圾收集器、并调整某些参数以实现所需的性能级别</p>
+<p>Topics<br>• What Is a Garbage Collector?<br>• Why Does the Choice of Garbage Collector Matter?<br>• Supported Operating Systems in Documentation</p>
+<hr>
+<p>分别介绍了</p>
+<p>什么是垃圾回收、以及使用什么优化技术(分代、并发、压缩)</p>
+<p>为什么选择垃圾回收算法很重要(吞吐和停顿)</p>
+<p>支持的操作系统</p>
+<h2 id="Ergonomics"><a href="#Ergonomics" class="headerlink" title="Ergonomics"></a>Ergonomics</h2><p>工效学</p>
+<p>( ´ー`) 睡了睡了</p>
+<h2 id="Garbage-Collector-Implementation"><a href="#Garbage-Collector-Implementation" class="headerlink" title="Garbage Collector Implementation"></a>Garbage Collector Implementation</h2><h2 id="Factors-Affecting-Garbage-Collection-Performance"><a href="#Factors-Affecting-Garbage-Collection-Performance" class="headerlink" title="Factors Affecting Garbage Collection Performance"></a>Factors Affecting Garbage Collection Performance</h2><h2 id="Available-Collectors"><a href="#Available-Collectors" class="headerlink" title="Available Collectors"></a>Available Collectors</h2><h2 id="The-Parallel-Collector"><a href="#The-Parallel-Collector" class="headerlink" title="The Parallel Collector"></a>The Parallel Collector</h2><h2 id="The-Mostly-Concurrent-Collectors"><a href="#The-Mostly-Concurrent-Collectors" class="headerlink" title="The Mostly Concurrent Collectors"></a>The Mostly Concurrent Collectors</h2><h2 id="Concurrent-Mark-Sweep-CMS-Collector"><a href="#Concurrent-Mark-Sweep-CMS-Collector" class="headerlink" title="Concurrent Mark Sweep (CMS) Collector"></a>Concurrent Mark Sweep (CMS) Collector</h2><h2 id="Garbage-First-Garbage-Collector"><a href="#Garbage-First-Garbage-Collector" class="headerlink" title="Garbage-First Garbage Collector"></a>Garbage-First Garbage Collector</h2><h2 id="Garbage-First-Garbage-Collector-Tuning"><a href="#Garbage-First-Garbage-Collector-Tuning" class="headerlink" title="Garbage-First Garbage Collector Tuning"></a>Garbage-First Garbage Collector Tuning</h2><h2 id="The-Z-Garbage-Collector"><a href="#The-Z-Garbage-Collector" class="headerlink" title="The Z Garbage Collector"></a>The Z Garbage Collector</h2><h2 id="Other-Considerations"><a href="#Other-Considerations" class="headerlink" title="Other Considerations"></a>Other Considerations</h2>
       
     </div>
 
@@ -588,7 +479,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/mysql/" rel="tag"># mysql</a>
+            <a href="/tags/jvm/" rel="tag"># jvm</a>
+          
+            <a href="/tags/gc/" rel="tag"># gc</a>
           
         </div>
       
@@ -601,8 +494,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/26/记一次Broken-pipe问题的思考/" rel="next" title="记一次Broken pipe问题的思考">
-                <i class="fa fa-chevron-left"></i> 记一次Broken pipe问题的思考
+              <a href="/2019/06/16/J-U-C-InterruptedException/" rel="next" title="J.U.C_InterruptedException">
+                <i class="fa fa-chevron-left"></i> J.U.C_InterruptedException
               </a>
             
           </div>
@@ -610,10 +503,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/01/3月第四周知识点记录/" rel="prev" title="3月第四周知识点记录">
-                3月第四周知识点记录 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -811,7 +700,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#从一个日常的in-查询的优化说起"><span class="nav-number">1.</span> <span class="nav-text">从一个日常的in 查询的优化说起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用EXPLAIN"><span class="nav-number">2.</span> <span class="nav-text">使用EXPLAIN</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL语句的执行过程"><span class="nav-number">2.1.</span> <span class="nav-text">MySQL语句的执行过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用EXPLAIN-1"><span class="nav-number">2.2.</span> <span class="nav-text">使用EXPLAIN</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证"><span class="nav-number">3.</span> <span class="nav-text">验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展"><span class="nav-number">4.</span> <span class="nav-text">扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何创建高性能的索引"><span class="nav-number">4.1.</span> <span class="nav-text">如何创建高性能的索引</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#索引类型"><span class="nav-number">4.1.1.</span> <span class="nav-text">索引类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#索引的优点"><span class="nav-number">4.1.2.</span> <span class="nav-text">索引的优点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么会慢查询"><span class="nav-number">4.2.</span> <span class="nav-text">为什么会慢查询</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-to-Garbage-Collection-Tuning"><span class="nav-number">2.</span> <span class="nav-text">Introduction to Garbage Collection Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ergonomics"><span class="nav-number">3.</span> <span class="nav-text">Ergonomics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Garbage-Collector-Implementation"><span class="nav-number">4.</span> <span class="nav-text">Garbage Collector Implementation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Factors-Affecting-Garbage-Collection-Performance"><span class="nav-number">5.</span> <span class="nav-text">Factors Affecting Garbage Collection Performance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Available-Collectors"><span class="nav-number">6.</span> <span class="nav-text">Available Collectors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Parallel-Collector"><span class="nav-number">7.</span> <span class="nav-text">The Parallel Collector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Mostly-Concurrent-Collectors"><span class="nav-number">8.</span> <span class="nav-text">The Mostly Concurrent Collectors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Concurrent-Mark-Sweep-CMS-Collector"><span class="nav-number">9.</span> <span class="nav-text">Concurrent Mark Sweep (CMS) Collector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Garbage-First-Garbage-Collector"><span class="nav-number">10.</span> <span class="nav-text">Garbage-First Garbage Collector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Garbage-First-Garbage-Collector-Tuning"><span class="nav-number">11.</span> <span class="nav-text">Garbage-First Garbage Collector Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Z-Garbage-Collector"><span class="nav-number">12.</span> <span class="nav-text">The Z Garbage Collector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-Considerations"><span class="nav-number">13.</span> <span class="nav-text">Other Considerations</span></a></li></ol></div>
             
 
           </div>
@@ -992,7 +881,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/03/30/记一次mysql查询in的思考/'
+    refer: '2019/06/19/JVM-Garbage-Collection/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
