@@ -106,7 +106,8 @@
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g466cazspsj30f309w74j.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g466krgf27j30co03hq2w.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g467ufa9uoj30fo04rwem.jpg">
-<meta property="og:updated_time" content="2019-06-19T03:38:57.269Z">
+<meta property="og:image" content="https://media.licdn.com/dms/image/C4E12AQH4VHeTMCfxmA/article-cover_image-shrink_720_1280/0?e=1566432000&v=beta&t=ECo_SPDpBCkQlyNbEXoIgmVeTTaxLrfz7pC66OJ2mlc">
+<meta property="og:updated_time" content="2019-06-20T09:13:37.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM_Garbage Collection">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g45sysj25hj30u00m4my9.jpg">
@@ -363,12 +364,24 @@
                 
               
 
-              <time title="创建时间：2019-06-19 00:28:10 / 修改时间：11:38:57" itemprop="dateCreated datePublished" datetime="2019-06-19T00:28:10+08:00">2019-06-19</time>
+              <time title="创建时间：2019-06-19 00:28:10" itemprop="dateCreated datePublished" datetime="2019-06-19T00:28:10+08:00">2019-06-19</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-20 17:13:37" itemprop="dateModified" datetime="2019-06-20T17:13:37+08:00">2019-06-20</time>
               
             
           </span>
@@ -407,7 +420,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">13k</span>
+                <span title="本文字数">22k</span>
               
 
               
@@ -421,7 +434,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">11 分钟</span>
+                <span title="阅读时长">20 分钟</span>
               
             </div>
           
@@ -444,6 +457,7 @@
         <p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g45sysj25hj30u00m4my9.jpg" alt="img"></p>
 <a id="more"></a>
 <p>基于<a href="https://docs.oracle.com/en/java/javase/12/gctuning/hotspot-virtual-machine-garbage-collection-tuning-guide.pdf" target="_blank" rel="noopener">HotSpot Virtual Machine Garbage Collection Tuning Guide</a>的整理( ´ー`) , jDK12</p>
+<p>Or <a href="https://docs.oracle.com/en/java/javase/12/gctuning/index.html" target="_blank" rel="noopener">https://docs.oracle.com/en/java/javase/12/gctuning/index.html</a></p>
 <h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><blockquote>
 <p>The <em>Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection<br>Tuning Guide</em> describes the garbage collection methods included in the Java HotSpot<br>Virtual Machine (Java HotSpot VM) and helps you determine which one is the best for<br>your needs.</p>
 </blockquote>
@@ -486,14 +500,20 @@
 <li>Tiered compiler, using both C1 and C2 </li>
 </ul>
 <h3 id="基于特性调整"><a href="#基于特性调整" class="headerlink" title="基于特性调整"></a>基于特性调整</h3><ul>
-<li>Maximum Pause-Time Goal<ul>
-<li>These adjustments may cause garbage collection to occur more frequently, reducing the overall throughput of the application.</li>
-<li>command-line option -XX:MaxGCPauseMillis=<em><nnn></nnn></em></li>
+<li><p>Maximum Pause-Time Goal</p>
+<ul>
+<li><p>These adjustments may cause garbage collection to occur more frequently, reducing the overall throughput of the application.</p>
+</li>
+<li><p>command-line option -XX:MaxGCPauseMillis=<em><nnn></nnn></em></p>
+</li>
 </ul>
 </li>
-<li>Throughput Goal<ul>
+<li><p>Throughput Goal</p>
+<ul>
 <li>If the throughput goal isn’t being met, then one possible action for the garbage<br>  collector is to increase the size of the heap so that the time spent in the application<br>  between collection pauses can be longer.</li>
-<li>command-line option -XX:GCTimeRatio=<em>nnn</em>  (The ratio of<br>  garbage collection time to application time is 1/ (1+<em>nnn</em>))</li>
+<li><p>command-line option -XX:GCTimeRatio=<em>nnn</em>  (The ratio of</p>
+<p>  garbage collection time to application time is 1/ (1+<em>nnn</em>))</p>
+</li>
 </ul>
 </li>
 <li>Footprint(占用空间 -堆大小)<ul>
@@ -595,6 +615,7 @@
 <li><p>In general, increase the memory as you increase the number of processors, because allocation can be made parallel. </p>
 </li>
 </ul>
+<p>​    </p>
 <h4 id="动态缩小堆空间"><a href="#动态缩小堆空间" class="headerlink" title="动态缩小堆空间"></a>动态缩小堆空间</h4><p>Lowering - XX:MaxHeapFreeRatio to as low as 10% and -XX:MinHeapFreeRatio has shown to successfully reduce the heap size without too much performance degradation; </p>
 <p>In addition, you can specify -XX:-ShrinkHeapInSteps, which immediately reduces the Java heap to the target size (specified by the parameter -XX:MaxHeapFreeRatio) </p>
 <h3 id="年轻代"><a href="#年轻代" class="headerlink" title="年轻代"></a>年轻代</h3><blockquote>
@@ -654,6 +675,7 @@
 <li><p>Selecting a Collector </p>
 </li>
 </ul>
+<p>​    </p>
 <h3 id="串行收集器"><a href="#串行收集器" class="headerlink" title="串行收集器"></a>串行收集器</h3><p>It’s best-suited to single processor machines because it can’t take advantage of multiprocessor hardware, although it can be useful on multiprocessors for applications with small data sets (up to approximately 100 MB).  </p>
 <p>收集过程,不会执行用户线程,一般适用于单处理器机器,也可以用于多处理器的小内存应用(100MB左右)</p>
 <h3 id="并行收集器"><a href="#并行收集器" class="headerlink" title="并行收集器"></a>并行收集器</h3><p>The parallel collector is also known as <em>throughput collector</em>, it’s a generational collector similar to the serial collector. The primary difference between the serial and parallel collectors is that the parallel collector has multiple threads that are used to speed up garbage collection. </p>
@@ -688,9 +710,9 @@
 <li><p>If response time is more important than overall throughput and garbage collection pauses must be kept shorter than approximately one second, then select a mostly concurrent collector with -XX:+UseG1GC or -XX:+UseConcMarkSweepGC. </p>
 </li>
 <li><p>If response time is a high priority, and/or you are using a very large heap, then select a fully concurrent collector with -XX:UseZGC. </p>
-<p>  选择合适的垃圾收集器只是一个起点, 仍需要通过调整VM参数 来达到需要的性能</p>
 </li>
 </ul>
+<p>选择合适的垃圾收集器只是一个起点, 仍需要通过调整VM参数 来达到需要的性能</p>
 <h2 id="Collectors-Implementation"><a href="#Collectors-Implementation" class="headerlink" title="Collectors  Implementation"></a>Collectors  Implementation</h2><h3 id="The-Parallel-Collector"><a href="#The-Parallel-Collector" class="headerlink" title="The Parallel Collector"></a>The Parallel Collector</h3><blockquote>
 <p>The parallel collector is enabled with the command-line option -XX:+UseParallelGC.<br>By default, with this option, both minor and major collections are run in parallel to<br>further reduce garbage collection overhead.</p>
 </blockquote>
@@ -703,13 +725,15 @@
 <li><p>Parallel Collector Ergonomics </p>
 <ul>
 <li><p>–  Options to Specify Parallel Collector Behaviors </p>
-</li>
+<ul>
 <li><p>–  Priority of Parallel Collector Goals </p>
 </li>
 <li><p>–  Parallel Collector Generation Size Adjustments </p>
 </li>
 <li><p>–  Parallel Collector Default Heap Size </p>
-<p>  * Specification of Parallel Collector Initial and Maximum Heap Sizes </p>
+</li>
+</ul>
+<p>* Specification of Parallel Collector Initial and Maximum Heap Sizes </p>
 </li>
 </ul>
 </li>
@@ -718,7 +742,134 @@
 <li><p>Parallel Collector Measurements </p>
 </li>
 </ul>
-<h3 id="The-Mostly-Concurrent-Collectors"><a href="#The-Mostly-Concurrent-Collectors" class="headerlink" title="The Mostly Concurrent Collectors"></a>The Mostly Concurrent Collectors</h3><h3 id="Concurrent-Mark-Sweep-CMS-Collector"><a href="#Concurrent-Mark-Sweep-CMS-Collector" class="headerlink" title="Concurrent Mark Sweep (CMS) Collector"></a>Concurrent Mark Sweep (CMS) Collector</h3><h3 id="Garbage-First-Garbage-Collector"><a href="#Garbage-First-Garbage-Collector" class="headerlink" title="Garbage-First Garbage Collector"></a>Garbage-First Garbage Collector</h3><h3 id="Garbage-First-Garbage-Collector-Tuning"><a href="#Garbage-First-Garbage-Collector-Tuning" class="headerlink" title="Garbage-First Garbage Collector Tuning"></a>Garbage-First Garbage Collector Tuning</h3><h3 id="The-Z-Garbage-Collector"><a href="#The-Z-Garbage-Collector" class="headerlink" title="The Z Garbage Collector"></a>The Z Garbage Collector</h3><h2 id="Other-Considerations"><a href="#Other-Considerations" class="headerlink" title="Other Considerations"></a>Other Considerations</h2>
+<h3 id="The-Mostly-Concurrent-Collectors"><a href="#The-Mostly-Concurrent-Collectors" class="headerlink" title="The Mostly Concurrent Collectors"></a>The Mostly Concurrent Collectors</h3><blockquote>
+<p>On an <em>N</em> processor system, the concurrent part of the collection uses <em>K</em>/<em>N</em> of the available processors, where 1 &lt;= <em>K</em> &lt;= ceiling<em>{N/4</em>}. </p>
+<p>In addition to the use of processors during concurrent phases, additional overhead is incurred to enable concurrency. Thus, while garbage collection pauses are typically much shorter with the concurrent collector, application throughput also tends to be slightly lower than with the other collectors. </p>
+<p>As <em>N</em> increases, the reduction in processor resources due to concurrent garbage collection becomes smaller, and the benefit from concurrent collection increases. </p>
+<p>Because at least one processor is used for garbage collection during the concurrent phases, the concurrent collectors don’t normally provide any benefit on a uniprocessor (single-core) machine.</p>
+</blockquote>
+<p>在多核处理器上,垃圾收集线程为 1 &lt;= <em>K</em> &lt;= ceiling<em>{N/4</em>} , 随着N的增多收益越大 , 同时注意在单核上并不适用</p>
+<h4 id="Concurrent-Mark-Sweep-CMS-Collector"><a href="#Concurrent-Mark-Sweep-CMS-Collector" class="headerlink" title="Concurrent Mark Sweep (CMS) Collector"></a>Concurrent Mark Sweep (CMS) Collector</h4><blockquote>
+<p>The Concurrent Mark Sweep (CMS) collector is designed for applications that prefer<br>shorter garbage collection pauses and that can afford to share processor resources<br>with the garbage collector while the application is running.</p>
+</blockquote>
+<p><strong>Topics</strong> </p>
+<ul>
+<li>Concurrent Mark Sweep Collector Performance and Structure </li>
+<li>Concurrent Mode Failure </li>
+<li>Excessive GC Time and OutOfMemoryError </li>
+<li>Concurrent Mark Sweep Collector and Floating Garbage </li>
+<li>Concurrent Mark Sweep Collector Pauses </li>
+<li>Concurrent Mark Sweep Collector Concurrent Phases </li>
+<li>Starting a Concurrent Collection Cycle </li>
+<li>Scheduling Pauses </li>
+<li>Concurrent Mark Sweep Collector Measurements </li>
+</ul>
+<h5 id="CMS-性能和结构"><a href="#CMS-性能和结构" class="headerlink" title="CMS 性能和结构"></a>CMS 性能和结构</h5><p><img src="https://media.licdn.com/dms/image/C4E12AQH4VHeTMCfxmA/article-cover_image-shrink_720_1280/0?e=1566432000&amp;v=beta&amp;t=ECo_SPDpBCkQlyNbEXoIgmVeTTaxLrfz7pC66OJ2mlc" alt="JVM"></p>
+<p>标记和清除,更多细节参考如下</p>
+<blockquote>
+<p><a href="https://www.linkedin.com/pulse/jvm-why-cms-garbage-collector-deprecating-kunal-saxena" target="_blank" rel="noopener">why-cms-garbage-collector-deprecating</a></p>
+<p><a href="https://juejin.im/post/5c152fefe51d45366873544a" target="_blank" rel="noopener">CMS七个阶段</a></p>
+</blockquote>
+<h5 id="GC时间过长和OutOfMemoryError"><a href="#GC时间过长和OutOfMemoryError" class="headerlink" title="GC时间过长和OutOfMemoryError"></a>GC时间过长和OutOfMemoryError</h5><p>The policy is the same as that in the parallel collector, except that time spent performing concurrent collections isn’t counted toward the 98% time limit.</p>
+<h5 id="浮动垃圾"><a href="#浮动垃圾" class="headerlink" title="浮动垃圾"></a>浮动垃圾</h5><blockquote>
+<p>Because application threads and the garbage collector thread run concurrently during a major collection, objects that are traced by the garbage collector thread may subsequently become unreachable by the time collection process ends. Such unreachable objects that haven’t yet been reclaimed are referred to as <em>floating garbage</em>.</p>
+</blockquote>
+<p>因为存在垃圾收集线程和工作线程并发标记的阶段, 所以在这个阶段,新产生的垃圾就无法回收,称之为浮动垃圾</p>
+<p>关于Remake 和浮动垃圾</p>
+<p><strong>重新标记（Remark）</strong> 的作用在于：<br>之前在并发标记时，因为是 GC 和用户程序是并发执行的，可能导致一部分已经标记为 <strong>从 GC Roots 不可达</strong> 的对象，因为用户程序的（并发）运行，<strong>又可达</strong> 了，<strong>Remark</strong> 的作用就是将这部分对象又标记为 <strong>可达对象</strong>。</p>
+<hr>
+<p>至于 “浮动垃圾”，因为 <strong>CMS</strong> 在 <strong>并发标记</strong> 时是并发的，GC 线程和用户线程并发执行，这个过程当然可能会因为线程的交替执行而导致新产生的垃圾（即浮动垃圾）没有被标记到；而 <strong>重新标记</strong> 的作用只是修改之前 <strong>并发标记</strong> 所获得的不可达对象，所以是没有办法处理 “浮动垃圾” 的。</p>
+<h5 id="暂停"><a href="#暂停" class="headerlink" title="暂停"></a>暂停</h5><blockquote>
+<p>The CMS collector pauses an application twice during a concurrent collection cycle. The first pause is to mark as live the objects directly reachable from the roots (for example, object references from application thread stacks and registers, static objects, and so on) and from elsewhere in the heap (for example, the young generation). </p>
+<p>This first pause is referred to as the <em>initial mark pause</em>. The second pause comes at the end of the concurrent tracing phase and finds objects that were missed by the concurrent tracing due to updates by the application threads of references in an object after the CMS collector had finished tracing that object. This second pause is referred to as the <em>remark pause</em>. </p>
+</blockquote>
+<ul>
+<li>初始标记 <ul>
+<li>初始标记 只是简单标记roots可以直接到达的对象,暂停时间短</li>
+</ul>
+</li>
+<li>重新标记<ul>
+<li>重新标记 在并发标记阶段 遗漏的对象,暂停时间会初始标记久</li>
+</ul>
+</li>
+</ul>
+<h5 id="回收时机"><a href="#回收时机" class="headerlink" title="回收时机"></a>回收时机</h5><blockquote>
+<p>There are several ways to start a concurrent collection.</p>
+<p>Based on recent history, the CMS collector maintains estimates of the time remaining<br>before the old generation will be exhausted and of the time needed for a concurrent<br>collection cycle. Using these dynamic estimates, a concurrent collection cycle is<br>started with the aim of completing the collection cycle before the old generation is<br>exhausted. These estimates are padded for safety because concurrent mode failure<br>can be very costly.</p>
+<p>A concurrent collection also starts if the occupancy of the old generation exceeds an<br>initiating occupancy (a percentage of the old generation). The default value for this<br>initiating occupancy threshold is approximately 92%, but the value is subject to change<br>from release to release. This value can be manually adjusted using the command-line<br>option -XX:CMSInitiatingOccupancyFraction=<n>, where <n> is an integral<br>percentage (0 to 100) of the old generation size.</n></n></p>
+</blockquote>
+<p>Old区快满、基于历史行为、Old区使用率占比 </p>
+<h5 id="暂停调度"><a href="#暂停调度" class="headerlink" title="暂停调度"></a>暂停调度</h5><blockquote>
+<p>The pauses for the young generation collection and the old generation collection occur independently.<br>They don’t overlap, but may occur in quick succession such that the pause from one collection, immediately followed by one from the other collection, can appear to be a single, longer pause. To avoid this, the CMS collector attempts to schedule the remark pause roughly midway between the previous and next young generation pauses. This scheduling is currently not done for the initial mark pause, which is usually much shorter than the remark pause.</p>
+</blockquote>
+<p>因为old区和young区的收集是独立的,所以可以同时发生,这样会导致长暂停</p>
+<p>为了避免这个问题, remake pause 会安排在两次young gc中间</p>
+<h5 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[121,834s][info][gc] GC(657) Pause Initial Mark 191M-&gt;191M(485M) (121,831s, 121,834s) 3,433ms</span><br><span class="line">[121,835s][info][gc] GC(657) Concurrent Mark (121,835s)</span><br><span class="line">[121,889s][info][gc] GC(657) Concurrent Mark (121,835s, 121,889s) 54,330ms</span><br><span class="line">[121,889s][info][gc] GC(657) Concurrent Preclean (121,889s)</span><br><span class="line">[121,892s][info][gc] GC(657) Concurrent Preclean (121,889s, 121,892s) 2,781ms</span><br><span class="line">[121,892s][info][gc] GC(657) Concurrent Abortable Preclean (121,892s)</span><br><span class="line">[121,949s][info][gc] GC(658) Pause Young (Allocation Failure) 324M-&gt;199M(485M) (121,929s, 121,949s) 19,705ms</span><br><span class="line">[122,068s][info][gc] GC(659) Pause Young (Allocation Failure) 333M-&gt;200M(485M) (122,043s, 122,068s) 24,892ms</span><br><span class="line">[122,075s][info][gc] GC(657) Concurrent Abortable Preclean (121,892s, 122,075s) 182,989ms</span><br><span class="line">[122,087s][info][gc] GC(657) Pause Remark 209M-&gt;209M(485M) (122,076s, 122,087s) 11,373ms</span><br><span class="line">[122,087s][info][gc] GC(657) Concurrent Sweep (122,087s)</span><br><span class="line">[122,193s][info][gc] GC(660) Pause Young (Allocation Failure) 301M-&gt;165M(485M) (122,181s, 122,193s) 12,151ms</span><br><span class="line">[122,254s][info][gc] GC(657) Concurrent Sweep (122,087s, 122,254s) 166,758ms</span><br><span class="line">[122,254s][info][gc] GC(657) Concurrent Reset (122,254s)</span><br><span class="line">[122,255s][info][gc] GC(657) Concurrent Reset (122,254s, 122,255s) 0,952ms</span><br><span class="line">[122,297s][info][gc] GC(661) Pause Young (Allocation Failure) 259M-&gt;128M(485M) (122,291s, 122,297s) 5,797ms</span><br></pre></td></tr></table></figure>
+<p>The output for the CMS collection (GC ID 657) is interspersed with the output from the minor collections (GC IDs 658, 659 and 660);</p>
+<p>The initial mark pause is typically short relative to the minor collection pause time. The concurrent phases (concurrent mark, concurrent preclean, and concurrent sweep) normally last significantly longer than a minor collection pause, as indicated in the CMS collector output example</p>
+<p>从gc log 可以看到young gc 是会并存的,同时cms的主要耗时是  Concurrent phases</p>
+<h4 id="Garbage-First-Garbage-Collector-TODO"><a href="#Garbage-First-Garbage-Collector-TODO" class="headerlink" title="Garbage-First Garbage Collector(TODO)"></a>Garbage-First Garbage Collector(TODO)</h4><p>This section describes the Garbage-First (G1) Garbage Collector (GC).</p>
+<p>Topics</p>
+<ul>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-0394E76A-1A8F-425E-A0D0-B48A3DC82B42" target="_blank" rel="noopener">Introduction to Garbage-First Garbage Collector</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-CE6F94B6-71AF-45D5-829E-DEADD9BA929D" target="_blank" rel="noopener">Enabling G1</a></li>
+<li>Basic Concepts<ul>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-15921907-B297-43A4-8C48-DC88035BC7CF" target="_blank" rel="noopener">Heap Layout</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-F1BE86FA-3EDC-4D4F-BDB4-4B044AD83180" target="_blank" rel="noopener">Garbage Collection Cycle</a></li>
+</ul>
+</li>
+<li>Garbage-First Internals<ul>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-572C9203-AB27-46F1-9D33-42BA4F3C6BF3" target="_blank" rel="noopener">Determining Initiating Heap Occupancy</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-AC383806-7FA7-4698-8B92-4FD092B9F368" target="_blank" rel="noopener">Marking</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-BE157AF6-29E7-461A-82CF-50C1978785DA" target="_blank" rel="noopener">Behavior in Very Tight Heap Situations</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-572C9203-AB27-46F1-9D33-42BA4F3C6BF3" target="_blank" rel="noopener">Determining Initiating Heap Occupancy</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-D74F3CC7-CC9F-45B5-B03D-510AEEAC2DAC" target="_blank" rel="noopener">Humongous Objects</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-C268549C-7D95-499C-9B24-A6670B44E49C" target="_blank" rel="noopener">Young-Only Phase Generation Sizing</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-6D6B18B1-063B-48FF-99E3-5AF059C43CE8" target="_blank" rel="noopener">Space-Reclamation Phase Generation Sizing</a></li>
+</ul>
+</li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-082C967F-2DAC-4B59-8A81-0CEC6EEB9016" target="_blank" rel="noopener">Ergonomic Defaults for G1 GC</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-98E80C82-24D8-41D4-BC39-B2583F04F1FF" target="_blank" rel="noopener">Comparison to Other Collectors</a></li>
+</ul>
+<h4 id="Garbage-First-Garbage-Collector-Tuning-TODO"><a href="#Garbage-First-Garbage-Collector-Tuning-TODO" class="headerlink" title="Garbage-First Garbage Collector Tuning(TODO)"></a>Garbage-First Garbage Collector Tuning(TODO)</h4><p>This section describes how to adapt Garbage-First garbage collector (G1 GC) behavior in case it does not meet your requirements.</p>
+<p>Topics</p>
+<ul>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-0BB3B742-A985-4D5E-A9C5-433A127FE0F6" target="_blank" rel="noopener">General Recommendations for G1</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-E26056D1-02A5-4367-94EF-72C66D314AF7" target="_blank" rel="noopener">Moving to G1 from Other Collectors</a></li>
+<li>Improving G1 Performance<ul>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-0DD93225-0BCF-4605-B365-E9833F5BD2FC" target="_blank" rel="noopener">Observing Full Garbage Collections</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-2428DA90-B93D-48E6-B336-A849ADF1C552" target="_blank" rel="noopener">Humongous Object Fragmentation</a></li>
+<li>Tuning for Latency<ul>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-8D9B2530-E370-4B8B-8ADD-A43674FC6658" target="_blank" rel="noopener">Unusual System or Real-Time Usage</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-40B64CD4-9844-4E3E-A0BB-81556AC04C74" target="_blank" rel="noopener">Reference Object Processing Takes Too Long</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-5FD5BDB1-DB7D-4E31-9296-19C0A28F810C" target="_blank" rel="noopener">Young-Only Collections Within the Young-Only Phase Take Too Long</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-D2B6ADCE-6766-4FF8-AA9D-B7F4F3D0F469" target="_blank" rel="noopener">Mixed Collections Take Too Long</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-A0343B53-A690-4DDE-98F9-9877096DBF0F" target="_blank" rel="noopener">High Update RS and Scan RS Times</a></li>
+</ul>
+</li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-70E3F150-B68E-4787-BBF1-F91315AC9AB9" target="_blank" rel="noopener">Tuning for Throughput</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-0770AB01-E334-4E23-B307-FD2114B16E0E" target="_blank" rel="noopener">Tuning for Heap Size</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-379B3888-FE24-4C3F-9E38-26434EB04F89" target="_blank" rel="noopener">Tunable Defaults</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="The-Z-Garbage-Collector"><a href="#The-Z-Garbage-Collector" class="headerlink" title="The Z Garbage Collector"></a>The Z Garbage Collector</h3><p>The Z Garbage Collector is available as an experimental feature, and is enabled with the command-line options <code>-XX:+UnlockExperimentalVMOptions -XX:+UseZGC</code>.</p>
+<h4 id="Setting-the-Heap-Size"><a href="#Setting-the-Heap-Size" class="headerlink" title="Setting the Heap Size"></a>Setting the Heap Size</h4><p>In general, the more memory you give to ZGC the better. But at the same time, wasting memory is undesirable, so it’s all about finding a balance between memory usage and how often the GC needs to run.</p>
+<h4 id="Setting-Number-of-Concurrent-GC-Threads"><a href="#Setting-Number-of-Concurrent-GC-Threads" class="headerlink" title="Setting Number of Concurrent GC Threads"></a>Setting Number of Concurrent GC Threads</h4><p>-XX:ConcGCThreads</p>
+<p>This option essentially dictates how much CPU-time the GC should be given. </p>
+<h2 id="Other-Considerations"><a href="#Other-Considerations" class="headerlink" title="Other Considerations"></a>Other Considerations</h2><p>This section covers other situations that affect garbage collection.</p>
+<p>Topics</p>
+<ul>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/other-considerations.html#GUID-A7B0991C-661F-47BE-AEDB-74C6BDBDE181" target="_blank" rel="noopener">Finalization and Weak, Soft, and Phantom References</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/other-considerations.html#GUID-9E3E5371-20F5-4B70-A003-9D7851B115AF" target="_blank" rel="noopener">Explicit Garbage Collection</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/other-considerations.html#GUID-BFB89453-60C0-42AC-81CA-87D59B0ACE2E" target="_blank" rel="noopener">Soft References</a></li>
+<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/other-considerations.html#GUID-B29C9153-3530-4C15-9154-E74F44E3DAD9" target="_blank" rel="noopener">Class Metadata</a></li>
+</ul>
+<blockquote>
+<p>These features can create performance artifacts at the Java programming language level. An example of this is relying on finalization to close file descriptors, which makes an external resource (descriptors) dependent on garbage collection promptness. Relying on garbage collection to manage resources other than memory is almost always a bad idea.</p>
+<p>In previous releases of Java Hotspot VM, the class metadata was allocated in the so-called permanent generation. Starting with JDK 8, the permanent generation was removed and the class metadata is allocated in native memory</p>
+</blockquote>
+
       
     </div>
 
@@ -962,7 +1113,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-to-Garbage-Collection-Tuning"><span class="nav-number">2.</span> <span class="nav-text">Introduction to Garbage Collection Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ergonomics"><span class="nav-number">3.</span> <span class="nav-text">Ergonomics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认配置"><span class="nav-number">3.1.</span> <span class="nav-text">默认配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于特性调整"><span class="nav-number">3.2.</span> <span class="nav-text">基于特性调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#策略"><span class="nav-number">3.3.</span> <span class="nav-text">策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Garbage-Collector-Implementation"><span class="nav-number">4.</span> <span class="nav-text">Garbage Collector Implementation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收分代策略"><span class="nav-number">4.1.</span> <span class="nav-text">垃圾回收分代策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分代"><span class="nav-number">4.2.</span> <span class="nav-text">分代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能注意事项"><span class="nav-number">4.3.</span> <span class="nav-text">性能注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#吞吐和占用空间测量"><span class="nav-number">4.4.</span> <span class="nav-text">吞吐和占用空间测量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Factors-Affecting-Garbage-Collection-Performance"><span class="nav-number">5.</span> <span class="nav-text">Factors Affecting Garbage Collection Performance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#堆总大小"><span class="nav-number">5.1.</span> <span class="nav-text">堆总大小</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#默认配置-1"><span class="nav-number">5.1.1.</span> <span class="nav-text">默认配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态缩小堆空间"><span class="nav-number">5.1.2.</span> <span class="nav-text">动态缩小堆空间</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#年轻代"><span class="nav-number">5.2.</span> <span class="nav-text">年轻代</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Available-Collectors"><span class="nav-number">6.</span> <span class="nav-text">Available Collectors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#串行收集器"><span class="nav-number">6.1.</span> <span class="nav-text">串行收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并行收集器"><span class="nav-number">6.2.</span> <span class="nav-text">并行收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发收集器"><span class="nav-number">6.3.</span> <span class="nav-text">并发收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Z收集器"><span class="nav-number">6.4.</span> <span class="nav-text">Z收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择收集器"><span class="nav-number">6.5.</span> <span class="nav-text">选择收集器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collectors-Implementation"><span class="nav-number">7.</span> <span class="nav-text">Collectors  Implementation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Parallel-Collector"><span class="nav-number">7.1.</span> <span class="nav-text">The Parallel Collector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Mostly-Concurrent-Collectors"><span class="nav-number">7.2.</span> <span class="nav-text">The Mostly Concurrent Collectors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Concurrent-Mark-Sweep-CMS-Collector"><span class="nav-number">7.3.</span> <span class="nav-text">Concurrent Mark Sweep (CMS) Collector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Garbage-First-Garbage-Collector"><span class="nav-number">7.4.</span> <span class="nav-text">Garbage-First Garbage Collector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Garbage-First-Garbage-Collector-Tuning"><span class="nav-number">7.5.</span> <span class="nav-text">Garbage-First Garbage Collector Tuning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Z-Garbage-Collector"><span class="nav-number">7.6.</span> <span class="nav-text">The Z Garbage Collector</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-Considerations"><span class="nav-number">8.</span> <span class="nav-text">Other Considerations</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-to-Garbage-Collection-Tuning"><span class="nav-number">2.</span> <span class="nav-text">Introduction to Garbage Collection Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ergonomics"><span class="nav-number">3.</span> <span class="nav-text">Ergonomics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认配置"><span class="nav-number">3.1.</span> <span class="nav-text">默认配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于特性调整"><span class="nav-number">3.2.</span> <span class="nav-text">基于特性调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#策略"><span class="nav-number">3.3.</span> <span class="nav-text">策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Garbage-Collector-Implementation"><span class="nav-number">4.</span> <span class="nav-text">Garbage Collector Implementation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收分代策略"><span class="nav-number">4.1.</span> <span class="nav-text">垃圾回收分代策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分代"><span class="nav-number">4.2.</span> <span class="nav-text">分代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能注意事项"><span class="nav-number">4.3.</span> <span class="nav-text">性能注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#吞吐和占用空间测量"><span class="nav-number">4.4.</span> <span class="nav-text">吞吐和占用空间测量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Factors-Affecting-Garbage-Collection-Performance"><span class="nav-number">5.</span> <span class="nav-text">Factors Affecting Garbage Collection Performance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#堆总大小"><span class="nav-number">5.1.</span> <span class="nav-text">堆总大小</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#默认配置-1"><span class="nav-number">5.1.1.</span> <span class="nav-text">默认配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态缩小堆空间"><span class="nav-number">5.1.2.</span> <span class="nav-text">动态缩小堆空间</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#年轻代"><span class="nav-number">5.2.</span> <span class="nav-text">年轻代</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Available-Collectors"><span class="nav-number">6.</span> <span class="nav-text">Available Collectors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#串行收集器"><span class="nav-number">6.1.</span> <span class="nav-text">串行收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并行收集器"><span class="nav-number">6.2.</span> <span class="nav-text">并行收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发收集器"><span class="nav-number">6.3.</span> <span class="nav-text">并发收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Z收集器"><span class="nav-number">6.4.</span> <span class="nav-text">Z收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择收集器"><span class="nav-number">6.5.</span> <span class="nav-text">选择收集器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collectors-Implementation"><span class="nav-number">7.</span> <span class="nav-text">Collectors  Implementation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Parallel-Collector"><span class="nav-number">7.1.</span> <span class="nav-text">The Parallel Collector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Mostly-Concurrent-Collectors"><span class="nav-number">7.2.</span> <span class="nav-text">The Mostly Concurrent Collectors</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Concurrent-Mark-Sweep-CMS-Collector"><span class="nav-number">7.2.1.</span> <span class="nav-text">Concurrent Mark Sweep (CMS) Collector</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CMS-性能和结构"><span class="nav-number">7.2.1.1.</span> <span class="nav-text">CMS 性能和结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GC时间过长和OutOfMemoryError"><span class="nav-number">7.2.1.2.</span> <span class="nav-text">GC时间过长和OutOfMemoryError</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浮动垃圾"><span class="nav-number">7.2.1.3.</span> <span class="nav-text">浮动垃圾</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#暂停"><span class="nav-number">7.2.1.4.</span> <span class="nav-text">暂停</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#回收时机"><span class="nav-number">7.2.1.5.</span> <span class="nav-text">回收时机</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#暂停调度"><span class="nav-number">7.2.1.6.</span> <span class="nav-text">暂停调度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#日志"><span class="nav-number">7.2.1.7.</span> <span class="nav-text">日志</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Garbage-First-Garbage-Collector-TODO"><span class="nav-number">7.2.2.</span> <span class="nav-text">Garbage-First Garbage Collector(TODO)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Garbage-First-Garbage-Collector-Tuning-TODO"><span class="nav-number">7.2.3.</span> <span class="nav-text">Garbage-First Garbage Collector Tuning(TODO)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Z-Garbage-Collector"><span class="nav-number">7.3.</span> <span class="nav-text">The Z Garbage Collector</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Setting-the-Heap-Size"><span class="nav-number">7.3.1.</span> <span class="nav-text">Setting the Heap Size</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Setting-Number-of-Concurrent-GC-Threads"><span class="nav-number">7.3.2.</span> <span class="nav-text">Setting Number of Concurrent GC Threads</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-Considerations"><span class="nav-number">8.</span> <span class="nav-text">Other Considerations</span></a></li></ol></div>
             
 
           </div>
@@ -995,7 +1146,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">272k</span>
+    <span title="站点总字数">281k</span>
   
 
   
@@ -1004,7 +1155,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">4:07</span>
+    <span title="站点阅读时长">4:16</span>
   
 </div>
 
