@@ -104,7 +104,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g42sqb05mrj30qo0hnaem.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g40xyu6xf8j30cb0amq36.jpg">
-<meta property="og:updated_time" content="2019-06-16T08:11:26.159Z">
+<meta property="og:updated_time" content="2019-06-20T07:22:59.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spec_JSR133">
 <meta name="twitter:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g42sqb05mrj30qo0hnaem.jpg">
@@ -378,7 +378,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-16 16:11:26" itemprop="dateModified" datetime="2019-06-16T16:11:26+08:00">2019-06-16</time>
+                <time title="修改时间：2019-06-20 15:22:59" itemprop="dateModified" datetime="2019-06-20T15:22:59+08:00">2019-06-20</time>
               
             
           </span>
@@ -454,23 +454,25 @@
         <p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g42sqb05mrj30qo0hnaem.jpg" alt="image-20190616103858903"></p>
 <a id="more"></a>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Memory Model and Thread Specification , 内存模型和线程规范 </p>
-<p>These semantics do not describe how a multithreaded program should be executed. Rather,<br>they describe the behaviors that multithreaded programs are allowed to exhibit</p>
+<p>These semantics do not describe how a multithreaded program should be executed. Rather,they describe the behaviors that multithreaded programs are allowed to exhibit</p>
 <p>规范的标准内容将合并到<em>JavaTM语言规范</em>、<em>JavaTM虚拟机规范</em>以及<code>java.lang</code>包的类说明中</p>
 <p>因为线程的行为，尤其是未正确同步时的行为，可能会让人困惑和违背直觉 ,所以规范规定了</p>
 <ul>
 <li>用于屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的并发效果</li>
 <li>规定了一个线程如何和何时可以看到由其他线程修改过后的共享变量的值，以及在必须时如何同步的访问共享变量。</li>
 </ul>
-<h2 id="Locks"><a href="#Locks" class="headerlink" title="Locks"></a>Locks</h2><p> There are multiple mechanisms for communicating between threads.most basic of these<br>methods is synchronization, which is implemented using monitors. </p>
+<h2 id="Locks"><a href="#Locks" class="headerlink" title="Locks"></a>Locks</h2><blockquote>
+<p> There are multiple mechanisms for communicating between threads.most basic of these<br>methods is synchronization, which is implemented using monitors. </p>
 <p>Each object is associated witha monitor, which a thread can lock or unlock.</p>
 <p> Only one thread at a time may hold a lock on amonitor.</p>
 <p> Any other threads attempting to lock that monitor are blocked until they can obtain a<br>lock on that monitor.</p>
 <p>Other mechanisms, such as reads and writes of volatile variables and classes provided in the<br>java.util.concurrent package, provide alternative mechanisms for synchronization.</p>
-<hr>
+</blockquote>
 <p>同步语义的实现  synchronized 的实现,volatile,juc 包</p>
-<h2 id="Incorrectly-Synchronized-Programs-Exhibit-Surprising-Behav-iors"><a href="#Incorrectly-Synchronized-Programs-Exhibit-Surprising-Behav-iors" class="headerlink" title="Incorrectly Synchronized Programs Exhibit Surprising Behav-iors"></a>Incorrectly Synchronized Programs Exhibit Surprising Behav-iors</h2><p>The semantics of the Java programming language allow compilers and microprocessors to perform optimizations that can interact with incorrectly synchronized code in ways that can produce behaviors that seem paradoxical.</p>
+<h2 id="Incorrectly-Synchronized-Programs-Exhibit-Surprising-Behav-iors"><a href="#Incorrectly-Synchronized-Programs-Exhibit-Surprising-Behav-iors" class="headerlink" title="Incorrectly Synchronized Programs Exhibit Surprising Behav-iors"></a>Incorrectly Synchronized Programs Exhibit Surprising Behav-iors</h2><blockquote>
+<p>The semantics of the Java programming language allow compilers and microprocessors to perform optimizations that can interact with incorrectly synchronized code in ways that can produce behaviors that seem paradoxical.</p>
 <p>However,it was forbidden by the original Java memory model in the JLS and JVMS: this was one of the first indications that the original JMM needed to be replaced.</p>
-<hr>
+</blockquote>
 <p>Java 的语义允许编译器和微处理器进行优化、重排 会改变语义,所以需要重新定义JMM内存模型</p>
 <h2 id="Informal-Semantics"><a href="#Informal-Semantics" class="headerlink" title="Informal Semantics"></a>Informal Semantics</h2><p>There are two key ideas to understanding whether a program is correctly synchronized:</p>
 <ol>
@@ -486,17 +488,20 @@
 <li>All actions in a thread happen-before any other thread successfully returns from a join() on that thread. </li>
 <li>If an action a happens-before an action b, and b happens before an action c, then a happens- before c. </li>
 </ul>
+<blockquote>
 <p>When a program contains two conflicting accesses that are not ordered by a happens-before relationship, it is said to contain a data race. </p>
-<hr>
+</blockquote>
 <p>理解一个程序是否被正确的同步了，有两个关键概念: 冲突访问和H-B</p>
+<blockquote>
 <p>Sequential Consistency</p>
 <p> As noted before, sequential consistency and/or freedom from data races still allows errors arising from<br>groups of operations that need to be perceived atomically and are not.</p>
 <p>If we were to use sequential consistency as our memory model, many of the compiler and<br>processor optimizations that we have discussed would be illegal.</p>
 <p>Final Fields</p>
-<hr>
+</blockquote>
 <p>顺序一致性模型 也不能解决语义问题,同时还会让优化失效</p>
-<h2 id="What-is-a-Memory-Model"><a href="#What-is-a-Memory-Model" class="headerlink" title="What is a Memory Model?"></a>What is a Memory Model?</h2><p>A memory model describes, given a program and an execution trace of that program, whether<br>the execution trace is a legal execution of the program. For the Java programming language, the<br>memory model works by examining each read in an execution trace and checking that the write<br>observed by that read is valid according to certain rules.</p>
-<hr>
+<h2 id="What-is-a-Memory-Model"><a href="#What-is-a-Memory-Model" class="headerlink" title="What is a Memory Model?"></a>What is a Memory Model?</h2><blockquote>
+<p>A memory model describes, given a program and an execution trace of that program, whether<br>the execution trace is a legal execution of the program. For the Java programming language, the<br>memory model works by examining each read in an execution trace and checking that the write<br>observed by that read is valid according to certain rules.</p>
+</blockquote>
 <p>内存模型 描述程序的执行行为是否合法 对于Java 来说,内存共享型, 需要关注的是当前线程读取到的信息是否是最新的, 因为各个线程都有一个本地缓存(栈、cpu缓存),通过堆来共享</p>
 <p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g40xyu6xf8j30cb0amq36.jpg" alt="img"></p>
 <h2 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h2><p>Shared variables/Heap memory  共享变量/堆内存</p>
@@ -517,7 +522,6 @@
 </ul>
 </li>
 </ul>
-<hr>
 <p>顺序一致性模型 约束太强了,不利于优化</p>
 <p>Happens-Before 太弱了,执行结果不可预测 </p>
 <p>Happens-before 模型最致命的弱点是其允许值“凭空出现(out of thin air)”</p>
