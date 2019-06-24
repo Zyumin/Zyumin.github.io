@@ -96,25 +96,24 @@
 
 
 
-  <meta name="keywords" content="redis">
+  <meta name="keywords" content="juc,map">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redis深入浅出">
-<meta property="og:url" content="http://yoursite.com/2019/06/10/redis深入浅出/index.html">
+<meta property="og:title" content="J.U.C_ConcurrentHashMap">
+<meta property="og:url" content="http://yoursite.com/2019/06/24/J-U-C-ConcurrentHashMap/index.html">
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g3x0bypob8j30u70u0kjl.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g3xeyqvqyoj30zk03d3za.jpg">
-<meta property="og:updated_time" content="2019-06-24T07:00:10.856Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g4cgatpl82j30qo0k03zd.jpg">
+<meta property="og:updated_time" content="2019-06-24T12:55:14.774Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis深入浅出">
-<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g3x0bypob8j30u70u0kjl.jpg">
+<meta name="twitter:title" content="J.U.C_ConcurrentHashMap">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g4cgatpl82j30qo0k03zd.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/10/redis深入浅出/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/24/J-U-C-ConcurrentHashMap/">
 
 
 
@@ -124,7 +123,7 @@
   };
 </script>
 
-  <title>redis深入浅出 | Zyumin</title>
+  <title>J.U.C_ConcurrentHashMap | Zyumin</title>
   
 
 
@@ -318,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/10/redis深入浅出/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/24/J-U-C-ConcurrentHashMap/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhengyumin">
@@ -335,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">redis深入浅出
+          <h1 class="post-title" itemprop="name headline">J.U.C_ConcurrentHashMap
 
               
             
@@ -361,24 +360,12 @@
                 
               
 
-              <time title="创建时间：2019-06-10 18:33:40" itemprop="dateCreated datePublished" datetime="2019-06-10T18:33:40+08:00">2019-06-10</time>
+              <time title="创建时间：2019-06-24 19:03:29 / 修改时间：20:55:14" itemprop="dateCreated datePublished" datetime="2019-06-24T19:03:29+08:00">2019-06-24</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-24 15:00:10" itemprop="dateModified" datetime="2019-06-24T15:00:10+08:00">2019-06-24</time>
               
             
           </span>
@@ -392,7 +379,7 @@
 
           
           
-            <span id="/2019/06/10/redis深入浅出/" class="leancloud_visitors" data-flag-title="redis深入浅出">
+            <span id="/2019/06/24/J-U-C-ConcurrentHashMap/" class="leancloud_visitors" data-flag-title="J.U.C_ConcurrentHashMap">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -417,7 +404,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3.3k</span>
+                <span title="本文字数">3.6k</span>
               
 
               
@@ -451,107 +438,32 @@
       
 
       
-        <p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g3x0bypob8j30u70u0kjl.jpg" alt="image-20190611102836454"></p>
+        <p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g4cgatpl82j30qo0k03zd.jpg" alt="img"></p>
 <a id="more"></a>
-<h2 id="初识"><a href="#初识" class="headerlink" title="初识"></a>初识</h2><p>官网介绍    </p>
-<p>​    Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. </p>
-<p>​    It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams.</p>
-<p>​     Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster</p>
-<p>简单翻译下</p>
-<p>​    内存数据结构存储 ,被当成数据库、缓存、消息代理使用</p>
-<p>​    支持的数据结构,字符串 、哈希、列表、集合等</p>
-<p>​    副本集(主从复制)、Lua脚本、LRU淘汰策略(Least Recently Used、Least Frequently Used)、事务(不可回滚)、不同级别的磁盘持久、用Sentinel保证高可用、用集群来自动分区</p>
-<p>​    </p>
-<p>单线程 、简单、高性能的key-value数据库</p>
-<h2 id="版本特征"><a href="#版本特征" class="headerlink" title="版本特征"></a>版本特征</h2><p><strong>1.Redis2.6</strong></p>
-<p>Redis2.6在2012年正式发布，相对于Redis2.4，主要特性如下：</p>
-<ul>
-<li>支持Lua脚本</li>
-<li>键的过期时间支持毫秒</li>
-<li>从节点支持只读功能</li>
-</ul>
-<p><strong>2.Redis2.8</strong></p>
-<p>Redis2.8在2013年11月22日正式发布，相比于Redis2.6，主要特性如下：</p>
-<ul>
-<li>PSYNC 添加部分主从复制的功能</li>
-<li>Redis Sentinel生产可用</li>
-<li>新增命令：SCAN、SSCAN、HSCAN和ZSCAN</li>
-</ul>
-<p><strong>3.Redis3.0（里程碑）</strong></p>
-<p>Redis3.0在2015年4月1日正式发布，相比于Redis2.8主要特性如下：</p>
-<ul>
-<li><strong>Redis Cluster：Redis的官方分布式实现</strong>。</li>
-<li>全新的embedded string对象编码结果，优化小对象内存访问，在特定的工作负载下载速度大幅提升</li>
-</ul>
-<p><strong>4.Redis3.2</strong></p>
-<p>Redis3.2在2016年5月6日正式发布，相比于Redis3.0主要特征如下：</p>
-<ul>
-<li>新的List编码类型：quicklist。</li>
-</ul>
-<p><strong>5.Redis4.0</strong></p>
-<p>Redis4.0在2016年底正式发布，相比于Redis3.2主要特征如下： <a href="http://antirez.com/news/110" target="_blank" rel="noopener">http://antirez.com/news/110</a></p>
-<ul>
-<li>模块化</li>
-<li>PSYNC2.0：优化了之前版本中，主从节点切换必然引起全量复制的问题。</li>
-<li>提供了新的缓存剔除算法：LFU（Last Frequently Used），并对已有算法进行了优化。</li>
-<li>提供了非阻塞del和flushall/flushdb功能，有效解决删除了bigkey可能造成的Redis阻塞。</li>
-<li>提供了RDB-AOF混合持久化格式，充分利用了AOF和RDB各自优势。</li>
-</ul>
-<p><strong>6.Redis5.0</strong></p>
-<p>Redis5.0在2018年5月正式发布相比于Redis4.0主要特征如下：</p>
-<ul>
-<li>Stream data type</li>
-</ul>
-<p> more: <a href="https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES" target="_blank" rel="noopener">https://raw.githubusercontent.com/antirez/redis/5.0/00-RELEASENOTES</a></p>
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>​    Redis 的字符串是动态字符串，是可以修改的字符串，内部结构实现上类似于 Java 的 ArrayList，采用预分配冗余空间的方式来减少内存的频繁分配。 当字符串长度小于 1M 时，扩容都是加倍现有的空间，如果超过 1M，扩容时一次只会多扩 1M 的空间。需要注意的是字符串最大长度为 512M。</p>
-<h3 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h3><p>​    Redis 的字典相当于 Java 语言里面的 HashMap，它是无序字典。不同的是，Redis 的字典的值只能是字符串，另外它们 rehash 的方式不一样，因为 Java 的 HashMap 在字典很大时，rehash 是个耗时的操作，需要一次性全部 rehash(在concurrentHashMap中也是渐进式,而且是多线程)。Redis 为了高性能，不能堵塞服务，所以采用了渐进式 rehash 策略。(操作的时候会触发rehash,同时后台会有个定时任务在执行)</p>
-<p>​    相比字符串 ,可以进行部分获取,减少网络传输.  但hash 结构的存储消耗要高于单个字符串.</p>
-<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p>​    Redis 的列表相当于 Java 语言里面的 LinkedList，注意它是链表而不是数组。这意味着 list 的插入和删除操作非常快，时间复杂度为 O(1)，但是索引定位很慢，时间复杂度为 O(n)，这点让人非常意外。 常用于异步队列。</p>
-<p>​    <img src="http://ww4.sinaimg.cn/large/006tNc79gy1g3xeyqvqyoj30zk03d3za.jpg" alt="image-20190611185500346"></p>
-<p>在列表元素较少的情况下会使用一块连续的内存存储，这个结构是 <code>ziplist</code>，也即是压缩列表。</p>
-<p>​    当数据量比较多的时候才会改成 <code>quicklist</code>。因为普通的链表需要的附加指针空间太大，会比较浪费空间，而且会加重内存的碎片化。比如这个列表里存的只是 <code>int</code> 类型的数据，结构上还需要两个额外的指针 <code>prev</code> 和 <code>next</code> 。所以 Redis 将链表和 <code>ziplist</code> 结合起来组成了 <code>quicklist</code>。也就是将多个 <code>ziplist</code> 使用双向指针串起来使用。这样既满足了快速的插入删除性能，又不会出现太大的空间冗余。</p>
-<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>​    Redis 的集合相当于 Java 语言里面的 HashSet，它内部的键值对是无序的唯一的。它的内部实现相当于一个特殊的字典，字典中所有的 value 都是一个值<code>NULL</code>。</p>
-<h3 id="Zset"><a href="#Zset" class="headerlink" title="Zset"></a>Zset</h3><p>​    zset 可能是 Redis 提供的最为特色的数据结构。它类似于 Java 的 SortedSet 和 HashMap 的结合体，一方面它是一个 set，保证了内部 value 的唯一性，另一方面它可以给每个 value 赋予一个 score，代表这个 value 的排序权重。</p>
-<p>​    我们需要这个链表按照 score 值进行排序。这意味着当有新元素需要插入时，要定位到特定位置的插入点，这样才可以继续保证链表是有序的。通常我们会通过二分查找来找到插入点，但是二分查找的对象必须是数组，所以 它的内部实现用的是一种叫做「跳跃列表」的数据结构。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
-<li><p>管道（Pipelining）</p>
-<p>  一次发送多个命令，可以包含Batch命令,节省往返时间。 </p>
-</li>
-<li><p>淘汰策略 LRU LFU</p>
-<p>  Least Recently Used    按照访问时间  这个可以用LinkHashMap 简单实现<br>  Least Frequently Used  按照访问次数  需要额外的队列记录访问频率</p>
-</li>
-<li><p>Batch 命令</p>
-<p>  批量相同指令</p>
-</li>
-<li><p>事务  </p>
-<p>  Redis 事务保证了其中的一致性（C）和隔离性（I），但并不保证原子性（A）和持久性（D）。</p>
-</li>
-<li><p>分布式锁</p>
-<p>  Lua脚本实现原子性</p>
-</li>
-<li><p>TTL 过期删除 </p>
-<p>  惰性、异步 删除, 注意过期时间要采用 一个常量加一个随机时间戳 防止大批量的key同一时间过期</p>
-</li>
-</ul>
-<p>​    </p>
-<h2 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h2><h3 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h3><ul>
-<li>快照RDB</li>
-<li>AOF 指令 <ul>
-<li>1条指令执行一次刷盘</li>
-<li>1段时间执行一次刷盘</li>
-<li>1s执行一次刷盘</li>
-</ul>
-</li>
-<li>RDB快照 +AOF同步</li>
-</ul>
-<p>​    </p>
-<h2 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h2><p>​    高可用 主从同步(RDB快照 +AOF同步) 、raft 一致性算法 、gossip 通信协议</p>
-<p>​    高性能 读写分离</p>
-<p>​    分片 横向扩展 算法槽</p>
-<p>参考:</p>
-<blockquote>
-<p>redis深度历险</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​    做为办公室的游泳健将,鱼是不可能不摸的. 今天在查找接口文档的时候,发现一些业务,像商详、秒杀,这些抗流都是使用的本地缓存,  第二层再是redis. </p>
+<p>​    那么本地缓存一般会使用的都是Map结构(例如key为skuId), 现在使用最多的就是Guava Cache,  然而Spring5即将放弃掉Guava Cache作为缓存机制，而改用Caffeine作为新的本地Cache的组件.(至于为啥,不是一两句能够讲清的 主要是性能,其次是语言方面 函数式编程) 这些实现都是基于今天要讲的CHM</p>
+<p>​    PS:以下内容基于JDK 1.8</p>
+<h2 id="Map-Implementations"><a href="#Map-Implementations" class="headerlink" title="Map Implementations"></a>Map Implementations</h2><p>CHM是Map 的一种实现, 这里再简单说说Map的其他实现. Map的实现分为通用实现(General-Purpose Map Implementations)，专用实现(Special-Purpose Map Implementations)和并发实现(Concurrent Map Implementations)。</p>
+<p><a href="https://docs.oracle.com/javase/tutorial/collections/implementations/map.html" target="_blank" rel="noopener">More see here</a>  (Map接口在1.8有挺多改动的,例如complete 、merge)</p>
+<h3 id="General-Purpose-Map-Implementations"><a href="#General-Purpose-Map-Implementations" class="headerlink" title="General-Purpose Map Implementations"></a>General-Purpose Map Implementations</h3><blockquote>
+<p>The three general-purpose <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html" target="_blank" rel="noopener"><code>Map</code></a> implementations are <a href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html" target="_blank" rel="noopener"><code>HashMap</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html" target="_blank" rel="noopener"><code>TreeMap</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashMap.html" target="_blank" rel="noopener"><code>LinkedHashMap</code></a>.If you need <code>SortedMap</code> operations or key-ordered <code>Collection</code>-view iteration, use <code>TreeMap</code>; if you want maximum speed and don’t care about iteration order, use <code>HashMap</code>; if you want near-<code>HashMap</code> performance and insertion-order iteration, use <code>LinkedHashMap</code></p>
 </blockquote>
+<p>TreeMap 用于排序 </p>
+<p>LinkedHashMap 额外维护一个队列, 可以用它来简单实现一个LRU算法</p>
+<h3 id="Special-Purpose-Map-Implementations"><a href="#Special-Purpose-Map-Implementations" class="headerlink" title="Special-Purpose Map Implementations"></a>Special-Purpose Map Implementations</h3><blockquote>
+<p>There are three special-purpose Map implementations — <a href="https://docs.oracle.com/javase/8/docs/api/java/util/EnumMap.html" target="_blank" rel="noopener"><code>EnumMap</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/WeakHashMap.html" target="_blank" rel="noopener"><code>WeakHashMap</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/IdentityHashMap.html" target="_blank" rel="noopener"><code>IdentityHashMap</code></a>. <code>EnumMap</code>, which is internally implemented as an <code>array</code>, is a high-performance <code>Map</code> implementation for use with enum keys. This implementation combines the richness and safety of the <code>Map</code> interface with a speed approaching that of an array. If you want to map an enum to a value, you should always use an <code>EnumMap</code> in preference to an array.</p>
+<p><code>WeakHashMap</code> is an implementation of the <code>Map</code> interface that stores only weak references to its keys. Storing only weak references allows a key-value pair to be garbage-collected when its key is no longer referenced outside of the <code>WeakHashMap</code>. This class provides the easiest way to harness the power of weak references. It is useful for implementing “registry-like” data structures, where the utility of an entry vanishes when its key is no longer reachable by any thread.</p>
+<p><code>IdentityHashMap</code> is an identity-based <code>Map</code> implementation based on a hash table. This class is useful for topology-preserving object graph transformations, such as serialization or deep-copying. To perform such transformations, you need to maintain an identity-based “node table” that keeps track of which objects have already been seen. Identity-based maps are also used to maintain object-to-meta-information mappings in dynamic debuggers and similar systems. Finally, identity-based maps are useful in thwarting “spoof attacks” that are a result of intentionally perverse <code>equals</code> methods because <code>IdentityHashMap</code> never invokes the <code>equals</code> method on its keys. An added benefit of this implementation is that it is fast</p>
+</blockquote>
+<p>IdentityHashMap 不用调用equals ,而是使用==判断</p>
+<h3 id="Concurrent-Map-Implementations"><a href="#Concurrent-Map-Implementations" class="headerlink" title="Concurrent Map Implementations"></a>Concurrent Map Implementations</h3><blockquote>
+<p><code>ConcurrentHashMap</code> is a highly concurrent, high-performance implementation backed up by a hash table. This implementation never blocks when performing retrievals and allows the client to select the concurrency level for updates. It is intended as a drop-in replacement for <code>Hashtable</code>: in addition to implementing <code>ConcurrentMap</code>, it supports all the legacy methods peculiar to <code>Hashtable</code>. Again, if you don’t need the legacy operations, be careful to manipulate it with the <code>ConcurrentMap</code> interface.</p>
+</blockquote>
+<p>​    CHM是Hashtable的代替者, 至于原因嘛, 当然是性能啦. Hashtable 的实现是简单的在方法上面加synchronized ,这样会导致锁的竞争对象是实例本身.(如果是static 方法 锁的是整个类对象)</p>
+<h2 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h2><h3 id="JDK8-带来的改变"><a href="#JDK8-带来的改变" class="headerlink" title="JDK8 带来的改变"></a>JDK8 带来的改变</h3><p>​    题外话补充下,JDK8解决了 JDK7中HashMap, rehash 的过程中采用头插法转移结点，高并发下，多个线程同时操作一条链表将直接导致闭链，死循环并占满 CPU。(另外CHM的实现HashMap也实现,例如树化)</p>
+<h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>​    当链表长度(冲突) 达到一定个数(TREEIFY_THRESHOLD = 8)的时候会进行树化</p>
+<p>其实上面的这种说法不够严谨 , 树化还有另一个条件是MIN_TREEIFY_CAPACITY 需要超过最小容量</p>
+<h4 id="锁竞争粒度"><a href="#锁竞争粒度" class="headerlink" title="锁竞争粒度"></a>锁竞争粒度</h4><p>​    在JDK7中实现是</p>
 
       
     </div>
@@ -575,7 +487,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/redis/" rel="tag"># redis</a>
+            <a href="/tags/juc/" rel="tag"># juc</a>
+          
+            <a href="/tags/map/" rel="tag"># map</a>
           
         </div>
       
@@ -588,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/06/java并发深入浅出/" rel="next" title="java并发深入浅出">
-                <i class="fa fa-chevron-left"></i> java并发深入浅出
+              <a href="/2019/06/19/JVM-Garbage-Collection/" rel="next" title="JVM_Garbage Collection">
+                <i class="fa fa-chevron-left"></i> JVM_Garbage Collection
               </a>
             
           </div>
@@ -597,10 +511,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/12/kafka深入浅出/" rel="prev" title="kafka深入浅出">
-                kafka深入浅出 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -800,7 +710,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初识"><span class="nav-number">1.</span> <span class="nav-text">初识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本特征"><span class="nav-number">2.</span> <span class="nav-text">版本特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">3.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String"><span class="nav-number">3.1.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hash"><span class="nav-number">3.2.</span> <span class="nav-text">Hash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List"><span class="nav-number">3.3.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">3.4.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Zset"><span class="nav-number">3.5.</span> <span class="nav-text">Zset</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">4.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理"><span class="nav-number">5.</span> <span class="nav-text">管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#持久化"><span class="nav-number">5.1.</span> <span class="nav-text">持久化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集群"><span class="nav-number">6.</span> <span class="nav-text">集群</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map-Implementations"><span class="nav-number">2.</span> <span class="nav-text">Map Implementations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#General-Purpose-Map-Implementations"><span class="nav-number">2.1.</span> <span class="nav-text">General-Purpose Map Implementations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Special-Purpose-Map-Implementations"><span class="nav-number">2.2.</span> <span class="nav-text">Special-Purpose Map Implementations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Concurrent-Map-Implementations"><span class="nav-number">2.3.</span> <span class="nav-text">Concurrent Map Implementations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ConcurrentHashMap"><span class="nav-number">3.</span> <span class="nav-text">ConcurrentHashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JDK8-带来的改变"><span class="nav-number">3.1.</span> <span class="nav-text">JDK8 带来的改变</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据结构"><span class="nav-number">3.1.1.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#锁竞争粒度"><span class="nav-number">3.1.2.</span> <span class="nav-text">锁竞争粒度</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -981,7 +891,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/06/10/redis深入浅出/'
+    refer: '2019/06/24/J-U-C-ConcurrentHashMap/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
