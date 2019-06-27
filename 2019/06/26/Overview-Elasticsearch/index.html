@@ -103,7 +103,8 @@
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g4eq0uiv34j30sg0sgdlr.jpg">
-<meta property="og:updated_time" content="2019-06-26T11:22:47.833Z">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g4fjxdjsklj31kc0u077y.jpg">
+<meta property="og:updated_time" content="2019-06-27T03:30:33.439Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Overview_Elasticsearch">
 <meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g4eq0uiv34j30sg0sgdlr.jpg">
@@ -360,12 +361,24 @@
                 
               
 
-              <time title="创建时间：2019-06-26 18:06:48 / 修改时间：19:22:47" itemprop="dateCreated datePublished" datetime="2019-06-26T18:06:48+08:00">2019-06-26</time>
+              <time title="创建时间：2019-06-26 18:06:48" itemprop="dateCreated datePublished" datetime="2019-06-26T18:06:48+08:00">2019-06-26</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-27 11:30:33" itemprop="dateModified" datetime="2019-06-27T11:30:33+08:00">2019-06-27</time>
               
             
           </span>
@@ -404,7 +417,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.2k</span>
+                <span title="本文字数">1.8k</span>
               
 
               
@@ -418,7 +431,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -445,16 +458,68 @@
 <p>Elasticsearch is a highly scalable open-source full-text search and analytics engine. It allows you to store, search, and analyze big volumes of data quickly and in near real time. It is generally used as the underlying engine/technology that powers applications that have complex search features and requirements.</p>
 </blockquote>
 <p>​    Elasticsearch是一个高度可扩展的开源全文搜索和分析引擎。它允许您快速，近实时地存储，搜索和分析大量数据。它通常用作底层引擎/技术，为具有复杂搜索功能和要求的应用程序提供支持。</p>
+<h3 id="Elastic-Stack"><a href="#Elastic-Stack" class="headerlink" title="Elastic Stack"></a>Elastic Stack</h3><p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g4fjxdjsklj31kc0u077y.jpg" alt="image-20190627112646014"></p>
+<p>Elastic Stack 是原 ELK Stack 在 5.0 版本加入 Beats 套件后的新称呼</p>
+<ul>
+<li>Logstash用于数据采集 (新增轻量级Beats)</li>
+<li>Kibana用于数据展示</li>
+</ul>
 <h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ul>
 <li>您运行在线网上商店，允许您的客户搜索您销售的产品。</li>
 <li>您运行价格警报平台，允许精通价格的客户指定一条规则，例如“我有兴趣购买特定的电子产品，如果小工具的价格在下个月内从任何供应商降至X美元以下，我希望收到通知” </li>
 <li>您希望收集日志或交易数据，并且希望分析和挖掘此数据以查找趋势，统计信息，摘要或异常。在这种情况下，您可以使用Logstash（Elasticsearch / Logstash / Kibana堆栈的一部分）来收集，聚合和解析数据，然后让Logstash将此数据提供给Elasticsearch。</li>
 <li>您有分析/商业智能需求，并希望快速调查，分析，可视化并询问有关大量数据的特定问题。使用Elasticsearch存储数据，然后使用Kibana（Elasticsearch / Logstash / Kibana堆栈的一部分）构建自定义仪表板，以便可视化数据</li>
 </ul>
-<h2 id="版本特征"><a href="#版本特征" class="headerlink" title="版本特征"></a>版本特征</h2><p>2.x <a href="https://www.elastic.co/guide/en/elasticsearch/reference/2.0/breaking-changes-2.0.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/2.0/breaking-changes-2.0.html</a></p>
-<p>5.x <a href="https://www.elastic.co/guide/en/elasticsearch/reference/5.0/breaking-changes-5.0.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/5.0/breaking-changes-5.0.html</a></p>
-<p>6.x <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/breaking-changes-6.0.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/6.0/breaking-changes-6.0.html</a></p>
-<p>7.x <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes-7.0.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes-7.0.html</a></p>
+<h2 id="版本特征"><a href="#版本特征" class="headerlink" title="版本特征"></a>版本特征</h2><p>Shay Banon在2010年2月发布了Elasticsearch的第一个版本。</p>
+<ul>
+<li><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/2.0/breaking-changes-2.0.html" target="_blank" rel="noopener">2.x</a> (2015)</p>
+<ul>
+<li><strong>doc_values</strong>  排序聚合支持,默认开启</li>
+<li><strong>Mapping 变化</strong> 字段名不要包含 dot 、type 不长于255字符等</li>
+<li><strong>Filtered Query</strong> deprecated</li>
+</ul>
+</li>
+<li><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/5.0/breaking-changes-5.0.html" target="_blank" rel="noopener">5.x</a> ( 2016) ES官方在5.x时代统一了 ELK体系的版本号</p>
+<ul>
+<li><p>支持Lucene6版本，其中最重要的特性就是 Dimensional Point Fields, “磁盘空间少一半；索引时间少一半；” ，Merge 时间和 JVM Heap 占用都会减少，索引本身的性能也提升。</p>
+<p>  “查询性能提升25%；IPV6也支持了</p>
+</li>
+<li><p>ProfileAPI、ShrinkAPI、RolloverAPI、ReindexAPI</p>
+</li>
+<li><p>Search After ,search 接口的一个新实现，使得你可以深度翻页。这个弥补了 scroll 和 search 的不足</p>
+</li>
+<li><p>String类型被text/keyword 两个类型取代,分别代表分词和部分词</p>
+</li>
+<li><p>索引级别设置不能再写到yml配置文件,需要为每个索引单独设置或写到模板中</p>
+</li>
+<li><p>TaskManager,重建索引等任务被管理,可以观察任务状态</p>
+</li>
+</ul>
+</li>
+<li><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/breaking-changes-6.0.html" target="_blank" rel="noopener">6.x</a> (2017)</p>
+<ul>
+<li>每个索引支持一个_type</li>
+<li>默认禁用_all字段</li>
+<li>优化了doc_values,占用磁盘空间更少,读写速度更快</li>
+<li>模板规则定义方式由template改为index_patterns</li>
+<li>增加序列ID,加快索引恢复速度</li>
+</ul>
+</li>
+<li><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes-7.0.html" target="_blank" rel="noopener">7.x</a>(2019) </p>
+<ul>
+<li><strong>查询相关性速度优化</strong> Weak-AND算法在Term Query查询场景有3700%的性能提升。</li>
+<li>引入新的集群协调子系统</li>
+<li>默认分片数不再是5，而是1</li>
+<li>安装包自带JDK环境</li>
+<li>集群中默认节点名字不再随机提供，改为获取hostname</li>
+<li>mapping与query阶段不再支持多type操作</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><a href="https://www.elastic.co/cn/downloads/past-releases#elasticsearch" target="_blank" rel="noopener">release note</a></p>
+<p><a href="https://www.elastic.co/cn/about/history-of-elasticsearch#group-3" target="_blank" rel="noopener">history</a></p>
+</blockquote>
 <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h2 id="写流程"><a href="#写流程" class="headerlink" title="写流程"></a>写流程</h2><h2 id="读流程"><a href="#读流程" class="headerlink" title="读流程"></a>读流程</h2><h2 id="相关优化"><a href="#相关优化" class="headerlink" title="相关优化"></a>相关优化</h2>
       
     </div>
@@ -701,7 +766,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">1.1.</span> <span class="nav-text">使用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本特征"><span class="nav-number">2.</span> <span class="nav-text">版本特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">3.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写流程"><span class="nav-number">4.</span> <span class="nav-text">写流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读流程"><span class="nav-number">5.</span> <span class="nav-text">读流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关优化"><span class="nav-number">6.</span> <span class="nav-text">相关优化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Elastic-Stack"><span class="nav-number">1.1.</span> <span class="nav-text">Elastic Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">1.2.</span> <span class="nav-text">使用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本特征"><span class="nav-number">2.</span> <span class="nav-text">版本特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">3.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写流程"><span class="nav-number">4.</span> <span class="nav-text">写流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读流程"><span class="nav-number">5.</span> <span class="nav-text">读流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关优化"><span class="nav-number">6.</span> <span class="nav-text">相关优化</span></a></li></ol></div>
             
 
           </div>
@@ -734,7 +799,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">328k</span>
+    <span title="站点总字数">329k</span>
   
 
   
@@ -743,7 +808,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">4:58</span>
+    <span title="站点阅读时长">4:59</span>
   
 </div>
 
