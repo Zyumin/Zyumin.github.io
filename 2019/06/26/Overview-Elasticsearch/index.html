@@ -104,7 +104,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g4eq0uiv34j30sg0sgdlr.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g4fjxdjsklj31kc0u077y.jpg">
-<meta property="og:updated_time" content="2019-06-27T15:10:30.472Z">
+<meta property="og:updated_time" content="2019-07-01T13:41:30.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Overview_Elasticsearch">
 <meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g4eq0uiv34j30sg0sgdlr.jpg">
@@ -378,7 +378,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-27 23:10:30" itemprop="dateModified" datetime="2019-06-27T23:10:30+08:00">2019-06-27</time>
+                <time title="修改时间：2019-07-01 21:41:30" itemprop="dateModified" datetime="2019-07-01T21:41:30+08:00">2019-07-01</time>
               
             
           </span>
@@ -417,7 +417,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.8k</span>
+                <span title="本文字数">7.9k</span>
               
 
               
@@ -431,7 +431,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">7 分钟</span>
               
             </div>
           
@@ -520,7 +520,127 @@
 <p><a href="https://www.elastic.co/cn/downloads/past-releases#elasticsearch" target="_blank" rel="noopener">release note</a></p>
 <p><a href="https://www.elastic.co/cn/about/history-of-elasticsearch#group-3" target="_blank" rel="noopener">history</a></p>
 </blockquote>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h2 id="写流程"><a href="#写流程" class="headerlink" title="写流程"></a>写流程</h2><h2 id="读流程"><a href="#读流程" class="headerlink" title="读流程"></a>读流程</h2><h2 id="相关优化"><a href="#相关优化" class="headerlink" title="相关优化"></a>相关优化</h2>
+<h2 id="初识Elasticsearch"><a href="#初识Elasticsearch" class="headerlink" title="初识Elasticsearch"></a>初识Elasticsearch</h2><p>基于Elasticsearch 6.x</p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
+<li><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/_basic_concepts.html#_near_realtime_nrt" target="_blank" rel="noopener">Near Realtime (NRT)</a></p>
+<p>  Elasticsearch is a near real time search platform. What this means is there is a slight latency (normally one second) from the time you index a document until the time it becomes searchable.</p>
+<p>  Elasticsearch是一个近乎实时的搜索平台。这意味着从索引文档到可搜索文档的时间有一点延迟（通常是一秒）</p>
+</li>
+<li><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/_basic_concepts.html#_cluster" target="_blank" rel="noopener">Cluster</a></p>
+<p>  A cluster is a collection of one or more nodes (servers) that together holds your entire data and provides federated indexing and search capabilities across all nodes.</p>
+<p>  集群是一个或多个节点（服务器）的集合，它们共同保存您的整个数据，并提供跨所有节点的联合索引和搜索功能</p>
+</li>
+<li><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/_basic_concepts.html#_node" target="_blank" rel="noopener">Node</a></p>
+<p>  A node is a single server that is part of your cluster, stores your data, and participates in the cluster’s indexing and search capabilities.</p>
+<p>  节点是作为群集一部分的单个服务器，存储数据并参与群集的索引和搜索功能。</p>
+</li>
+<li><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/_basic_concepts.html#_index" target="_blank" rel="noopener">Index</a></p>
+<p>  An index is a collection of documents that have somewhat similar characteristics</p>
+<p>  索引是具有某些类似特征的文档集合。</p>
+</li>
+<li><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/_basic_concepts.html#_type" target="_blank" rel="noopener">Type</a></p>
+<p>  A type used to be a logical category/partition of your index to allow you to store different types of documents in the same index</p>
+<p>  一种类型，曾经是索引的逻辑类别/分区，允许您在同一索引中存储不同类型的文档. Deprecated in 6.0.0.</p>
+</li>
+<li><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/_basic_concepts.html#_document" target="_blank" rel="noopener">Document</a></p>
+<p>  A document is a basic unit of information that can be indexed. This document is expressed in <a href="http://json.org/" target="_blank" rel="noopener">JSON</a> (JavaScript Object Notation) which is a ubiquitous internet data interchange format.Within an index/type, you can store as many documents as you want. Note that although a document physically resides in an index, a document actually must be indexed/assigned to a type inside an index.</p>
+<p>  文档是可以编制索引的基本信息单元。该文档以JSON（JavaScript Object Notation）表示，JSON是一种普遍存在的互联网数据交换格式。</p>
+</li>
+<li><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/_basic_concepts.html#getting-started-shards-and-replicas" target="_blank" rel="noopener">Shards &amp; Replicas</a></p>
+<ul>
+<li>Sharding is important for two primary reasons:<ul>
+<li>It allows you to horizontally split/scale your content volume</li>
+<li>It allows you to distribute and parallelize operations across shards (potentially on multiple nodes) thus increasing performance/throughput</li>
+</ul>
+</li>
+<li><p>Replication is important for two primary reasons:</p>
+<ul>
+<li>It provides high availability in case a shard/node fails. For this reason, it is important to note that a replica shard is never allocated on the same node as the original/primary shard that it was copied from.</li>
+<li>It allows you to scale out your search volume/throughput since searches can be executed on all replicas in parallel.</li>
+</ul>
+<p>分片: 水平扩展、提高并发度</p>
+<p>副本: 高可用(副本不会在同个节点上)、提高并发度</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/_basic_concepts.html" target="_blank" rel="noopener">More details see</a></p>
+</blockquote>
+<h3 id="集群健康度"><a href="#集群健康度" class="headerlink" title="集群健康度"></a>集群健康度</h3><ul>
+<li>Green - everything is good (cluster is fully functional)</li>
+<li>Yellow - all data is available but some replicas are not yet allocated (cluster is fully functional)</li>
+<li>Red - some data is not available for whatever reason (cluster is partially functional)</li>
+</ul>
+<h3 id="集群节点角色"><a href="#集群节点角色" class="headerlink" title="集群节点角色"></a>集群节点角色</h3><ul>
+<li><p>主节点(Master node)</p>
+<blockquote>
+<p>The master node is responsible for lightweight cluster-wide actions such as creating or deleting an index, tracking which nodes are part of the cluster, and deciding which shards to allocate to which nodes. It is important for cluster health to have a stable master node.</p>
+<p>Indexing and searching your data is CPU-, memory-, and I/O-intensive work which can put pressure on a node’s resources. To ensure that your master node is stable and not under pressure, it is a good idea in a bigger cluster to split the roles between dedicated master-eligible nodes and dedicated data nodes.</p>
+<p>To prevent data loss, it is vital to configure the <code>discovery.zen.minimum_master_nodes</code> setting (which defaults to <code>1</code>) so that each master-eligible node knows the <em>minimum number of master-eligible nodes</em> that must be visible in order to form a cluster.</p>
+<p>This setting should be set to a <em>quorum</em> of master-eligible nodes:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; (master_eligible_nodes / 2) + 1</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>  负责集群层面的相关操作,管理集群变更.也可以作为数据节点,但尽可能做少量的工作,尽量分离主节点和数据节点,同时为了防止网络分区时多主的情况(脑裂),需要设置有资格成为主节点的数量.</p>
+</li>
+<li><p>数据节点(Data node)</p>
+<p>  Data nodes hold the shards that contain the documents you have indexed. Data nodes handle data related operations like CRUD, search, and aggregations. These operations are I/O-, memory-, and CPU-intensive. It is important to monitor these resources and to add more data nodes if they are overloaded.</p>
+<p>  负责保存数据、执行数据相关操作:CRUD、搜索、聚合等.  </p>
+</li>
+<li><p>预处理节点(Ingest node)</p>
+<p>  Ingest nodes can execute pre-processing pipelines, composed of one or more ingest processors. Depending on the type of operations performed by the ingest processors and the required resources, it may make sense to have dedicated ingest nodes, that will only perform this specific task.</p>
+<p>  5.0引入.预处理操作允许在索引文档之前,即写入数据之前.通过事先定义好的一系列processors和pipeline,对数据进行某种转换、富化.  拦截bluk和index请求</p>
+</li>
+<li><p>协调节点(Coordinating node)</p>
+<p>  If you take away the ability to be able to handle master duties, to hold data, and pre-process documents, then you are left with a <em>coordinating</em> node that can only route requests, handle the search reduce phase, and distribute bulk indexing. Essentially, coordinating only nodes behave as smart load balancers.</p>
+<p>  协调节点将请求转发给保存数据的节点,每个数据节点在本地执行请求,并将结果返回协调节点.协调节点收集完数据后,将每个数据节点的结果合并为单个全局结果.对结果手机和排序的过程可能需要很多CPU和内存资源(协调节点过多也会成为负担,主节点必须等待各节点集群状态更新)</p>
+</li>
+<li><p>部落节点(Tribe node)</p>
+<p>  A tribe node, configured via the <code>tribe.*</code> settings, is a special type of coordinating only node that can connect to multiple clusters and perform search and other operations across all connected clusters.</p>
+<p>  允许部落节点在多个集群间充当联合客户端</p>
+</li>
+</ul>
+<p>​    By default a node is a master-eligible node and a data node, plus it can pre-process documents through ingest pipelines. This is very convenient for small clusters but, as the cluster grows, it becomes important to consider separating dedicated master-eligible nodes from dedicated data nodes.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">node.master:</span> <span class="literal">true</span> </span><br><span class="line"><span class="string">node.data:</span> <span class="literal">true</span> </span><br><span class="line"><span class="string">node.ingest:</span> <span class="literal">true</span> </span><br><span class="line"><span class="string">search.remote.connect:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/modules-node.html" target="_blank" rel="noopener">More details see</a></p>
+</blockquote>
+<h3 id="内部模块简介"><a href="#内部模块简介" class="headerlink" title="内部模块简介"></a>内部模块简介</h3><ul>
+<li><p>Cluster</p>
+<p>  Cluster模块是主节点执行集群管理的封装实现,管理集群状态,维护集群层面的配置信息.</p>
+<p>  主要功能如下:</p>
+<ul>
+<li>管理集群状态</li>
+<li>调用allocation模块执行分片分配,决策哪些分片应该分配到哪个节点</li>
+<li>在集群各节点中直接迁移分片,保持数据平衡</li>
+</ul>
+</li>
+<li><p>allocation</p>
+<p>  封装了分片分配相关的功能和策略,包括主分片的分配和副分配的分配,本模块由主节点调用.</p>
+<p>  创建新索引、集群完全重启都需要分片分配的过程.</p>
+</li>
+<li><p>Discovery</p>
+<p>  发现模块负责发现集群中的节点,以及选举主节点.当节点加入或退出集群时,主节点回采取相应的行动(类似Zookeeper)</p>
+</li>
+<li><p>gateway</p>
+<p>  负责对收到Master广播下看来对集群状态(cluster state)数据持久化存储,并在集群完全重启时恢复它们</p>
+</li>
+<li><p>indices</p>
+<p>  索引模块管理全局级的索引设置,不包含索引级的(索引设置分为全局级和每个索引级)</p>
+<p>  它还封装了索引数据恢复功能.集群启动阶段需要主分片恢复和副分片恢复就是在这个模块实现的.</p>
+</li>
+<li><p>HTTP</p>
+<p>  允许通过HTTP的方式访问ES的API,HTTP模块本质上是完全异步的,解决了C10K问题(10K量级的并发连接),部分场景可以考虑使用HTTP keepalive提升性能</p>
+</li>
+<li><p>Transport</p>
+<p>  传输模块用于集群内节点之间的内部通信.传输本质也是完全异步的,使用TCP通信,每个节点都与其他节点维持若干TCP长连接.</p>
+</li>
+<li><p>Engine</p>
+<p>  Engine模块封装了对Lucene的操作以及translog的调用,它是对一个分片读写操作的最终提供者</p>
+</li>
+</ul>
+<p>Es使用Guice框架(Google开发的轻量级依赖注入框架IoC)进行模块画管理</p>
+<h2 id="写流程"><a href="#写流程" class="headerlink" title="写流程"></a>写流程</h2><h2 id="读流程"><a href="#读流程" class="headerlink" title="读流程"></a>读流程</h2><h2 id="相关优化"><a href="#相关优化" class="headerlink" title="相关优化"></a>相关优化</h2>
       
     </div>
 
@@ -766,7 +886,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Elastic-Stack"><span class="nav-number">1.1.</span> <span class="nav-text">Elastic Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">1.2.</span> <span class="nav-text">使用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本特征"><span class="nav-number">2.</span> <span class="nav-text">版本特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">3.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写流程"><span class="nav-number">4.</span> <span class="nav-text">写流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读流程"><span class="nav-number">5.</span> <span class="nav-text">读流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关优化"><span class="nav-number">6.</span> <span class="nav-text">相关优化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Elastic-Stack"><span class="nav-number">1.1.</span> <span class="nav-text">Elastic Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">1.2.</span> <span class="nav-text">使用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本特征"><span class="nav-number">2.</span> <span class="nav-text">版本特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初识Elasticsearch"><span class="nav-number">3.</span> <span class="nav-text">初识Elasticsearch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">3.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群健康度"><span class="nav-number">3.2.</span> <span class="nav-text">集群健康度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群节点角色"><span class="nav-number">3.3.</span> <span class="nav-text">集群节点角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部模块简介"><span class="nav-number">3.4.</span> <span class="nav-text">内部模块简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写流程"><span class="nav-number">4.</span> <span class="nav-text">写流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读流程"><span class="nav-number">5.</span> <span class="nav-text">读流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关优化"><span class="nav-number">6.</span> <span class="nav-text">相关优化</span></a></li></ol></div>
             
 
           </div>
@@ -799,7 +919,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">329k</span>
+    <span title="站点总字数">335k</span>
   
 
   
@@ -808,7 +928,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">4:59</span>
+    <span title="站点阅读时长">5:04</span>
   
 </div>
 
