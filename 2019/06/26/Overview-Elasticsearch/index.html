@@ -104,7 +104,12 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g4eq0uiv34j30sg0sgdlr.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g4fjxdjsklj31kc0u077y.jpg">
-<meta property="og:updated_time" content="2019-07-01T13:41:30.321Z">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g4koc1e4jej30ku09dt91.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g4kod03zfbj318n0u0k1z.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g4koszf6fyj30rw0aagmk.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g4kohccg9aj30za0t0dj9.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g4koo5tl4tj30fq0lrmzz.jpg">
+<meta property="og:updated_time" content="2019-07-01T14:15:24.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Overview_Elasticsearch">
 <meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g4eq0uiv34j30sg0sgdlr.jpg">
@@ -378,7 +383,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-01 21:41:30" itemprop="dateModified" datetime="2019-07-01T21:41:30+08:00">2019-07-01</time>
+                <time title="修改时间：2019-07-01 22:15:24" itemprop="dateModified" datetime="2019-07-01T22:15:24+08:00">2019-07-01</time>
               
             
           </span>
@@ -417,7 +422,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">7.9k</span>
+                <span title="本文字数">8.6k</span>
               
 
               
@@ -431,7 +436,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">7 分钟</span>
+                <span title="阅读时长">8 分钟</span>
               
             </div>
           
@@ -640,7 +645,24 @@
 </li>
 </ul>
 <p>Es使用Guice框架(Google开发的轻量级依赖注入框架IoC)进行模块画管理</p>
-<h2 id="写流程"><a href="#写流程" class="headerlink" title="写流程"></a>写流程</h2><h2 id="读流程"><a href="#读流程" class="headerlink" title="读流程"></a>读流程</h2><h2 id="相关优化"><a href="#相关优化" class="headerlink" title="相关优化"></a>相关优化</h2>
+<h2 id="写流程"><a href="#写流程" class="headerlink" title="写流程"></a>写流程</h2><h3 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h3><p><em>新建、索引和删除 请求都是 写 操作， 必须在主分片上面完成之后才能被复制到相关的副本</em></p>
+<p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g4koc1e4jej30ku09dt91.jpg" alt="img"></p>
+<h3 id="详细流程"><a href="#详细流程" class="headerlink" title="详细流程"></a>详细流程</h3><p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g4kod03zfbj318n0u0k1z.jpg" alt="img"></p>
+<p><a href="https://www.easyice.cn/archives/180" target="_blank" rel="noopener">More details see</a></p>
+<h2 id="读流程"><a href="#读流程" class="headerlink" title="读流程"></a>读流程</h2><h3 id="GET流程"><a href="#GET流程" class="headerlink" title="GET流程"></a>GET流程</h3><p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g4koszf6fyj30rw0aagmk.jpg" alt="img"></p>
+<p>整体分为五个阶段:准备集群信息,内容路由,协调请求,数据读取,回复客户端。</p>
+<p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g4kohccg9aj30za0t0dj9.jpg" alt="img"></p>
+<h3 id="Search流程"><a href="#Search流程" class="headerlink" title="Search流程"></a>Search流程</h3><h4 id="索引和搜索"><a href="#索引和搜索" class="headerlink" title="索引和搜索"></a>索引和搜索</h4><p>ES中的数据可以分成两类 : 精确值和全文(mapping中指定类型)</p>
+<ul>
+<li>精确值 , 日期和用户id、IP地址等</li>
+<li>全文 , 指文本内容,日志或邮件内容  (会经过分析器 , 字符过滤器、分词器Tokenizer、Tonken过滤器、语言处理, 生成词Term ,生成倒排和正排索引)</li>
+</ul>
+<h4 id="搜索流程"><a href="#搜索流程" class="headerlink" title="搜索流程"></a>搜索流程</h4><p>增删改查操作只对单个文档进行处理,通常由 _index, _type, 和 _id三元组来确定唯一文档。但搜索需要一种更复杂的模型，因为不知道查询会命中哪些文档。一个搜索请求必须询问指定索引的<strong>所有分片中的某个副本</strong>来进行匹配。假设一个索引有5个主分片，1个副本分片，共10个分片，一次搜索请求会由5个分片来共同完成，他们有可能是主分片，也可能是副分片。也就是说，<strong>一次搜索请求只会命中所有副本中的一个</strong>。</p>
+<p>找到匹配文档仅仅完成了一半，多分片中的结果必须组合成单个排序列表。集群的任意节点都可以接受搜索请求，接收客户端请求的节点成为协调节点，在协调节点，搜索任务被执行成一个两阶段过程，称之为 query then fetch 。 真正执行搜索任务的节点暂且称为数据节点。</p>
+<p>#### </p>
+<p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g4koo5tl4tj30fq0lrmzz.jpg" alt="img"></p>
+<h2 id="相关优化"><a href="#相关优化" class="headerlink" title="相关优化"></a>相关优化</h2><p><a href="https://www.easyice.cn/所有文章" target="_blank" rel="noopener">https://www.easyice.cn/%e6%89%80%e6%9c%89%e6%96%87%e7%ab%a0</a></p>
+
       
     </div>
 
@@ -886,7 +908,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Elastic-Stack"><span class="nav-number">1.1.</span> <span class="nav-text">Elastic Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">1.2.</span> <span class="nav-text">使用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本特征"><span class="nav-number">2.</span> <span class="nav-text">版本特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初识Elasticsearch"><span class="nav-number">3.</span> <span class="nav-text">初识Elasticsearch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">3.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群健康度"><span class="nav-number">3.2.</span> <span class="nav-text">集群健康度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群节点角色"><span class="nav-number">3.3.</span> <span class="nav-text">集群节点角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部模块简介"><span class="nav-number">3.4.</span> <span class="nav-text">内部模块简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写流程"><span class="nav-number">4.</span> <span class="nav-text">写流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读流程"><span class="nav-number">5.</span> <span class="nav-text">读流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关优化"><span class="nav-number">6.</span> <span class="nav-text">相关优化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Elastic-Stack"><span class="nav-number">1.1.</span> <span class="nav-text">Elastic Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">1.2.</span> <span class="nav-text">使用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本特征"><span class="nav-number">2.</span> <span class="nav-text">版本特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初识Elasticsearch"><span class="nav-number">3.</span> <span class="nav-text">初识Elasticsearch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">3.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群健康度"><span class="nav-number">3.2.</span> <span class="nav-text">集群健康度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群节点角色"><span class="nav-number">3.3.</span> <span class="nav-text">集群节点角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部模块简介"><span class="nav-number">3.4.</span> <span class="nav-text">内部模块简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写流程"><span class="nav-number">4.</span> <span class="nav-text">写流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本流程"><span class="nav-number">4.1.</span> <span class="nav-text">基本流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详细流程"><span class="nav-number">4.2.</span> <span class="nav-text">详细流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读流程"><span class="nav-number">5.</span> <span class="nav-text">读流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET流程"><span class="nav-number">5.1.</span> <span class="nav-text">GET流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search流程"><span class="nav-number">5.2.</span> <span class="nav-text">Search流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#索引和搜索"><span class="nav-number">5.2.1.</span> <span class="nav-text">索引和搜索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搜索流程"><span class="nav-number">5.2.2.</span> <span class="nav-text">搜索流程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关优化"><span class="nav-number">6.</span> <span class="nav-text">相关优化</span></a></li></ol></div>
             
 
           </div>
@@ -919,7 +941,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">335k</span>
+    <span title="站点总字数">336k</span>
   
 
   
@@ -928,7 +950,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">5:04</span>
+    <span title="站点阅读时长">5:05</span>
   
 </div>
 
