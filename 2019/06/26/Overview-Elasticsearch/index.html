@@ -109,7 +109,7 @@
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g4koszf6fyj30rw0aagmk.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g4kohccg9aj30za0t0dj9.jpg">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g4koo5tl4tj30fq0lrmzz.jpg">
-<meta property="og:updated_time" content="2019-07-01T14:15:24.825Z">
+<meta property="og:updated_time" content="2019-07-02T02:15:46.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Overview_Elasticsearch">
 <meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g4eq0uiv34j30sg0sgdlr.jpg">
@@ -383,7 +383,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-01 22:15:24" itemprop="dateModified" datetime="2019-07-01T22:15:24+08:00">2019-07-01</time>
+                <time title="修改时间：2019-07-02 10:15:46" itemprop="dateModified" datetime="2019-07-02T10:15:46+08:00">2019-07-02</time>
               
             
           </span>
@@ -422,7 +422,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">8.6k</span>
+                <span title="本文字数">9.8k</span>
               
 
               
@@ -436,7 +436,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">8 分钟</span>
+                <span title="阅读时长">9 分钟</span>
               
             </div>
           
@@ -569,7 +569,10 @@
 </ul>
 </li>
 </ul>
-<blockquote>
+<pre><code>关系图
+
+![img](http://ww3.sinaimg.cn/large/006tNc79gy1g4l8acf7qoj30ry07nq47.jpg)
+</code></pre><blockquote>
 <p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/_basic_concepts.html" target="_blank" rel="noopener">More details see</a></p>
 </blockquote>
 <h3 id="集群健康度"><a href="#集群健康度" class="headerlink" title="集群健康度"></a>集群健康度</h3><ul>
@@ -661,7 +664,66 @@
 <p>找到匹配文档仅仅完成了一半，多分片中的结果必须组合成单个排序列表。集群的任意节点都可以接受搜索请求，接收客户端请求的节点成为协调节点，在协调节点，搜索任务被执行成一个两阶段过程，称之为 query then fetch 。 真正执行搜索任务的节点暂且称为数据节点。</p>
 <p>#### </p>
 <p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g4koo5tl4tj30fq0lrmzz.jpg" alt="img"></p>
-<h2 id="相关优化"><a href="#相关优化" class="headerlink" title="相关优化"></a>相关优化</h2><p><a href="https://www.easyice.cn/所有文章" target="_blank" rel="noopener">https://www.easyice.cn/%e6%89%80%e6%9c%89%e6%96%87%e7%ab%a0</a></p>
+<h2 id="相关优化"><a href="#相关优化" class="headerlink" title="相关优化"></a>相关优化</h2><h3 id="写入速度优化"><a href="#写入速度优化" class="headerlink" title="写入速度优化"></a>写入速度优化</h3><p>综合来说提升写入速度从以下几方面入手:</p>
+<ul>
+<li><p>加大translog flush间隔 ,目的降低iops、writeblock</p>
+<p>  允许接受部分数据丢失,可以调整translog持久化策略的周期性和大小(Es2.x 开始,默认配置为每次请求都“flush”)</p>
+  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">index.translog.durability</span> <span class="string">:</span> <span class="string">async</span></span><br><span class="line"><span class="string">Index.translog.sync_interval</span> <span class="string">:</span> <span class="number">5</span><span class="string">s</span></span><br><span class="line"><span class="string">Index.translog.flush_threshod_size</span> <span class="string">:</span> <span class="number">512</span><span class="string">mb</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加大index refresh间隔,除了降低I/O,更重要的是降低了segment merge频率</p>
+<p>  每次索引refresh会产生一个新的Lucene段,这会导致频繁的segment merge(I/O和内存占用都比较高)行为</p>
+  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">index.refresh_interval</span> <span class="string">:</span> <span class="number">1</span><span class="string">s</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调整bluk请求</p>
+<ul>
+<li>bulk线程池和队列(建立索引属于计算密集型)</li>
+<li><p>并发执行bulk请求(瓶颈在CPU)</p>
+<p>为避免给集群带来内存压力,每个请求最好避免超过几十兆字节</p>
+</li>
+</ul>
+</li>
+<li><p>优化磁盘间的任务均匀情况,将shard尽量均匀分布在物理主机的各个磁盘</p>
+<ul>
+<li>简单轮询 : 在系统初始化阶段,简单轮询的效果是最均匀的</li>
+<li>基于可用空间的动态加权轮询 : 以可用空间作为权重,在磁盘之间加权轮询</li>
+</ul>
+</li>
+<li><p>优化节点间的任务分布,将任务尽量均匀地发到各节点</p>
+<p>  数据写入客户端应该把bulk请求轮询发送到各个节点</p>
+</li>
+<li><p>优化Lucene层建立索引过程,目的降低CPU占用率及I/O,例如禁用_all字段</p>
+<ul>
+<li>自动生成doc ID</li>
+<li>调整字段Mappings<ul>
+<li>减少字段数量</li>
+<li>减少建立索引的字段</li>
+<li>减少字段内容</li>
+<li>使用不同分析器(analyzer)</li>
+</ul>
+</li>
+<li>调整_source字段</li>
+<li>禁用_all字段</li>
+<li>对Analyzed字段禁用Norms(评分)</li>
+<li>index_options设置</li>
+</ul>
+</li>
+</ul>
+<h3 id="搜索速度优化"><a href="#搜索速度优化" class="headerlink" title="搜索速度优化"></a>搜索速度优化</h3><ul>
+<li>为文件系统cache预留足够的内存 (第一性能因子)</li>
+<li>使用更快的硬件</li>
+<li>搜索尽可能少的字段</li>
+<li>预索引数据</li>
+<li>预热 (全局预热、文件系统)</li>
+<li>副本(ARS)</li>
+</ul>
+<blockquote>
+<p>现在假设你有一个2分片索引和两个节点。在一种情况下，副本的数量是0，这意味着每个节点拥有一个分片。在第二种情况下，副本的数量是1，这意味着每个节点具有两个分片。哪种设置在搜索性能方面表现最佳？通常，每个节点总共具有较少分片的设置将表现得更好。原因是它为每个分片提供了更大的可用文件系统缓存份额，而文件系统缓存可能是Elasticsearch的第一性能因子。同时，请注意，在单节点发生故障的情况下，没有副本的设置会出现故障，因此在吞吐量和可用性之间需要进行权衡。</p>
+</blockquote>
+<p>参考:</p>
+<blockquote>
+<p><a href="[https://www.easyice.cn/%e6%89%80%e6%9c%89%e6%96%87%e7%ab%a0](https://www.easyice.cn/所有文章">ELASTICSEARCH 源码解析与优化实战</a>)</p>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html" target="_blank" rel="noopener">官方文档</a></p>
+</blockquote>
 
       
     </div>
@@ -908,7 +970,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Elastic-Stack"><span class="nav-number">1.1.</span> <span class="nav-text">Elastic Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">1.2.</span> <span class="nav-text">使用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本特征"><span class="nav-number">2.</span> <span class="nav-text">版本特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初识Elasticsearch"><span class="nav-number">3.</span> <span class="nav-text">初识Elasticsearch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">3.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群健康度"><span class="nav-number">3.2.</span> <span class="nav-text">集群健康度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群节点角色"><span class="nav-number">3.3.</span> <span class="nav-text">集群节点角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部模块简介"><span class="nav-number">3.4.</span> <span class="nav-text">内部模块简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写流程"><span class="nav-number">4.</span> <span class="nav-text">写流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本流程"><span class="nav-number">4.1.</span> <span class="nav-text">基本流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详细流程"><span class="nav-number">4.2.</span> <span class="nav-text">详细流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读流程"><span class="nav-number">5.</span> <span class="nav-text">读流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET流程"><span class="nav-number">5.1.</span> <span class="nav-text">GET流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search流程"><span class="nav-number">5.2.</span> <span class="nav-text">Search流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#索引和搜索"><span class="nav-number">5.2.1.</span> <span class="nav-text">索引和搜索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搜索流程"><span class="nav-number">5.2.2.</span> <span class="nav-text">搜索流程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关优化"><span class="nav-number">6.</span> <span class="nav-text">相关优化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Elastic-Stack"><span class="nav-number">1.1.</span> <span class="nav-text">Elastic Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用场景"><span class="nav-number">1.2.</span> <span class="nav-text">使用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本特征"><span class="nav-number">2.</span> <span class="nav-text">版本特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初识Elasticsearch"><span class="nav-number">3.</span> <span class="nav-text">初识Elasticsearch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">3.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群健康度"><span class="nav-number">3.2.</span> <span class="nav-text">集群健康度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群节点角色"><span class="nav-number">3.3.</span> <span class="nav-text">集群节点角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部模块简介"><span class="nav-number">3.4.</span> <span class="nav-text">内部模块简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写流程"><span class="nav-number">4.</span> <span class="nav-text">写流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本流程"><span class="nav-number">4.1.</span> <span class="nav-text">基本流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详细流程"><span class="nav-number">4.2.</span> <span class="nav-text">详细流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读流程"><span class="nav-number">5.</span> <span class="nav-text">读流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET流程"><span class="nav-number">5.1.</span> <span class="nav-text">GET流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search流程"><span class="nav-number">5.2.</span> <span class="nav-text">Search流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#索引和搜索"><span class="nav-number">5.2.1.</span> <span class="nav-text">索引和搜索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搜索流程"><span class="nav-number">5.2.2.</span> <span class="nav-text">搜索流程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关优化"><span class="nav-number">6.</span> <span class="nav-text">相关优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#写入速度优化"><span class="nav-number">6.1.</span> <span class="nav-text">写入速度优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索速度优化"><span class="nav-number">6.2.</span> <span class="nav-text">搜索速度优化</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -941,7 +1003,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">336k</span>
+    <span title="站点总字数">337k</span>
   
 
   
@@ -950,7 +1012,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">5:05</span>
+    <span title="站点阅读时长">5:06</span>
   
 </div>
 
