@@ -96,21 +96,21 @@
 
 
 
-  <meta name="description" content="阅读的目的？我想要从中获得什么？ ​    对tomcat容器的分析 总结">
+  <meta name="description" content="阅读的目的？我想要从中获得什么？ ​    对tomcat容器的分析 总结 版本情况 Tomcat的顶层结构 Catalina 管理整个Tomcat的管理类  Server 最顶层容器，代表整个服务器  Service 提供具体服务 （多个） Connector 负责网络连接、request/response的创建（可以有多个连接，从servet.xml的配置也可以看出，同时提供http和http">
 <meta name="keywords" content="tomcat,servlet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="servlet_tomcat">
-<meta property="og:url" content="http://yoursite.com/2019/02/03/servlet-tomcat/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/02/03/Overview_Tomcat/index.html">
 <meta property="og:site_name" content="Zyumin">
-<meta property="og:description" content="阅读的目的？我想要从中获得什么？ ​    对tomcat容器的分析 总结">
+<meta property="og:description" content="阅读的目的？我想要从中获得什么？ ​    对tomcat容器的分析 总结 版本情况 Tomcat的顶层结构 Catalina 管理整个Tomcat的管理类  Server 最顶层容器，代表整个服务器  Service 提供具体服务 （多个） Connector 负责网络连接、request/response的创建（可以有多个连接，从servet.xml的配置也可以看出，同时提供http和http">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79gy1fztadjl1lbj31680mmtd6.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g3j4xp3inmj30iw0bwmz4.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fyasgs52ycj30wk0k6jxv.jpg">
-<meta property="og:updated_time" content="2019-05-30T02:30:33.458Z">
+<meta property="og:updated_time" content="2019-07-04T06:12:45.361Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="servlet_tomcat">
-<meta name="twitter:description" content="阅读的目的？我想要从中获得什么？ ​    对tomcat容器的分析 总结">
+<meta name="twitter:description" content="阅读的目的？我想要从中获得什么？ ​    对tomcat容器的分析 总结 版本情况 Tomcat的顶层结构 Catalina 管理整个Tomcat的管理类  Server 最顶层容器，代表整个服务器  Service 提供具体服务 （多个） Connector 负责网络连接、request/response的创建（可以有多个连接，从servet.xml的配置也可以看出，同时提供http和http">
 <meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNc79gy1fztadjl1lbj31680mmtd6.jpg">
 
 
@@ -118,7 +118,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/03/servlet-tomcat/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/03/Overview_Tomcat/">
 
 
 
@@ -322,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/03/servlet-tomcat/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/03/Overview_Tomcat/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhengyumin">
@@ -382,7 +382,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-30 10:30:33" itemprop="dateModified" datetime="2019-05-30T10:30:33+08:00">2019-05-30</time>
+                <time title="修改时间：2019-07-04 14:12:45" itemprop="dateModified" datetime="2019-07-04T14:12:45+08:00">2019-07-04</time>
               
             
           </span>
@@ -396,7 +396,7 @@
 
           
           
-            <span id="/2019/02/03/servlet-tomcat/" class="leancloud_visitors" data-flag-title="servlet_tomcat">
+            <span id="/2019/02/03/Overview_Tomcat/" class="leancloud_visitors" data-flag-title="servlet_tomcat">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -457,14 +457,19 @@
       
         <p>阅读的目的？我想要从中获得什么？</p>
 <p>​    对tomcat容器的分析 总结</p>
-<a id="more"></a>
-<!-- toc -->
-<hr>
-<h4 id="servlet容器-Tomcat"><a href="#servlet容器-Tomcat" class="headerlink" title="servlet容器 Tomcat"></a>servlet容器 Tomcat</h4><p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fztadjl1lbj31680mmtd6.jpg" alt="image-20190203155202660"></p>
-<h5 id="1-Tomcat的顶层结构"><a href="#1-Tomcat的顶层结构" class="headerlink" title="1 Tomcat的顶层结构"></a>1 Tomcat的顶层结构</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Catalina 管理整个Tomcat的管理类</span><br><span class="line"></span><br><span class="line">Server 最顶层容器，代表整个服务器</span><br><span class="line"></span><br><span class="line">	Service 提供具体服务 （多个）</span><br><span class="line"></span><br><span class="line">		Connector 负责网络连接、request/response的创建（可以有多个连接，从servet.xml的配置也可以看出，同时提供http和https，也可以提供相同协议不同端口的连接）</span><br><span class="line"></span><br><span class="line">		Container 具体处理Servlet</span><br></pre></td></tr></table></figure>
+<h2 id="版本情况"><a href="#版本情况" class="headerlink" title="版本情况"></a>版本情况</h2><p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fztadjl1lbj31680mmtd6.jpg" alt="image-20190203155202660"></p>
+<h2 id="Tomcat的顶层结构"><a href="#Tomcat的顶层结构" class="headerlink" title="Tomcat的顶层结构"></a>Tomcat的顶层结构</h2><ul>
+<li><p>Catalina 管理整个Tomcat的管理类</p>
+</li>
+<li><p>Server 最顶层容器，代表整个服务器</p>
+</li>
+<li>Service 提供具体服务 （多个）</li>
+<li>Connector 负责网络连接、request/response的创建（可以有多个连接，从servet.xml的配置也可以看出，同时提供http和https，也可以提供相同协议不同端口的连接）</li>
+<li>Container 具体处理Servlet</li>
+</ul>
 <p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g3j4xp3inmj30iw0bwmz4.jpg" alt="img"></p>
 <p>贴个图(源自这里<a href="https://my.oschina.net/masterworker/blog/844225" target="_blank" rel="noopener">https://my.oschina.net/masterworker/blog/844225</a>)</p>
-<h5 id="2-Tomcat的启动过程"><a href="#2-Tomcat的启动过程" class="headerlink" title="2 Tomcat的启动过程"></a>2 Tomcat的启动过程</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`org.apache.catalina.startup.Bootstrap` 是Tomcat的入口，作用类似一个`CatalinaAdptor`，具体处理还是Catalina来完成，这样做的好处是可以把启动的入口和具体的管理类分开，从而可以很方便地创建出多种启动方式。</span><br></pre></td></tr></table></figure>
+<h2 id="Tomcat的启动过程"><a href="#Tomcat的启动过程" class="headerlink" title="Tomcat的启动过程"></a>Tomcat的启动过程</h2><p><code>org.apache.catalina.startup.Bootstrap</code> 是Tomcat的入口，作用类似一个<code>CatalinaAdptor</code>，具体处理还是Catalina来完成，这样做的好处是可以把启动的入口和具体的管理类分开，从而可以很方便地创建出多种启动方式。 </p>
 <blockquote>
 <p>BootStrap不在Tomcat依赖包下 ，而是在bin目录 通过反射 完全松耦合</p>
 </blockquote>
@@ -481,26 +486,26 @@
 <p>  另外在<code>init()</code> 中 <code>Thread.currentThread().setContextClassLoader(catalinaLoader);</code> </p>
 </li>
 </ul>
-<h6 id="2-1Catalina的启动过程"><a href="#2-1Catalina的启动过程" class="headerlink" title="2.1Catalina的启动过程"></a>2.1Catalina的启动过程</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Catalina的启动主要是调用`setAwait()`、`load()`和`start()`方法来完成。</span><br></pre></td></tr></table></figure>
+<h3 id="Catalina的启动过程"><a href="#Catalina的启动过程" class="headerlink" title="Catalina的启动过程"></a>Catalina的启动过程</h3><p>Catalina的启动主要是调用<code>setAwait()</code>、<code>load()</code>和<code>start()</code>方法来完成。</p>
 <ul>
 <li><code>setAwait()</code> 方法用于设置Server启动完成后是否进入等待状态的标记</li>
 <li><code>load()</code>方法主要是用来加载配置文件<code>conf/server.xml</code>创建Server对象 （解析是通过Digester），然后调用Server的<code>init()</code></li>
 <li><code>start()</code> 主要是调用Server的 <code>start()</code></li>
 </ul>
-<h6 id="2-2-Server的启动过程"><a href="#2-2-Server的启动过程" class="headerlink" title="2.2 Server的启动过程"></a>2.2 Server的启动过程</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server的默认实现`org.apache.catalina.core.StandardServer` ,在其父类中`org.apache.catalina.util.LifecycleBase` 中的`init() ` 实现如下</span><br></pre></td></tr></table></figure>
+<h3 id="Server的启动过程"><a href="#Server的启动过程" class="headerlink" title="Server的启动过程"></a>Server的启动过程</h3><p>Server的默认实现<code>org.apache.catalina.core.StandardServer</code> ,在其父类中<code>org.apache.catalina.util.LifecycleBase</code> 中的<code>init()</code> 实现如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> <span class="keyword">throws</span> LifecycleException </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!state.equals(LifecycleState.NEW)) &#123;</span><br><span class="line">        invalidTransition(Lifecycle.BEFORE_INIT_EVENT);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        setStateInternal(LifecycleState.INITIALIZING, <span class="keyword">null</span>, <span class="keyword">false</span>);</span><br><span class="line">        initInternal();</span><br><span class="line">        setStateInternal(LifecycleState.INITIALIZED, <span class="keyword">null</span>, <span class="keyword">false</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Throwable t) &#123;</span><br><span class="line">        ExceptionUtils.handleThrowable(t);</span><br><span class="line">        setStateInternal(LifecycleState.FAILED, <span class="keyword">null</span>, <span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> LifecycleException(</span><br><span class="line">                sm.getString(<span class="string">"lifecycleBase.initFail"</span>,toString()), t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> <code>start()</code> 实现如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@inheritDoc</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> <span class="keyword">throws</span> LifecycleException </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (LifecycleState.STARTING_PREP.equals(state) || LifecycleState.STARTING.equals(state) ||LifecycleState.STARTED.equals(state)) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (log.isDebugEnabled()) &#123;</span><br><span class="line">            Exception e = <span class="keyword">new</span> LifecycleException();</span><br><span class="line">            log.debug(sm.getString(<span class="string">"lifecycleBase.alreadyStarted"</span>, toString()), e);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (log.isInfoEnabled()) &#123;</span><br><span class="line">            log.info(sm.getString(<span class="string">"lifecycleBase.alreadyStarted"</span>, toString()));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (state.equals(LifecycleState.NEW)) &#123;</span><br><span class="line">        init();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (state.equals(LifecycleState.FAILED)) &#123;</span><br><span class="line">        stop();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!state.equals(LifecycleState.INITIALIZED) &amp;&amp;</span><br><span class="line">            !state.equals(LifecycleState.STOPPED)) &#123;</span><br><span class="line">        invalidTransition(Lifecycle.BEFORE_START_EVENT);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        setStateInternal(LifecycleState.STARTING_PREP, <span class="keyword">null</span>, <span class="keyword">false</span>);</span><br><span class="line">        startInternal();</span><br><span class="line">        <span class="keyword">if</span> (state.equals(LifecycleState.FAILED)) &#123;</span><br><span class="line">            <span class="comment">// This is a 'controlled' failure. The component put itself into the</span></span><br><span class="line">            <span class="comment">// FAILED state so call stop() to complete the clean-up.</span></span><br><span class="line">            stop();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!state.equals(LifecycleState.STARTING)) &#123;</span><br><span class="line">            <span class="comment">// Shouldn't be necessary but acts as a check that sub-classes are</span></span><br><span class="line">            <span class="comment">// doing what they are supposed to.</span></span><br><span class="line">            invalidTransition(Lifecycle.AFTER_START_EVENT);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            setStateInternal(LifecycleState.STARTED, <span class="keyword">null</span>, <span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Throwable t) &#123;</span><br><span class="line">        <span class="comment">// This is an 'uncontrolled' failure so put the component into the</span></span><br><span class="line">        <span class="comment">// FAILED state and throw an exception.</span></span><br><span class="line">        ExceptionUtils.handleThrowable(t);</span><br><span class="line">        setStateInternal(LifecycleState.FAILED, <span class="keyword">null</span>, <span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> LifecycleException(sm.getString(<span class="string">"lifecycleBase.startFail"</span>, toString()), t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">其中 `startInternal() 和 initInternal()` 为模版方法 ，查看其实现类 可以发现是循环调用了每个`service`的`start()`和`init()`</span><br></pre></td></tr></table></figure>
-<h6 id="2-3-Service的启动过程"><a href="#2-3-Service的启动过程" class="headerlink" title="2.3 Service的启动过程"></a>2.3 Service的启动过程</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类似于Server , `StandardService`的`initInternal()`和 `startInternal()`的方法主要调用`container`、`executors`、`mapperListener`、`connectors`的`init()`和`start()`方法。</span><br></pre></td></tr></table></figure>
+<p>其中 <code>startInternal() 和 initInternal()</code> 为模版方法 ，查看其实现类 可以发现是循环调用了每个<code>service</code>的<code>start()</code>和<code>init()</code></p>
+<h3 id="Service的启动过程"><a href="#Service的启动过程" class="headerlink" title="Service的启动过程"></a>Service的启动过程</h3><p>类似于Server , <code>StandardService</code>的<code>initInternal()</code>和 <code>startInternal()</code>的方法主要调用<code>container</code>、<code>executors</code>、<code>mapperListener</code>、<code>connectors</code>的<code>init()</code>和<code>start()</code>方法。</p>
 <blockquote>
-<p>mapperListener是Mapper的监听器，可以监听container容器多变化</p>
+<p>mapperListener是Mapper的监听器，可以监听container容器的变化</p>
 <p>executors是用在connectors中管理线程的线程池，在server.xml配置文件中tomcatThreadPool</p>
 </blockquote>
-<p>下图为整个启动流程</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>下图为整个启动流程</p>
 <p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fyasgs52ycj30wk0k6jxv.jpg" alt="image-20181218123224591"></p>
-<h5 id="3-请求处理"><a href="#3-请求处理" class="headerlink" title="3 请求处理"></a>3 请求处理</h5><p>​        Connector用于接收请求并将请求封装成<code>Request</code>和<code>Response</code>来处理，最底层是使用Socket来进行连接的，封装完后交给Container进行处理（通过pipeline-Value管道来处理），Container处理完之后返回给Connector，最后Connector使用Socket将处理结果返回给客户端，整个请求就处理完了。</p>
-<h6 id="3-1-Connector的结构"><a href="#3-1-Connector的结构" class="headerlink" title="3.1 Connector的结构"></a>3.1 Connector的结构</h6><p>​    <code>Connector</code>中具体是用<code>ProtocolHandler</code>来处理请求的，有多种不同的连接类型（Ajp、HTTP和Spdy）。</p>
+<h2 id="请求处理"><a href="#请求处理" class="headerlink" title="请求处理"></a>请求处理</h2><p>​        Connector用于接收请求并将请求封装成<code>Request</code>和<code>Response</code>来处理，最底层是使用Socket来进行连接的，封装完后交给Container进行处理（通过pipeline-Value管道来处理），Container处理完之后返回给Connector，最后Connector使用Socket将处理结果返回给客户端，整个请求就处理完了。</p>
+<h3 id="Connector的结构"><a href="#Connector的结构" class="headerlink" title="Connector的结构"></a>Connector的结构</h3><p>​    <code>Connector</code>中具体是用<code>ProtocolHandler</code>来处理请求的，有多种不同的连接类型（Ajp、HTTP和Spdy）。</p>
 <p>其中有3个非常重要的组件。（<code>Connector</code>的创建过程主要是初始化<code>ProtocolHandler</code>,serverx.xml中可配置）</p>
 <ul>
 <li>Endpoint  用于处理底层的Socket的网络连接，用来实现TCP/IP协议</li>
@@ -513,7 +518,7 @@
 <p>协议升级：在servlet 3.1之后新增 WebSocket协议，如果Processor处理之后Socket的状态是UPGRADING,则EndPoint中的handler回接着创建并调用upgrade包中的processor进行处理</p>
 <p>request转换：Adapter转换后的request，其实就是封装了一层，  <code>public class Request implements org.apache.catalina.servlet4preview.http.HttpServletRequest</code></p>
 </blockquote>
-<h6 id="3-2-Pipeline-Value管道"><a href="#3-2-Pipeline-Value管道" class="headerlink" title="3.2 Pipeline-Value管道"></a>3.2 Pipeline-Value管道</h6><p>​    Piepeline的管道模型和普通的责任链模式稍微有点不同，区别主要如下</p>
+<h3 id="Pipeline-Value管道"><a href="#Pipeline-Value管道" class="headerlink" title="Pipeline-Value管道"></a>Pipeline-Value管道</h3><p>​    Piepeline的管道模型和普通的责任链模式稍微有点不同，区别主要如下</p>
 <ul>
 <li>每个pipeline都有特定的value，而且是在管道的最后一个执行，这个Value叫做BaseValue</li>
 <li>上层的BaseValue（类似配货车到中转站的感觉）会调用下层容器的管道</li>
@@ -570,7 +575,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/03/servlet-springmvc/" rel="prev" title="servlet_spring-mvc">
+              <a href="/2019/02/03/spring-mvc/" rel="prev" title="servlet_spring-mvc">
                 servlet_spring-mvc <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -780,7 +785,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#servlet容器-Tomcat"><span class="nav-number">1.</span> <span class="nav-text">servlet容器 Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Tomcat的顶层结构"><span class="nav-number">1.1.</span> <span class="nav-text">1 Tomcat的顶层结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Tomcat的启动过程"><span class="nav-number">1.2.</span> <span class="nav-text">2 Tomcat的启动过程</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2-1Catalina的启动过程"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1Catalina的启动过程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-2-Server的启动过程"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 Server的启动过程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-3-Service的启动过程"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 Service的启动过程</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-请求处理"><span class="nav-number">1.3.</span> <span class="nav-text">3 请求处理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#3-1-Connector的结构"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 Connector的结构</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-2-Pipeline-Value管道"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 Pipeline-Value管道</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#版本情况"><span class="nav-number">1.</span> <span class="nav-text">版本情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat的顶层结构"><span class="nav-number">2.</span> <span class="nav-text">Tomcat的顶层结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat的启动过程"><span class="nav-number">3.</span> <span class="nav-text">Tomcat的启动过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Catalina的启动过程"><span class="nav-number">3.1.</span> <span class="nav-text">Catalina的启动过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Server的启动过程"><span class="nav-number">3.2.</span> <span class="nav-text">Server的启动过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service的启动过程"><span class="nav-number">3.3.</span> <span class="nav-text">Service的启动过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求处理"><span class="nav-number">4.</span> <span class="nav-text">请求处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Connector的结构"><span class="nav-number">4.1.</span> <span class="nav-text">Connector的结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pipeline-Value管道"><span class="nav-number">4.2.</span> <span class="nav-text">Pipeline-Value管道</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -813,7 +818,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">370k</span>
+    <span title="站点总字数">369k</span>
   
 
   
@@ -961,7 +966,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/02/03/servlet-tomcat/'
+    refer: '2019/02/03/Overview_Tomcat/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
