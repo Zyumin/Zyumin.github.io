@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g4koszf6fyj30rw0aagmk.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g4kohccg9aj30za0t0dj9.jpg">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g4koo5tl4tj30fq0lrmzz.jpg">
-<meta property="og:updated_time" content="2019-07-04T06:11:56.268Z">
+<meta property="og:updated_time" content="2019-07-06T13:41:12.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Overview_Elasticsearch">
 <meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g4eq0uiv34j30sg0sgdlr.jpg">
@@ -385,7 +385,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-04 14:11:56" itemprop="dateModified" datetime="2019-07-04T14:11:56+08:00">2019-07-04</time>
+                <time title="修改时间：2019-07-06 21:41:12" itemprop="dateModified" datetime="2019-07-06T21:41:12+08:00">2019-07-06</time>
               
             
           </span>
@@ -753,6 +753,9 @@
 <li>预索引数据</li>
 <li>预热 (全局预热、文件系统)</li>
 <li>副本(ARS)</li>
+<li>冷热分离(通过索引区分冷、热数据)</li>
+<li>模型设计(仅需要索引的字段放在es,完整数据放在Hbase)</li>
+<li>分页优化(不允许深度分页,使用scroll api)</li>
 </ul>
 <blockquote>
 <p>现在假设你有一个2分片索引和两个节点。在一种情况下，副本的数量是0，这意味着每个节点拥有一个分片。在第二种情况下，副本的数量是1，这意味着每个节点具有两个分片。哪种设置在搜索性能方面表现最佳？通常，每个节点总共具有较少分片的设置将表现得更好。原因是它为每个分片提供了更大的可用文件系统缓存份额，而文件系统缓存可能是Elasticsearch的第一性能因子。同时，请注意，在单节点发生故障的情况下，没有副本的设置会出现故障，因此在吞吐量和可用性之间需要进行权衡。</p>
