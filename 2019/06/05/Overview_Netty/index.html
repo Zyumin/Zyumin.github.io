@@ -96,28 +96,25 @@
 
 
 
-  <meta name="keywords" content="framework,distributed,zookeeper">
+  <meta name="keywords" content="framework,netty,nio">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Zookeeper深入浅出">
-<meta property="og:url" content="http://yoursite.com/2019/06/03/Zookeeper深入浅出/index.html">
+<meta property="og:title" content="Netty深入浅出">
+<meta property="og:url" content="http://yoursite.com/2019/06/05/Overview_Netty/index.html">
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g3oad10mpuj31hc0u0gp4.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g3p70vvka4j30ca071q31.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g3p6yo4dhhj30go055aaj.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g3p74rq20ij30dw09qq3b.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g3p5jteoz1j30tg0mw3zr.jpg">
-<meta property="og:updated_time" content="2019-07-03T02:01:54.965Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g3qmnkhrfcj30xc0m8ag3.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g3qn7tloh8j30gg09o758.jpg">
+<meta property="og:updated_time" content="2019-07-06T15:13:55.959Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zookeeper深入浅出">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g3oad10mpuj31hc0u0gp4.jpg">
+<meta name="twitter:title" content="Netty深入浅出">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g3qmnkhrfcj30xc0m8ag3.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/03/Zookeeper深入浅出/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/05/Overview_Netty/">
 
 
 
@@ -127,7 +124,7 @@
   };
 </script>
 
-  <title>Zookeeper深入浅出 | Zyumin</title>
+  <title>Netty深入浅出 | Zyumin</title>
   
 
 
@@ -321,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/03/Zookeeper深入浅出/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/Overview_Netty/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhengyumin">
@@ -338,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Zookeeper深入浅出
+          <h1 class="post-title" itemprop="name headline">Netty深入浅出
 
               
             
@@ -364,7 +361,7 @@
                 
               
 
-              <time title="创建时间：2019-06-03 21:15:05" itemprop="dateCreated datePublished" datetime="2019-06-03T21:15:05+08:00">2019-06-03</time>
+              <time title="创建时间：2019-06-05 22:01:31" itemprop="dateCreated datePublished" datetime="2019-06-05T22:01:31+08:00">2019-06-05</time>
             
 
             
@@ -381,7 +378,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-03 10:01:54" itemprop="dateModified" datetime="2019-07-03T10:01:54+08:00">2019-07-03</time>
+                <time title="修改时间：2019-07-06 23:13:55" itemprop="dateModified" datetime="2019-07-06T23:13:55+08:00">2019-07-06</time>
               
             
           </span>
@@ -395,7 +392,7 @@
 
           
           
-            <span id="/2019/06/03/Zookeeper深入浅出/" class="leancloud_visitors" data-flag-title="Zookeeper深入浅出">
+            <span id="/2019/06/05/Overview_Netty/" class="leancloud_visitors" data-flag-title="Netty深入浅出">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -420,7 +417,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3.5k</span>
+                <span title="本文字数">1.9k</span>
               
 
               
@@ -434,7 +431,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">3 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -454,155 +451,54 @@
       
 
       
-        <p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g3oad10mpuj31hc0u0gp4.jpg" alt="image-20190603212535941"></p>
+        <p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g3qmnkhrfcj30xc0m8ag3.jpg" alt="image-20190605220200987"></p>
 <a id="more"></a>
-<h2 id="版本特征"><a href="#版本特征" class="headerlink" title="版本特征"></a>版本特征</h2><ul>
-<li><p>25 March, 2010: release 3.3.0 available  添加Observer、四字命令功能、JMX管理</p>
+<h2 id="Netty"><a href="#Netty" class="headerlink" title="Netty"></a>Netty</h2><p>​    Netty is <em>an asynchronous event-driven network application framework</em> for rapid development of maintainable high performance protocol servers &amp; clients.</p>
+<p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g3qn7tloh8j30gg09o758.jpg" alt="img"></p>
+<p>​    使用场景  zk ,redis proxy ,dubbo等</p>
+<p>more : <a href="https://netty.io/" target="_blank" rel="noopener">https://netty.io/</a></p>
+<h2 id="版本特征"><a href="#版本特征" class="headerlink" title="版本特征"></a>版本特征</h2><p>3.x </p>
+<p>4.x  RECOMMENDED VERSION</p>
+<p>5.x   ABANDONED VERSION - NOT SUPPORTED</p>
+<p>more : <a href="https://netty.io/wiki/user-guide.html" target="_blank" rel="noopener">https://netty.io/wiki/user-guide.html</a></p>
+<h2 id="三个问题"><a href="#三个问题" class="headerlink" title="三个问题"></a>三个问题</h2><ul>
+<li>IO模型 (NIO)</li>
+<li>数据协议(零拷贝、序列化框架)</li>
+<li>线程模型(锁)</li>
+</ul>
+<h2 id="高性能之道"><a href="#高性能之道" class="headerlink" title="高性能之道"></a>高性能之道</h2><h3 id="异步非阻塞通信"><a href="#异步非阻塞通信" class="headerlink" title="异步非阻塞通信"></a>异步非阻塞通信</h3><p>​    NIO、多路复用I/O(JNI epoll)</p>
+<p><a href="http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf" target="_blank" rel="noopener">http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf</a></p>
+<h3 id="零拷贝"><a href="#零拷贝" class="headerlink" title="零拷贝"></a>零拷贝</h3><p>​    Zero-Copy describes computer operations in which the CPU does not perform the task of copying data from one memory area to another.</p>
+<h4 id="直接堆外内存"><a href="#直接堆外内存" class="headerlink" title="直接堆外内存"></a>直接堆外内存</h4><p>​        Netty 的接收和发送 ByteBuffer 采用 DIRECTBUFFERS，使用堆外直接内存进行 Socket 读写，不需要进行字节缓冲区的二次拷贝</p>
+<p>​    如果使用传统的堆内存分配，当我们需要将数据通过socket发送的时候，就需要从堆内存拷贝到直接内存，然后再由直接内存拷贝到网卡接口层。<br>Netty提供的直接Buffer，直接将数据分配到内存空间，从而避免了数据的拷贝，实现了零拷贝。</p>
+<h4 id="组合Buffer对象"><a href="#组合Buffer对象" class="headerlink" title="组合Buffer对象"></a>组合Buffer对象</h4><p>​        Netty 提供了组合 Buffer 对象，可以聚合多个 ByteBuffer 对象，用户可以像操作一个 Buffer 那样方便的对组合 Buffer 进行操作，避免了传统通过内存拷贝的方式将几个小 Buffer 合并成一个大的 Buffer。</p>
+<h4 id="文件传输"><a href="#文件传输" class="headerlink" title="文件传输"></a>文件传输</h4><p>​        Netty 的文件传输采用了 transferTo 方法，它可以直接将文件缓冲区的数据发送到目标 Channel，避免了传统通过循环 write 方式导致的内存拷贝问题。(Linux对零拷贝的支持) </p>
+<h3 id="堆外内存的内存池"><a href="#堆外内存的内存池" class="headerlink" title="堆外内存的内存池"></a>堆外内存的内存池</h3><p>​    为了尽量重用缓冲区，Netty 提供了基于内存池的缓冲区重用机制</p>
+<h3 id="高效的-Reactor-线程模型"><a href="#高效的-Reactor-线程模型" class="headerlink" title="高效的 Reactor 线程模型"></a>高效的 Reactor 线程模型</h3><ul>
+<li><p>Reactor 单线程模型</p>
 </li>
-<li><p>22 Nov, 2011: release 3.4.0 available。3.4 引入Netty 做为NIO框架处理客户端连接 , 废弃两种选举算法</p>
+<li><p>Reactor 多线程模型         </p>
+<p>  IO pool</p>
 </li>
-<li><p>6 August, 2014: release 3.5.0-alpha available 。 ZooKeeper Dynamic Reconfiguration ,3.5.3中默认关闭</p>
+<li><p>主从 Reactor 多线程模型</p>
 </li>
 </ul>
-<pre><code>最新的版本为 20 May, 2019: release 3.5.5 available  
-</code></pre><p>more  <a href="http://zookeeper.apache.org/releases.html#news" target="_blank" rel="noopener">http://zookeeper.apache.org/releases.html#news</a></p>
-<h2 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h2><ul>
-<li><p>简单设计模型。</p>
+<p>​        Acceptor pool</p>
+<h3 id="无锁化的串行设计理念"><a href="#无锁化的串行设计理念" class="headerlink" title="无锁化的串行设计理念"></a>无锁化的串行设计理念</h3><p>​    Netty 的 NioEventLoop 读取到消息之后，直接调用 ChannelPipeline 的 fireChannelRead(Object msg)，只要用户不主动切换线程，一直会由 NioEventLoop 调用到 用户的 Handler，期间不进行线程切换，这种串行化处理方式避免了多线程操作导致的锁的 竞争，从性能角度看是最优的。</p>
+<h3 id="高效的并发编程"><a href="#高效的并发编程" class="headerlink" title="高效的并发编程"></a>高效的并发编程</h3><ul>
+<li>volatile 的大量、正确使用</li>
+<li>CAS 和原子类的广泛使用</li>
+<li>线程安全容器的使用</li>
+<li>通过读写锁提升并发性能</li>
+</ul>
+<h3 id="高性能的序列化框架"><a href="#高性能的序列化框架" class="headerlink" title="高性能的序列化框架"></a>高性能的序列化框架</h3><p>​    影响序列化性能的关键因素</p>
 <ul>
-<li><p>共享、树形结构的名字空间</p>
-<p>  <img src="http://ww3.sinaimg.cn/large/006tNc79gy1g3p70vvka4j30ca071q31.jpg" alt="ZooKeeper&#39;s Hierarchical Namespace"></p>
-</li>
+<li>序列化后的码流大小(网络带宽的占用)</li>
+<li>序列化&amp;反序列化的性能(CPU 资源占用)</li>
+<li>是否支持跨语言(异构系统的对接和开发语言切换)<br>  ​    通过扩展 Netty 的编解码接口，用户可以实 现其它的高性能序列化框架</li>
 </ul>
-</li>
-<li><p>可以构建集群</p>
-<ul>
-<li><p>(扩容、缩容 支持不好  需要全部重启 ,或一台台重启rolling update 、3.5版本解决了该问题)</p>
-<p>  <img src="http://ww2.sinaimg.cn/large/006tNc79gy1g3p6yo4dhhj30go055aaj.jpg" alt="ZooKeeper Service"></p>
-</li>
-</ul>
-</li>
-<li><p>顺序访问</p>
-</li>
-<li><p>高性能 </p>
-<ul>
-<li><p>内存,直接服务所有非事务请求,适合读多写少( it performs best where reads are more common than writes, at ratios of around 10:1)</p>
-<p>  <img src="http://ww3.sinaimg.cn/large/006tNc79gy1g3p74rq20ij30dw09qq3b.jpg" alt="ZooKeeper Throughput as the Read-Write Ratio Varies"></p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="集群角色"><a href="#集群角色" class="headerlink" title="集群角色"></a>集群角色</h3><p>​    传统Master/Slave ( redis/es )</p>
-<p>​    引入 Leader 、Follower 和 Observer( 不参与投票、不写事务日志 )角色 </p>
-<h3 id="会话-Session"><a href="#会话-Session" class="headerlink" title="会话(Session)"></a>会话(Session)</h3><p>​    TCP长连接 、Watch、SessionTimeout</p>
-<h3 id="数据节点-Znode"><a href="#数据节点-Znode" class="headerlink" title="数据节点(Znode)"></a>数据节点(Znode)</h3><p>​    持久节点和临时节点( 与Session有关)、顺序节点</p>
-<h3 id="版本-保证分布式数据原子性操作、乐观锁"><a href="#版本-保证分布式数据原子性操作、乐观锁" class="headerlink" title="版本(保证分布式数据原子性操作、乐观锁)"></a>版本(保证分布式数据原子性操作、乐观锁)</h3><p>​    Znode会有一个Stat 分别是 version、cversion 、aversion( ACL )</p>
-<h3 id="Watcher-客户端线程、客户端WatchManager和服务器"><a href="#Watcher-客户端线程、客户端WatchManager和服务器" class="headerlink" title="Watcher(客户端线程、客户端WatchManager和服务器)"></a>Watcher(客户端线程、客户端WatchManager和服务器)</h3><p>​    允许用户在指定节点注册一些Watcher,并且在特定事件触发,服务端会进行通知.但具体的内容还需要客户端自己去拉取.</p>
-<ul>
-<li>客户端注册Watcher</li>
-<li>服务端Watcher处理<ul>
-<li>ServerCnxn 是客户端和服务端的连接接口( NIOServerCnxn和NettyServerCnxn )</li>
-</ul>
-</li>
-<li>客户端回调Watcher</li>
-</ul>
-<p>特性</p>
-<ul>
-<li>一次性( 需要重复注册 )</li>
-<li>客户端串行执行</li>
-<li>轻量  </li>
-</ul>
-<p>​        通知状态、事件类型、节点路径</p>
-<h3 id="ACL-Access-Control-Lists-类似UNIX文件系统的权限控制"><a href="#ACL-Access-Control-Lists-类似UNIX文件系统的权限控制" class="headerlink" title="ACL( Access Control Lists 类似UNIX文件系统的权限控制 )"></a>ACL( Access Control Lists 类似UNIX文件系统的权限控制 )</h3><ul>
-<li>权限模式( Scheme )</li>
-<li>授权对象( ID )</li>
-<li>权限( permission )</li>
-</ul>
-<p>​        CREATE、READ、WRITE、DELETE、ADMIN</p>
-<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ul>
-<li>数据发布/订阅  </li>
-<li>分布式协调/通知 </li>
-<li>集群管理</li>
-<li>Master选举</li>
-<li>分布式锁(羊群效应,Watcher只关注比自己低的) </li>
-<li>分布式队列</li>
-</ul>
-<p>一般用于服务注册中心,如下图的Dubbo 中的Registry ,或者配置推送 ( 配置中心 规模不大的 ) </p>
-<p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g3p5jteoz1j30tg0mw3zr.jpg" alt="Architecture"></p>
-<h2 id="ZAB协议"><a href="#ZAB协议" class="headerlink" title="ZAB协议"></a>ZAB协议</h2><p>核心是定义了对于那些会改变ZooKeeper服务器数据状态的事务请求的处理方式:</p>
-<ol>
-<li>所有事务请求由一个全局唯一服务器处理 Leader</li>
-<li>Leader 负责将客户端事务请求转换成一个事务Proposal .分发给集群中的所有Follower</li>
-<li>等待所有服务器反馈,一旦超过半数Follower服务器正确反馈 Leader 会再次向所有Follower服务器分发commit</li>
-</ol>
-<h3 id="两个过程"><a href="#两个过程" class="headerlink" title="两个过程"></a>两个过程</h3><h4 id="奔溃恢复-初始化和选举"><a href="#奔溃恢复-初始化和选举" class="headerlink" title="奔溃恢复(初始化和选举)"></a>奔溃恢复(初始化和选举)</h4><ul>
-<li>基本特征<ul>
-<li>确保那些已经在Leader服务器上提交的事务最终被所有服务器提交</li>
-<li>确保丢弃那些只在Leader服务器上提出的事务</li>
-</ul>
-</li>
-<li>数据同步<ul>
-<li>直接差异化同步</li>
-<li>先回滚再差异化同步</li>
-<li>仅回滚同步</li>
-<li>全量同步  (优先)</li>
-</ul>
-</li>
-</ul>
-<p>​        ZKDatabase会定时向磁盘dump快照数据,再ZooKeeper服务器启动的时候,会通过磁盘上的事务日志(事务操作时间、客户端会话ID、CXID 客户端操作ID、ZXID、操作类型、节点路径、节点数据内容、节点的ACL信息、是否临时节点和父节点的子节点版本号)和快照数据文件恢复成一个完整的内存数据库</p>
-<h4 id="消息广播"><a href="#消息广播" class="headerlink" title="消息广播"></a>消息广播</h4><p>​            事务全局单调递增唯一ID (事务ID :包含epoch 选举周期) 和myid(机器序号唯一id)  ,为每个Follower分配一个FIFO队列 ,Follower接收后回写入事务日志,本地磁盘(基于FIFO 特性的TCP协议。保证消息广播过程中消息接收与发送的顺序性)</p>
-<h3 id="四个阶段"><a href="#四个阶段" class="headerlink" title="四个阶段"></a>四个阶段</h3><ul>
-<li>选举 <ul>
-<li>根据Vote(zxid,myid). electionEpoch当前选举周期。 state LOOKING</li>
-</ul>
-</li>
-<li>发现<ul>
-<li>Follower将最后epoch发送给准Leader</li>
-<li>收到过半Quorum 生成新epoch 给这些过半Follower</li>
-<li>反馈ACK和历史Proposal集合 ,  Leader 从中选择事务集合</li>
-</ul>
-</li>
-<li>同步<ul>
-<li>Leader 将事务集合 发给所有Quorum</li>
-</ul>
-</li>
-<li>广播<ul>
-<li>开始接收客户端请求,并进行消息广播流程</li>
-</ul>
-</li>
-</ul>
-<p>节点状态</p>
-<ul>
-<li><p>LOOKING </p>
-</li>
-<li><p>FOLLOWING</p>
-</li>
-<li><p>LEADING</p>
-</li>
-</ul>
-<h3 id="ZAB和Paxos区别"><a href="#ZAB和Paxos区别" class="headerlink" title="ZAB和Paxos区别"></a>ZAB和Paxos区别</h3><ul>
-<li>ZAB协议主要用于构建一个高可用的分布式数据主备系统</li>
-<li>Paxos算法用于构建一个分布式的一致性状态机系统</li>
-</ul>
-<h2 id="缺陷和不足"><a href="#缺陷和不足" class="headerlink" title="缺陷和不足"></a>缺陷和不足</h2><p>​    官网的介绍中</p>
-<p><code>ZooKeeper is a distributed, open-source coordination service for distributed applications. It exposes a simple set of primitives that distributed applications can build upon to implement higher level services for synchronization, configuration maintenance, and groups and naming.</code> </p>
-<p>​    翻译如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZooKeeper是一种用于分布式应用程序的分布式开源协调服务。它公开了一组简单的原语，分布式应用程序可以构建这些原语，以实现更高级别的服务，以实现同步，配置维护以及组和命名。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>提供比较底层的API, 具体由使用方实现(这个类似于J.U.C 提供了validate 和 CAS )</li>
-<li>java原生客户端使用繁琐复杂,如Watcher需要反复注册 ,推荐使用Curator</li>
-<li>数据模型为CP, 所以在可用性方面会有所不足,例如选举期间服务不可用(因为可用性问题,所以客户端不应该强依赖zookeeper ,一般的做法是客户端需要本地缓存)</li>
-<li>zookeeper的选举过程速度很慢，zookeeper的选举流程通常耗时30到120秒，期间zookeeper由于没有master，都是不可用的。(官网中提到 To show the behavior of the system over time as failures are injected we ran a ZooKeeper service made up of 7 machines.In our observations, ZooKeeper takes less than 200ms to elect a new leader.)</li>
-<li>Zookeeper树形文件结构、数据存储在内存, 但 snapshot（即数据量）不建议超过 1G,否则容易出现选主失败，导致整个集群不可用</li>
-<li>Zookeeper不能保证跨session的强一致性</li>
-<li>Scalability很弱，3.5.0之前的版本修改任何配置还得要rolling update；3.5.0之后新增支持动态reconfiguration</li>
-<li>其他 监控完善、不提供RESTful API、社区活跃度</li>
-</ul>
-<p>参考:</p>
-<blockquote>
-<p>官方链接: <a href="http://zookeeper.apache.org/doc/r3.5.5/zookeeperOver.html" target="_blank" rel="noopener">http://zookeeper.apache.org/doc/r3.5.5/zookeeperOver.html</a></p>
-<p>Zookeeper缺点 :<a href="https://www.zhihu.com/question/42931473" target="_blank" rel="noopener">https://www.zhihu.com/question/42931473</a></p>
-<p>从Paxos到Zooke分布式一致性原理与实践</p>
-</blockquote>
+<h3 id="灵活的-TCP-参数配置能力"><a href="#灵活的-TCP-参数配置能力" class="headerlink" title="灵活的 TCP 参数配置能力"></a>灵活的 TCP 参数配置能力</h3><p>​    SO_RCVBUF 和 SO_SNDBUF<br>​        通常建议值为 128K 或者 256K<br>​    SO_TCPNODELAY<br>​        NAGLE 算法通过将缓冲区内的小封包自动相连，组成较大的封包，阻止 大量小封包的发送阻塞网络，从而提高网络应用效率。但是对于时延敏感的应用场景需要关 闭该优化算法。<br>​    软中断<br>​        RPS 根据数据包的源地址，目的地址以及目的和源端口，计算出一个 hash 值，然后根据这个 hash 值来选择软中断运行的 cpu</p>
+<p>​                </p>
 
       
     </div>
@@ -628,9 +524,9 @@
           
             <a href="/tags/framework/" rel="tag"># framework</a>
           
-            <a href="/tags/distributed/" rel="tag"># distributed</a>
+            <a href="/tags/netty/" rel="tag"># netty</a>
           
-            <a href="/tags/zookeeper/" rel="tag"># zookeeper</a>
+            <a href="/tags/nio/" rel="tag"># nio</a>
           
         </div>
       
@@ -643,8 +539,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/03/分布式理论基础/" rel="next" title="分布式理论基础">
-                <i class="fa fa-chevron-left"></i> 分布式理论基础
+              <a href="/2019/06/05/Note_深入理解java虚拟机/" rel="next" title="Java虚拟机深入浅出">
+                <i class="fa fa-chevron-left"></i> Java虚拟机深入浅出
               </a>
             
           </div>
@@ -653,8 +549,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/04/MySQL深入浅出/" rel="prev" title="MySQL深入浅出">
-                MySQL深入浅出 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/06/Note_java并发编程的艺术/" rel="prev" title="java并发深入浅出">
+                java并发深入浅出 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -731,7 +627,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -863,7 +759,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#版本特征"><span class="nav-number">1.</span> <span class="nav-text">版本特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计目标"><span class="nav-number">2.</span> <span class="nav-text">设计目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">3.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集群角色"><span class="nav-number">3.1.</span> <span class="nav-text">集群角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#会话-Session"><span class="nav-number">3.2.</span> <span class="nav-text">会话(Session)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据节点-Znode"><span class="nav-number">3.3.</span> <span class="nav-text">数据节点(Znode)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本-保证分布式数据原子性操作、乐观锁"><span class="nav-number">3.4.</span> <span class="nav-text">版本(保证分布式数据原子性操作、乐观锁)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Watcher-客户端线程、客户端WatchManager和服务器"><span class="nav-number">3.5.</span> <span class="nav-text">Watcher(客户端线程、客户端WatchManager和服务器)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ACL-Access-Control-Lists-类似UNIX文件系统的权限控制"><span class="nav-number">3.6.</span> <span class="nav-text">ACL( Access Control Lists 类似UNIX文件系统的权限控制 )</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用场景"><span class="nav-number">4.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ZAB协议"><span class="nav-number">5.</span> <span class="nav-text">ZAB协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两个过程"><span class="nav-number">5.1.</span> <span class="nav-text">两个过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#奔溃恢复-初始化和选举"><span class="nav-number">5.1.1.</span> <span class="nav-text">奔溃恢复(初始化和选举)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#消息广播"><span class="nav-number">5.1.2.</span> <span class="nav-text">消息广播</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四个阶段"><span class="nav-number">5.2.</span> <span class="nav-text">四个阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZAB和Paxos区别"><span class="nav-number">5.3.</span> <span class="nav-text">ZAB和Paxos区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺陷和不足"><span class="nav-number">6.</span> <span class="nav-text">缺陷和不足</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Netty"><span class="nav-number">1.</span> <span class="nav-text">Netty</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本特征"><span class="nav-number">2.</span> <span class="nav-text">版本特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三个问题"><span class="nav-number">3.</span> <span class="nav-text">三个问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高性能之道"><span class="nav-number">4.</span> <span class="nav-text">高性能之道</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异步非阻塞通信"><span class="nav-number">4.1.</span> <span class="nav-text">异步非阻塞通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#零拷贝"><span class="nav-number">4.2.</span> <span class="nav-text">零拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#直接堆外内存"><span class="nav-number">4.2.1.</span> <span class="nav-text">直接堆外内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合Buffer对象"><span class="nav-number">4.2.2.</span> <span class="nav-text">组合Buffer对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件传输"><span class="nav-number">4.2.3.</span> <span class="nav-text">文件传输</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆外内存的内存池"><span class="nav-number">4.3.</span> <span class="nav-text">堆外内存的内存池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高效的-Reactor-线程模型"><span class="nav-number">4.4.</span> <span class="nav-text">高效的 Reactor 线程模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无锁化的串行设计理念"><span class="nav-number">4.5.</span> <span class="nav-text">无锁化的串行设计理念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高效的并发编程"><span class="nav-number">4.6.</span> <span class="nav-text">高效的并发编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高性能的序列化框架"><span class="nav-number">4.7.</span> <span class="nav-text">高性能的序列化框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#灵活的-TCP-参数配置能力"><span class="nav-number">4.8.</span> <span class="nav-text">灵活的 TCP 参数配置能力</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1044,7 +940,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/06/03/Zookeeper深入浅出/'
+    refer: '2019/06/05/Overview_Netty/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
