@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g3znqgyeikj30hs0cgglr.jpg">
-<meta property="og:updated_time" content="2019-07-04T06:05:07.448Z">
+<meta property="og:updated_time" content="2019-07-09T17:05:24.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spec_Java Virtual Machine">
 <meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g3znqgyeikj30hs0cgglr.jpg">
@@ -377,7 +377,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-04 14:05:07" itemprop="dateModified" datetime="2019-07-04T14:05:07+08:00">2019-07-04</time>
+                <time title="修改时间：2019-07-10 01:05:24" itemprop="dateModified" datetime="2019-07-10T01:05:24+08:00">2019-07-10</time>
               
             
           </span>
@@ -416,7 +416,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.3k</span>
+                <span title="本文字数">2.6k</span>
               
 
               
@@ -453,19 +453,28 @@
         <p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g3znqgyeikj30hs0cgglr.jpg" alt="img"></p>
 <a id="more"></a>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>JSR-000924 JavaTM Virtual Machine Specification<br><strong>(Close of Maintenance Review: 19 July 2004)</strong></p>
-<ul>
-<li>Memory Model (Chapter 8) - JSR 133 has changed the memory model. Chapter 8 of the Java Virtual Machine Specification, Second Edition is superseded by JSR 133. See chapter 17 of the <a href="https://jcp.org/aboutJava/communityprocess/maintenance/JLS/index2.html" target="_blank" rel="noopener">Java Language Specification, Third Edition</a> for details.</li>
-</ul>
+<blockquote>
+<p>Memory Model (Chapter 8) - JSR 133 has changed the memory model. Chapter 8 of the Java Virtual Machine Specification, Second Edition is superseded by JSR 133. See chapter 17 of the <a href="https://jcp.org/aboutJava/communityprocess/maintenance/JLS/index2.html" target="_blank" rel="noopener">Java Language Specification, Third Edition</a> for details.</p>
+</blockquote>
 <p>Java SE 7 开始内存模型被移除,相关规范在java语言规范第17章</p>
+<p>Java 虚拟机与 Java 语言并没有必然的联系，它只与特定的二进制文件格式——Class 文件<br>格式所关联，Class 文件中包含了 Java 虚拟机指令集(或者称为字节码、Bytecodes)和符号<br>表，还有一些其他辅助信息。</p>
+<p>基于安全方面的考虑，Java 虚拟机要求在 Class 文件中使用了许多强制性的语法和结构化<br>约束，但任一门功能性语言都可以表示为一个能被 Java 虚拟机接收的有效的 Class 文件。作为<br>一个通用的、机器无关的执行平台，任何其他语言的实现者都可以将 Java 虚拟机作为他们语言的<br>产品交付媒介。</p>
 <p><strong>Summary of Chapters</strong></p>
 <p>The rest of this book is structured as follows: </p>
 <ul>
-<li>Chapter 2 gives an overview of the Java Virtual Machine architecture. </li>
-<li>Chapter 3 introduces compilation of code written in the Java programming language into the instruction set of the Java Virtual Machine. </li>
-<li>Chapter 4 specifies the class file format, the hardware- and operating system- independent binary format used to represent compiled classes and interfaces. </li>
-<li>Chapter 5 specifies the start-up of the Java Virtual Machine and the loading, linking, and initialization of classes and interfaces. </li>
-<li>Chapter 6 specifies the instruction set of the Java Virtual Machine, presenting the instructions in alphabetical order of opcode mnemonics. </li>
-<li>Chapter 7 gives a table of Java Virtual Machine opcode mnemonics indexed by opcode value. </li>
+<li><p>Chapter 2 gives an overview of the Java Virtual Machine architecture.  </p>
+<p>  Java 虚拟机结构</p>
+</li>
+<li><p>Chapter 3 introduces compilation of code written in the Java programming language into the instruction set of the Java Virtual Machine. </p>
+</li>
+<li><p>Chapter 4 specifies the class file format, the hardware- and operating system- independent binary format used to represent compiled classes and interfaces. </p>
+</li>
+<li><p>Chapter 5 specifies the start-up of the Java Virtual Machine and the loading, linking, and initialization of classes and interfaces. </p>
+</li>
+<li><p>Chapter 6 specifies the instruction set of the Java Virtual Machine, presenting the instructions in alphabetical order of opcode mnemonics. </p>
+</li>
+<li><p>Chapter 7 gives a table of Java Virtual Machine opcode mnemonics indexed by opcode value. </p>
+</li>
 </ul>
 <h2 id="The-Structure-of-the-Java-Virtual-Machine"><a href="#The-Structure-of-the-Java-Virtual-Machine" class="headerlink" title="The Structure of the Java Virtual Machine"></a>The Structure of the Java Virtual Machine</h2><p>运行时内存结构  、相关的包、  帧</p>
 <h2 id="Compiling-for-the-Java-Virtual-Machine"><a href="#Compiling-for-the-Java-Virtual-Machine" class="headerlink" title="Compiling for the Java Virtual Machine"></a>Compiling for the Java Virtual Machine</h2><p>将java文件编译成字节码, </p>
@@ -778,7 +787,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">371k</span>
+    <span title="站点总字数">380k</span>
   
 
   
@@ -787,7 +796,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">5:37</span>
+    <span title="站点阅读时长">5:46</span>
   
 </div>
 
