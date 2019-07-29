@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="jdk,collections">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JDK_The Collections Framework">
+<meta property="og:url" content="http://yoursite.com/2019/07/29/JDK-The-Collections-Framework/index.html">
+<meta property="og:site_name" content="Zyumin">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g5gqxyicllj30qo0f0gn7.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g5grfa3sfgj30vq0s60v2.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g5gt0ie7x3g30b6042aa5.gif">
+<meta property="og:updated_time" content="2019-07-29T09:10:22.886Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JDK_The Collections Framework">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g5gqxyicllj30qo0f0gn7.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/07/29/JDK-The-Collections-Framework/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JDK_The Collections Framework | Zyumin</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemsope="" itemtype="http://schema.org/WPHeader">
+	  <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zyumin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">自驱和热情</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/Zyumin" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/29/JDK-The-Collections-Framework/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhengyumin">
+      <meta itemprop="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zyumin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JDK_The Collections Framework
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-29 15:26:01 / 修改时间：17:10:22" itemprop="dateCreated datePublished" datetime="2019-07-29T15:26:01+08:00">2019-07-29</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/07/29/JDK-The-Collections-Framework/" class="leancloud_visitors" data-flag-title="JDK_The Collections Framework">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">26k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">24 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g5gqxyicllj30qo0f0gn7.jpg" alt="img"></p>
+<a id="more"></a>
+<h2 id="preface"><a href="#preface" class="headerlink" title="preface"></a>preface</h2><p>​    </p>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>最近有个二货在线上使用Collections#sort()的时候报了个错, java.lang.IllegalArgumentException: Comparison method violates its general contract!  运行的JDK环境是1.7</p>
+<p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g5grfa3sfgj30vq0s60v2.jpg" alt="image-20190729155205469"></p>
+<p> 本着博爱的精神,看了看之前也遇到类似的问题.就决定总结下,其实这个是JDK1.6到1.7的兼容问题.在<a href="https://www.oracle.com/technetwork/java/javase/compatibility-417013.html#incompatibilities" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/compatibility-417013.html#incompatibilities</a> 中可以发现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Area: API: Utilities</span><br><span class="line">Synopsis: Updated sort behavior for Arrays and Collections may throw an IllegalArgumentException</span><br><span class="line">Description: The sorting algorithm used by java.util.Arrays.sort and (indirectly) by java.util.Collections.sort has been replaced. The new sort implementation may throw an IllegalArgumentException if it detects a Comparable that violates the Comparable contract. The previous implementation silently ignored such a situation.</span><br><span class="line">If the previous behavior is desired, you can use the new system property, java.util.Arrays.useLegacyMergeSort, to restore previous mergesort behavior.</span><br><span class="line">Nature of Incompatibility: behavioral</span><br><span class="line">RFE: 6804124</span><br></pre></td></tr></table></figure>
+<p>​    如果违法了比较的约束新的排序算法也许会抛出llegalArgumentException异常。JDK6中的实现则忽略了这种情况</p>
+<h3 id="根本原因"><a href="#根本原因" class="headerlink" title="根本原因"></a>根本原因</h3><p>实现Comparable接口后，要满足一下三个特性：</p>
+<ul>
+<li>自反性：x,y 的比较结果和 y,x 的比较结果相反。 sgn(compare(x, y)) == -sgn(compare(y, x))</li>
+<li>传递性：x&gt;y, y&gt;z, 则 x&gt;z。((compare(x, y)&gt;0) &amp;&amp; (compare(y, z)&gt;0)) implies compare(x, z)&gt;0</li>
+<li>对称性：x=y,则 x,z 比较结果和 y，z 比较结果相同。    compare(x, y) == 0 implies that sgn(compare(x, z)) == sgn(compare(y, z)) for all z</li>
+</ul>
+<p>​    开头的那个小朋友实现类似如下,明显没有满足自反性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return x &gt; y ? 1 : -1;</span><br></pre></td></tr></table></figure>
+<p>当x == y时，sgn(compare(x, y))  = -1，-sgn(compare(y, x)) = 1，这违背了sgn(compare(x, y)) == -sgn(compare(y, x))约束，所以在JDK7中抛出了异常。</p>
+<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><p>这里贴个可以重现该错误的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.function.Consumer;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Collections sort 要满足自反性否则会有概率出错，在1.7中会有问题</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> zhengyumin</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2019-07-18 10:24</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CollectionSort</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list = Arrays.asList(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">30</span>, <span class="number">0</span>, <span class="number">3</span>);</span><br><span class="line">        list.sort((o1, o2) -&gt; o1 &gt; o2 ? <span class="number">1</span> : -<span class="number">1</span>);</span><br><span class="line">        list.stream().forEach((Consumer) o -&gt; System.out.println(o));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面描述的只是集合框架中的一个问题. 好了,回到我们今天的主题The Collections Framework.</p>
+<p>相关资料可以参考:<a href="https://docs.oracle.com/javase/8/docs/technotes/guides/collections/index.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/technotes/guides/collections/index.html</a></p>
+<h2 id="The-Collections-Framework"><a href="#The-Collections-Framework" class="headerlink" title="The Collections Framework"></a>The Collections Framework</h2><h3 id="API-Enhancements"><a href="#API-Enhancements" class="headerlink" title="API Enhancements"></a>API Enhancements</h3><p>各版本API增强变化</p>
+<ul>
+<li><p><strong>API Enhancements in Java SE 8</strong> - An annotated list of API changes between release 7 and 8.</p>
+<ul>
+<li>Support for Lambda Expressions, Streams, and Aggregate Operations</li>
+<li>Performance Improvement for HashMaps with Key Collisions</li>
+</ul>
+</li>
+<li><p><strong>API Enhancements in Java SE 7</strong> - An annotated list of API changes between release 6 and 7.</p>
+<ul>
+<li>New Interface, TransferQueue</li>
+<li>Improved Hash Function</li>
+</ul>
+</li>
+<li><p><strong>API Enhancements in Java SE 6</strong> - An annotated list of API changes between release 5.0 and 6.</p>
+<ul>
+<li>These new collection interfaces are provided:<ul>
+<li><code>Deque</code></li>
+<li><code>BlockingDeque</code></li>
+<li><code>NavigableSet</code> </li>
+<li><code>NavigableMap</code> </li>
+<li><code>ConcurrentNavigableMap</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>API Enhancements in J2SE 5.0</strong> - An annotated list of API changes between release 1.4 and 5.0.</p>
+<ul>
+<li>Three new collection interfaces are provided:<ul>
+<li><code>Queue</code> </li>
+<li><code>BlockingQueue</code> </li>
+<li><code>ConcurrentMap</code></li>
+</ul>
+</li>
+<li>Three new generic algorithms and one comparator converter were added to the <code>Collections</code> utility class:<ul>
+<li><code>frequency(Collection&lt;?&gt; c, Object o)</code> </li>
+<li><code>disjoint(Collection&lt;?&gt; c1, Collection&lt;?&gt; c2)</code> </li>
+<li><code>addAll(Collection&lt;? super T&gt; c, T... a)</code> </li>
+<li><code>Comparator&lt;T&gt; reverseOrder(Comparator&lt;T&gt; cmp)</code> </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>API Enhancements in J2SDK 1.4</strong> - An annotated list of API changes between release 1.3 and 1.4.</p>
+<ul>
+<li><p>The <code>Collections</code> utility class has several new methods:</p>
+<ul>
+<li><code>rotate(List list, int distance)</code> </li>
+<li><code>replaceAll(List list, Object oldVal, Object newVal)</code></li>
+<li><code>indexOfSubList(List source, List target)</code> </li>
+<li><code>lastIndexOfSubList(List source, List target)</code></li>
+<li><code>swap(List list, int i, int j)</code> </li>
+<li><code>list(Enumeration e)</code> </li>
+</ul>
+</li>
+<li><p>New interface <code>RandomAccess</code> is a marker interface that allows <code>List</code> implementations to indicate that they support fast (generally constant time) random access.</p>
+</li>
+<li><p>New class <code>LinkedHashMap</code> provides an insertion-ordered <code>Map</code> implementation that runs nearly as fast as <code>HashMap</code>. </p>
+</li>
+<li><p>New class <code>IdentityHashMap</code> is an identity-based Map implementation based on a hash table. </p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Introduction-to-Collections"><a href="#Introduction-to-Collections" class="headerlink" title="Introduction to Collections"></a>Introduction to Collections</h3><p>​    为什么需要集合框架?集合框架的组成?</p>
+<h4 id="What-Is-a-Collections-Framework"><a href="#What-Is-a-Collections-Framework" class="headerlink" title="What Is a Collections Framework?"></a>What Is a Collections Framework?</h4><p>A <em>collections framework</em> is a unified architecture for representing and manipulating collections. All collections frameworks contain the following:</p>
+<ul>
+<li><strong>Interfaces:</strong> These are abstract data types that represent collections. Interfaces allow collections to be manipulated independently of the details of their representation. In object-oriented languages, interfaces generally form a hierarchy.</li>
+<li><strong>Implementations:</strong> These are the concrete implementations of the collection interfaces. In essence, they are reusable data structures.</li>
+<li><strong>Algorithms:</strong> These are the methods that perform useful computations, such as searching and sorting, on objects that implement collection interfaces. The algorithms are said to be <em>polymorphic</em>: that is, the same method can be used on many different implementations of the appropriate collection interface. In essence, algorithms are reusable functionality.</li>
+</ul>
+<p>所有集合框架都包含如下: 接口、实现、算法</p>
+<p>more details , The collections framework consists of:</p>
+<ul>
+<li><strong>Collection interfaces</strong>. Represent different types of collections, such as sets, lists, and maps. These interfaces form the basis of the framework.<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html" target="_blank" rel="noopener"><strong>Collection</strong></a> - A group of objects. No assumptions are made about the order of the collection (if any) or whether it can contain duplicate elements.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html" target="_blank" rel="noopener"><strong>Set</strong></a> - The familiar set abstraction. No duplicate elements permitted. May or may not be ordered. Extends the <code>Collection</code> interface.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank" rel="noopener"><strong>List</strong></a> - Ordered collection, also known as a <em>sequence</em>. Duplicates are generally permitted. Allows positional access. Extends the <code>Collection</code> interface.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html" target="_blank" rel="noopener"><strong>Queue</strong></a> - A collection designed for holding elements before processing. Besides basic <code>Collection</code> operations, queues provide additional insertion, extraction, and inspection operations.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Deque.html" target="_blank" rel="noopener"><strong>Deque</strong></a> - A <em>double ended queue</em>, supporting element insertion and removal at both ends. Extends the <code>Queue</code> interface.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html" target="_blank" rel="noopener"><strong>Map</strong></a> - A mapping from keys to values. Each key can map to one value.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/SortedSet.html" target="_blank" rel="noopener"><strong>SortedSet</strong></a> - A set whose elements are automatically sorted, either in their <em>natural ordering</em> (see the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html" target="_blank" rel="noopener"><code>Comparable</code></a> interface) or by a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html" target="_blank" rel="noopener"><code>Comparator</code></a> object provided when a <code>SortedSet</code> instance is created. Extends the <code>Set</code> interface.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/SortedMap.html" target="_blank" rel="noopener"><strong>SortedMap</strong></a> - A map whose mappings are automatically sorted by key, either using the <em>natural ordering</em> of the keys or by a comparator provided when a <code>SortedMap</code> instance is created. Extends the <code>Map</code> interface.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/NavigableSet.html" target="_blank" rel="noopener"><strong>NavigableSet</strong></a> - A <code>SortedSet</code> extended with navigation methods reporting closest matches for given search targets. A <code>NavigableSet</code> may be accessed and traversed in either ascending or descending order.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/NavigableMap.html" target="_blank" rel="noopener"><strong>NavigableMap</strong></a> - A <code>SortedMap</code> extended with navigation methods returning the closest matches for given search targets. A <code>NavigableMap</code> can be accessed and traversed in either ascending or descending key order.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html" target="_blank" rel="noopener"><strong>BlockingQueue</strong></a> - A <code>Queue</code> with operations that wait for the queue to become nonempty when retrieving an element and that wait for space to become available in the queue when storing an element. (This interface is part of the <code>java.util.concurrent</code> package.)</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TransferQueue.html" target="_blank" rel="noopener"><strong>TransferQueue</strong></a> - A <code>BlockingQueue</code> in which producers can wait for consumers to receive elements. (This interface is part of the <code>java.util.concurrent</code> package.)</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingDeque.html" target="_blank" rel="noopener"><strong>BlockingDeque</strong></a> - A <code>Deque</code> with operations that wait for the deque to become nonempty when retrieving an element and wait for space to become available in the deque when storing an element. Extends both the <code>Deque</code> and <code>BlockingQueue</code> interfaces. (This interface is part of the <code>java.util.concurrent</code> package.)</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentMap.html" target="_blank" rel="noopener"><strong>ConcurrentMap</strong></a> - A <code>Map</code> with atomic <code>putIfAbsent</code>, <code>remove</code>, and <code>replace</code> methods. (This interface is part of the <code>java.util.concurrent</code> package.)</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentNavigableMap.html" target="_blank" rel="noopener"><strong>ConcurrentNavigableMap</strong></a> - A <code>ConcurrentMap</code> that is also a <code>NavigableMap</code>.</li>
+</ul>
+</li>
+<li><strong>General-purpose implementations</strong>. Primary implementations of the collection interfaces.<ul>
+<li><strong>HashSet</strong> - Hash table implementation of the <code>Set</code> interface. The best all-around implementation of the <code>Set</code> interface.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/TreeSet.html" target="_blank" rel="noopener"><strong>TreeSet</strong></a> - Red-black tree implementation of the <code>NavigableSet</code> interface.</li>
+<li><strong>LinkedHashSet</strong> - Hash table and linked list implementation of the <code>Set</code> interface. An insertion-ordered <code>Set</code> implementation that runs nearly as fast as <code>HashSet</code>.</li>
+<li><strong>ArrayList</strong> - Resizable array implementation of the <code>List</code> interface (an unsynchronized <code>Vector</code>). The best all-around implementation of the <code>List</code> interface.</li>
+<li><strong>ArrayDeque</strong> - Efficient, resizable array implementation of the <code>Deque</code> interface.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html" target="_blank" rel="noopener"><strong>LinkedList</strong></a> - Doubly-linked list implementation of the <code>List</code> interface. Provides better performance than the <code>ArrayList</code> implementation if elements are frequently inserted or deleted within the list. Also implements the <code>Deque</code> interface. When accessed through the <code>Queue</code> interface, <code>LinkedList</code> acts as a FIFO queue.</li>
+<li><strong>PriorityQueue</strong> - Heap implementation of an unbounded priority queue.</li>
+<li><strong>HashMap</strong> - Hash table implementation of the <code>Map</code> interface (an unsynchronized <code>Hashtable</code> that supports <code>null</code> keys and values). The best all-around implementation of the <code>Map</code> interface.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html" target="_blank" rel="noopener"><strong>TreeMap</strong></a> Red-black tree implementation of the <code>NavigableMap</code> interface.</li>
+<li><strong>LinkedHashMap</strong> - Hash table and linked list implementation of the <code>Map</code> interface. An insertion-ordered <code>Map</code> implementation that runs nearly as fast as <code>HashMap</code>. Also useful for building caches (see <a href="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashMap.html#removeEldestEntry-java.util.Map.Entry-" target="_blank" rel="noopener">removeEldestEntry(Map.Entry)</a> ).</li>
+</ul>
+</li>
+<li><strong>Legacy implementations</strong>. The collection classes from earlier releases, <code>Vector</code> and <code>Hashtable</code>, were retrofitted to implement the collection interfaces.<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Vector.html" target="_blank" rel="noopener"><strong>Vector</strong></a> - Synchronized resizable array implementation of the <code>List</code> interface with additional legacy methods.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Hashtable.html" target="_blank" rel="noopener"><strong>Hashtable</strong></a> - Synchronized hash table implementation of the <code>Map</code> interface that does not allow <code>null</code> keys or values, plus additional legacy methods.</li>
+</ul>
+</li>
+<li><strong>Special-purpose implementations</strong>. Implementations designed for use in special situations. These implementations display nonstandard performance characteristics, usage restrictions, or behavior.<ul>
+<li><strong>WeakHashMap</strong> - An implementation of the <code>Map</code> interface that stores only <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ref/WeakReference.html" target="_blank" rel="noopener"><em>weak references</em></a> to its keys. Storing only weak references enables key-value pairs to be garbage collected when the key is no longer referenced outside of the <code>WeakHashMap</code>. This class is the easiest way to use the power of weak references. It is useful for implementing registry-like data structures, where the utility of an entry vanishes when its key is no longer reachable by any thread.</li>
+<li><strong>IdentityHashMap</strong> - Identity-based <code>Map</code> implementation based on a hash table. This class is useful for topology-preserving object graph transformations (such as serialization or deep copying). To perform these transformations, you must maintain an identity-based “node table” that keeps track of which objects have already been seen. Identity-based maps are also used to maintain object-to-meta-information mappings in dynamic debuggers and similar systems. Finally, identity-based maps are useful in preventing “spoof attacks” resulting from intentionally perverse equals methods. (<code>IdentityHashMap</code> never invokes the equals method on its keys.) An added benefit of this implementation is that it is fast.</li>
+<li><strong>CopyOnWriteArrayList</strong> - A <code>List</code> implementation backed by an copy-on-write array. All mutative operations (such as <code>add</code>, <code>set</code>, and <code>remove</code>) are implemented by making a new copy of the array. No synchronization is necessary, even during iteration, and iterators are guaranteed never to throw<code>ConcurrentModificationException</code>. This implementation is well-suited to maintaining event-handler lists (where change is infrequent, and traversal is frequent and potentially time-consuming).</li>
+<li><strong>CopyOnWriteArraySet</strong> - A <code>Set</code> implementation backed by a copy-on-write array. This implementation is similar to <code>CopyOnWriteArrayList</code>. Unlike most <code>Set</code> implementations, the <code>add</code>, <code>remove</code>, and <code>contains</code> methods require time proportional to the size of the set. This implementation is well suited to maintaining event-handler lists that must prevent duplicates.</li>
+<li><strong>EnumSet</strong> - A high-performance <code>Set</code> implementation backed by a bit vector. All elements of each <code>EnumSet</code> instance must be elements of a single enum type.</li>
+<li><strong>EnumMap</strong> - A high-performance <code>Map</code> implementation backed by an array. All keys in each <code>EnumMap</code> instance must be elements of a single enum type.</li>
+</ul>
+</li>
+<li><strong>Concurrent implementations</strong>. Implementations designed for highly concurrent use.<ul>
+<li><strong>ConcurrentLinkedQueue</strong> - An unbounded first in, first out (FIFO) queue based on linked nodes.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank" rel="noopener"><strong>LinkedBlockingQueue</strong></a> - An optionally bounded FIFO blocking queue backed by linked nodes.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ArrayBlockingQueue.html" target="_blank" rel="noopener"><strong>ArrayBlockingQueue</strong></a> - A bounded FIFO blocking queue backed by an array.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/PriorityBlockingQueue.html" target="_blank" rel="noopener"><strong>PriorityBlockingQueue</strong></a> - An unbounded blocking priority queue backed by a priority heap.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/DelayQueue.html" target="_blank" rel="noopener"><strong>DelayQueue</strong></a> - A time-based scheduling queue backed by a priority heap.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/SynchronousQueue.html" target="_blank" rel="noopener"><strong>SynchronousQueue</strong></a> - A simple rendezvous mechanism that uses the <code>BlockingQueue</code> interface.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedBlockingDeque.html" target="_blank" rel="noopener"><strong>LinkedBlockingDeque</strong></a> - An optionally bounded FIFO blocking deque backed by linked nodes.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedTransferQueue.html" target="_blank" rel="noopener"><strong>LinkedTransferQueue</strong></a> - An unbounded <code>TransferQueue</code> backed by linked nodes.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentHashMap.html" target="_blank" rel="noopener"><strong>ConcurrentHashMap</strong></a> - A highly concurrent, high-performance <code>ConcurrentMap</code> implementation based on a hash table. This implementation never blocks when performing retrievals and enables the client to select the concurrency level for updates. It is intended as a drop-in replacement for <code>Hashtable</code>. In addition to implementing <code>ConcurrentMap</code>, it supports all of the legacy methods of <code>Hashtable</code>.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentSkipListSet.html" target="_blank" rel="noopener"><strong>ConcurrentSkipListSet</strong></a> - Skips list implementation of the <code>NavigableSet</code> interface.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentSkipListMap.html" target="_blank" rel="noopener"><strong>ConcurrentSkipListMap</strong></a> - Skips list implementation of the <code>ConcurrentNavigableMap</code> interface.</li>
+</ul>
+</li>
+<li><strong>Wrapper implementations</strong>. Add functionality, such as synchronization, to other implementations.<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#unmodifiableCollection-java.util.Collection-" target="_blank" rel="noopener"><strong>Collections.unmodifiableInterface</strong></a> - Returns an unmodifiable view of a specified collection that throws an <code>UnsupportedOperationException</code> if the user attempts to modify it.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#synchronizedCollection-java.util.Collection-" target="_blank" rel="noopener"><strong>Collections.synchronizedInterface</strong></a> - Returns a synchronized collection that is backed by the specified (typically unsynchronized) collection. As long as all accesses to the backing collection are through the returned collection, thread safety is guaranteed.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#checkedCollection-java.util.Collection-java.lang.Class-" target="_blank" rel="noopener"><strong>Collections.checkedInterface</strong></a> - Returns a dynamically type-safe view of the specified collection, which throws a <code>ClassCastException</code> if a client attempts to add an element of the wrong type. The generics mechanism in the language provides compile-time (static) type checking, but it is possible to bypass this mechanism. Dynamically type-safe views eliminate this possibility.</li>
+</ul>
+</li>
+<li><strong>Convenience implementations</strong>. High-performance “mini-implementations” of the collection interfaces.<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#asList-T...-" target="_blank" rel="noopener"><strong>Arrays.asList</strong></a> - Enables an array to be viewed as a list.</li>
+<li><strong>emptySet, emptyList and emptyMap</strong> - Return an immutable empty set, list, or map.</li>
+<li><strong>singleton, singletonList, and singletonMap</strong> - Return an immutable singleton set, list, or map, containing only the specified object (or key-value mapping).</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#nCopies-int-T-" target="_blank" rel="noopener"><strong>nCopies</strong></a> - Returns an immutable list consisting of n copies of a specified object.</li>
+</ul>
+</li>
+<li><strong>Abstract implementations</strong>. Partial implementations of the collection interfaces to facilitate custom implementations.<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/AbstractCollection.html" target="_blank" rel="noopener"><strong>AbstractCollection</strong></a> - Skeletal <code>Collection</code> implementation that is neither a set nor a list (such as a “bag” or multiset).</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/AbstractSet.html" target="_blank" rel="noopener"><strong>AbstractSet</strong></a> - Skeletal <code>Set</code> implementation.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/AbstractList.html" target="_blank" rel="noopener"><strong>AbstractList</strong></a> - Skeletal <code>List</code> implementation backed by a random access data store (such as an array).</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/AbstractSequentialList.html" target="_blank" rel="noopener"><strong>AbstractSequentialList</strong></a> - Skeletal <code>List</code> implementation backed by a sequential access data store (such as a linked list).</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/AbstractQueue.html" target="_blank" rel="noopener"><strong>AbstractQueue</strong></a> - Skeletal <code>Queue</code> implementation.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/AbstractMap.html" target="_blank" rel="noopener"><strong>AbstractMap</strong></a> - Skeletal <code>Map</code> implementation.</li>
+</ul>
+</li>
+<li><strong>Algorithms</strong>. Static methods that perform useful functions on collections, such as sorting a list.<ul>
+<li><strong>sort(List)</strong> - Sorts a list using a merge sort algorithm, which provides average case performance comparable to a high quality quicksort, guaranteed O(n<em>log n) performance (unlike quicksort), and </em>stability* (unlike quicksort). A stable sort is one that does not reorder equal elements.</li>
+<li><strong>binarySearch(List, Object)</strong> - Searches for an element in an ordered list using the binary search algorithm.</li>
+<li><strong>reverse(List)</strong> - Reverses the order of the elements in a list.</li>
+<li><strong>shuffle(List)</strong> - Randomly changes the order of the elements in a list.</li>
+<li><strong>fill(List, Object)</strong> - Overwrites every element in a list with the specified value.</li>
+<li><strong>copy(List dest, List src)</strong> - Copies the source list into the destination list.</li>
+<li><strong>min(Collection)</strong> - Returns the minimum element in a collection.</li>
+<li><strong>max(Collection)</strong> - Returns the maximum element in a collection.</li>
+<li><strong>rotate(List list, int distance)</strong> - Rotates all of the elements in the list by the specified distance.</li>
+<li><strong>replaceAll(List list, Object oldVal, Object newVal)</strong> - Replaces all occurrences of one specified value with another.</li>
+<li><strong>indexOfSubList(List source, List target)</strong> - Returns the index of the first sublist of source that is equal to target.</li>
+<li><strong>lastIndexOfSubList(List source, List target)</strong> - Returns the index of the last sublist of source that is equal to target.</li>
+<li><strong>swap(List, int, int)</strong> - Swaps the elements at the specified positions in the specified list.</li>
+<li><strong>frequency(Collection, Object)</strong> - Counts the number of times the specified element occurs in the specified collection.</li>
+<li><strong>disjoint(Collection, Collection)</strong> - Determines whether two collections are disjoint, in other words, whether they contain no elements in common.</li>
+<li><strong>addAll(Collection&lt;? super T&gt;, T…)</strong> - Adds all of the elements in the specified array to the specified collection.</li>
+</ul>
+</li>
+<li><strong>Infrastructure</strong>. Interfaces that provide essential support for the collection interfaces.<ul>
+<li>Iterators- Similar to the familiarEnumeration interface, but more powerful, and with improved method names.<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html" target="_blank" rel="noopener"><strong>Iterator</strong></a> - In addition to the functionality of the <code>Enumeration</code> interface, enables the user to remove elements from the backing collection with well-defined, useful semantics.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/ListIterator.html" target="_blank" rel="noopener"><strong>ListIterator</strong></a> - Iterator for use with lists. In addition to the functionality of the <code>Iterator</code> interface, supports bidirectional iteration, element replacement, element insertion, and index retrieval.</li>
+</ul>
+</li>
+<li>Ordering<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html" target="_blank" rel="noopener"><strong>Comparable</strong></a> - Imparts a <em>natural ordering</em> to classes that implement it. The natural ordering can be used to sort a list or maintain order in a sorted set or map. Many classes were retrofitted to implement this interface.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html" target="_blank" rel="noopener"><strong>Comparator</strong></a> - Represents an order relation, which can be used to sort a list or maintain order in a sorted set or map. Can override a type’s natural ordering or order objects of a type that does not implement the <code>Comparable</code> interface.</li>
+</ul>
+</li>
+<li>Runtime exceptions<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/UnsupportedOperationException.html" target="_blank" rel="noopener"><strong>UnsupportedOperationException</strong></a> - Thrown by collections if an unsupported optional operation is called.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/ConcurrentModificationException.html" target="_blank" rel="noopener"><strong>ConcurrentModificationException</strong></a> - Thrown by iterators and list iterators if the backing collection is changed unexpectedly while the iteration is in progress. Also thrown by <em>sublist</em> views of lists if the backing list is changed unexpectedly.</li>
+</ul>
+</li>
+<li>Performance<ul>
+<li><strong>RandomAccess</strong> - Marker interface that lets <code>List</code> implementations indicate that they support fast (generally constant time) random access. This lets generic algorithms change their behavior to provide good performance when applied to either random or sequential access lists.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Array Utilities</strong>. Utility functions for arrays of primitive types and reference objects. Not, strictly speaking, a part of the collections framework, this feature was added to the Java platform at the same time as the collections framework and relies on some of the same infrastructure.<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html" target="_blank" rel="noopener"><strong>Arrays</strong></a> - Contains static methods to sort, search, compare, hash, copy, resize, convert to <code>String</code>, and fill arrays of primitives and objects.</li>
+</ul>
+</li>
+</ul>
+<p>更多细节:<a href="https://docs.oracle.com/javase/8/docs/technotes/guides/collections/reference.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/technotes/guides/collections/reference.html</a></p>
+<h4 id="Benefits-of-the-Java-Collections-Framework"><a href="#Benefits-of-the-Java-Collections-Framework" class="headerlink" title="Benefits of the Java Collections Framework"></a>Benefits of the Java Collections Framework</h4><p>The Java Collections Framework provides the following benefits:</p>
+<ul>
+<li><strong>Reduces programming effort:</strong> By providing useful data structures and algorithms, the Collections Framework frees you to concentrate on the important parts of your program rather than on the low-level “plumbing” required to make it work. By facilitating interoperability among unrelated APIs, the Java Collections Framework frees you from writing adapter objects or conversion code to connect APIs.</li>
+<li><strong>Increases program speed and quality:</strong> This Collections Framework provides high-performance, high-quality implementations of useful data structures and algorithms. The various implementations of each interface are interchangeable, so programs can be easily tuned by switching collection implementations. Because you’re freed from the drudgery of writing your own data structures, you’ll have more time to devote to improving programs’ quality and performance.</li>
+<li><strong>Allows interoperability among unrelated APIs:</strong> The collection interfaces are the vernacular by which APIs pass collections back and forth. If my network administration API furnishes a collection of node names and if your GUI toolkit expects a collection of column headings, our APIs will interoperate seamlessly, even though they were written independently.</li>
+<li><strong>Reduces effort to learn and to use new APIs:</strong> Many APIs naturally take collections on input and furnish them as output. In the past, each such API had a small sub-API devoted to manipulating its collections. There was little consistency among these ad hoc collections sub-APIs, so you had to learn each one from scratch, and it was easy to make mistakes when using them. With the advent of standard collection interfaces, the problem went away.</li>
+<li><strong>Reduces effort to design new APIs:</strong> This is the flip side of the previous advantage. Designers and implementers don’t have to reinvent the wheel each time they create an API that relies on collections; instead, they can use standard collection interfaces.</li>
+<li><strong>Fosters software reuse:</strong> New data structures that conform to the standard collection interfaces are by nature reusable. The same goes for new algorithms that operate on objects that implement these interfaces.</li>
+</ul>
+<h3 id="Collection-Interfaces"><a href="#Collection-Interfaces" class="headerlink" title="Collection Interfaces"></a>Collection Interfaces</h3><p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g5gt0ie7x3g30b6042aa5.gif" alt="Two interface trees, one starting with Collection and including Set, SortedSet, List, and Queue, and the other starting with Map and including SortedMap."></p>
+<p>主要分成两部分,Collection和Map</p>
+<p>The <em>collection interfaces</em> are divided into two groups. The most basic interface, <code>java.util.Collection</code>, has the following descendants:</p>
+<ul>
+<li><code>java.util.Set</code></li>
+<li><code>java.util.SortedSet</code></li>
+<li><code>java.util.NavigableSet</code></li>
+<li><code>java.util.Queue</code></li>
+<li><code>java.util.concurrent.BlockingQueue</code></li>
+<li><code>java.util.concurrent.TransferQueue</code></li>
+<li><code>java.util.Deque</code></li>
+<li><code>java.util.concurrent.BlockingDeque</code></li>
+</ul>
+<p>The other collection interfaces are based on <code>java.util.Map</code> and are not true collections. However, these interfaces contain <em>collection-view</em> operations, which enable them to be manipulated as collections. <code>Map</code> has the following offspring:</p>
+<ul>
+<li><code>java.util.SortedMap</code></li>
+<li><code>java.util.NavigableMap</code></li>
+<li><code>java.util.concurrent.ConcurrentMap</code></li>
+<li><code>java.util.concurrent.ConcurrentNavigableMap</code></li>
+</ul>
+<p>专业术语,  modifiable、mutable、variable-size、sequential access</p>
+<p>Several terms are introduced to aid in this specification:</p>
+<ul>
+<li>Collections that do not support modification operations (such as <code>add</code>, <code>remove</code> and <code>clear</code>) are referred to as <em>unmodifiable</em>. Collections that are not unmodifiable are <em>modifiable.</em></li>
+<li>Collections that additionally guarantee that no change in the <code>Collection</code> object will be visible are referred to as <em>immutable</em>. Collections that are not immutable are <em>mutable</em>.</li>
+<li>Lists that guarantee that their size remains constant even though the elements can change are referred to as <em>fixed-size</em>. Lists that are not fixed-size are referred to as <em>variable-size</em>.</li>
+<li>Lists that support fast (generally constant time) indexed element access are known as <em>random access</em> lists. Lists that do not support fast indexed element access are known as <em>sequential access</em> lists. The <code>RandomAccess</code> marker interface enables lists to advertise the fact that they support random access. This enables generic algorithms to change their behavior to provide good performance when applied to either random or sequential access lists.</li>
+</ul>
+<h3 id="Collection-Implementations"><a href="#Collection-Implementations" class="headerlink" title="Collection Implementations"></a>Collection Implementations</h3><p>Classes that implement the collection interfaces typically have names in the form of &lt;<em>Implementation-style</em>&gt;&lt;<em>Interface</em>&gt;. The general purpose implementations are summarized in the following table:</p>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Hash Table</th>
+<th>Resizable Array</th>
+<th>Balanced Tree</th>
+<th>Linked List</th>
+<th>Hash Table + Linked List</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Set</code></td>
+<td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/HashSet.html" target="_blank" rel="noopener"><code>HashSet</code></a></td>
+<td></td>
+<td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/TreeSet.html" target="_blank" rel="noopener"><code>TreeSet</code></a></td>
+<td></td>
+<td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashSet.html" target="_blank" rel="noopener"><code>LinkedHashSet</code></a></td>
+</tr>
+<tr>
+<td><code>List</code></td>
+<td></td>
+<td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html" target="_blank" rel="noopener"><code>ArrayList</code></a></td>
+<td></td>
+<td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html" target="_blank" rel="noopener"><code>LinkedList</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Deque</code></td>
+<td></td>
+<td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayDeque.html" target="_blank" rel="noopener"><code>ArrayDeque</code></a></td>
+<td></td>
+<td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html" target="_blank" rel="noopener"><code>LinkedList</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td><code>Map</code></td>
+<td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html" target="_blank" rel="noopener"><code>HashMap</code></a></td>
+<td></td>
+<td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html" target="_blank" rel="noopener"><code>TreeMap</code></a></td>
+<td></td>
+<td><a href="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashMap.html" target="_blank" rel="noopener"><code>LinkedHashMap</code></a></td>
+</tr>
+</tbody>
+</table>
+<p>​    </p>
+<p>The general-purpose implementations support all of the <em>optional operations</em> in the collection interfaces and have no restrictions on the elements they may contain. They are unsynchronized, but the <code>Collections</code> class contains static factories called <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#synchronizedCollection-java.util.Collection-" target="_blank" rel="noopener"><em>synchronization wrappers</em></a> that can be used to add synchronization to many unsynchronized collections. All of the new implementations have <em>fail-fast iterators</em>, which detect invalid concurrent modification, and fail quickly and cleanly (rather than behaving erratically).</p>
+<p>​    The <code>AbstractCollection</code>, <code>AbstractSet</code>, <code>AbstractList</code>, <code>AbstractSequentialList</code> and <code>AbstractMap</code> classes provide basic implementations of the core collection interfaces, to minimize the effort required to implement them. The API documentation for these classes describes precisely how each method is implemented so the implementer knows which methods must be overridden, given the performance of the basic operations of a specific implementation.</p>
+<h3 id="Concurrent-Collections"><a href="#Concurrent-Collections" class="headerlink" title="Concurrent Collections"></a>Concurrent Collections</h3><p>Applications that use collections from more than one thread must be carefully programmed. In general, this is known as <em>concurrent programming</em>. The Java platform includes extensive support for concurrent programming. See <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/concurrency/index.html" target="_blank" rel="noopener">Java Concurrency Utilities</a> for details.</p>
+<p>Collections are so frequently used that various concurrent friendly interfaces and implementations of collections are included in the APIs. These types go beyond the synchronization wrappers discussed previously to provide features that are frequently needed in concurrent programming.</p>
+<h4 id="interfaces"><a href="#interfaces" class="headerlink" title="interfaces"></a>interfaces</h4><p>These concurrent-aware interfaces are available:</p>
+<ul>
+<li><code>BlockingQueue</code></li>
+<li><code>TransferQueue</code></li>
+<li><code>BlockingDeque</code></li>
+<li><code>ConcurrentMap</code></li>
+<li><code>ConcurrentNavigableMap</code></li>
+</ul>
+<h4 id="implementation"><a href="#implementation" class="headerlink" title="implementation"></a>implementation</h4><p>The following concurrent-aware implementation classes are available. See the API documentation for the correct usage of these implementations.</p>
+<ul>
+<li><code>LinkedBlockingQueue</code></li>
+<li><code>ArrayBlockingQueue</code></li>
+<li><code>PriorityBlockingQueue</code></li>
+<li><code>DelayQueue</code></li>
+<li><code>SynchronousQueue</code></li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedBlockingDeque.html" target="_blank" rel="noopener"><code>LinkedBlockingDeque</code></a></li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedTransferQueue.html" target="_blank" rel="noopener"><code>LinkedTransferQueue</code></a></li>
+<li><code>CopyOnWriteArrayList</code></li>
+<li><code>CopyOnWriteArraySet</code></li>
+<li><code>ConcurrentSkipListSet</code></li>
+<li><code>ConcurrentHashMap</code></li>
+<li><code>ConcurrentSkipListMap</code></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jdk/" rel="tag"># jdk</a>
+          
+            <a href="/tags/collections/" rel="tag"># collections</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/10/Note-码农翻身/" rel="next" title="Note_码农翻身">
+                <i class="fa fa-chevron-left"></i> Note_码农翻身
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzM0Ny8xOTg4OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="zhengyumin">
+            
+              <p class="site-author-name" itemprop="name">zhengyumin</p>
+              <div class="site-description motion-element" itemprop="description">为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Zyumin" title="GitHub &rarr; https://github.com/Zyumin" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#preface"><span class="nav-number">1.</span> <span class="nav-text">preface</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-number">1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根本原因"><span class="nav-number">1.2.</span> <span class="nav-text">根本原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后续"><span class="nav-number">1.3.</span> <span class="nav-text">后续</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Collections-Framework"><span class="nav-number">2.</span> <span class="nav-text">The Collections Framework</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#API-Enhancements"><span class="nav-number">2.1.</span> <span class="nav-text">API Enhancements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction-to-Collections"><span class="nav-number">2.2.</span> <span class="nav-text">Introduction to Collections</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#What-Is-a-Collections-Framework"><span class="nav-number">2.2.1.</span> <span class="nav-text">What Is a Collections Framework?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Benefits-of-the-Java-Collections-Framework"><span class="nav-number">2.2.2.</span> <span class="nav-text">Benefits of the Java Collections Framework</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collection-Interfaces"><span class="nav-number">2.3.</span> <span class="nav-text">Collection Interfaces</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collection-Implementations"><span class="nav-number">2.4.</span> <span class="nav-text">Collection Implementations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Concurrent-Collections"><span class="nav-number">2.5.</span> <span class="nav-text">Concurrent Collections</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#interfaces"><span class="nav-number">2.5.1.</span> <span class="nav-text">interfaces</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implementation"><span class="nav-number">2.5.2.</span> <span class="nav-text">implementation</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhengyumin</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">409k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">6:12</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2019/07/29/JDK-The-Collections-Framework/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'D2GGMftjnaihnt6xGsBOCK1T-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'D2GGMftjnaihnt6xGsBOCK1T-gzGzoHsz',
+                'X-LC-Key': '42G22rkOJK422bv0XSJhBrW6',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
