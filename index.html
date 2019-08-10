@@ -319,6 +319,315 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/Overview-J-U-C/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhengyumin">
+      <meta itemprop="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zyumin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/10/Overview-J-U-C/" class="post-title-link" itemprop="url">Overview_J-U-C</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-10 19:45:39 / 修改时间：19:48:31" itemprop="dateCreated datePublished" datetime="2019-08-10T19:45:39+08:00">2019-08-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/08/10/Overview-J-U-C/" class="leancloud_visitors" data-flag-title="Overview_J-U-C">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">16k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">14 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g5utotuddmj30f409gjrs.jpg" alt="img"></p>
+<h2 id="JUC-java-util-concurrent"><a href="#JUC-java-util-concurrent" class="headerlink" title="JUC (java.util.concurrent)"></a>JUC (java.util.concurrent)</h2><p>Utility classes commonly useful in concurrent programming.This package includes a few small standardized extensible frameworks, as well as some classes that provide useful functionality and are otherwise tedious or difficult to implement.</p>
+<p>实用程序类通常用于并发编程。这个包, 包括一些小型的标准化可扩展框架，以及一些提供有用功能的类，通常这些类是单调乏味或难以实现的。</p>
+<p>CAS实现 、volatile语意  -&gt; AQS(AbstractQueuedSynchronizer)</p>
+<h4 id="Executors"><a href="#Executors" class="headerlink" title="Executors"></a>Executors</h4><p>Todo 类图补充</p>
+<p><strong>Interfaces</strong></p>
+<h5 id="Executor"><a href="#Executor" class="headerlink" title="Executor"></a>Executor</h5><p> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html" target="_blank" rel="noopener"><code>Executor</code></a> is a simple standardized interface for defining custom thread-like subsystems, including thread pools, asynchronous I/O, and lightweight task frameworks. </p>
+<p>Depending on which concrete Executor class is being used, tasks may execute in a newly created thread, an existing task-execution thread, or the thread calling <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html#execute-java.lang.Runnable-" target="_blank" rel="noopener"><code>execute</code></a>, and may execute sequentially or concurrently.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface Executor &#123;</span><br><span class="line">    void execute(Runnable command);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="ExecutorService"><a href="#ExecutorService" class="headerlink" title="ExecutorService"></a>ExecutorService</h5><p><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html" target="_blank" rel="noopener"><code>ExecutorService</code></a> provides a more complete asynchronous task execution framework. An ExecutorService manages queuing and scheduling of tasks, and allows controlled shutdown. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public interface ExecutorService extends Executor &#123;</span><br><span class="line">   void shutdown();</span><br><span class="line">   List&lt;Runnable&gt; shutdownNow();</span><br><span class="line">   boolean isShutdown();</span><br><span class="line">   boolean isTerminated();</span><br><span class="line">   boolean awaitTermination(long timeout, TimeUnit unit)</span><br><span class="line">        throws InterruptedException;</span><br><span class="line">   &lt;T&gt; Future&lt;T&gt; submit(Callable&lt;T&gt; task);</span><br><span class="line">   &lt;T&gt; Future&lt;T&gt; submit(Runnable task, T result);</span><br><span class="line">   Future&lt;?&gt; submit(Runnable task);</span><br><span class="line">   &lt;T&gt; List&lt;Future&lt;T&gt;&gt; invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks)</span><br><span class="line">        throws InterruptedException;</span><br><span class="line">   &lt;T&gt; List&lt;Future&lt;T&gt;&gt; invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks,</span><br><span class="line">                                  long timeout, TimeUnit unit)</span><br><span class="line">        throws InterruptedException;</span><br><span class="line">   &lt;T&gt; T invokeAny(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks)</span><br><span class="line">        throws InterruptedException, ExecutionException;</span><br><span class="line">   &lt;T&gt; T invokeAny(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks,long timeout, TimeUnit unit)</span><br><span class="line">        throws InterruptedException, ExecutionException, TimeoutException;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不同于submit</p>
+<p>方法invokeAny,invokeAll具有阻塞性。</p>
+<ul>
+<li>invokeAny取得第一个方法的返回值,当第一个任务结束后，会调用interrupt方法中断其它任务。</li>
+<li>invokeAll等线程任务执行完毕后,取得全部任务的结果值。</li>
+</ul>
+<h5 id="ScheduledExecutorService"><a href="#ScheduledExecutorService" class="headerlink" title="ScheduledExecutorService"></a>ScheduledExecutorService</h5><p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ScheduledExecutorService.html" target="_blank" rel="noopener"><code>ScheduledExecutorService</code></a> subinterface and associated interfaces add support for delayed and periodic task execution. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public interface ScheduledExecutorService extends ExecutorService &#123;</span><br><span class="line">   public ScheduledFuture&lt;?&gt; schedule(Runnable command,long delay, TimeUnit unit);</span><br><span class="line">   public &lt;V&gt; ScheduledFuture&lt;V&gt; schedule(Callable&lt;V&gt; callable,long delay, TimeUnit unit);</span><br><span class="line">   public ScheduledFuture&lt;?&gt; scheduleAtFixedRate(Runnable command,</span><br><span class="line">                                                  long initialDelay,</span><br><span class="line">                                                  long period,</span><br><span class="line">                                                  TimeUnit unit);</span><br><span class="line">  public ScheduledFuture&lt;?&gt; scheduleWithFixedDelay(Runnable command,</span><br><span class="line">                                                     long initialDelay,</span><br><span class="line">                                                     long delay,</span><br><span class="line">                                                     TimeUnit unit);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Callable"><a href="#Callable" class="headerlink" title="Callable"></a>Callable</h5><p> ExecutorServices provide methods arranging asynchronous execution of any function expressed as <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html" target="_blank" rel="noopener"><code>Callable</code></a>, the result-bearing analog of <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html" target="_blank" rel="noopener"><code>Runnable</code></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface Callable&lt;V&gt; &#123;</span><br><span class="line">    /**</span><br><span class="line">     * Computes a result, or throws an exception if unable to do so.</span><br><span class="line">     *</span><br><span class="line">     * @return computed result</span><br><span class="line">     * @throws Exception if unable to compute a result</span><br><span class="line">     */</span><br><span class="line">    V call() throws Exception;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h5><p>A <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html" target="_blank" rel="noopener"><code>Future</code></a> returns the results of a function, allows determination of whether execution has completed, and provides a means to cancel execution.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public interface Future&lt;V&gt; &#123;</span><br><span class="line">    boolean cancel(boolean mayInterruptIfRunning);</span><br><span class="line">    boolean isCancelled();</span><br><span class="line">    boolean isDone(); </span><br><span class="line">    V get() throws InterruptedException, ExecutionException;</span><br><span class="line">    V get(long timeout, TimeUnit unit)</span><br><span class="line">        throws InterruptedException, ExecutionException, TimeoutException;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="RunnableFuture"><a href="#RunnableFuture" class="headerlink" title="RunnableFuture"></a>RunnableFuture</h5><p>A <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/RunnableFuture.html" target="_blank" rel="noopener"><code>RunnableFuture</code></a> is a <code>Future</code> that possesses a <code>run</code> method that upon execution, sets its results.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public interface RunnableFuture&lt;V&gt; extends Runnable, Future&lt;V&gt; &#123;</span><br><span class="line">    /**</span><br><span class="line">     * Sets this Future to the result of its computation</span><br><span class="line">     * unless it has been cancelled.</span><br><span class="line">     */</span><br><span class="line">    void run();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="ThreadFactory"><a href="#ThreadFactory" class="headerlink" title="ThreadFactory"></a>ThreadFactory</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public interface ThreadFactory &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Constructs a new &#123;@code Thread&#125;.  Implementations may also initialize</span><br><span class="line">     * priority, name, daemon status, &#123;@code ThreadGroup&#125;, etc.</span><br><span class="line">     *</span><br><span class="line">     * @param r a runnable to be executed by new thread instance</span><br><span class="line">     * @return constructed thread, or &#123;@code null&#125; if the request to</span><br><span class="line">     *         create a thread is rejected</span><br><span class="line">     */</span><br><span class="line">    Thread newThread(Runnable r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>构造新的线程,初始化 优先级 、名字 等</p>
+<p><strong>Implementations.</strong> </p>
+<h5 id="ThreadPoolExecutor-amp-ScheduledThreadPoolExecutor"><a href="#ThreadPoolExecutor-amp-ScheduledThreadPoolExecutor" class="headerlink" title="ThreadPoolExecutor &amp; ScheduledThreadPoolExecutor"></a>ThreadPoolExecutor &amp; ScheduledThreadPoolExecutor</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class ThreadPoolExecutor extends AbstractExecutorService &#123;</span><br><span class="line">     /**</span><br><span class="line">     * The main pool control state, ctl, is an atomic integer packing</span><br><span class="line">     * two conceptual fields</span><br><span class="line">     *   workerCount, indicating the effective number of threads</span><br><span class="line">     *   runState,    indicating whether running, shutting down etc</span><br><span class="line">     */</span><br><span class="line">    private final class Worker extends AbstractQueuedSynchronizer implements Runnable&#123;...&#125;</span><br><span class="line">    public static class xxx implements rejectedExecution&#123;...&#125;</span><br><span class="line">    implements Executor&#123;..&#125;</span><br><span class="line">    implements ExecutorService&#123;..&#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    这个类很有意思呀,包含了运行状态,worker数量的计算,  Worker的实现,拒绝策略的实现,Executor的实现,另外注意构造函数,注意理解各个参数的含义⚠️</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class ScheduledThreadPoolExecutor extends ThreadPoolExecutor</span><br><span class="line">        implements ScheduledExecutorService &#123;</span><br><span class="line">    /*</span><br><span class="line">     * This class specializes ThreadPoolExecutor implementation by</span><br><span class="line">     *</span><br><span class="line">     * 1. Using a custom task type, ScheduledFutureTask for</span><br><span class="line">     *    tasks, even those that don&apos;t require scheduling (i.e.,</span><br><span class="line">     *    those submitted using ExecutorService execute, not</span><br><span class="line">     *    ScheduledExecutorService methods) which are treated as</span><br><span class="line">     *    delayed tasks with a delay of zero.</span><br><span class="line">     *</span><br><span class="line">     * 2. Using a custom queue (DelayedWorkQueue), a variant of</span><br><span class="line">     *    unbounded DelayQueue. The lack of capacity constraint and</span><br><span class="line">     *    the fact that corePoolSize and maximumPoolSize are</span><br><span class="line">     *    effectively identical simplifies some execution mechanics</span><br><span class="line">     *    (see delayedExecute) compared to ThreadPoolExecutor.</span><br><span class="line">     *</span><br><span class="line">     * 3. Supporting optional run-after-shutdown parameters, which</span><br><span class="line">     *    leads to overrides of shutdown methods to remove and cancel</span><br><span class="line">     *    tasks that should NOT be run after shutdown, as well as</span><br><span class="line">     *    different recheck logic when task (re)submission overlaps</span><br><span class="line">     *    with a shutdown.</span><br><span class="line">     *</span><br><span class="line">     * 4. Task decoration methods to allow interception and</span><br><span class="line">     *    instrumentation, which are needed because subclasses cannot</span><br><span class="line">     *    otherwise override submit methods to get this effect. These</span><br><span class="line">     *    don&apos;t have any impact on pool control logic though.</span><br><span class="line">     */</span><br><span class="line">     ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    与ThreadPoolExecutor不同的是,使用的是task,延迟队列,重写了onshutdown</p>
+<h5 id="Executors-1"><a href="#Executors-1" class="headerlink" title="Executors"></a>Executors</h5><p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executors.html" target="_blank" rel="noopener"><code>Executors</code></a> class provides factory methods for the most common kinds and configurations of Executors, as well as a few utility methods for using them. </p>
+<p>类似于Collections, Executors类为最常见的executor类型和配置提供工厂方法，以及一些使用它们的实用程序方法。</p>
+<h5 id="FutureTask-amp-ExecutorCompletionService"><a href="#FutureTask-amp-ExecutorCompletionService" class="headerlink" title="FutureTask &amp; ExecutorCompletionService"></a>FutureTask &amp; ExecutorCompletionService</h5><p>Other utilities based on <code>Executors</code> include the concrete class <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/FutureTask.html" target="_blank" rel="noopener"><code>FutureTask</code></a> providing a common extensible implementation of Futures, and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorCompletionService.html" target="_blank" rel="noopener"><code>ExecutorCompletionService</code></a>, that assists in coordinating the processing of groups of asynchronous tasks.</p>
+<p>基于executor的其他实用程序包括提供future公共可扩展实现的具体类FutureTask和ExecutorCompletionService，后者帮助协调异步任务组的处理。</p>
+<h5 id="ForkJoinPool-amp-ForkJoinTask-amp-ForkJoinWorkerThread"><a href="#ForkJoinPool-amp-ForkJoinTask-amp-ForkJoinWorkerThread" class="headerlink" title="ForkJoinPool &amp; ForkJoinTask &amp; ForkJoinWorkerThread"></a>ForkJoinPool &amp; ForkJoinTask &amp; ForkJoinWorkerThread</h5><p>ForkJoinPool的优势在于，可以充分利用多cpu，多核cpu的优势，把一个任务拆分成多个“小任务”，把多个“小任务”放到多个处理器核心上并行执行；当多个“小任务”执行完成之后，再将这些执行结果合并起来即可。</p>
+<p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g5utn9m71kj317y0tutgr.jpg" alt="image-20190810194656530"></p>
+<h4 id="Queues"><a href="#Queues" class="headerlink" title="Queues"></a>Queues</h4><h5 id="BlockingQueue"><a href="#BlockingQueue" class="headerlink" title="BlockingQueue"></a>BlockingQueue</h5><p>A <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html" target="_blank" rel="noopener"><code>Queue</code></a> that additionally supports operations that wait for the queue to become non-empty when retrieving an element, and wait for space to become available in the queue when storing an element.</p>
+<p><code>BlockingQueue</code> methods come in four forms, with different ways of handling operations that cannot be satisfied immediately, but may be satisfied at some point in the future: </p>
+<p>one throws an exception, </p>
+<p>the second returns a special value (either <code>null</code> or <code>false</code>, depending on the operation),</p>
+<p>the third blocks the current thread indefinitely until the operation can succeed, </p>
+<p>and the fourth blocks for only a given maximum time limit before giving up. </p>
+<p>These methods are summarized in the following table:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"><em>Throws exception</em></th>
+<th style="text-align:left"><em>Special value</em></th>
+<th style="text-align:left"><em>Blocks</em></th>
+<th style="text-align:left"><em>Times out</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Insert</strong></td>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#add-E-" target="_blank" rel="noopener"><code>add(e)</code></a></td>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#offer-E-" target="_blank" rel="noopener"><code>offer(e)</code></a></td>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#put-E-" target="_blank" rel="noopener"><code>put(e)</code></a></td>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#offer-E-long-java.util.concurrent.TimeUnit-" target="_blank" rel="noopener"><code>offer(e, time, unit)</code></a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Remove</strong></td>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#remove-java.lang.Object-" target="_blank" rel="noopener"><code>remove()</code></a></td>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#poll-long-java.util.concurrent.TimeUnit-" target="_blank" rel="noopener"><code>poll()</code></a></td>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#take--" target="_blank" rel="noopener"><code>take()</code></a></td>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#poll-long-java.util.concurrent.TimeUnit-" target="_blank" rel="noopener"><code>poll(time, unit)</code></a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Examine</strong></td>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html#element--" target="_blank" rel="noopener"><code>element()</code></a></td>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html#peek--" target="_blank" rel="noopener"><code>peek()</code></a></td>
+<td style="text-align:left"><em>not applicable</em></td>
+<td style="text-align:left"><em>not applicable</em></td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public interface BlockingQueue&lt;E&gt; extends Queue&lt;E&gt; &#123;</span><br><span class="line">    /*</span><br><span class="line">     * imple Queue</span><br><span class="line">     */</span><br><span class="line">    boolean add(E e);</span><br><span class="line">    boolean offer(E e);</span><br><span class="line">    /*</span><br><span class="line">     * imple Collection</span><br><span class="line">     */</span><br><span class="line">    boolean remove(Object o);</span><br><span class="line">    public boolean contains(Object o);</span><br><span class="line">    /*</span><br><span class="line">     * BlockingQueue methods  put take </span><br><span class="line">     */</span><br><span class="line">    void put(E e) throws InterruptedException;</span><br><span class="line">    boolean offer(E e, long timeout, TimeUnit unit)</span><br><span class="line">        throws InterruptedException;</span><br><span class="line">    /*</span><br><span class="line">     * Retrieves and removes the head of this queue</span><br><span class="line">     */</span><br><span class="line">    E take() throws InterruptedException;</span><br><span class="line">    E poll(long timeout, TimeUnit unit)</span><br><span class="line">        throws InterruptedException;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    实现了Queue接口 , 而Queue接口又实现了Collection,  而BlockingQueue 新增的有阻塞式的 put和take ,</p>
+<p>提供阻塞超时机制的, offer、poll(扩展了Queue的方法)</p>
+<h5 id="BlockingDeque-amp-TransferQueue"><a href="#BlockingDeque-amp-TransferQueue" class="headerlink" title="BlockingDeque &amp; TransferQueue"></a>BlockingDeque &amp; TransferQueue</h5><p>BlockingDeque与BlockingQueue类似(@since 1.6)</p>
+<p>LinkedBlockingDeque</p>
+<p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingDeque.html" target="_blank" rel="noopener"><code>BlockingDeque</code></a> interface extends <code>BlockingQueue</code> to support both FIFO and LIFO (stack-based) operations.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public interface BlockingDeque&lt;E&gt; extends BlockingQueue&lt;E&gt;, Deque&lt;E&gt; &#123;</span><br><span class="line">    ...</span><br><span class="line">    void putFirst(E e) throws InterruptedException;</span><br><span class="line">    void putLast(E e) throws InterruptedException;</span><br><span class="line">    E takeFirst() throws InterruptedException;</span><br><span class="line">    E takeLast() throws InterruptedException;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>TransferQueue </p>
+<p> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedTransferQueue.html" target="_blank" rel="noopener"><code>LinkedTransferQueue</code></a> introduce a synchronous <code>transfer</code> method (along with related features) in which a producer may optionally block awaiting its consumer</p>
+<blockquote>
+<p>TransferQueue是一个聪明的队列，它是ConcurrentLinkedQueue, SynchronousQueue (在公平模式下), 无界的LinkedBlockingQueues等的超集。</p>
+</blockquote>
+<p>🌟这是个很厉害的队列~ 只有在消费者等待的情况下才会生产,  解决消费者和生产者速度不匹配的问题, 例如 out of memory .</p>
+<p>@see <a href="https://segmentfault.com/a/1190000011266361" target="_blank" rel="noopener">https://segmentfault.com/a/1190000011266361</a></p>
+<p><strong>Implementations.</strong> </p>
+<p>Five implementations in <code>java.util.concurrent</code> support the extended <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html" target="_blank" rel="noopener"><code>BlockingQueue</code></a> interface, that defines blocking versions of put and take: <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank" rel="noopener"><code>LinkedBlockingQueue</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ArrayBlockingQueue.html" target="_blank" rel="noopener"><code>ArrayBlockingQueue</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/SynchronousQueue.html" target="_blank" rel="noopener"><code>SynchronousQueue</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/PriorityBlockingQueue.html" target="_blank" rel="noopener"><code>PriorityBlockingQueue</code></a>, and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/DelayQueue.html" target="_blank" rel="noopener"><code>DelayQueue</code></a>. The different classes cover the most common usage contexts for producer-consumer, messaging, parallel tasking, and related concurrent designs.</p>
+<h5 id="LinkedBlockingQueue"><a href="#LinkedBlockingQueue" class="headerlink" title="LinkedBlockingQueue"></a>LinkedBlockingQueue</h5><p>有限阻塞队列,底层存储链表结构, 可以不指定大小, 默认Integer.MAX_VALUE</p>
+<h5 id="ArrayBlockingQueue"><a href="#ArrayBlockingQueue" class="headerlink" title="ArrayBlockingQueue"></a>ArrayBlockingQueue</h5><p>有限阻塞队列,底层存储是数组,需要指定大小初始化 , 另一个是可以指定ReentrantLock公平锁或者非公平锁</p>
+<h5 id="SynchronousQueue"><a href="#SynchronousQueue" class="headerlink" title="SynchronousQueue"></a>SynchronousQueue</h5><p>是一个空队列,用于传递数据</p>
+<p>SynchronousQueue使用两个队列（一个用于正在等待的生产者、另一个用于正在等待的消费者）和一个用来保护两个队列的锁。而LinkedTransferQueue使用CAS操作实现一个非阻塞的方法，这是避免序列化处理任务的关键。</p>
+<p>@see <a href="https://segmentfault.com/a/1190000011207824" target="_blank" rel="noopener">https://segmentfault.com/a/1190000011207824</a></p>
+<h5 id="PriorityBlockingQueue"><a href="#PriorityBlockingQueue" class="headerlink" title="PriorityBlockingQueue"></a>PriorityBlockingQueue</h5><p>优先级队列, 实现上使用了数组, 默认初始化大小是 DEFAULT_INITIAL_CAPACITY = 11</p>
+<p>使用PriorityQueue,用于Serializable</p>
+<h5 id="DelayQueue"><a href="#DelayQueue" class="headerlink" title="DelayQueue."></a>DelayQueue.</h5><p>延迟队列,实现上使用了PriorityQueue,默认初始化大小是 DEFAULT_INITIAL_CAPACITY = 11(没有实现java.io.Serializable)</p>
+<p>todo待续 📝</p>
+<h4 id="Timing"><a href="#Timing" class="headerlink" title="Timing"></a>Timing</h4><p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html" target="_blank" rel="noopener"><code>TimeUnit</code></a> class provides multiple granularities (including nanoseconds) for specifying and controlling time-out based operations. Most classes in the package contain operations based on time-outs in addition to indefinite waits. In all cases that time-outs are used, the time-out specifies the minimum time that the method should wait before indicating that it timed-out. Implementations make a “best effort” to detect time-outs as soon as possible after they occur. However, an indefinite amount of time may elapse between a time-out being detected and a thread actually executing again after that time-out. All methods that accept timeout parameters treat values less than or equal to zero to mean not to wait at all. To wait “forever”, you can use a value of <code>Long.MAX_VALUE</code>.</p>
+<h4 id="Synchronizers"><a href="#Synchronizers" class="headerlink" title="Synchronizers"></a>Synchronizers</h4><p>Five classes aid common special-purpose synchronization idioms.</p>
+<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Semaphore.html" target="_blank" rel="noopener"><code>Semaphore</code></a> is a classic concurrency tool.</li>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CountDownLatch.html" target="_blank" rel="noopener"><code>CountDownLatch</code></a> is a very simple yet very common utility for blocking until a given number of signals, events, or conditions hold.</li>
+<li>A <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CyclicBarrier.html" target="_blank" rel="noopener"><code>CyclicBarrier</code></a> is a resettable multiway synchronization point useful in some styles of parallel programming.</li>
+<li>A <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Phaser.html" target="_blank" rel="noopener"><code>Phaser</code></a> provides a more flexible form of barrier that may be used to control phased computation among multiple threads.</li>
+<li>An <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Exchanger.html" target="_blank" rel="noopener"><code>Exchanger</code></a> allows two threads to exchange objects at a rendezvous point, and is useful in several pipeline designs.</li>
+</ul>
+<h4 id="Concurrent-Collections"><a href="#Concurrent-Collections" class="headerlink" title="Concurrent Collections"></a>Concurrent Collections</h4><p>Besides Queues, this package supplies Collection implementations designed for use in multithreaded contexts: <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentHashMap.html" target="_blank" rel="noopener"><code>ConcurrentHashMap</code></a><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentSkipListMap.html" target="_blank" rel="noopener"><code>ConcurrentSkipListMap</code></a><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentSkipListSet.html" target="_blank" rel="noopener"><code>ConcurrentSkipListSet</code></a><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CopyOnWriteArrayList.html" target="_blank" rel="noopener"><code>CopyOnWriteArrayList</code></a><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CopyOnWriteArraySet.html" target="_blank" rel="noopener"><code>CopyOnWriteArraySet</code></a><code>ConcurrentHashMap`</code>HashMap<code>ConcurrentSkipListMap</code>TreeMap<code>CopyOnWriteArrayList</code>ArrayList`</p>
+<p>The “Concurrent” prefix used with some classes in this package is a shorthand indicating several differences from similar “synchronized” classes. For example <code>java.util.Hashtable</code> and <code>Collections.synchronizedMap(new HashMap())</code> are synchronized. But <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentHashMap.html" target="_blank" rel="noopener"><code>ConcurrentHashMap</code></a> is “concurrent”. A concurrent collection is thread-safe, but not governed by a single exclusion lock. In the particular case of ConcurrentHashMap, it safely permits any number of concurrent reads as well as a tunable number of concurrent writes. “Synchronized” classes can be useful when you need to prevent all access to a collection via a single lock, at the expense of poorer scalability. In other cases in which multiple threads are expected to access a common collection, “concurrent” versions are normally preferable. And unsynchronized collections are preferable when either collections are unshared, or are accessible only when holding other locks.</p>
+<p>Most concurrent Collection implementations (including most Queues) also differ from the usual <code>java.util</code> conventions in that their <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html" target="_blank" rel="noopener">Iterators</a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Spliterator.html" target="_blank" rel="noopener">Spliterators</a> provide <em>weakly consistent</em> rather than fast-fail traversal:</p>
+<ul>
+<li>they may proceed concurrently with other operations</li>
+<li>they will never throw <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ConcurrentModificationException.html" target="_blank" rel="noopener"><code>ConcurrentModificationException</code></a></li>
+<li>they are guaranteed to traverse elements as they existed upon construction exactly once, and may (but are not guaranteed to) reflect any modifications subsequent to construction.</li>
+</ul>
+<h4 id="Memory-Consistency-Properties"><a href="#Memory-Consistency-Properties" class="headerlink" title="Memory Consistency Properties"></a>Memory Consistency Properties</h4><p><a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.4.5" target="_blank" rel="noopener">Chapter 17 of the Java Language Specification</a> defines the  relation on memory operations such as reads and writes of shared variables. The results of a write by one thread are guaranteed to be visible to a read by another thread only if the write operation  the read operation. The  and  constructs, as well as the  and  methods, can form  relationships. In particular:The methods of all classes in  and its subpackages extend these guarantees to higher-level synchronization. In particular:</p>
+<h3 id="java-util-concurrent-atomic"><a href="#java-util-concurrent-atomic" class="headerlink" title="java.util.concurrent.atomic"></a>java.util.concurrent.atomic</h3><p>A small toolkit of classes that support lock-free thread-safe programming on single variables.</p>
+<p>一个支持单变量无锁线程安全编程的类的小工具包。</p>
+<h3 id="java-util-concurrent-locks"><a href="#java-util-concurrent-locks" class="headerlink" title="java.util.concurrent.locks"></a>java.util.concurrent.locks</h3><p>Interfaces and classes providing a framework for locking and waiting for conditions that is distinct from built-in synchronization and monitors.</p>
+<p>接口和类提供了一个框架，用于锁定和等待, 与内置同步和监视器不同的条件。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    	
+     
+	
+		
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/29/JDK-The-Collections-Framework/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1925,208 +2234,6 @@
 
     	
      
-	
-		
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/13/Overview_JDK/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhengyumin">
-      <meta itemprop="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zyumin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/13/Overview_JDK/" class="post-title-link" itemprop="url">JDK深入浅出</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-06-13 19:36:54" itemprop="dateCreated datePublished" datetime="2019-06-13T19:36:54+08:00">2019-06-13</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-10 02:39:22" itemprop="dateModified" datetime="2019-07-10T02:39:22+08:00">2019-07-10</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2019/06/13/Overview_JDK/" class="leancloud_visitors" data-flag-title="JDK深入浅出">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">11k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">10 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g3zrf66tunj30u00gvgmz.jpg" alt="img"></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/06/13/Overview_JDK/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    	
-     
   </section>
 
   
@@ -2175,7 +2282,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2325,7 +2432,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">409k</span>
+    <span title="站点总字数">424k</span>
   
 
   
@@ -2334,7 +2441,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">6:12</span>
+    <span title="站点阅读时长">6:26</span>
   
 </div>
 
