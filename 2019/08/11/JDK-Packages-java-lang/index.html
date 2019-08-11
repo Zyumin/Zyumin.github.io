@@ -96,25 +96,25 @@
 
 
 
-  <meta name="keywords" content="jvm,Spec,thread">
+  <meta name="description" content="JDK_Packages_java_lang 语言基础包,包含字节码增强、反射等 @see 虚拟机规范 @see JLS   java language spec java.langProvides classes that are fundamental to the design of the Java programming language. 提供Java编程语言设计的基础类。 BaseP">
+<meta name="keywords" content="jdk,packages">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spec_JSR133">
-<meta property="og:url" content="http://yoursite.com/2019/06/14/Spec-JSR133/index.html">
+<meta property="og:title" content="JDK_Packages_java_lang">
+<meta property="og:url" content="http://yoursite.com/2019/08/11/JDK-Packages-java-lang/index.html">
 <meta property="og:site_name" content="Zyumin">
+<meta property="og:description" content="JDK_Packages_java_lang 语言基础包,包含字节码增强、反射等 @see 虚拟机规范 @see JLS   java language spec java.langProvides classes that are fundamental to the design of the Java programming language. 提供Java编程语言设计的基础类。 BaseP">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g42sqb05mrj30qo0hnaem.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g40xyu6xf8j30cb0amq36.jpg">
-<meta property="og:updated_time" content="2019-07-04T06:05:38.905Z">
+<meta property="og:updated_time" content="2019-08-11T11:06:30.972Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spec_JSR133">
-<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g42sqb05mrj30qo0hnaem.jpg">
+<meta name="twitter:title" content="JDK_Packages_java_lang">
+<meta name="twitter:description" content="JDK_Packages_java_lang 语言基础包,包含字节码增强、反射等 @see 虚拟机规范 @see JLS   java language spec java.langProvides classes that are fundamental to the design of the Java programming language. 提供Java编程语言设计的基础类。 BaseP">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/14/Spec-JSR133/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/11/JDK-Packages-java-lang/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>Spec_JSR133 | Zyumin</title>
+  <title>JDK_Packages_java_lang | Zyumin</title>
   
 
 
@@ -318,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/14/Spec-JSR133/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/11/JDK-Packages-java-lang/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhengyumin">
@@ -335,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spec_JSR133
+          <h1 class="post-title" itemprop="name headline">JDK_Packages_java_lang
 
               
             
@@ -361,24 +361,12 @@
                 
               
 
-              <time title="创建时间：2019-06-14 19:26:57" itemprop="dateCreated datePublished" datetime="2019-06-14T19:26:57+08:00">2019-06-14</time>
+              <time title="创建时间：2019-08-11 19:04:56 / 修改时间：19:06:30" itemprop="dateCreated datePublished" datetime="2019-08-11T19:04:56+08:00">2019-08-11</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-04 14:05:38" itemprop="dateModified" datetime="2019-07-04T14:05:38+08:00">2019-07-04</time>
               
             
           </span>
@@ -392,7 +380,7 @@
 
           
           
-            <span id="/2019/06/14/Spec-JSR133/" class="leancloud_visitors" data-flag-title="Spec_JSR133">
+            <span id="/2019/08/11/JDK-Packages-java-lang/" class="leancloud_visitors" data-flag-title="JDK_Packages_java_lang">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -417,7 +405,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.6k</span>
+                <span title="本文字数">4k</span>
               
 
               
@@ -451,83 +439,55 @@
       
 
       
-        <p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g42sqb05mrj30qo0hnaem.jpg" alt="image-20190616103858903"></p>
-<a id="more"></a>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Memory Model and Thread Specification , 内存模型和线程规范 </p>
-<p>These semantics do not describe how a multithreaded program should be executed. Rather,they describe the behaviors that multithreaded programs are allowed to exhibit</p>
-<p>规范的标准内容将合并到<em>JavaTM语言规范</em>、<em>JavaTM虚拟机规范</em>以及<code>java.lang</code>包的类说明中</p>
-<p>因为线程的行为，尤其是未正确同步时的行为，可能会让人困惑和违背直觉 ,所以规范规定了</p>
-<ul>
-<li>用于屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的并发效果</li>
-<li>规定了一个线程如何和何时可以看到由其他线程修改过后的共享变量的值，以及在必须时如何同步的访问共享变量。</li>
-</ul>
-<h2 id="Locks"><a href="#Locks" class="headerlink" title="Locks"></a>Locks</h2><blockquote>
-<p> There are multiple mechanisms for communicating between threads.most basic of these<br>methods is synchronization, which is implemented using monitors. </p>
-<p>Each object is associated witha monitor, which a thread can lock or unlock.</p>
-<p> Only one thread at a time may hold a lock on amonitor.</p>
-<p> Any other threads attempting to lock that monitor are blocked until they can obtain a<br>lock on that monitor.</p>
-<p>Other mechanisms, such as reads and writes of volatile variables and classes provided in the<br>java.util.concurrent package, provide alternative mechanisms for synchronization.</p>
-</blockquote>
-<p>同步语义的实现  synchronized 的实现,volatile,juc 包</p>
-<h2 id="Incorrectly-Synchronized-Programs-Exhibit-Surprising-Behav-iors"><a href="#Incorrectly-Synchronized-Programs-Exhibit-Surprising-Behav-iors" class="headerlink" title="Incorrectly Synchronized Programs Exhibit Surprising Behav-iors"></a>Incorrectly Synchronized Programs Exhibit Surprising Behav-iors</h2><blockquote>
-<p>The semantics of the Java programming language allow compilers and microprocessors to perform optimizations that can interact with incorrectly synchronized code in ways that can produce behaviors that seem paradoxical.</p>
-<p>However,it was forbidden by the original Java memory model in the JLS and JVMS: this was one of the first indications that the original JMM needed to be replaced.</p>
-</blockquote>
-<p>Java 的语义允许编译器和微处理器进行优化、重排 会改变语义,所以需要重新定义JMM内存模型</p>
-<h2 id="Informal-Semantics"><a href="#Informal-Semantics" class="headerlink" title="Informal Semantics"></a>Informal Semantics</h2><p>There are two key ideas to understanding whether a program is correctly synchronized:</p>
-<ol>
-<li>Conflicting Accesses</li>
-<li>Happens-Before Relationship</li>
-</ol>
-<p>There are a number of ways to induce a happens-before ordering, including: </p>
-<ul>
-<li><p>Each action in a thread happens-before every subsequent action in that thread. • An unlock on a monitor happens-before every subsequent lock on that monitor. • A write to a volatile field happens-before every subsequent read of that volatile. </p>
-</li>
-<li><p>A call to start() on a thread happens-before any actions in the started thread. </p>
-</li>
-<li>All actions in a thread happen-before any other thread successfully returns from a join() on that thread. </li>
-<li>If an action a happens-before an action b, and b happens before an action c, then a happens- before c. </li>
-</ul>
-<blockquote>
-<p>When a program contains two conflicting accesses that are not ordered by a happens-before relationship, it is said to contain a data race. </p>
-</blockquote>
-<p>理解一个程序是否被正确的同步了，有两个关键概念: 冲突访问和H-B</p>
-<blockquote>
-<p>Sequential Consistency</p>
-<p> As noted before, sequential consistency and/or freedom from data races still allows errors arising from<br>groups of operations that need to be perceived atomically and are not.</p>
-<p>If we were to use sequential consistency as our memory model, many of the compiler and<br>processor optimizations that we have discussed would be illegal.</p>
-<p>Final Fields</p>
-</blockquote>
-<p>顺序一致性模型 也不能解决语义问题,同时还会让优化失效</p>
-<h2 id="What-is-a-Memory-Model"><a href="#What-is-a-Memory-Model" class="headerlink" title="What is a Memory Model?"></a>What is a Memory Model?</h2><blockquote>
-<p>A memory model describes, given a program and an execution trace of that program, whether<br>the execution trace is a legal execution of the program. For the Java programming language, the<br>memory model works by examining each read in an execution trace and checking that the write<br>observed by that read is valid according to certain rules.</p>
-</blockquote>
-<p>内存模型 描述程序的执行行为是否合法 对于Java 来说,内存共享型, 需要关注的是当前线程读取到的信息是否是最新的, 因为各个线程都有一个本地缓存(栈、cpu缓存),通过堆来共享</p>
-<p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g40xyu6xf8j30cb0amq36.jpg" alt="img"></p>
-<h2 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h2><p>Shared variables/Heap memory  共享变量/堆内存</p>
-<p> Inter-thread Actions 线程间的动作</p>
-<p>Program Order 程序顺序</p>
-<p>Intra-thread semantics 线程内语义</p>
-<p>Synchronization Actions  同步动作</p>
-<p>Synchronization Order  同步顺序</p>
-<p>Happens-Before and Synchronizes-With Edges  Happens-Before 与 Synchronizes-With 边缘</p>
-<p> synchronizes-with，同步动作上的偏序关系。 </p>
-<p>happens-before，动作上的偏序关系。</p>
-<h2 id="Approximations-to-a-Java-Memory-Model"><a href="#Approximations-to-a-Java-Memory-Model" class="headerlink" title="Approximations to a Java Memory Model"></a>Approximations to a Java Memory Model</h2><ul>
-<li>Sequential Consistency Memory Model</li>
-<li>Happens-Before Memory Model</li>
-<li>Causality<ul>
-<li>Happens-Before is too Weak</li>
-<li>Causality is Subtle</li>
-</ul>
-</li>
-</ul>
-<p>顺序一致性模型 约束太强了,不利于优化</p>
-<p>Happens-Before 太弱了,执行结果不可预测 </p>
-<p>Happens-before 模型最致命的弱点是其允许值“凭空出现(out of thin air)”</p>
-<h2 id="Word-Tearing"><a href="#Word-Tearing" class="headerlink" title="Word Tearing"></a>Word Tearing</h2><p>One implementation consideration for Java virtual machines is that every field and array element<br>is considered distinct; updates to one field or element must not interact with reads or updates<br>of any other field or element. In particular, two threads that update adjacent elements of a byte<br>array separately must not interfere or interact and do not need synchronization to ensure sequential<br>consistency.</p>
-<h2 id="Non-atomic-Treatment-of-double-and-long"><a href="#Non-atomic-Treatment-of-double-and-long" class="headerlink" title="Non-atomic Treatment of double and long"></a>Non-atomic Treatment of double and long</h2><p>For efficiency’s sake, this<br>behavior is implementation specific; JavaTM virtual machines are free to perform writes to long<br>and double values atomically or in two parts.</p>
-<p>Final Field Semantics 、Fairness、Wait Sets and Notification、Sleep and Yield、Finalization</p>
+        <p>JDK_Packages_java_lang</p>
+<p>语言基础包,包含字节码增强、反射等</p>
+<p>@see 虚拟机规范</p>
+<p>@see JLS   java language spec</p>
+<h3 id="java-lang"><a href="#java-lang" class="headerlink" title="java.lang"></a>java.lang</h3><p>Provides classes that are fundamental to the design of the Java programming language.</p>
+<p>提供Java编程语言设计的基础类。</p>
+<h4 id="Base"><a href="#Base" class="headerlink" title="Base"></a>Base</h4><p>Provides classes that are fundamental to the design of the Java programming language. The most important classes are <code>Object</code> ,<code>Class</code></p>
+<p>提供Java编程语言设计的基础类。最重要的类是Object，它是类层次结构的根，类的实例表示运行时的类。</p>
+<p>Class后续和ClassLoader一起分析</p>
+<h4 id="AutoBoxing"><a href="#AutoBoxing" class="headerlink" title="AutoBoxing"></a>AutoBoxing</h4><p>Frequently it is necessary to represent a value of primitive type as if it were an object. The wrapper classes <code>Boolean</code>, <code>Character</code>, <code>Integer</code>, <code>Long</code>, <code>Float</code>, and <code>Double</code> serve this purpose. An object of type <code>Double</code>, for example, contains a field whose type is double, representing that value in such a way that a reference to it can be stored in a variable of reference type. These classes also provide a number of methods for converting among primitive values, as well as supporting such standard methods as equals and hashCode. The <code>Void</code> class is a non-instantiable class that holds a reference to a <code>Class</code> object representing the type void.</p>
+<p>通常有必要将基元类型的值表示为对象。包装器类Boolean、Character、Integer、Long、Float和Double用于此目的。例如，Double类型的对象包含一个类型为Double的字段，以一种引用可以存储在引用类型变量中的方式表示该值。这些类还提供了许多方法来在基本值之间进行转换，并支持equals和hashCode等标准方法。Void类是一个不可实例化的类，它持有对表示类型Void的类对象的引用。</p>
+<p>注意IntegerCache </p>
+<h4 id="Utils-Math-String"><a href="#Utils-Math-String" class="headerlink" title="Utils (Math,String)"></a>Utils (Math,String)</h4><p>The class <code>Math</code> provides commonly used mathematical functions such as sine, cosine, and square root. The classes <code>String</code>, <code>StringBuffer</code>, and <code>StringBuilder</code> similarly provide commonly used operations on character strings.</p>
+<h5 id="Math-amp-StrictMath"><a href="#Math-amp-StrictMath" class="headerlink" title="Math &amp; StrictMath"></a>Math &amp; StrictMath</h5><p>类Math提供常用的数学函数，如正弦、余弦和平方根。String、StringBuffer和StringBuilder类同样提供了对字符串的常用操作。</p>
+<h5 id="String-amp-StringBuffer-amp-StringBuilder"><a href="#String-amp-StringBuffer-amp-StringBuilder" class="headerlink" title="String &amp; StringBuffer &amp; StringBuilder"></a>String &amp; StringBuffer &amp; StringBuilder</h5><h4 id="VM"><a href="#VM" class="headerlink" title="VM"></a>VM</h4><p>Classes <code>ClassLoader</code>,<code>Thread</code>, <code>Process</code>, <code>ProcessBuilder</code>, <code>Runtime</code>, <code>SecurityManager</code>, and <code>System</code> provide “system operations” that manage the dynamic loading of classes, creation of external processes, host environment inquiries such as the time of day, and enforcement of security policies.</p>
+<p>类ClassLoader、Process、ProcessBuilder、Runtime、SecurityManager和System提供“系统操作”，</p>
+<p>管理类的动态加载、创建外部进程、主机环境查询(如一天的时间)和安全策略的执行。</p>
+<h5 id="Class-amp-ClassLoader"><a href="#Class-amp-ClassLoader" class="headerlink" title="Class &amp; ClassLoader"></a>Class &amp; ClassLoader</h5><p>Class.forName  与  xxx.class</p>
+<p>ClassNotFoundException  与 NoClassDefFoundError</p>
+<h5 id="Process-amp-Thread-amp-Runnable"><a href="#Process-amp-Thread-amp-Runnable" class="headerlink" title="Process &amp; Thread &amp; Runnable"></a>Process &amp; Thread &amp; Runnable</h5><p>Process <a href="https://zhuanlan.zhihu.com/p/44957705" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/44957705</a></p>
+<h5 id="System"><a href="#System" class="headerlink" title="System"></a>System</h5><p>The <code>System</code>Among the facilities provided by the <code>System</code> class are standard input, standard output, and error output streams; access to externally defined properties and environment variables; a means of loading files and libraries; and a utility method for quickly copying a portion of an array.</p>
+<p>java.lang.System#initializeSystemClass</p>
+<p>相关方法和类 </p>
+<p>​    SecurityManager </p>
+<p>​    Runtime </p>
+<p>​        Shutdown  java.lang.System#exit</p>
+<p>​        Process</p>
+<p>​        ClassLoader java.lang.System#load</p>
+<p>​        java.lang.System#gc</p>
+<p>​        </p>
+<p>java.lang.System#currentTimeMillis</p>
+<p>java.lang.System#nanoTime</p>
+<p>java.lang.System#arraycopy</p>
+<p>java.lang.System#getenv</p>
+<p>java.lang.System#getProperties            </p>
+<h4 id="Throwable"><a href="#Throwable" class="headerlink" title="Throwable"></a>Throwable</h4><p>Class <code>Throwable</code> encompasses objects that may be thrown by the <code>throw</code> statement. Subclasses of <code>Throwable</code> represent errors and exceptions.</p>
+<p>类可抛出性包含由抛出语句抛出的对象。Throwable的子类表示错误和异常。</p>
+<h3 id="java-lang-annotation"><a href="#java-lang-annotation" class="headerlink" title="java.lang.annotation"></a>java.lang.annotation</h3><p>Provides library support for the Java programming language annotation facility.</p>
+<p>为Java编程语言注释工具提供库支持。</p>
+<h3 id="java-lang-instrument"><a href="#java-lang-instrument" class="headerlink" title="java.lang.instrument"></a>java.lang.instrument</h3><p>Provides services that allow Java programming language agents to instrument programs running on the JVM.</p>
+<p>提供允许Java编程语言代理对运行在JVM上的程序进行增强的服务。</p>
+<h3 id="java-lang-invoke"><a href="#java-lang-invoke" class="headerlink" title="java.lang.invoke"></a>java.lang.invoke</h3><p>The java.lang.invoke package contains dynamic language support provided directly by the Java core class libraries and virtual machine.</p>
+<p>包含Java核心类库和虚拟机直接提供的动态语言支持。</p>
+<h3 id="java-lang-management"><a href="#java-lang-management" class="headerlink" title="java.lang.management"></a>java.lang.management</h3><p>Provides the management interfaces for monitoring and management of the Java virtual machine and other components in the Java runtime.</p>
+<p>提供用于监视和管理Java虚拟机和Java运行时中的其他组件的管理接口。</p>
+<h3 id="java-lang-ref"><a href="#java-lang-ref" class="headerlink" title="java.lang.ref"></a>java.lang.ref</h3><p>Provides reference-object classes, which support a limited degree of interaction with the garbage collector.</p>
+<p>提供引用对象类，该类支持与垃圾收集器进行有限程度的交互。</p>
+<h3 id="java-lang-reflect"><a href="#java-lang-reflect" class="headerlink" title="java.lang.reflect"></a>java.lang.reflect</h3><p>Provides classes and interfaces for obtaining reflective information about classes and objects.</p>
+<p>提供用于获取有关类和对象的反射信息的类和接口。</p>
 
       
     </div>
@@ -551,11 +511,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/jvm/" rel="tag"># jvm</a>
+            <a href="/tags/jdk/" rel="tag"># jdk</a>
           
-            <a href="/tags/Spec/" rel="tag"># Spec</a>
-          
-            <a href="/tags/thread/" rel="tag"># thread</a>
+            <a href="/tags/packages/" rel="tag"># packages</a>
           
         </div>
       
@@ -568,8 +526,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/13/Overview_JDK/" rel="next" title="JDK深入浅出">
-                <i class="fa fa-chevron-left"></i> JDK深入浅出
+              <a href="/2019/08/11/JDK-Packages-java-utils/" rel="next" title="JDK_Packages_java_utils">
+                <i class="fa fa-chevron-left"></i> JDK_Packages_java_utils
               </a>
             
           </div>
@@ -578,8 +536,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/16/J-U-C-InterruptedException/" rel="prev" title="J.U.C_InterruptedException">
-                J.U.C_InterruptedException <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/11/Overview-Java-Virtual-Machine/" rel="prev" title="Overview_Java Virtual Machine">
+                Overview_Java Virtual Machine <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -792,7 +750,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Locks"><span class="nav-number">2.</span> <span class="nav-text">Locks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Incorrectly-Synchronized-Programs-Exhibit-Surprising-Behav-iors"><span class="nav-number">3.</span> <span class="nav-text">Incorrectly Synchronized Programs Exhibit Surprising Behav-iors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Informal-Semantics"><span class="nav-number">4.</span> <span class="nav-text">Informal Semantics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-a-Memory-Model"><span class="nav-number">5.</span> <span class="nav-text">What is a Memory Model?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Definitions"><span class="nav-number">6.</span> <span class="nav-text">Definitions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Approximations-to-a-Java-Memory-Model"><span class="nav-number">7.</span> <span class="nav-text">Approximations to a Java Memory Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word-Tearing"><span class="nav-number">8.</span> <span class="nav-text">Word Tearing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Non-atomic-Treatment-of-double-and-long"><span class="nav-number">9.</span> <span class="nav-text">Non-atomic Treatment of double and long</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang"><span class="nav-number">1.</span> <span class="nav-text">java.lang</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Base"><span class="nav-number">1.1.</span> <span class="nav-text">Base</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AutoBoxing"><span class="nav-number">1.2.</span> <span class="nav-text">AutoBoxing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Utils-Math-String"><span class="nav-number">1.3.</span> <span class="nav-text">Utils (Math,String)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Math-amp-StrictMath"><span class="nav-number">1.3.1.</span> <span class="nav-text">Math &amp; StrictMath</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-amp-StringBuffer-amp-StringBuilder"><span class="nav-number">1.3.2.</span> <span class="nav-text">String &amp; StringBuffer &amp; StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VM"><span class="nav-number">1.4.</span> <span class="nav-text">VM</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Class-amp-ClassLoader"><span class="nav-number">1.4.1.</span> <span class="nav-text">Class &amp; ClassLoader</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Process-amp-Thread-amp-Runnable"><span class="nav-number">1.4.2.</span> <span class="nav-text">Process &amp; Thread &amp; Runnable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#System"><span class="nav-number">1.4.3.</span> <span class="nav-text">System</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Throwable"><span class="nav-number">1.5.</span> <span class="nav-text">Throwable</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-annotation"><span class="nav-number">2.</span> <span class="nav-text">java.lang.annotation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-instrument"><span class="nav-number">3.</span> <span class="nav-text">java.lang.instrument</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-invoke"><span class="nav-number">4.</span> <span class="nav-text">java.lang.invoke</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-management"><span class="nav-number">5.</span> <span class="nav-text">java.lang.management</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-ref"><span class="nav-number">6.</span> <span class="nav-text">java.lang.ref</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-reflect"><span class="nav-number">7.</span> <span class="nav-text">java.lang.reflect</span></a></li></ol></div>
             
 
           </div>
@@ -973,7 +931,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/06/14/Spec-JSR133/'
+    refer: '2019/08/11/JDK-Packages-java-lang/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];

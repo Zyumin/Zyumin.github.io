@@ -96,25 +96,25 @@
 
 
 
-  <meta name="keywords" content="jvm,Spec,thread">
+  <meta name="description" content="JDK_Packages_java_utils utils包需要关注的主要有 ​    集合框架、并发包、函数式编程、观察者模式@see PropertyChangeSupport java.util(集合框架)Contains the collections framework, legacy collection classes, event model, date and time faci">
+<meta name="keywords" content="jdk,packages">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spec_JSR133">
-<meta property="og:url" content="http://yoursite.com/2019/06/14/Spec-JSR133/index.html">
+<meta property="og:title" content="JDK_Packages_java_utils">
+<meta property="og:url" content="http://yoursite.com/2019/08/11/JDK-Packages-java-utils/index.html">
 <meta property="og:site_name" content="Zyumin">
+<meta property="og:description" content="JDK_Packages_java_utils utils包需要关注的主要有 ​    集合框架、并发包、函数式编程、观察者模式@see PropertyChangeSupport java.util(集合框架)Contains the collections framework, legacy collection classes, event model, date and time faci">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g42sqb05mrj30qo0hnaem.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g40xyu6xf8j30cb0amq36.jpg">
-<meta property="og:updated_time" content="2019-07-04T06:05:38.905Z">
+<meta property="og:updated_time" content="2019-08-11T11:06:25.930Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spec_JSR133">
-<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g42sqb05mrj30qo0hnaem.jpg">
+<meta name="twitter:title" content="JDK_Packages_java_utils">
+<meta name="twitter:description" content="JDK_Packages_java_utils utils包需要关注的主要有 ​    集合框架、并发包、函数式编程、观察者模式@see PropertyChangeSupport java.util(集合框架)Contains the collections framework, legacy collection classes, event model, date and time faci">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/14/Spec-JSR133/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/11/JDK-Packages-java-utils/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>Spec_JSR133 | Zyumin</title>
+  <title>JDK_Packages_java_utils | Zyumin</title>
   
 
 
@@ -318,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/14/Spec-JSR133/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/11/JDK-Packages-java-utils/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhengyumin">
@@ -335,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spec_JSR133
+          <h1 class="post-title" itemprop="name headline">JDK_Packages_java_utils
 
               
             
@@ -361,24 +361,12 @@
                 
               
 
-              <time title="创建时间：2019-06-14 19:26:57" itemprop="dateCreated datePublished" datetime="2019-06-14T19:26:57+08:00">2019-06-14</time>
+              <time title="创建时间：2019-08-11 19:04:25 / 修改时间：19:06:25" itemprop="dateCreated datePublished" datetime="2019-08-11T19:04:25+08:00">2019-08-11</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-04 14:05:38" itemprop="dateModified" datetime="2019-07-04T14:05:38+08:00">2019-07-04</time>
               
             
           </span>
@@ -392,7 +380,7 @@
 
           
           
-            <span id="/2019/06/14/Spec-JSR133/" class="leancloud_visitors" data-flag-title="Spec_JSR133">
+            <span id="/2019/08/11/JDK-Packages-java-utils/" class="leancloud_visitors" data-flag-title="JDK_Packages_java_utils">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -417,7 +405,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.6k</span>
+                <span title="本文字数">2.1k</span>
               
 
               
@@ -431,7 +419,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">4 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -451,83 +439,28 @@
       
 
       
-        <p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g42sqb05mrj30qo0hnaem.jpg" alt="image-20190616103858903"></p>
-<a id="more"></a>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Memory Model and Thread Specification , 内存模型和线程规范 </p>
-<p>These semantics do not describe how a multithreaded program should be executed. Rather,they describe the behaviors that multithreaded programs are allowed to exhibit</p>
-<p>规范的标准内容将合并到<em>JavaTM语言规范</em>、<em>JavaTM虚拟机规范</em>以及<code>java.lang</code>包的类说明中</p>
-<p>因为线程的行为，尤其是未正确同步时的行为，可能会让人困惑和违背直觉 ,所以规范规定了</p>
-<ul>
-<li>用于屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的并发效果</li>
-<li>规定了一个线程如何和何时可以看到由其他线程修改过后的共享变量的值，以及在必须时如何同步的访问共享变量。</li>
-</ul>
-<h2 id="Locks"><a href="#Locks" class="headerlink" title="Locks"></a>Locks</h2><blockquote>
-<p> There are multiple mechanisms for communicating between threads.most basic of these<br>methods is synchronization, which is implemented using monitors. </p>
-<p>Each object is associated witha monitor, which a thread can lock or unlock.</p>
-<p> Only one thread at a time may hold a lock on amonitor.</p>
-<p> Any other threads attempting to lock that monitor are blocked until they can obtain a<br>lock on that monitor.</p>
-<p>Other mechanisms, such as reads and writes of volatile variables and classes provided in the<br>java.util.concurrent package, provide alternative mechanisms for synchronization.</p>
-</blockquote>
-<p>同步语义的实现  synchronized 的实现,volatile,juc 包</p>
-<h2 id="Incorrectly-Synchronized-Programs-Exhibit-Surprising-Behav-iors"><a href="#Incorrectly-Synchronized-Programs-Exhibit-Surprising-Behav-iors" class="headerlink" title="Incorrectly Synchronized Programs Exhibit Surprising Behav-iors"></a>Incorrectly Synchronized Programs Exhibit Surprising Behav-iors</h2><blockquote>
-<p>The semantics of the Java programming language allow compilers and microprocessors to perform optimizations that can interact with incorrectly synchronized code in ways that can produce behaviors that seem paradoxical.</p>
-<p>However,it was forbidden by the original Java memory model in the JLS and JVMS: this was one of the first indications that the original JMM needed to be replaced.</p>
-</blockquote>
-<p>Java 的语义允许编译器和微处理器进行优化、重排 会改变语义,所以需要重新定义JMM内存模型</p>
-<h2 id="Informal-Semantics"><a href="#Informal-Semantics" class="headerlink" title="Informal Semantics"></a>Informal Semantics</h2><p>There are two key ideas to understanding whether a program is correctly synchronized:</p>
-<ol>
-<li>Conflicting Accesses</li>
-<li>Happens-Before Relationship</li>
-</ol>
-<p>There are a number of ways to induce a happens-before ordering, including: </p>
-<ul>
-<li><p>Each action in a thread happens-before every subsequent action in that thread. • An unlock on a monitor happens-before every subsequent lock on that monitor. • A write to a volatile field happens-before every subsequent read of that volatile. </p>
-</li>
-<li><p>A call to start() on a thread happens-before any actions in the started thread. </p>
-</li>
-<li>All actions in a thread happen-before any other thread successfully returns from a join() on that thread. </li>
-<li>If an action a happens-before an action b, and b happens before an action c, then a happens- before c. </li>
-</ul>
-<blockquote>
-<p>When a program contains two conflicting accesses that are not ordered by a happens-before relationship, it is said to contain a data race. </p>
-</blockquote>
-<p>理解一个程序是否被正确的同步了，有两个关键概念: 冲突访问和H-B</p>
-<blockquote>
-<p>Sequential Consistency</p>
-<p> As noted before, sequential consistency and/or freedom from data races still allows errors arising from<br>groups of operations that need to be perceived atomically and are not.</p>
-<p>If we were to use sequential consistency as our memory model, many of the compiler and<br>processor optimizations that we have discussed would be illegal.</p>
-<p>Final Fields</p>
-</blockquote>
-<p>顺序一致性模型 也不能解决语义问题,同时还会让优化失效</p>
-<h2 id="What-is-a-Memory-Model"><a href="#What-is-a-Memory-Model" class="headerlink" title="What is a Memory Model?"></a>What is a Memory Model?</h2><blockquote>
-<p>A memory model describes, given a program and an execution trace of that program, whether<br>the execution trace is a legal execution of the program. For the Java programming language, the<br>memory model works by examining each read in an execution trace and checking that the write<br>observed by that read is valid according to certain rules.</p>
-</blockquote>
-<p>内存模型 描述程序的执行行为是否合法 对于Java 来说,内存共享型, 需要关注的是当前线程读取到的信息是否是最新的, 因为各个线程都有一个本地缓存(栈、cpu缓存),通过堆来共享</p>
-<p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g40xyu6xf8j30cb0amq36.jpg" alt="img"></p>
-<h2 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h2><p>Shared variables/Heap memory  共享变量/堆内存</p>
-<p> Inter-thread Actions 线程间的动作</p>
-<p>Program Order 程序顺序</p>
-<p>Intra-thread semantics 线程内语义</p>
-<p>Synchronization Actions  同步动作</p>
-<p>Synchronization Order  同步顺序</p>
-<p>Happens-Before and Synchronizes-With Edges  Happens-Before 与 Synchronizes-With 边缘</p>
-<p> synchronizes-with，同步动作上的偏序关系。 </p>
-<p>happens-before，动作上的偏序关系。</p>
-<h2 id="Approximations-to-a-Java-Memory-Model"><a href="#Approximations-to-a-Java-Memory-Model" class="headerlink" title="Approximations to a Java Memory Model"></a>Approximations to a Java Memory Model</h2><ul>
-<li>Sequential Consistency Memory Model</li>
-<li>Happens-Before Memory Model</li>
-<li>Causality<ul>
-<li>Happens-Before is too Weak</li>
-<li>Causality is Subtle</li>
-</ul>
-</li>
-</ul>
-<p>顺序一致性模型 约束太强了,不利于优化</p>
-<p>Happens-Before 太弱了,执行结果不可预测 </p>
-<p>Happens-before 模型最致命的弱点是其允许值“凭空出现(out of thin air)”</p>
-<h2 id="Word-Tearing"><a href="#Word-Tearing" class="headerlink" title="Word Tearing"></a>Word Tearing</h2><p>One implementation consideration for Java virtual machines is that every field and array element<br>is considered distinct; updates to one field or element must not interact with reads or updates<br>of any other field or element. In particular, two threads that update adjacent elements of a byte<br>array separately must not interfere or interact and do not need synchronization to ensure sequential<br>consistency.</p>
-<h2 id="Non-atomic-Treatment-of-double-and-long"><a href="#Non-atomic-Treatment-of-double-and-long" class="headerlink" title="Non-atomic Treatment of double and long"></a>Non-atomic Treatment of double and long</h2><p>For efficiency’s sake, this<br>behavior is implementation specific; JavaTM virtual machines are free to perform writes to long<br>and double values atomically or in two parts.</p>
-<p>Final Field Semantics 、Fairness、Wait Sets and Notification、Sleep and Yield、Finalization</p>
+        <p>JDK_Packages_java_utils</p>
+<p>utils包需要关注的主要有</p>
+<p>​    集合框架、并发包、函数式编程、观察者模式@see PropertyChangeSupport</p>
+<h3 id="java-util-集合框架"><a href="#java-util-集合框架" class="headerlink" title="java.util(集合框架)"></a>java.util(集合框架)</h3><p>Contains the collections framework, legacy collection classes, event model, date and time facilities, internationalization, and miscellaneous utility classes (a string tokenizer, a random-number generator, and a bit array).</p>
+<p>包含集合框架、遗留集合类、事件模型、日期和时间工具、国际化和杂项实用程序类(字符串记号赋予器、随机数生成器和位数组)。</p>
+<p>@see Overview_Colleciton</p>
+<h3 id="java-util-concurrent-并发包-、-原子类、锁"><a href="#java-util-concurrent-并发包-、-原子类、锁" class="headerlink" title="java.util.concurrent (并发包 、 原子类、锁)"></a>java.util.concurrent (并发包 、 原子类、锁)</h3><p>Utility classes commonly useful in concurrent programming.</p>
+<p>java.util.concurrent.atomic     A small toolkit of classes that support lock-free thread-safe programming on single variables.</p>
+<p>java.util.concurrent.locks     Interfaces and classes providing a framework for locking and waiting for conditions that is distinct from built-in synchronization and monitors.</p>
+<h3 id="java-util-function-函数式编程"><a href="#java-util-function-函数式编程" class="headerlink" title="java.util.function    (函数式编程)"></a>java.util.function    (函数式编程)</h3><p>Functional interfaces provide target types for lambda expressions and method references.</p>
+<p>There are several basic function shapes, including <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html" target="_blank" rel="noopener"><code>Function</code></a> (unary function from <code>T</code> to <code>R</code>), <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html" target="_blank" rel="noopener"><code>Consumer</code></a> (unary function from <code>T</code> to <code>void</code>), <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html" target="_blank" rel="noopener"><code>Predicate</code></a> (unary function from <code>T</code> to <code>boolean</code>), and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Supplier.html" target="_blank" rel="noopener"><code>Supplier</code></a> (nilary function to <code>R</code>).</p>
+<h3 id="java-util-stream-流式编程"><a href="#java-util-stream-流式编程" class="headerlink" title="java.util.stream(流式编程)"></a>java.util.stream(流式编程)</h3><p>Classes to support functional-style operations on streams of elements, such as map-reduce transformations on collections.</p>
+<p>类来支持元素流上的函数式操作，例如集合上的映射-reduce转换。</p>
+<h3 id="java-util-logging-日志"><a href="#java-util-logging-日志" class="headerlink" title="java.util.logging(日志)"></a>java.util.logging(日志)</h3><p>Provides the classes and interfaces of the JavaTM 2 platform’s core logging facilities.</p>
+<h3 id="java-util-prefs"><a href="#java-util-prefs" class="headerlink" title="java.util.prefs"></a>java.util.prefs</h3><p>This package allows applications to store and retrieve user and system preference and configuration data.</p>
+<p>这个包允许应用程序存储和检索用户和系统首选项以及配置数据。</p>
+<h3 id="java-util-regex"><a href="#java-util-regex" class="headerlink" title="java.util.regex"></a>java.util.regex</h3><p>Classes for matching character sequences against patterns specified by regular expressions.</p>
+<p>用于根据正则表达式指定的模式匹配字符序列的类。</p>
+<h3 id="java-util-spi"><a href="#java-util-spi" class="headerlink" title="java.util.spi"></a>java.util.spi</h3><p>Service provider classes for the classes in the java.util package.</p>
+<p>用于java中的类的服务提供程序类</p>
+<h3 id="java-util-zip-读写zip"><a href="#java-util-zip-读写zip" class="headerlink" title="java.util.zip(读写zip)"></a>java.util.zip(读写zip)</h3><p>Provides classes for reading and writing the standard ZIP and GZIP file formats.</p>
+<h3 id="java-util-jar-jar包工具"><a href="#java-util-jar-jar包工具" class="headerlink" title="java.util.jar(jar包工具)"></a>java.util.jar(jar包工具)</h3><p>Provides classes for reading and writing the JAR (Java ARchive) file format, which is based on the standard ZIP file format with an optional manifest file.</p>
 
       
     </div>
@@ -551,11 +484,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/jvm/" rel="tag"># jvm</a>
+            <a href="/tags/jdk/" rel="tag"># jdk</a>
           
-            <a href="/tags/Spec/" rel="tag"># Spec</a>
-          
-            <a href="/tags/thread/" rel="tag"># thread</a>
+            <a href="/tags/packages/" rel="tag"># packages</a>
           
         </div>
       
@@ -568,8 +499,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/13/Overview_JDK/" rel="next" title="JDK深入浅出">
-                <i class="fa fa-chevron-left"></i> JDK深入浅出
+              <a href="/2019/08/10/Overview-J-U-C/" rel="next" title="Overview_J-U-C">
+                <i class="fa fa-chevron-left"></i> Overview_J-U-C
               </a>
             
           </div>
@@ -578,8 +509,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/16/J-U-C-InterruptedException/" rel="prev" title="J.U.C_InterruptedException">
-                J.U.C_InterruptedException <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/11/JDK-Packages-java-lang/" rel="prev" title="JDK_Packages_java_lang">
+                JDK_Packages_java_lang <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -792,7 +723,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Locks"><span class="nav-number">2.</span> <span class="nav-text">Locks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Incorrectly-Synchronized-Programs-Exhibit-Surprising-Behav-iors"><span class="nav-number">3.</span> <span class="nav-text">Incorrectly Synchronized Programs Exhibit Surprising Behav-iors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Informal-Semantics"><span class="nav-number">4.</span> <span class="nav-text">Informal Semantics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-a-Memory-Model"><span class="nav-number">5.</span> <span class="nav-text">What is a Memory Model?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Definitions"><span class="nav-number">6.</span> <span class="nav-text">Definitions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Approximations-to-a-Java-Memory-Model"><span class="nav-number">7.</span> <span class="nav-text">Approximations to a Java Memory Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word-Tearing"><span class="nav-number">8.</span> <span class="nav-text">Word Tearing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Non-atomic-Treatment-of-double-and-long"><span class="nav-number">9.</span> <span class="nav-text">Non-atomic Treatment of double and long</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-util-集合框架"><span class="nav-number">1.</span> <span class="nav-text">java.util(集合框架)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-util-concurrent-并发包-、-原子类、锁"><span class="nav-number">2.</span> <span class="nav-text">java.util.concurrent (并发包 、 原子类、锁)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-util-function-函数式编程"><span class="nav-number">3.</span> <span class="nav-text">java.util.function    (函数式编程)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-util-stream-流式编程"><span class="nav-number">4.</span> <span class="nav-text">java.util.stream(流式编程)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-util-logging-日志"><span class="nav-number">5.</span> <span class="nav-text">java.util.logging(日志)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-util-prefs"><span class="nav-number">6.</span> <span class="nav-text">java.util.prefs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-util-regex"><span class="nav-number">7.</span> <span class="nav-text">java.util.regex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-util-spi"><span class="nav-number">8.</span> <span class="nav-text">java.util.spi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-util-zip-读写zip"><span class="nav-number">9.</span> <span class="nav-text">java.util.zip(读写zip)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-util-jar-jar包工具"><span class="nav-number">10.</span> <span class="nav-text">java.util.jar(jar包工具)</span></a></li></ol></div>
             
 
           </div>
@@ -973,7 +904,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/06/14/Spec-JSR133/'
+    refer: '2019/08/11/JDK-Packages-java-utils/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
