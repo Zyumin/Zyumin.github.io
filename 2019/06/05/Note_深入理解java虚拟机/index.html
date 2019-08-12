@@ -96,16 +96,16 @@
 
 
 
-  <meta name="keywords" content="java,jvm">
+  <meta name="keywords" content="java,note,jvm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java虚拟机深入浅出">
+<meta property="og:title" content="Note_深入理解java虚拟机">
 <meta property="og:url" content="http://yoursite.com/2019/06/05/Note_深入理解java虚拟机/index.html">
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g3qlkg3awoj30yg0mx4qp.jpg">
-<meta property="og:updated_time" content="2019-07-06T15:15:00.702Z">
+<meta property="og:updated_time" content="2019-08-12T02:39:53.734Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java虚拟机深入浅出">
+<meta name="twitter:title" content="Note_深入理解java虚拟机">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g3qlkg3awoj30yg0mx4qp.jpg">
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>Java虚拟机深入浅出 | Zyumin</title>
+  <title>Note_深入理解java虚拟机 | Zyumin</title>
   
 
 
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java虚拟机深入浅出
+          <h1 class="post-title" itemprop="name headline">Note_深入理解java虚拟机
 
               
             
@@ -377,7 +377,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-06 23:15:00" itemprop="dateModified" datetime="2019-07-06T23:15:00+08:00">2019-07-06</time>
+                <time title="修改时间：2019-08-12 10:39:53" itemprop="dateModified" datetime="2019-08-12T10:39:53+08:00">2019-08-12</time>
               
             
           </span>
@@ -391,7 +391,7 @@
 
           
           
-            <span id="/2019/06/05/Note_深入理解java虚拟机/" class="leancloud_visitors" data-flag-title="Java虚拟机深入浅出">
+            <span id="/2019/06/05/Note_深入理解java虚拟机/" class="leancloud_visitors" data-flag-title="Note_深入理解java虚拟机">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -453,13 +453,6 @@
         <p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g3qlkg3awoj30yg0mx4qp.jpg" alt="image-20190605212425037"></p>
 <a id="more"></a>
 <p>​    这里只是简单的列出书中的知识点, 其实本书是对相关规范(JVM和JLS)和基于虚拟机规范官方实现(HotSpot)的总结 ,更多详细可以看下面的扩展链接</p>
-<p>参考:</p>
-<blockquote>
-<p><a href="https://docs.oracle.com/javase/9/vm/java-virtual-machine-technology-overview.htm#JSJVM-GUID-982B244A-9B01-479A-8651-CB6475019281" target="_blank" rel="noopener">虚拟机官方链接</a></p>
-<p><a href="https://docs.oracle.com/javase/specs/index.html" target="_blank" rel="noopener">语言和虚拟机规范</a></p>
-<p>深入理解Java虚拟机 —周志明</p>
-<p><a href="https://docs.oracle.com/en/java/javase/12/gctuning/introduction-garbage-collection-tuning.html#GUID-326EB4CF-8C8C-4267-8355-21AB04F0D304" target="_blank" rel="noopener">HotSpot GC</a></p>
-</blockquote>
 <h2 id="内存区域"><a href="#内存区域" class="headerlink" title="内存区域"></a>内存区域</h2><h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>​    线程独立，在虚拟机概念模型里，字节码解释器工作时通过这个计数器来选取下一条需要执行的指令</p>
 <h4 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h4><p>​    线程独立，每个方法在执行时会创建一个栈帧，调用直至执行完成的过程，就对应一个栈帧在虚拟机栈中入栈到出栈的过程</p>
 <h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><p>​    与虚拟机栈类似，不过它为Native方法服务</p>
@@ -553,6 +546,8 @@
         <div class="post-tags">
           
             <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/note/" rel="tag"># note</a>
           
             <a href="/tags/jvm/" rel="tag"># jvm</a>
           
