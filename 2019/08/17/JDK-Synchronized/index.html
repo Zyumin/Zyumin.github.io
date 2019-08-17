@@ -96,25 +96,29 @@
 
 
 
-  <meta name="keywords" content="java,note">
+  <meta name="description" content="Java对象的组成在HotSpot虚拟机中,对象在内存中存储的布局可以分为3块区域 : 对象头(Header)、实例数据(Instance Data)、填充(Padding) Header (对象头)Java对象的对象头由 mark word 和  klass pointer 、Array length mark word: 存储了同步状态、标识、hashcode、GC状态等等。 klass po">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Note_码农翻身">
-<meta property="og:url" content="http://yoursite.com/2019/07/10/Note-码农翻身/index.html">
+<meta property="og:title" content="JDK_Synchronized">
+<meta property="og:url" content="http://yoursite.com/2019/08/17/JDK-Synchronized/index.html">
 <meta property="og:site_name" content="Zyumin">
+<meta property="og:description" content="Java对象的组成在HotSpot虚拟机中,对象在内存中存储的布局可以分为3块区域 : 对象头(Header)、实例数据(Instance Data)、填充(Padding) Header (对象头)Java对象的对象头由 mark word 和  klass pointer 、Array length mark word: 存储了同步状态、标识、hashcode、GC状态等等。 klass po">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g4v6oydtusj30u016fn56.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g4v6w94j6kj30u017mwh8.jpg">
-<meta property="og:updated_time" content="2019-08-12T02:40:13.125Z">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g62ri4y207j31d20h2diu.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g62rgyw625j30m6081jrn.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g62s3w1yhzj31ks0980un.jpg">
+<meta property="og:updated_time" content="2019-08-17T09:02:08.364Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Note_码农翻身">
-<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g4v6oydtusj30u016fn56.jpg">
+<meta name="twitter:title" content="JDK_Synchronized">
+<meta name="twitter:description" content="Java对象的组成在HotSpot虚拟机中,对象在内存中存储的布局可以分为3块区域 : 对象头(Header)、实例数据(Instance Data)、填充(Padding) Header (对象头)Java对象的对象头由 mark word 和  klass pointer 、Array length mark word: 存储了同步状态、标识、hashcode、GC状态等等。 klass po">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g62ri4y207j31d20h2diu.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/10/Note-码农翻身/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/17/JDK-Synchronized/">
 
 
 
@@ -124,7 +128,7 @@
   };
 </script>
 
-  <title>Note_码农翻身 | Zyumin</title>
+  <title>JDK_Synchronized | Zyumin</title>
   
 
 
@@ -318,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/10/Note-码农翻身/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/17/JDK-Synchronized/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhengyumin">
@@ -335,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Note_码农翻身
+          <h1 class="post-title" itemprop="name headline">JDK_Synchronized
 
               
             
@@ -361,24 +365,12 @@
                 
               
 
-              <time title="创建时间：2019-07-10 22:18:56" itemprop="dateCreated datePublished" datetime="2019-07-10T22:18:56+08:00">2019-07-10</time>
+              <time title="创建时间：2019-08-17 17:01:54 / 修改时间：17:02:08" itemprop="dateCreated datePublished" datetime="2019-08-17T17:01:54+08:00">2019-08-17</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-12 10:40:13" itemprop="dateModified" datetime="2019-08-12T10:40:13+08:00">2019-08-12</time>
               
             
           </span>
@@ -392,7 +384,7 @@
 
           
           
-            <span id="/2019/07/10/Note-码农翻身/" class="leancloud_visitors" data-flag-title="Note_码农翻身">
+            <span id="/2019/08/17/JDK-Synchronized/" class="leancloud_visitors" data-flag-title="JDK_Synchronized">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -417,7 +409,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2k</span>
+                <span title="本文字数">1.1k</span>
               
 
               
@@ -431,7 +423,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">1 分钟</span>
               
             </div>
           
@@ -451,122 +443,34 @@
       
 
       
-        <p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g4v6oydtusj30u016fn56.jpg" alt="image-20190710235737581"></p>
-<a id="more"></a>
-<p>这几天看了本书,《码农翻身》 做个笔记总结下</p>
-<p>先来个总评 ,很不错的入门书,趣味性比较强, 涉及知识范围比较广</p>
-<p>主要有以下几个议题:</p>
-<ul>
-<li>计算机原理</li>
-<li>java发展历史</li>
-<li>web发展历史</li>
-<li>其他(代码管理、JavaScript)</li>
-</ul>
-<h2 id="计算机原理"><a href="#计算机原理" class="headerlink" title="计算机原理"></a>计算机原理</h2><h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>线程状态 就绪 运行 等待</p>
-<p>锁 获取顺序从大到小</p>
-<h3 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h3><p>三次握手建立链接</p>
-<p>窗口协议控制速率</p>
-<p>确认传达、重传机制</p>
-<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><p>寄存器 程序计数器</p>
-<p>程序都是由顺序、分支、循环组成的</p>
-<p>缓存 L1 L2 L3  局部性原理</p>
-<p>流水线</p>
-<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>冯诺依曼 提出了存储程序-&gt;专用计算机 到 通用计算机</p>
-<p>运算器 控制器 存储器 输入设备 输出设备</p>
-<p>内存</p>
-<p>内存分配算法</p>
-<p>地址重定位</p>
-<p>​    静态重定位(移动程序,需要重定位)</p>
-<p>​    动态重定向 </p>
-<p>​        记录每个程序的起始地址,寄存器(基址寄存器) </p>
-<p>​        记录程序内存长度寄存器 防止越界 (两个寄存器封装为MMU 内存管理单元,完成地址的转换)</p>
-<p>分时系统 CPU时间分片</p>
-<p>分块装入内存(页框 Page Frame)</p>
-<p>虚拟内存(分页Page)</p>
-<p>分段(代码段,数据段,堆栈段)+分页</p>
-<p>线程</p>
-<p>共享进程的所有资源 地址空间、全局变量、文件源</p>
-<h3 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h3><p>文件</p>
-<p>文件存放</p>
-<p>​    索引</p>
-<p>​    间接块</p>
-<p>​    日志文件系统 防止系统奔溃</p>
-<p>管理空闲块</p>
-<p>​    位图</p>
-<p>文件系统</p>
-<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><p>逻辑层 (查询语句解析、查询执行引擎、缓冲区管理、授权管理、事务管理)-&gt;文件的封装</p>
-<h3 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h3><p>Socket抽象层 封装 TCP UDP和用户线程直接的连接</p>
-<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>源程序-&gt;词法分析-&gt;语法分析-&gt;语义分析-&gt;中间代码生成-&gt;代码优化-&gt;代码生成-&gt;目标程序</p>
-<p>对二进制书的所有位取反,然后加一 补码</p>
-<p>在计算机内部,是使用补码来表示二进制的.如果是一个正数,补码就是它本身</p>
-<p>如果是一个附属,则需要把除符号位之外的二进制数执行取反加1的操作</p>
-<h2 id="java发展历史"><a href="#java发展历史" class="headerlink" title="java发展历史"></a>java发展历史</h2><p>持久化</p>
-<p>​    序列化到磁盘</p>
-<p>​    数据库 JDBC接口</p>
-<p>​    EJB -&gt;轻量级O/R框架 Hibernate 、iBatis、Sping JdbcTemplate</p>
-<p>​    EJB3.0 </p>
-<p>JDBC </p>
-<p>简单工厂</p>
-<p>数据驱动</p>
-<p>工厂方法</p>
-<p>分布式</p>
-<p>JSP</p>
-<p>MVC</p>
-<p>消息队列JMS</p>
-<p>动态代理</p>
-<p>注解</p>
-<p>泛型 </p>
-<p>日志系统</p>
-<p>​    SLF4J API抽象层  LogBack</p>
-<p>​    适配层</p>
-<p>​    Log4j、JDK logging</p>
-<h2 id="Web发展历史"><a href="#Web发展历史" class="headerlink" title="Web发展历史"></a>Web发展历史</h2><p>web起源</p>
-<p>https</p>
-<p>​    对称加密 公钥</p>
-<p>​    非对称加密 RSA</p>
-<p>​    对称加密+非对称加密 (效率低)</p>
-<p>​    中间人劫持</p>
-<p>​    证书</p>
-<p>授权 </p>
-<p>​    sso </p>
-<p>​    token</p>
-<p>从SOA到微服务</p>
-<p>HTTP Server</p>
-<p>1.0</p>
-<p>2.0 多进程</p>
-<p>3.0 select模型</p>
-<p>4.0 epoll模型</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>虽然覆盖的知识很广,但其实这些知识点比较零散,而且都比较浅显,都需要深入了解,只能说适合作为一本入门书籍 或者知识大纲用来查漏补缺</p>
-<h2 id="技术感悟"><a href="#技术感悟" class="headerlink" title="技术感悟"></a>技术感悟</h2><p>最近思考了很多,为思故我在, 偶尔需要给自己点空闲时间思考, 自己到底想要什么,自己经历的问题是不是问题 </p>
-<p>偶然看到一篇总结的很好的文章, 分享一下</p>
-<p><strong>1. 一个人走得快，一群人走得远</strong></p>
-<p><strong>2. 当你不舒服，难受或陷于困境时，应该停下来思考</strong></p>
-<p><strong>3. 学习能力与思维模式是一个人的核心竞争力</strong></p>
-<p><strong>3.1 首先承认自己的不足</strong></p>
-<p>​    Stay foolish, stay hungry.</p>
-<p>我们要承认一个基本的逻辑事实是: 任何事情不是天生就能精通，要通过训练才能达到优秀的程度。很多事物的判断能力，要是逐步建立的。只有意识到自己的不足，才能觉悟，去学习进步。</p>
-<p>网上看到一张图《how to draw a horse》深有感触：</p>
-<p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g4v6w94j6kj30u017mwh8.jpg" alt="image-20190711000446974"></p>
-<p>这个漫画显示的哲理：有时最后一步，你要付出非常多的努力。任何高水平的技术或思维模式，都需要付出努力，并非生而得来。</p>
-<p><strong>3.2 掌握优秀的学习方法：</strong></p>
-<p>如何证明一个人有比较优秀的学习能力？学习做到目到，口到，心到。</p>
-<p><strong>3.3 掌握搜索信息的有效方式</strong></p>
-<p>如何提升获取的信息质量，这里有一些建议：</p>
-<ul>
-<li><p>精确定位问题</p>
-</li>
-<li><p>梳理出关键字与概念</p>
-</li>
-<li><p>“全网”搜索</p>
-</li>
-<li><p>分析研究</p>
-</li>
-<li><p>实践&amp;结论&amp;假设</p>
-</li>
-</ul>
-<p><strong>3.4 具备优秀的批判性思维模型</strong></p>
-<p>在《批判性思维工具》一书中，对思维的水平分了三个层次：较差、中等、最佳水平的思考（如下图1）。当前很多同学可能在多数问题上都处于较差水平层次，很多认知来自直觉或者自我视角。最佳水平的思考要做到三点：全局、公正、客观。</p>
-<p>文章来源:<a href="https://mp.weixin.qq.com/s/LxW4j7JOOrEGYWylP2j9Mg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/LxW4j7JOOrEGYWylP2j9Mg</a></p>
+        <h3 id="Java对象的组成"><a href="#Java对象的组成" class="headerlink" title="Java对象的组成"></a>Java对象的组成</h3><p>在HotSpot虚拟机中,对象在内存中存储的布局可以分为3块区域 : 对象头(Header)、实例数据(Instance Data)、填充(Padding)</p>
+<h4 id="Header-对象头"><a href="#Header-对象头" class="headerlink" title="Header (对象头)"></a>Header (对象头)</h4><p>Java对象的对象头由 mark word 和  klass pointer 、Array length</p>
+<p>mark word: 存储了同步状态、标识、hashcode、GC状态等等。</p>
+<p>klass pointer:存储对象的类型指针，该指针指向它的类元数据</p>
+<p>Array length: 数组的长度(如果当前对象是数组)</p>
+<p>值得注意的是，如果应用的对象过多，使用64位的指针将浪费大量内存。64位的JVM比32位的JVM多耗费50%的内存。</p>
+<p>我们现在使用的64位 JVM会默认使用选项 +UseCompressedOops 开启指针压缩，将指针压缩至32位。</p>
+<h5 id="mark-word存储结构"><a href="#mark-word存储结构" class="headerlink" title="mark word存储结构"></a>mark word存储结构</h5><p>以64位操作系统为例，对象头存储内容图例。(在运行期间,Mark Word里的存储数据会随着锁标记位的变化而变化)</p>
+<p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g62ri4y207j31d20h2diu.jpg" alt="img"></p>
+<p>简单介绍一下各部分的含义</p>
+<p>lock:  锁状态标记位，该标记的值不同，整个mark word表示的含义不同。</p>
+<p>biased_lock：偏向锁标记，为1时表示对象启用偏向锁，为0时表示对象没有偏向锁。</p>
+<p><a href="https://img2018.cnblogs.com/blog/1274378/201907/1274378-20190725164950583-2057732436.png" target="_blank" rel="noopener"><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g62rgyw625j30m6081jrn.jpg" alt="img"></a></p>
+<p>age：Java GC标记位对象年龄。</p>
+<p>identity_hashcode：对象标识Hash码，采用延迟加载技术。当对象使用HashCode()计算后，并会将结果写到该对象头中。当对象被锁定时，该值会移动到线程Monitor中。</p>
+<p>thread：持有偏向锁的线程ID和其他信息。这个线程ID并不是JVM分配的线程ID号，和Java Thread中的ID是两个概念。</p>
+<p>epoch：偏向时间戳。</p>
+<p>ptr_to_lock_record：指向栈中锁记录的指针。</p>
+<p>ptr_to_heavyweight_monitor：指向线程Monitor的指针。</p>
+<h3 id="锁升级与对比"><a href="#锁升级与对比" class="headerlink" title="锁升级与对比"></a>锁升级与对比</h3><p>Java SE 1.6为了减少获得锁和释放锁带来的性能消耗,引入“偏向锁” 和 “轻量级锁” </p>
+<p>锁一共有4种状态,级别从低到高依次是:无锁状态、偏向锁状态、轻量级锁状态和重量级锁状态.</p>
+<p>锁可以升级但不能降级(为了获得锁和释放锁的效率)</p>
+<h4 id="无锁"><a href="#无锁" class="headerlink" title="无锁"></a>无锁</h4><p>首先先来看看无锁状态下的对象实例数据分布,简单的一个Class对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g62s3w1yhzj31ks0980un.jpg" alt="img"></p>
+<h4 id="偏向锁"><a href="#偏向锁" class="headerlink" title="偏向锁"></a>偏向锁</h4><h4 id="轻量级锁"><a href="#轻量级锁" class="headerlink" title="轻量级锁"></a>轻量级锁</h4><h4 id="重量级锁"><a href="#重量级锁" class="headerlink" title="重量级锁"></a>重量级锁</h4><p>see : <a href="https://www.cnblogs.com/LemonFive/p/11246086.html" target="_blank" rel="noopener">https://www.cnblogs.com/LemonFive/p/11246086.html</a></p>
+<p>深入理解java虚拟机</p>
+<p>java并发编程艺术</p>
 
       
     </div>
@@ -588,14 +492,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/java/" rel="tag"># java</a>
-          
-            <a href="/tags/note/" rel="tag"># note</a>
-          
-        </div>
-      
 
       
       
@@ -605,8 +501,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/06/JDK-ClassLoader/" rel="next" title="JDK_ClassLoader">
-                <i class="fa fa-chevron-left"></i> JDK_ClassLoader
+              <a href="/2019/08/11/Overview-Java-Virtual-Machine/" rel="next" title="Overview_Java Virtual Machine">
+                <i class="fa fa-chevron-left"></i> Overview_Java Virtual Machine
               </a>
             
           </div>
@@ -614,10 +510,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/29/JDK-The-Collections-Framework/" rel="prev" title="JDK_The Collections Framework">
-                JDK_The Collections Framework <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -829,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机原理"><span class="nav-number">1.</span> <span class="nav-text">计算机原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#线程"><span class="nav-number">1.1.</span> <span class="nav-text">线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-IP"><span class="nav-number">1.2.</span> <span class="nav-text">TCP/IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU"><span class="nav-number">1.3.</span> <span class="nav-text">CPU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程"><span class="nav-number">1.4.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#磁盘"><span class="nav-number">1.5.</span> <span class="nav-text">磁盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库"><span class="nav-number">1.6.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#socket"><span class="nav-number">1.7.</span> <span class="nav-text">socket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译"><span class="nav-number">1.8.</span> <span class="nav-text">编译</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java发展历史"><span class="nav-number">2.</span> <span class="nav-text">java发展历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web发展历史"><span class="nav-number">3.</span> <span class="nav-text">Web发展历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技术感悟"><span class="nav-number">5.</span> <span class="nav-text">技术感悟</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java对象的组成"><span class="nav-number">1.</span> <span class="nav-text">Java对象的组成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Header-对象头"><span class="nav-number">1.1.</span> <span class="nav-text">Header (对象头)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#mark-word存储结构"><span class="nav-number">1.1.1.</span> <span class="nav-text">mark word存储结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锁升级与对比"><span class="nav-number">2.</span> <span class="nav-text">锁升级与对比</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#无锁"><span class="nav-number">2.1.</span> <span class="nav-text">无锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#偏向锁"><span class="nav-number">2.2.</span> <span class="nav-text">偏向锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#轻量级锁"><span class="nav-number">2.3.</span> <span class="nav-text">轻量级锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重量级锁"><span class="nav-number">2.4.</span> <span class="nav-text">重量级锁</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1010,7 +902,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/07/10/Note-码农翻身/'
+    refer: '2019/08/17/JDK-Synchronized/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
