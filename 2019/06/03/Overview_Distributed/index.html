@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g3p3wk755qj31400u0gog.jpg">
-<meta property="og:updated_time" content="2019-07-06T15:31:02.620Z">
+<meta property="og:updated_time" content="2019-08-20T01:46:49.528Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式理论基础">
 <meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g3p3wk755qj31400u0gog.jpg">
@@ -377,7 +377,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-06 23:31:02" itemprop="dateModified" datetime="2019-07-06T23:31:02+08:00">2019-07-06</time>
+                <time title="修改时间：2019-08-20 09:46:49" itemprop="dateModified" datetime="2019-08-20T09:46:49+08:00">2019-08-20</time>
               
             
           </span>
@@ -416,7 +416,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">828</span>
+                <span title="本文字数">950</span>
               
 
               
@@ -502,10 +502,13 @@
 <h4 id="XA-规范"><a href="#XA-规范" class="headerlink" title="XA 规范"></a>XA 规范</h4><h4 id="2PC"><a href="#2PC" class="headerlink" title="2PC"></a>2PC</h4><p>​     同步阻塞、无限制等待、 存在脑裂问题</p>
 <h4 id="3PC"><a href="#3PC" class="headerlink" title="3PC"></a>3PC</h4><p>​    缩小阻塞范围、加入超时 、存在脑裂问题</p>
 <h4 id="Paxos算法"><a href="#Paxos算法" class="headerlink" title="Paxos算法"></a>Paxos算法</h4><p>​     <a href="https://github.com/Tencent/phxpaxos" target="_blank" rel="noopener">https://github.com/Tencent/phxpaxos</a>  腾讯微信后台的实现</p>
+<h4 id="RAFT算法"><a href="#RAFT算法" class="headerlink" title="RAFT算法:"></a>RAFT算法:</h4><p><a href="https://www.jianshu.com/p/8279d6fd65bb" target="_blank" rel="noopener">https://www.jianshu.com/p/8279d6fd65bb</a></p>
+<p><a href="https://redis.io/topics/cluster-spec" target="_blank" rel="noopener">https://redis.io/topics/cluster-spec</a></p>
 <h4 id="Bully算法"><a href="#Bully算法" class="headerlink" title="Bully算法"></a>Bully算法</h4><p> <a href="http://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/BullyExample.html" target="_blank" rel="noopener">http://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/BullyExample.html</a></p>
 <p>​        实现:Es   主从模式 (节点、分片、副本) 容易出现脑裂,所以使用过半来解决</p>
 <p>​        ES的写入优化</p>
-<h4 id="Raft协议"><a href="#Raft协议" class="headerlink" title="Raft协议"></a>Raft协议</h4><p>​        实现:redis (gossip协议。p2p)   主从模式 ,主从复制()  持久化(AOF、RDB)</p>
+<h4 id="Gossip协议"><a href="#Gossip协议" class="headerlink" title="Gossip协议"></a>Gossip协议</h4><p>​        实现:redis (gossip协议。p2p)   主从模式 ,主从复制  持久化(AOF、RDB)</p>
+<p>​        <a href="https://www.v2ex.com/t/453036" target="_blank" rel="noopener">https://www.v2ex.com/t/453036</a></p>
 <h4 id="ZAB协议"><a href="#ZAB协议" class="headerlink" title="ZAB协议"></a>ZAB协议</h4><p>​        实现 : zk(hadoop、hbase 、kafka)</p>
 
       
@@ -767,7 +770,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#存在的问题"><span class="nav-number">1.</span> <span class="nav-text">存在的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络通信异常"><span class="nav-number">1.1.</span> <span class="nav-text">网络通信异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络分区"><span class="nav-number">1.2.</span> <span class="nav-text">网络分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三态"><span class="nav-number">1.3.</span> <span class="nav-text">三态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从ACID-到CAP-BASE"><span class="nav-number">2.</span> <span class="nav-text">从ACID 到CAP/ BASE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#传统DBMS-中的ACID"><span class="nav-number">2.1.</span> <span class="nav-text">传统DBMS 中的ACID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CAP"><span class="nav-number">2.2.</span> <span class="nav-text">CAP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BASE"><span class="nav-number">2.3.</span> <span class="nav-text">BASE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一致性协议"><span class="nav-number">3.</span> <span class="nav-text">一致性协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#XA-规范"><span class="nav-number">3.1.</span> <span class="nav-text">XA 规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2PC"><span class="nav-number">3.2.</span> <span class="nav-text">2PC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3PC"><span class="nav-number">3.3.</span> <span class="nav-text">3PC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Paxos算法"><span class="nav-number">3.4.</span> <span class="nav-text">Paxos算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bully算法"><span class="nav-number">3.5.</span> <span class="nav-text">Bully算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Raft协议"><span class="nav-number">3.6.</span> <span class="nav-text">Raft协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZAB协议"><span class="nav-number">3.7.</span> <span class="nav-text">ZAB协议</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#存在的问题"><span class="nav-number">1.</span> <span class="nav-text">存在的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络通信异常"><span class="nav-number">1.1.</span> <span class="nav-text">网络通信异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络分区"><span class="nav-number">1.2.</span> <span class="nav-text">网络分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三态"><span class="nav-number">1.3.</span> <span class="nav-text">三态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从ACID-到CAP-BASE"><span class="nav-number">2.</span> <span class="nav-text">从ACID 到CAP/ BASE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#传统DBMS-中的ACID"><span class="nav-number">2.1.</span> <span class="nav-text">传统DBMS 中的ACID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CAP"><span class="nav-number">2.2.</span> <span class="nav-text">CAP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BASE"><span class="nav-number">2.3.</span> <span class="nav-text">BASE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一致性协议"><span class="nav-number">3.</span> <span class="nav-text">一致性协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#XA-规范"><span class="nav-number">3.1.</span> <span class="nav-text">XA 规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2PC"><span class="nav-number">3.2.</span> <span class="nav-text">2PC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3PC"><span class="nav-number">3.3.</span> <span class="nav-text">3PC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Paxos算法"><span class="nav-number">3.4.</span> <span class="nav-text">Paxos算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RAFT算法"><span class="nav-number">3.5.</span> <span class="nav-text">RAFT算法:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bully算法"><span class="nav-number">3.6.</span> <span class="nav-text">Bully算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gossip协议"><span class="nav-number">3.7.</span> <span class="nav-text">Gossip协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ZAB协议"><span class="nav-number">3.8.</span> <span class="nav-text">ZAB协议</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -800,7 +803,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">475k</span>
+    <span title="站点总字数">477k</span>
   
 
   
@@ -809,7 +812,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">7:12</span>
+    <span title="站点阅读时长">7:14</span>
   
 </div>
 

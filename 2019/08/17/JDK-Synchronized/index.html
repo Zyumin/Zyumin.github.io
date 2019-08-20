@@ -96,25 +96,28 @@
 
 
 
-  <meta name="description" content="Java对象的组成在HotSpot虚拟机中,对象在内存中存储的布局可以分为3块区域 : 对象头(Header)、实例数据(Instance Data)、填充(Padding) Header (对象头)Java对象的对象头由 mark word 和  klass pointer 、Array length mark word: 存储了同步状态、标识、hashcode、GC状态等等。 klass po">
-<meta name="keywords" content="java">
+  <meta name="description" content="JDK_Synchronized 浅谈下jvm对Synchronized的优化  对象的分布 锁升级 锁优化">
+<meta name="keywords" content="jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDK_Synchronized">
 <meta property="og:url" content="http://yoursite.com/2019/08/17/JDK-Synchronized/index.html">
 <meta property="og:site_name" content="Zyumin">
-<meta property="og:description" content="Java对象的组成在HotSpot虚拟机中,对象在内存中存储的布局可以分为3块区域 : 对象头(Header)、实例数据(Instance Data)、填充(Padding) Header (对象头)Java对象的对象头由 mark word 和  klass pointer 、Array length mark word: 存储了同步状态、标识、hashcode、GC状态等等。 klass po">
+<meta property="og:description" content="JDK_Synchronized 浅谈下jvm对Synchronized的优化  对象的分布 锁升级 锁优化">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/tibibEdCJopr6qVwMFfbqPJlLNX0mYUiaAHtJO93m9DYNTH7KWJOZZzpaW9kGLCr2U2wCuLiaFHy6CkmicSalNGC4Dg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g62ri4y207j31d20h2diu.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g62rgyw625j30m6081jrn.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g62s3w1yhzj31ks0980un.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g65ae4cis7j30to0x4gw2.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g65dr635fgj31x20p8n38.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g65co6odevj31p20hwaea.jpg">
-<meta property="og:updated_time" content="2019-08-19T14:59:11.396Z">
+<meta property="og:image" content="http://yoursite.com/Users/zhengyumin/Library/Application%20Support/typora-user-images/image-20190820110735105.png">
+<meta property="og:image" content="http://yoursite.com/Users/zhengyumin/Library/Application%20Support/typora-user-images/image-20190820141858139.png">
+<meta property="og:image" content="http://yoursite.com/Users/zhengyumin/Library/Application%20Support/typora-user-images/image-20190820110339698.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/820406/201604/820406-20160424163618101-624122079.png">
+<meta property="og:updated_time" content="2019-08-20T08:43:33.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK_Synchronized">
-<meta name="twitter:description" content="Java对象的组成在HotSpot虚拟机中,对象在内存中存储的布局可以分为3块区域 : 对象头(Header)、实例数据(Instance Data)、填充(Padding) Header (对象头)Java对象的对象头由 mark word 和  klass pointer 、Array length mark word: 存储了同步状态、标识、hashcode、GC状态等等。 klass po">
-<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g62ri4y207j31d20h2diu.jpg">
+<meta name="twitter:description" content="JDK_Synchronized 浅谈下jvm对Synchronized的优化  对象的分布 锁升级 锁优化">
+<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/tibibEdCJopr6qVwMFfbqPJlLNX0mYUiaAHtJO93m9DYNTH7KWJOZZzpaW9kGLCr2U2wCuLiaFHy6CkmicSalNGC4Dg/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1">
 
 
 
@@ -385,7 +388,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-19 22:59:11" itemprop="dateModified" datetime="2019-08-19T22:59:11+08:00">2019-08-19</time>
+                <time title="修改时间：2019-08-20 16:43:33" itemprop="dateModified" datetime="2019-08-20T16:43:33+08:00">2019-08-20</time>
               
             
           </span>
@@ -424,7 +427,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.8k</span>
+                <span title="本文字数">7k</span>
               
 
               
@@ -438,7 +441,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">4 分钟</span>
+                <span title="阅读时长">6 分钟</span>
               
             </div>
           
@@ -458,7 +461,15 @@
       
 
       
-        <h3 id="Java对象的组成"><a href="#Java对象的组成" class="headerlink" title="Java对象的组成"></a>Java对象的组成</h3><p>在HotSpot虚拟机中,对象在内存中存储的布局可以分为3块区域 : 对象头(Header)、实例数据(Instance Data)、填充(Padding)</p>
+        <h2 id="JDK-Synchronized"><a href="#JDK-Synchronized" class="headerlink" title="JDK_Synchronized"></a>JDK_Synchronized</h2><p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/tibibEdCJopr6qVwMFfbqPJlLNX0mYUiaAHtJO93m9DYNTH7KWJOZZzpaW9kGLCr2U2wCuLiaFHy6CkmicSalNGC4Dg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img"></p>
+<p>浅谈下jvm对Synchronized的优化</p>
+<ul>
+<li>对象的分布</li>
+<li>锁升级</li>
+<li>锁优化</li>
+</ul>
+<a id="more"></a>
+<h3 id="Java对象的组成"><a href="#Java对象的组成" class="headerlink" title="Java对象的组成"></a>Java对象的组成</h3><p>在HotSpot虚拟机中,对象在内存中存储的布局可以分为3块区域 : 对象头(Header)、实例数据(Instance Data)、填充(Padding)</p>
 <h4 id="Header-对象头"><a href="#Header-对象头" class="headerlink" title="Header (对象头)"></a>Header (对象头)</h4><p>Java对象的对象头由 mark word 和  klass pointer 、Array length</p>
 <p>mark word: 存储了同步状态、标识、hashcode、GC状态等等。</p>
 <p>klass pointer:存储对象的类型指针，该指针指向它的类元数据</p>
@@ -470,7 +481,42 @@
 <p>简单介绍一下各部分的含义</p>
 <p>lock:  锁状态标记位，该标记的值不同，整个mark word表示的含义不同。</p>
 <p>biased_lock：偏向锁标记，为1时表示对象启用偏向锁，为0时表示对象没有偏向锁。</p>
-<p><a href="https://img2018.cnblogs.com/blog/1274378/201907/1274378-20190725164950583-2057732436.png" target="_blank" rel="noopener"><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g62rgyw625j30m6081jrn.jpg" alt="img"></a></p>
+<table>
+<thead>
+<tr>
+<th>biased_lock</th>
+<th>Lock</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>01</td>
+<td>无锁</td>
+</tr>
+<tr>
+<td>1</td>
+<td>01</td>
+<td>偏向锁</td>
+</tr>
+<tr>
+<td>0</td>
+<td>00</td>
+<td>轻量级锁</td>
+</tr>
+<tr>
+<td>0</td>
+<td>10</td>
+<td>重量级锁</td>
+</tr>
+<tr>
+<td>0</td>
+<td>11</td>
+<td>GC标记</td>
+</tr>
+</tbody>
+</table>
 <p>age：Java GC标记位对象年龄。</p>
 <p>identity_hashcode：对象标识Hash码，采用延迟加载技术。当对象使用HashCode()计算后，并会将结果写到该对象头中。当对象被锁定时，该值会移动到线程Monitor中。</p>
 <p>thread：持有偏向锁的线程ID和其他信息。这个线程ID并不是JVM分配的线程ID号，和Java Thread中的ID是两个概念。</p>
@@ -499,7 +545,7 @@
 <p>线程1演示了偏向锁初始化的流程</p>
 <p>线程2演示了偏向锁的撤销的流程</p>
 <p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g65ae4cis7j30to0x4gw2.jpg" alt="image-20190819210156489"></p>
-<h5 id="偏向锁对象头"><a href="#偏向锁对象头" class="headerlink" title="偏向锁对象头"></a>偏向锁对象头</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BiasedLockDemo1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        ObjectLayoutDemo.A a = <span class="keyword">new</span> ObjectLayoutDemo.A();</span><br><span class="line">        </span><br><span class="line">        System.out.println(ClassLayout.parseInstance(a).toPrintable());</span><br><span class="line">        </span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                System.out.println(<span class="string">"thread1 locking"</span>);</span><br><span class="line">                System.out.println(ClassLayout.parseInstance(a).toPrintable());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        Thread thread2 = <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                <span class="comment">//开始撤销， 直接return 模拟偏向锁撤销到未锁定</span></span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//让thread1执行完同步代码块中方法。</span></span><br><span class="line">        thread1.join();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"thread1's state:"</span> + thread1.isAlive());</span><br><span class="line">        </span><br><span class="line">        thread2.start();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"after thread2:"</span>+ClassLayout.parseInstance(a).toPrintable());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="偏向锁对象头"><a href="#偏向锁对象头" class="headerlink" title="偏向锁对象头"></a>偏向锁对象头</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BiasedLockDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        ObjectLayoutDemo.A a = <span class="keyword">new</span> ObjectLayoutDemo.A();</span><br><span class="line">        </span><br><span class="line">        System.out.println(ClassLayout.parseInstance(a).toPrintable());</span><br><span class="line">        </span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                System.out.println(<span class="string">"thread1 locking"</span>);</span><br><span class="line">                System.out.println(ClassLayout.parseInstance(a).toPrintable());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        Thread thread2 = <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                <span class="comment">//开始撤销， 直接return 模拟偏向锁撤销到未锁定</span></span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//让thread1执行完同步代码块中方法。</span></span><br><span class="line">        thread1.join();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"thread1's state:"</span> + thread1.isAlive());</span><br><span class="line">        </span><br><span class="line">        thread2.start();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"after thread2:"</span>+ClassLayout.parseInstance(a).toPrintable());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>结果</p>
 <p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g65dr635fgj31x20p8n38.jpg" alt="image-20190819225819224"></p>
 <p>分析</p>
@@ -508,17 +554,72 @@
 <p>第二次打印,可以看到记录了线程ID. </p>
 <p>第三次偏向锁撤销</p>
 <h4 id="轻量级锁"><a href="#轻量级锁" class="headerlink" title="轻量级锁"></a>轻量级锁</h4><p>轻量级锁所适应的场景是线程交替执行同步块的情况</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LightLockDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        ObjectLayoutDemo.A a = <span class="keyword">new</span> ObjectLayoutDemo.A();</span><br><span class="line"></span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                    System.out.println(<span class="string">"thread1 locking"</span>);</span><br><span class="line">                    System.out.println(ClassLayout.parseInstance(a).toPrintable());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        Thread thread2 = <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                    System.out.println(<span class="string">"thread2 locking"</span>);</span><br><span class="line">                    System.out.println(ClassLayout.parseInstance(a).toPrintable());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//让thread1执行完同步代码块中方法。</span></span><br><span class="line">        thread1.join();</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"thread1's state:"</span> + thread1.isAlive());</span><br><span class="line">        thread2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LightLockDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        ObjectLayoutDemo.A a = <span class="keyword">new</span> ObjectLayoutDemo.A();</span><br><span class="line"></span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                    System.out.println(<span class="string">"thread1 locking"</span>);</span><br><span class="line">                    System.out.println(ClassLayout.parseInstance(a).toPrintable());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        Thread thread2 = <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                    System.out.println(<span class="string">"thread2 locking"</span>);</span><br><span class="line">                    System.out.println(ClassLayout.parseInstance(a).toPrintable());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//让thread1执行完同步代码块中方法,并退出线程</span></span><br><span class="line">        thread1.join();</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"thread1's state:"</span> + thread1.isAlive());</span><br><span class="line">        thread2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>结果</p>
-<p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g65co6odevj31p20hwaea.jpg" alt="image-20190819222051306"></p>
+<p><img src="/Users/zhengyumin/Library/Application Support/typora-user-images/image-20190820110735105.png" alt="image-20190820110735105"></p>
 <p>分析</p>
 <p>第一次是偏向锁</p>
 <p>第二次撤销偏向锁, 升级为轻量级锁</p>
-<h4 id="重量级锁"><a href="#重量级锁" class="headerlink" title="重量级锁"></a>重量级锁</h4><h3 id="锁优化"><a href="#锁优化" class="headerlink" title="锁优化"></a>锁优化</h3><p><a href="https://houbb.github.io/2018/10/08/jvm-30-lock-optimize" target="_blank" rel="noopener">https://houbb.github.io/2018/10/08/jvm-30-lock-optimize</a></p>
-<p><a href="https://www.cnblogs.com/paddix/p/5405678.html" target="_blank" rel="noopener">https://www.cnblogs.com/paddix/p/5405678.html</a></p>
-<p>see : <a href="https://www.cnblogs.com/LemonFive/p/11246086.html" target="_blank" rel="noopener">https://www.cnblogs.com/LemonFive/p/11246086.html</a></p>
+<p>注意 两次执行 指向栈的指针 也不一致了</p>
+<h4 id="重量级锁"><a href="#重量级锁" class="headerlink" title="重量级锁"></a>重量级锁</h4><p><em>轻量级锁升级重量级</em></p>
+<p>线程1首先尝试 CAS将对象头中的Mark Word替换为指向锁的指针.(在执行同步块前,JVM会先在当前线程的栈帧中创建用于存储锁记录的空间,并将对象头中的Mark Word复制到所记录中, Displaced Mark Word)</p>
+<p>线程2 CAS 同样尝试,获取失败,尝试自旋获取(成功,说明线程1退出了同步块)失败升级为 重量级锁,阻塞等待唤醒</p>
+<p><em>重量级锁解锁</em></p>
+<p>线程1 解锁CAS 将Displace Mark Word替换回对象头, 失败,对象头已被线程2修改(膨胀为重量级锁),释放锁并唤醒等待的线程(同时清除指向栈的指针)</p>
+<p><img src="/Users/zhengyumin/Library/Application Support/typora-user-images/image-20190820141858139.png" alt="image-20190820141858139"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">    ObjectLayoutDemo.A a = <span class="keyword">new</span> ObjectLayoutDemo.A();</span><br><span class="line">    Thread thread1 = <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (a) &#123;</span><br><span class="line">            System.out.println(<span class="string">"thread1 locking"</span>);</span><br><span class="line">            System.out.println(ClassLayout.parseInstance(a).toPrintable());</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">//让线程晚点儿死亡，造成锁的竞争</span></span><br><span class="line">                Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    Thread thread2 = <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (a) &#123;</span><br><span class="line">            System.out.println(<span class="string">"thread2 locking"</span>);</span><br><span class="line">            System.out.println(ClassLayout.parseInstance(a).toPrintable());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    thread1.start();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//模拟a从轻量级锁到重量级锁到转变</span></span><br><span class="line">    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">    thread2.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<p><img src="/Users/zhengyumin/Library/Application Support/typora-user-images/image-20190820110339698.png" alt="image-20190820110339698"></p>
+<p>分析</p>
+<p>第一次打印是轻量级锁</p>
+<p>第二次打印为重量级锁</p>
+<p>注意 两次执行的线程ID也不一致了</p>
+<h4 id="重量级锁、轻量级锁和偏向锁之间转换"><a href="#重量级锁、轻量级锁和偏向锁之间转换" class="headerlink" title="重量级锁、轻量级锁和偏向锁之间转换"></a>重量级锁、轻量级锁和偏向锁之间转换</h4><p><img src="https://images2015.cnblogs.com/blog/820406/201604/820406-20160424163618101-624122079.png" alt="img"></p>
+<h4 id="重量级锁、轻量级锁和偏向锁之间对比"><a href="#重量级锁、轻量级锁和偏向锁之间对比" class="headerlink" title="重量级锁、轻量级锁和偏向锁之间对比"></a>重量级锁、轻量级锁和偏向锁之间对比</h4><table>
+<thead>
+<tr>
+<th>锁</th>
+<th style="text-align:left">优点</th>
+<th>缺点</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>偏向锁</td>
+<td style="text-align:left">加锁和解锁不需要额外的消耗，和执行非同步方法比仅存在纳秒级的差距。</td>
+<td>如果线程间存在锁竞争，会带来额外的锁撤销的消耗。</td>
+<td>适用于只有一个线程访问同步块场景。</td>
+</tr>
+<tr>
+<td>轻量级锁</td>
+<td style="text-align:left">竞争的线程不会阻塞，提高了程序的响应速度。</td>
+<td>如果始终得不到锁竞争的线程使用自旋会消耗CPU。</td>
+<td>追求响应时间。同步块执行速度非常快。</td>
+</tr>
+<tr>
+<td>重量级锁</td>
+<td style="text-align:left">线程竞争不使用自旋，不会消耗CPU。</td>
+<td>线程阻塞，响应时间缓慢。</td>
+<td>追求吞吐量。同步块执行速度较长。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="锁优化"><a href="#锁优化" class="headerlink" title="锁优化"></a>锁优化</h3><h4 id="jvm层面"><a href="#jvm层面" class="headerlink" title="jvm层面"></a>jvm层面</h4><h5 id="适应式自旋"><a href="#适应式自旋" class="headerlink" title="适应式自旋"></a>适应式自旋</h5><p>适应性自旋，简单来说就是线程如果自旋成功了，则下次自旋的次数会更多，如果自旋失败了，则自旋的次数就会减少。</p>
+<h5 id="锁消除"><a href="#锁消除" class="headerlink" title="锁消除"></a>锁消除</h5><p>锁削除是指虚拟机即时编译器在运行时，对一些代码上要求同步，但是被检测到不可能存在共享数据竞争的锁进行削除。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-server -XX:+DoEscapeAnalysis -XX:+EliminateLocks</span><br></pre></td></tr></table></figure>
+<h5 id="锁粗化"><a href="#锁粗化" class="headerlink" title="锁粗化"></a>锁粗化</h5><p>如果一系列的连续操作都对同一个对象反复加锁和解锁，甚至加锁操作是出现在循环体中的，那即使没有线程竞争，频繁地进行互斥同步操作也会导致不必要的性能损耗。</p>
+<h4 id="语言编程"><a href="#语言编程" class="headerlink" title="语言编程"></a>语言编程</h4><h5 id="减少锁持有的时间"><a href="#减少锁持有的时间" class="headerlink" title="减少锁持有的时间"></a>减少锁持有的时间</h5><p>只对需要同步代码加锁</p>
+<h5 id="锁分离"><a href="#锁分离" class="headerlink" title="锁分离"></a>锁分离</h5><p>ReadWriteLock</p>
+<h5 id="减小锁的力度"><a href="#减小锁的力度" class="headerlink" title="减小锁的力度"></a>减小锁的力度</h5><p>ConcurrentHashMap</p>
+<blockquote>
+<p>link:<a href="https://houbb.github.io/2018/10/08/jvm-30-lock-optimize" target="_blank" rel="noopener">https://houbb.github.io/2018/10/08/jvm-30-lock-optimize</a></p>
+<p>link:<a href="https://www.cnblogs.com/paddix/p/5405678.html" target="_blank" rel="noopener">https://www.cnblogs.com/paddix/p/5405678.html</a></p>
+<p>link : <a href="https://www.cnblogs.com/LemonFive/p/11246086.html" target="_blank" rel="noopener">https://www.cnblogs.com/LemonFive/p/11246086.html</a></p>
+<p>link:<a href="https://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon98ThinSlides.pdf" target="_blank" rel="noopener">https://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon98ThinSlides.pdf</a></p>
 <p>深入理解java虚拟机</p>
 <p>java并发编程艺术</p>
+</blockquote>
 
       
     </div>
@@ -539,6 +640,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jvm/" rel="tag"># jvm</a>
+          
+        </div>
       
 
       
@@ -769,7 +876,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java对象的组成"><span class="nav-number">1.</span> <span class="nav-text">Java对象的组成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Header-对象头"><span class="nav-number">1.1.</span> <span class="nav-text">Header (对象头)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#mark-word存储结构"><span class="nav-number">1.1.1.</span> <span class="nav-text">mark word存储结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锁升级与对比"><span class="nav-number">2.</span> <span class="nav-text">锁升级与对比</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JOL工具"><span class="nav-number">2.1.</span> <span class="nav-text">JOL工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无锁"><span class="nav-number">2.2.</span> <span class="nav-text">无锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#偏向锁"><span class="nav-number">2.3.</span> <span class="nav-text">偏向锁</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#从无锁状态到偏向锁"><span class="nav-number">2.3.1.</span> <span class="nav-text">从无锁状态到偏向锁</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#偏向锁的撤销"><span class="nav-number">2.3.2.</span> <span class="nav-text">偏向锁的撤销</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#适用场景"><span class="nav-number">2.3.3.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#偏向锁对象头"><span class="nav-number">2.3.4.</span> <span class="nav-text">偏向锁对象头</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#轻量级锁"><span class="nav-number">2.4.</span> <span class="nav-text">轻量级锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重量级锁"><span class="nav-number">2.5.</span> <span class="nav-text">重量级锁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锁优化"><span class="nav-number">3.</span> <span class="nav-text">锁优化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK-Synchronized"><span class="nav-number">1.</span> <span class="nav-text">JDK_Synchronized</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java对象的组成"><span class="nav-number">1.1.</span> <span class="nav-text">Java对象的组成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Header-对象头"><span class="nav-number">1.1.1.</span> <span class="nav-text">Header (对象头)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#mark-word存储结构"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">mark word存储结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锁升级与对比"><span class="nav-number">1.2.</span> <span class="nav-text">锁升级与对比</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JOL工具"><span class="nav-number">1.2.1.</span> <span class="nav-text">JOL工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无锁"><span class="nav-number">1.2.2.</span> <span class="nav-text">无锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#偏向锁"><span class="nav-number">1.2.3.</span> <span class="nav-text">偏向锁</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#从无锁状态到偏向锁"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">从无锁状态到偏向锁</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#偏向锁的撤销"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">偏向锁的撤销</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#适用场景"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#偏向锁对象头"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">偏向锁对象头</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#轻量级锁"><span class="nav-number">1.2.4.</span> <span class="nav-text">轻量级锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重量级锁"><span class="nav-number">1.2.5.</span> <span class="nav-text">重量级锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重量级锁、轻量级锁和偏向锁之间转换"><span class="nav-number">1.2.6.</span> <span class="nav-text">重量级锁、轻量级锁和偏向锁之间转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重量级锁、轻量级锁和偏向锁之间对比"><span class="nav-number">1.2.7.</span> <span class="nav-text">重量级锁、轻量级锁和偏向锁之间对比</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#锁优化"><span class="nav-number">1.3.</span> <span class="nav-text">锁优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jvm层面"><span class="nav-number">1.3.1.</span> <span class="nav-text">jvm层面</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#适应式自旋"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">适应式自旋</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#锁消除"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">锁消除</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#锁粗化"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">锁粗化</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语言编程"><span class="nav-number">1.3.2.</span> <span class="nav-text">语言编程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#减少锁持有的时间"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">减少锁持有的时间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#锁分离"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">锁分离</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#减小锁的力度"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">减小锁的力度</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -802,7 +909,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">475k</span>
+    <span title="站点总字数">477k</span>
   
 
   
@@ -811,7 +918,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">7:12</span>
+    <span title="站点阅读时长">7:14</span>
   
 </div>
 
