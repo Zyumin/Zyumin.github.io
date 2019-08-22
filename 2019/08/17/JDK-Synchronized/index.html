@@ -107,13 +107,13 @@
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g6696x82ypj31800t04qp.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g62ri4y207j31d20h2diu.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g62s3w1yhzj31ks0980un.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g65ae4cis7j30to0x4gw2.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/006y8mN6gy1g686ckc6u2j30to0x4tap.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g65dr635fgj31x20p8n38.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006y8mN6gy1g6741i6togj31m80hw78j.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006y8mN6gy1g6741n0890j30ty0teang.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/006y8mN6gy1g6741rqho3j31nc0g0djm.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/006y8mN6gy1g6741wij92j30wy0fkack.jpg">
-<meta property="og:updated_time" content="2019-08-21T02:53:53.967Z">
+<meta property="og:updated_time" content="2019-08-22T00:58:53.839Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK_Synchronized">
 <meta name="twitter:description" content="JDK_Synchronized 浅谈下jvm对Synchronized的优化  对象的分布 锁升级 锁优化">
@@ -388,7 +388,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-21 10:53:53" itemprop="dateModified" datetime="2019-08-21T10:53:53+08:00">2019-08-21</time>
+                <time title="修改时间：2019-08-22 08:58:53" itemprop="dateModified" datetime="2019-08-22T08:58:53+08:00">2019-08-22</time>
               
             
           </span>
@@ -544,7 +544,7 @@
 <p>下图显示的</p>
 <p>线程1演示了偏向锁初始化的流程</p>
 <p>线程2演示了偏向锁的撤销的流程</p>
-<p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g65ae4cis7j30to0x4gw2.jpg" alt="image-20190819210156489"></p>
+<p><img src="http://ww3.sinaimg.cn/large/006y8mN6gy1g686ckc6u2j30to0x4tap.jpg" alt="image-20190819210156489"></p>
 <h5 id="偏向锁对象头"><a href="#偏向锁对象头" class="headerlink" title="偏向锁对象头"></a>偏向锁对象头</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BiasedLockDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        ObjectLayoutDemo.A a = <span class="keyword">new</span> ObjectLayoutDemo.A();</span><br><span class="line">        </span><br><span class="line">        System.out.println(ClassLayout.parseInstance(a).toPrintable());</span><br><span class="line">        </span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                System.out.println(<span class="string">"thread1 locking"</span>);</span><br><span class="line">                System.out.println(ClassLayout.parseInstance(a).toPrintable());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        Thread thread2 = <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                <span class="comment">//开始撤销， 直接return 模拟偏向锁撤销到未锁定</span></span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//让thread1执行完同步代码块中方法。</span></span><br><span class="line">        thread1.join();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"thread1's state:"</span> + thread1.isAlive());</span><br><span class="line">        </span><br><span class="line">        thread2.start();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"after thread2:"</span>+ClassLayout.parseInstance(a).toPrintable());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>结果</p>
 <p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g65dr635fgj31x20p8n38.jpg" alt="image-20190819225819224"></p>
@@ -606,7 +606,7 @@
 </tbody>
 </table>
 <h3 id="锁优化"><a href="#锁优化" class="headerlink" title="锁优化"></a>锁优化</h3><h4 id="jvm层面"><a href="#jvm层面" class="headerlink" title="jvm层面"></a>jvm层面</h4><h5 id="适应式自旋"><a href="#适应式自旋" class="headerlink" title="适应式自旋"></a>适应式自旋</h5><p>适应性自旋，简单来说就是线程如果自旋成功了，则下次自旋的次数会更多，如果自旋失败了，则自旋的次数就会减少。</p>
-<h5 id="锁消除"><a href="#锁消除" class="headerlink" title="锁消除"></a>锁消除</h5><p>锁削除是指虚拟机即时编译器在运行时，对一些代码上要求同步，但是被检测到不可能存在共享数据竞争的锁进行削除。</p>
+<h5 id="锁消除"><a href="#锁消除" class="headerlink" title="锁消除"></a>锁消除</h5><p>锁消除是指虚拟机即时编译器在运行时，对一些代码上要求同步，但是被检测到不可能存在共享数据竞争的锁进行消除。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-server -XX:+DoEscapeAnalysis -XX:+EliminateLocks</span><br></pre></td></tr></table></figure>
 <h5 id="锁粗化"><a href="#锁粗化" class="headerlink" title="锁粗化"></a>锁粗化</h5><p>如果一系列的连续操作都对同一个对象反复加锁和解锁，甚至加锁操作是出现在循环体中的，那即使没有线程竞争，频繁地进行互斥同步操作也会导致不必要的性能损耗。</p>
 <h4 id="语言编程"><a href="#语言编程" class="headerlink" title="语言编程"></a>语言编程</h4><h5 id="减少锁持有的时间"><a href="#减少锁持有的时间" class="headerlink" title="减少锁持有的时间"></a>减少锁持有的时间</h5><p>只对需要同步代码加锁</p>
