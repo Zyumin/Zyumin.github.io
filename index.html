@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/17/JDK-Synchronized/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/24/JDK-ReentrantLock/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhengyumin">
@@ -339,7 +339,203 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/08/17/JDK-Synchronized/" class="post-title-link" itemprop="url">JDK_Synchronized</a>
+                <a href="/2019/08/24/JDK-ReentrantLock/" class="post-title-link" itemprop="url">JDK_ReentrantLock</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-24 18:48:54 / 修改时间：18:49:39" itemprop="dateCreated datePublished" datetime="2019-08-24T18:48:54+08:00">2019-08-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/08/24/JDK-ReentrantLock/" class="leancloud_visitors" data-flag-title="JDK_ReentrantLock">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">33k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">30 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>通过ReentrantLock  , 类来分析JUC包的基石 AbstractQueuedSynchronizer(后续简称 AQS)</p>
+<ul>
+<li>ReentrantLock skeleton</li>
+<li>AQS  skeleton</li>
+<li>Lock 、unlock</li>
+<li>Condition</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/24/JDK-ReentrantLock/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    	
+     
+	
+		
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/17/JVM-Synchronized/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhengyumin">
+      <meta itemprop="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zyumin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/17/JVM-Synchronized/" class="post-title-link" itemprop="url">JVM_Synchronized</a>
               
             
           </h1>
@@ -381,7 +577,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-22 09:31:15" itemprop="dateModified" datetime="2019-08-22T09:31:15+08:00">2019-08-22</time>
+                <time title="修改时间：2019-08-23 10:32:38" itemprop="dateModified" datetime="2019-08-23T10:32:38+08:00">2019-08-23</time>
               
             
           </span>
@@ -395,7 +591,7 @@
 
           
           
-            <span id="/2019/08/17/JDK-Synchronized/" class="leancloud_visitors" data-flag-title="JDK_Synchronized">
+            <span id="/2019/08/17/JVM-Synchronized/" class="leancloud_visitors" data-flag-title="JVM_Synchronized">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -455,7 +651,7 @@
 
       
         
-          <h2 id="JDK-Synchronized"><a href="#JDK-Synchronized" class="headerlink" title="JDK_Synchronized"></a>JDK_Synchronized</h2><p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g6696x82ypj31800t04qp.jpg" alt=""></p>
+          <h2 id="JVM-Synchronized"><a href="#JVM-Synchronized" class="headerlink" title="JVM_Synchronized"></a>JVM_Synchronized</h2><p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g6696x82ypj31800t04qp.jpg" alt=""></p>
 <p>浅谈下jvm对Synchronized的优化</p>
 <ul>
 <li>对象的分布</li>
@@ -465,7 +661,7 @@
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/08/17/JDK-Synchronized/#more" rel="contents">
+              <a class="btn" href="/2019/08/17/JVM-Synchronized/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1953,208 +2149,6 @@
 
     	
      
-	
-		
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/26/Overview_Elasticsearch/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhengyumin">
-      <meta itemprop="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zyumin">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/26/Overview_Elasticsearch/" class="post-title-link" itemprop="url">Overview_Elasticsearch</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-06-26 18:06:48" itemprop="dateCreated datePublished" datetime="2019-06-26T18:06:48+08:00">2019-06-26</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-06 21:41:12" itemprop="dateModified" datetime="2019-07-06T21:41:12+08:00">2019-07-06</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-            <span id="/2019/06/26/Overview_Elasticsearch/" class="leancloud_visitors" data-flag-title="Overview_Elasticsearch">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">11k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">10 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g4eq0uiv34j30sg0sgdlr.jpg" alt="image-20190626181209162"></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/06/26/Overview_Elasticsearch/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    	
-     
   </section>
 
   
@@ -2203,7 +2197,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2355,7 +2349,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">477k</span>
+    <span title="站点总字数">511k</span>
   
 
   
@@ -2364,7 +2358,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">7:14</span>
+    <span title="站点阅读时长">7:44</span>
   
 </div>
 
