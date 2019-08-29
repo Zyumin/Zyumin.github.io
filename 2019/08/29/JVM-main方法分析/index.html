@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="启动一个最简单的Java main程序时，有多少个线程被创建? 有什么方法可以看到当前运行的线程?  java线程 如何查看线程状态 线程类型">
+<meta name="keywords" content="java,jvm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM_main方法分析">
+<meta property="og:url" content="http://yoursite.com/2019/08/29/JVM-main方法分析/index.html">
+<meta property="og:site_name" content="Zyumin">
+<meta property="og:description" content="启动一个最简单的Java main程序时，有多少个线程被创建? 有什么方法可以看到当前运行的线程?  java线程 如何查看线程状态 线程类型">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-29T15:39:24.845Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JVM_main方法分析">
+<meta name="twitter:description" content="启动一个最简单的Java main程序时，有多少个线程被创建? 有什么方法可以看到当前运行的线程?  java线程 如何查看线程状态 线程类型">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/29/JVM-main方法分析/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JVM_main方法分析 | Zyumin</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemsope="" itemtype="http://schema.org/WPHeader">
+	  <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zyumin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">自驱和热情</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/Zyumin" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/JVM-main方法分析/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhengyumin">
+      <meta itemprop="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zyumin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JVM_main方法分析
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-29 23:38:13 / 修改时间：23:39:24" itemprop="dateCreated datePublished" datetime="2019-08-29T23:38:13+08:00">2019-08-29</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/08/29/JVM-main方法分析/" class="leancloud_visitors" data-flag-title="JVM_main方法分析">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">9.9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">9 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>启动一个最简单的Java main程序时，有多少个线程被创建? 有什么方法可以看到当前运行的线程?</p>
+<ul>
+<li>java线程</li>
+<li>如何查看线程状态</li>
+<li>线程类型</li>
+</ul>
+<a id="more"></a>
+<h4 id="java线程"><a href="#java线程" class="headerlink" title="java线程"></a>java线程</h4><p>在java中，启动一个简单的main程序，并不是只是单单创建了一个main线程而已，JVM会自动创建一些辅助用的线程，主要有以下几个：</p>
+<h5 id="Reference-Handler-2"><a href="#Reference-Handler-2" class="headerlink" title="Reference Handler #2"></a>Reference Handler #2</h5><p>VM在创建main线程后就创建Reference Handler线程，其优先级最高，为10，它主要用于处理引用对象本身（软引用、弱引用、虚引用）的垃圾回收问题。</p>
+<h5 id="Finalizer-3"><a href="#Finalizer-3" class="headerlink" title="Finalizer #3"></a>Finalizer #3</h5><p>这个线程也是在main线程之后创建的，其优先级为10，主要用于在垃圾收集前，调用对象的finalize()方法；关于Finalizer线程的几点：</p>
+<p>　　1)只有当开始一轮垃圾收集时，才会开始调用finalize()方法；因此并不是所有对象的finalize()方法都会被执行；</p>
+<p>　　2)该线程也是daemon线程，因此如果虚拟机中没有其他非daemon线程，不管该线程有没有执行完finalize()方法，JVM也会退出；</p>
+<p>　　3) JVM在垃圾收集时会将失去引用的对象包装成Finalizer对象（Reference的实现），并放入ReferenceQueue，由Finalizer线程来处理；最后将该Finalizer对象的引用置为null，由垃圾收集器来回收；</p>
+<p>　　4) JVM为什么要单独用一个线程来执行finalize()方法呢？如果JVM的垃圾收集线程自己来做，很有可能由于在finalize()方法中误操作导致GC线程停止或不可控，这对GC线程来说是一种灾难；</p>
+<h5 id="Signal-Dispatcher-4"><a href="#Signal-Dispatcher-4" class="headerlink" title="Signal Dispatcher #4"></a>Signal Dispatcher #4</h5><p>前面我们提到第一个Attach Listener线程的职责是接收外部jvm命令，当命令接收成功后，会交给signal dispather线程去进行分发到各个不同的模块处理命令，并且返回处理结果。signal dispather线程也是在第一次接收外部jvm命令时，进行初始化工作。</p>
+<h5 id="Monitor-Ctrl-Break-5"><a href="#Monitor-Ctrl-Break-5" class="headerlink" title="Monitor Ctrl-Break #5"></a>Monitor Ctrl-Break #5</h5><p>Monitoring Thread Activity With Thread Dumps Thread dumps, or “thread stack traces,” reveal information about an application’s activity that can help you diagnose problems and better optimize application and JVM performance; for example, thread dumps can show the occurrence of “deadlock” conditions, which can seriously impact application performance. You can create a thread dump by invoking a control break (usually by pressing Ctrl-Break or Ctrl-\ or SIGQUIT on linux). This section provides information on working with thread dumps. It includes information on these subjects: 1.Lock Information in Thread Dumps 2.Detecting Deadlocks</p>
+<h5 id="Attach-Listener"><a href="#Attach-Listener" class="headerlink" title="Attach Listener"></a>Attach Listener</h5><p>Attach Listener线程是负责接收到外部的命令，而对该命令进行执行的并且吧结果返回给发送者。通常我们会用一些命令去要求jvm给我们一些反 馈信 息，如：java -version、jmap、jstack等等。如果该线程在jvm启动的时候没有初始化，那么，则会在用户第一次执行jvm命令时，得到启动。</p>
+<p>以上是被创建的java线程 </p>
+<h4 id="ThreadMXBean查看"><a href="#ThreadMXBean查看" class="headerlink" title="ThreadMXBean查看"></a>ThreadMXBean查看</h4><p>如下代码 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainThreadInfoDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">//        threadCreateExample();</span></span><br><span class="line">        dumpThreadInfo();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">dumpThreadInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Arrays.stream(ManagementFactory.getThreadMXBean().dumpAllThreads(<span class="keyword">false</span>, <span class="keyword">false</span>)).</span><br><span class="line">                forEach(threadInfo -&gt; System.out.println(<span class="string">"["</span> + threadInfo.getThreadId() + <span class="string">"]"</span> + threadInfo.getThreadName())</span><br><span class="line">                );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 线程创建example</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">threadCreateExample</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">DemoThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"extend"</span>);</span><br><span class="line">                <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">new</span> DemoThread().start();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> Thread(() -&gt; &#123; System.out.println(<span class="string">"impl"</span>);<span class="keyword">while</span> (<span class="keyword">true</span>) &#123; &#125; &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>T</p>
+<p>运行结果如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[5]Monitor Ctrl-Break</span><br><span class="line">[4]Signal Dispatcher</span><br><span class="line">[3]Finalizer</span><br><span class="line">[2]Reference Handler</span><br><span class="line">[1]main</span><br></pre></td></tr></table></figure>
+<p>把threadCreateExample注释去掉,运行方法后发现:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[12]Thread-1</span><br><span class="line">[11]Thread-0</span><br><span class="line">[5]Monitor Ctrl-Break</span><br><span class="line">[4]Signal Dispatcher</span><br><span class="line">[3]Finalizer</span><br><span class="line">[2]Reference Handler</span><br><span class="line">[1]main</span><br></pre></td></tr></table></figure>
+<p>接下来我们来看看为什么id是从11开始 ?</p>
+<h4 id="jstack查看"><a href="#jstack查看" class="headerlink" title="jstack查看"></a>jstack查看</h4><h5 id="Jstack-文件"><a href="#Jstack-文件" class="headerlink" title="Jstack 文件"></a>Jstack 文件</h5><p>用jstack 查看(没有运行threadCreateExample方法)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line">2019-08-29 11:44:28</span><br><span class="line">Full thread dump Java HotSpot(TM) 64-Bit Server VM (25.161-b12 mixed mode):</span><br><span class="line"></span><br><span class="line">&quot;Attach Listener&quot; #11 daemon prio=9 os_prio=31 tid=0x00007fcf2582d000 nid=0x5603 waiting on condition [0x0000000000000000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;Service Thread&quot; #10 daemon prio=9 os_prio=31 tid=0x00007fcf25093800 nid=0x3d03 runnable [0x0000000000000000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;C1 CompilerThread3&quot; #9 daemon prio=9 os_prio=31 tid=0x00007fcf25802800 nid=0x3b03 waiting on condition [0x0000000000000000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;C2 CompilerThread2&quot; #8 daemon prio=9 os_prio=31 tid=0x00007fcf24874000 nid=0x3f03 waiting on condition [0x0000000000000000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;C2 CompilerThread1&quot; #7 daemon prio=9 os_prio=31 tid=0x00007fcf24025000 nid=0x4103 waiting on condition [0x0000000000000000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;C2 CompilerThread0&quot; #6 daemon prio=9 os_prio=31 tid=0x00007fcf25801800 nid=0x3803 waiting on condition [0x0000000000000000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;Monitor Ctrl-Break&quot; #5 daemon prio=5 os_prio=31 tid=0x00007fcf229b1000 nid=0x3703 runnable [0x000070000feff000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line">	at java.net.SocketInputStream.socketRead0(Native Method)</span><br><span class="line">	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)</span><br><span class="line">	at java.net.SocketInputStream.read(SocketInputStream.java:171)</span><br><span class="line">	at java.net.SocketInputStream.read(SocketInputStream.java:141)</span><br><span class="line">	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)</span><br><span class="line">	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)</span><br><span class="line">	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)</span><br><span class="line">	- locked &lt;0x000000076af13bc8&gt; (a java.io.InputStreamReader)</span><br><span class="line">	at java.io.InputStreamReader.read(InputStreamReader.java:184)</span><br><span class="line">	at java.io.BufferedReader.fill(BufferedReader.java:161)</span><br><span class="line">	at java.io.BufferedReader.readLine(BufferedReader.java:324)</span><br><span class="line">	- locked &lt;0x000000076af13bc8&gt; (a java.io.InputStreamReader)</span><br><span class="line">	at java.io.BufferedReader.readLine(BufferedReader.java:389)</span><br><span class="line">	at com.intellij.rt.execution.application.AppMainV2$1.run(AppMainV2.java:64)</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;Signal Dispatcher&quot; #4 daemon prio=9 os_prio=31 tid=0x00007fcf22022800 nid=0x3603 runnable [0x0000000000000000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;Finalizer&quot; #3 daemon prio=8 os_prio=31 tid=0x00007fcf2280c800 nid=0x4a03 in Object.wait() [0x000070000fcf9000]</span><br><span class="line">   java.lang.Thread.State: WAITING (on object monitor)</span><br><span class="line">	at java.lang.Object.wait(Native Method)</span><br><span class="line">	- waiting on &lt;0x000000076ab08ec0&gt; (a java.lang.ref.ReferenceQueue$Lock)</span><br><span class="line">	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)</span><br><span class="line">	- locked &lt;0x000000076ab08ec0&gt; (a java.lang.ref.ReferenceQueue$Lock)</span><br><span class="line">	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:164)</span><br><span class="line">	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;Reference Handler&quot; #2 daemon prio=10 os_prio=31 tid=0x00007fcf22016000 nid=0x4b03 in Object.wait() [0x000070000fbf6000]</span><br><span class="line">   java.lang.Thread.State: WAITING (on object monitor)</span><br><span class="line">	at java.lang.Object.wait(Native Method)</span><br><span class="line">	- waiting on &lt;0x000000076ab06b68&gt; (a java.lang.ref.Reference$Lock)</span><br><span class="line">	at java.lang.Object.wait(Object.java:502)</span><br><span class="line">	at java.lang.ref.Reference.tryHandlePending(Reference.java:191)</span><br><span class="line">	- locked &lt;0x000000076ab06b68&gt; (a java.lang.ref.Reference$Lock)</span><br><span class="line">	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;main&quot; #1 prio=5 os_prio=31 tid=0x00007fcf25004800 nid=0x1803 waiting on condition [0x000070000f1d8000]</span><br><span class="line">   java.lang.Thread.State: WAITING (parking)</span><br><span class="line">	at sun.misc.Unsafe.park(Native Method)</span><br><span class="line">	- parking to wait for  &lt;0x000000076ae01da0&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)</span><br><span class="line">	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)</span><br><span class="line">	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)</span><br><span class="line">	at lang.ThreadDemo.main(ThreadDemo.java:27)</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;VM Thread&quot; os_prio=31 tid=0x00007fcf25015000 nid=0x4d03 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#0 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf26000800 nid=0x1f07 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#1 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf24000800 nid=0x2a03 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#2 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf22000800 nid=0x5303 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#3 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf25010000 nid=0x2b03 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#4 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf22014000 nid=0x5103 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#5 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf24001000 nid=0x5003 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#6 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf22014800 nid=0x2e03 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#7 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf22015000 nid=0x4e03 runnable </span><br><span class="line"></span><br><span class="line">&quot;VM Periodic Task Thread&quot; os_prio=31 tid=0x00007fcf250c5000 nid=0x5503 waiting on condition </span><br><span class="line"></span><br><span class="line">JNI global references: 33</span><br></pre></td></tr></table></figure>
+<p>可以发现 其中 6-10为:</p>
+<ul>
+<li>“C2 CompilerThread0” #6</li>
+<li>“C2 CompilerThread1” #7</li>
+<li>“C2 CompilerThread2” #8</li>
+<li>“C1 CompilerThread3” #9</li>
+<li>“Service Thread” #10</li>
+</ul>
+<p>为什么这些在dumpThreadInfo 没有打印出来?</p>
+<h5 id="vm内部线程-VM-internal-JavaThreads"><a href="#vm内部线程-VM-internal-JavaThreads" class="headerlink" title="vm内部线程(VM internal JavaThreads)"></a>vm内部线程(VM internal JavaThreads)</h5><p> 在/src/share/vm/prims/jvm.cpp中 </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Returns an array of all live Thread objects (VM internal JavaThreads,</span></span><br><span class="line"><span class="comment">// jvmti agent threads, and JNI attaching threads  are skipped)</span></span><br><span class="line"><span class="comment">// See CR 6404306 regarding JNI attaching threads</span></span><br><span class="line">JVM_ENTRY(jobjectArray, JVM_GetAllThreads(JNIEnv *env, jclass dummy))</span><br><span class="line">  <span class="function">ResourceMark <span class="title">rm</span><span class="params">(THREAD)</span></span>;</span><br><span class="line">  <span class="function">ThreadsListEnumerator <span class="title">tle</span><span class="params">(THREAD, <span class="literal">false</span>, <span class="literal">false</span>)</span></span>;</span><br><span class="line">  JvmtiVMObjectAllocEventCollector oam;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> num_threads = tle.num_threads();</span><br><span class="line">  objArrayOop r = oopFactory::new_objArray(SystemDictionary::Thread_klass(), num_threads, CHECK_NULL);</span><br><span class="line">  <span class="function">objArrayHandle <span class="title">threads_ah</span><span class="params">(THREAD, r)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num_threads; i++) &#123;</span><br><span class="line">    Handle h = tle.get_threadObj(i);</span><br><span class="line">    threads_ah-&gt;obj_at_put(i, h());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>其中简单翻译一下方法的注释<br>返回所有活动线程对象的数组(跳过VM内部JavaThreads、jvmti代理线程和JNI附加线程)，请参阅CR 6404306关于JNI附加线程的信息</p>
+<p>可以知道不会打印VM内部的JavaThreads</p>
+<p>另外的 JVM自身的线程(初始化的时候创建的,非java线程 没有prio=5)</p>
+<ul>
+<li>VM Thread</li>
+<li>GC task thread#0-7 (8核)</li>
+<li>VM Periodic Task Thread</li>
+</ul>
+<p>Thread.getAllStackTraces 其实也是 private static native Thread[] getThreads();</p>
+<p><a href="http://ifeve.com/jvm-thread/，可以取这个地址查看更多线程的信息" target="_blank" rel="noopener">http://ifeve.com/jvm-thread/，可以取这个地址查看更多线程的信息</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/jvm/" rel="tag"># jvm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/24/JDK-ReentrantLock/" rel="next" title="JDK_ReentrantLock">
+                <i class="fa fa-chevron-left"></i> JDK_ReentrantLock
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzM0Ny8xOTg4OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="zhengyumin">
+            
+              <p class="site-author-name" itemprop="name">zhengyumin</p>
+              <div class="site-description motion-element" itemprop="description">为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Zyumin" title="GitHub &rarr; https://github.com/Zyumin" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#java线程"><span class="nav-number">1.</span> <span class="nav-text">java线程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Reference-Handler-2"><span class="nav-number">1.1.</span> <span class="nav-text">Reference Handler #2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Finalizer-3"><span class="nav-number">1.2.</span> <span class="nav-text">Finalizer #3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Signal-Dispatcher-4"><span class="nav-number">1.3.</span> <span class="nav-text">Signal Dispatcher #4</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Monitor-Ctrl-Break-5"><span class="nav-number">1.4.</span> <span class="nav-text">Monitor Ctrl-Break #5</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Attach-Listener"><span class="nav-number">1.5.</span> <span class="nav-text">Attach Listener</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ThreadMXBean查看"><span class="nav-number">2.</span> <span class="nav-text">ThreadMXBean查看</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jstack查看"><span class="nav-number">3.</span> <span class="nav-text">jstack查看</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Jstack-文件"><span class="nav-number">3.1.</span> <span class="nav-text">Jstack 文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#vm内部线程-VM-internal-JavaThreads"><span class="nav-number">3.2.</span> <span class="nav-text">vm内部线程(VM internal JavaThreads)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhengyumin</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">521k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">7:53</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2019/08/29/JVM-main方法分析/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'D2GGMftjnaihnt6xGsBOCK1T-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'D2GGMftjnaihnt6xGsBOCK1T-gzGzoHsz',
+                'X-LC-Key': '42G22rkOJK422bv0XSJhBrW6',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
