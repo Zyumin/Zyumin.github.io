@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:description" content="我最后的祝福是要给那些人——他们知道我不完美却还爱着我 ——《流萤集》  关于Class 你想知道的我这里都有😊  ☕️ JDK Class类分析 📃 class文件构成分析 🔧 字节码工具介绍 ➕ 类加载">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-01T02:51:44.432Z">
+<meta property="og:updated_time" content="2019-09-01T09:29:33.829Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK_Class">
 <meta name="twitter:description" content="我最后的祝福是要给那些人——他们知道我不完美却还爱着我 ——《流萤集》  关于Class 你想知道的我这里都有😊  ☕️ JDK Class类分析 📃 class文件构成分析 🔧 字节码工具介绍 ➕ 类加载">
@@ -378,7 +378,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-01 10:51:44" itemprop="dateModified" datetime="2019-09-01T10:51:44+08:00">2019-09-01</time>
+                <time title="修改时间：2019-09-01 17:29:33" itemprop="dateModified" datetime="2019-09-01T17:29:33+08:00">2019-09-01</time>
               
             
           </span>
@@ -417,7 +417,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.9k</span>
+                <span title="本文字数">8.8k</span>
               
 
               
@@ -431,7 +431,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">4 分钟</span>
+                <span title="阅读时长">8 分钟</span>
               
             </div>
           
@@ -470,9 +470,159 @@
 </blockquote>
 <p>类的实例表示运行中的Java应用程序中的类和接口。枚举是一种类，注解是一种接口。每个数组也属于一个类，这个类反映为一个类对象，由具有相同元素类型和维数的所有数组共享。原始Java类型(boolean、byte、char、short、int、long、float和double)和关键字void也表示为类对象。</p>
 <p>类没有公共构造函数。相反，类对象是在类装入时由Java虚拟机自动构造的，并通过调用类装入器中的defineClass方法构造的。</p>
-<h3 id="Class文件的构成"><a href="#Class文件的构成" class="headerlink" title="Class文件的构成"></a>Class文件的构成</h3><p><a href="https://www.jianshu.com/p/2c106b682cfb" target="_blank" rel="noopener">https://www.jianshu.com/p/2c106b682cfb</a></p>
-<h3 id="操纵字节码"><a href="#操纵字节码" class="headerlink" title="操纵字节码"></a>操纵字节码</h3><p>ASM 、CGLIB</p>
-<p><a href="https://blog.csdn.net/Mary881225/article/details/64132547" target="_blank" rel="noopener">https://blog.csdn.net/Mary881225/article/details/64132547</a></p>
+<p>类的成员 包含 (Declared前缀可以获得公开的类)  </p>
+<ul>
+<li>getFields  字段 </li>
+<li>getMethods 方法</li>
+<li>getConstructors  构造函数</li>
+<li>getClasses  内部类</li>
+<li>getAnnotations  注解</li>
+<li>getSuperclass  父类</li>
+<li>getInterfaces   接口</li>
+</ul>
+<p>更多细节可以查看 JLS 第8章</p>
+<p>getFields 分析</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// java.lang.reflect.Field handling</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Returns an array of "root" fields. These Field objects must NOT</span></span><br><span class="line"><span class="comment">// be propagated to the outside world, but must instead be copied</span></span><br><span class="line"><span class="comment">// via ReflectionFactory.copyField.</span></span><br><span class="line"><span class="keyword">private</span> Field[] privateGetDeclaredFields(<span class="keyword">boolean</span> publicOnly) &#123;</span><br><span class="line">    checkInitted();</span><br><span class="line">    Field[] res;</span><br><span class="line">    ReflectionData&lt;T&gt; rd = reflectionData();</span><br><span class="line">    <span class="keyword">if</span> (rd != <span class="keyword">null</span>) &#123;</span><br><span class="line">        res = publicOnly ? rd.declaredPublicFields : rd.declaredFields;</span><br><span class="line">        <span class="keyword">if</span> (res != <span class="keyword">null</span>) <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// No cached value available; request value from VM</span></span><br><span class="line">    res = Reflection.filterFields(<span class="keyword">this</span>, getDeclaredFields0(publicOnly));</span><br><span class="line">    <span class="keyword">if</span> (rd != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (publicOnly) &#123;</span><br><span class="line">            rd.declaredPublicFields = res;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            rd.declaredFields = res;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从缓存中获取, 如果为空则从VM获取 , 其中 reflectionData 反射缓存Bo  (useCaches 默认为true)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">transient</span> SoftReference&lt;ReflectionData&lt;T&gt;&gt; reflectionData;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Incremented by the VM on each call to JVM TI RedefineClasses()</span></span><br><span class="line"><span class="comment">// that redefines this class or a superclass.</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">transient</span> <span class="keyword">int</span> classRedefinedCount = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Lazily create and cache ReflectionData</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> ReflectionData&lt;T&gt; <span class="title">reflectionData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    SoftReference&lt;ReflectionData&lt;T&gt;&gt; reflectionData = <span class="keyword">this</span>.reflectionData;</span><br><span class="line">    <span class="keyword">int</span> classRedefinedCount = <span class="keyword">this</span>.classRedefinedCount;</span><br><span class="line">    ReflectionData&lt;T&gt; rd;</span><br><span class="line">    <span class="keyword">if</span> (useCaches &amp;&amp;</span><br><span class="line">        reflectionData != <span class="keyword">null</span> &amp;&amp;</span><br><span class="line">        (rd = reflectionData.get()) != <span class="keyword">null</span> &amp;&amp;</span><br><span class="line">        rd.redefinedCount == classRedefinedCount) &#123;</span><br><span class="line">        <span class="keyword">return</span> rd;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// else no SoftReference or cleared SoftReference or stale ReflectionData</span></span><br><span class="line">    <span class="comment">// -&gt; create and replace new instance</span></span><br><span class="line">    <span class="keyword">return</span> newReflectionData(reflectionData, classRedefinedCount);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> ReflectionData&lt;T&gt; <span class="title">newReflectionData</span><span class="params">(SoftReference&lt;ReflectionData&lt;T&gt;&gt; oldReflectionData,<span class="keyword">int</span> classRedefinedCount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!useCaches) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            ReflectionData&lt;T&gt; rd = <span class="keyword">new</span> ReflectionData&lt;&gt;(classRedefinedCount);</span><br><span class="line">            <span class="comment">// try to CAS it...</span></span><br><span class="line">            <span class="keyword">if</span> (Atomic.casReflectionData(<span class="keyword">this</span>, oldReflectionData, <span class="keyword">new</span> SoftReference&lt;&gt;(rd))) &#123;</span><br><span class="line">                <span class="keyword">return</span> rd;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// else retry</span></span><br><span class="line">            oldReflectionData = <span class="keyword">this</span>.reflectionData;</span><br><span class="line">            classRedefinedCount = <span class="keyword">this</span>.classRedefinedCount;</span><br><span class="line">            <span class="keyword">if</span> (oldReflectionData != <span class="keyword">null</span> &amp;&amp;</span><br><span class="line">                (rd = oldReflectionData.get()) != <span class="keyword">null</span> &amp;&amp;</span><br><span class="line">                rd.redefinedCount == classRedefinedCount) &#123;</span><br><span class="line">                <span class="keyword">return</span> rd;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>简单总结 Class的成员 字段 方法 和构造函数  通常与反射一起使用</p>
+<h3 id="Class文件的构成"><a href="#Class文件的构成" class="headerlink" title="Class文件的构成"></a>Class文件的构成</h3><p>通过javac xxx 可以生成 xxx.class 文件</p>
+<p>字节码结构</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">长度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">u4</td>
+<td style="text-align:center">magic</td>
+<td style="text-align:center">魔数，识别Class文件格式</td>
+<td style="text-align:center">4个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">u2</td>
+<td style="text-align:center">minor_version</td>
+<td style="text-align:center">副版本号</td>
+<td style="text-align:center">2个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">u2</td>
+<td style="text-align:center">major_version</td>
+<td style="text-align:center">主版本号</td>
+<td style="text-align:center">2个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">u2</td>
+<td style="text-align:center">constant_pool_count</td>
+<td style="text-align:center">常量池计算器</td>
+<td style="text-align:center">2个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">cp_info</td>
+<td style="text-align:center">constant_pool</td>
+<td style="text-align:center">常量池</td>
+<td style="text-align:center">n个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">u2</td>
+<td style="text-align:center">access_flags</td>
+<td style="text-align:center">访问标志</td>
+<td style="text-align:center">2个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">u2</td>
+<td style="text-align:center">this_class</td>
+<td style="text-align:center">类索引</td>
+<td style="text-align:center">2个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">u2</td>
+<td style="text-align:center">super_class</td>
+<td style="text-align:center">父类索引</td>
+<td style="text-align:center">2个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">u2</td>
+<td style="text-align:center">interfaces_count</td>
+<td style="text-align:center">接口计数器</td>
+<td style="text-align:center">2个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">u2</td>
+<td style="text-align:center">interfaces</td>
+<td style="text-align:center">接口索引集合</td>
+<td style="text-align:center">2个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">u2</td>
+<td style="text-align:center">fields_count</td>
+<td style="text-align:center">字段个数</td>
+<td style="text-align:center">2个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">field_info</td>
+<td style="text-align:center">fields</td>
+<td style="text-align:center">字段集合</td>
+<td style="text-align:center">n个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">u2</td>
+<td style="text-align:center">methods_count</td>
+<td style="text-align:center">方法计数器</td>
+<td style="text-align:center">2个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">method_info</td>
+<td style="text-align:center">methods</td>
+<td style="text-align:center">方法集合</td>
+<td style="text-align:center">n个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">u2</td>
+<td style="text-align:center">attributes_count</td>
+<td style="text-align:center">附加属性计数器</td>
+<td style="text-align:center">2个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">attribute_info</td>
+<td style="text-align:center">attributes</td>
+<td style="text-align:center">附加属性集合</td>
+<td style="text-align:center">n个字节</td>
+</tr>
+</tbody>
+</table>
+<p>这是一张Java字节码总的结构表，我们按照上面的顺序逐一进行解读就可以了。</p>
+<p>首先，我们来说明一下：class文件只有两种数据类型：<code>无符号数</code>和<code>表</code>。如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">定义</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">无符号数</td>
+<td style="text-align:center">无符号数可以用来描述数字、索引引用、数量值或按照utf-8编码构成的字符串值。</td>
+<td style="text-align:center">其中无符号数属于基本的数据类型。以u1、u2、u4、u8来分别代表1个字节、2个字节、4个字节和8个字节</td>
+</tr>
+<tr>
+<td style="text-align:center">表</td>
+<td style="text-align:center">表是由多个无符号数或其他表构成的复合数据结构。</td>
+<td style="text-align:center">所有的表都以“_info”结尾。 由于表没有固定长度，所以通常会在其前面加上个数说明。</td>
+</tr>
+</tbody>
+</table>
+<p>实际上整个class文件就是一张表，其结构就是上面的表一了。</p>
+<p>更多细节参考<a href="https://www.jianshu.com/p/2c106b682cfb" target="_blank" rel="noopener">https://www.jianshu.com/p/2c106b682cfb</a></p>
+<h3 id="操纵字节码"><a href="#操纵字节码" class="headerlink" title="操纵字节码"></a>操纵字节码</h3><p>Javassist 、 ASM 、 cglib</p>
+<p>更多参考 <a href="https://blog.csdn.net/Mary881225/article/details/64132547" target="_blank" rel="noopener">https://blog.csdn.net/Mary881225/article/details/64132547</a></p>
 <h3 id="类加载"><a href="#类加载" class="headerlink" title="类加载"></a>类加载</h3><h4 id="Class-是什么时候加载进来的"><a href="#Class-是什么时候加载进来的" class="headerlink" title="Class 是什么时候加载进来的"></a>Class 是什么时候加载进来的</h4><h5 id="类加载的时机"><a href="#类加载的时机" class="headerlink" title="类加载的时机"></a>类加载的时机</h5><ul>
 <li>JVM启动的时候,会使用 ClassLoader 加载 java自身相关的类</li>
 <li>自定义类使用的时候加载</li>
@@ -492,7 +642,8 @@
 <p>结论:</p>
 <p>Class.forName得到的class是已经初始化完成的，该方法适合那些在类加载时需要初始化一些东西的情况。比如，加载数据库驱动。</p>
 <p>Classloder.loaderClass得到的class是还没有链接的，该方法适合在类加载时不需要一些初始化的情况。</p>
-<h4 id="ClassNotFoundException-and-NoClassDefFoundError-LinkageError"><a href="#ClassNotFoundException-and-NoClassDefFoundError-LinkageError" class="headerlink" title="ClassNotFoundException and  NoClassDefFoundError(LinkageError)"></a>ClassNotFoundException and  NoClassDefFoundError(LinkageError)</h4><p>Todo 分析</p>
+<h4 id="ClassNotFoundException-and-NoClassDefFoundError-LinkageError"><a href="#ClassNotFoundException-and-NoClassDefFoundError-LinkageError" class="headerlink" title="ClassNotFoundException and  NoClassDefFoundError(LinkageError)"></a>ClassNotFoundException and  NoClassDefFoundError(LinkageError)</h4><p>ClassNotFoundException 发生在类加载时候</p>
+<p>NoclassDefFoundError 发生在在链接时候</p>
 
       
     </div>
@@ -782,7 +933,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">539k</span>
+    <span title="站点总字数">543k</span>
   
 
   
@@ -791,7 +942,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">8:10</span>
+    <span title="站点阅读时长">8:13</span>
   
 </div>
 
