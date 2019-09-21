@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:description" content="语言基础包,lang包含Base, AutoBoxing ,Utils, VM ,Throwble 注解、字节码增强、动态语言支持、反射等   虚拟机规范  JLS   java language spec">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-27T12:43:36.168Z">
+<meta property="og:updated_time" content="2019-09-15T07:01:49.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK_Packages_java_lang">
 <meta name="twitter:description" content="语言基础包,lang包含Base, AutoBoxing ,Utils, VM ,Throwble 注解、字节码增强、动态语言支持、反射等   虚拟机规范  JLS   java language spec">
@@ -378,7 +378,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-27 20:43:36" itemprop="dateModified" datetime="2019-08-27T20:43:36+08:00">2019-08-27</time>
+                <time title="修改时间：2019-09-15 15:01:49" itemprop="dateModified" datetime="2019-09-15T15:01:49+08:00">2019-09-15</time>
               
             
           </span>
@@ -417,7 +417,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4.2k</span>
+                <span title="本文字数">11k</span>
               
 
               
@@ -431,7 +431,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">4 分钟</span>
+                <span title="阅读时长">10 分钟</span>
               
             </div>
           
@@ -478,9 +478,13 @@
 <h4 id="VM"><a href="#VM" class="headerlink" title="VM"></a>VM</h4><p>Classes <code>ClassLoader</code>,<code>Thread</code>, <code>Process</code>, <code>ProcessBuilder</code>, <code>Runtime</code>, <code>SecurityManager</code>, and <code>System</code> provide “system operations” that manage the dynamic loading of classes, creation of external processes, host environment inquiries such as the time of day, and enforcement of security policies.</p>
 <p>类ClassLoader、Process、ProcessBuilder、Runtime、SecurityManager和System提供“系统操作”，</p>
 <p>管理类的动态加载、创建外部进程、主机环境查询(如一天的时间)和安全策略的执行。</p>
-<h5 id="Class-amp-ClassLoader"><a href="#Class-amp-ClassLoader" class="headerlink" title="Class &amp; ClassLoader"></a>Class &amp; ClassLoader</h5><p>Class.forName  与  xxx.class</p>
-<p>ClassNotFoundException  与 NoClassDefFoundError</p>
+<h5 id="Class-amp-ClassLoader"><a href="#Class-amp-ClassLoader" class="headerlink" title="Class &amp; ClassLoader"></a>Class &amp; ClassLoader</h5><blockquote>
+<p>link: JDK_CLass  &amp;&amp; JDK_ClassLoader</p>
+</blockquote>
 <h5 id="Process-amp-Thread-amp-Runnable"><a href="#Process-amp-Thread-amp-Runnable" class="headerlink" title="Process &amp; Thread &amp; Runnable"></a>Process &amp; Thread &amp; Runnable</h5><p>Process <a href="https://zhuanlan.zhihu.com/p/44957705" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/44957705</a></p>
+<blockquote>
+<p>link:  JDK_Thread</p>
+</blockquote>
 <h5 id="System"><a href="#System" class="headerlink" title="System"></a>System</h5><p>The <code>System</code>Among the facilities provided by the <code>System</code> class are standard input, standard output, and error output streams; access to externally defined properties and environment variables; a means of loading files and libraries; and a utility method for quickly copying a portion of an array.</p>
 <p>java.lang.System#initializeSystemClass</p>
 <p>相关方法和类 </p>
@@ -497,19 +501,210 @@
 <p>java.lang.System#getenv</p>
 <p>java.lang.System#getProperties            </p>
 <h4 id="Throwable"><a href="#Throwable" class="headerlink" title="Throwable"></a>Throwable</h4><p>Class <code>Throwable</code> encompasses objects that may be thrown by the <code>throw</code> statement. Subclasses of <code>Throwable</code> represent errors and exceptions.</p>
-<p>类可抛出性包含由抛出语句抛出的对象。Throwable的子类表示错误和异常。</p>
+<p>类可抛出性包含由抛出语句抛出的对象。Throwable的子类表示错误(Error)和异常(Exception 强制需要处理\ 运行时异常RuntimeException)。</p>
+<p>通过一个JDK的例子来看看 Throwable的使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Junk</span> </span>&#123;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">              a();</span><br><span class="line">          &#125; <span class="keyword">catch</span>(HighLevelException e) &#123;</span><br><span class="line">              e.printStackTrace();</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span> <span class="keyword">throws</span> HighLevelException </span>&#123;</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">              b();</span><br><span class="line">          &#125; <span class="keyword">catch</span>(MidLevelException e) &#123;</span><br><span class="line">              <span class="keyword">throw</span> <span class="keyword">new</span> HighLevelException(e);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">()</span> <span class="keyword">throws</span> MidLevelException </span>&#123;</span><br><span class="line">          c();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">c</span><span class="params">()</span> <span class="keyword">throws</span> MidLevelException </span>&#123;</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">              d();</span><br><span class="line">          &#125; <span class="keyword">catch</span>(LowLevelException e) &#123;</span><br><span class="line">              <span class="keyword">throw</span> <span class="keyword">new</span> MidLevelException(e);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">d</span><span class="params">()</span> <span class="keyword">throws</span> LowLevelException </span>&#123;</span><br><span class="line">         e();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">e</span><span class="params">()</span> <span class="keyword">throws</span> LowLevelException </span>&#123;</span><br><span class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> LowLevelException();</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">HighLevelException</span> <span class="keyword">extends</span> <span class="title">Exception</span> </span>&#123;</span><br><span class="line">      HighLevelException(Throwable cause) &#123; <span class="keyword">super</span>(cause); &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">MidLevelException</span> <span class="keyword">extends</span> <span class="title">Exception</span> </span>&#123;</span><br><span class="line">      MidLevelException(Throwable cause)  &#123; <span class="keyword">super</span>(cause); &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">LowLevelException</span> <span class="keyword">extends</span> <span class="title">Exception</span> </span>&#123;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">lang.Throwble.HighLevelException: lang.Throwble.MidLevelException: lang.Throwble.LowLevelException</span><br><span class="line">     at lang.Throwble.Junk.a(Junk.java:<span class="number">15</span>)</span><br><span class="line">     at lang.Throwble.Junk.main(Junk.java:<span class="number">6</span>)</span><br><span class="line">Caused by: lang.Throwble.MidLevelException: lang.Throwble.LowLevelException</span><br><span class="line">     at lang.Throwble.Junk.c(Junk.java:<span class="number">25</span>)</span><br><span class="line">     at lang.Throwble.Junk.b(Junk.java:<span class="number">19</span>)</span><br><span class="line">     at lang.Throwble.Junk.a(Junk.java:<span class="number">13</span>)</span><br><span class="line">     ... <span class="number">1</span> more</span><br><span class="line">Caused by: lang.Throwble.LowLevelException</span><br><span class="line">     at lang.Throwble.Junk.e(Junk.java:<span class="number">32</span>)</span><br><span class="line">     at lang.Throwble.Junk.d(Junk.java:<span class="number">29</span>)</span><br><span class="line">     at lang.Throwble.Junk.c(Junk.java:<span class="number">23</span>)</span><br><span class="line">     ... <span class="number">3</span> more</span><br></pre></td></tr></table></figure>
+<p>通过观察这个结果, 和分析 我们来看看Throwable都有哪些成员</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">printStackTrace</span><span class="params">(PrintStreamOrWriter s)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Guard against malicious overrides of Throwable.equals by</span></span><br><span class="line">    <span class="comment">// using a Set with identity equality semantics.</span></span><br><span class="line">    <span class="comment">//  IdentityHashMap 比较的是地址值 int h = System.identityHashCode(x);</span></span><br><span class="line">    Set&lt;Throwable&gt; dejaVu =</span><br><span class="line">        Collections.newSetFromMap(<span class="keyword">new</span> IdentityHashMap&lt;Throwable, Boolean&gt;());</span><br><span class="line">    dejaVu.add(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">synchronized</span> (s.lock()) &#123;</span><br><span class="line">        <span class="comment">// Print our stack trace</span></span><br><span class="line">        s.println(<span class="keyword">this</span>);</span><br><span class="line">        StackTraceElement[] trace = getOurStackTrace();</span><br><span class="line">        <span class="keyword">for</span> (StackTraceElement traceElement : trace)</span><br><span class="line">            s.println(<span class="string">"\tat "</span> + traceElement);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Print suppressed exceptions, if any</span></span><br><span class="line">        <span class="keyword">for</span> (Throwable se : getSuppressed())</span><br><span class="line">            se.printEnclosedStackTrace(s, trace, SUPPRESSED_CAPTION, <span class="string">"\t"</span>, dejaVu);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Print cause, if any</span></span><br><span class="line">        Throwable ourCause = getCause();</span><br><span class="line">        <span class="keyword">if</span> (ourCause != <span class="keyword">null</span>)</span><br><span class="line">            ourCause.printEnclosedStackTrace(s, trace, CAUSE_CAPTION, <span class="string">""</span>, dejaVu);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> s.println(this);</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String s = getClass().getName();</span><br><span class="line">    String message = getLocalizedMessage();</span><br><span class="line">    <span class="keyword">return</span> (message != <span class="keyword">null</span>) ? (s + <span class="string">": "</span> + message) : s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到其实就是  </p>
+<ul>
+<li>类名加Message</li>
+<li>堆栈信息StackTraceElement</li>
+<li>ourCause  Caused by:上层异常</li>
+</ul>
 <h3 id="java-lang-annotation"><a href="#java-lang-annotation" class="headerlink" title="java.lang.annotation"></a>java.lang.annotation</h3><p>Provides library support for the Java programming language annotation facility.</p>
 <p>为Java编程语言注解工具提供库支持。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * More information about annotation types can be found in section 9.6 of</span></span><br><span class="line"><span class="comment"> * &lt;cite&gt;The Java&amp;trade; Language Specification&lt;/cite&gt;.</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p>注解（Annotation），也叫（metadata）元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明，注释。这些信息被存储在Annotation的“name=value”结构对中。</p>
+<p>大致可分为三类：</p>
+<ul>
+<li><p>编写文档：通过代码里标识的元数据生成文档。</p>
+</li>
+<li><p>代码分析：通过代码里标识的元数据对代码进行分析。</p>
+</li>
+<li><p>编译检查：通过代码里标识的元数据让编译器能实现基本的编译检查</p>
+</li>
+</ul>
+<p>​    </p>
+<h4 id="内置注解"><a href="#内置注解" class="headerlink" title="内置注解"></a>内置注解</h4><p>内置注解分为三类：</p>
+<ul>
+<li>@Override</li>
+<li>@Deprecated</li>
+<li>@SuppressWarnings</li>
+</ul>
+<h4 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h4><p>元注解就是定义注解的注解，由 java API 提供，分别有四个元注解：</p>
+<ul>
+<li><p>@Target </p>
+<p>  用于描述注解的使用范围。修饰的对象范围：packages、types（类、接口、枚举、Annotation类型）、类型成员（方法、构造方法、成员变量、枚举值）、方法参数和本地变量（如 catch 参数）。</p>
+<p>  它的值在枚举类 ElemenetType 中：</p>
+<ul>
+<li>CONSTRUCTOR： 用于描述构造器</li>
+<li>FIELD ： 用于描述域</li>
+<li>LOCAL_VARIABLE： 用于描述局部变量</li>
+<li>METHOD ： 用于描述方法</li>
+<li>PACKAGE ： 用于描述包</li>
+<li>PARAMETER ： 用于描述参数</li>
+<li>TYPE ： 用于描述类、接口(包括注解类型) 或enum声明</li>
+</ul>
+</li>
+<li><p>@Retention</p>
+<p>  表示需要在什么级别保存该注释信息，用于描述注解的生命周期（即：被描述的注解在什么范围内有效），定义了该Annotation被保留的时间长短：某些Annotation仅出现在源代码中，而被编译器丢弃；而另一些却被编译在class文件中；编译在class文件中的Annotation可能会被虚拟机忽略，而另一些在class被装载时将被读取。</p>
+<p>  RetentionPoicy取值：</p>
+<ul>
+<li>SOURCE ： 在源文件中有效（即源文件保留）</li>
+<li>CLASS ： 在class文件中有效（即class保留）</li>
+<li>RUNTIME ： 在运行时有效（即运行时保留）</li>
+</ul>
+</li>
+<li><p>@Documented</p>
+<p>  用于描述其它类型的annotation应该被作为被标注的程序成员的公共API，Documented 是一个标记注解，没有成员。将此注解包含在 javadoc 中 ，它代表着此注解会被javadoc工具提取成文档。在doc文档中的内容会因为此注解的信息内容不同而不同。</p>
+</li>
+<li><p>@Inherited</p>
+<p>  允许子类继承父类中的注解，是一个标记注解，@Inherited阐述了某个被标注的类型是被继承的。如果一个使用了@Inherited修饰的annotation类型被用于一个class，则这个annotation将被用于该class的子类。</p>
+</li>
+</ul>
+<p>@link : <a href="https://www.jianshu.com/p/d124f24e685c" target="_blank" rel="noopener">https://www.jianshu.com/p/d124f24e685c</a></p>
 <h3 id="java-lang-instrument"><a href="#java-lang-instrument" class="headerlink" title="java.lang.instrument"></a>java.lang.instrument</h3><p>Provides services that allow Java programming language agents to instrument programs running on the JVM.</p>
 <p>提供允许Java编程语言代理对运行在JVM上的程序进行增强的服务。</p>
+<p>JPDA体系概览</p>
+<ul>
+<li>JPDA 定义了一套如何开发调试工具的接口和规范。</li>
+<li>JPDA 由三个独立的模块 JVMTI、JDWP、JDI 组成。<ul>
+<li>调试者通过 JDI 发送接受调试命令。</li>
+<li>JDWP 定义调试者和被调试者交流数据的格式。</li>
+<li>JVMTI 可以控制当前虚拟机运行状态。</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://www.ibm.com/developerworks/cn/java/j-lo-jpda2/index.html?ca=drs-" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/java/j-lo-jpda2/index.html?ca=drs-</a></p>
+<p><a href="https://www.cnblogs.com/yelao/p/9841810.html" target="_blank" rel="noopener">https://www.cnblogs.com/yelao/p/9841810.html</a></p>
+<p>class</p>
+<p>java.lang.instrument.ClassFileTransformer</p>
+<p>java.lang.instrument.Instrumentation</p>
+<p>java.lang.instrument.ClassDefinition</p>
 <h3 id="java-lang-invoke"><a href="#java-lang-invoke" class="headerlink" title="java.lang.invoke"></a>java.lang.invoke</h3><p>The java.lang.invoke package contains dynamic language support provided directly by the Java core class libraries and virtual machine.</p>
 <p>包含Java核心类库和虚拟机直接提供的动态语言支持。</p>
+<p>java7在JSR 292中增加了对动态类型语言的支持，使Java也可以像C语言那样将方法作为参数传递，其实现在lava.lang.invoke包中。MethodHandle作用类似于反射中的Method类，但它比Method类要更加灵活和轻量级。通过MethodHandle进行方法调用一般需要以下几步：</p>
+<ol>
+<li>创建MethodType对象，指定方法的签名；</li>
+<li>在MethodHandles.Lookup中查找类型为MethodType的MethodHandle；</li>
+<li>传入方法参数并调用MethodHandle.invoke或者MethodHandle.invokeExact方法。</li>
+</ol>
+<p>InvokeDynamic</p>
+<p><a href="https://www.cnblogs.com/sheeva/p/6344388.html" target="_blank" rel="noopener">https://www.cnblogs.com/sheeva/p/6344388.html</a></p>
+<p>在看java虚拟机字节码执行引擎的时候，里面提到了java虚拟机里调用方法的字节码指令有5种：</p>
+<ul>
+<li>invokestatic　　//调用静态方法</li>
+<li>invokespecial　　//调用私有方法、实例构造器方法、父类方法</li>
+<li>invokevirtual　　//调用实例方法</li>
+<li>invokeinterface　　//调用接口方法，会在运行时再确定一个实现此接口的对象</li>
+<li><strong>invokedynamic</strong>　　//先在运行时动态解析出调用点限定符所引用的方法，然后再执行该方法，在此之前的4条调用指令，分派逻辑是固化在java虚拟机内部的，而invokedynamic指令的分派逻辑是由用户所设定的引导方法决定的。</li>
+</ul>
+<p>CallSite</p>
+<p>从语言的静态类型和动态类型说起：</p>
+<ul>
+<li>静态类型就是每个变量在初始化的时候就要声明唯一的类型并且不能改变。</li>
+<li>动态类型就是说变量没有固定类型，变量的类型取决于它里面元素的类型。</li>
+</ul>
+<p>java语言是静态类型的。有人可能会提到泛型，java的泛型是擦除式的，也就是说虽然在编写java源码时看起来好像不能确定变量类型，但是在java编译为字节码的过程中，每一个变量都是有确定的类型的。</p>
+<p>所以从java语言的角度，之前的4条方法调用指令是完全够用的，但是要知道，jvm不只是跨平台的，还是跨语言的，当有人在jvm上试图开发动态类型语言的时候，问题就来了：</p>
+<p>jvm大多数指令都是类型无关的，但是在方法调用的时候，却不是这样，每个方法调用在编译阶段就必须指明方法参数和返回值类型，但是动态类型语言的方法参数，直到运行时刻才能知道类型啊，因此jdk就做了这样一个“补丁”：用invokedynamic调用方法的时候，会转到bootstrap方法，在这个方法里可以动态获取参数类型，然后根据参数类型分派合适的方法作为CallSite(动态调用点)，最后真实调用的就是CallSize里的方法。如此便能在jvm上实现动态类型语言的方法调用了。</p>
 <h3 id="java-lang-management"><a href="#java-lang-management" class="headerlink" title="java.lang.management"></a>java.lang.management</h3><p>Provides the management interfaces for monitoring and management of the Java virtual machine and other components in the Java runtime.</p>
 <p>提供用于监视和管理Java虚拟机和Java运行时中的其他组件的管理接口。</p>
+<p><a href="https://docs.oracle.com/javase/8/docs/api/javax/management/package-summary.html" target="_blank" rel="noopener">JMX</a> Instrumentation Specification</p>
+<h4 id="访问MXBeans的方法"><a href="#访问MXBeans的方法" class="headerlink" title="访问MXBeans的方法"></a>访问MXBeans的方法</h4><p><strong>1.直接访问MXBean接口</strong></p>
+<p><strong>2.通过MBeanServer间接访问MXBean接口</strong></p>
+<p>jmx规范</p>
+<p> <a href="https://docs.oracle.com/javase/8/docs/api/javax/management/package-summary.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/api/javax/management/package-summary.html</a></p>
+<p>ManagementFactory</p>
+<p>实现-&gt; sum包中 ?  😪</p>
 <h3 id="java-lang-ref"><a href="#java-lang-ref" class="headerlink" title="java.lang.ref"></a>java.lang.ref</h3><p>Provides reference-object classes, which support a limited degree of interaction with the garbage collector.</p>
 <p>提供引用对象类，该类支持与垃圾收集器进行有限程度的交互。</p>
+<p><strong>表 1. 引用类型特性总结</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>引用类型</strong></th>
+<th><strong>取得目标对象方式</strong></th>
+<th><strong>垃圾回收条件</strong></th>
+<th><strong>是否可能内存泄漏</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>强引用</td>
+<td>直接调用</td>
+<td>不回收</td>
+<td>可能</td>
+</tr>
+<tr>
+<td>软引用</td>
+<td>通过 get() 方法</td>
+<td>视内存情况回收</td>
+<td>不可能</td>
+</tr>
+<tr>
+<td>弱引用</td>
+<td>通过 get() 方法</td>
+<td>永远回收</td>
+<td>不可能</td>
+</tr>
+<tr>
+<td>虚引用</td>
+<td>无法取得</td>
+<td>不回收</td>
+<td>可能</td>
+</tr>
+</tbody>
+</table>
+<p><strong>表 2：各个引用在 GC 后是否被回收？</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>类型</strong></th>
+<th><strong>GC 后是否回收</strong></th>
+<th><strong>示例代码</strong></th>
+<th><strong>运行结果</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>StrongReference</td>
+<td>不回收</td>
+<td>见清单 3</td>
+<td>name:10</td>
+</tr>
+<tr>
+<td>SoftReference</td>
+<td>不回收</td>
+<td>见清单 4</td>
+<td>name:10</td>
+</tr>
+<tr>
+<td>WeakReference</td>
+<td>回收</td>
+<td>见清单 5</td>
+<td>name:10</td>
+</tr>
+<tr>
+<td>PhantomReference</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.cnblogs.com/rollenholt/archive/2011/09/21/2183077.html" target="_blank" rel="noopener">https://www.cnblogs.com/rollenholt/archive/2011/09/21/2183077.html</a></p>
 <h3 id="java-lang-reflect"><a href="#java-lang-reflect" class="headerlink" title="java.lang.reflect"></a>java.lang.reflect</h3><p>Provides classes and interfaces for obtaining reflective information about classes and objects.</p>
 <p>提供用于获取有关类和对象的反射信息的类和接口。</p>
+<p>Construct、Field、Method</p>
+<p>Fastjson </p>
+<p>Proxy </p>
+<p><a href="https://www.cnblogs.com/xrq730/p/4918762.html" target="_blank" rel="noopener">https://www.cnblogs.com/xrq730/p/4918762.html</a></p>
 
       
     </div>
@@ -772,7 +967,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang"><span class="nav-number">1.</span> <span class="nav-text">java.lang</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Base"><span class="nav-number">1.1.</span> <span class="nav-text">Base</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AutoBoxing"><span class="nav-number">1.2.</span> <span class="nav-text">AutoBoxing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Utils-Math-String"><span class="nav-number">1.3.</span> <span class="nav-text">Utils (Math,String)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Math-amp-StrictMath"><span class="nav-number">1.3.1.</span> <span class="nav-text">Math &amp; StrictMath</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-amp-StringBuffer-synchronized-amp-StringBuilder"><span class="nav-number">1.3.2.</span> <span class="nav-text">String &amp; StringBuffer(synchronized) &amp; StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VM"><span class="nav-number">1.4.</span> <span class="nav-text">VM</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Class-amp-ClassLoader"><span class="nav-number">1.4.1.</span> <span class="nav-text">Class &amp; ClassLoader</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Process-amp-Thread-amp-Runnable"><span class="nav-number">1.4.2.</span> <span class="nav-text">Process &amp; Thread &amp; Runnable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#System"><span class="nav-number">1.4.3.</span> <span class="nav-text">System</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Throwable"><span class="nav-number">1.5.</span> <span class="nav-text">Throwable</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-annotation"><span class="nav-number">2.</span> <span class="nav-text">java.lang.annotation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-instrument"><span class="nav-number">3.</span> <span class="nav-text">java.lang.instrument</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-invoke"><span class="nav-number">4.</span> <span class="nav-text">java.lang.invoke</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-management"><span class="nav-number">5.</span> <span class="nav-text">java.lang.management</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-ref"><span class="nav-number">6.</span> <span class="nav-text">java.lang.ref</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-reflect"><span class="nav-number">7.</span> <span class="nav-text">java.lang.reflect</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang"><span class="nav-number">1.</span> <span class="nav-text">java.lang</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Base"><span class="nav-number">1.1.</span> <span class="nav-text">Base</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AutoBoxing"><span class="nav-number">1.2.</span> <span class="nav-text">AutoBoxing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Utils-Math-String"><span class="nav-number">1.3.</span> <span class="nav-text">Utils (Math,String)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Math-amp-StrictMath"><span class="nav-number">1.3.1.</span> <span class="nav-text">Math &amp; StrictMath</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-amp-StringBuffer-synchronized-amp-StringBuilder"><span class="nav-number">1.3.2.</span> <span class="nav-text">String &amp; StringBuffer(synchronized) &amp; StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VM"><span class="nav-number">1.4.</span> <span class="nav-text">VM</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Class-amp-ClassLoader"><span class="nav-number">1.4.1.</span> <span class="nav-text">Class &amp; ClassLoader</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Process-amp-Thread-amp-Runnable"><span class="nav-number">1.4.2.</span> <span class="nav-text">Process &amp; Thread &amp; Runnable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#System"><span class="nav-number">1.4.3.</span> <span class="nav-text">System</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Throwable"><span class="nav-number">1.5.</span> <span class="nav-text">Throwable</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-annotation"><span class="nav-number">2.</span> <span class="nav-text">java.lang.annotation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内置注解"><span class="nav-number">2.1.</span> <span class="nav-text">内置注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元注解"><span class="nav-number">2.2.</span> <span class="nav-text">元注解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-instrument"><span class="nav-number">3.</span> <span class="nav-text">java.lang.instrument</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-invoke"><span class="nav-number">4.</span> <span class="nav-text">java.lang.invoke</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-management"><span class="nav-number">5.</span> <span class="nav-text">java.lang.management</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#访问MXBeans的方法"><span class="nav-number">5.1.</span> <span class="nav-text">访问MXBeans的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-ref"><span class="nav-number">6.</span> <span class="nav-text">java.lang.ref</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-reflect"><span class="nav-number">7.</span> <span class="nav-text">java.lang.reflect</span></a></li></ol></div>
             
 
           </div>
@@ -805,7 +1000,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">543k</span>
+    <span title="站点总字数">550k</span>
   
 
   
@@ -814,7 +1009,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">8:13</span>
+    <span title="站点阅读时长">8:20</span>
   
 </div>
 
