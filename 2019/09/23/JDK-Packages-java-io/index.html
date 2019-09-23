@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="若逢新雪初霁,满月当空 下面流转着亮银 而你带笑地想我走来 月色和雪色之间 你是第三种绝色                 ​">
+<meta name="keywords" content="jdk,packages,io,serialization,file">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JDK_Packages_java_io">
+<meta property="og:url" content="http://yoursite.com/2019/09/23/JDK-Packages-java-io/index.html">
+<meta property="og:site_name" content="Zyumin">
+<meta property="og:description" content="若逢新雪初霁,满月当空 下面流转着亮银 而你带笑地想我走来 月色和雪色之间 你是第三种绝色                 ​">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g79ikws9ewj30kx0mego6.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g79ikx5gccj31r00p4n0m.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g79fkji2phj313o0iiq4m.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g79fjqic29j30yi0hw0ua.jpg">
+<meta property="og:updated_time" content="2019-09-23T08:08:55.738Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JDK_Packages_java_io">
+<meta name="twitter:description" content="若逢新雪初霁,满月当空 下面流转着亮银 而你带笑地想我走来 月色和雪色之间 你是第三种绝色                 ​">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g79ikws9ewj30kx0mego6.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/23/JDK-Packages-java-io/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JDK_Packages_java_io | Zyumin</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemsope="" itemtype="http://schema.org/WPHeader">
+	  <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zyumin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">自驱和热情</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/Zyumin" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/23/JDK-Packages-java-io/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhengyumin">
+      <meta itemprop="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zyumin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JDK_Packages_java_io
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-23 16:07:43 / 修改时间：16:08:55" itemprop="dateCreated datePublished" datetime="2019-09-23T16:07:43+08:00">2019-09-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/09/23/JDK-Packages-java-io/" class="leancloud_visitors" data-flag-title="JDK_Packages_java_io">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">21k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">19 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>若逢新雪初霁,满月当空 下面流转着亮银 而你带笑地想我走来 月色和雪色之间 你是第三种绝色                </p>
+<p>​                                                                                                                                                                —余光中《绝色》</p>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><a href="https://docs.oracle.com/javase/8/docs/api/java/io/package-summary.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/api/java/io/package-summary.html</a></p>
+<p>官方解释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Provides for system input and output through data streams, serialization and the file system.</span><br></pre></td></tr></table></figure>
+<p>通过数据流、序列化和文件系统提供系统输入和输出。</p>
+<p>​    创建一个好的I/O系统不是一件容易的事，难度似乎来自于需要覆盖所有的可能性。因为不仅存在各种I/O源端（文件、控制台、网络连接等），还需要以多种不同的方式与这些I/O源端（顺序、回退、随机、缓冲、二进制、按字符、按行、按字）进行通信。Java类库的设计者通过创建大量的类来解决这个问题。</p>
+<h2 id="接口总览"><a href="#接口总览" class="headerlink" title="接口总览"></a>接口总览</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">Interface</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html" target="_blank" rel="noopener">Closeable</a></td>
+<td style="text-align:left">A <code>Closeable</code> is a source or destination of data that can be closed.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/io/DataInput.html" target="_blank" rel="noopener">DataInput</a></td>
+<td style="text-align:left">The <code>DataInput</code> interface provides for reading bytes from a binary stream and reconstructing from them data in any of the Java primitive types.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/io/DataOutput.html" target="_blank" rel="noopener">DataOutput</a></td>
+<td style="text-align:left">The <code>DataOutput</code> interface provides for converting data from any of the Java primitive types to a series of bytes and writing these bytes to a binary stream.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Externalizable.html" target="_blank" rel="noopener">Externalizable</a></td>
+<td style="text-align:left">Only the identity of the class of an Externalizable instance is written in the serialization stream and it is the responsibility of the class to save and restore the contents of its instances.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/io/FileFilter.html" target="_blank" rel="noopener">FileFilter</a></td>
+<td style="text-align:left">A filter for abstract pathnames.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/io/FilenameFilter.html" target="_blank" rel="noopener">FilenameFilter</a></td>
+<td style="text-align:left">Instances of classes that implement this interface are used to filter filenames.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Flushable.html" target="_blank" rel="noopener">Flushable</a></td>
+<td style="text-align:left">A <code>Flushable</code> is a destination of data that can be flushed.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/io/ObjectInput.html" target="_blank" rel="noopener">ObjectInput</a></td>
+<td style="text-align:left">ObjectInput extends the DataInput interface to include the reading of objects.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/io/ObjectInputValidation.html" target="_blank" rel="noopener">ObjectInputValidation</a></td>
+<td style="text-align:left">Callback interface to allow validation of objects within a graph.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/io/ObjectOutput.html" target="_blank" rel="noopener">ObjectOutput</a></td>
+<td style="text-align:left">ObjectOutput extends the DataOutput interface to include writing of objects.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/io/ObjectStreamConstants.html" target="_blank" rel="noopener">ObjectStreamConstants</a></td>
+<td style="text-align:left">Constants written into the Object Serialization Stream.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html" target="_blank" rel="noopener">Serializable</a></td>
+<td style="text-align:left">Serializability of a class is enabled by the class implementing the java.io.Serializable interface.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-streams"><a href="#data-streams" class="headerlink" title="data streams"></a>data streams</h2><p>整体结构</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g79ikws9ewj30kx0mego6.jpg" alt="I/Oæ´ä½ç»æå¾"></p>
+<h3 id="操作类型"><a href="#操作类型" class="headerlink" title="操作类型"></a>操作类型</h3><ul>
+<li>文件（file）：FileInputStream、FileOutputStream、FileReader、FileWriter</li>
+<li>数组（[]）：<ul>
+<li>2.1、字节数组（byte[]）：ByteArrayInputStream、ByteArrayOutputStream</li>
+<li>2.2、字符数组（char[]）：CharArrayReader、CharArrayWriter</li>
+</ul>
+</li>
+<li>管道操作：PipedInputStream、PipedOutputStream、PipedReader、PipedWriter</li>
+<li>基本数据类型：DataInputStream、DataOutputStream</li>
+<li>缓冲操作：BufferedInputStream、BufferedOutputStream、BufferedReader、BufferedWriter</li>
+<li>打印：PrintStream、PrintWriter</li>
+<li>对象序列化反序列化：ObjectInputStream、ObjectOutputStream</li>
+<li>转换：InputStreamReader、OutputStreWriter</li>
+<li><del>字符串（String）</del><strong>Java8中已废弃</strong>：<del>StringBufferInputStream、StringBufferOutputStream、StringReader、StringWriter</del></li>
+</ul>
+<h3 id="传输类型"><a href="#传输类型" class="headerlink" title="传输类型"></a>传输类型</h3><h4 id="字节流-byte"><a href="#字节流-byte" class="headerlink" title="字节流  byte"></a>字节流  byte</h4><p>InputStream、OutputStream</p>
+<h5 id="InputStream-类"><a href="#InputStream-类" class="headerlink" title="InputStream 类"></a><strong>InputStream 类</strong></h5><h6 id="inputStream方法"><a href="#inputStream方法" class="headerlink" title="inputStream方法"></a>inputStream方法</h6><table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th>方法介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">public abstract int read()</td>
+<td>读取数据</td>
+</tr>
+<tr>
+<td style="text-align:left">public int read(byte b[])</td>
+<td>将读取到的数据放在 byte 数组中，该方法实际上是根据下面的方法实现的，off 为 0，len 为数组的长度</td>
+</tr>
+<tr>
+<td style="text-align:left">public int read(byte b[], int off, int len)</td>
+<td>从第 off 位置读取 len 长度字节的数据放到 byte 数组中，流是以 -1 来判断是否读取结束的（注意这里读取的虽然是一个字节，但是返回的却是 int 类型 4 个字节，这里当然是有原因，这里就不再细说了，推荐这篇文章，<a href="https://blog.csdn.net/congwiny/article/details/18922847" target="_blank" rel="noopener">链接</a>）</td>
+</tr>
+<tr>
+<td style="text-align:left">public long skip(long n)</td>
+<td>跳过指定个数的字节不读取，想想看电影跳过片头片尾</td>
+</tr>
+<tr>
+<td style="text-align:left">public int available()</td>
+<td>返回可读的字节数量</td>
+</tr>
+<tr>
+<td style="text-align:left">public void close()</td>
+<td>读取完，关闭流，释放资源</td>
+</tr>
+<tr>
+<td style="text-align:left">public synchronized void mark(int readlimit)</td>
+<td>标记读取位置，下次还可以从这里开始读取，使用前要看当前流是否支持，可以使用 markSupport() 方法判断</td>
+</tr>
+<tr>
+<td style="text-align:left">public synchronized void reset()</td>
+<td>重置读取位置为上次 mark 标记的位置</td>
+</tr>
+<tr>
+<td style="text-align:left">public boolean markSupported()</td>
+<td>判断当前流是否支持标记流，和上面两个方法配套使用</td>
+</tr>
+</tbody>
+</table>
+<h6 id="inputStream-体系"><a href="#inputStream-体系" class="headerlink" title="inputStream 体系"></a>inputStream 体系</h6><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g79ikx5gccj31r00p4n0m.jpg" alt="image-20190922173230599"></p>
+<h6 id="源码实现"><a href="#源码实现" class="headerlink" title="源码实现"></a>源码实现</h6><p>InputStream 抽象类,所有子类实现如下</p>
+<ul>
+<li>ByteArrayInputStream  字节数组输入流</li>
+<li>PipedInputStream 管道流 用于线程间通信</li>
+<li>FileInputStream 文件系统IO</li>
+<li>FilterInputStream  装饰器模式<ul>
+<li>BufferedInputStream   带缓冲池的输入流</li>
+<li>DataInputStream  基本数据类型的输入流</li>
+<li>PushbackInputStream   </li>
+</ul>
+</li>
+<li>ObjectInputStream</li>
+</ul>
+<h5 id="OutputStream-类"><a href="#OutputStream-类" class="headerlink" title="OutputStream 类"></a><strong>OutputStream 类</strong></h5><p>PrintStream -&gt;System.out </p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>方法介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public abstract void write(int b)</td>
+<td>写入一个字节，可以看到这里的参数是一个 int 类型，对应上面的读方法，int 类型的 32 位，只有低 8 位才写入，高 24 位将舍弃。</td>
+</tr>
+<tr>
+<td>public void write(byte b[])</td>
+<td>将数组中的所有字节写入，和上面对应的 read() 方法类似，实际调用的也是下面的方法。</td>
+</tr>
+<tr>
+<td>public void write(byte b[], int off, int len)</td>
+<td>将 byte 数组从 off 位置开始，len 长度的字节写入</td>
+</tr>
+<tr>
+<td>public void flush()</td>
+<td>强制刷新，将缓冲中的数据写入</td>
+</tr>
+<tr>
+<td>public void close()</td>
+<td>关闭输出流，流被关闭后就不能再输出数据了</td>
+</tr>
+</tbody>
+</table>
+<h4 id="字符流-char"><a href="#字符流-char" class="headerlink" title="字符流  char"></a>字符流  char</h4><p>区别</p>
+<p>1.实现接口</p>
+<p>2.为什么有lock </p>
+<p>其中</p>
+<p>InputStreamReader，字节流通向字符流的桥梁：它使用指定的charset(nio)读取字节并将其解码为字符。功能是依赖于StreamDecoder完成的。</p>
+<p>Reader、Writer</p>
+<h5 id="Reader-类"><a href="#Reader-类" class="headerlink" title="Reader 类"></a><strong>Reader 类</strong></h5><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>方法介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public int read(java.nio.CharBuffer target)</td>
+<td>读取字节到字符缓存中</td>
+</tr>
+<tr>
+<td>public int read()</td>
+<td>读取单个字符</td>
+</tr>
+<tr>
+<td>public int read(char cbuf[])</td>
+<td>读取字符到指定的 char 数组中</td>
+</tr>
+<tr>
+<td>abstract public int read(char cbuf[], int off, int len)</td>
+<td>从 off 位置读取 len 长度的字符到 char 数组中</td>
+</tr>
+<tr>
+<td>public long skip(long n)</td>
+<td>跳过指定长度的字符数量</td>
+</tr>
+<tr>
+<td>public boolean ready()</td>
+<td>和上面的 available() 方法类似</td>
+</tr>
+<tr>
+<td>public boolean markSupported()</td>
+<td>判断当前流是否支持标记流</td>
+</tr>
+<tr>
+<td>public void mark(int readAheadLimit)</td>
+<td>标记读取位置，下次还可以从这里开始读取，使用前要看当前流是否支持，可以使用 markSupport() 方法判断</td>
+</tr>
+<tr>
+<td>public void reset()</td>
+<td>重置读取位置为上次 mark 标记的位置</td>
+</tr>
+<tr>
+<td>abstract public void close()</td>
+<td>关闭流释放相关资源</td>
+</tr>
+</tbody>
+</table>
+<h5 id="Writer-类"><a href="#Writer-类" class="headerlink" title="Writer 类"></a><strong>Writer 类</strong></h5><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>方法介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public void write(int c)</td>
+<td>写入一个字符</td>
+</tr>
+<tr>
+<td>public void write(char cbuf[])</td>
+<td>写入一个字符数组</td>
+</tr>
+<tr>
+<td>abstract public void write(char cbuf[], int off, int len)</td>
+<td>从字符数组的 off 位置写入 len 数量的字符</td>
+</tr>
+<tr>
+<td>public void write(String str)</td>
+<td>写入一个字符串</td>
+</tr>
+<tr>
+<td>public void write(String str, int off, int len)</td>
+<td>从字符串的 off 位置写入 len 数量的字符</td>
+</tr>
+<tr>
+<td>public Writer append(CharSequence csq)</td>
+<td>追加吸入一个字符序列</td>
+</tr>
+<tr>
+<td>public Writer append(CharSequence csq, int start, int end)</td>
+<td>追加写入一个字符序列的一部分，从 start 位置开始，end 位置结束</td>
+</tr>
+<tr>
+<td>public Writer append(char c)</td>
+<td>追加写入一个 16 位的字符</td>
+</tr>
+<tr>
+<td>abstract public void flush()</td>
+<td>强制刷新，将缓冲中的数据写入</td>
+</tr>
+<tr>
+<td>abstract public void close()</td>
+<td>关闭输出流，流被关闭后就不能再输出数据了</td>
+</tr>
+</tbody>
+</table>
+<p>@link: <a href="https://blog.csdn.net/panweiwei1994/article/details/78046000" target="_blank" rel="noopener">https://blog.csdn.net/panweiwei1994/article/details/78046000</a></p>
+<p>@link <a href="https://www.jianshu.com/p/715659e4775f" target="_blank" rel="noopener">https://www.jianshu.com/p/715659e4775f</a></p>
+<h2 id="serialization"><a href="#serialization" class="headerlink" title="serialization"></a>serialization</h2><p>​    Java序列化是指把Java对象保存为二进制字节码的过程，Java反序列化是指把二进制码重新转换成Java对象的过程。</p>
+<p>为什么需要</p>
+<ul>
+<li>持久化</li>
+<li>网络传输</li>
+</ul>
+<h3 id="Serializable"><a href="#Serializable" class="headerlink" title="Serializable"></a>Serializable</h3><p><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html</a></p>
+<p>Serializability of a class is enabled by the class implementing the java.io.Serializable interface.</p>
+<p>通过实现接口,开启可序列化</p>
+<h4 id="serialVersionUID"><a href="#serialVersionUID" class="headerlink" title="serialVersionUID"></a>serialVersionUID</h4><p>如果可序列化的类未明确声明serialVersionUID，则序列化运行时将根据该类的各个方面，为该类计算默认的serialVersionUID值，如Java（TM）对象序列化规范中所述。</p>
+<p>但是，<em>强烈建议</em>所有可序列化的类显式声明serialVersionUID值，因为默认的serialVersionUID计算对类详细信息高度敏感，类详细信息可能会因编译器的实现而有所不同，因此可能导致意外情况 <code>InvalidClassException</code>在反序列化过程中。因此，为了保证不同Java编译器实现之间的serialVersionUID值一致，可序列化的类必须声明一个显式的serialVersionUID值。</p>
+<p>还强烈建议显式serialVersionUID声明<code>private</code>在可能的情况下使用修饰符，因为此类声明仅适用于立即声明的类-serialVersionUID字段作为继承成员不起作用。数组类无法声明显式的serialVersionUID，因此它们始终具有默认的计算值，但是对于数组类，无需匹配serialVersionUID值。</p>
+<h3 id="ObjectStreamClass-序列化描述符"><a href="#ObjectStreamClass-序列化描述符" class="headerlink" title="ObjectStreamClass (序列化描述符)"></a>ObjectStreamClass (序列化描述符)</h3><p>官方文档对这个类的介绍如下</p>
+<p><a href="https://docs.oracle.com/javase/8/docs/api/java/io/ObjectStreamClass.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/api/java/io/ObjectStreamClass.html</a></p>
+<p>Serialization’s descriptor for classes. It contains the name and serialVersionUID of the class. The ObjectStreamClass for a specific class loaded in this Java VM can be found/created using the lookup method.</p>
+<p>可以看到ObjectStreamClass这个是类的序列化描述符，这个类可以描述需要被序列化的类的元数据，包括被序列化的类的名字以及序列号。可以通过lookup()方法来查找/创建在这个JVM中加载的特定的ObjectStreamClass对象</p>
+<h3 id="ObjectOutputStream-序列化"><a href="#ObjectOutputStream-序列化" class="headerlink" title="ObjectOutputStream (序列化)"></a>ObjectOutputStream (序列化)</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g79fkji2phj313o0iiq4m.jpg" alt="image-20190923142345325" style="zoom:50%;"></p>
+<h4 id="ObjectOutput"><a href="#ObjectOutput" class="headerlink" title="ObjectOutput"></a>ObjectOutput</h4><p>​    DataOutput includes methods for output of primitive types, ObjectOutput extends that interface to include objects, arrays, and Strings.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ObjectOutput</span> <span class="keyword">extends</span> <span class="title">DataOutput</span>, <span class="title">AutoCloseable</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Write an object to the underlying storage or stream.  The</span></span><br><span class="line"><span class="comment">     * class that implements this interface defines how the object is</span></span><br><span class="line"><span class="comment">     * written.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> obj the object to be written</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@exception</span> IOException Any of the usual Input/Output related exceptions.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeObject</span><span class="params">(Object obj)</span></span></span><br><span class="line"><span class="function">      <span class="keyword">throws</span> IOException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Writes a byte. This method will block until the byte is actually</span></span><br><span class="line"><span class="comment">     * written.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> b the byte</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@exception</span> IOException If an I/O error has occurred.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> b)</span> <span class="keyword">throws</span> IOException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Writes an array of bytes. This method will block until the bytes</span></span><br><span class="line"><span class="comment">     * are actually written.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> b the data to be written</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@exception</span> IOException If an I/O error has occurred.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">byte</span> b[])</span> <span class="keyword">throws</span> IOException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Writes a sub array of bytes.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> b the data to be written</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> off       the start offset in the data</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> len       the number of bytes that are written</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@exception</span> IOException If an I/O error has occurred.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">byte</span> b[], <span class="keyword">int</span> off, <span class="keyword">int</span> len)</span> <span class="keyword">throws</span> IOException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Flushes the stream. This will write any buffered</span></span><br><span class="line"><span class="comment">     * output bytes.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@exception</span> IOException If an I/O error has occurred.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">flush</span><span class="params">()</span> <span class="keyword">throws</span> IOException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Closes the stream. This method must be called</span></span><br><span class="line"><span class="comment">     * to release any resources associated with the</span></span><br><span class="line"><span class="comment">     * stream.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@exception</span> IOException If an I/O error has occurred.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> <span class="keyword">throws</span> IOException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="ObjectStreamConstants"><a href="#ObjectStreamConstants" class="headerlink" title="ObjectStreamConstants"></a>ObjectStreamConstants</h4><p>​    Constants written into the Object Serialization Stream.</p>
+<p>更多细节 <a href="https://docs.oracle.com/javase/8/docs/api/java/io/ObjectStreamConstants.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/api/java/io/ObjectStreamConstants.html</a></p>
+<h4 id="ObjectOutputStream"><a href="#ObjectOutputStream" class="headerlink" title="ObjectOutputStream"></a>ObjectOutputStream</h4><h5 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class ObjectOutputStream</span><br><span class="line">    extends OutputStream implements ObjectOutput, ObjectStreamConstants&#123;</span><br><span class="line">        public ObjectOutputStream(OutputStream out) throws IOException &#123;</span><br><span class="line">        verifySubclass();</span><br><span class="line">        bout = new BlockDataOutputStream(out);</span><br><span class="line">        handles = new HandleTable(10, (float) 3.00);</span><br><span class="line">        subs = new ReplaceTable(10, (float) 3.00);</span><br><span class="line">        enableOverride = false;</span><br><span class="line">        writeStreamHeader();</span><br><span class="line">        bout.setBlockDataMode(true);</span><br><span class="line">        if (extendedDebugInfo) &#123;</span><br><span class="line">            debugInfoStack = new DebugTraceInfoStack();</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            debugInfoStack = null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>构造函数中首先会把bout对绑定到底层的字节数据容器，接着会调用writeStreamHeader()方法</p>
+<p>,会往底层字节容器中写入表示序列化的Magic Number以及版本号</p>
+<h5 id="writeObject"><a href="#writeObject" class="headerlink" title="writeObject"></a>writeObject</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">writeObject</span><span class="params">(Object obj)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (enableOverride) &#123;</span><br><span class="line">            writeObjectOverride(obj);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            writeObject0(obj, <span class="keyword">false</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException ex) &#123;</span><br><span class="line">            <span class="keyword">if</span> (depth == <span class="number">0</span>) &#123;</span><br><span class="line">                writeFatalException(ex);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">throw</span> ex;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Underlying writeObject/writeUnshared implementation.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">writeObject0</span><span class="params">(Object obj, <span class="keyword">boolean</span> unshared)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">throws</span> IOException</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">boolean</span> oldMode = bout.setBlockDataMode(<span class="keyword">false</span>);</span><br><span class="line">    depth++;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// handle previously written and non-replaceable objects</span></span><br><span class="line">        <span class="keyword">int</span> h;</span><br><span class="line">        <span class="keyword">if</span> ((obj = subs.lookup(obj)) == <span class="keyword">null</span>) &#123;</span><br><span class="line">            writeNull();</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!unshared &amp;&amp; (h = handles.lookup(obj)) != -<span class="number">1</span>) &#123;</span><br><span class="line">            writeHandle(h);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> Class) &#123;</span><br><span class="line">            writeClass((Class) obj, unshared);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> ObjectStreamClass) &#123;</span><br><span class="line">            writeClassDesc((ObjectStreamClass) obj, unshared);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// check for replacement object</span></span><br><span class="line">        Object orig = obj;</span><br><span class="line">        Class&lt;?&gt; cl = obj.getClass();</span><br><span class="line">        ObjectStreamClass desc;</span><br><span class="line">        <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">            <span class="comment">// REMIND: skip this check for strings/arrays?</span></span><br><span class="line">            Class&lt;?&gt; repCl;</span><br><span class="line">            desc = ObjectStreamClass.lookup(cl, <span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">if</span> (!desc.hasWriteReplaceMethod() ||</span><br><span class="line">                (obj = desc.invokeWriteReplace(obj)) == <span class="keyword">null</span> ||</span><br><span class="line">                (repCl = obj.getClass()) == cl)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            cl = repCl;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (enableReplace) &#123;</span><br><span class="line">            Object rep = replaceObject(obj);</span><br><span class="line">            <span class="keyword">if</span> (rep != obj &amp;&amp; rep != <span class="keyword">null</span>) &#123;</span><br><span class="line">                cl = rep.getClass();</span><br><span class="line">                desc = ObjectStreamClass.lookup(cl, <span class="keyword">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            obj = rep;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// if object replaced, run through original checks a second time</span></span><br><span class="line">        <span class="keyword">if</span> (obj != orig) &#123;</span><br><span class="line">            subs.assign(orig, obj);</span><br><span class="line">            <span class="keyword">if</span> (obj == <span class="keyword">null</span>) &#123;</span><br><span class="line">                writeNull();</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!unshared &amp;&amp; (h = handles.lookup(obj)) != -<span class="number">1</span>) &#123;</span><br><span class="line">                writeHandle(h);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> Class) &#123;</span><br><span class="line">                writeClass((Class) obj, unshared);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> ObjectStreamClass) &#123;</span><br><span class="line">                writeClassDesc((ObjectStreamClass) obj, unshared);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// remaining cases</span></span><br><span class="line">        <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">            writeString((String) obj, unshared);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cl.isArray()) &#123;</span><br><span class="line">            writeArray(obj, desc, unshared);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> Enum) &#123;</span><br><span class="line">            writeEnum((Enum&lt;?&gt;) obj, desc, unshared);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> Serializable) &#123;</span><br><span class="line">            writeOrdinaryObject(obj, desc, unshared);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (extendedDebugInfo) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> NotSerializableException(</span><br><span class="line">                    cl.getName() + <span class="string">"\n"</span> + debugInfoStack.toString());</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> NotSerializableException(cl.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        depth--;</span><br><span class="line">        bout.setBlockDataMode(oldMode);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  这个方法主要就是 创建描述cl的ObjectStreamClass对象,然后根据是否实现接口调用writeOrdinaryObject方法</p>
+<h5 id="writeOrdinaryObject"><a href="#writeOrdinaryObject" class="headerlink" title="writeOrdinaryObject"></a>writeOrdinaryObject</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Writes representation of a "ordinary" (i.e., not a String, Class,</span></span><br><span class="line"><span class="comment"> * ObjectStreamClass, array, or enum constant) serializable object to the</span></span><br><span class="line"><span class="comment"> * stream.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">writeOrdinaryObject</span><span class="params">(Object obj,</span></span></span><br><span class="line"><span class="function"><span class="params">                                 ObjectStreamClass desc,</span></span></span><br><span class="line"><span class="function"><span class="params">                                 <span class="keyword">boolean</span> unshared)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">throws</span> IOException</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (extendedDebugInfo) &#123;</span><br><span class="line">        debugInfoStack.push(</span><br><span class="line">            (depth == <span class="number">1</span> ? <span class="string">"root "</span> : <span class="string">""</span>) + <span class="string">"object (class \""</span> +</span><br><span class="line">            obj.getClass().getName() + <span class="string">"\", "</span> + obj.toString() + <span class="string">")"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        desc.checkSerialize();</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 写入Object标志位</span></span><br><span class="line">        bout.writeByte(TC_OBJECT);</span><br><span class="line">        <span class="comment">// 写入类元数据</span></span><br><span class="line">        writeClassDesc(desc, <span class="keyword">false</span>);</span><br><span class="line">        handles.assign(unshared ? <span class="keyword">null</span> : obj);</span><br><span class="line">        <span class="keyword">if</span> (desc.isExternalizable() &amp;&amp; !desc.isProxy()) &#123;</span><br><span class="line">            writeExternalData((Externalizable) obj);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="comment">// 写入被序列化的对象的实例数据</span></span><br><span class="line">            writeSerialData(obj, desc);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (extendedDebugInfo) &#123;</span><br><span class="line">            debugInfoStack.pop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="writeSerialData"><a href="#writeSerialData" class="headerlink" title="writeSerialData"></a>writeSerialData</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Writes instance data for each serializable class of given object, from</span></span><br><span class="line"><span class="comment"> * superclass to subclass.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">writeSerialData</span><span class="params">(Object obj, ObjectStreamClass desc)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">throws</span> IOException</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ObjectStreamClass.ClassDataSlot[] slots = desc.getClassDataLayout();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; slots.length; i++) &#123;</span><br><span class="line">        ObjectStreamClass slotDesc = slots[i].desc;</span><br><span class="line">        <span class="keyword">if</span> (slotDesc.hasWriteObjectMethod()) &#123;</span><br><span class="line">            PutFieldImpl oldPut = curPut;</span><br><span class="line">            curPut = <span class="keyword">null</span>;</span><br><span class="line">            SerialCallbackContext oldContext = curContext;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (extendedDebugInfo) &#123;</span><br><span class="line">                debugInfoStack.push(</span><br><span class="line">                    <span class="string">"custom writeObject data (class \""</span> +</span><br><span class="line">                    slotDesc.getName() + <span class="string">"\")"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                curContext = <span class="keyword">new</span> SerialCallbackContext(obj, slotDesc);</span><br><span class="line">                bout.setBlockDataMode(<span class="keyword">true</span>);</span><br><span class="line">                slotDesc.invokeWriteObject(obj, <span class="keyword">this</span>);</span><br><span class="line">                bout.setBlockDataMode(<span class="keyword">false</span>);</span><br><span class="line">                bout.writeByte(TC_ENDBLOCKDATA);</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                curContext.setUsed();</span><br><span class="line">                curContext = oldContext;</span><br><span class="line">                <span class="keyword">if</span> (extendedDebugInfo) &#123;</span><br><span class="line">                    debugInfoStack.pop();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            curPut = oldPut;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            defaultWriteFields(obj, slotDesc);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    在这个方法中首先会调用getClassDataSlot()方法获取被序列化对象的数据的布局, 需要注意的是这个方法会把从父类继承的数据一并返回，并且表示从父类继承的数据的ClassDataSlot对象在数组的最前面。</p>
+<p>​    然后根据slotDesc.hasWriteObjectMethod() , 对于没有自定义writeObject()方法的对象来说，接下来会调用defaultWriteFields()方法写入数据</p>
+<h5 id="defaultWriteFields"><a href="#defaultWriteFields" class="headerlink" title="defaultWriteFields"></a>defaultWriteFields</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Fetches and writes values of serializable fields of given object to</span></span><br><span class="line"><span class="comment"> * stream.  The given class descriptor specifies which field values to</span></span><br><span class="line"><span class="comment"> * write, and in which order they should be written.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">defaultWriteFields</span><span class="params">(Object obj, ObjectStreamClass desc)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">throws</span> IOException</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Class&lt;?&gt; cl = desc.forClass();</span><br><span class="line">    <span class="keyword">if</span> (cl != <span class="keyword">null</span> &amp;&amp; obj != <span class="keyword">null</span> &amp;&amp; !cl.isInstance(obj)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ClassCastException();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    desc.checkDefaultSerialize();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> primDataSize = desc.getPrimDataSize();</span><br><span class="line">    <span class="keyword">if</span> (primVals == <span class="keyword">null</span> || primVals.length &lt; primDataSize) &#123;</span><br><span class="line">        primVals = <span class="keyword">new</span> <span class="keyword">byte</span>[primDataSize];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取对应类中的基本数据类型的数据并保存在primVals字节数组中</span></span><br><span class="line">    desc.getPrimFieldValues(obj, primVals);</span><br><span class="line">    <span class="comment">// 把基本数据类型的数据写入底层字节容器中</span></span><br><span class="line">    bout.write(primVals, <span class="number">0</span>, primDataSize, <span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">	    <span class="comment">// 获取对应类的所有的字段对象</span></span><br><span class="line">    ObjectStreamField[] fields = desc.getFields(<span class="keyword">false</span>);</span><br><span class="line">    Object[] objVals = <span class="keyword">new</span> Object[desc.getNumObjFields()];</span><br><span class="line">    <span class="keyword">int</span> numPrimFields = fields.length - objVals.length;</span><br><span class="line">    <span class="comment">// 把对应类的Object类型(非原始类型)的对象保存到objVals数组中</span></span><br><span class="line">    desc.getObjFieldValues(obj, objVals);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; objVals.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (extendedDebugInfo) &#123;</span><br><span class="line">            debugInfoStack.push(</span><br><span class="line">                <span class="string">"field (class \""</span> + desc.getName() + <span class="string">"\", name: \""</span> +</span><br><span class="line">                fields[numPrimFields + i].getName() + <span class="string">"\", type: \""</span> +</span><br><span class="line">                fields[numPrimFields + i].getType() + <span class="string">"\")"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 对所有Object类型的字段递归调用writeObject0()方法写入对应的数据</span></span><br><span class="line">            writeObject0(objVals[i],</span><br><span class="line">                         fields[numPrimFields + i].isUnshared());</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (extendedDebugInfo) &#123;</span><br><span class="line">                debugInfoStack.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到，在这个方法中会做下面几件事情:</p>
+<ul>
+<li>获取对应类的基本类型的字段的数据，并写入到底层的字节容器中。</li>
+<li>获取对应类的Object类型(非基本类型)的字段成员，递归调用writeObject0()方法写入相应的数据。</li>
+</ul>
+<p>从上面对写入数据的分析可以知道，写入数据是是按照先父类后子类的顺序来写的。</p>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p><strong>1. static和transient字段不能被序列化。</strong></p>
+<p>序列化的时候所有的数据都是来自于ObejctStreamClass对象，在生成ObjectStreamClass的构造函数中会调用fields = getSerialFields(cl);</p>
+<p>​    int mask = Modifier.STATIC | Modifier.TRANSIENT;</p>
+<p><strong>2. 如何实现自定义序列化和反序列化？</strong></p>
+<p>​    在ObejctStreamClass的构造函数中会查找被序列化类中有没有定义为void writeObject(ObjectOutputStream oos) 的函数，如果找到的话，则会把找到的方法赋值给writeObjectMethod这个变量，如果没有找到的话则为null。</p>
+<h3 id="ObjectInputStream-反序列化"><a href="#ObjectInputStream-反序列化" class="headerlink" title="ObjectInputStream (反序列化)"></a>ObjectInputStream (反序列化)</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g79fjqic29j30yi0hw0ua.jpg" alt="image-20190923142258452" style="zoom:50%;"></p>
+<p>反序列化过程就是按照前面介绍的序列化算法来解析二进制数据。</p>
+<p>有一个需要注意的问题就是，如果子类实现了Serializable接口，但是父类没有实现Serializable接口，这个时候进行反序列化会发生什么情况？</p>
+<p>答：如果父类有默认构造函数的话，即使没有实现Serializable接口也不会有问题，反序列化的时候会调用默认构造函数进行初始化，否则的话反序列化的时候会抛出.InvalidClassException:异常，异常原因为no valid constructor。</p>
+<h3 id="序列化性能"><a href="#序列化性能" class="headerlink" title="序列化性能"></a>序列化性能</h3><p><a href="https://blog.csdn.net/qq_31457665/article/details/82587942" target="_blank" rel="noopener">https://blog.csdn.net/qq_31457665/article/details/82587942</a></p>
+<blockquote>
+<p>@link : <a href="https://mp.weixin.qq.com/s/1D-CtyvAXOYO8mH66HHJJQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/1D-CtyvAXOYO8mH66HHJJQ</a></p>
+</blockquote>
+<h2 id="file-system"><a href="#file-system" class="headerlink" title="file system"></a>file system</h2><h3 id="File"><a href="#File" class="headerlink" title="File"></a>File</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>from <a href="https://docs.oracle.com/javase/8/docs/api/java/io/File.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/api/java/io/File.html</a></p>
+<blockquote>
+<p>An abstract representation of file and directory pathnames.</p>
+<p>User interfaces and operating systems use system-dependent <em>pathname strings</em> to name files and directories. This class presents an abstract, system-independent view of hierarchical pathnames. An <em>abstract pathname</em> has two components:</p>
+<ol>
+<li>An optional system-dependent <em>prefix</em> string, such as a disk-drive specifier, <code>&quot;/&quot;</code> for the UNIX root directory, or <code>&quot;\\\\&quot;</code> for a Microsoft Windows UNC pathname, and</li>
+<li>A sequence of zero or more string <em>names</em>.</li>
+</ol>
+</blockquote>
+<p>文件和目录路径名的抽象表示形式。 我们知道,对于不同的操作系统,文件路径的描述是不同的 比如 </p>
+<ul>
+<li>windows平台：用\ </li>
+<li>linux平台：用/ </li>
+</ul>
+<p>File是Java为了这一概念提供的抽象描述,与系统无关的视图 </p>
+<p><strong>抽象路径名</strong>有两个组件: </p>
+<p>1.可选的与系统有关的<strong>前缀</strong>  字符串   比如盘符，”/“ 表示 UNIX 中的根目录,”\\“ 表示 Microsoft Windows UNC 路径名 </p>
+<p>2.零个或者多个  字符串  名称 序列 </p>
+<p><strong>最后一个名称可以是目录,也可以是文件名称,那么File 并不一定就是一个文件,也可以是一个文件路径,也就是目录</strong></p>
+<h4 id="File-API分类"><a href="#File-API分类" class="headerlink" title="File API分类"></a><strong>File API分类</strong></h4><ul>
+<li>文件自身属性读取</li>
+<li>创建文件/目录基本操作</li>
+<li>文件/目录 列表读取</li>
+<li>文件权限访问以及文件信息设置</li>
+<li>其他</li>
+</ul>
+<h3 id="FileSystem"><a href="#FileSystem" class="headerlink" title="FileSystem"></a>FileSystem</h3><p>File中有一个变量fs  类型为FileSystem </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private static final FileSystem fs = DefaultFileSystem.getFileSystem();</span><br></pre></td></tr></table></figure>
+<p>​    操作系统有各自的文件系统，这些文件系统又存在很多差异，而Java 因为是跨平台的，所以它必须要统一处理这些不同平台文件系统之间的差异，才能往上提供统一的入口。 </p>
+<p>说白了又是接口来实现统一,不同的操作系统实现这个接口,就可以提供统一的表现形式 </p>
+<p>FileSystem是一个抽象类,不同系统会有不同的实现 </p>
+<h3 id="java-nio-file"><a href="#java-nio-file" class="headerlink" title="java.nio.file"></a>java.nio.file</h3><p>在1.7中重构了文件系统</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public Path toPath() &#123;</span><br><span class="line">    Path result = filePath;</span><br><span class="line">    if (result == null) &#123;</span><br><span class="line">        synchronized (this) &#123;</span><br><span class="line">            result = filePath;</span><br><span class="line">            if (result == null) &#123;</span><br><span class="line">                result = FileSystems.getDefault().getPath(path);</span><br><span class="line">                filePath = result;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Nio file中解决了一些问题,和扩展</p>
+<blockquote>
+<p>Interoperability with <code>java.nio.file</code> package</p>
+<p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/package-summary.html" target="_blank" rel="noopener"><code>java.nio.file</code></a> package defines interfaces and classes for the Java virtual machine to access files, file attributes, and file systems. This API may be used to overcome many of the limitations of the <code>java.io.File</code> class. The <a href="https://docs.oracle.com/javase/8/docs/api/java/io/File.html#toPath--" target="_blank" rel="noopener"><code>toPath</code></a> method may be used to obtain a <a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html" target="_blank" rel="noopener"><code>Path</code></a> that uses the abstract path represented by a <code>File</code> object to locate a file. The resulting <code>Path</code> may be used with the <a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html" target="_blank" rel="noopener"><code>Files</code></a> class to provide more efficient and extensive access to additional file operations, file attributes, and I/O exceptions to help diagnose errors when an operation on a file fails.</p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jdk/" rel="tag"># jdk</a>
+          
+            <a href="/tags/packages/" rel="tag"># packages</a>
+          
+            <a href="/tags/io/" rel="tag"># io</a>
+          
+            <a href="/tags/serialization/" rel="tag"># serialization</a>
+          
+            <a href="/tags/file/" rel="tag"># file</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/31/JDK-Class/" rel="next" title="JDK_Class">
+                <i class="fa fa-chevron-left"></i> JDK_Class
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzM0Ny8xOTg4OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="zhengyumin">
+            
+              <p class="site-author-name" itemprop="name">zhengyumin</p>
+              <div class="site-description motion-element" itemprop="description">为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Zyumin" title="GitHub &rarr; https://github.com/Zyumin" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口总览"><span class="nav-number">2.</span> <span class="nav-text">接口总览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-streams"><span class="nav-number">3.</span> <span class="nav-text">data streams</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作类型"><span class="nav-number">3.1.</span> <span class="nav-text">操作类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输类型"><span class="nav-number">3.2.</span> <span class="nav-text">传输类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字节流-byte"><span class="nav-number">3.2.1.</span> <span class="nav-text">字节流  byte</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#InputStream-类"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">InputStream 类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#inputStream方法"><span class="nav-number">3.2.1.1.1.</span> <span class="nav-text">inputStream方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#inputStream-体系"><span class="nav-number">3.2.1.1.2.</span> <span class="nav-text">inputStream 体系</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#源码实现"><span class="nav-number">3.2.1.1.3.</span> <span class="nav-text">源码实现</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#OutputStream-类"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">OutputStream 类</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符流-char"><span class="nav-number">3.2.2.</span> <span class="nav-text">字符流  char</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Reader-类"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">Reader 类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Writer-类"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">Writer 类</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#serialization"><span class="nav-number">4.</span> <span class="nav-text">serialization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Serializable"><span class="nav-number">4.1.</span> <span class="nav-text">Serializable</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#serialVersionUID"><span class="nav-number">4.1.1.</span> <span class="nav-text">serialVersionUID</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ObjectStreamClass-序列化描述符"><span class="nav-number">4.2.</span> <span class="nav-text">ObjectStreamClass (序列化描述符)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ObjectOutputStream-序列化"><span class="nav-number">4.3.</span> <span class="nav-text">ObjectOutputStream (序列化)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ObjectOutput"><span class="nav-number">4.3.1.</span> <span class="nav-text">ObjectOutput</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ObjectStreamConstants"><span class="nav-number">4.3.2.</span> <span class="nav-text">ObjectStreamConstants</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ObjectOutputStream"><span class="nav-number">4.3.3.</span> <span class="nav-text">ObjectOutputStream</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#构造函数"><span class="nav-number">4.3.3.1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#writeObject"><span class="nav-number">4.3.3.2.</span> <span class="nav-text">writeObject</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#writeOrdinaryObject"><span class="nav-number">4.3.3.3.</span> <span class="nav-text">writeOrdinaryObject</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#writeSerialData"><span class="nav-number">4.3.3.4.</span> <span class="nav-text">writeSerialData</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#defaultWriteFields"><span class="nav-number">4.3.3.5.</span> <span class="nav-text">defaultWriteFields</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总结"><span class="nav-number">4.3.3.6.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ObjectInputStream-反序列化"><span class="nav-number">4.4.</span> <span class="nav-text">ObjectInputStream (反序列化)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#序列化性能"><span class="nav-number">4.5.</span> <span class="nav-text">序列化性能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#file-system"><span class="nav-number">5.</span> <span class="nav-text">file system</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#File"><span class="nav-number">5.1.</span> <span class="nav-text">File</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念"><span class="nav-number">5.1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#File-API分类"><span class="nav-number">5.1.2.</span> <span class="nav-text">File API分类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FileSystem"><span class="nav-number">5.2.</span> <span class="nav-text">FileSystem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-nio-file"><span class="nav-number">5.3.</span> <span class="nav-text">java.nio.file</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhengyumin</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">571k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">8:39</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2019/09/23/JDK-Packages-java-io/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'D2GGMftjnaihnt6xGsBOCK1T-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'D2GGMftjnaihnt6xGsBOCK1T-gzGzoHsz',
+                'X-LC-Key': '42G22rkOJK422bv0XSJhBrW6',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -97,14 +97,14 @@
 
 
   <meta name="description" content="语言基础包,lang包含Base, AutoBoxing ,Utils, VM ,Throwble 注解、字节码增强、动态语言支持、反射等   虚拟机规范  JLS   java language spec">
-<meta name="keywords" content="jdk,packages">
+<meta name="keywords" content="jdk,packages,lang">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDK_Packages_java_lang">
 <meta property="og:url" content="http://yoursite.com/2019/08/11/JDK-Packages-java-lang/index.html">
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:description" content="语言基础包,lang包含Base, AutoBoxing ,Utils, VM ,Throwble 注解、字节码增强、动态语言支持、反射等   虚拟机规范  JLS   java language spec">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T07:01:49.317Z">
+<meta property="og:updated_time" content="2019-09-23T08:08:33.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK_Packages_java_lang">
 <meta name="twitter:description" content="语言基础包,lang包含Base, AutoBoxing ,Utils, VM ,Throwble 注解、字节码增强、动态语言支持、反射等   虚拟机规范  JLS   java language spec">
@@ -378,7 +378,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-15 15:01:49" itemprop="dateModified" datetime="2019-09-15T15:01:49+08:00">2019-09-15</time>
+                <time title="修改时间：2019-09-23 16:08:33" itemprop="dateModified" datetime="2019-09-23T16:08:33+08:00">2019-09-23</time>
               
             
           </span>
@@ -463,6 +463,9 @@
 <h4 id="Base"><a href="#Base" class="headerlink" title="Base"></a>Base</h4><p>Provides classes that are fundamental to the design of the Java programming language. The most important classes are <code>Object</code> ,<code>Class</code></p>
 <p>提供Java编程语言设计的基础类。最重要的类是Object，它是类层次结构的根，类的实例表示运行时的类。</p>
 <p>Class后续和ClassLoader一起分析</p>
+<p>1 Byte =  8bit</p>
+<p>1 Char =  2Byte </p>
+<p>1 Integer = 4Byte </p>
 <h4 id="AutoBoxing"><a href="#AutoBoxing" class="headerlink" title="AutoBoxing"></a>AutoBoxing</h4><p>Frequently it is necessary to represent a value of primitive type as if it were an object. The wrapper classes <code>Boolean</code>, <code>Character</code>, <code>Integer</code>, <code>Long</code>, <code>Float</code>, and <code>Double</code> serve this purpose. An object of type <code>Double</code>, for example, contains a field whose type is double, representing that value in such a way that a reference to it can be stored in a variable of reference type. These classes also provide a number of methods for converting among primitive values, as well as supporting such standard methods as equals and hashCode. The <code>Void</code> class is a non-instantiable class that holds a reference to a <code>Class</code> object representing the type void.</p>
 <p>通常有必要将基元类型的值表示为对象。包装器类Boolean、Character、Integer、Long、Float和Double用于此目的。例如，Double类型的对象包含一个类型为Double的字段，以一种引用可以存储在引用类型变量中的方式表示该值。这些类还提供了许多方法来在基本值之间进行转换，并支持equals和hashCode等标准方法。Void类是一个不可实例化的类，它持有对表示类型Void的类对象的引用。</p>
 <p>注意IntegerCache </p>
@@ -616,7 +619,8 @@
 <h3 id="java-lang-management"><a href="#java-lang-management" class="headerlink" title="java.lang.management"></a>java.lang.management</h3><p>Provides the management interfaces for monitoring and management of the Java virtual machine and other components in the Java runtime.</p>
 <p>提供用于监视和管理Java虚拟机和Java运行时中的其他组件的管理接口。</p>
 <p><a href="https://docs.oracle.com/javase/8/docs/api/javax/management/package-summary.html" target="_blank" rel="noopener">JMX</a> Instrumentation Specification</p>
-<h4 id="访问MXBeans的方法"><a href="#访问MXBeans的方法" class="headerlink" title="访问MXBeans的方法"></a>访问MXBeans的方法</h4><p><strong>1.直接访问MXBean接口</strong></p>
+<p>访问MXBeans的方法</p>
+<p><strong>1.直接访问MXBean接口</strong></p>
 <p><strong>2.通过MBeanServer间接访问MXBean接口</strong></p>
 <p>jmx规范</p>
 <p> <a href="https://docs.oracle.com/javase/8/docs/api/javax/management/package-summary.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/api/javax/management/package-summary.html</a></p>
@@ -732,6 +736,8 @@
           
             <a href="/tags/packages/" rel="tag"># packages</a>
           
+            <a href="/tags/lang/" rel="tag"># lang</a>
+          
         </div>
       
 
@@ -831,7 +837,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -914,7 +920,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">32</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -967,7 +983,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang"><span class="nav-number">1.</span> <span class="nav-text">java.lang</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Base"><span class="nav-number">1.1.</span> <span class="nav-text">Base</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AutoBoxing"><span class="nav-number">1.2.</span> <span class="nav-text">AutoBoxing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Utils-Math-String"><span class="nav-number">1.3.</span> <span class="nav-text">Utils (Math,String)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Math-amp-StrictMath"><span class="nav-number">1.3.1.</span> <span class="nav-text">Math &amp; StrictMath</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-amp-StringBuffer-synchronized-amp-StringBuilder"><span class="nav-number">1.3.2.</span> <span class="nav-text">String &amp; StringBuffer(synchronized) &amp; StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VM"><span class="nav-number">1.4.</span> <span class="nav-text">VM</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Class-amp-ClassLoader"><span class="nav-number">1.4.1.</span> <span class="nav-text">Class &amp; ClassLoader</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Process-amp-Thread-amp-Runnable"><span class="nav-number">1.4.2.</span> <span class="nav-text">Process &amp; Thread &amp; Runnable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#System"><span class="nav-number">1.4.3.</span> <span class="nav-text">System</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Throwable"><span class="nav-number">1.5.</span> <span class="nav-text">Throwable</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-annotation"><span class="nav-number">2.</span> <span class="nav-text">java.lang.annotation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内置注解"><span class="nav-number">2.1.</span> <span class="nav-text">内置注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元注解"><span class="nav-number">2.2.</span> <span class="nav-text">元注解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-instrument"><span class="nav-number">3.</span> <span class="nav-text">java.lang.instrument</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-invoke"><span class="nav-number">4.</span> <span class="nav-text">java.lang.invoke</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-management"><span class="nav-number">5.</span> <span class="nav-text">java.lang.management</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#访问MXBeans的方法"><span class="nav-number">5.1.</span> <span class="nav-text">访问MXBeans的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-ref"><span class="nav-number">6.</span> <span class="nav-text">java.lang.ref</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-reflect"><span class="nav-number">7.</span> <span class="nav-text">java.lang.reflect</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang"><span class="nav-number">1.</span> <span class="nav-text">java.lang</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Base"><span class="nav-number">1.1.</span> <span class="nav-text">Base</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AutoBoxing"><span class="nav-number">1.2.</span> <span class="nav-text">AutoBoxing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Utils-Math-String"><span class="nav-number">1.3.</span> <span class="nav-text">Utils (Math,String)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Math-amp-StrictMath"><span class="nav-number">1.3.1.</span> <span class="nav-text">Math &amp; StrictMath</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-amp-StringBuffer-synchronized-amp-StringBuilder"><span class="nav-number">1.3.2.</span> <span class="nav-text">String &amp; StringBuffer(synchronized) &amp; StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VM"><span class="nav-number">1.4.</span> <span class="nav-text">VM</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Class-amp-ClassLoader"><span class="nav-number">1.4.1.</span> <span class="nav-text">Class &amp; ClassLoader</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Process-amp-Thread-amp-Runnable"><span class="nav-number">1.4.2.</span> <span class="nav-text">Process &amp; Thread &amp; Runnable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#System"><span class="nav-number">1.4.3.</span> <span class="nav-text">System</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Throwable"><span class="nav-number">1.5.</span> <span class="nav-text">Throwable</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-annotation"><span class="nav-number">2.</span> <span class="nav-text">java.lang.annotation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内置注解"><span class="nav-number">2.1.</span> <span class="nav-text">内置注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元注解"><span class="nav-number">2.2.</span> <span class="nav-text">元注解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-instrument"><span class="nav-number">3.</span> <span class="nav-text">java.lang.instrument</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-invoke"><span class="nav-number">4.</span> <span class="nav-text">java.lang.invoke</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-management"><span class="nav-number">5.</span> <span class="nav-text">java.lang.management</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-ref"><span class="nav-number">6.</span> <span class="nav-text">java.lang.ref</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-reflect"><span class="nav-number">7.</span> <span class="nav-text">java.lang.reflect</span></a></li></ol></div>
             
 
           </div>
@@ -1000,7 +1016,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">550k</span>
+    <span title="站点总字数">571k</span>
   
 
   
@@ -1009,7 +1025,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">8:20</span>
+    <span title="站点阅读时长">8:39</span>
   
 </div>
 
