@@ -108,7 +108,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g79ikx5gccj31r00p4n0m.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g79fkji2phj313o0iiq4m.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g79fjqic29j30yi0hw0ua.jpg">
-<meta property="og:updated_time" content="2019-09-23T08:08:55.738Z">
+<meta property="og:updated_time" content="2019-09-23T08:13:04.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK_Packages_java_io">
 <meta name="twitter:description" content="若逢新雪初霁,满月当空 下面流转着亮银 而你带笑地想我走来 月色和雪色之间 你是第三种绝色                 ​">
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-09-23 16:07:43 / 修改时间：16:08:55" itemprop="dateCreated datePublished" datetime="2019-09-23T16:07:43+08:00">2019-09-23</time>
+              <time title="创建时间：2019-09-23 16:07:43 / 修改时间：16:13:04" itemprop="dateCreated datePublished" datetime="2019-09-23T16:07:43+08:00">2019-09-23</time>
             
 
             
@@ -725,8 +725,11 @@
 </tr>
 </tbody>
 </table>
+<p>参考链接:</p>
+<blockquote>
 <p>@link: <a href="https://blog.csdn.net/panweiwei1994/article/details/78046000" target="_blank" rel="noopener">https://blog.csdn.net/panweiwei1994/article/details/78046000</a></p>
 <p>@link <a href="https://www.jianshu.com/p/715659e4775f" target="_blank" rel="noopener">https://www.jianshu.com/p/715659e4775f</a></p>
+</blockquote>
 <h2 id="serialization"><a href="#serialization" class="headerlink" title="serialization"></a>serialization</h2><p>​    Java序列化是指把Java对象保存为二进制字节码的过程，Java反序列化是指把二进制码重新转换成Java对象的过程。</p>
 <p>为什么需要</p>
 <ul>
@@ -774,6 +777,7 @@
 <p>有一个需要注意的问题就是，如果子类实现了Serializable接口，但是父类没有实现Serializable接口，这个时候进行反序列化会发生什么情况？</p>
 <p>答：如果父类有默认构造函数的话，即使没有实现Serializable接口也不会有问题，反序列化的时候会调用默认构造函数进行初始化，否则的话反序列化的时候会抛出.InvalidClassException:异常，异常原因为no valid constructor。</p>
 <h3 id="序列化性能"><a href="#序列化性能" class="headerlink" title="序列化性能"></a>序列化性能</h3><p><a href="https://blog.csdn.net/qq_31457665/article/details/82587942" target="_blank" rel="noopener">https://blog.csdn.net/qq_31457665/article/details/82587942</a></p>
+<p>参考链接:</p>
 <blockquote>
 <p>@link : <a href="https://mp.weixin.qq.com/s/1D-CtyvAXOYO8mH66HHJJQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/1D-CtyvAXOYO8mH66HHJJQ</a></p>
 </blockquote>
@@ -814,6 +818,10 @@
 <blockquote>
 <p>Interoperability with <code>java.nio.file</code> package</p>
 <p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/package-summary.html" target="_blank" rel="noopener"><code>java.nio.file</code></a> package defines interfaces and classes for the Java virtual machine to access files, file attributes, and file systems. This API may be used to overcome many of the limitations of the <code>java.io.File</code> class. The <a href="https://docs.oracle.com/javase/8/docs/api/java/io/File.html#toPath--" target="_blank" rel="noopener"><code>toPath</code></a> method may be used to obtain a <a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html" target="_blank" rel="noopener"><code>Path</code></a> that uses the abstract path represented by a <code>File</code> object to locate a file. The resulting <code>Path</code> may be used with the <a href="https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html" target="_blank" rel="noopener"><code>Files</code></a> class to provide more efficient and extensive access to additional file operations, file attributes, and I/O exceptions to help diagnose errors when an operation on a file fails.</p>
+</blockquote>
+<p>参考链接:</p>
+<blockquote>
+<p>@Link:<a href="https://cloud.tencent.com/developer/article/1333744" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1333744</a></p>
 </blockquote>
 
       
