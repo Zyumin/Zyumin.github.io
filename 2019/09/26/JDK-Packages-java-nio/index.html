@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="年少风雅鲜衣怒马  也不过一刹那                 —《红昭愿》 从JDK4 开始 ,NIO是New I/O的简称，具有以下特性：  为所有的原始类型提供（Buffer）缓存支持； 增加通道（channel）对象，作为新的原始 I/O 抽象； 提供了基于 Selector 的异步网络 I/O。 使用 java.nio.charset.Charset 作为字符集编码解码解决方案； 支持">
+<meta name="keywords" content="jdk,packages,nio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JDK_Packages_java_nio">
+<meta property="og:url" content="http://yoursite.com/2019/09/26/JDK-Packages-java-nio/index.html">
+<meta property="og:site_name" content="Zyumin">
+<meta property="og:description" content="年少风雅鲜衣怒马  也不过一刹那                 —《红昭愿》 从JDK4 开始 ,NIO是New I/O的简称，具有以下特性：  为所有的原始类型提供（Buffer）缓存支持； 增加通道（channel）对象，作为新的原始 I/O 抽象； 提供了基于 Selector 的异步网络 I/O。 使用 java.nio.charset.Charset 作为字符集编码解码解决方案； 支持">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpyddkurj31ps0s0adh.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpybgjbdj309e06fjre.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpycvhlgj30bc08zdg0.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpydvocgj309i092t8p.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpybzkgvj30bp09074b.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpycfkpej3085070jrh.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7couh9zd6j30dw07n0sx.jpg">
+<meta property="og:updated_time" content="2019-09-26T02:40:41.888Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JDK_Packages_java_nio">
+<meta name="twitter:description" content="年少风雅鲜衣怒马  也不过一刹那                 —《红昭愿》 从JDK4 开始 ,NIO是New I/O的简称，具有以下特性：  为所有的原始类型提供（Buffer）缓存支持； 增加通道（channel）对象，作为新的原始 I/O 抽象； 提供了基于 Selector 的异步网络 I/O。 使用 java.nio.charset.Charset 作为字符集编码解码解决方案； 支持">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpyddkurj31ps0s0adh.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/26/JDK-Packages-java-nio/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JDK_Packages_java_nio | Zyumin</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemsope="" itemtype="http://schema.org/WPHeader">
+	  <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zyumin</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">自驱和热情</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/Zyumin" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/JDK-Packages-java-nio/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhengyumin">
+      <meta itemprop="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zyumin">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JDK_Packages_java_nio
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-26 10:39:22 / 修改时间：10:40:41" itemprop="dateCreated datePublished" datetime="2019-09-26T10:39:22+08:00">2019-09-26</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+            <span id="/2019/09/26/JDK-Packages-java-nio/" class="leancloud_visitors" data-flag-title="JDK_Packages_java_nio">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">11k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">10 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><em>年少风雅鲜衣怒马  也不过一刹那                 —《红昭愿》</em></p>
+<p>从JDK4 开始 ,NIO是New I/O的简称，具有以下特性：</p>
+<ul>
+<li>为所有的原始类型提供（Buffer）缓存支持；</li>
+<li>增加通道（channel）对象，作为新的原始 I/O 抽象；</li>
+<li>提供了基于 Selector 的异步网络 I/O。</li>
+<li>使用 java.nio.charset.Charset 作为字符集编码解码解决方案；</li>
+<li>支持锁和内存映射文件的文件访问接口；</li>
+</ul>
+<p>参考资料:</p>
+<p><a href="http://tutorials.jenkov.com/java-nio/index.html" target="_blank" rel="noopener">http://tutorials.jenkov.com/java-nio/index.html</a></p>
+<p><a href="https://ifeve.com/overview/" target="_blank" rel="noopener">https://ifeve.com/overview/</a></p>
+<p><a href="https://docs.oracle.com/javase/8/docs/api/java/nio/package-summary.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/api/java/nio/package-summary.html</a></p>
+<a id="more"></a>
+<h3 id="Overivew"><a href="#Overivew" class="headerlink" title="Overivew"></a>Overivew</h3><p>Java NIO (New IO) is an alternative IO API for Java (from Java 1.4), meaning alternative to the standard <a href="http://tutorials.jenkov.com/java-io/index.html" target="_blank" rel="noopener">Java IO</a> and <a href="http://tutorials.jenkov.com/java-networking/index.html" target="_blank" rel="noopener">Java Networking</a> API’s. Java NIO offers a different way of working with IO than the standard IO API’s.</p>
+<p>Java NIO consist of the following core components:</p>
+<ul>
+<li>Channels</li>
+<li>Buffers</li>
+<li>Selectors</li>
+</ul>
+<h3 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h3><h4 id="子类"><a href="#子类" class="headerlink" title="子类"></a>子类</h4><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpyddkurj31ps0s0adh.jpg" alt="image-20190924145529968"></p>
+<p>Here is a list of the core <code>Buffer</code> implementations in Java NIO:</p>
+<ul>
+<li>ByteBuffer</li>
+<li>CharBuffer</li>
+<li>DoubleBuffer</li>
+<li>FloatBuffer</li>
+<li>IntBuffer</li>
+<li>LongBuffer</li>
+<li>ShortBuffer</li>
+</ul>
+<p>These <code>Buffer</code>‘s cover the basic data types that you can send via IO: byte, short, int, long, float, double and characters.</p>
+<h4 id="MappedByteBuffer-Todo"><a href="#MappedByteBuffer-Todo" class="headerlink" title="MappedByteBuffer(Todo)"></a>MappedByteBuffer(Todo)</h4><h3 id="Channels"><a href="#Channels" class="headerlink" title="Channels"></a>Channels</h3><p>Typically, all IO in NIO starts with a <code>Channel</code>. A <code>Channel</code> is a bit like a stream. From the <code>Channel</code> data can be read into a <code>Buffer</code>. Data can also be written from a <code>Buffer</code> into a <code>Channel</code>. Here is an illustration of that:</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpybgjbdj309e06fjre.jpg" alt="Java NIO: Channels and Buffers"></p>
+<p>​            <strong>Java NIO: Channels read data into Buffers, and Buffers write data into Channels</strong></p>
+<p>Java NIO Channels are similar to streams with a few differences:</p>
+<ul>
+<li>You can both read and write to a Channels. Streams are typically one-way (read or write).</li>
+<li>Channels can be read and written asynchronously.</li>
+<li>Channels always read to, or write from, a Buffer.</li>
+</ul>
+<h4 id="Channel-Implementations"><a href="#Channel-Implementations" class="headerlink" title="Channel Implementations"></a>Channel Implementations</h4><p>Here are the most important Channel implementations in Java NIO:</p>
+<ul>
+<li>FileChannel  : reads data from and to files.</li>
+<li>DatagramChannel : can read and write data over the network via UDP.</li>
+<li>SocketChannel : can read and write data over the network via TCP.</li>
+<li>ServerSocketChannel : allows you to listen for incoming TCP connections, like a web server does. For each incoming connection a <code>SocketChannel</code> is created.</li>
+</ul>
+<h4 id="Selectors"><a href="#Selectors" class="headerlink" title="Selectors"></a>Selectors</h4><h5 id="Why-Use-a-Selector"><a href="#Why-Use-a-Selector" class="headerlink" title="Why Use a Selector?"></a>Why Use a Selector?</h5><p>A <code>Selector</code> allows a single thread to handle multiple <code>Channel</code>‘s. This is handy if your application has many connections (Channels) open, but only has low traffic on each connection. For instance, in a chat server.</p>
+<p>Here is an illustration of a thread using a <code>Selector</code> to handle 3 <code>Channel</code>‘s:</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpycvhlgj30bc08zdg0.jpg" alt="Java NIO: Selectors"></p>
+<p>​                                 <strong>Java NIO: A Thread uses a Selector to handle 3 Channel’s</strong></p>
+<p>To use a <code>Selector</code> you register the <code>Channel</code>‘s with it. Then you call it’s <code>select()</code> method. This method will block until there is an event ready for one of the registered channels. Once the method returns, the thread can then process these events. Examples of events are incoming connection, data received etc.</p>
+<h5 id="full-demo"><a href="#full-demo" class="headerlink" title="full demo"></a>full demo</h5><h6 id="Server-demo"><a href="#Server-demo" class="headerlink" title="Server  demo"></a>Server  demo</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> nio;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.util.StringUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Closeable;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.InetSocketAddress;</span><br><span class="line"><span class="keyword">import</span> java.nio.ByteBuffer;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.SelectionKey;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.Selector;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.ServerSocketChannel;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.SocketChannel;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> zhengyumin</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> Nio服务端 使用selector接收消息</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019-09-25 1:22 AM</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NioServer</span> <span class="keyword">implements</span> <span class="title">Closeable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Selector selector;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ServerSocketChannel serverSocketChannel;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> port;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String hostname;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NioServer</span><span class="params">(<span class="keyword">int</span> port)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.port = port;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NioServer</span><span class="params">(<span class="keyword">int</span> port, String hostname)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.port = port;</span><br><span class="line">        <span class="keyword">this</span>.hostname = hostname;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> NioServer <span class="title">port</span><span class="params">(<span class="keyword">int</span> port)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> NioServer(port);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> NioServer <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"starting...."</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            startServer();</span><br><span class="line">            <span class="comment">//开启selector 并监听</span></span><br><span class="line">            startSelector();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"closing...."</span>);</span><br><span class="line">            selector.close();</span><br><span class="line">            serverSocketChannel.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startSelector</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        selector = Selector.open();</span><br><span class="line"></span><br><span class="line">        serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"startSelector succ"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> readyChannels = selector.selectNow();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (readyChannels == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"><span class="comment">//                    return;</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Iterator&lt;SelectionKey&gt; keyIterator = selector.selectedKeys().iterator();</span><br><span class="line">            <span class="keyword">while</span> (keyIterator.hasNext()) &#123;</span><br><span class="line">                SelectionKey key = keyIterator.next();</span><br><span class="line">                <span class="keyword">if</span> (key.isAcceptable()) &#123;</span><br><span class="line">                    <span class="comment">// a connection was accepted by a ServerSocketChannel.</span></span><br><span class="line">                    connectEven(key, selector);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (key.isConnectable()) &#123;</span><br><span class="line">                    <span class="comment">// a connection was established with a remote server.</span></span><br><span class="line">                    System.out.println(<span class="string">"a connection was established with a remote server."</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (key.isReadable()) &#123;</span><br><span class="line">                    <span class="comment">// a channel is ready for reading</span></span><br><span class="line">                    readData(key);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (key.isWritable()) &#123;</span><br><span class="line">                    <span class="comment">// a channel is ready for writing</span></span><br><span class="line">                    System.out.println(<span class="string">"a channel is ready for writing"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                keyIterator.remove();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startServer</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//开启服务器</span></span><br><span class="line">        serverSocketChannel = ServerSocketChannel.open();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        serverSocketChannel.socket().bind(StringUtils.isEmpty(hostname) ?</span><br><span class="line">                <span class="keyword">new</span> InetSocketAddress(port) : <span class="keyword">new</span> InetSocketAddress(hostname, port));</span><br><span class="line"></span><br><span class="line">        serverSocketChannel.configureBlocking(<span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"startServer succ"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">connectEven</span><span class="params">(SelectionKey key, Selector selector)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            ServerSocketChannel server = (ServerSocketChannel) key.channel();</span><br><span class="line">            SocketChannel channel = server.accept();</span><br><span class="line">            channel.configureBlocking(<span class="keyword">false</span>);</span><br><span class="line">            <span class="comment">//获得远程连接的IP地址</span></span><br><span class="line">            System.out.println(<span class="string">"已有连接，连接的ip地址是"</span> + channel.socket().getInetAddress());</span><br><span class="line">            channel.register(selector, SelectionKey.OP_READ);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 数据读取处理</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> key</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">readData</span><span class="params">(SelectionKey key)</span> </span>&#123;</span><br><span class="line">        SocketChannel socketChannel = (SocketChannel) key.channel();</span><br><span class="line">        ByteBuffer buf = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> readSize = socketChannel.read(buf);</span><br><span class="line">            <span class="keyword">if</span> (readSize &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">byte</span>[] data = buf.array();</span><br><span class="line">                String msg = <span class="keyword">new</span> String(data, <span class="string">"UTF-8"</span>).trim();</span><br><span class="line">                System.out.println(msg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span>(NioServer nioServer =  NioServer.port(<span class="number">9999</span>)) &#123;</span><br><span class="line">            nioServer.start();</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="Client-demo"><a href="#Client-demo" class="headerlink" title="Client demo"></a>Client demo</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> nio;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.InetSocketAddress;</span><br><span class="line"><span class="keyword">import</span> java.nio.ByteBuffer;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.SocketChannel;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> zhengyumin</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> nio客户端demo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019-09-25 11:36 AM</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NioClientDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">        SocketChannel socketChannel = SocketChannel.open();</span><br><span class="line"></span><br><span class="line">        socketChannel.connect(<span class="keyword">new</span> InetSocketAddress(<span class="number">9999</span>));</span><br><span class="line"></span><br><span class="line">        String newData = <span class="string">"New String to write to file..."</span> + System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        ByteBuffer buf = ByteBuffer.allocate(<span class="number">48</span>);</span><br><span class="line">        buf.clear();</span><br><span class="line">        buf.put(newData.getBytes());</span><br><span class="line"></span><br><span class="line">        buf.flip();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(buf.hasRemaining()) &#123;</span><br><span class="line">            socketChannel.write(buf);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Pipe-todo"><a href="#Pipe-todo" class="headerlink" title="Pipe(todo)"></a>Pipe(todo)</h4><p>​    </p>
+<h3 id="Charset-todo"><a href="#Charset-todo" class="headerlink" title="Charset(todo)"></a>Charset(todo)</h3><h3 id="File"><a href="#File" class="headerlink" title="File"></a>File</h3><h4 id="Path-Todo"><a href="#Path-Todo" class="headerlink" title="Path(Todo)"></a>Path(Todo)</h4><h4 id="Files-todo"><a href="#Files-todo" class="headerlink" title="Files(todo)"></a>Files(todo)</h4><h3 id="Java-NIO-vs-IO"><a href="#Java-NIO-vs-IO" class="headerlink" title="Java NIO vs. IO"></a>Java NIO vs. IO</h3><p>When studying both the Java NIO and IO API’s, a question quickly pops into mind:</p>
+<p><strong>When should I use IO and when should I use NIO?</strong></p>
+<h4 id="Main-Differences-Betwen-Java-NIO-and-IO"><a href="#Main-Differences-Betwen-Java-NIO-and-IO" class="headerlink" title="Main Differences Betwen Java NIO and IO"></a>Main Differences Betwen Java NIO and IO</h4><p>The table below summarizes the main differences between Java NIO and IO. I will get into more detail about each difference in the sections following the table.</p>
+<table>
+<thead>
+<tr>
+<th><strong>IO</strong></th>
+<th><strong>NIO</strong></th>
+<th>Diff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stream oriented</td>
+<td>Buffer oriented</td>
+<td>Cache</td>
+</tr>
+<tr>
+<td>Blocking IO</td>
+<td>Non blocking IO</td>
+<td>Threads</td>
+</tr>
+<tr>
+<td></td>
+<td>Selectors</td>
+</tr>
+</tbody>
+</table>
+<h4 id="How-NIO-and-IO-Influences-Application-Design"><a href="#How-NIO-and-IO-Influences-Application-Design" class="headerlink" title="How NIO and IO Influences Application Design"></a>How NIO and IO Influences Application Design</h4><p>Whether you choose NIO or IO as your IO toolkit may impact the following aspects of your application design:</p>
+<ol>
+<li>The API calls to the NIO or IO classes.</li>
+<li>The processing of data.</li>
+<li>The number of thread used to process the data.</li>
+</ol>
+<h5 id="The-API-calls-to-the-NIO-or-IO-classes"><a href="#The-API-calls-to-the-NIO-or-IO-classes" class="headerlink" title="The API calls to the NIO or IO classes."></a>The API calls to the NIO or IO classes.</h5><p>Of course the API calls when using NIO look different than when using IO. This is no surprise. Rather than just read the data byte for byte from e.g. an <code>InputStream</code>, the data must first be read into a buffer, and then be processed from there.</p>
+<h5 id="The-processing-of-data"><a href="#The-processing-of-data" class="headerlink" title="The processing of data."></a>The processing of data.</h5><table>
+<thead>
+<tr>
+<th><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpydvocgj309i092t8p.jpg" alt="Java IO: Reading data from a blocking stream."></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Java IO: Reading data from a blocking stream.</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpybzkgvj30bp09074b.jpg" alt="Java NIO: Reading data from a channel until all needed data is in buffer."></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Java NIO: Reading data from a channel until all needed data is in buffer.</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><p>NIO allows you to manage multiple channels (network connections or files) using only a single (or few) threads, but the cost is that parsing the data might be somewhat more complicated than when reading data from a blocking stream.</p>
+<p>If you need to manage thousands of open connections simultanously, which each only send a little data, for instance a chat server, implementing the server in NIO is probably an advantage. Similarly, if you need to keep a lot of open connections to other computers, e.g. in a P2P network, using a single thread to manage all of your outbound connections might be an advantage. This one thread, multiple connections design is illustrated in this diagram:</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpycfkpej3085070jrh.jpg" alt="Java NIO: A single thread managing multiple connections."></p>
+<p>​                            <strong>Java NIO: A single thread managing multiple connections.</strong></p>
+<p>If you have fewer connections with very high bandwidth, sending a lot of data at a time, perhaps a classic IO server implementation might be the best fit. This diagram illustrates a classic IO server design:</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7couh9zd6j30dw07n0sx.jpg" alt="Java IO: A classic IO server design - one connection handled by one thread."></p>
+<p>​                       <strong>Java IO: A classic IO server design - one connection handled by one thread.</strong></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jdk/" rel="tag"># jdk</a>
+          
+            <a href="/tags/packages/" rel="tag"># packages</a>
+          
+            <a href="/tags/nio/" rel="tag"># nio</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/23/JDK-Packages-java-io/" rel="next" title="JDK_Packages_java_io">
+                <i class="fa fa-chevron-left"></i> JDK_Packages_java_io
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzM0Ny8xOTg4OA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="zhengyumin">
+            
+              <p class="site-author-name" itemprop="name">zhengyumin</p>
+              <div class="site-description motion-element" itemprop="description">为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Zyumin" title="GitHub &rarr; https://github.com/Zyumin" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Overivew"><span class="nav-number">1.</span> <span class="nav-text">Overivew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Buffer"><span class="nav-number">2.</span> <span class="nav-text">Buffer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#子类"><span class="nav-number">2.1.</span> <span class="nav-text">子类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MappedByteBuffer-Todo"><span class="nav-number">2.2.</span> <span class="nav-text">MappedByteBuffer(Todo)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Channels"><span class="nav-number">3.</span> <span class="nav-text">Channels</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Channel-Implementations"><span class="nav-number">3.1.</span> <span class="nav-text">Channel Implementations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Selectors"><span class="nav-number">3.2.</span> <span class="nav-text">Selectors</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Why-Use-a-Selector"><span class="nav-number">3.2.1.</span> <span class="nav-text">Why Use a Selector?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#full-demo"><span class="nav-number">3.2.2.</span> <span class="nav-text">full demo</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Server-demo"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">Server  demo</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Client-demo"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">Client demo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pipe-todo"><span class="nav-number">3.3.</span> <span class="nav-text">Pipe(todo)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Charset-todo"><span class="nav-number">4.</span> <span class="nav-text">Charset(todo)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File"><span class="nav-number">5.</span> <span class="nav-text">File</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Path-Todo"><span class="nav-number">5.1.</span> <span class="nav-text">Path(Todo)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Files-todo"><span class="nav-number">5.2.</span> <span class="nav-text">Files(todo)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-NIO-vs-IO"><span class="nav-number">6.</span> <span class="nav-text">Java NIO vs. IO</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Main-Differences-Betwen-Java-NIO-and-IO"><span class="nav-number">6.1.</span> <span class="nav-text">Main Differences Betwen Java NIO and IO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How-NIO-and-IO-Influences-Application-Design"><span class="nav-number">6.2.</span> <span class="nav-text">How NIO and IO Influences Application Design</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#The-API-calls-to-the-NIO-or-IO-classes"><span class="nav-number">6.2.1.</span> <span class="nav-text">The API calls to the NIO or IO classes.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#The-processing-of-data"><span class="nav-number">6.2.2.</span> <span class="nav-text">The processing of data.</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Summary"><span class="nav-number">6.3.</span> <span class="nav-text">Summary</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhengyumin</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">582k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">8:49</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2019/09/26/JDK-Packages-java-nio/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'D2GGMftjnaihnt6xGsBOCK1T-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'D2GGMftjnaihnt6xGsBOCK1T-gzGzoHsz',
+                'X-LC-Key': '42G22rkOJK422bv0XSJhBrW6',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
