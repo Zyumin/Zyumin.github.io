@@ -96,26 +96,29 @@
 
 
 
-  <meta name="description" content="年少风雅鲜衣怒马  也不过一刹那                 —《红昭愿》  从JDK4 开始 ,NIO是New I/O的简称，具有以下特性：  为所有的原始类型提供（Buffer）缓存支持； 增加通道（channel）对象，作为新的原始 I/O 抽象； 提供了基于 Selector 的异步网络 I/O。 使用 java.nio.charset.Charset 作为字符集编码解码解决方案；">
+  <meta name="description" content="年少风雅鲜衣怒马  也不过一刹那                 —《红昭愿》  从JDK4 开始 ,NIO是New I/O的简称，具有以下特性：  为所有的原始类型提供（Buffer）缓存支持；(IO也有BufferInputStream) 增加通道（channel）对象，作为新的原始 I/O 抽象； 提供了基于 Selector 的异步网络 I/O。(线程模型) 使用 java.nio.ch">
 <meta name="keywords" content="jdk,packages,nio">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDK_Packages_java_nio">
 <meta property="og:url" content="http://yoursite.com/2019/09/26/JDK-Packages-java-nio/index.html">
 <meta property="og:site_name" content="Zyumin">
-<meta property="og:description" content="年少风雅鲜衣怒马  也不过一刹那                 —《红昭愿》  从JDK4 开始 ,NIO是New I/O的简称，具有以下特性：  为所有的原始类型提供（Buffer）缓存支持； 增加通道（channel）对象，作为新的原始 I/O 抽象； 提供了基于 Selector 的异步网络 I/O。 使用 java.nio.charset.Charset 作为字符集编码解码解决方案；">
+<meta property="og:description" content="年少风雅鲜衣怒马  也不过一刹那                 —《红昭愿》  从JDK4 开始 ,NIO是New I/O的简称，具有以下特性：  为所有的原始类型提供（Buffer）缓存支持；(IO也有BufferInputStream) 增加通道（channel）对象，作为新的原始 I/O 抽象； 提供了基于 Selector 的异步网络 I/O。(线程模型) 使用 java.nio.ch">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7f35bshboj30pa0iawf3.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7f34btvf6j30oy0ic74v.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpyddkurj31ps0s0adh.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7hmmyw3xnj30er047wes.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpybgjbdj309e06fjre.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpycvhlgj30bc08zdg0.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpydvocgj309i092t8p.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpybzkgvj30bp09074b.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpycfkpej3085070jrh.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7couh9zd6j30dw07n0sx.jpg">
-<meta property="og:updated_time" content="2019-09-26T02:42:54.349Z">
+<meta property="og:updated_time" content="2019-09-30T08:37:42.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK_Packages_java_nio">
-<meta name="twitter:description" content="年少风雅鲜衣怒马  也不过一刹那                 —《红昭愿》  从JDK4 开始 ,NIO是New I/O的简称，具有以下特性：  为所有的原始类型提供（Buffer）缓存支持； 增加通道（channel）对象，作为新的原始 I/O 抽象； 提供了基于 Selector 的异步网络 I/O。 使用 java.nio.charset.Charset 作为字符集编码解码解决方案；">
-<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpyddkurj31ps0s0adh.jpg">
+<meta name="twitter:description" content="年少风雅鲜衣怒马  也不过一刹那                 —《红昭愿》  从JDK4 开始 ,NIO是New I/O的简称，具有以下特性：  为所有的原始类型提供（Buffer）缓存支持；(IO也有BufferInputStream) 增加通道（channel）对象，作为新的原始 I/O 抽象； 提供了基于 Selector 的异步网络 I/O。(线程模型) 使用 java.nio.ch">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g7f35bshboj30pa0iawf3.jpg">
 
 
 
@@ -369,12 +372,24 @@
                 
               
 
-              <time title="创建时间：2019-09-26 10:39:22 / 修改时间：10:42:54" itemprop="dateCreated datePublished" datetime="2019-09-26T10:39:22+08:00">2019-09-26</time>
+              <time title="创建时间：2019-09-26 10:39:22" itemprop="dateCreated datePublished" datetime="2019-09-26T10:39:22+08:00">2019-09-26</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-30 16:37:42" itemprop="dateModified" datetime="2019-09-30T16:37:42+08:00">2019-09-30</time>
               
             
           </span>
@@ -413,7 +428,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">11k</span>
+                <span title="本文字数">17k</span>
               
 
               
@@ -427,7 +442,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">10 分钟</span>
+                <span title="阅读时长">15 分钟</span>
               
             </div>
           
@@ -452,16 +467,17 @@
 </blockquote>
 <p>从JDK4 开始 ,NIO是New I/O的简称，具有以下特性：</p>
 <ul>
-<li>为所有的原始类型提供（Buffer）缓存支持；</li>
+<li>为所有的原始类型提供（Buffer）缓存支持；(IO也有BufferInputStream)</li>
 <li>增加通道（channel）对象，作为新的原始 I/O 抽象；</li>
-<li>提供了基于 Selector 的异步网络 I/O。</li>
+<li>提供了基于 Selector 的异步网络 I/O。(线程模型)</li>
 <li>使用 java.nio.charset.Charset 作为字符集编码解码解决方案；</li>
-<li>支持锁和内存映射文件的文件访问接口；</li>
+<li>支持锁和内存映射(MappedByteBuffer)文件的文件访问接口；</li>
 </ul>
 <p>参考资料:</p>
 <p><a href="http://tutorials.jenkov.com/java-nio/index.html" target="_blank" rel="noopener">http://tutorials.jenkov.com/java-nio/index.html</a></p>
 <p><a href="https://ifeve.com/overview/" target="_blank" rel="noopener">https://ifeve.com/overview/</a></p>
 <p><a href="https://docs.oracle.com/javase/8/docs/api/java/nio/package-summary.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/api/java/nio/package-summary.html</a></p>
+<p><a href="https://cloud.tencent.com/developer/information/使用ByteBuffer" target="_blank" rel="noopener">https://cloud.tencent.com/developer/information/%E4%BD%BF%E7%94%A8ByteBuffer</a></p>
 <a id="more"></a>
 <h3 id="Overivew"><a href="#Overivew" class="headerlink" title="Overivew"></a>Overivew</h3><p>Java NIO (New IO) is an alternative IO API for Java (from Java 1.4), meaning alternative to the standard <a href="http://tutorials.jenkov.com/java-io/index.html" target="_blank" rel="noopener">Java IO</a> and <a href="http://tutorials.jenkov.com/java-networking/index.html" target="_blank" rel="noopener">Java Networking</a> API’s. Java NIO offers a different way of working with IO than the standard IO API’s.</p>
 <p>Java NIO consist of the following core components:</p>
@@ -470,7 +486,29 @@
 <li>Buffers</li>
 <li>Selectors</li>
 </ul>
-<h3 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h3><h4 id="子类"><a href="#子类" class="headerlink" title="子类"></a>子类</h4><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpyddkurj31ps0s0adh.jpg" alt="image-20190924145529968"></p>
+<h3 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h3><h4 id="buffer-api"><a href="#buffer-api" class="headerlink" title="buffer api"></a>buffer api</h4><h5 id="filed"><a href="#filed" class="headerlink" title="filed"></a>filed</h5><ul>
+<li>capacity：容量，表示buffer的最大数据容量，缓冲区容量不能为负，创建后不能更改</li>
+<li>limit：限制，按照索引来，limit之后的数据不可读写，即只有在limit范围内的数据我们才可以读写操作。</li>
+<li>position：位置，下一个要读取或写入的索引位置。该位置不能大于limit的限制。</li>
+<li>mark：标记，标记后的索引位置，我们可以通过reset方法恢复position到该位置，该mark的位置要小于或等于position</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Invariants: mark &lt;= position &lt;= limit &lt;= capacity</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> mark = -<span class="number">1</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> position = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> limit;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> capacity;</span><br></pre></td></tr></table></figure>
+<h5 id="method"><a href="#method" class="headerlink" title="method"></a>method</h5><ul>
+<li><p>clear : Clears this buffer.  The position is set to zero, the limit is set to the capacity, and the mark is discarded.</p>
+<p>  将position置为0，并不清除buffer内容。 </p>
+<p>  <img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7f35bshboj30pa0iawf3.jpg" alt="img" style="zoom:33%;"></p>
+</li>
+<li><p>flip(翻转 write-&gt;read) : Flips this buffer.  The limit is set to the current position and then the position is set to zero.  If the mark is defined then it is  discarded.</p>
+<p>  写完数据(put)，需要开始读的时候，将postion复位到0，并将limit设为当前postion。 </p>
+</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7f34btvf6j30oy0ic74v.jpg" alt="img" style="zoom:33%;"></p>
+<ul>
+<li>Rewind(倒带,和flip相比少了对limit的操作) :  Rewinds this buffer.  The position is set to zero and the mark is discarded.</li>
+<li>Remaining\hasRemaining : Returns the number of elements between the current position and the limit.</li>
+</ul>
+<h5 id="source"><a href="#source" class="headerlink" title="source"></a>source</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">	    <span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Clears this buffer.  The position is set to zero, the limit is set to</span></span><br><span class="line"><span class="comment"> * the capacity, and the mark is discarded.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; Invoke this method before using a sequence of channel-read or</span></span><br><span class="line"><span class="comment"> * &lt;i&gt;put&lt;/i&gt; operations to fill this buffer.  For example:</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;blockquote&gt;&lt;pre&gt;</span></span><br><span class="line"><span class="comment"> * buf.clear();     // Prepare buffer for reading</span></span><br><span class="line"><span class="comment"> * in.read(buf);    // Read data&lt;/pre&gt;&lt;/blockquote&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; This method does not actually erase the data in the buffer, but it</span></span><br><span class="line"><span class="comment"> * is named as if it did because it will most often be used in situations</span></span><br><span class="line"><span class="comment"> * in which that might as well be the case. &lt;/p&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>  This buffer</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> Buffer <span class="title">clear</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    position = <span class="number">0</span>;</span><br><span class="line">    limit = capacity;</span><br><span class="line">    mark = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Flips this buffer.  The limit is set to the current position and then</span></span><br><span class="line"><span class="comment"> * the position is set to zero.  If the mark is defined then it is</span></span><br><span class="line"><span class="comment"> * discarded.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; After a sequence of channel-read or &lt;i&gt;put&lt;/i&gt; operations, invoke</span></span><br><span class="line"><span class="comment"> * this method to prepare for a sequence of channel-write or relative</span></span><br><span class="line"><span class="comment"> * &lt;i&gt;get&lt;/i&gt; operations.  For example:</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;blockquote&gt;&lt;pre&gt;</span></span><br><span class="line"><span class="comment"> * buf.put(magic);    // Prepend header</span></span><br><span class="line"><span class="comment"> * in.read(buf);      // Read data into rest of buffer</span></span><br><span class="line"><span class="comment"> * buf.flip();        // Flip buffer</span></span><br><span class="line"><span class="comment"> * out.write(buf);    // Write header + data to channel&lt;/pre&gt;&lt;/blockquote&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; This method is often used in conjunction with the &#123;<span class="doctag">@link</span></span></span><br><span class="line"><span class="comment"> * java.nio.ByteBuffer#compact compact&#125; method when transferring data from</span></span><br><span class="line"><span class="comment"> * one place to another.  &lt;/p&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>  This buffer</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> Buffer <span class="title">flip</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    limit = position;</span><br><span class="line">    position = <span class="number">0</span>;</span><br><span class="line">    mark = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Rewinds this buffer.  The position is set to zero and the mark is</span></span><br><span class="line"><span class="comment"> * discarded.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; Invoke this method before a sequence of channel-write or &lt;i&gt;get&lt;/i&gt;</span></span><br><span class="line"><span class="comment"> * operations, assuming that the limit has already been set</span></span><br><span class="line"><span class="comment"> * appropriately.  For example:</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;blockquote&gt;&lt;pre&gt;</span></span><br><span class="line"><span class="comment"> * out.write(buf);    // Write remaining data</span></span><br><span class="line"><span class="comment"> * buf.rewind();      // Rewind buffer</span></span><br><span class="line"><span class="comment"> * buf.get(array);    // Copy data into array&lt;/pre&gt;&lt;/blockquote&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>  This buffer</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> Buffer <span class="title">rewind</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    position = <span class="number">0</span>;</span><br><span class="line">    mark = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Returns the number of elements between the current position and the</span></span><br><span class="line"><span class="comment"> * limit.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>  The number of elements remaining in this buffer</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">remaining</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> limit - position;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Tells whether there are any elements between the current position and</span></span><br><span class="line"><span class="comment"> * the limit.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>  &lt;tt&gt;true&lt;/tt&gt; if, and only if, there is at least one element</span></span><br><span class="line"><span class="comment"> *          remaining in this buffer</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">hasRemaining</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> position &lt; limit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="buffer-extends"><a href="#buffer-extends" class="headerlink" title="buffer extends"></a>buffer extends</h4><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpyddkurj31ps0s0adh.jpg" alt="image-20190924145529968"></p>
 <p>Here is a list of the core <code>Buffer</code> implementations in Java NIO:</p>
 <ul>
 <li>ByteBuffer</li>
@@ -482,7 +520,30 @@
 <li>ShortBuffer</li>
 </ul>
 <p>These <code>Buffer</code>‘s cover the basic data types that you can send via IO: byte, short, int, long, float, double and characters.</p>
-<h4 id="MappedByteBuffer-Todo"><a href="#MappedByteBuffer-Todo" class="headerlink" title="MappedByteBuffer(Todo)"></a>MappedByteBuffer(Todo)</h4><h3 id="Channels"><a href="#Channels" class="headerlink" title="Channels"></a>Channels</h3><p>Typically, all IO in NIO starts with a <code>Channel</code>. A <code>Channel</code> is a bit like a stream. From the <code>Channel</code> data can be read into a <code>Buffer</code>. Data can also be written from a <code>Buffer</code> into a <code>Channel</code>. Here is an illustration of that:</p>
+<h4 id="ByteBuffer"><a href="#ByteBuffer" class="headerlink" title="ByteBuffer"></a>ByteBuffer</h4><p>ByteBuffer最核心的方法是put(byte)和get()。分别是往ByteBuffer里写一个字节，和读一个字节。</p>
+<p>值得注意的是，ByteBuffer的读写模式是分开的，正常的应用场景是：往ByteBuffer里写一些数据，然后flip()，然后再读出来。</p>
+<h5 id="allocate"><a href="#allocate" class="headerlink" title="allocate"></a>allocate</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ByteBuffer <span class="title">allocateDirect</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> DirectByteBuffer(capacity);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ByteBuffer <span class="title">allocate</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (capacity &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> HeapByteBuffer(capacity, capacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="HeapByteBuffer"><a href="#HeapByteBuffer" class="headerlink" title="HeapByteBuffer"></a>HeapByteBuffer</h5><p>间接的ByteBuffer是在JVM的堆上面的。间接缓冲区就是我们通常说的堆缓冲区。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HeapByteBuffer</span> <span class="keyword">extends</span> <span class="title">ByteBuffer</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="DirectByteBuffer"><a href="#DirectByteBuffer" class="headerlink" title="DirectByteBuffer"></a>DirectByteBuffer</h5><p>直接就是指MappedByteBuffer，直接使用内存映射（java的话就意味着在JVM之外分配虚拟地址空间）；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DirectByteBuffer</span> <span class="keyword">extends</span> <span class="title">MappedByteBuffer</span> <span class="keyword">implements</span> <span class="title">DirectBuffer</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>资料:</p>
+<blockquote>
+<p><a href="https://cloud.tencent.com/developer/article/1428920" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1428920</a>  MappedByteBuffer VS FileChannel ，孰强孰弱</p>
+<p><a href="https://cloud.tencent.com/developer/article/1152616" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1152616</a>   堆外内存 之 DirectByteBuffer 详解</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7hmmyw3xnj30er047wes.jpg" alt="img"></p>
+<h6 id="MappedByteBuffer"><a href="#MappedByteBuffer" class="headerlink" title="MappedByteBuffer"></a>MappedByteBuffer</h6><ul>
+<li><p>load : 会整个文件加载到内存中。</p>
+</li>
+<li><p>isLoaded : 判断一个被映射的文件是否完全加载内存了</p>
+</li>
+<li><p>force :该方法会强制将此缓冲区上的任何更改写入映射到永久磁盘存储器上。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">MappedByteBuffer</span> <span class="keyword">extends</span> <span class="title">ByteBuffer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> MappedByteBuffer <span class="title">load</span><span class="params">( )</span></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">isLoaded</span><span class="params">( )</span></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">final</span> MappedByteBuffer <span class="title">force</span><span class="params">( )</span></span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://cloud.tencent.com/developer/article/1130046" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1130046</a></p>
+<h3 id="Channels"><a href="#Channels" class="headerlink" title="Channels"></a>Channels</h3><p>Typically, all IO in NIO starts with a <code>Channel</code>. A <code>Channel</code> is a bit like a stream. From the <code>Channel</code> data can be read into a <code>Buffer</code>. Data can also be written from a <code>Buffer</code> into a <code>Channel</code>. Here is an illustration of that:</p>
 <p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpybgjbdj309e06fjre.jpg" alt="Java NIO: Channels and Buffers"></p>
 <p>​            <strong>Java NIO: Channels read data into Buffers, and Buffers write data into Channels</strong></p>
 <p>Java NIO Channels are similar to streams with a few differences:</p>
@@ -493,10 +554,17 @@
 </ul>
 <h4 id="Channel-Implementations"><a href="#Channel-Implementations" class="headerlink" title="Channel Implementations"></a>Channel Implementations</h4><p>Here are the most important Channel implementations in Java NIO:</p>
 <ul>
-<li>FileChannel  : reads data from and to files.</li>
-<li>DatagramChannel : can read and write data over the network via UDP.</li>
-<li>SocketChannel : can read and write data over the network via TCP.</li>
-<li>ServerSocketChannel : allows you to listen for incoming TCP connections, like a web server does. For each incoming connection a <code>SocketChannel</code> is created.</li>
+<li><p>FileChannel  : reads data from and to files.</p>
+<p>  **public abstract long transferTo(long position,long count,WritableByteChannel target)</p>
+<pre><code>throws IOException**
+</code></pre><p>  This method is potentially much more efficient than a simple loop that reads from this channel and writes to the target channel. Many operating systems can transfer bytes directly from the filesystem cache to the target channel without actually copying them.</p>
+</li>
+<li><p>DatagramChannel : can read and write data over the network via UDP.</p>
+</li>
+<li><p>SocketChannel : can read and write data over the network via TCP.</p>
+</li>
+<li><p>ServerSocketChannel : allows you to listen for incoming TCP connections, like a web server does. For each incoming connection a <code>SocketChannel</code> is created.</p>
+</li>
 </ul>
 <h4 id="Selectors"><a href="#Selectors" class="headerlink" title="Selectors"></a>Selectors</h4><h5 id="Why-Use-a-Selector"><a href="#Why-Use-a-Selector" class="headerlink" title="Why Use a Selector?"></a>Why Use a Selector?</h5><p>A <code>Selector</code> allows a single thread to handle multiple <code>Channel</code>‘s. This is handy if your application has many connections (Channels) open, but only has low traffic on each connection. For instance, in a chat server.</p>
 <p>Here is an illustration of a thread using a <code>Selector</code> to handle 3 <code>Channel</code>‘s:</p>
@@ -842,7 +910,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Overivew"><span class="nav-number">1.</span> <span class="nav-text">Overivew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Buffer"><span class="nav-number">2.</span> <span class="nav-text">Buffer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#子类"><span class="nav-number">2.1.</span> <span class="nav-text">子类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MappedByteBuffer-Todo"><span class="nav-number">2.2.</span> <span class="nav-text">MappedByteBuffer(Todo)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Channels"><span class="nav-number">3.</span> <span class="nav-text">Channels</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Channel-Implementations"><span class="nav-number">3.1.</span> <span class="nav-text">Channel Implementations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Selectors"><span class="nav-number">3.2.</span> <span class="nav-text">Selectors</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Why-Use-a-Selector"><span class="nav-number">3.2.1.</span> <span class="nav-text">Why Use a Selector?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#full-demo"><span class="nav-number">3.2.2.</span> <span class="nav-text">full demo</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Server-demo"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">Server  demo</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Client-demo"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">Client demo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pipe-todo"><span class="nav-number">3.3.</span> <span class="nav-text">Pipe(todo)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Charset-todo"><span class="nav-number">4.</span> <span class="nav-text">Charset(todo)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File"><span class="nav-number">5.</span> <span class="nav-text">File</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Path-Todo"><span class="nav-number">5.1.</span> <span class="nav-text">Path(Todo)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Files-todo"><span class="nav-number">5.2.</span> <span class="nav-text">Files(todo)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-NIO-vs-IO"><span class="nav-number">6.</span> <span class="nav-text">Java NIO vs. IO</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Main-Differences-Betwen-Java-NIO-and-IO"><span class="nav-number">6.1.</span> <span class="nav-text">Main Differences Betwen Java NIO and IO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How-NIO-and-IO-Influences-Application-Design"><span class="nav-number">6.2.</span> <span class="nav-text">How NIO and IO Influences Application Design</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#The-API-calls-to-the-NIO-or-IO-classes"><span class="nav-number">6.2.1.</span> <span class="nav-text">The API calls to the NIO or IO classes.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#The-processing-of-data"><span class="nav-number">6.2.2.</span> <span class="nav-text">The processing of data.</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Summary"><span class="nav-number">6.3.</span> <span class="nav-text">Summary</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Overivew"><span class="nav-number">1.</span> <span class="nav-text">Overivew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Buffer"><span class="nav-number">2.</span> <span class="nav-text">Buffer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#buffer-api"><span class="nav-number">2.1.</span> <span class="nav-text">buffer api</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#filed"><span class="nav-number">2.1.1.</span> <span class="nav-text">filed</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#method"><span class="nav-number">2.1.2.</span> <span class="nav-text">method</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#source"><span class="nav-number">2.1.3.</span> <span class="nav-text">source</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#buffer-extends"><span class="nav-number">2.2.</span> <span class="nav-text">buffer extends</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ByteBuffer"><span class="nav-number">2.3.</span> <span class="nav-text">ByteBuffer</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#allocate"><span class="nav-number">2.3.1.</span> <span class="nav-text">allocate</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HeapByteBuffer"><span class="nav-number">2.3.2.</span> <span class="nav-text">HeapByteBuffer</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DirectByteBuffer"><span class="nav-number">2.3.3.</span> <span class="nav-text">DirectByteBuffer</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#MappedByteBuffer"><span class="nav-number">2.3.3.1.</span> <span class="nav-text">MappedByteBuffer</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Channels"><span class="nav-number">3.</span> <span class="nav-text">Channels</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Channel-Implementations"><span class="nav-number">3.1.</span> <span class="nav-text">Channel Implementations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Selectors"><span class="nav-number">3.2.</span> <span class="nav-text">Selectors</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Why-Use-a-Selector"><span class="nav-number">3.2.1.</span> <span class="nav-text">Why Use a Selector?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#full-demo"><span class="nav-number">3.2.2.</span> <span class="nav-text">full demo</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Server-demo"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">Server  demo</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Client-demo"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">Client demo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pipe-todo"><span class="nav-number">3.3.</span> <span class="nav-text">Pipe(todo)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Charset-todo"><span class="nav-number">4.</span> <span class="nav-text">Charset(todo)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#File"><span class="nav-number">5.</span> <span class="nav-text">File</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Path-Todo"><span class="nav-number">5.1.</span> <span class="nav-text">Path(Todo)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Files-todo"><span class="nav-number">5.2.</span> <span class="nav-text">Files(todo)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-NIO-vs-IO"><span class="nav-number">6.</span> <span class="nav-text">Java NIO vs. IO</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Main-Differences-Betwen-Java-NIO-and-IO"><span class="nav-number">6.1.</span> <span class="nav-text">Main Differences Betwen Java NIO and IO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How-NIO-and-IO-Influences-Application-Design"><span class="nav-number">6.2.</span> <span class="nav-text">How NIO and IO Influences Application Design</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#The-API-calls-to-the-NIO-or-IO-classes"><span class="nav-number">6.2.1.</span> <span class="nav-text">The API calls to the NIO or IO classes.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#The-processing-of-data"><span class="nav-number">6.2.2.</span> <span class="nav-text">The processing of data.</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Summary"><span class="nav-number">6.3.</span> <span class="nav-text">Summary</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -875,7 +943,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">582k</span>
+    <span title="站点总字数">587k</span>
   
 
   
@@ -884,7 +952,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">8:49</span>
+    <span title="站点阅读时长">8:54</span>
   
 </div>
 

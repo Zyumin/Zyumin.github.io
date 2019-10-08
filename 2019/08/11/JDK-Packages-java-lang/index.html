@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="语言基础包,lang包含Base, AutoBoxing ,Utils, VM ,Throwble 注解、字节码增强、动态语言支持、反射等   虚拟机规范  JLS   java language spec">
+  <meta name="description" content="金风玉露一相逢，便胜却人间无数                                         ——秦观《鹊桥仙》  语言基础包,lang包含Base, AutoBoxing ,Utils, VM ,Throwble 注解、字节码增强、动态语言支持、反射、管理等 相关资料:  虚拟机规范 JLS   java language spec">
 <meta name="keywords" content="jdk,packages,lang">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDK_Packages_java_lang">
 <meta property="og:url" content="http://yoursite.com/2019/08/11/JDK-Packages-java-lang/index.html">
 <meta property="og:site_name" content="Zyumin">
-<meta property="og:description" content="语言基础包,lang包含Base, AutoBoxing ,Utils, VM ,Throwble 注解、字节码增强、动态语言支持、反射等   虚拟机规范  JLS   java language spec">
+<meta property="og:description" content="金风玉露一相逢，便胜却人间无数                                         ——秦观《鹊桥仙》  语言基础包,lang包含Base, AutoBoxing ,Utils, VM ,Throwble 注解、字节码增强、动态语言支持、反射、管理等 相关资料:  虚拟机规范 JLS   java language spec">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-23T08:08:33.512Z">
+<meta property="og:updated_time" content="2019-10-08T01:53:31.629Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK_Packages_java_lang">
-<meta name="twitter:description" content="语言基础包,lang包含Base, AutoBoxing ,Utils, VM ,Throwble 注解、字节码增强、动态语言支持、反射等   虚拟机规范  JLS   java language spec">
+<meta name="twitter:description" content="金风玉露一相逢，便胜却人间无数                                         ——秦观《鹊桥仙》  语言基础包,lang包含Base, AutoBoxing ,Utils, VM ,Throwble 注解、字节码增强、动态语言支持、反射、管理等 相关资料:  虚拟机规范 JLS   java language spec">
 
 
 
@@ -378,7 +378,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-23 16:08:33" itemprop="dateModified" datetime="2019-09-23T16:08:33+08:00">2019-09-23</time>
+                <time title="修改时间：2019-10-08 09:53:31" itemprop="dateModified" datetime="2019-10-08T09:53:31+08:00">2019-10-08</time>
               
             
           </span>
@@ -451,44 +451,48 @@
       
 
       
-        <p>语言基础包,lang包含Base, AutoBoxing ,Utils, VM ,Throwble</p>
-<p>注解、字节码增强、动态语言支持、反射等</p>
-<blockquote>
-<p> 虚拟机规范</p>
-<p> JLS   java language spec</p>
+        <blockquote>
+<p>金风玉露一相逢，便胜却人间无数                                         ——秦观《鹊桥仙》</p>
 </blockquote>
+<p>语言基础包,lang包含Base, AutoBoxing ,Utils, VM ,Throwble</p>
+<p>注解、字节码增强、动态语言支持、反射、管理等</p>
+<p>相关资料:</p>
+<ul>
+<li>虚拟机规范</li>
+<li>JLS   java language spec</li>
+</ul>
 <a id="more"></a>
-<h3 id="java-lang"><a href="#java-lang" class="headerlink" title="java.lang"></a>java.lang</h3><p>Provides classes that are fundamental to the design of the Java programming language.</p>
+<h2 id="java-lang"><a href="#java-lang" class="headerlink" title="java.lang"></a>java.lang</h2><p>Provides classes that are fundamental to the design of the Java programming language.</p>
 <p>提供Java编程语言设计的基础类。</p>
-<h4 id="Base"><a href="#Base" class="headerlink" title="Base"></a>Base</h4><p>Provides classes that are fundamental to the design of the Java programming language. The most important classes are <code>Object</code> ,<code>Class</code></p>
+<h3 id="Base"><a href="#Base" class="headerlink" title="Base"></a>Base</h3><p>Provides classes that are fundamental to the design of the Java programming language. The most important classes are <code>Object</code> ,<code>Class</code></p>
 <p>提供Java编程语言设计的基础类。最重要的类是Object，它是类层次结构的根，类的实例表示运行时的类。</p>
 <p>Class后续和ClassLoader一起分析</p>
 <p>1 Byte =  8bit</p>
 <p>1 Char =  2Byte </p>
 <p>1 Integer = 4Byte </p>
-<h4 id="AutoBoxing"><a href="#AutoBoxing" class="headerlink" title="AutoBoxing"></a>AutoBoxing</h4><p>Frequently it is necessary to represent a value of primitive type as if it were an object. The wrapper classes <code>Boolean</code>, <code>Character</code>, <code>Integer</code>, <code>Long</code>, <code>Float</code>, and <code>Double</code> serve this purpose. An object of type <code>Double</code>, for example, contains a field whose type is double, representing that value in such a way that a reference to it can be stored in a variable of reference type. These classes also provide a number of methods for converting among primitive values, as well as supporting such standard methods as equals and hashCode. The <code>Void</code> class is a non-instantiable class that holds a reference to a <code>Class</code> object representing the type void.</p>
+<h3 id="AutoBoxing"><a href="#AutoBoxing" class="headerlink" title="AutoBoxing"></a>AutoBoxing</h3><p>Frequently it is necessary to represent a value of primitive type as if it were an object. The wrapper classes <code>Boolean</code>, <code>Character</code>, <code>Integer</code>, <code>Long</code>, <code>Float</code>, and <code>Double</code> serve this purpose. An object of type <code>Double</code>, for example, contains a field whose type is double, representing that value in such a way that a reference to it can be stored in a variable of reference type. These classes also provide a number of methods for converting among primitive values, as well as supporting such standard methods as equals and hashCode. The <code>Void</code> class is a non-instantiable class that holds a reference to a <code>Class</code> object representing the type void.</p>
 <p>通常有必要将基元类型的值表示为对象。包装器类Boolean、Character、Integer、Long、Float和Double用于此目的。例如，Double类型的对象包含一个类型为Double的字段，以一种引用可以存储在引用类型变量中的方式表示该值。这些类还提供了许多方法来在基本值之间进行转换，并支持equals和hashCode等标准方法。Void类是一个不可实例化的类，它持有对表示类型Void的类对象的引用。</p>
 <p>注意IntegerCache </p>
-<h4 id="Utils-Math-String"><a href="#Utils-Math-String" class="headerlink" title="Utils (Math,String)"></a>Utils (Math,String)</h4><p>The class <code>Math</code> provides commonly used mathematical functions such as sine, cosine, and square root. The classes <code>String</code>, <code>StringBuffer</code>, and <code>StringBuilder</code> similarly provide commonly used operations on character strings.</p>
-<h5 id="Math-amp-StrictMath"><a href="#Math-amp-StrictMath" class="headerlink" title="Math &amp; StrictMath"></a>Math &amp; StrictMath</h5><p>类Math提供常用的数学函数，如正弦、余弦和平方根。String、StringBuffer和StringBuilder类同样提供了对字符串的常用操作。</p>
-<h5 id="String-amp-StringBuffer-synchronized-amp-StringBuilder"><a href="#String-amp-StringBuffer-synchronized-amp-StringBuilder" class="headerlink" title="String &amp; StringBuffer(synchronized) &amp; StringBuilder"></a>String &amp; StringBuffer(synchronized) &amp; StringBuilder</h5><p>Stringcoding</p>
+<h3 id="Utils-Math-String"><a href="#Utils-Math-String" class="headerlink" title="Utils (Math,String)"></a>Utils (Math,String)</h3><p>The class <code>Math</code> provides commonly used mathematical functions such as sine, cosine, and square root. The classes <code>String</code>, <code>StringBuffer</code>, and <code>StringBuilder</code> similarly provide commonly used operations on character strings.</p>
+<h4 id="Math-amp-StrictMath"><a href="#Math-amp-StrictMath" class="headerlink" title="Math &amp; StrictMath"></a>Math &amp; StrictMath</h4><p>类Math提供常用的数学函数，如正弦、余弦和平方根。String、StringBuffer和StringBuilder类同样提供了对字符串的常用操作。</p>
+<h4 id="String-amp-StringBuffer-synchronized-amp-StringBuilder"><a href="#String-amp-StringBuffer-synchronized-amp-StringBuilder" class="headerlink" title="String &amp; StringBuffer(synchronized) &amp; StringBuilder"></a>String &amp; StringBuffer(synchronized) &amp; StringBuilder</h4><p>Stringcoding</p>
 <p>regex</p>
 <p>StringJoiner</p>
 <p>Formatter</p>
 <p>Locale</p>
 <p>AbstractStringBuilder</p>
 <p>⬅️⬅️⬅️⬅️⬅️</p>
-<h4 id="VM"><a href="#VM" class="headerlink" title="VM"></a>VM</h4><p>Classes <code>ClassLoader</code>,<code>Thread</code>, <code>Process</code>, <code>ProcessBuilder</code>, <code>Runtime</code>, <code>SecurityManager</code>, and <code>System</code> provide “system operations” that manage the dynamic loading of classes, creation of external processes, host environment inquiries such as the time of day, and enforcement of security policies.</p>
+<h3 id="VM"><a href="#VM" class="headerlink" title="VM"></a>VM</h3><p>Classes <code>ClassLoader</code>,<code>Thread</code>, <code>Process</code>, <code>ProcessBuilder</code>, <code>Runtime</code>, <code>SecurityManager</code>, and <code>System</code> provide “system operations” that manage the dynamic loading of classes, creation of external processes, host environment inquiries such as the time of day, and enforcement of security policies.</p>
 <p>类ClassLoader、Process、ProcessBuilder、Runtime、SecurityManager和System提供“系统操作”，</p>
 <p>管理类的动态加载、创建外部进程、主机环境查询(如一天的时间)和安全策略的执行。</p>
-<h5 id="Class-amp-ClassLoader"><a href="#Class-amp-ClassLoader" class="headerlink" title="Class &amp; ClassLoader"></a>Class &amp; ClassLoader</h5><blockquote>
+<h4 id="Class-amp-ClassLoader"><a href="#Class-amp-ClassLoader" class="headerlink" title="Class &amp; ClassLoader"></a>Class &amp; ClassLoader</h4><blockquote>
 <p>link: JDK_CLass  &amp;&amp; JDK_ClassLoader</p>
 </blockquote>
-<h5 id="Process-amp-Thread-amp-Runnable"><a href="#Process-amp-Thread-amp-Runnable" class="headerlink" title="Process &amp; Thread &amp; Runnable"></a>Process &amp; Thread &amp; Runnable</h5><p>Process <a href="https://zhuanlan.zhihu.com/p/44957705" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/44957705</a></p>
+<h4 id="Process-amp-Thread-amp-Runnable"><a href="#Process-amp-Thread-amp-Runnable" class="headerlink" title="Process &amp; Thread &amp; Runnable"></a>Process &amp; Thread &amp; Runnable</h4><p>Process <a href="https://zhuanlan.zhihu.com/p/44957705" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/44957705</a></p>
 <blockquote>
 <p>link:  JDK_Thread</p>
 </blockquote>
-<h5 id="System"><a href="#System" class="headerlink" title="System"></a>System</h5><p>The <code>System</code>Among the facilities provided by the <code>System</code> class are standard input, standard output, and error output streams; access to externally defined properties and environment variables; a means of loading files and libraries; and a utility method for quickly copying a portion of an array.</p>
+<h4 id="System"><a href="#System" class="headerlink" title="System"></a>System</h4><p>The <code>System</code>Among the facilities provided by the <code>System</code> class are standard input, standard output, and error output streams; access to externally defined properties and environment variables; a means of loading files and libraries; and a utility method for quickly copying a portion of an array.</p>
 <p>java.lang.System#initializeSystemClass</p>
 <p>相关方法和类 </p>
 <p>​    SecurityManager </p>
@@ -503,7 +507,7 @@
 <p>java.lang.System#arraycopy</p>
 <p>java.lang.System#getenv</p>
 <p>java.lang.System#getProperties            </p>
-<h4 id="Throwable"><a href="#Throwable" class="headerlink" title="Throwable"></a>Throwable</h4><p>Class <code>Throwable</code> encompasses objects that may be thrown by the <code>throw</code> statement. Subclasses of <code>Throwable</code> represent errors and exceptions.</p>
+<h3 id="Throwable"><a href="#Throwable" class="headerlink" title="Throwable"></a>Throwable</h3><p>Class <code>Throwable</code> encompasses objects that may be thrown by the <code>throw</code> statement. Subclasses of <code>Throwable</code> represent errors and exceptions.</p>
 <p>类可抛出性包含由抛出语句抛出的对象。Throwable的子类表示错误(Error)和异常(Exception 强制需要处理\ 运行时异常RuntimeException)。</p>
 <p>通过一个JDK的例子来看看 Throwable的使用</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Junk</span> </span>&#123;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">              a();</span><br><span class="line">          &#125; <span class="keyword">catch</span>(HighLevelException e) &#123;</span><br><span class="line">              e.printStackTrace();</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span> <span class="keyword">throws</span> HighLevelException </span>&#123;</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">              b();</span><br><span class="line">          &#125; <span class="keyword">catch</span>(MidLevelException e) &#123;</span><br><span class="line">              <span class="keyword">throw</span> <span class="keyword">new</span> HighLevelException(e);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">()</span> <span class="keyword">throws</span> MidLevelException </span>&#123;</span><br><span class="line">          c();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">c</span><span class="params">()</span> <span class="keyword">throws</span> MidLevelException </span>&#123;</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">              d();</span><br><span class="line">          &#125; <span class="keyword">catch</span>(LowLevelException e) &#123;</span><br><span class="line">              <span class="keyword">throw</span> <span class="keyword">new</span> MidLevelException(e);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">d</span><span class="params">()</span> <span class="keyword">throws</span> LowLevelException </span>&#123;</span><br><span class="line">         e();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">e</span><span class="params">()</span> <span class="keyword">throws</span> LowLevelException </span>&#123;</span><br><span class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> LowLevelException();</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">HighLevelException</span> <span class="keyword">extends</span> <span class="title">Exception</span> </span>&#123;</span><br><span class="line">      HighLevelException(Throwable cause) &#123; <span class="keyword">super</span>(cause); &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">MidLevelException</span> <span class="keyword">extends</span> <span class="title">Exception</span> </span>&#123;</span><br><span class="line">      MidLevelException(Throwable cause)  &#123; <span class="keyword">super</span>(cause); &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">LowLevelException</span> <span class="keyword">extends</span> <span class="title">Exception</span> </span>&#123;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
@@ -519,7 +523,7 @@
 <li>堆栈信息StackTraceElement</li>
 <li>ourCause  Caused by:上层异常</li>
 </ul>
-<h3 id="java-lang-annotation"><a href="#java-lang-annotation" class="headerlink" title="java.lang.annotation"></a>java.lang.annotation</h3><p>Provides library support for the Java programming language annotation facility.</p>
+<h2 id="java-lang-annotation"><a href="#java-lang-annotation" class="headerlink" title="java.lang.annotation"></a>java.lang.annotation</h2><p>Provides library support for the Java programming language annotation facility.</p>
 <p>为Java编程语言注解工具提供库支持。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * More information about annotation types can be found in section 9.6 of</span></span><br><span class="line"><span class="comment"> * &lt;cite&gt;The Java&amp;trade; Language Specification&lt;/cite&gt;.</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
 <p>注解（Annotation），也叫（metadata）元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明，注释。这些信息被存储在Annotation的“name=value”结构对中。</p>
@@ -533,13 +537,13 @@
 </li>
 </ul>
 <p>​    </p>
-<h4 id="内置注解"><a href="#内置注解" class="headerlink" title="内置注解"></a>内置注解</h4><p>内置注解分为三类：</p>
+<h3 id="内置注解"><a href="#内置注解" class="headerlink" title="内置注解"></a>内置注解</h3><p>内置注解分为三类：</p>
 <ul>
 <li>@Override</li>
 <li>@Deprecated</li>
 <li>@SuppressWarnings</li>
 </ul>
-<h4 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h4><p>元注解就是定义注解的注解，由 java API 提供，分别有四个元注解：</p>
+<h3 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h3><p>元注解就是定义注解的注解，由 java API 提供，分别有四个元注解：</p>
 <ul>
 <li><p>@Target </p>
 <p>  用于描述注解的使用范围。修饰的对象范围：packages、types（类、接口、枚举、Annotation类型）、类型成员（方法、构造方法、成员变量、枚举值）、方法参数和本地变量（如 catch 参数）。</p>
@@ -571,7 +575,7 @@
 </li>
 </ul>
 <p>@link : <a href="https://www.jianshu.com/p/d124f24e685c" target="_blank" rel="noopener">https://www.jianshu.com/p/d124f24e685c</a></p>
-<h3 id="java-lang-instrument"><a href="#java-lang-instrument" class="headerlink" title="java.lang.instrument"></a>java.lang.instrument</h3><p>Provides services that allow Java programming language agents to instrument programs running on the JVM.</p>
+<h2 id="java-lang-instrument"><a href="#java-lang-instrument" class="headerlink" title="java.lang.instrument"></a>java.lang.instrument</h2><p>Provides services that allow Java programming language agents to instrument programs running on the JVM.</p>
 <p>提供允许Java编程语言代理对运行在JVM上的程序进行增强的服务。</p>
 <p>JPDA体系概览</p>
 <ul>
@@ -589,7 +593,7 @@
 <p>java.lang.instrument.ClassFileTransformer</p>
 <p>java.lang.instrument.Instrumentation</p>
 <p>java.lang.instrument.ClassDefinition</p>
-<h3 id="java-lang-invoke"><a href="#java-lang-invoke" class="headerlink" title="java.lang.invoke"></a>java.lang.invoke</h3><p>The java.lang.invoke package contains dynamic language support provided directly by the Java core class libraries and virtual machine.</p>
+<h2 id="java-lang-invoke"><a href="#java-lang-invoke" class="headerlink" title="java.lang.invoke"></a>java.lang.invoke</h2><p>The java.lang.invoke package contains dynamic language support provided directly by the Java core class libraries and virtual machine.</p>
 <p>包含Java核心类库和虚拟机直接提供的动态语言支持。</p>
 <p>java7在JSR 292中增加了对动态类型语言的支持，使Java也可以像C语言那样将方法作为参数传递，其实现在lava.lang.invoke包中。MethodHandle作用类似于反射中的Method类，但它比Method类要更加灵活和轻量级。通过MethodHandle进行方法调用一般需要以下几步：</p>
 <ol>
@@ -616,7 +620,7 @@
 <p>java语言是静态类型的。有人可能会提到泛型，java的泛型是擦除式的，也就是说虽然在编写java源码时看起来好像不能确定变量类型，但是在java编译为字节码的过程中，每一个变量都是有确定的类型的。</p>
 <p>所以从java语言的角度，之前的4条方法调用指令是完全够用的，但是要知道，jvm不只是跨平台的，还是跨语言的，当有人在jvm上试图开发动态类型语言的时候，问题就来了：</p>
 <p>jvm大多数指令都是类型无关的，但是在方法调用的时候，却不是这样，每个方法调用在编译阶段就必须指明方法参数和返回值类型，但是动态类型语言的方法参数，直到运行时刻才能知道类型啊，因此jdk就做了这样一个“补丁”：用invokedynamic调用方法的时候，会转到bootstrap方法，在这个方法里可以动态获取参数类型，然后根据参数类型分派合适的方法作为CallSite(动态调用点)，最后真实调用的就是CallSize里的方法。如此便能在jvm上实现动态类型语言的方法调用了。</p>
-<h3 id="java-lang-management"><a href="#java-lang-management" class="headerlink" title="java.lang.management"></a>java.lang.management</h3><p>Provides the management interfaces for monitoring and management of the Java virtual machine and other components in the Java runtime.</p>
+<h2 id="java-lang-management"><a href="#java-lang-management" class="headerlink" title="java.lang.management"></a>java.lang.management</h2><p>Provides the management interfaces for monitoring and management of the Java virtual machine and other components in the Java runtime.</p>
 <p>提供用于监视和管理Java虚拟机和Java运行时中的其他组件的管理接口。</p>
 <p><a href="https://docs.oracle.com/javase/8/docs/api/javax/management/package-summary.html" target="_blank" rel="noopener">JMX</a> Instrumentation Specification</p>
 <p>访问MXBeans的方法</p>
@@ -626,7 +630,7 @@
 <p> <a href="https://docs.oracle.com/javase/8/docs/api/javax/management/package-summary.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/api/javax/management/package-summary.html</a></p>
 <p>ManagementFactory</p>
 <p>实现-&gt; sum包中 ?  😪</p>
-<h3 id="java-lang-ref"><a href="#java-lang-ref" class="headerlink" title="java.lang.ref"></a>java.lang.ref</h3><p>Provides reference-object classes, which support a limited degree of interaction with the garbage collector.</p>
+<h2 id="java-lang-ref"><a href="#java-lang-ref" class="headerlink" title="java.lang.ref"></a>java.lang.ref</h2><p>Provides reference-object classes, which support a limited degree of interaction with the garbage collector.</p>
 <p>提供引用对象类，该类支持与垃圾收集器进行有限程度的交互。</p>
 <p><strong>表 1. 引用类型特性总结</strong></p>
 <table>
@@ -703,7 +707,7 @@
 </tbody>
 </table>
 <p><a href="https://www.cnblogs.com/rollenholt/archive/2011/09/21/2183077.html" target="_blank" rel="noopener">https://www.cnblogs.com/rollenholt/archive/2011/09/21/2183077.html</a></p>
-<h3 id="java-lang-reflect"><a href="#java-lang-reflect" class="headerlink" title="java.lang.reflect"></a>java.lang.reflect</h3><p>Provides classes and interfaces for obtaining reflective information about classes and objects.</p>
+<h2 id="java-lang-reflect"><a href="#java-lang-reflect" class="headerlink" title="java.lang.reflect"></a>java.lang.reflect</h2><p>Provides classes and interfaces for obtaining reflective information about classes and objects.</p>
 <p>提供用于获取有关类和对象的反射信息的类和接口。</p>
 <p>Construct、Field、Method</p>
 <p>Fastjson </p>
@@ -983,7 +987,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang"><span class="nav-number">1.</span> <span class="nav-text">java.lang</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Base"><span class="nav-number">1.1.</span> <span class="nav-text">Base</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AutoBoxing"><span class="nav-number">1.2.</span> <span class="nav-text">AutoBoxing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Utils-Math-String"><span class="nav-number">1.3.</span> <span class="nav-text">Utils (Math,String)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Math-amp-StrictMath"><span class="nav-number">1.3.1.</span> <span class="nav-text">Math &amp; StrictMath</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-amp-StringBuffer-synchronized-amp-StringBuilder"><span class="nav-number">1.3.2.</span> <span class="nav-text">String &amp; StringBuffer(synchronized) &amp; StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VM"><span class="nav-number">1.4.</span> <span class="nav-text">VM</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Class-amp-ClassLoader"><span class="nav-number">1.4.1.</span> <span class="nav-text">Class &amp; ClassLoader</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Process-amp-Thread-amp-Runnable"><span class="nav-number">1.4.2.</span> <span class="nav-text">Process &amp; Thread &amp; Runnable</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#System"><span class="nav-number">1.4.3.</span> <span class="nav-text">System</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Throwable"><span class="nav-number">1.5.</span> <span class="nav-text">Throwable</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-annotation"><span class="nav-number">2.</span> <span class="nav-text">java.lang.annotation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内置注解"><span class="nav-number">2.1.</span> <span class="nav-text">内置注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元注解"><span class="nav-number">2.2.</span> <span class="nav-text">元注解</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-instrument"><span class="nav-number">3.</span> <span class="nav-text">java.lang.instrument</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-invoke"><span class="nav-number">4.</span> <span class="nav-text">java.lang.invoke</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-management"><span class="nav-number">5.</span> <span class="nav-text">java.lang.management</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-ref"><span class="nav-number">6.</span> <span class="nav-text">java.lang.ref</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-reflect"><span class="nav-number">7.</span> <span class="nav-text">java.lang.reflect</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-lang"><span class="nav-number">1.</span> <span class="nav-text">java.lang</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Base"><span class="nav-number">1.1.</span> <span class="nav-text">Base</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AutoBoxing"><span class="nav-number">1.2.</span> <span class="nav-text">AutoBoxing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Utils-Math-String"><span class="nav-number">1.3.</span> <span class="nav-text">Utils (Math,String)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Math-amp-StrictMath"><span class="nav-number">1.3.1.</span> <span class="nav-text">Math &amp; StrictMath</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-amp-StringBuffer-synchronized-amp-StringBuilder"><span class="nav-number">1.3.2.</span> <span class="nav-text">String &amp; StringBuffer(synchronized) &amp; StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VM"><span class="nav-number">1.4.</span> <span class="nav-text">VM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Class-amp-ClassLoader"><span class="nav-number">1.4.1.</span> <span class="nav-text">Class &amp; ClassLoader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Process-amp-Thread-amp-Runnable"><span class="nav-number">1.4.2.</span> <span class="nav-text">Process &amp; Thread &amp; Runnable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#System"><span class="nav-number">1.4.3.</span> <span class="nav-text">System</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Throwable"><span class="nav-number">1.5.</span> <span class="nav-text">Throwable</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-lang-annotation"><span class="nav-number">2.</span> <span class="nav-text">java.lang.annotation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内置注解"><span class="nav-number">2.1.</span> <span class="nav-text">内置注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元注解"><span class="nav-number">2.2.</span> <span class="nav-text">元注解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-lang-instrument"><span class="nav-number">3.</span> <span class="nav-text">java.lang.instrument</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-lang-invoke"><span class="nav-number">4.</span> <span class="nav-text">java.lang.invoke</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-lang-management"><span class="nav-number">5.</span> <span class="nav-text">java.lang.management</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-lang-ref"><span class="nav-number">6.</span> <span class="nav-text">java.lang.ref</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java-lang-reflect"><span class="nav-number">7.</span> <span class="nav-text">java.lang.reflect</span></a></li></ol></div>
             
 
           </div>
@@ -1016,7 +1020,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">582k</span>
+    <span title="站点总字数">587k</span>
   
 
   
@@ -1025,7 +1029,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">8:49</span>
+    <span title="站点阅读时长">8:54</span>
   
 </div>
 
