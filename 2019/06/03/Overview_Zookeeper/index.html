@@ -103,7 +103,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="43">
-
+<input type="hidden" id="yelog_site_word_count" value="127.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -126,7 +126,7 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="Search..." autocomplete="off" id="local-search-input">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off" id="local-search-input">
         <i class="cross"></i>
         <span>
             <label for="tagswitch">Tags:</label>
@@ -261,11 +261,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
+        <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color3">gc</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -287,6 +287,10 @@
     <div class="clearfix"></div>
 </div>
 
+    
+    <div id="local-search-result">
+
+    </div>
     
     <nav id="title-list-nav">
         
@@ -544,6 +548,8 @@
     </div>
     <div class="article-meta">
         
+        <span>字数:1.6k</span>
+        
         
         <span id="busuanzi_container_page_pv">
             阅读:<span id="busuanzi_value_page_pv">
@@ -736,7 +742,7 @@
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>Zookeeper深入浅出</p>
-    
+    <p><span class="copy-title">文章字数:</span><span class="post-count">1.6k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-06-03, 21:15:05</p>
     <p><span class="copy-title">最后更新:</span>2019-07-06, 23:30:28</p>
@@ -783,7 +789,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#collections','#map','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#ejb','#gc','#collections','#map','#spring-mvc','#spring-webflux',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
