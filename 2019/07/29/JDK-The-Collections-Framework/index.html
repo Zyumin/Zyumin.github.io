@@ -24,7 +24,7 @@
 
 <link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.0.1" rel="stylesheet">
+<link href="/css/hl_theme/github-gist.css?v=1.0.1" rel="stylesheet">
 
 <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -119,7 +119,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="43">
-<input type="hidden" id="yelog_site_word_count" value="127.8k">
+<input type="hidden" id="yelog_site_word_count" value="126k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -154,6 +154,10 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">week</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hide</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -277,11 +281,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color3">gc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
+        <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -475,7 +479,7 @@
             <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
         </a>
         
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week" data-author="">
+        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
@@ -588,8 +592,8 @@
     .left-col .switch-area {
         display: none;
     }
-    .toc-level-3 i,
-    .toc-level-3 ol {
+    .toc-level-4 i,
+    .toc-level-4 ol {
         display: none !important;
     }
 </style>
@@ -603,8 +607,13 @@
 <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>最近有个二货在线上使用Collections#sort()的时候报了个错, java.lang.IllegalArgumentException: Comparison method violates its general contract!  运行的JDK环境是1.7</p>
 <p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g5grfa3sfgj30vq0s60v2.jpg" alt="image-20190729155205469"></p>
 <p> 本着博爱的精神,看了看之前也遇到类似的问题.就决定总结下,其实这个是JDK1.6到1.7的兼容问题.在<a href="https://www.oracle.com/technetwork/java/javase/compatibility-417013.html#incompatibilities" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/compatibility-417013.html#incompatibilities</a> 中可以发现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Area: API: Utilities</span><br><span class="line">Synopsis: Updated sort behavior for Arrays and Collections may throw an IllegalArgumentException</span><br><span class="line">Description: The sorting algorithm used by java.util.Arrays.sort and (indirectly) by java.util.Collections.sort has been replaced. The new sort implementation may throw an IllegalArgumentException if it detects a Comparable that violates the Comparable contract. The previous implementation silently ignored such a situation.</span><br><span class="line">If the previous behavior is desired, you can use the new system property, java.util.Arrays.useLegacyMergeSort, to restore previous mergesort behavior.</span><br><span class="line">Nature of Incompatibility: behavioral</span><br><span class="line">RFE: 6804124</span><br></pre></td></tr></table></figure>
-<p>​    如果违法了比较的约束新的排序算法也许会抛出llegalArgumentException异常。JDK6中的实现则忽略了这种情况</p>
+<pre><code>Area: API: Utilities
+Synopsis: Updated sort behavior for Arrays and Collections may throw an IllegalArgumentException
+Description: The sorting algorithm used by java.util.Arrays.sort and (indirectly) by java.util.Collections.sort has been replaced. The new sort implementation may throw an IllegalArgumentException if it detects a Comparable that violates the Comparable contract. The previous implementation silently ignored such a situation.
+If the previous behavior is desired, you can use the new system property, java.util.Arrays.useLegacyMergeSort, to restore previous mergesort behavior.
+Nature of Incompatibility: behavioral
+RFE: 6804124
+</code></pre><p>​    如果违法了比较的约束新的排序算法也许会抛出llegalArgumentException异常。JDK6中的实现则忽略了这种情况</p>
 <h3 id="根本原因"><a href="#根本原因" class="headerlink" title="根本原因"></a>根本原因</h3><p>实现Comparable接口后，要满足一下三个特性：</p>
 <ul>
 <li>自反性：x,y 的比较结果和 y,x 的比较结果相反。 sgn(compare(x, y)) == -sgn(compare(y, x))</li>
@@ -612,10 +621,27 @@
 <li>对称性：x=y,则 x,z 比较结果和 y，z 比较结果相同。    compare(x, y) == 0 implies that sgn(compare(x, z)) == sgn(compare(y, z)) for all z</li>
 </ul>
 <p>​    开头的那个小朋友实现类似如下,明显没有满足自反性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return x &gt; y ? 1 : -1;</span><br></pre></td></tr></table></figure>
-<p>当x == y时，sgn(compare(x, y))  = -1，-sgn(compare(y, x)) = 1，这违背了sgn(compare(x, y)) == -sgn(compare(y, x))约束，所以在JDK7中抛出了异常。</p>
+<pre><code>return x &gt; y ? 1 : -1;
+</code></pre><p>当x == y时，sgn(compare(x, y))  = -1，-sgn(compare(y, x)) = 1，这违背了sgn(compare(x, y)) == -sgn(compare(y, x))约束，所以在JDK7中抛出了异常。</p>
 <h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><p>这里贴个可以重现该错误的代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.function.Consumer;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Collections sort 要满足自反性否则会有概率出错，在1.7中会有问题</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> zhengyumin</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2019-07-18 10:24</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CollectionSort</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list = Arrays.asList(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">30</span>, <span class="number">0</span>, <span class="number">3</span>);</span><br><span class="line">        list.sort((o1, o2) -&gt; o1 &gt; o2 ? <span class="number">1</span> : -<span class="number">1</span>);</span><br><span class="line">        list.stream().forEach((Consumer) o -&gt; System.out.println(o));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
+
+/**
+ *
+ * Collections sort 要满足自反性否则会有概率出错，在1.7中会有问题
+ * @author zhengyumin
+ * @create 2019-07-18 10:24
+ */
+public class CollectionSort {
+    public static void main(String[] args) {
+        List&lt;Integer&gt; list = Arrays.asList(0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 2, 1, 0, 0, 0, 2, 30, 0, 3);
+        list.sort((o1, o2) -&gt; o1 &gt; o2 ? 1 : -1);
+        list.stream().forEach((Consumer) o -&gt; System.out.println(o));
+    }
+}
+</code></pre>
 <p>上面描述的只是集合框架中的一个问题. 好了,回到我们今天的主题The Collections Framework.</p>
 <p>相关资料可以参考:<a href="https://docs.oracle.com/javase/8/docs/technotes/guides/collections/index.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/technotes/guides/collections/index.html</a></p>
 <h2 id="The-Collections-Framework"><a href="#The-Collections-Framework" class="headerlink" title="The Collections Framework"></a>The Collections Framework</h2><h3 id="API-Enhancements-各版本API增强变化"><a href="#API-Enhancements-各版本API增强变化" class="headerlink" title="API Enhancements(各版本API增强变化)"></a>API Enhancements(各版本API增强变化)</h3><ul>
@@ -988,7 +1014,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#ejb','#gc','#collections','#map','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#collections','#map','#spring-mvc','#spring-webflux',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -1146,6 +1172,15 @@
 
     /*引用块样式*/
     
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
 
     /*文章列表背景图*/
     
@@ -1169,16 +1204,6 @@
     }
     
 
-    
-    .post .pjax article :not(pre) > code {
-        color: #24292e;
-        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-        background-color: rgba(27,31,35,.05);
-        border-radius: 3px;
-        font-size: 85%;
-        margin: 0;
-        padding: .2em .4em;
-    }
     
 </style>
 

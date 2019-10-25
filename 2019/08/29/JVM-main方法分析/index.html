@@ -24,7 +24,7 @@
 
 <link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.0.1" rel="stylesheet">
+<link href="/css/hl_theme/github-gist.css?v=1.0.1" rel="stylesheet">
 
 <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -119,7 +119,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="43">
-<input type="hidden" id="yelog_site_word_count" value="127.8k">
+<input type="hidden" id="yelog_site_word_count" value="126k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -154,6 +154,10 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">week</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hide</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -277,11 +281,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color3">gc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
+        <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -475,7 +479,7 @@
             <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
         </a>
         
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week" data-author="">
+        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
@@ -588,8 +592,8 @@
     .left-col .switch-area {
         display: none;
     }
-    .toc-level-3 i,
-    .toc-level-3 ol {
+    .toc-level-4 i,
+    .toc-level-4 ol {
         display: none !important;
     }
 </style>
@@ -619,16 +623,176 @@
 <h5 id="Attach-Listener"><a href="#Attach-Listener" class="headerlink" title="Attach Listener"></a>Attach Listener</h5><p>Attach Listener线程是负责接收到外部的命令，而对该命令进行执行的并且吧结果返回给发送者。通常我们会用一些命令去要求jvm给我们一些反 馈信 息，如：java -version、jmap、jstack等等。如果该线程在jvm启动的时候没有初始化，那么，则会在用户第一次执行jvm命令时，得到启动。</p>
 <p>以上是被创建的java线程 </p>
 <h4 id="ThreadMXBean查看"><a href="#ThreadMXBean查看" class="headerlink" title="ThreadMXBean查看"></a>ThreadMXBean查看</h4><p>如下代码 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainThreadInfoDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">//        threadCreateExample();</span></span><br><span class="line">        dumpThreadInfo();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">dumpThreadInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Arrays.stream(ManagementFactory.getThreadMXBean().dumpAllThreads(<span class="keyword">false</span>, <span class="keyword">false</span>)).</span><br><span class="line">                forEach(threadInfo -&gt; System.out.println(<span class="string">"["</span> + threadInfo.getThreadId() + <span class="string">"]"</span> + threadInfo.getThreadName())</span><br><span class="line">                );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 线程创建example</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">threadCreateExample</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">DemoThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"extend"</span>);</span><br><span class="line">                <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">new</span> DemoThread().start();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> Thread(() -&gt; &#123; System.out.println(<span class="string">"impl"</span>);<span class="keyword">while</span> (<span class="keyword">true</span>) &#123; &#125; &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java"> public class MainThreadInfoDemo {
+    public static void main(String[] args) {
+//        threadCreateExample();
+        dumpThreadInfo();
+
+    }
+
+    public static void dumpThreadInfo() {
+        Arrays.stream(ManagementFactory.getThreadMXBean().dumpAllThreads(false, false)).
+                forEach(threadInfo -&gt; System.out.println(&quot;[&quot; + threadInfo.getThreadId() + &quot;]&quot; + threadInfo.getThreadName())
+                );
+    }
+
+    /**
+     * 线程创建example
+     */
+    public static void threadCreateExample() {
+        class DemoThread extends Thread {
+            @Override
+            public void run() {
+                System.out.println(&quot;extend&quot;);
+                while (true) {
+                }
+            }
+        }
+        new DemoThread().start();
+
+        new Thread(() -&gt; { System.out.println(&quot;impl&quot;);while (true) { } }).start();
+    }
+}
+</code></pre>
 <p>T</p>
 <p>运行结果如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[5]Monitor Ctrl-Break</span><br><span class="line">[4]Signal Dispatcher</span><br><span class="line">[3]Finalizer</span><br><span class="line">[2]Reference Handler</span><br><span class="line">[1]main</span><br></pre></td></tr></table></figure>
-<p>把threadCreateExample注释去掉,运行方法后发现:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[12]Thread-1</span><br><span class="line">[11]Thread-0</span><br><span class="line">[5]Monitor Ctrl-Break</span><br><span class="line">[4]Signal Dispatcher</span><br><span class="line">[3]Finalizer</span><br><span class="line">[2]Reference Handler</span><br><span class="line">[1]main</span><br></pre></td></tr></table></figure>
-<p>接下来我们来看看为什么id是从11开始 ?</p>
+<pre><code>[5]Monitor Ctrl-Break
+[4]Signal Dispatcher
+[3]Finalizer
+[2]Reference Handler
+[1]main
+</code></pre><p>把threadCreateExample注释去掉,运行方法后发现:</p>
+<pre><code>[12]Thread-1
+[11]Thread-0
+[5]Monitor Ctrl-Break
+[4]Signal Dispatcher
+[3]Finalizer
+[2]Reference Handler
+[1]main
+</code></pre><p>接下来我们来看看为什么id是从11开始 ?</p>
 <h4 id="jstack查看"><a href="#jstack查看" class="headerlink" title="jstack查看"></a>jstack查看</h4><h5 id="Jstack-文件"><a href="#Jstack-文件" class="headerlink" title="Jstack 文件"></a>Jstack 文件</h5><p>用jstack 查看(没有运行threadCreateExample方法)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line">2019-08-29 11:44:28</span><br><span class="line">Full thread dump Java HotSpot(TM) 64-Bit Server VM (25.161-b12 mixed mode):</span><br><span class="line"></span><br><span class="line">&quot;Attach Listener&quot; #11 daemon prio=9 os_prio=31 tid=0x00007fcf2582d000 nid=0x5603 waiting on condition [0x0000000000000000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;Service Thread&quot; #10 daemon prio=9 os_prio=31 tid=0x00007fcf25093800 nid=0x3d03 runnable [0x0000000000000000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;C1 CompilerThread3&quot; #9 daemon prio=9 os_prio=31 tid=0x00007fcf25802800 nid=0x3b03 waiting on condition [0x0000000000000000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;C2 CompilerThread2&quot; #8 daemon prio=9 os_prio=31 tid=0x00007fcf24874000 nid=0x3f03 waiting on condition [0x0000000000000000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;C2 CompilerThread1&quot; #7 daemon prio=9 os_prio=31 tid=0x00007fcf24025000 nid=0x4103 waiting on condition [0x0000000000000000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;C2 CompilerThread0&quot; #6 daemon prio=9 os_prio=31 tid=0x00007fcf25801800 nid=0x3803 waiting on condition [0x0000000000000000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;Monitor Ctrl-Break&quot; #5 daemon prio=5 os_prio=31 tid=0x00007fcf229b1000 nid=0x3703 runnable [0x000070000feff000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line">	at java.net.SocketInputStream.socketRead0(Native Method)</span><br><span class="line">	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)</span><br><span class="line">	at java.net.SocketInputStream.read(SocketInputStream.java:171)</span><br><span class="line">	at java.net.SocketInputStream.read(SocketInputStream.java:141)</span><br><span class="line">	at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)</span><br><span class="line">	at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)</span><br><span class="line">	at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)</span><br><span class="line">	- locked &lt;0x000000076af13bc8&gt; (a java.io.InputStreamReader)</span><br><span class="line">	at java.io.InputStreamReader.read(InputStreamReader.java:184)</span><br><span class="line">	at java.io.BufferedReader.fill(BufferedReader.java:161)</span><br><span class="line">	at java.io.BufferedReader.readLine(BufferedReader.java:324)</span><br><span class="line">	- locked &lt;0x000000076af13bc8&gt; (a java.io.InputStreamReader)</span><br><span class="line">	at java.io.BufferedReader.readLine(BufferedReader.java:389)</span><br><span class="line">	at com.intellij.rt.execution.application.AppMainV2$1.run(AppMainV2.java:64)</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;Signal Dispatcher&quot; #4 daemon prio=9 os_prio=31 tid=0x00007fcf22022800 nid=0x3603 runnable [0x0000000000000000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;Finalizer&quot; #3 daemon prio=8 os_prio=31 tid=0x00007fcf2280c800 nid=0x4a03 in Object.wait() [0x000070000fcf9000]</span><br><span class="line">   java.lang.Thread.State: WAITING (on object monitor)</span><br><span class="line">	at java.lang.Object.wait(Native Method)</span><br><span class="line">	- waiting on &lt;0x000000076ab08ec0&gt; (a java.lang.ref.ReferenceQueue$Lock)</span><br><span class="line">	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)</span><br><span class="line">	- locked &lt;0x000000076ab08ec0&gt; (a java.lang.ref.ReferenceQueue$Lock)</span><br><span class="line">	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:164)</span><br><span class="line">	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;Reference Handler&quot; #2 daemon prio=10 os_prio=31 tid=0x00007fcf22016000 nid=0x4b03 in Object.wait() [0x000070000fbf6000]</span><br><span class="line">   java.lang.Thread.State: WAITING (on object monitor)</span><br><span class="line">	at java.lang.Object.wait(Native Method)</span><br><span class="line">	- waiting on &lt;0x000000076ab06b68&gt; (a java.lang.ref.Reference$Lock)</span><br><span class="line">	at java.lang.Object.wait(Object.java:502)</span><br><span class="line">	at java.lang.ref.Reference.tryHandlePending(Reference.java:191)</span><br><span class="line">	- locked &lt;0x000000076ab06b68&gt; (a java.lang.ref.Reference$Lock)</span><br><span class="line">	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;main&quot; #1 prio=5 os_prio=31 tid=0x00007fcf25004800 nid=0x1803 waiting on condition [0x000070000f1d8000]</span><br><span class="line">   java.lang.Thread.State: WAITING (parking)</span><br><span class="line">	at sun.misc.Unsafe.park(Native Method)</span><br><span class="line">	- parking to wait for  &lt;0x000000076ae01da0&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)</span><br><span class="line">	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)</span><br><span class="line">	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)</span><br><span class="line">	at lang.ThreadDemo.main(ThreadDemo.java:27)</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">	- None</span><br><span class="line"></span><br><span class="line">&quot;VM Thread&quot; os_prio=31 tid=0x00007fcf25015000 nid=0x4d03 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#0 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf26000800 nid=0x1f07 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#1 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf24000800 nid=0x2a03 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#2 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf22000800 nid=0x5303 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#3 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf25010000 nid=0x2b03 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#4 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf22014000 nid=0x5103 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#5 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf24001000 nid=0x5003 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#6 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf22014800 nid=0x2e03 runnable </span><br><span class="line"></span><br><span class="line">&quot;GC task thread#7 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf22015000 nid=0x4e03 runnable </span><br><span class="line"></span><br><span class="line">&quot;VM Periodic Task Thread&quot; os_prio=31 tid=0x00007fcf250c5000 nid=0x5503 waiting on condition </span><br><span class="line"></span><br><span class="line">JNI global references: 33</span><br></pre></td></tr></table></figure>
-<p>可以发现 其中 6-10为:</p>
+<pre><code>2019-08-29 11:44:28
+Full thread dump Java HotSpot(TM) 64-Bit Server VM (25.161-b12 mixed mode):
+
+&quot;Attach Listener&quot; #11 daemon prio=9 os_prio=31 tid=0x00007fcf2582d000 nid=0x5603 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+    - None
+
+&quot;Service Thread&quot; #10 daemon prio=9 os_prio=31 tid=0x00007fcf25093800 nid=0x3d03 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+    - None
+
+&quot;C1 CompilerThread3&quot; #9 daemon prio=9 os_prio=31 tid=0x00007fcf25802800 nid=0x3b03 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+    - None
+
+&quot;C2 CompilerThread2&quot; #8 daemon prio=9 os_prio=31 tid=0x00007fcf24874000 nid=0x3f03 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+    - None
+
+&quot;C2 CompilerThread1&quot; #7 daemon prio=9 os_prio=31 tid=0x00007fcf24025000 nid=0x4103 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+    - None
+
+&quot;C2 CompilerThread0&quot; #6 daemon prio=9 os_prio=31 tid=0x00007fcf25801800 nid=0x3803 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+    - None
+
+&quot;Monitor Ctrl-Break&quot; #5 daemon prio=5 os_prio=31 tid=0x00007fcf229b1000 nid=0x3703 runnable [0x000070000feff000]
+   java.lang.Thread.State: RUNNABLE
+    at java.net.SocketInputStream.socketRead0(Native Method)
+    at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+    at java.net.SocketInputStream.read(SocketInputStream.java:171)
+    at java.net.SocketInputStream.read(SocketInputStream.java:141)
+    at sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+    at sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+    at sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+    - locked &lt;0x000000076af13bc8&gt; (a java.io.InputStreamReader)
+    at java.io.InputStreamReader.read(InputStreamReader.java:184)
+    at java.io.BufferedReader.fill(BufferedReader.java:161)
+    at java.io.BufferedReader.readLine(BufferedReader.java:324)
+    - locked &lt;0x000000076af13bc8&gt; (a java.io.InputStreamReader)
+    at java.io.BufferedReader.readLine(BufferedReader.java:389)
+    at com.intellij.rt.execution.application.AppMainV2$1.run(AppMainV2.java:64)
+
+   Locked ownable synchronizers:
+    - None
+
+&quot;Signal Dispatcher&quot; #4 daemon prio=9 os_prio=31 tid=0x00007fcf22022800 nid=0x3603 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+    - None
+
+&quot;Finalizer&quot; #3 daemon prio=8 os_prio=31 tid=0x00007fcf2280c800 nid=0x4a03 in Object.wait() [0x000070000fcf9000]
+   java.lang.Thread.State: WAITING (on object monitor)
+    at java.lang.Object.wait(Native Method)
+    - waiting on &lt;0x000000076ab08ec0&gt; (a java.lang.ref.ReferenceQueue$Lock)
+    at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+    - locked &lt;0x000000076ab08ec0&gt; (a java.lang.ref.ReferenceQueue$Lock)
+    at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:164)
+    at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)
+
+   Locked ownable synchronizers:
+    - None
+
+&quot;Reference Handler&quot; #2 daemon prio=10 os_prio=31 tid=0x00007fcf22016000 nid=0x4b03 in Object.wait() [0x000070000fbf6000]
+   java.lang.Thread.State: WAITING (on object monitor)
+    at java.lang.Object.wait(Native Method)
+    - waiting on &lt;0x000000076ab06b68&gt; (a java.lang.ref.Reference$Lock)
+    at java.lang.Object.wait(Object.java:502)
+    at java.lang.ref.Reference.tryHandlePending(Reference.java:191)
+    - locked &lt;0x000000076ab06b68&gt; (a java.lang.ref.Reference$Lock)
+    at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)
+
+   Locked ownable synchronizers:
+    - None
+
+&quot;main&quot; #1 prio=5 os_prio=31 tid=0x00007fcf25004800 nid=0x1803 waiting on condition [0x000070000f1d8000]
+   java.lang.Thread.State: WAITING (parking)
+    at sun.misc.Unsafe.park(Native Method)
+    - parking to wait for  &lt;0x000000076ae01da0&gt; (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+    at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+    at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)
+    at lang.ThreadDemo.main(ThreadDemo.java:27)
+
+   Locked ownable synchronizers:
+    - None
+
+&quot;VM Thread&quot; os_prio=31 tid=0x00007fcf25015000 nid=0x4d03 runnable 
+
+&quot;GC task thread#0 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf26000800 nid=0x1f07 runnable 
+
+&quot;GC task thread#1 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf24000800 nid=0x2a03 runnable 
+
+&quot;GC task thread#2 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf22000800 nid=0x5303 runnable 
+
+&quot;GC task thread#3 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf25010000 nid=0x2b03 runnable 
+
+&quot;GC task thread#4 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf22014000 nid=0x5103 runnable 
+
+&quot;GC task thread#5 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf24001000 nid=0x5003 runnable 
+
+&quot;GC task thread#6 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf22014800 nid=0x2e03 runnable 
+
+&quot;GC task thread#7 (ParallelGC)&quot; os_prio=31 tid=0x00007fcf22015000 nid=0x4e03 runnable 
+
+&quot;VM Periodic Task Thread&quot; os_prio=31 tid=0x00007fcf250c5000 nid=0x5503 waiting on condition 
+
+JNI global references: 33
+</code></pre><p>可以发现 其中 6-10为:</p>
 <ul>
 <li>“C2 CompilerThread0” #6</li>
 <li>“C2 CompilerThread1” #7</li>
@@ -638,7 +802,23 @@
 </ul>
 <p>为什么这些在dumpThreadInfo 没有打印出来?</p>
 <h5 id="vm内部线程-VM-internal-JavaThreads"><a href="#vm内部线程-VM-internal-JavaThreads" class="headerlink" title="vm内部线程(VM internal JavaThreads)"></a>vm内部线程(VM internal JavaThreads)</h5><p> 在/src/share/vm/prims/jvm.cpp中 </p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Returns an array of all live Thread objects (VM internal JavaThreads,</span></span><br><span class="line"><span class="comment">// jvmti agent threads, and JNI attaching threads  are skipped)</span></span><br><span class="line"><span class="comment">// See CR 6404306 regarding JNI attaching threads</span></span><br><span class="line">JVM_ENTRY(jobjectArray, JVM_GetAllThreads(JNIEnv *env, jclass dummy))</span><br><span class="line">  <span class="function">ResourceMark <span class="title">rm</span><span class="params">(THREAD)</span></span>;</span><br><span class="line">  <span class="function">ThreadsListEnumerator <span class="title">tle</span><span class="params">(THREAD, <span class="literal">false</span>, <span class="literal">false</span>)</span></span>;</span><br><span class="line">  JvmtiVMObjectAllocEventCollector oam;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> num_threads = tle.num_threads();</span><br><span class="line">  objArrayOop r = oopFactory::new_objArray(SystemDictionary::Thread_klass(), num_threads, CHECK_NULL);</span><br><span class="line">  <span class="function">objArrayHandle <span class="title">threads_ah</span><span class="params">(THREAD, r)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num_threads; i++) &#123;</span><br><span class="line">    Handle h = tle.get_threadObj(i);</span><br><span class="line">    threads_ah-&gt;obj_at_put(i, h());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="c++">// Returns an array of all live Thread objects (VM internal JavaThreads,
+// jvmti agent threads, and JNI attaching threads  are skipped)
+// See CR 6404306 regarding JNI attaching threads
+JVM_ENTRY(jobjectArray, JVM_GetAllThreads(JNIEnv *env, jclass dummy))
+  ResourceMark rm(THREAD);
+  ThreadsListEnumerator tle(THREAD, false, false);
+  JvmtiVMObjectAllocEventCollector oam;
+
+  int num_threads = tle.num_threads();
+  objArrayOop r = oopFactory::new_objArray(SystemDictionary::Thread_klass(), num_threads, CHECK_NULL);
+  objArrayHandle threads_ah(THREAD, r);
+
+  for (int i = 0; i &lt; num_threads; i++) {
+    Handle h = tle.get_threadObj(i);
+    threads_ah-&gt;obj_at_put(i, h());
+  }
+</code></pre>
 <p>其中简单翻译一下方法的注释<br>返回所有活动线程对象的数组(跳过VM内部JavaThreads、jvmti代理线程和JNI附加线程)，请参阅CR 6404306关于JNI附加线程的信息</p>
 <p>可以知道不会打印VM内部的JavaThreads</p>
 <p>另外的 JVM自身的线程(初始化的时候创建的,非java线程 没有prio=5)</p>
@@ -706,7 +886,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#ejb','#gc','#collections','#map','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#collections','#map','#spring-mvc','#spring-webflux',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -864,6 +1044,15 @@
 
     /*引用块样式*/
     
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
 
     /*文章列表背景图*/
     
@@ -887,16 +1076,6 @@
     }
     
 
-    
-    .post .pjax article :not(pre) > code {
-        color: #24292e;
-        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-        background-color: rgba(27,31,35,.05);
-        border-radius: 3px;
-        font-size: 85%;
-        margin: 0;
-        padding: .2em .4em;
-    }
     
 </style>
 

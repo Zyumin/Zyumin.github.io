@@ -24,7 +24,7 @@
 
 <link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.0.1" rel="stylesheet">
+<link href="/css/hl_theme/github-gist.css?v=1.0.1" rel="stylesheet">
 
 <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -119,7 +119,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="43">
-<input type="hidden" id="yelog_site_word_count" value="127.8k">
+<input type="hidden" id="yelog_site_word_count" value="126k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -154,6 +154,10 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">week</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hide</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -277,11 +281,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color3">gc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
+        <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -475,7 +479,7 @@
             <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
         </a>
         
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week" data-author="">
+        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
@@ -588,8 +592,8 @@
     .left-col .switch-area {
         display: none;
     }
-    .toc-level-3 i,
-    .toc-level-3 ol {
+    .toc-level-4 i,
+    .toc-level-4 ol {
         display: none !important;
     }
 </style>
@@ -610,15 +614,24 @@
 <p>​    ok, let‘s go</p>
 <a id="more"></a>
 <h2 id="what-is-classLoader"><a href="#what-is-classLoader" class="headerlink" title="what is classLoader"></a>what is classLoader</h2><p>首先 ,什么是classLoader ,首先看下官方解释</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A class loader is an object that is responsible for loading classes. The class ClassLoader is an abstract class. Given the binary name of a class, a class loader should attempt to locate or generate data that constitutes a definition for the class. A typical strategy is to transform the name into a file name and then read a &quot;class file&quot; of that name from a file system.</span><br></pre></td></tr></table></figure>
-<p>简单来说就是类加载器, 负责把class 文件 加载到虚拟机(将class文件从硬盘加载到内存的一个过程) </p>
+<pre><code>A class loader is an object that is responsible for loading classes. The class ClassLoader is an abstract class. Given the binary name of a class, a class loader should attempt to locate or generate data that constitutes a definition for the class. A typical strategy is to transform the name into a file name and then read a &quot;class file&quot; of that name from a file system.
+</code></pre><p>简单来说就是类加载器, 负责把class 文件 加载到虚拟机(将class文件从硬盘加载到内存的一个过程) </p>
 <p>思考下, 加载某个class需要className , 接下来通过这个className去哪里查找,怎么查找</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Normally, the Java virtual machine loads classes from the local file system in a platform-dependent manner. For example, on UNIX systems, the virtual machine loads classes from the directory defined by the CLASSPATH environment variable.</span><br><span class="line"></span><br><span class="line">However, some classes may not originate from a file; they may originate from other sources, such as the network, or they could be constructed by an application.</span><br></pre></td></tr></table></figure>
-<p>通常, 虚拟机所加载的类来自文件系统,通过CLASSPATH 指定路径, 当然也可以来自网络传输(通过URL抽象出这些resource)</p>
+<pre><code>Normally, the Java virtual machine loads classes from the local file system in a platform-dependent manner. For example, on UNIX systems, the virtual machine loads classes from the directory defined by the CLASSPATH environment variable.
+
+However, some classes may not originate from a file; they may originate from other sources, such as the network, or they could be constructed by an application. 
+</code></pre><p>通常, 虚拟机所加载的类来自文件系统,通过CLASSPATH 指定路径, 当然也可以来自网络传输(通过URL抽象出这些resource)</p>
 <h2 id="parent-classLoader"><a href="#parent-classLoader" class="headerlink" title="parent classLoader"></a>parent classLoader</h2><p>parent classLoader, 通常被称为“双亲委派” , 一直觉得这个翻译有点问题 , 双亲 , 其实只有一个parent </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The ClassLoader class uses a delegation model to search for classes and resources. Each instance of ClassLoader has an associated parent class loader. When requested to find a class or resource, a ClassLoader instance will delegate the search for the class or resource to its parent class loader before attempting to find the class or resource itself. The virtual machine&apos;s built-in class loader, called the &quot;bootstrap class loader&quot;, does not itself have a parent but may serve as the parent of a ClassLoader instance.</span><br></pre></td></tr></table></figure>
-<p>ClassLoader使用的是设计模式中的委派模式, 通过parent去加载,如果parent为空,则依赖BootstrapClassLoader, 注意这个类加载器是虚拟机实现的一部分.而且我们程序中是无法获取到的,例如如下代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassLoaderDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(ClassLoaderDemo.class.getClassLoader());</span><br><span class="line">        System.out.println(String.class.getClassLoader());</span><br><span class="line">        System.out.println(Integer.class.getClassLoader());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>The ClassLoader class uses a delegation model to search for classes and resources. Each instance of ClassLoader has an associated parent class loader. When requested to find a class or resource, a ClassLoader instance will delegate the search for the class or resource to its parent class loader before attempting to find the class or resource itself. The virtual machine&#39;s built-in class loader, called the &quot;bootstrap class loader&quot;, does not itself have a parent but may serve as the parent of a ClassLoader instance.
+</code></pre><p>ClassLoader使用的是设计模式中的委派模式, 通过parent去加载,如果parent为空,则依赖BootstrapClassLoader, 注意这个类加载器是虚拟机实现的一部分.而且我们程序中是无法获取到的,例如如下代码</p>
+<pre><code class="java">public class ClassLoaderDemo {
+    public static void main(String[] args) {
+        System.out.println(ClassLoaderDemo.class.getClassLoader());
+        System.out.println(String.class.getClassLoader());
+        System.out.println(Integer.class.getClassLoader());
+    }
+}
+</code></pre>
 <p>运行结果如下(在看结果之前,先有自己的思考,不应该以结果导向作为推论)</p>
 <p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g4u25hc2arj314g06smxy.jpg" alt="image-20190710003513353"></p>
 <p>至于为什么,让我们先来了解类加载的层级关系,通常我们常见的classLoader有如下几个</p>
@@ -634,7 +647,52 @@
 <p>至于String 、Integer 为啥获取为null, 这是因为是BootStrap加载的(至于为啥获取不到,因为在jdk是没有这个类的,安全性的考虑吧可能)</p>
 <h3 id="虚拟机的启动过程"><a href="#虚拟机的启动过程" class="headerlink" title="虚拟机的启动过程"></a>虚拟机的启动过程</h3><p>详细参考 <a href="https://www.cnblogs.com/bhlsheji/p/4017816.html" target="_blank" rel="noopener">https://www.cnblogs.com/bhlsheji/p/4017816.html</a></p>
 <p>或参阅OpenJDK下的sun.misc.Launcher</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Launcher</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Create the extension class loader</span></span><br><span class="line">    ClassLoader extcl;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        extcl = ExtClassLoader.getExtClassLoader();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> InternalError(</span><br><span class="line">            <span class="string">"Could not create extension class loader"</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Now create the class loader to use to launch the application</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        loader = AppClassLoader.getAppClassLoader(extcl);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> InternalError(</span><br><span class="line">            <span class="string">"Could not create application class loader"</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Also set the context class loader for the primordial thread.</span></span><br><span class="line">    Thread.currentThread().setContextClassLoader(loader);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Finally, install a security manager if requested</span></span><br><span class="line">    String s = System.getProperty(<span class="string">"java.security.manager"</span>);</span><br><span class="line">    <span class="keyword">if</span> (s != <span class="keyword">null</span>) &#123;</span><br><span class="line">        SecurityManager sm = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">""</span>.equals(s) || <span class="string">"default"</span>.equals(s)) &#123;</span><br><span class="line">            sm = <span class="keyword">new</span> java.lang.SecurityManager();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                sm = (SecurityManager)loader.loadClass(s).newInstance();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InstantiationException e) &#123;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (ClassCastException e) &#123;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sm != <span class="keyword">null</span>) &#123;</span><br><span class="line">            System.setSecurityManager(sm);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> InternalError(</span><br><span class="line">                <span class="string">"Could not create SecurityManager: "</span> + s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">    public Launcher() {
+        // Create the extension class loader
+        ClassLoader extcl;
+        try {
+            extcl = ExtClassLoader.getExtClassLoader();
+        } catch (IOException e) {
+            throw new InternalError(
+                &quot;Could not create extension class loader&quot;, e);
+        }
+
+        // Now create the class loader to use to launch the application
+        try {
+            loader = AppClassLoader.getAppClassLoader(extcl);
+        } catch (IOException e) {
+            throw new InternalError(
+                &quot;Could not create application class loader&quot;, e);
+        }
+
+        // Also set the context class loader for the primordial thread.
+        Thread.currentThread().setContextClassLoader(loader);
+
+        // Finally, install a security manager if requested
+        String s = System.getProperty(&quot;java.security.manager&quot;);
+        if (s != null) {
+            SecurityManager sm = null;
+            if (&quot;&quot;.equals(s) || &quot;default&quot;.equals(s)) {
+                sm = new java.lang.SecurityManager();
+            } else {
+                try {
+                    sm = (SecurityManager)loader.loadClass(s).newInstance();
+                } catch (IllegalAccessException e) {
+                } catch (InstantiationException e) {
+                } catch (ClassNotFoundException e) {
+                } catch (ClassCastException e) {
+                }
+            }
+            if (sm != null) {
+                System.setSecurityManager(sm);
+            } else {
+                throw new InternalError(
+                    &quot;Could not create SecurityManager: &quot; + s);
+            }
+        }
+    }
+
+</code></pre>
 <h3 id="双亲委派的好处"><a href="#双亲委派的好处" class="headerlink" title="双亲委派的好处"></a>双亲委派的好处</h3><p><strong>对于任意一个类，都需要由加载它的类加载器和这个类本身一同确立其在虚拟机中的唯一性</strong>，每一个类加载器，都拥有一个独立的类名称空间。因此，使用双亲委派模型来组织类加载器之间的关系，有一个显而易见的好处：<strong>类随着它的类加载器一起具备了一种带有优先级的层次关系</strong>。</p>
 <p>例如类<code>java.lang.Object</code>，它由启动类加载器加载。双亲委派模型保证任何类加载器收到的对<code>java.lang.Object</code>的加载请求，最终都是委派给处于模型最顶端的启动类加载器进行加载，因此<strong>Object类在程序的各种类加载器环境中都是同一个类</strong>。</p>
 <p>相反，如果没有使用双亲委派模型，由各个类加载器自行去加载的话，如果用户自己编写了一个称为java.lang.Object的类，并用自定义的类加载器加载，那系统中将会出现多个不同的Object类，Java类型体系中最基础的行为也就无法保证，应用程序也将会变得一片混乱。</p>
@@ -650,9 +708,87 @@
 <p> <a href="https://zhuanlan.zhihu.com/p/54773662?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336" target="_blank" rel="noopener">为什么Java中有三种基础的类加载器？</a></p>
 <p><a href="https://docs.oracle.com/javase/tutorial/ext/index.html" target="_blank" rel="noopener"> The Extension Mechanism</a> — How to make custom APIs available to all applications running on the Java platform.</p>
 </blockquote>
-<h2 id="source-of-classLoader"><a href="#source-of-classLoader" class="headerlink" title="source of classLoader"></a>source of classLoader</h2><h3 id="ClassLoader"><a href="#ClassLoader" class="headerlink" title="ClassLoader"></a>ClassLoader</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> Class&lt;?&gt; loadClass(String name, <span class="keyword">boolean</span> resolve)</span><br><span class="line">        <span class="keyword">throws</span> ClassNotFoundException&#123;</span><br><span class="line">    <span class="keyword">synchronized</span> (getClassLoadingLock(name)) &#123;</span><br><span class="line">        <span class="comment">// First, check if the class has already been loaded</span></span><br><span class="line">        Class&lt;?&gt; c = findLoadedClass(name);</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">long</span> t0 = System.nanoTime();</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (parent != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    c = parent.loadClass(name, <span class="keyword">false</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    c = findBootstrapClassOrNull(name);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">                <span class="comment">// ClassNotFoundException thrown if class not found</span></span><br><span class="line">                <span class="comment">// from the non-null parent class loader</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (c == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="comment">// If still not found, then invoke findClass in order</span></span><br><span class="line">                <span class="comment">// to find the class.</span></span><br><span class="line">                <span class="keyword">long</span> t1 = System.nanoTime();</span><br><span class="line">                c = findClass(name);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// this is the defining class loader; record the stats</span></span><br><span class="line">                sun.misc.PerfCounter.getParentDelegationTime().addTime(t1 - t0);</span><br><span class="line">                sun.misc.PerfCounter.getFindClassTime().addElapsedTimeFrom(t1);</span><br><span class="line">                sun.misc.PerfCounter.getFindClasses().increment();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (resolve) &#123;</span><br><span class="line">            resolveClass(c);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> ClassNotFoundException(name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">final</span> Class&lt;?&gt; defineClass(String name, <span class="keyword">byte</span>[] b, <span class="keyword">int</span> off, <span class="keyword">int</span> len,</span><br><span class="line">                                     ProtectionDomain protectionDomain)</span><br><span class="line">    <span class="keyword">throws</span> ClassFormatError&#123;</span><br><span class="line">    protectionDomain = preDefineClass(name, protectionDomain);</span><br><span class="line">    String source = defineClassSourceLocation(protectionDomain);</span><br><span class="line">    Class&lt;?&gt; c = defineClass1(name, b, off, len, protectionDomain, source);</span><br><span class="line">    postDefineClass(c, protectionDomain);</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="source-of-classLoader"><a href="#source-of-classLoader" class="headerlink" title="source of classLoader"></a>source of classLoader</h2><h3 id="ClassLoader"><a href="#ClassLoader" class="headerlink" title="ClassLoader"></a>ClassLoader</h3><pre><code class="java">protected Class&lt;?&gt; loadClass(String name, boolean resolve)
+        throws ClassNotFoundException{
+    synchronized (getClassLoadingLock(name)) {
+        // First, check if the class has already been loaded
+        Class&lt;?&gt; c = findLoadedClass(name);
+        if (c == null) {
+            long t0 = System.nanoTime();
+            try {
+                if (parent != null) {
+                    c = parent.loadClass(name, false);
+                } else {
+                    c = findBootstrapClassOrNull(name);
+                }
+            } catch (ClassNotFoundException e) {
+                // ClassNotFoundException thrown if class not found
+                // from the non-null parent class loader
+            }
+
+            if (c == null) {
+                // If still not found, then invoke findClass in order
+                // to find the class.
+                long t1 = System.nanoTime();
+                c = findClass(name);
+
+                // this is the defining class loader; record the stats
+                sun.misc.PerfCounter.getParentDelegationTime().addTime(t1 - t0);
+                sun.misc.PerfCounter.getFindClassTime().addElapsedTimeFrom(t1);
+                sun.misc.PerfCounter.getFindClasses().increment();
+            }
+        }
+        if (resolve) {
+            resolveClass(c);
+        }
+        return c;
+    }
+}
+
+protected Class&lt;?&gt; findClass(String name) throws ClassNotFoundException {
+    throw new ClassNotFoundException(name);
+}
+
+protected final Class&lt;?&gt; defineClass(String name, byte[] b, int off, int len,
+                                     ProtectionDomain protectionDomain)
+    throws ClassFormatError{
+    protectionDomain = preDefineClass(name, protectionDomain);
+    String source = defineClassSourceLocation(protectionDomain);
+    Class&lt;?&gt; c = defineClass1(name, b, off, len, protectionDomain, source);
+    postDefineClass(c, protectionDomain);
+    return c;
+}
+</code></pre>
 <p>findClass 见URLClassLoader实现,最后会调用defineClass</p>
-<h3 id="URLClassLoder"><a href="#URLClassLoder" class="headerlink" title="URLClassLoder"></a>URLClassLoder</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> Class&lt;?&gt; findClass(<span class="keyword">final</span> String name)</span><br><span class="line">    <span class="keyword">throws</span> ClassNotFoundException&#123;</span><br><span class="line">    <span class="keyword">final</span> Class&lt;?&gt; result;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        result = AccessController.doPrivileged(</span><br><span class="line">            <span class="keyword">new</span> PrivilegedExceptionAction&lt;Class&lt;?&gt;&gt;() &#123;</span><br><span class="line">                <span class="keyword">public</span> Class&lt;?&gt; run() <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">                    String path = name.replace(<span class="string">'.'</span>, <span class="string">'/'</span>).concat(<span class="string">".class"</span>);</span><br><span class="line">                    Resource res = ucp.getResource(path, <span class="keyword">false</span>);</span><br><span class="line">                    <span class="keyword">if</span> (res != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        <span class="keyword">try</span> &#123;</span><br><span class="line">                            <span class="keyword">return</span> defineClass(name, res);</span><br><span class="line">                        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                            <span class="keyword">throw</span> <span class="keyword">new</span> ClassNotFoundException(name, e);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;, acc);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (java.security.PrivilegedActionException pae) &#123;</span><br><span class="line">        <span class="keyword">throw</span> (ClassNotFoundException) pae.getException();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (result == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ClassNotFoundException(name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="URLClassLoder"><a href="#URLClassLoder" class="headerlink" title="URLClassLoder"></a>URLClassLoder</h3><pre><code class="java">protected Class&lt;?&gt; findClass(final String name)
+    throws ClassNotFoundException{
+    final Class&lt;?&gt; result;
+    try {
+        result = AccessController.doPrivileged(
+            new PrivilegedExceptionAction&lt;Class&lt;?&gt;&gt;() {
+                public Class&lt;?&gt; run() throws ClassNotFoundException {
+                    String path = name.replace(&#39;.&#39;, &#39;/&#39;).concat(&quot;.class&quot;);
+                    Resource res = ucp.getResource(path, false);
+                    if (res != null) {
+                        try {
+                            return defineClass(name, res);
+                        } catch (IOException e) {
+                            throw new ClassNotFoundException(name, e);
+                        }
+                    } else {
+                        return null;
+                    }
+                }
+            }, acc);
+    } catch (java.security.PrivilegedActionException pae) {
+        throw (ClassNotFoundException) pae.getException();
+    }
+    if (result == null) {
+        throw new ClassNotFoundException(name);
+    }
+    return result;
+}
+</code></pre>
 <p>类加载的过程  加载 、验证、 准备、 链接 、初始化 、使用 、卸载</p>
 <h2 id="more-details"><a href="#more-details" class="headerlink" title="more details"></a>more details</h2><ul>
 <li><p>security(安全)</p>
@@ -660,7 +796,18 @@
 </li>
 <li><p>Parallel(并发)</p>
 <p>Class loaders that support concurrent loading of classes are known as <em>parallel capable</em> class loaders and are required to register themselves at their class initialization time by invoking the<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html#registerAsParallelCapable--" target="_blank" rel="noopener"><code>ClassLoader.registerAsParallelCapable</code></a> method. Note that the <code>ClassLoader</code> class is registered as parallel capable by default. However, its subclasses still need to register themselves if they are parallel capable.<br>In environments in which the delegation model is not strictly hierarchical, class loaders need to be parallel capable, otherwise class loading can lead to deadlocks because the loader lock is held for the duration of the class loading process (see <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html#loadClass-java.lang.String-" target="_blank" rel="noopener"><code>loadClass</code></a> methods).</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> Object <span class="title">getClassLoadingLock</span><span class="params">(String className)</span> </span>&#123;</span><br><span class="line">    Object lock = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">if</span> (parallelLockMap != <span class="keyword">null</span>) &#123;</span><br><span class="line">        Object newLock = <span class="keyword">new</span> Object();</span><br><span class="line">        lock = parallelLockMap.putIfAbsent(className, newLock);</span><br><span class="line">        <span class="keyword">if</span> (lock == <span class="keyword">null</span>) &#123;</span><br><span class="line">            lock = newLock;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> lock;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">protected Object getClassLoadingLock(String className) {
+    Object lock = this;
+    if (parallelLockMap != null) {
+        Object newLock = new Object();
+        lock = parallelLockMap.putIfAbsent(className, newLock);
+        if (lock == null) {
+            lock = newLock;
+        }
+    }
+    return lock;
+}
+</code></pre>
 </li>
 <li><p>ClassNotFoundException and  NoClassDefFoundError(LinkageError)</p>
 </li>
@@ -724,7 +871,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#ejb','#gc','#collections','#map','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#collections','#map','#spring-mvc','#spring-webflux',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -882,6 +1029,15 @@
 
     /*引用块样式*/
     
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
 
     /*文章列表背景图*/
     
@@ -905,16 +1061,6 @@
     }
     
 
-    
-    .post .pjax article :not(pre) > code {
-        color: #24292e;
-        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-        background-color: rgba(27,31,35,.05);
-        border-radius: 3px;
-        font-size: 85%;
-        margin: 0;
-        padding: .2em .4em;
-    }
     
 </style>
 

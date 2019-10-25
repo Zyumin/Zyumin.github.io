@@ -24,7 +24,7 @@
 
 <link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.0.1" rel="stylesheet">
+<link href="/css/hl_theme/github-gist.css?v=1.0.1" rel="stylesheet">
 
 <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -119,7 +119,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="43">
-<input type="hidden" id="yelog_site_word_count" value="127.8k">
+<input type="hidden" id="yelog_site_word_count" value="126k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -154,6 +154,10 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">week</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hide</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -277,11 +281,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color3">gc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
+        <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -475,7 +479,7 @@
             <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
         </a>
         
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week" data-author="">
+        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
@@ -588,8 +592,8 @@
     .left-col .switch-area {
         display: none;
     }
-    .toc-level-3 i,
-    .toc-level-3 ol {
+    .toc-level-4 i,
+    .toc-level-4 ol {
         display: none !important;
     }
 </style>
@@ -957,8 +961,23 @@
 </blockquote>
 <p>因为old区和young区的收集是独立的,所以可以同时发生,这样会导致长暂停</p>
 <p>为了避免这个问题, remake pause 会安排在两次young gc中间</p>
-<h5 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[121,834s][info][gc] GC(657) Pause Initial Mark 191M-&gt;191M(485M) (121,831s, 121,834s) 3,433ms</span><br><span class="line">[121,835s][info][gc] GC(657) Concurrent Mark (121,835s)</span><br><span class="line">[121,889s][info][gc] GC(657) Concurrent Mark (121,835s, 121,889s) 54,330ms</span><br><span class="line">[121,889s][info][gc] GC(657) Concurrent Preclean (121,889s)</span><br><span class="line">[121,892s][info][gc] GC(657) Concurrent Preclean (121,889s, 121,892s) 2,781ms</span><br><span class="line">[121,892s][info][gc] GC(657) Concurrent Abortable Preclean (121,892s)</span><br><span class="line">[121,949s][info][gc] GC(658) Pause Young (Allocation Failure) 324M-&gt;199M(485M) (121,929s, 121,949s) 19,705ms</span><br><span class="line">[122,068s][info][gc] GC(659) Pause Young (Allocation Failure) 333M-&gt;200M(485M) (122,043s, 122,068s) 24,892ms</span><br><span class="line">[122,075s][info][gc] GC(657) Concurrent Abortable Preclean (121,892s, 122,075s) 182,989ms</span><br><span class="line">[122,087s][info][gc] GC(657) Pause Remark 209M-&gt;209M(485M) (122,076s, 122,087s) 11,373ms</span><br><span class="line">[122,087s][info][gc] GC(657) Concurrent Sweep (122,087s)</span><br><span class="line">[122,193s][info][gc] GC(660) Pause Young (Allocation Failure) 301M-&gt;165M(485M) (122,181s, 122,193s) 12,151ms</span><br><span class="line">[122,254s][info][gc] GC(657) Concurrent Sweep (122,087s, 122,254s) 166,758ms</span><br><span class="line">[122,254s][info][gc] GC(657) Concurrent Reset (122,254s)</span><br><span class="line">[122,255s][info][gc] GC(657) Concurrent Reset (122,254s, 122,255s) 0,952ms</span><br><span class="line">[122,297s][info][gc] GC(661) Pause Young (Allocation Failure) 259M-&gt;128M(485M) (122,291s, 122,297s) 5,797ms</span><br></pre></td></tr></table></figure>
-<p>The output for the CMS collection (GC ID 657) is interspersed with the output from the minor collections (GC IDs 658, 659 and 660);</p>
+<h5 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h5><pre><code>[121,834s][info][gc] GC(657) Pause Initial Mark 191M-&gt;191M(485M) (121,831s, 121,834s) 3,433ms
+[121,835s][info][gc] GC(657) Concurrent Mark (121,835s)
+[121,889s][info][gc] GC(657) Concurrent Mark (121,835s, 121,889s) 54,330ms
+[121,889s][info][gc] GC(657) Concurrent Preclean (121,889s)
+[121,892s][info][gc] GC(657) Concurrent Preclean (121,889s, 121,892s) 2,781ms
+[121,892s][info][gc] GC(657) Concurrent Abortable Preclean (121,892s)
+[121,949s][info][gc] GC(658) Pause Young (Allocation Failure) 324M-&gt;199M(485M) (121,929s, 121,949s) 19,705ms
+[122,068s][info][gc] GC(659) Pause Young (Allocation Failure) 333M-&gt;200M(485M) (122,043s, 122,068s) 24,892ms
+[122,075s][info][gc] GC(657) Concurrent Abortable Preclean (121,892s, 122,075s) 182,989ms
+[122,087s][info][gc] GC(657) Pause Remark 209M-&gt;209M(485M) (122,076s, 122,087s) 11,373ms
+[122,087s][info][gc] GC(657) Concurrent Sweep (122,087s)
+[122,193s][info][gc] GC(660) Pause Young (Allocation Failure) 301M-&gt;165M(485M) (122,181s, 122,193s) 12,151ms
+[122,254s][info][gc] GC(657) Concurrent Sweep (122,087s, 122,254s) 166,758ms
+[122,254s][info][gc] GC(657) Concurrent Reset (122,254s)
+[122,255s][info][gc] GC(657) Concurrent Reset (122,254s, 122,255s) 0,952ms
+[122,297s][info][gc] GC(661) Pause Young (Allocation Failure) 259M-&gt;128M(485M) (122,291s, 122,297s) 5,797ms
+</code></pre><p>The output for the CMS collection (GC ID 657) is interspersed with the output from the minor collections (GC IDs 658, 659 and 660);</p>
 <p>The initial mark pause is typically short relative to the minor collection pause time. The concurrent phases (concurrent mark, concurrent preclean, and concurrent sweep) normally last significantly longer than a minor collection pause, as indicated in the CMS collector output example</p>
 <p>从gc log 可以看到young gc 是会并存的,同时cms的主要耗时是  Concurrent phases</p>
 <p>同时注意每次stop the world 算一次full gc</p>
@@ -1086,7 +1105,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#ejb','#gc','#collections','#map','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#collections','#map','#spring-mvc','#spring-webflux',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -1244,6 +1263,15 @@
 
     /*引用块样式*/
     
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
 
     /*文章列表背景图*/
     
@@ -1267,16 +1295,6 @@
     }
     
 
-    
-    .post .pjax article :not(pre) > code {
-        color: #24292e;
-        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-        background-color: rgba(27,31,35,.05);
-        border-radius: 3px;
-        font-size: 85%;
-        margin: 0;
-        padding: .2em .4em;
-    }
     
 </style>
 

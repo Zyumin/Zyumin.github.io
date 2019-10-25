@@ -24,7 +24,7 @@
 
 <link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.0.1" rel="stylesheet">
+<link href="/css/hl_theme/github-gist.css?v=1.0.1" rel="stylesheet">
 
 <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -119,7 +119,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="43">
-<input type="hidden" id="yelog_site_word_count" value="127.8k">
+<input type="hidden" id="yelog_site_word_count" value="126k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -154,6 +154,10 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">week</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hide</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -277,11 +281,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color3">gc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
+        <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -475,7 +479,7 @@
             <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
         </a>
         
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week" data-author="">
+        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
@@ -562,7 +566,7 @@
     </div>
     <div class="article-meta">
         
-        <span>字数:2k</span>
+        <span>字数:2.1k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -588,8 +592,8 @@
     .left-col .switch-area {
         display: none;
     }
-    .toc-level-3 i,
-    .toc-level-3 ol {
+    .toc-level-4 i,
+    .toc-level-4 ol {
         display: none !important;
     }
 </style>
@@ -677,19 +681,220 @@
 </ul>
 <h2 id="OpenJDK"><a href="#OpenJDK" class="headerlink" title="OpenJDK"></a>OpenJDK</h2><p>openJDK下载<br><a href="http://hg.openjdk.java.net/jdk8u/jdk8u60/hotspot/archive/37240c1019fd.tar.gz" target="_blank" rel="noopener">http://hg.openjdk.java.net/jdk8u/jdk8u60/hotspot/archive/37240c1019fd.tar.gz</a><br><a href="http://hg.openjdk.java.net/jdk8u/jdk8u60/jdk/archive/tip.tar.gz" target="_blank" rel="noopener">http://hg.openjdk.java.net/jdk8u/jdk8u60/jdk/archive/tip.tar.gz</a></p>
 <p>例如,我们想看<code>java.lang.Thread#sleep(long)</code>的实现</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Causes the currently executing thread to sleep (temporarily cease</span></span><br><span class="line"><span class="comment"> * execution) for the specified number of milliseconds, subject to</span></span><br><span class="line"><span class="comment"> * the precision and accuracy of system timers and schedulers. The thread</span></span><br><span class="line"><span class="comment"> * does not lose ownership of any monitors.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>  millis</span></span><br><span class="line"><span class="comment"> *         the length of time to sleep in milliseconds</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span>  IllegalArgumentException</span></span><br><span class="line"><span class="comment"> *          if the value of &#123;<span class="doctag">@code</span> millis&#125; is negative</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span>  InterruptedException</span></span><br><span class="line"><span class="comment"> *          if any thread has interrupted the current thread. The</span></span><br><span class="line"><span class="comment"> *          &lt;i&gt;interrupted status&lt;/i&gt; of the current thread is</span></span><br><span class="line"><span class="comment"> *          cleared when this exception is thrown.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">sleep</span><span class="params">(<span class="keyword">long</span> millis)</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">/**
+ * Causes the currently executing thread to sleep (temporarily cease
+ * execution) for the specified number of milliseconds, subject to
+ * the precision and accuracy of system timers and schedulers. The thread
+ * does not lose ownership of any monitors.
+ *
+ * @param  millis
+ *         the length of time to sleep in milliseconds
+ *
+ * @throws  IllegalArgumentException
+ *          if the value of {@code millis} is negative
+ *
+ * @throws  InterruptedException
+ *          if any thread has interrupted the current thread. The
+ *          &lt;i&gt;interrupted status&lt;/i&gt; of the current thread is
+ *          cleared when this exception is thrown.
+ */
+public static native void sleep(long millis) throws InterruptedException;
+</code></pre>
 <p>native方法, 即我们常说的JNI——java native Interface ,调用本地接口,一般是将其它编程语言(如 C、C++ 和汇编语言）通过编译生成的动态链接库(编译过程是利用C／C++编译器实现的，在windows平台上，编译和连接的结果是动态链接库DLL文件。当要使用生成的动态链接库时，调用者类中需要显式调用该链接库dll文件。)</p>
 <p>这些动态链接库是在JVM启动的时候装载进来的.</p>
 <blockquote>
 <p><a href="https://zhuanlan.zhihu.com/p/25713880" target="_blank" rel="noopener">更多相关</a> 或阅读 JNI规范</p>
 </blockquote>
 <p>好了回到正题,首先在下载的jdk包中,以下路径<code>src/share/native/java/lang/Thread.c</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Copyright (c) 1994, 2012, Oracle and/or its affiliates. All rights reserved.</span></span><br><span class="line"><span class="comment"> * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * This code is free software; you can redistribute it and/or modify it</span></span><br><span class="line"><span class="comment"> * under the terms of the GNU General Public License version 2 only, as</span></span><br><span class="line"><span class="comment"> * published by the Free Software Foundation.  Oracle designates this</span></span><br><span class="line"><span class="comment"> * particular file as subject to the "Classpath" exception as provided</span></span><br><span class="line"><span class="comment"> * by Oracle in the LICENSE file that accompanied this code.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * This code is distributed in the hope that it will be useful, but WITHOUT</span></span><br><span class="line"><span class="comment"> * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</span></span><br><span class="line"><span class="comment"> * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License</span></span><br><span class="line"><span class="comment"> * version 2 for more details (a copy is included in the LICENSE file that</span></span><br><span class="line"><span class="comment"> * accompanied this code).</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * You should have received a copy of the GNU General Public License version</span></span><br><span class="line"><span class="comment"> * 2 along with this work; if not, write to the Free Software Foundation,</span></span><br><span class="line"><span class="comment"> * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA</span></span><br><span class="line"><span class="comment"> * or visit www.oracle.com if you need additional information or have any</span></span><br><span class="line"><span class="comment"> * questions.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*-</span></span><br><span class="line"><span class="comment"> *      Stuff for dealing with threads.</span></span><br><span class="line"><span class="comment"> *      originally in threadruntime.c, Sun Sep 22 12:09:39 1991</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"jni.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"jvm.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"java_lang_Thread.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> THD <span class="meta-string">"Ljava/lang/Thread;"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OBJ <span class="meta-string">"Ljava/lang/Object;"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> STE <span class="meta-string">"Ljava/lang/StackTraceElement;"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> STR <span class="meta-string">"Ljava/lang/String;"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ARRAY_LENGTH(a) (sizeof(a)/sizeof(a[0]))</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> JNINativeMethod methods[] = &#123;</span><br><span class="line">    &#123;<span class="string">"start0"</span>,           <span class="string">"()V"</span>,        (<span class="keyword">void</span> *)&amp;JVM_StartThread&#125;,</span><br><span class="line">    &#123;<span class="string">"stop0"</span>,            <span class="string">"("</span> OBJ <span class="string">")V"</span>, (<span class="keyword">void</span> *)&amp;JVM_StopThread&#125;,</span><br><span class="line">    &#123;<span class="string">"isAlive"</span>,          <span class="string">"()Z"</span>,        (<span class="keyword">void</span> *)&amp;JVM_IsThreadAlive&#125;,</span><br><span class="line">    &#123;<span class="string">"suspend0"</span>,         <span class="string">"()V"</span>,        (<span class="keyword">void</span> *)&amp;JVM_SuspendThread&#125;,</span><br><span class="line">    &#123;<span class="string">"resume0"</span>,          <span class="string">"()V"</span>,        (<span class="keyword">void</span> *)&amp;JVM_ResumeThread&#125;,</span><br><span class="line">    &#123;<span class="string">"setPriority0"</span>,     <span class="string">"(I)V"</span>,       (<span class="keyword">void</span> *)&amp;JVM_SetThreadPriority&#125;,</span><br><span class="line">    &#123;<span class="string">"yield"</span>,            <span class="string">"()V"</span>,        (<span class="keyword">void</span> *)&amp;JVM_Yield&#125;,</span><br><span class="line">    &#123;<span class="string">"sleep"</span>,            <span class="string">"(J)V"</span>,       (<span class="keyword">void</span> *)&amp;JVM_Sleep&#125;,</span><br><span class="line">    &#123;<span class="string">"currentThread"</span>,    <span class="string">"()"</span> THD,     (<span class="keyword">void</span> *)&amp;JVM_CurrentThread&#125;,</span><br><span class="line">    &#123;<span class="string">"countStackFrames"</span>, <span class="string">"()I"</span>,        (<span class="keyword">void</span> *)&amp;JVM_CountStackFrames&#125;,</span><br><span class="line">    &#123;<span class="string">"interrupt0"</span>,       <span class="string">"()V"</span>,        (<span class="keyword">void</span> *)&amp;JVM_Interrupt&#125;,</span><br><span class="line">    &#123;<span class="string">"isInterrupted"</span>,    <span class="string">"(Z)Z"</span>,       (<span class="keyword">void</span> *)&amp;JVM_IsInterrupted&#125;,</span><br><span class="line">    &#123;<span class="string">"holdsLock"</span>,        <span class="string">"("</span> OBJ <span class="string">")Z"</span>, (<span class="keyword">void</span> *)&amp;JVM_HoldsLock&#125;,</span><br><span class="line">    &#123;<span class="string">"getThreads"</span>,        <span class="string">"()["</span> THD,   (<span class="keyword">void</span> *)&amp;JVM_GetAllThreads&#125;,</span><br><span class="line">    &#123;<span class="string">"dumpThreads"</span>,      <span class="string">"(["</span> THD <span class="string">")[["</span> STE, (<span class="keyword">void</span> *)&amp;JVM_DumpThreads&#125;,</span><br><span class="line">    &#123;<span class="string">"setNativeName"</span>,    <span class="string">"("</span> STR <span class="string">")V"</span>, (<span class="keyword">void</span> *)&amp;JVM_SetNativeThreadName&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span> THD</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span> OBJ</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span> STE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">undef</span> STR</span></span><br><span class="line"></span><br><span class="line">JNIEXPORT <span class="keyword">void</span> JNICALL</span><br><span class="line">Java_java_lang_Thread_registerNatives(JNIEnv *env, jclass cls)</span><br><span class="line">&#123;</span><br><span class="line">    (*env)-&gt;RegisterNatives(env, cls, methods, ARRAY_LENGTH(methods));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="c">/*
+ * Copyright (c) 1994, 2012, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the &quot;Classpath&quot; exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
+ *
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
+ */
+
+/*-
+ *      Stuff for dealing with threads.
+ *      originally in threadruntime.c, Sun Sep 22 12:09:39 1991
+ */
+
+#include &quot;jni.h&quot;
+#include &quot;jvm.h&quot;
+
+#include &quot;java_lang_Thread.h&quot;
+
+#define THD &quot;Ljava/lang/Thread;&quot;
+#define OBJ &quot;Ljava/lang/Object;&quot;
+#define STE &quot;Ljava/lang/StackTraceElement;&quot;
+#define STR &quot;Ljava/lang/String;&quot;
+
+#define ARRAY_LENGTH(a) (sizeof(a)/sizeof(a[0]))
+
+static JNINativeMethod methods[] = {
+    {&quot;start0&quot;,           &quot;()V&quot;,        (void *)&amp;JVM_StartThread},
+    {&quot;stop0&quot;,            &quot;(&quot; OBJ &quot;)V&quot;, (void *)&amp;JVM_StopThread},
+    {&quot;isAlive&quot;,          &quot;()Z&quot;,        (void *)&amp;JVM_IsThreadAlive},
+    {&quot;suspend0&quot;,         &quot;()V&quot;,        (void *)&amp;JVM_SuspendThread},
+    {&quot;resume0&quot;,          &quot;()V&quot;,        (void *)&amp;JVM_ResumeThread},
+    {&quot;setPriority0&quot;,     &quot;(I)V&quot;,       (void *)&amp;JVM_SetThreadPriority},
+    {&quot;yield&quot;,            &quot;()V&quot;,        (void *)&amp;JVM_Yield},
+    {&quot;sleep&quot;,            &quot;(J)V&quot;,       (void *)&amp;JVM_Sleep},
+    {&quot;currentThread&quot;,    &quot;()&quot; THD,     (void *)&amp;JVM_CurrentThread},
+    {&quot;countStackFrames&quot;, &quot;()I&quot;,        (void *)&amp;JVM_CountStackFrames},
+    {&quot;interrupt0&quot;,       &quot;()V&quot;,        (void *)&amp;JVM_Interrupt},
+    {&quot;isInterrupted&quot;,    &quot;(Z)Z&quot;,       (void *)&amp;JVM_IsInterrupted},
+    {&quot;holdsLock&quot;,        &quot;(&quot; OBJ &quot;)Z&quot;, (void *)&amp;JVM_HoldsLock},
+    {&quot;getThreads&quot;,        &quot;()[&quot; THD,   (void *)&amp;JVM_GetAllThreads},
+    {&quot;dumpThreads&quot;,      &quot;([&quot; THD &quot;)[[&quot; STE, (void *)&amp;JVM_DumpThreads},
+    {&quot;setNativeName&quot;,    &quot;(&quot; STR &quot;)V&quot;, (void *)&amp;JVM_SetNativeThreadName},
+};
+
+#undef THD
+#undef OBJ
+#undef STE
+#undef STR
+
+JNIEXPORT void JNICALL
+Java_java_lang_Thread_registerNatives(JNIEnv *env, jclass cls)
+{
+    (*env)-&gt;RegisterNatives(env, cls, methods, ARRAY_LENGTH(methods));
+}
+
+</code></pre>
 <p>一般，从jdk目录下的native目录(可能跟os平台相关)下根据包名路径去找相关的Class名.c文件(Thread.c)，如 即可找到对应的native方法；</p>
 <p>如果间接调用了hotspot的实现(jvm会以动态库的形式被加载，<code>prims</code>定义了hotspot与其他模块的接口及其实现)，那么从<code>hotspot/src/share/vm/prims/jvm.cpp</code>文件中可找到JVM_XXX函数(例如JVM_Sleep)的实现。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">JVM_ENTRY(<span class="keyword">void</span>, JVM_Sleep(JNIEnv* env, jclass threadClass, jlong millis))</span><br><span class="line">  JVMWrapper(<span class="string">"JVM_Sleep"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (millis &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    THROW_MSG(vmSymbols::java_lang_IllegalArgumentException(), <span class="string">"timeout value is negative"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (Thread::is_interrupted (THREAD, <span class="literal">true</span>) &amp;&amp; !HAS_PENDING_EXCEPTION) &#123;</span><br><span class="line">    THROW_MSG(vmSymbols::java_lang_InterruptedException(), <span class="string">"sleep interrupted"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Save current thread state and restore it at the end of this block.</span></span><br><span class="line">  <span class="comment">// And set new thread state to SLEEPING.</span></span><br><span class="line">  <span class="function">JavaThreadSleepState <span class="title">jtss</span><span class="params">(thread)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> USDT2</span></span><br><span class="line">  HS_DTRACE_PROBE1(hotspot, thread__sleep__begin, millis);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span> <span class="comment">/* USDT2 */</span></span></span><br><span class="line">  HOTSPOT_THREAD_SLEEP_BEGIN(</span><br><span class="line">                             millis);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* USDT2 */</span></span></span><br><span class="line"></span><br><span class="line">  EventThreadSleep event;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (millis == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">// When ConvertSleepToYield is on, this matches the classic VM implementation of</span></span><br><span class="line">    <span class="comment">// JVM_Sleep. Critical for similar threading behaviour (Win32)</span></span><br><span class="line">    <span class="comment">// It appears that in certain GUI contexts, it may be beneficial to do a short sleep</span></span><br><span class="line">    <span class="comment">// for SOLARIS</span></span><br><span class="line">    <span class="keyword">if</span> (ConvertSleepToYield) &#123;</span><br><span class="line">      os::yield();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      ThreadState old_state = thread-&gt;osthread()-&gt;get_state();</span><br><span class="line">      thread-&gt;osthread()-&gt;set_state(SLEEPING);</span><br><span class="line">      os::sleep(thread, MinSleepInterval, <span class="literal">false</span>);</span><br><span class="line">      thread-&gt;osthread()-&gt;set_state(old_state);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    ThreadState old_state = thread-&gt;osthread()-&gt;get_state();</span><br><span class="line">    thread-&gt;osthread()-&gt;set_state(SLEEPING);</span><br><span class="line">    <span class="keyword">if</span> (os::sleep(thread, millis, <span class="literal">true</span>) == OS_INTRPT) &#123;</span><br><span class="line">      <span class="comment">// An asynchronous exception (e.g., ThreadDeathException) could have been thrown on</span></span><br><span class="line">      <span class="comment">// us while we were sleeping. We do not overwrite those.</span></span><br><span class="line">      <span class="keyword">if</span> (!HAS_PENDING_EXCEPTION) &#123;</span><br><span class="line">        <span class="keyword">if</span> (event.should_commit()) &#123;</span><br><span class="line">          event.set_time(millis);</span><br><span class="line">          event.commit();</span><br><span class="line">        &#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> USDT2</span></span><br><span class="line">        HS_DTRACE_PROBE1(hotspot, thread__sleep__end,<span class="number">1</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span> <span class="comment">/* USDT2 */</span></span></span><br><span class="line">        HOTSPOT_THREAD_SLEEP_END(</span><br><span class="line">                                 <span class="number">1</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* USDT2 */</span></span></span><br><span class="line">        <span class="comment">// TODO-<span class="doctag">FIXME:</span> THROW_MSG returns which means we will not call set_state()</span></span><br><span class="line">        <span class="comment">// to properly restore the thread state.  That's likely wrong.</span></span><br><span class="line">        THROW_MSG(vmSymbols::java_lang_InterruptedException(), <span class="string">"sleep interrupted"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    thread-&gt;osthread()-&gt;set_state(old_state);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (event.should_commit()) &#123;</span><br><span class="line">    event.set_time(millis);</span><br><span class="line">    event.commit();</span><br><span class="line">  &#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> USDT2</span></span><br><span class="line">  HS_DTRACE_PROBE1(hotspot, thread__sleep__end,<span class="number">0</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span> <span class="comment">/* USDT2 */</span></span></span><br><span class="line">  HOTSPOT_THREAD_SLEEP_END(</span><br><span class="line">                           <span class="number">0</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">/* USDT2 */</span></span></span><br><span class="line">JVM_END</span><br></pre></td></tr></table></figure>
+<pre><code class="c">JVM_ENTRY(void, JVM_Sleep(JNIEnv* env, jclass threadClass, jlong millis))
+  JVMWrapper(&quot;JVM_Sleep&quot;);
+
+  if (millis &lt; 0) {
+    THROW_MSG(vmSymbols::java_lang_IllegalArgumentException(), &quot;timeout value is negative&quot;);
+  }
+
+  if (Thread::is_interrupted (THREAD, true) &amp;&amp; !HAS_PENDING_EXCEPTION) {
+    THROW_MSG(vmSymbols::java_lang_InterruptedException(), &quot;sleep interrupted&quot;);
+  }
+
+  // Save current thread state and restore it at the end of this block.
+  // And set new thread state to SLEEPING.
+  JavaThreadSleepState jtss(thread);
+
+#ifndef USDT2
+  HS_DTRACE_PROBE1(hotspot, thread__sleep__begin, millis);
+#else /* USDT2 */
+  HOTSPOT_THREAD_SLEEP_BEGIN(
+                             millis);
+#endif /* USDT2 */
+
+  EventThreadSleep event;
+
+  if (millis == 0) {
+    // When ConvertSleepToYield is on, this matches the classic VM implementation of
+    // JVM_Sleep. Critical for similar threading behaviour (Win32)
+    // It appears that in certain GUI contexts, it may be beneficial to do a short sleep
+    // for SOLARIS
+    if (ConvertSleepToYield) {
+      os::yield();
+    } else {
+      ThreadState old_state = thread-&gt;osthread()-&gt;get_state();
+      thread-&gt;osthread()-&gt;set_state(SLEEPING);
+      os::sleep(thread, MinSleepInterval, false);
+      thread-&gt;osthread()-&gt;set_state(old_state);
+    }
+  } else {
+    ThreadState old_state = thread-&gt;osthread()-&gt;get_state();
+    thread-&gt;osthread()-&gt;set_state(SLEEPING);
+    if (os::sleep(thread, millis, true) == OS_INTRPT) {
+      // An asynchronous exception (e.g., ThreadDeathException) could have been thrown on
+      // us while we were sleeping. We do not overwrite those.
+      if (!HAS_PENDING_EXCEPTION) {
+        if (event.should_commit()) {
+          event.set_time(millis);
+          event.commit();
+        }
+#ifndef USDT2
+        HS_DTRACE_PROBE1(hotspot, thread__sleep__end,1);
+#else /* USDT2 */
+        HOTSPOT_THREAD_SLEEP_END(
+                                 1);
+#endif /* USDT2 */
+        // TODO-FIXME: THROW_MSG returns which means we will not call set_state()
+        // to properly restore the thread state.  That&#39;s likely wrong.
+        THROW_MSG(vmSymbols::java_lang_InterruptedException(), &quot;sleep interrupted&quot;);
+      }
+    }
+    thread-&gt;osthread()-&gt;set_state(old_state);
+  }
+  if (event.should_commit()) {
+    event.set_time(millis);
+    event.commit();
+  }
+#ifndef USDT2
+  HS_DTRACE_PROBE1(hotspot, thread__sleep__end,0);
+#else /* USDT2 */
+  HOTSPOT_THREAD_SLEEP_END(
+                           0);
+#endif /* USDT2 */
+JVM_END
+</code></pre>
 <p>贴个Hotspot目录结构(openjdk/hotspot/src/share/tools/launcher/java.c,openjdk8 中，这个启动器不见了，被放在 <code>openjdk/jdk</code> 文件夹下)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">├─agent                            Serviceability Agent的客户端实现</span><br><span class="line">├─make                             用来build出HotSpot的各种配置文件</span><br><span class="line">├─src                              HotSpot VM的源代码</span><br><span class="line">│  ├─cpu                            CPU相关代码（汇编器、模板解释器、ad文件、部分runtime函数在这里实现）</span><br><span class="line">│  ├─os                             操作系相关代码</span><br><span class="line">│  ├─os_cpu                         操作系统+CPU的组合相关的代码</span><br><span class="line">│  └─share                          平台无关的共通代码</span><br><span class="line">│      ├─tools                        工具</span><br><span class="line">│      │  ├─hsdis                      反汇编插件</span><br><span class="line">│      │  ├─IdealGraphVisualizer       将server编译器的中间代码可视化的工具</span><br><span class="line">│      │  ├─launcher                   启动程序“java”</span><br><span class="line">│      │  ├─LogCompilation             将-XX:+LogCompilation输出的日志（hotspot.log）整理成更容易阅读的格式的工具</span><br><span class="line">│      │  └─ProjectCreator             生成Visual Studio的project文件的工具</span><br><span class="line">│      └─vm                           HotSpot VM的核心代码</span><br><span class="line">│          ├─adlc                       平台描述文件（上面的cpu或os_cpu里的*.ad文件）的编译器</span><br><span class="line">│          ├─asm                        汇编器接口</span><br><span class="line">│          ├─c1                         client编译器（又称“C1”）</span><br><span class="line">│          ├─ci                         动态编译器的公共服务/从动态编译器到VM的接口</span><br><span class="line">│          ├─classfile                  类文件的处理（包括类加载和系统符号表等）</span><br><span class="line">│          ├─code                       动态生成的代码的管理</span><br><span class="line">│          ├─compiler                   从VM调用动态编译器的接口</span><br><span class="line">│          ├─gc_implementation          GC的实现</span><br><span class="line">│          │  ├─concurrentMarkSweep      Concurrent Mark Sweep GC的实现</span><br><span class="line">│          │  ├─g1                       Garbage-First GC的实现（不使用老的分代式GC框架）</span><br><span class="line">│          │  ├─parallelScavenge         ParallelScavenge GC的实现（server VM默认，不使用老的分代式GC框架）</span><br><span class="line">│          │  ├─parNew                   ParNew GC的实现</span><br><span class="line">│          │  └─shared                   GC的共通实现</span><br><span class="line">│          ├─gc_interface               GC的接口</span><br><span class="line">│          ├─interpreter                解释器，包括“模板解释器”（官方版在用）和“C++解释器”（官方版不在用）</span><br><span class="line">│          ├─libadt                     一些抽象数据结构</span><br><span class="line">│          ├─memory                     内存管理相关（老的分代式GC框架也在这里）</span><br><span class="line">│          ├─oops                       HotSpot VM的对象系统的实现</span><br><span class="line">│          ├─opto                       server编译器（又称“C2”或“Opto”）</span><br><span class="line">│          ├─prims                      HotSpot VM的对外接口，包括部分标准库的native部分和JVMTI实现</span><br><span class="line">│          ├─runtime                    运行时支持库（包括线程管理、编译器调度、锁、反射等）</span><br><span class="line">│          ├─services                   主要是用来支持JMX之类的管理功能的接口</span><br><span class="line">│          ├─shark                      基于LLVM的JIT编译器（官方版里没有使用）</span><br><span class="line">│          └─utilities                  一些基本的工具类</span><br><span class="line">└─test                             单元测试</span><br></pre></td></tr></table></figure>
+<pre><code>├─agent                            Serviceability Agent的客户端实现
+├─make                             用来build出HotSpot的各种配置文件
+├─src                              HotSpot VM的源代码
+│  ├─cpu                            CPU相关代码（汇编器、模板解释器、ad文件、部分runtime函数在这里实现）
+│  ├─os                             操作系相关代码
+│  ├─os_cpu                         操作系统+CPU的组合相关的代码
+│  └─share                          平台无关的共通代码
+│      ├─tools                        工具
+│      │  ├─hsdis                      反汇编插件
+│      │  ├─IdealGraphVisualizer       将server编译器的中间代码可视化的工具
+│      │  ├─launcher                   启动程序“java”
+│      │  ├─LogCompilation             将-XX:+LogCompilation输出的日志（hotspot.log）整理成更容易阅读的格式的工具
+│      │  └─ProjectCreator             生成Visual Studio的project文件的工具
+│      └─vm                           HotSpot VM的核心代码
+│          ├─adlc                       平台描述文件（上面的cpu或os_cpu里的*.ad文件）的编译器
+│          ├─asm                        汇编器接口
+│          ├─c1                         client编译器（又称“C1”）
+│          ├─ci                         动态编译器的公共服务/从动态编译器到VM的接口
+│          ├─classfile                  类文件的处理（包括类加载和系统符号表等）
+│          ├─code                       动态生成的代码的管理
+│          ├─compiler                   从VM调用动态编译器的接口
+│          ├─gc_implementation          GC的实现
+│          │  ├─concurrentMarkSweep      Concurrent Mark Sweep GC的实现
+│          │  ├─g1                       Garbage-First GC的实现（不使用老的分代式GC框架）
+│          │  ├─parallelScavenge         ParallelScavenge GC的实现（server VM默认，不使用老的分代式GC框架）
+│          │  ├─parNew                   ParNew GC的实现
+│          │  └─shared                   GC的共通实现
+│          ├─gc_interface               GC的接口
+│          ├─interpreter                解释器，包括“模板解释器”（官方版在用）和“C++解释器”（官方版不在用）
+│          ├─libadt                     一些抽象数据结构
+│          ├─memory                     内存管理相关（老的分代式GC框架也在这里）
+│          ├─oops                       HotSpot VM的对象系统的实现
+│          ├─opto                       server编译器（又称“C2”或“Opto”）
+│          ├─prims                      HotSpot VM的对外接口，包括部分标准库的native部分和JVMTI实现
+│          ├─runtime                    运行时支持库（包括线程管理、编译器调度、锁、反射等）
+│          ├─services                   主要是用来支持JMX之类的管理功能的接口
+│          ├─shark                      基于LLVM的JIT编译器（官方版里没有使用）
+│          └─utilities                  一些基本的工具类
+└─test                             单元测试
+</code></pre>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 951488791@qq.com </span>
     </div>
@@ -699,7 +904,7 @@
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>JDK深入浅出</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">2k</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">2.1k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-06-13, 19:36:54</p>
     <p><span class="copy-title">最后更新:</span>2019-07-10, 02:39:22</p>
@@ -746,7 +951,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#ejb','#gc','#collections','#map','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#collections','#map','#spring-mvc','#spring-webflux',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -904,6 +1109,15 @@
 
     /*引用块样式*/
     
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
 
     /*文章列表背景图*/
     
@@ -927,16 +1141,6 @@
     }
     
 
-    
-    .post .pjax article :not(pre) > code {
-        color: #24292e;
-        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-        background-color: rgba(27,31,35,.05);
-        border-radius: 3px;
-        font-size: 85%;
-        margin: 0;
-        padding: .2em .4em;
-    }
     
 </style>
 

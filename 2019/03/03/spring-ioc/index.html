@@ -24,7 +24,7 @@
 
 <link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.0.1" rel="stylesheet">
+<link href="/css/hl_theme/github-gist.css?v=1.0.1" rel="stylesheet">
 
 <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -119,7 +119,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="43">
-<input type="hidden" id="yelog_site_word_count" value="127.8k">
+<input type="hidden" id="yelog_site_word_count" value="126k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -154,6 +154,10 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">week</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hide</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -277,11 +281,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color3">gc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
+        <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -475,7 +479,7 @@
             <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
         </a>
         
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week" data-author="">
+        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
@@ -588,8 +592,8 @@
     .left-col .switch-area {
         display: none;
     }
-    .toc-level-3 i,
-    .toc-level-3 ol {
+    .toc-level-4 i,
+    .toc-level-4 ol {
         display: none !important;
     }
 </style>
@@ -610,8 +614,8 @@
 <li><p>​    根据什么来的，实现了哪些规范？</p>
 </li>
 </ul>
-<h4 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h4><h5 id="从-‘依赖反转’-到-‘依赖注入’"><a href="#从-‘依赖反转’-到-‘依赖注入’" class="headerlink" title="从 ‘依赖反转’ 到 ‘依赖注入’"></a>从 ‘依赖反转’ 到 ‘依赖注入’</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In early 2004, Martin Fowler asked the readers of his site: when talking about Inversion of Control: “the question is, what aspect of control are [they] inverting?”</span><br></pre></td></tr></table></figure>
-<p>​    2004年，Martin Fowler 对依赖反转 提出了问题，并获得结论，依赖对象的获得被反转了，基于这个结论提出了个更好的名字，依赖注入。如果对象的引用或依赖关系的管理由具体对象来完成，会导致代码高度耦合和可测试性的降低。</p>
+<h4 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h4><h5 id="从-‘依赖反转’-到-‘依赖注入’"><a href="#从-‘依赖反转’-到-‘依赖注入’" class="headerlink" title="从 ‘依赖反转’ 到 ‘依赖注入’"></a>从 ‘依赖反转’ 到 ‘依赖注入’</h5><pre><code>    In early 2004, Martin Fowler asked the readers of his site: when talking about Inversion of Control: “the question is, what aspect of control are [they] inverting?”
+</code></pre><p>​    2004年，Martin Fowler 对依赖反转 提出了问题，并获得结论，依赖对象的获得被反转了，基于这个结论提出了个更好的名字，依赖注入。如果对象的引用或依赖关系的管理由具体对象来完成，会导致代码高度耦合和可测试性的降低。</p>
 <h5 id="从-‘对象-对象’-到-‘对象-IOC容器-对象’"><a href="#从-‘对象-对象’-到-‘对象-IOC容器-对象’" class="headerlink" title="从 ‘对象-对象’ 到 ‘对象-IOC容器-对象’"></a>从 ‘对象-对象’ 到 ‘对象-IOC容器-对象’</h5><p>​    依赖反转是一种设计模式，实现有很多种方式，ioc容器式实现这个模式的载体，管理对象，对象之间的关系</p>
 <p>​    </p>
 <h5 id="对象的分类"><a href="#对象的分类" class="headerlink" title="对象的分类"></a>对象的分类</h5><p>​    数据对象<br>​    数据处理对象 不常发生变化，是系统中基础的部分，不涉及数据和状态共享的问题，依赖关系比较稳定，单例</p>
@@ -630,8 +634,8 @@
 <p>​        Java EE @Inject<br>​    注入方式  </p>
 <p>​        接口、setter、构造器</p>
 <p>spring官方更推荐使用构造器的方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The Spring team generally advocates constructor injection, as it lets you implement application components as immutable objects and ensures that required dependencies are not null. Furthermore, constructor-injected components are always returned to the client (calling) code in a fully initialized state. As a side note, a large number of constructor arguments is a bad code smell, implying that the class likely has too many responsibilities and should be refactored to better address proper separation of concerns.</span><br></pre></td></tr></table></figure>
-<p>在Ex中</p>
+<pre><code>    The Spring team generally advocates constructor injection, as it lets you implement application components as immutable objects and ensures that required dependencies are not null. Furthermore, constructor-injected components are always returned to the client (calling) code in a fully initialized state. As a side note, a large number of constructor arguments is a bad code smell, implying that the class likely has too many responsibilities and should be refactored to better address proper separation of concerns.
+</code></pre><p>在Ex中</p>
 <p>Type2 构造子注入的优势: </p>
 <ol>
 <li><p>“在构造期即创建一个完整、合法的对象”，对于这条Java设计原则，Type2无疑是最好的 </p>
@@ -665,8 +669,8 @@
 </li>
 </ol>
 <h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><p>​    官方网站提过：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">At the heart are the modules of the core container, including a configuration model and a dependency injection mechanism.</span><br></pre></td></tr></table></figure>
-<p>​    从之前的module图可以知道有如下四部分。</p>
+<pre><code>    At the heart are the modules of the core container, including a configuration model and a dependency injection mechanism. 
+</code></pre><p>​    从之前的module图可以知道有如下四部分。</p>
 <p>​    <img src="http://ww2.sinaimg.cn/large/006tNc79gy1g4g8j0nhmej30ys0683za.jpg" alt="image-20190628013800037"></p>
 <h4 id="从Beans说起"><a href="#从Beans说起" class="headerlink" title="从Beans说起"></a>从Beans说起</h4><p>​    Spring 就是面向 Bean 的编程（BOP,Bean Oriented Programming），Bean 在 Spring 中作用就像 Object 对 OOP 的意义一样，没有对象的概念就像没有面向对象编程，Spring 中没有 Bean 也就没有 Spring 存在的意义</p>
 <p>​    这个包下的所有类主要解决了三件事：Bean 的定义、Bean 的创建以及对 Bean 的解析</p>
@@ -702,8 +706,8 @@
 <ol>
 <li>国际化支持 我们可以在Beans.xml文件中，对程序中的语言信息(如提示信息)进行定义，将程序中的提示 信息抽取到配置文件中加以定义，为我们进行应用的各语言版本转换提供了极大的灵活性。 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">（native2ascii messages_zh_CN.properties msg.txt）</span><br></pre></td></tr></table></figure>
-<ol start="2">
+<pre><code>（native2ascii messages_zh_CN.properties msg.txt）
+</code></pre><ol start="2">
 <li>资源访问 支持对文件和URL的访问。 </li>
 <li>事件传播 事件传播特性为系统中状态改变时的检测提供了良好支持。 </li>
 <li>多实例加载 可以在同一个应用中加载多个Context实例。 </li>
@@ -789,7 +793,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#ejb','#gc','#collections','#map','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#collections','#map','#spring-mvc','#spring-webflux',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -947,6 +951,15 @@
 
     /*引用块样式*/
     
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
 
     /*文章列表背景图*/
     
@@ -970,16 +983,6 @@
     }
     
 
-    
-    .post .pjax article :not(pre) > code {
-        color: #24292e;
-        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-        background-color: rgba(27,31,35,.05);
-        border-radius: 3px;
-        font-size: 85%;
-        margin: 0;
-        padding: .2em .4em;
-    }
     
 </style>
 

@@ -24,7 +24,7 @@
 
 <link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.0.1" rel="stylesheet">
+<link href="/css/hl_theme/github-gist.css?v=1.0.1" rel="stylesheet">
 
 <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -119,7 +119,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="43">
-<input type="hidden" id="yelog_site_word_count" value="127.8k">
+<input type="hidden" id="yelog_site_word_count" value="126k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -154,6 +154,10 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">week</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hide</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -277,11 +281,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color3">gc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
+        <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -475,7 +479,7 @@
             <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
         </a>
         
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week" data-author="">
+        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
@@ -562,7 +566,7 @@
     </div>
     <div class="article-meta">
         
-        <span>字数:2.2k</span>
+        <span>字数:2.1k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -588,8 +592,8 @@
     .left-col .switch-area {
         display: none;
     }
-    .toc-level-3 i,
-    .toc-level-3 ol {
+    .toc-level-4 i,
+    .toc-level-4 ol {
         display: none !important;
     }
 </style>
@@ -600,8 +604,8 @@
         <p>阅读的目的？我想要从中获得什么？</p>
 <p>​    servlet规范相关 , 理解tomcat 和dispatchServlet实现</p>
 <a id="more"></a>
-<h2 id="servlet-3-1规范概览"><a href="#servlet-3-1规范概览" class="headerlink" title="servlet 3.1规范概览"></a>servlet 3.1规范概览</h2><h3 id="What-is-servlet"><a href="#What-is-servlet" class="headerlink" title="What is servlet"></a>What is servlet</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A servlet is a JavaTM technology-based Web component, managed by a container, that generates dynamic content.</span><br></pre></td></tr></table></figure>
-<blockquote>
+<h2 id="servlet-3-1规范概览"><a href="#servlet-3-1规范概览" class="headerlink" title="servlet 3.1规范概览"></a>servlet 3.1规范概览</h2><h3 id="What-is-servlet"><a href="#What-is-servlet" class="headerlink" title="What is servlet"></a>What is servlet</h3><pre><code>A servlet is a JavaTM technology-based Web component, managed by a container, that generates dynamic content. 
+</code></pre><blockquote>
 <p>From servlet 3.1</p>
 </blockquote>
 <h3 id="History"><a href="#History" class="headerlink" title="History"></a>History</h3><p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fy9oye7wq4j31pm0hyarl.jpg" alt=""></p>
@@ -613,8 +617,8 @@
 <p>  When the servlet engine is started, needed servlet classes must be located by the<br>  servlet container(WEB-INF/lib)</p>
 </li>
 <li><p>Initialization</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The container initializes the servlet instance by calling the init method of the Servlet interface with a unique (per servlet declaration) object implementing the ServletConfig interface</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>  The container initializes the servlet instance by calling the init method of the Servlet interface with a unique (per servlet declaration) object implementing the ServletConfig interface
+</code></pre></li>
 </ul>
 <p>（ServletConfig used by Servlet）</p>
 <ul>
@@ -628,7 +632,15 @@
 <h3 id="ServletContext"><a href="#ServletContext" class="headerlink" title="ServletContext"></a>ServletContext</h3><blockquote>
 <p>​    The ServletContext interface defines a servlet’s view of the Web application within which the servlet is running.  (web.xml) The Container Provider is responsible for providing an implementation of the ServletContext interface in the servlet container.</p>
 </blockquote>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">InitParameter</span><br><span class="line">config </span><br><span class="line"><span class="code">	-Filter</span></span><br><span class="line"><span class="code">	-Listenr</span></span><br><span class="line"><span class="code">	-Servlet</span></span><br><span class="line">Attribute</span><br><span class="line">Resource</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<pre><code class="markdown">InitParameter
+config 
+    -Filter
+    -Listenr
+    -Servlet
+Attribute
+Resource
+...
+</code></pre>
 <blockquote>
 <p>see : ApplicationContext、ApplicationContextFacade (tomcat)</p>
 </blockquote>
@@ -687,31 +699,410 @@
 <p>A filter is a reusable piece of code that can transform the content of HTTP requests,responses, and header information.</p>
 </blockquote>
 <p>org.springframework.web.servlet.HandlerInterceptor</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/</span><br><span class="line">* &lt;p&gt;HandlerInterceptor is basically similar to a Servlet <span class="number">2.3</span> Filter, but in</span><br><span class="line">* contrast to the latter it just allows custom pre-processing with the option</span><br><span class="line">* of prohibiting the execution of the handler itself, and custom post-processing.</span><br><span class="line">* Filters are more powerful, <span class="keyword">for</span> example they allow <span class="keyword">for</span> exchanging the request</span><br><span class="line">* and response objects that are handed down the chain. Note that a filter</span><br><span class="line">* gets configured in web.xml, a HandlerInterceptor in the application context.</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-<h3 id="Lifecycle-Events"><a href="#Lifecycle-Events" class="headerlink" title="Lifecycle Events"></a>Lifecycle Events</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Event</span><br><span class="line">	-Servlet</span><br><span class="line">	-Session</span><br><span class="line">	-Request</span><br><span class="line">EventListener</span><br><span class="line">	-Servlet</span><br><span class="line">	-Session</span><br><span class="line">	-Request</span><br></pre></td></tr></table></figure>
+<pre><code class="java">/
+* &lt;p&gt;HandlerInterceptor is basically similar to a Servlet 2.3 Filter, but in
+* contrast to the latter it just allows custom pre-processing with the option
+* of prohibiting the execution of the handler itself, and custom post-processing.
+* Filters are more powerful, for example they allow for exchanging the request
+* and response objects that are handed down the chain. Note that a filter
+* gets configured in web.xml, a HandlerInterceptor in the application context.
+*/
+</code></pre>
+<h3 id="Lifecycle-Events"><a href="#Lifecycle-Events" class="headerlink" title="Lifecycle Events"></a>Lifecycle Events</h3><pre><code class="json">Event
+    -Servlet
+    -Session
+    -Request
+EventListener
+    -Servlet
+    -Session
+    -Request
+</code></pre>
 <p>Example : <code>ServletContextListener</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContextLoaderListener</span> <span class="keyword">implements</span> <span class="title">ServletContextListener</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> ContextLoader contextLoader;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ContextLoaderListener</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextInitialized</span><span class="params">(ServletContextEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.contextLoader = <span class="keyword">this</span>.createContextLoader();</span><br><span class="line">        <span class="keyword">this</span>.contextLoader.initWebApplicationContext(event.getServletContext());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> ContextLoader <span class="title">createContextLoader</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ContextLoader();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ContextLoader <span class="title">getContextLoader</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.contextLoader;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextDestroyed</span><span class="params">(ServletContextEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.contextLoader != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.contextLoader.closeWebApplicationContext(event.getServletContext());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class ContextLoaderListener implements ServletContextListener {
+    private ContextLoader contextLoader;
+
+    public ContextLoaderListener() {
+    }
+
+    public void contextInitialized(ServletContextEvent event) {
+        this.contextLoader = this.createContextLoader();
+        this.contextLoader.initWebApplicationContext(event.getServletContext());
+    }
+
+    protected ContextLoader createContextLoader() {
+        return new ContextLoader();
+    }
+
+    public ContextLoader getContextLoader() {
+        return this.contextLoader;
+    }
+
+    public void contextDestroyed(ServletContextEvent event) {
+        if(this.contextLoader != null) {
+            this.contextLoader.closeWebApplicationContext(event.getServletContext());
+        }
+
+    }
+}
+</code></pre>
 <h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><h2 id="Servlet源码分析"><a href="#Servlet源码分析" class="headerlink" title="Servlet源码分析"></a>Servlet源码分析</h2><p>Server + Applet 的缩写，表示一个服务器应用 , 以下内容为<code>javax.servlet</code></p>
-<h3 id="Servlet接口"><a href="#Servlet接口" class="headerlink" title="Servlet接口"></a>Servlet接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> javax.servlet;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Servlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig config)</span> <span class="keyword">throws</span> ServletException</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> ServletConfig <span class="title">getServletConfig</span><span class="params">()</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res)</span></span></span><br><span class="line"><span class="function">   <span class="keyword">throws</span> ServletException, IOException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getServletInfo</span><span class="params">()</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span></span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Servlet接口"><a href="#Servlet接口" class="headerlink" title="Servlet接口"></a>Servlet接口</h3><pre><code class="java">package javax.servlet;
+import java.io.IOException;
+public interface Servlet {
+    public void init(ServletConfig config) throws ServletException;
+
+    public ServletConfig getServletConfig();
+
+    public void service(ServletRequest req, ServletResponse res)
+   throws ServletException, IOException;
+
+    public String getServletInfo();
+
+    public void destroy();
+
+}
+</code></pre>
 <blockquote>
 <p>Load-on-startup 为负的话不会在容器启动调用</p>
 </blockquote>
-<h3 id="ServletConfig接口"><a href="#ServletConfig接口" class="headerlink" title="ServletConfig接口"></a>ServletConfig接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> javax.servlet;</span><br><span class="line"><span class="keyword">import</span> java.util.Enumeration;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * A servlet configuration object used by a servlet container</span></span><br><span class="line"><span class="comment"> * to pass information to a servlet during initialization. </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ServletConfig</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getServletName</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ServletContext <span class="title">getServletContext</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getInitParameter</span><span class="params">(String name)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Enumeration&lt;String&gt; <span class="title">getInitParameterNames</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ServletConfig接口"><a href="#ServletConfig接口" class="headerlink" title="ServletConfig接口"></a>ServletConfig接口</h3><pre><code class="java">package javax.servlet;
+import java.util.Enumeration;
+/**
+ * A servlet configuration object used by a servlet container
+ * to pass information to a servlet during initialization. 
+ */
+ public interface ServletConfig {
+
+    public String getServletName();
+
+    public ServletContext getServletContext();
+
+    public String getInitParameter(String name);
+
+    public Enumeration&lt;String&gt; getInitParameterNames();
+
+}
+</code></pre>
 <p>如下配置</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--web.xml--&gt;</span></span><br><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">...</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>application-context.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>demoDispatcher<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.Dispatcher<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>demo-servlet.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;!--web.xml--&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app ...&gt;
+    &lt;context-param&gt;
+        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+        &lt;param-value&gt;application-context.xml&lt;/param-value&gt;
+    &lt;/context-param&gt;
+&lt;servlet&gt;
+    &lt;servlet-name&gt;demoDispatcher&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.springframework.web.servlet.Dispatcher&lt;/servlet-class&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+        &lt;param-value&gt;demo-servlet.xml&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+&lt;/web-app&gt;
+</code></pre>
 <p>在Servlet中 可以分别通过它们的getInitParameter方法获取，比如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String contextLocation = getServletConfig().getServletContext().getInitParameter(</span><br><span class="line">    <span class="string">"contextConfigLocation"</span>);</span><br><span class="line">String servletLocation = getServletConfig().getInitParameter(<span class="string">"contextConfigLocation"</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="GenerieServlet"><a href="#GenerieServlet" class="headerlink" title="GenerieServlet"></a>GenerieServlet</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`Servlet`的默认实现，同时实现了`ServletConfig`接口、`Serializable`接口，所以可以直接调用`ServletConfig`里面的方法。详细可参考如下类注释。</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> javax.servlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.Enumeration;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Defines a generic, protocol-independent</span></span><br><span class="line"><span class="comment"> * servlet. To write an HTTP servlet for use on the</span></span><br><span class="line"><span class="comment"> * Web, extend &#123;<span class="doctag">@link</span> javax.servlet.http.HttpServlet&#125; instead.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;&lt;code&gt;GenericServlet&lt;/code&gt; implements the &lt;code&gt;Servlet&lt;/code&gt;</span></span><br><span class="line"><span class="comment"> * and &lt;code&gt;ServletConfig&lt;/code&gt; interfaces. &lt;code&gt;GenericServlet&lt;/code&gt;</span></span><br><span class="line"><span class="comment"> * may be directly extended by a servlet, although it's more common to extend</span></span><br><span class="line"><span class="comment"> * a protocol-specific subclass such as &lt;code&gt;HttpServlet&lt;/code&gt;.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;&lt;code&gt;GenericServlet&lt;/code&gt; makes writing servlets</span></span><br><span class="line"><span class="comment"> * easier. It provides simple versions of the lifecycle methods </span></span><br><span class="line"><span class="comment"> * &lt;code&gt;init&lt;/code&gt; and &lt;code&gt;destroy&lt;/code&gt; and of the methods </span></span><br><span class="line"><span class="comment"> * in the &lt;code&gt;ServletConfig&lt;/code&gt; interface. &lt;code&gt;GenericServlet&lt;/code&gt;</span></span><br><span class="line"><span class="comment"> * also implements the &lt;code&gt;log&lt;/code&gt; method, declared in the</span></span><br><span class="line"><span class="comment"> * &lt;code&gt;ServletContext&lt;/code&gt; interface. </span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;To write a generic servlet, you need only</span></span><br><span class="line"><span class="comment"> * override the abstract &lt;code&gt;service&lt;/code&gt; method. </span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">GenericServlet</span> </span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Servlet</span>, <span class="title">ServletConfig</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">transient</span> ServletConfig config;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GenericServlet</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getInitParameter</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> getServletConfig().getInitParameter(name);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Enumeration <span class="title">getInitParameterNames</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> getServletConfig().getInitParameterNames();</span><br><span class="line">    &#125;   </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> ServletConfig <span class="title">getServletConfig</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> config;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> ServletContext <span class="title">getServletContext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> getServletConfig().getServletContext();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getServletInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig config)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.config = config;</span><br><span class="line">		<span class="keyword">this</span>.init();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">log</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">		getServletContext().log(getServletName() + <span class="string">": "</span>+ msg);</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">log</span><span class="params">(String message, Throwable t)</span> </span>&#123;</span><br><span class="line">		getServletContext().log(getServletName() + <span class="string">": "</span> + message, t);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">throws</span> ServletException, IOException</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getServletName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> config.getServletName();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">String contextLocation = getServletConfig().getServletContext().getInitParameter(
+    &quot;contextConfigLocation&quot;);
+String servletLocation = getServletConfig().getInitParameter(&quot;contextConfigLocation&quot;);
+</code></pre>
+<h3 id="GenerieServlet"><a href="#GenerieServlet" class="headerlink" title="GenerieServlet"></a>GenerieServlet</h3><pre><code>`Servlet`的默认实现，同时实现了`ServletConfig`接口、`Serializable`接口，所以可以直接调用`ServletConfig`里面的方法。详细可参考如下类注释。
+</code></pre><pre><code class="java">package javax.servlet;
+
+import java.io.IOException;
+import java.util.Enumeration;
+
+/**
+ *
+ * Defines a generic, protocol-independent
+ * servlet. To write an HTTP servlet for use on the
+ * Web, extend {@link javax.servlet.http.HttpServlet} instead.
+ *
+ * &lt;p&gt;&lt;code&gt;GenericServlet&lt;/code&gt; implements the &lt;code&gt;Servlet&lt;/code&gt;
+ * and &lt;code&gt;ServletConfig&lt;/code&gt; interfaces. &lt;code&gt;GenericServlet&lt;/code&gt;
+ * may be directly extended by a servlet, although it&#39;s more common to extend
+ * a protocol-specific subclass such as &lt;code&gt;HttpServlet&lt;/code&gt;.
+ *
+ * &lt;p&gt;&lt;code&gt;GenericServlet&lt;/code&gt; makes writing servlets
+ * easier. It provides simple versions of the lifecycle methods 
+ * &lt;code&gt;init&lt;/code&gt; and &lt;code&gt;destroy&lt;/code&gt; and of the methods 
+ * in the &lt;code&gt;ServletConfig&lt;/code&gt; interface. &lt;code&gt;GenericServlet&lt;/code&gt;
+ * also implements the &lt;code&gt;log&lt;/code&gt; method, declared in the
+ * &lt;code&gt;ServletContext&lt;/code&gt; interface. 
+ *
+ * &lt;p&gt;To write a generic servlet, you need only
+ * override the abstract &lt;code&gt;service&lt;/code&gt; method. 
+ *
+ */
+public abstract class GenericServlet 
+    implements Servlet, ServletConfig, java.io.Serializable
+{
+    private transient ServletConfig config;
+
+    public GenericServlet() {}
+
+    public void destroy() {}
+
+    public String getInitParameter(String name) {
+        return getServletConfig().getInitParameter(name);
+    }
+
+    public Enumeration getInitParameterNames() {
+        return getServletConfig().getInitParameterNames();
+    }   
+
+    public ServletConfig getServletConfig() {
+        return config;
+    }
+
+    public ServletContext getServletContext() {
+        return getServletConfig().getServletContext();
+    }
+
+    public String getServletInfo() {
+        return &quot;&quot;;
+    }
+
+    public void init(ServletConfig config) throws ServletException {
+        this.config = config;
+        this.init();
+    }
+
+    public void init() throws ServletException {
+    }
+
+    public void log(String msg) {
+        getServletContext().log(getServletName() + &quot;: &quot;+ msg);
+    }
+
+    public void log(String message, Throwable t) {
+        getServletContext().log(getServletName() + &quot;: &quot; + message, t);
+    }
+
+    public abstract void service(ServletRequest req, ServletResponse res)
+    throws ServletException, IOException;
+
+    public String getServletName() {
+        return config.getServletName();
+    }
+}
+
+</code></pre>
 <p>附：为什么需要实现 <code>java.io.Serializable</code> 接口？</p>
 <p>答：在 Servlet 2.4 规范的 7.7.2 Distributed Environments 章节中，有一句这样的描述：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The distributed servlet container must support the mechanism necessary for</span><br><span class="line">migrating objects that implement Serializable.</span><br></pre></td></tr></table></figure>
+<pre><code class="markdown">The distributed servlet container must support the mechanism necessary for
+migrating objects that implement Serializable.
+</code></pre>
 <blockquote>
 <p>按照规范的设计，Servlet 有一个钝化的特性，类似于 Servlet 持久化到文件，然后当容器 Crash 回复后，可以重新恢复保存前的状态。</p>
 </blockquote>
-<h3 id="HttpServlet"><a href="#HttpServlet" class="headerlink" title="HttpServlet"></a>HttpServlet</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> javax.servlet.http;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> ....;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Provides an abstract class to be subclassed to create</span></span><br><span class="line"><span class="comment"> * an HTTP servlet suitable for a Web site. A subclass of</span></span><br><span class="line"><span class="comment"> * &lt;code&gt;HttpServlet&lt;/code&gt; must override at least </span></span><br><span class="line"><span class="comment"> * one method, usually one of these:</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;ul&gt;</span></span><br><span class="line"><span class="comment"> * &lt;li&gt; &lt;code&gt;doGet&lt;/code&gt;, if the servlet supports HTTP GET requests</span></span><br><span class="line"><span class="comment"> * &lt;li&gt; &lt;code&gt;doPost&lt;/code&gt;, for HTTP POST requests</span></span><br><span class="line"><span class="comment"> * &lt;li&gt; &lt;code&gt;doPut&lt;/code&gt;, for HTTP PUT requests</span></span><br><span class="line"><span class="comment"> * &lt;li&gt; &lt;code&gt;doDelete&lt;/code&gt;, for HTTP DELETE requests</span></span><br><span class="line"><span class="comment"> * &lt;li&gt; &lt;code&gt;init&lt;/code&gt; and &lt;code&gt;destroy&lt;/code&gt;, </span></span><br><span class="line"><span class="comment"> * to manage resources that are held for the life of the servlet</span></span><br><span class="line"><span class="comment"> * &lt;li&gt; &lt;code&gt;getServletInfo&lt;/code&gt;, which the servlet uses to</span></span><br><span class="line"><span class="comment"> * provide information about itself </span></span><br><span class="line"><span class="comment"> * &lt;/ul&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;There's almost no reason to override the &lt;code&gt;service&lt;/code&gt;</span></span><br><span class="line"><span class="comment"> * method. &lt;code&gt;service&lt;/code&gt; handles standard HTTP</span></span><br><span class="line"><span class="comment"> * requests by dispatching them to the handler methods</span></span><br><span class="line"><span class="comment"> * for each HTTP request type (the &lt;code&gt;do&lt;/code&gt;&lt;i&gt;XXX&lt;/i&gt;</span></span><br><span class="line"><span class="comment"> * methods listed above).</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Likewise, there's almost no reason to override the </span></span><br><span class="line"><span class="comment"> * &lt;code&gt;doOptions&lt;/code&gt; and &lt;code&gt;doTrace&lt;/code&gt; methods.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpServlet</span> <span class="keyword">extends</span> <span class="title">GenericServlet</span></span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String METHOD_DELETE = <span class="string">"DELETE"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String METHOD_HEAD = <span class="string">"HEAD"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String METHOD_GET = <span class="string">"GET"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String METHOD_OPTIONS = <span class="string">"OPTIONS"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String METHOD_POST = <span class="string">"POST"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String METHOD_PUT = <span class="string">"PUT"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String METHOD_TRACE = <span class="string">"TRACE"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String HEADER_IFMODSINCE = <span class="string">"If-Modified-Since"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String HEADER_LASTMOD = <span class="string">"Last-Modified"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * Resource bundles contain locale-specific objects.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String LSTRING_FILE =</span><br><span class="line">	<span class="string">"javax.servlet.http.LocalStrings"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ResourceBundle lStrings =</span><br><span class="line">	ResourceBundle.getBundle(LSTRING_FILE);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HttpServlet</span><span class="params">()</span> </span>&#123; &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">throws</span> ServletException, IOException</span>&#123;</span><br><span class="line">        String protocol = req.getProtocol();</span><br><span class="line">        String msg = lStrings.getString(<span class="string">"http.method_get_not_supported"</span>);</span><br><span class="line">        <span class="keyword">if</span> (protocol.endsWith(<span class="string">"1.1"</span>)) &#123;</span><br><span class="line">            resp.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED, msg);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">long</span> <span class="title">getLastModified</span><span class="params">(HttpServletRequest req)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doHead</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">throws</span> ServletException, IOException</span>&#123;</span><br><span class="line">        NoBodyResponse response = <span class="keyword">new</span> NoBodyResponse(resp);</span><br><span class="line"></span><br><span class="line">        doGet(req, response);</span><br><span class="line">        response.setContentLength();</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">throws</span> ServletException, IOException</span>&#123;</span><br><span class="line">        String protocol = req.getProtocol();</span><br><span class="line">        String msg = lStrings.getString(<span class="string">"http.method_post_not_supported"</span>);</span><br><span class="line">        <span class="keyword">if</span> (protocol.endsWith(<span class="string">"1.1"</span>)) &#123;</span><br><span class="line">            resp.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED, msg);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPut</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">throws</span> ServletException, IOException</span>&#123;</span><br><span class="line">       <span class="comment">//略,类似doPost</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doDelete</span><span class="params">(HttpServletRequest req,</span></span></span><br><span class="line"><span class="function"><span class="params">			    HttpServletResponse resp)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">throws</span> ServletException, IOException</span>&#123;</span><br><span class="line">       <span class="comment">//略,类似doPost</span></span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doOptions</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">throws</span> ServletException, IOException</span>&#123;</span><br><span class="line">      <span class="comment">//略,主要用于调试,输出允许类型</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">throws</span> ServletException, IOException</span>&#123;</span><br><span class="line">        String method = req.getMethod();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (method.equals(METHOD_GET)) &#123;</span><br><span class="line">            <span class="keyword">long</span> lastModified = getLastModified(req);</span><br><span class="line">            <span class="keyword">if</span> (lastModified == -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">// servlet doesn't support if-modified-since, no reason</span></span><br><span class="line">            <span class="comment">// to go through further expensive logic</span></span><br><span class="line">            doGet(req, resp);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">long</span> ifModifiedSince = req.getDateHeader(HEADER_IFMODSINCE);</span><br><span class="line">            <span class="keyword">if</span> (ifModifiedSince &lt; (lastModified / <span class="number">1000</span> * <span class="number">1000</span>)) &#123;</span><br><span class="line">                <span class="comment">// If the servlet mod time is later, call doGet()</span></span><br><span class="line">                        <span class="comment">// Round down to the nearest second for a proper compare</span></span><br><span class="line">                        <span class="comment">// A ifModifiedSince of -1 will always be less</span></span><br><span class="line">                maybeSetLastModified(resp, lastModified);</span><br><span class="line">                doGet(req, resp);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                resp.setStatus(HttpServletResponse.SC_NOT_MODIFIED);</span><br><span class="line">            &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (method.equals(METHOD_HEAD)) &#123;</span><br><span class="line">            <span class="keyword">long</span> lastModified = getLastModified(req);</span><br><span class="line">            maybeSetLastModified(resp, lastModified);</span><br><span class="line">            doHead(req, resp);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (method.equals(METHOD_POST)) &#123;</span><br><span class="line">            doPost(req, resp);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (method.equals(METHOD_PUT)) &#123;</span><br><span class="line">            doPut(req, resp);	</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (method.equals(METHOD_DELETE)) &#123;</span><br><span class="line">            doDelete(req, resp);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (method.equals(METHOD_OPTIONS)) &#123;</span><br><span class="line">            doOptions(req,resp);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (method.equals(METHOD_TRACE)) &#123;</span><br><span class="line">            doTrace(req,resp);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//</span></span><br><span class="line">            <span class="comment">// Note that this means NO servlet supports whatever</span></span><br><span class="line">            <span class="comment">// method was requested, anywhere on this server.</span></span><br><span class="line">            <span class="comment">//</span></span><br><span class="line">            String errMsg = lStrings.getString(<span class="string">"http.method_not_implemented"</span>);</span><br><span class="line">            Object[] errArgs = <span class="keyword">new</span> Object[<span class="number">1</span>];</span><br><span class="line">            errArgs[<span class="number">0</span>] = method;</span><br><span class="line">            errMsg = MessageFormat.format(errMsg, errArgs);</span><br><span class="line">            resp.sendError(HttpServletResponse.SC_NOT_IMPLEMENTED, errMsg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res)</span></span></span><br><span class="line"><span class="function">	<span class="keyword">throws</span> ServletException, IOException</span>&#123;</span><br><span class="line">        HttpServletRequest	request;</span><br><span class="line">        HttpServletResponse	response;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            request = (HttpServletRequest) req;</span><br><span class="line">            response = (HttpServletResponse) res;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassCastException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ServletException(<span class="string">"non-HTTP request or response"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        service(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * A response that includes no body, for use in (dumb) "HEAD" support.</span></span><br><span class="line"><span class="comment"> * This just swallows that body, counting the bytes in order to set</span></span><br><span class="line"><span class="comment"> * the content length appropriately.  All other methods delegate directly</span></span><br><span class="line"><span class="comment"> * to the HTTP Servlet Response object used to construct this one.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// file private</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NoBodyResponse</span> <span class="keyword">extends</span> <span class="title">HttpServletResponseWrapper</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> NoBodyOutputStream		noBody;</span><br><span class="line">    <span class="keyword">private</span> PrintWriter			writer;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span>			didSetContentLength;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// file private</span></span><br><span class="line">    NoBodyResponse(HttpServletResponse r) &#123;</span><br><span class="line">        <span class="keyword">super</span>(r);</span><br><span class="line">	noBody = <span class="keyword">new</span> NoBodyOutputStream();</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// ....</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Servlet output stream that gobbles up all its data.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// file private</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NoBodyOutputStream</span> <span class="keyword">extends</span> <span class="title">ServletOutputStream</span> </span>&#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">doXXX 都是模板方法，如果子类没有实现将抛出异常</span><br><span class="line"></span><br><span class="line">doGet 方法前还会对是否过期做检查，如果没有过期，则直接返回304状态码做缓存。</span><br><span class="line"></span><br><span class="line">doHead调用了doGet的请求，然后返回空body的response</span><br><span class="line"></span><br><span class="line">doOptions和doTrace 主要是用来做一些调试工作</span><br></pre></td></tr></table></figure>
+<h3 id="HttpServlet"><a href="#HttpServlet" class="headerlink" title="HttpServlet"></a>HttpServlet</h3><pre><code class="java">package javax.servlet.http;
 
+import ....;
+
+/**
+ * Provides an abstract class to be subclassed to create
+ * an HTTP servlet suitable for a Web site. A subclass of
+ * &lt;code&gt;HttpServlet&lt;/code&gt; must override at least 
+ * one method, usually one of these:
+ *
+ * &lt;ul&gt;
+ * &lt;li&gt; &lt;code&gt;doGet&lt;/code&gt;, if the servlet supports HTTP GET requests
+ * &lt;li&gt; &lt;code&gt;doPost&lt;/code&gt;, for HTTP POST requests
+ * &lt;li&gt; &lt;code&gt;doPut&lt;/code&gt;, for HTTP PUT requests
+ * &lt;li&gt; &lt;code&gt;doDelete&lt;/code&gt;, for HTTP DELETE requests
+ * &lt;li&gt; &lt;code&gt;init&lt;/code&gt; and &lt;code&gt;destroy&lt;/code&gt;, 
+ * to manage resources that are held for the life of the servlet
+ * &lt;li&gt; &lt;code&gt;getServletInfo&lt;/code&gt;, which the servlet uses to
+ * provide information about itself 
+ * &lt;/ul&gt;
+ *
+ * &lt;p&gt;There&#39;s almost no reason to override the &lt;code&gt;service&lt;/code&gt;
+ * method. &lt;code&gt;service&lt;/code&gt; handles standard HTTP
+ * requests by dispatching them to the handler methods
+ * for each HTTP request type (the &lt;code&gt;do&lt;/code&gt;&lt;i&gt;XXX&lt;/i&gt;
+ * methods listed above).
+ *
+ * &lt;p&gt;Likewise, there&#39;s almost no reason to override the 
+ * &lt;code&gt;doOptions&lt;/code&gt; and &lt;code&gt;doTrace&lt;/code&gt; methods.
+ *
+ */
+public abstract class HttpServlet extends GenericServlet
+    implements java.io.Serializable
+{
+    private static final String METHOD_DELETE = &quot;DELETE&quot;;
+    private static final String METHOD_HEAD = &quot;HEAD&quot;;
+    private static final String METHOD_GET = &quot;GET&quot;;
+    private static final String METHOD_OPTIONS = &quot;OPTIONS&quot;;
+    private static final String METHOD_POST = &quot;POST&quot;;
+    private static final String METHOD_PUT = &quot;PUT&quot;;
+    private static final String METHOD_TRACE = &quot;TRACE&quot;;
+
+    private static final String HEADER_IFMODSINCE = &quot;If-Modified-Since&quot;;
+    private static final String HEADER_LASTMOD = &quot;Last-Modified&quot;;
+
+    /**
+    * Resource bundles contain locale-specific objects.
+    */
+    private static final String LSTRING_FILE =
+    &quot;javax.servlet.http.LocalStrings&quot;;
+    private static ResourceBundle lStrings =
+    ResourceBundle.getBundle(LSTRING_FILE);
+
+    public HttpServlet() { }
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    throws ServletException, IOException{
+        String protocol = req.getProtocol();
+        String msg = lStrings.getString(&quot;http.method_get_not_supported&quot;);
+        if (protocol.endsWith(&quot;1.1&quot;)) {
+            resp.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED, msg);
+        } else {
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, msg);
+        }
+    }
+
+    protected long getLastModified(HttpServletRequest req) {
+        return -1;
+    }
+
+    protected void doHead(HttpServletRequest req, HttpServletResponse resp)
+    throws ServletException, IOException{
+        NoBodyResponse response = new NoBodyResponse(resp);
+
+        doGet(req, response);
+        response.setContentLength();
+    }
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    throws ServletException, IOException{
+        String protocol = req.getProtocol();
+        String msg = lStrings.getString(&quot;http.method_post_not_supported&quot;);
+        if (protocol.endsWith(&quot;1.1&quot;)) {
+            resp.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED, msg);
+        } else {
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST, msg);
+        }
+    }
+
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp)
+    throws ServletException, IOException{
+       //略,类似doPost
+    }
+
+    protected void doDelete(HttpServletRequest req,
+                HttpServletResponse resp)
+    throws ServletException, IOException{
+       //略,类似doPost
+    }
+
+    protected void doOptions(HttpServletRequest req, HttpServletResponse resp)
+    throws ServletException, IOException{
+      //略,主要用于调试,输出允许类型
+    }
+    protected void service(HttpServletRequest req, HttpServletResponse resp)
+    throws ServletException, IOException{
+        String method = req.getMethod();
+
+        if (method.equals(METHOD_GET)) {
+            long lastModified = getLastModified(req);
+            if (lastModified == -1) {
+            // servlet doesn&#39;t support if-modified-since, no reason
+            // to go through further expensive logic
+            doGet(req, resp);
+            } else {
+            long ifModifiedSince = req.getDateHeader(HEADER_IFMODSINCE);
+            if (ifModifiedSince &lt; (lastModified / 1000 * 1000)) {
+                // If the servlet mod time is later, call doGet()
+                        // Round down to the nearest second for a proper compare
+                        // A ifModifiedSince of -1 will always be less
+                maybeSetLastModified(resp, lastModified);
+                doGet(req, resp);
+            } else {
+                resp.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
+            }
+            }
+
+        } else if (method.equals(METHOD_HEAD)) {
+            long lastModified = getLastModified(req);
+            maybeSetLastModified(resp, lastModified);
+            doHead(req, resp);
+        } else if (method.equals(METHOD_POST)) {
+            doPost(req, resp);
+        } else if (method.equals(METHOD_PUT)) {
+            doPut(req, resp);    
+        } else if (method.equals(METHOD_DELETE)) {
+            doDelete(req, resp);
+        } else if (method.equals(METHOD_OPTIONS)) {
+            doOptions(req,resp);
+        } else if (method.equals(METHOD_TRACE)) {
+            doTrace(req,resp);
+        } else {
+            //
+            // Note that this means NO servlet supports whatever
+            // method was requested, anywhere on this server.
+            //
+            String errMsg = lStrings.getString(&quot;http.method_not_implemented&quot;);
+            Object[] errArgs = new Object[1];
+            errArgs[0] = method;
+            errMsg = MessageFormat.format(errMsg, errArgs);
+            resp.sendError(HttpServletResponse.SC_NOT_IMPLEMENTED, errMsg);
+        }
+    }
+
+    public void service(ServletRequest req, ServletResponse res)
+    throws ServletException, IOException{
+        HttpServletRequest    request;
+        HttpServletResponse    response;
+
+        try {
+            request = (HttpServletRequest) req;
+            response = (HttpServletResponse) res;
+        } catch (ClassCastException e) {
+            throw new ServletException(&quot;non-HTTP request or response&quot;);
+        }
+        service(request, response);
+    }
+}
+
+/*
+ * A response that includes no body, for use in (dumb) &quot;HEAD&quot; support.
+ * This just swallows that body, counting the bytes in order to set
+ * the content length appropriately.  All other methods delegate directly
+ * to the HTTP Servlet Response object used to construct this one.
+ */
+// file private
+class NoBodyResponse extends HttpServletResponseWrapper {
+    private NoBodyOutputStream        noBody;
+    private PrintWriter            writer;
+    private boolean            didSetContentLength;
+
+    // file private
+    NoBodyResponse(HttpServletResponse r) {
+        super(r);
+    noBody = new NoBodyOutputStream();
+    }
+    // ....
+}
+/*
+ * Servlet output stream that gobbles up all its data.
+ */
+
+// file private
+class NoBodyOutputStream extends ServletOutputStream {
+    //...
+}
+
+</code></pre>
+<pre><code>doXXX 都是模板方法，如果子类没有实现将抛出异常
+
+doGet 方法前还会对是否过期做检查，如果没有过期，则直接返回304状态码做缓存。
+
+doHead调用了doGet的请求，然后返回空body的response
+
+doOptions和doTrace 主要是用来做一些调试工作 
+</code></pre>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 951488791@qq.com </span>
     </div>
@@ -721,7 +1112,7 @@
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>j2ee_servlet</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">2.2k</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">2.1k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-02-02, 18:05:54</p>
     <p><span class="copy-title">最后更新:</span>2019-07-06, 23:24:36</p>
@@ -768,7 +1159,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#ejb','#gc','#collections','#map','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#collections','#map','#spring-mvc','#spring-webflux',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -926,6 +1317,15 @@
 
     /*引用块样式*/
     
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
 
     /*文章列表背景图*/
     
@@ -949,16 +1349,6 @@
     }
     
 
-    
-    .post .pjax article :not(pre) > code {
-        color: #24292e;
-        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-        background-color: rgba(27,31,35,.05);
-        border-radius: 3px;
-        font-size: 85%;
-        margin: 0;
-        padding: .2em .4em;
-    }
     
 </style>
 

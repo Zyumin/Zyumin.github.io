@@ -24,7 +24,7 @@
 
 <link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.0.1" rel="stylesheet">
+<link href="/css/hl_theme/github-gist.css?v=1.0.1" rel="stylesheet">
 
 <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -119,7 +119,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="43">
-<input type="hidden" id="yelog_site_word_count" value="127.8k">
+<input type="hidden" id="yelog_site_word_count" value="126k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -154,6 +154,10 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">week</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hide</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -277,11 +281,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color3">gc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
+        <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -475,7 +479,7 @@
             <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
         </a>
         
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week" data-author="">
+        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
@@ -588,8 +592,8 @@
     .left-col .switch-area {
         display: none;
     }
-    .toc-level-3 i,
-    .toc-level-3 ol {
+    .toc-level-4 i,
+    .toc-level-4 ol {
         display: none !important;
     }
 </style>
@@ -728,8 +732,8 @@
 <p>Indexing and searching your data is CPU-, memory-, and I/O-intensive work which can put pressure on a node’s resources. To ensure that your master node is stable and not under pressure, it is a good idea in a bigger cluster to split the roles between dedicated master-eligible nodes and dedicated data nodes.</p>
 <p>To prevent data loss, it is vital to configure the <code>discovery.zen.minimum_master_nodes</code> setting (which defaults to <code>1</code>) so that each master-eligible node knows the <em>minimum number of master-eligible nodes</em> that must be visible in order to form a cluster.</p>
 <p>This setting should be set to a <em>quorum</em> of master-eligible nodes:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; (master_eligible_nodes / 2) + 1</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
+<pre><code>(master_eligible_nodes / 2) + 1
+</code></pre></blockquote>
 <p>  负责集群层面的相关操作,管理集群变更.也可以作为数据节点,但尽可能做少量的工作,尽量分离主节点和数据节点,同时为了防止网络分区时多主的情况(脑裂),需要设置有资格成为主节点的数量.</p>
 </li>
 <li><p>数据节点(Data node)</p>
@@ -750,7 +754,11 @@
 </li>
 </ul>
 <p>​    By default a node is a master-eligible node and a data node, plus it can pre-process documents through ingest pipelines. This is very convenient for small clusters but, as the cluster grows, it becomes important to consider separating dedicated master-eligible nodes from dedicated data nodes.</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">node.master:</span> <span class="literal">true</span> </span><br><span class="line"><span class="string">node.data:</span> <span class="literal">true</span> </span><br><span class="line"><span class="string">node.ingest:</span> <span class="literal">true</span> </span><br><span class="line"><span class="string">search.remote.connect:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<pre><code class="yaml">node.master: true 
+node.data: true 
+node.ingest: true 
+search.remote.connect: true 
+</code></pre>
 <blockquote>
 <p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/modules-node.html" target="_blank" rel="noopener">More details see</a></p>
 </blockquote>
@@ -845,11 +853,15 @@
 <ul>
 <li><p>加大translog flush间隔 ,目的降低iops、writeblock</p>
 <p>  允许接受部分数据丢失,可以调整translog持久化策略的周期性和大小(Es2.x 开始,默认配置为每次请求都“flush”)</p>
-  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">index.translog.durability</span> <span class="string">:</span> <span class="string">async</span></span><br><span class="line"><span class="string">Index.translog.sync_interval</span> <span class="string">:</span> <span class="number">5</span><span class="string">s</span></span><br><span class="line"><span class="string">Index.translog.flush_threshod_size</span> <span class="string">:</span> <span class="number">512</span><span class="string">mb</span></span><br></pre></td></tr></table></figure>
+<pre><code class="yaml">  index.translog.durability : async
+  Index.translog.sync_interval : 5s
+  Index.translog.flush_threshod_size : 512mb
+</code></pre>
 </li>
 <li><p>加大index refresh间隔,除了降低I/O,更重要的是降低了segment merge频率</p>
 <p>  每次索引refresh会产生一个新的Lucene段,这会导致频繁的segment merge(I/O和内存占用都比较高)行为</p>
-  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">index.refresh_interval</span> <span class="string">:</span> <span class="number">1</span><span class="string">s</span></span><br></pre></td></tr></table></figure>
+<pre><code class="yaml">  index.refresh_interval : 1s
+</code></pre>
 </li>
 <li><p>调整bluk请求</p>
 <ul>
@@ -961,7 +973,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#ejb','#gc','#collections','#map','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#collections','#map','#spring-mvc','#spring-webflux',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -1119,6 +1131,15 @@
 
     /*引用块样式*/
     
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
 
     /*文章列表背景图*/
     
@@ -1142,16 +1163,6 @@
     }
     
 
-    
-    .post .pjax article :not(pre) > code {
-        color: #24292e;
-        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-        background-color: rgba(27,31,35,.05);
-        border-radius: 3px;
-        font-size: 85%;
-        margin: 0;
-        padding: .2em .4em;
-    }
     
 </style>
 

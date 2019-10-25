@@ -24,7 +24,7 @@
 
 <link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.0.1" rel="stylesheet">
+<link href="/css/hl_theme/github-gist.css?v=1.0.1" rel="stylesheet">
 
 <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -119,7 +119,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="43">
-<input type="hidden" id="yelog_site_word_count" value="127.8k">
+<input type="hidden" id="yelog_site_word_count" value="126k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -154,6 +154,10 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">week</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hide</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -277,11 +281,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color3">gc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
+        <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -475,7 +479,7 @@
             <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
         </a>
         
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week" data-author="">
+        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
@@ -590,8 +594,8 @@
     .left-col .switch-area {
         display: none;
     }
-    .toc-level-3 i,
-    .toc-level-3 ol {
+    .toc-level-4 i,
+    .toc-level-4 ol {
         display: none !important;
     }
 </style>
@@ -949,7 +953,8 @@
 <h6 id="状态管理"><a href="#状态管理" class="headerlink" title="状态管理"></a>状态管理</h6><p>​    允许将持久对象断开与Session的关联，稍后又可以很容易地重建关联，持久化对象发送到客户端层，对象会暂时从事务中脱离，当用户提交时又回到事务。</p>
 <p>​    好处就是：使得借助版本或时间戳实现跨多个请求、多个Session实例的乐观锁成为可能。</p>
 <p>​    较为放松的状态管理源自 快照比较的变更侦测方式， 刷新数据库的时候将快照与持久对象的当前内容进行比较。从而将需要发出的更新语句减少到最低限度</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@org</span>.hibernate.annotations.Entity(dynamicInsert = <span class="keyword">true</span>, dynamicUpdate = <span class="keyword">true</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="java">@org.hibernate.annotations.Entity(dynamicInsert = true, dynamicUpdate = true)
+</code></pre>
 <p>### </p>
 <h6 id="延迟加载"><a href="#延迟加载" class="headerlink" title="延迟加载"></a>延迟加载</h6><h4 id="数据访问对象模式"><a href="#数据访问对象模式" class="headerlink" title="数据访问对象模式"></a>数据访问对象模式</h4><p>​    DAO 时最为重要的J2EE模式之一，也是GoF Strategy模式的一种特殊形式。</p>
 <h5 id="DAO和透明化持久化"><a href="#DAO和透明化持久化" class="headerlink" title="DAO和透明化持久化"></a>DAO和透明化持久化</h5><p>​    典型的DAO 接口只针对相对简单、细粒度的持久化机制，当对象状态发送改变时，必须显式调用存储操作。他们没有区分一等对象（领域对象）和二等对象（从属性的领域对象，生命周期由父对象控制）。 JDBC</p>
@@ -972,8 +977,12 @@
 <h4 id="Webservice（平台无关调用）"><a href="#Webservice（平台无关调用）" class="headerlink" title="Webservice（平台无关调用）"></a>Webservice（平台无关调用）</h4><h5 id="WSDL-Web-Service-Definition-Language-语言"><a href="#WSDL-Web-Service-Definition-Language-语言" class="headerlink" title="WSDL( Web Service Definition Language )  语言"></a>WSDL( Web Service Definition Language )  语言</h5><p>​    WSDL is an XML format for describing network services as a set of endpoints operating on messages containing either document-oriented or procedure-oriented information.</p>
 <h5 id="SOAP-Simple-Object-Access-Protocol-协议"><a href="#SOAP-Simple-Object-Access-Protocol-协议" class="headerlink" title="SOAP(Simple Object Access Protocol) 协议"></a>SOAP(Simple Object Access Protocol) 协议</h5><p>​    SOAP (abbreviation for <strong>Simple Object Access Protocol</strong>) is a messaging <a href="https://en.wikipedia.org/wiki/Protocol_(computing" target="_blank" rel="noopener">protocol</a>) specification for exchanging structured information in the implementation of <a href="https://en.wikipedia.org/wiki/Web_service" target="_blank" rel="noopener">web services</a> in <a href="https://en.wikipedia.org/wiki/Computer_network" target="_blank" rel="noopener">computer networks</a>. Its purpose is to provide <a href="https://en.wikipedia.org/wiki/Extensibility" target="_blank" rel="noopener">extensibility</a>, <a href="https://en.wikipedia.org/wiki/Neutrality_(philosophy" target="_blank" rel="noopener">neutrality</a>) and independence. It uses <a href="https://en.wikipedia.org/wiki/XML_Information_Set" target="_blank" rel="noopener">XML Information Set</a> for its <a href="https://en.wikipedia.org/wiki/Message_format" target="_blank" rel="noopener">message format</a>, and relies on <a href="https://en.wikipedia.org/wiki/Application_layer" target="_blank" rel="noopener">application layer</a> protocols, most often <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" target="_blank" rel="noopener">Hypertext Transfer Protocol</a> (HTTP) or <a href="https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol" target="_blank" rel="noopener">Simple Mail Transfer Protocol</a> (SMTP), for message negotiation and transmission.</p>
 <p>​    对于java远程调用而言，并不是一个令人信服的选择，因为它对方法参数有诸多限制，部署也相当麻烦。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A WSDL is an XML document that describes a web service. It actually stands for Web Services Description Language.</span><br><span class="line"></span><br><span class="line">SOAP is an XML-based protocol that lets you exchange info over a particular protocol (can be HTTP or SMTP, for example) between applications. It stands for Simple Object Access Protocol and uses XML for its messaging format to relay the information.</span><br><span class="line"></span><br><span class="line">REST is an architectural style of networked systems and stands for Representational State Transfer. It&apos;s not a standard itself, but does use standards such as HTTP, URL, XML, etc.</span><br></pre></td></tr></table></figure>
-<p>Ws相关子协议</p>
+<pre><code>A WSDL is an XML document that describes a web service. It actually stands for Web Services Description Language.
+
+SOAP is an XML-based protocol that lets you exchange info over a particular protocol (can be HTTP or SMTP, for example) between applications. It stands for Simple Object Access Protocol and uses XML for its messaging format to relay the information.
+
+REST is an architectural style of networked systems and stands for Representational State Transfer. It&#39;s not a standard itself, but does use standards such as HTTP, URL, XML, etc.
+</code></pre><p>Ws相关子协议</p>
 <p>​    JAX-RPC</p>
 <p>​    EJB端点JSR-109 J2ee 1.4</p>
 <h4 id="轻量级远程方案（平台无关调用）"><a href="#轻量级远程方案（平台无关调用）" class="headerlink" title="轻量级远程方案（平台无关调用）"></a>轻量级远程方案（平台无关调用）</h4><p>RMI环境配置相当麻烦，并且它使用的网络端口常常被防火墙禁止。</p>
@@ -984,8 +993,10 @@
 <p>Hessian ：二进制，简约、效率高</p>
 <p>burlap的优点在于：基于XML，它传输的消息可以被人读懂，也可以被XML解析器解析。</p>
 <p>relationships between http and servlet</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A servlet is a &apos;module&apos; that can be integrated into a server application to respond to client requests. Although a servlet need not use a specific protocol, we will use the HTTP protocol for communication (see figure 21.1). In practice, the term servlet refers to an HTTP servlet.</span><br><span class="line"></span><br><span class="line">The classic method of constructing dynamic HTML pages on a server is to use CGI (Common Gateway Interface) commands. These take as argument a URL which can contain data coming from an HTML form. The execution then produces a new HTML page which is sent to the client. The following links describe the HTTP and CGI protocols.</span><br></pre></td></tr></table></figure>
-<p>Link : <a href="https://caml.inria.fr/pub/docs/oreilly-book/html/book-ora196.html" target="_blank" rel="noopener">https://caml.inria.fr/pub/docs/oreilly-book/html/book-ora196.html</a></p>
+<pre><code>A servlet is a &#39;module&#39; that can be integrated into a server application to respond to client requests. Although a servlet need not use a specific protocol, we will use the HTTP protocol for communication (see figure 21.1). In practice, the term servlet refers to an HTTP servlet.
+
+The classic method of constructing dynamic HTML pages on a server is to use CGI (Common Gateway Interface) commands. These take as argument a URL which can contain data coming from an HTML form. The execution then produces a new HTML page which is sent to the client. The following links describe the HTTP and CGI protocols.
+</code></pre><p>Link : <a href="https://caml.inria.fr/pub/docs/oreilly-book/html/book-ora196.html" target="_blank" rel="noopener">https://caml.inria.fr/pub/docs/oreilly-book/html/book-ora196.html</a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 951488791@qq.com </span>
@@ -1043,7 +1054,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#ejb','#gc','#collections','#map','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#collections','#map','#spring-mvc','#spring-webflux',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -1201,6 +1212,15 @@
 
     /*引用块样式*/
     
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
 
     /*文章列表背景图*/
     
@@ -1224,16 +1244,6 @@
     }
     
 
-    
-    .post .pjax article :not(pre) > code {
-        color: #24292e;
-        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-        background-color: rgba(27,31,35,.05);
-        border-radius: 3px;
-        font-size: 85%;
-        margin: 0;
-        padding: .2em .4em;
-    }
     
 </style>
 

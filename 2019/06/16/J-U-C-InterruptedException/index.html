@@ -24,7 +24,7 @@
 
 <link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.0.1" rel="stylesheet">
+<link href="/css/hl_theme/github-gist.css?v=1.0.1" rel="stylesheet">
 
 <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -119,7 +119,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="43">
-<input type="hidden" id="yelog_site_word_count" value="127.8k">
+<input type="hidden" id="yelog_site_word_count" value="126k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -154,6 +154,10 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">week</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hide</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -277,11 +281,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color3">gc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
+        <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -475,7 +479,7 @@
             <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
         </a>
         
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week" data-author="">
+        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
@@ -560,7 +564,7 @@
     </div>
     <div class="article-meta">
         
-        <span>字数:2.1k</span>
+        <span>字数:2k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -586,8 +590,8 @@
     .left-col .switch-area {
         display: none;
     }
-    .toc-level-3 i,
-    .toc-level-3 ol {
+    .toc-level-4 i,
+    .toc-level-4 ol {
         display: none !important;
     }
 </style>
@@ -606,7 +610,21 @@
 <p>原因就是会有线程安全问题(死锁), <code>suspended</code> 期间还是会占有锁,<a href="https://docs.oracle.com/javase/8/docs/technotes/guides/concurrency/threadPrimitiveDeprecation.html" target="_blank" rel="noopener">更多相关</a></p>
 <p>然后就看到了<code>InterruptedException</code>这个异常. 之前了解过,但是没有深入理解.所以就打算好好了解下记录</p>
 <h2 id="java-lang-Thread-interrupt"><a href="#java-lang-Thread-interrupt" class="headerlink" title="java.lang.Thread#interrupt"></a>java.lang.Thread#interrupt</h2><p>首先先来看看线程相关的方法,中断线程, </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">interrupt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> != Thread.currentThread())</span><br><span class="line">        checkAccess();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">synchronized</span> (blockerLock) &#123;</span><br><span class="line">        Interruptible b = blocker;</span><br><span class="line">        <span class="keyword">if</span> (b != <span class="keyword">null</span>) &#123;</span><br><span class="line">            interrupt0();           <span class="comment">// Just to set the interrupt flag</span></span><br><span class="line">            b.interrupt(<span class="keyword">this</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    interrupt0();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">    public void interrupt() {
+        if (this != Thread.currentThread())
+            checkAccess();
+
+        synchronized (blockerLock) {
+            Interruptible b = blocker;
+            if (b != null) {
+                interrupt0();           // Just to set the interrupt flag
+                b.interrupt(this);
+                return;
+            }
+        }
+        interrupt0();
+    }
+</code></pre>
 <p>当然这个interrupt的作用只是把线程设置一个标记, Just to set the interrupt flag </p>
 <p>至于这里为什么只是设置了一个标记, 在core java中有提到</p>
 <blockquote>
@@ -614,10 +632,96 @@
 </blockquote>
 <p>即什么时候终止, 应该由被中断的线程去处理,所以使用这个的场景一般配合<code>Thread.currentThread().isInterrupted()</code> 来判断标记位(注意标记 默认为 false),退出循环 ,但是如果中断的是wait、sleep 等阻塞状态等线程,则会抛出InterruptedException</p>
 <h2 id="InterruptedException是什么"><a href="#InterruptedException是什么" class="headerlink" title="InterruptedException是什么"></a>InterruptedException是什么</h2><p>直接看类的解释</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.lang;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Thrown when a thread is waiting, sleeping, or otherwise occupied,</span></span><br><span class="line"><span class="comment"> * and the thread is interrupted, either before or during the activity.</span></span><br><span class="line"><span class="comment"> * Occasionally a method may wish to test whether the current</span></span><br><span class="line"><span class="comment"> * thread has been interrupted, and if so, to immediately throw</span></span><br><span class="line"><span class="comment"> * this exception.  The following code can be used to achieve</span></span><br><span class="line"><span class="comment"> * this effect:</span></span><br><span class="line"><span class="comment"> * &lt;pre&gt;</span></span><br><span class="line"><span class="comment"> *  if (Thread.interrupted())  // Clears interrupted status!</span></span><br><span class="line"><span class="comment"> *      throw new InterruptedException();</span></span><br><span class="line"><span class="comment"> * &lt;/pre&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>  Frank Yellin</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span>     java.lang.Object#wait()</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span>     java.lang.Object#wait(long)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span>     java.lang.Object#wait(long, int)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span>     java.lang.Thread#sleep(long)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span>     java.lang.Thread#interrupt()</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span>     java.lang.Thread#interrupted()</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>   JDK1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">InterruptedException</span> <span class="keyword">extends</span> <span class="title">Exception</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">6700697376100628473L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Constructs an &lt;code&gt;InterruptedException&lt;/code&gt; with no detail  message.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">InterruptedException</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Constructs an &lt;code&gt;InterruptedException&lt;/code&gt; with the</span></span><br><span class="line"><span class="comment">     * specified detail message.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>   s   the detail message.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">InterruptedException</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package java.lang;
+
+/**
+ * Thrown when a thread is waiting, sleeping, or otherwise occupied,
+ * and the thread is interrupted, either before or during the activity.
+ * Occasionally a method may wish to test whether the current
+ * thread has been interrupted, and if so, to immediately throw
+ * this exception.  The following code can be used to achieve
+ * this effect:
+ * &lt;pre&gt;
+ *  if (Thread.interrupted())  // Clears interrupted status!
+ *      throw new InterruptedException();
+ * &lt;/pre&gt;
+ *
+ * @author  Frank Yellin
+ * @see     java.lang.Object#wait()
+ * @see     java.lang.Object#wait(long)
+ * @see     java.lang.Object#wait(long, int)
+ * @see     java.lang.Thread#sleep(long)
+ * @see     java.lang.Thread#interrupt()
+ * @see     java.lang.Thread#interrupted()
+ * @since   JDK1.0
+ */
+public
+class InterruptedException extends Exception {
+    private static final long serialVersionUID = 6700697376100628473L;
+
+    /**
+     * Constructs an &lt;code&gt;InterruptedException&lt;/code&gt; with no detail  message.
+     */
+    public InterruptedException() {
+        super();
+    }
+
+    /**
+     * Constructs an &lt;code&gt;InterruptedException&lt;/code&gt; with the
+     * specified detail message.
+     *
+     * @param   s   the detail message.
+     */
+    public InterruptedException(String s) {
+        super(s);
+    }
+}
+
+</code></pre>
 <p>简单直译就是被中断的异常. 如果当前线程处于阻塞状态,sleep 、wait时候 被其他线程中断了,就会抛出该异常  </p>
 <p>下面我们再看看wait方法对其中的解释</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * Causes the current thread to wait until another thread invokes the</span></span><br><span class="line"><span class="comment">    * &#123;<span class="doctag">@link</span> java.lang.Object#notify()&#125; method or the</span></span><br><span class="line"><span class="comment">    * &#123;<span class="doctag">@link</span> java.lang.Object#notifyAll()&#125; method for this object.</span></span><br><span class="line"><span class="comment">    * In other words, this method behaves exactly as if it simply</span></span><br><span class="line"><span class="comment">    * performs the call &#123;<span class="doctag">@code</span> wait(0)&#125;.</span></span><br><span class="line"><span class="comment">    * &lt;p&gt;</span></span><br><span class="line"><span class="comment">    * The current thread must own this object's monitor. The thread</span></span><br><span class="line"><span class="comment">    * releases ownership of this monitor and waits until another thread</span></span><br><span class="line"><span class="comment">    * notifies threads waiting on this object's monitor to wake up</span></span><br><span class="line"><span class="comment">    * either through a call to the &#123;<span class="doctag">@code</span> notify&#125; method or the</span></span><br><span class="line"><span class="comment">    * &#123;<span class="doctag">@code</span> notifyAll&#125; method. The thread then waits until it can</span></span><br><span class="line"><span class="comment">    * re-obtain ownership of the monitor and resumes execution.</span></span><br><span class="line"><span class="comment">    * &lt;p&gt;</span></span><br><span class="line"><span class="comment">    * As in the one argument version, interrupts and spurious wakeups are</span></span><br><span class="line"><span class="comment">    * possible, and this method should always be used in a loop:</span></span><br><span class="line"><span class="comment">    * &lt;pre&gt;</span></span><br><span class="line"><span class="comment">    *     synchronized (obj) &#123;</span></span><br><span class="line"><span class="comment">    *         while (&amp;lt;condition does not hold&amp;gt;)</span></span><br><span class="line"><span class="comment">    *             obj.wait();</span></span><br><span class="line"><span class="comment">    *         ... // Perform action appropriate to condition</span></span><br><span class="line"><span class="comment">    *     &#125;</span></span><br><span class="line"><span class="comment">    * &lt;/pre&gt;</span></span><br><span class="line"><span class="comment">    * This method should only be called by a thread that is the owner</span></span><br><span class="line"><span class="comment">    * of this object's monitor. See the &#123;<span class="doctag">@code</span> notify&#125; method for a</span></span><br><span class="line"><span class="comment">    * description of the ways in which a thread can become the owner of</span></span><br><span class="line"><span class="comment">    * a monitor.</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@throws</span>  IllegalMonitorStateException  if the current thread is not</span></span><br><span class="line"><span class="comment">    *               the owner of the object's monitor.</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@throws</span>  InterruptedException if any thread interrupted the</span></span><br><span class="line"><span class="comment">    *             current thread before or while the current thread</span></span><br><span class="line"><span class="comment">    *             was waiting for a notification.  The &lt;i&gt;interrupted</span></span><br><span class="line"><span class="comment">    *             status&lt;/i&gt; of the current thread is cleared when</span></span><br><span class="line"><span class="comment">    *             this exception is thrown.</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@see</span>        java.lang.Object#notify()</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@see</span>        java.lang.Object#notifyAll()</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">       wait(<span class="number">0</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java"> /**
+     * Causes the current thread to wait until another thread invokes the
+     * {@link java.lang.Object#notify()} method or the
+     * {@link java.lang.Object#notifyAll()} method for this object.
+     * In other words, this method behaves exactly as if it simply
+     * performs the call {@code wait(0)}.
+     * &lt;p&gt;
+     * The current thread must own this object&#39;s monitor. The thread
+     * releases ownership of this monitor and waits until another thread
+     * notifies threads waiting on this object&#39;s monitor to wake up
+     * either through a call to the {@code notify} method or the
+     * {@code notifyAll} method. The thread then waits until it can
+     * re-obtain ownership of the monitor and resumes execution.
+     * &lt;p&gt;
+     * As in the one argument version, interrupts and spurious wakeups are
+     * possible, and this method should always be used in a loop:
+     * &lt;pre&gt;
+     *     synchronized (obj) {
+     *         while (&amp;lt;condition does not hold&amp;gt;)
+     *             obj.wait();
+     *         ... // Perform action appropriate to condition
+     *     }
+     * &lt;/pre&gt;
+     * This method should only be called by a thread that is the owner
+     * of this object&#39;s monitor. See the {@code notify} method for a
+     * description of the ways in which a thread can become the owner of
+     * a monitor.
+     *
+     * @throws  IllegalMonitorStateException  if the current thread is not
+     *               the owner of the object&#39;s monitor.
+     * @throws  InterruptedException if any thread interrupted the
+     *             current thread before or while the current thread
+     *             was waiting for a notification.  The &lt;i&gt;interrupted
+     *             status&lt;/i&gt; of the current thread is cleared when
+     *             this exception is thrown.
+     * @see        java.lang.Object#notify()
+     * @see        java.lang.Object#notifyAll()
+     */
+    public final void wait() throws InterruptedException {
+        wait(0);
+    }
+</code></pre>
 <p>注意一点,wait会抛出两个异常,其中 <code>IllegalMonitorStateException</code> 是如果当前线程没有获取到对象的monitor,然后使用对象的wait方法时就会出现</p>
 <p>另一个就是我们的<code>InterruptedException</code> 了 ,这里的解释也是和上面一样就不做重复赘述了.</p>
 <p><strong>但是需要注意的是有一句</strong></p>
@@ -625,33 +729,191 @@
 <p>The interrupted  status of the current thread is cleared when this exception is thrown.</p>
 </blockquote>
 <p>也就是线程中断标记位会被重置 ,所以可以看到如果对这个异常不做处理,那么这个线程可能永远都不能被中断</p>
-<h2 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h2><pre><code>当我们在使用多线程并发调度的时候, (多线程的使用场景一般用在IO阻塞比较多的情况) 为了防止线程的频繁创建带来的损耗,一般会使用 `ThreadPoolExecutor`  
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,<span class="keyword">int</span> maximumPoolSize,<span class="keyword">long</span> keepAliveTime,TimeUnit unit, BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue,</span><br><span class="line">             threadFactory, defaultHandler);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h2><pre><code> 当我们在使用多线程并发调度的时候, (多线程的使用场景一般用在IO阻塞比较多的情况) 为了防止线程的频繁创建带来的损耗,一般会使用 `ThreadPoolExecutor`  
+</code></pre><pre><code class="java">public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTime,TimeUnit unit, BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory) {
+        this(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue,
+             threadFactory, defaultHandler);
+}
+</code></pre>
 <p><a href="[https://zyumin.github.io/2019/06/06/java%E5%B9%B6%E5%8F%91%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA/#%E4%BD%BF%E7%94%A8](https://zyumin.github.io/2019/06/06/java并发深入浅出/#使用">关于ThreadPoolExecutor的使用细节</a>)</p>
 <p>当容器退出的时候,那么我们应该如何停止这个线程池的任务</p>
 <h3 id="Graceful-stop"><a href="#Graceful-stop" class="headerlink" title="Graceful stop"></a>Graceful stop</h3><p>​    既然提到了graceful ,在平时工作中,我们不能因为容器的退出,而导致运行中的任务执行失败,强制退出,一般会通过钩子方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">	Runtime.getRuntime().addShutdownHook(<span class="keyword">new</span> Thread() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            logger.info(<span class="string">"stop the Executor...."</span>);</span><br><span class="line">            shutDown();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            logger.error(<span class="string">"shutDown error,msg:"</span>, e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code class="java">    Runtime.getRuntime().addShutdownHook(new Thread() {
+    @Override
+    public void run() {
+        try {
+            logger.info(&quot;stop the Executor....&quot;);
+            shutDown();
+        } catch (Exception e) {
+            logger.error(&quot;shutDown error,msg:&quot;, e);
+        }
+    }
+});
+</code></pre>
 <p>​    在<code>ThreadPoolExecutor</code>中,我们可以使用 <code>java.util.concurrent.ThreadPoolExecutor#shutdown</code>  方法</p>
 <p>但是对于下面的这种<code>Runnable</code> ,是停止不了的</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">             dosomething();</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class Worker implements Runnable {
+    @Override
+    public void run() {
+         while (true) {
+             dosomething();
+         }
+    }
+}
+</code></pre>
 <h4 id="常见的做法"><a href="#常见的做法" class="headerlink" title="常见的做法"></a>常见的做法</h4><p>所以我们一般会通过设置一个条件变量判断</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">boolean</span> stopFlag =  <span class="keyword">false</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>&#123;</span><br><span class="line">        stopFlag = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (stopFlag) &#123;</span><br><span class="line">            dosomething();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class Worker implements Runnable {
+    private volatile boolean stopFlag =  false;
+    public void stop(){
+        stopFlag = true;
+    }
+    @Override
+    public void run() {
+        while (stopFlag) {
+            dosomething();
+        }
+    }
+}
+</code></pre>
 <h4 id="更为通用的做法"><a href="#更为通用的做法" class="headerlink" title="更为通用的做法"></a>更为通用的做法</h4><p>但是这种方式很麻烦,需要遍历线程池去调用stop方法,所以更为通用的方法是利用interrupted 标记来处理</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line"><span class="comment">//        private volatile boolean stopFlag =  false;</span></span><br><span class="line"><span class="comment">//        public void stop()&#123;</span></span><br><span class="line"><span class="comment">//            stopFlag = true;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (!Thread.currentThread().isInterrupted()) &#123;</span><br><span class="line">            System.out.println(<span class="string">"i'm running "</span> + Thread.currentThread().getName());</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class Worker implements Runnable {
+//        private volatile boolean stopFlag =  false;
+//        public void stop(){
+//            stopFlag = true;
+//        }
+    @Override
+    public void run() {
+        while (!Thread.currentThread().isInterrupted()) {
+            System.out.println(&quot;i&#39;m running &quot; + Thread.currentThread().getName());
+
+        }
+    }
+}
+</code></pre>
 <p>这个时候调用 <code>java.util.concurrent.ThreadPoolExecutor#shutdown</code> 会发现线程没有停下来,那么为什么标记位没有被设置~</p>
 <h3 id="shutdown-和-shutdownNow"><a href="#shutdown-和-shutdownNow" class="headerlink" title="shutdown 和 shutdownNow"></a>shutdown 和 shutdownNow</h3><h4 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h4><p>上面为什么没有停下来,debug进入shutdown</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shutdown</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> ReentrantLock mainLock = <span class="keyword">this</span>.mainLock;</span><br><span class="line">    mainLock.lock();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        checkShutdownAccess();</span><br><span class="line">        advanceRunState(SHUTDOWN);</span><br><span class="line">        interruptIdleWorkers();</span><br><span class="line">        onShutdown(); <span class="comment">// hook for ScheduledThreadPoolExecutor</span></span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        mainLock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">    tryTerminate();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public void shutdown() {
+    final ReentrantLock mainLock = this.mainLock;
+    mainLock.lock();
+    try {
+        checkShutdownAccess();
+        advanceRunState(SHUTDOWN);
+        interruptIdleWorkers();
+        onShutdown(); // hook for ScheduledThreadPoolExecutor
+    } finally {
+        mainLock.unlock();
+    }
+    tryTerminate();
+}
+</code></pre>
 <p>再进入interruptIdleWorkers,会发现遍历worker进行interrupt</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">interruptIdleWorkers</span><span class="params">(<span class="keyword">boolean</span> onlyOne)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> ReentrantLock mainLock = <span class="keyword">this</span>.mainLock;</span><br><span class="line">    mainLock.lock();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (Worker w : workers) &#123;</span><br><span class="line">            Thread t = w.thread;</span><br><span class="line">            <span class="keyword">if</span> (!t.isInterrupted() &amp;&amp; w.tryLock()) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    t.interrupt();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (SecurityException ignore) &#123;</span><br><span class="line">                &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                    w.unlock();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (onlyOne)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        mainLock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">private void interruptIdleWorkers(boolean onlyOne) {
+    final ReentrantLock mainLock = this.mainLock;
+    mainLock.lock();
+    try {
+        for (Worker w : workers) {
+            Thread t = w.thread;
+            if (!t.isInterrupted() &amp;&amp; w.tryLock()) {
+                try {
+                    t.interrupt();
+                } catch (SecurityException ignore) {
+                } finally {
+                    w.unlock();
+                }
+            }
+            if (onlyOne)
+                break;
+        }
+    } finally {
+        mainLock.unlock();
+    }
+}
+</code></pre>
 <p>发现 <code>w.tryLock()</code> 返回false ,这里取不到锁的原因是因为ThreadPoolExecutor 内部封装了Worker, Worker在运行的时候会调用w.lock(); </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title">runWorker</span><span class="params">(Worker w)</span> </span>&#123;</span><br><span class="line">    Thread wt = Thread.currentThread();</span><br><span class="line">    Runnable task = w.firstTask;</span><br><span class="line">    w.firstTask = <span class="keyword">null</span>;</span><br><span class="line">    w.unlock(); <span class="comment">// allow interrupts</span></span><br><span class="line">    <span class="keyword">boolean</span> completedAbruptly = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (task != <span class="keyword">null</span> || (task = getTask()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">            w.lock();</span><br><span class="line">            <span class="comment">// If pool is stopping, ensure thread is interrupted;</span></span><br><span class="line">            <span class="comment">// if not, ensure thread is not interrupted.  This</span></span><br><span class="line">            <span class="comment">// requires a recheck in second case to deal with</span></span><br><span class="line">            <span class="comment">// shutdownNow race while clearing interrupt</span></span><br><span class="line">            <span class="keyword">if</span> ((runStateAtLeast(ctl.get(), STOP) ||</span><br><span class="line">                 (Thread.interrupted() &amp;&amp;</span><br><span class="line">                  runStateAtLeast(ctl.get(), STOP))) &amp;&amp;</span><br><span class="line">                !wt.isInterrupted())</span><br><span class="line">                wt.interrupt();</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                beforeExecute(wt, task);</span><br><span class="line">                Throwable thrown = <span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    task.run();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (RuntimeException x) &#123;</span><br><span class="line">                    thrown = x; <span class="keyword">throw</span> x;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Error x) &#123;</span><br><span class="line">                    thrown = x; <span class="keyword">throw</span> x;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Throwable x) &#123;</span><br><span class="line">                    thrown = x; <span class="keyword">throw</span> <span class="keyword">new</span> Error(x);</span><br><span class="line">                &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                    afterExecute(task, thrown);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                task = <span class="keyword">null</span>;</span><br><span class="line">                w.completedTasks++;</span><br><span class="line">                w.unlock();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        completedAbruptly = <span class="keyword">false</span>;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        processWorkerExit(w, completedAbruptly);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">final void runWorker(Worker w) {
+    Thread wt = Thread.currentThread();
+    Runnable task = w.firstTask;
+    w.firstTask = null;
+    w.unlock(); // allow interrupts
+    boolean completedAbruptly = true;
+    try {
+        while (task != null || (task = getTask()) != null) {
+            w.lock();
+            // If pool is stopping, ensure thread is interrupted;
+            // if not, ensure thread is not interrupted.  This
+            // requires a recheck in second case to deal with
+            // shutdownNow race while clearing interrupt
+            if ((runStateAtLeast(ctl.get(), STOP) ||
+                 (Thread.interrupted() &amp;&amp;
+                  runStateAtLeast(ctl.get(), STOP))) &amp;&amp;
+                !wt.isInterrupted())
+                wt.interrupt();
+            try {
+                beforeExecute(wt, task);
+                Throwable thrown = null;
+                try {
+                    task.run();
+                } catch (RuntimeException x) {
+                    thrown = x; throw x;
+                } catch (Error x) {
+                    thrown = x; throw x;
+                } catch (Throwable x) {
+                    thrown = x; throw new Error(x);
+                } finally {
+                    afterExecute(task, thrown);
+                }
+            } finally {
+                task = null;
+                w.completedTasks++;
+                w.unlock();
+            }
+        }
+        completedAbruptly = false;
+    } finally {
+        processWorkerExit(w, completedAbruptly);
+    }
+}
+</code></pre>
 <p>所以,shutdown方法 是不会对运行中的线程设置标记位</p>
 <h4 id="shutdownNow"><a href="#shutdownNow" class="headerlink" title="shutdownNow"></a>shutdownNow</h4><p> <code>java.util.concurrent.ThreadPoolExecutor#shutdownNow</code>  , 注意这个方法并不是强制退出哈, 它和 shutdown区别如下</p>
 <ul>
 <li>只是它会对运行中的线程设置中断标记</li>
 <li>还有不再执行等待队列的任务,返回未执行任务</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Runnable&gt; <span class="title">shutdownNow</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Runnable&gt; tasks;</span><br><span class="line">    <span class="keyword">final</span> ReentrantLock mainLock = <span class="keyword">this</span>.mainLock;</span><br><span class="line">    mainLock.lock();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        checkShutdownAccess();</span><br><span class="line">        advanceRunState(STOP);</span><br><span class="line">        interruptWorkers();</span><br><span class="line">        tasks = drainQueue();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        mainLock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">    tryTerminate();</span><br><span class="line">    <span class="keyword">return</span> tasks;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Drains the task queue into a new list, normally using</span></span><br><span class="line"><span class="comment"> * drainTo. But if the queue is a DelayQueue or any other kind of</span></span><br><span class="line"><span class="comment"> * queue for which poll or drainTo may fail to remove some</span></span><br><span class="line"><span class="comment"> * elements, it deletes them one by one.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Runnable&gt; <span class="title">drainQueue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    BlockingQueue&lt;Runnable&gt; q = workQueue;</span><br><span class="line">    ArrayList&lt;Runnable&gt; taskList = <span class="keyword">new</span> ArrayList&lt;Runnable&gt;();</span><br><span class="line">    q.drainTo(taskList);</span><br><span class="line">    <span class="keyword">if</span> (!q.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">for</span> (Runnable r : q.toArray(<span class="keyword">new</span> Runnable[<span class="number">0</span>])) &#123;</span><br><span class="line">            <span class="keyword">if</span> (q.remove(r))</span><br><span class="line">                taskList.add(r);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> taskList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public List&lt;Runnable&gt; shutdownNow() {
+    List&lt;Runnable&gt; tasks;
+    final ReentrantLock mainLock = this.mainLock;
+    mainLock.lock();
+    try {
+        checkShutdownAccess();
+        advanceRunState(STOP);
+        interruptWorkers();
+        tasks = drainQueue();
+    } finally {
+        mainLock.unlock();
+    }
+    tryTerminate();
+    return tasks;
+}
+/**
+ * Drains the task queue into a new list, normally using
+ * drainTo. But if the queue is a DelayQueue or any other kind of
+ * queue for which poll or drainTo may fail to remove some
+ * elements, it deletes them one by one.
+ */
+private List&lt;Runnable&gt; drainQueue() {
+    BlockingQueue&lt;Runnable&gt; q = workQueue;
+    ArrayList&lt;Runnable&gt; taskList = new ArrayList&lt;Runnable&gt;();
+    q.drainTo(taskList);
+    if (!q.isEmpty()) {
+        for (Runnable r : q.toArray(new Runnable[0])) {
+            if (q.remove(r))
+                taskList.add(r);
+        }
+    }
+    return taskList;
+}
+</code></pre>
 <p>所以我们就可以愉快的使用<code>shutdownNow</code> 和  <code>Thread.currentThread().isInterrupted()</code></p>
 <p>最后再提醒一波,不要忘记对InterruptedException的处理</p>
 
@@ -664,7 +926,7 @@
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>J.U.C_InterruptedException</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">2.1k</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">2k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-06-16, 16:09:43</p>
     <p><span class="copy-title">最后更新:</span>2019-06-16, 18:28:30</p>
@@ -711,7 +973,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#ejb','#gc','#collections','#map','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#collections','#map','#spring-mvc','#spring-webflux',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -869,6 +1131,15 @@
 
     /*引用块样式*/
     
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
 
     /*文章列表背景图*/
     
@@ -892,16 +1163,6 @@
     }
     
 
-    
-    .post .pjax article :not(pre) > code {
-        color: #24292e;
-        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-        background-color: rgba(27,31,35,.05);
-        border-radius: 3px;
-        font-size: 85%;
-        margin: 0;
-        padding: .2em .4em;
-    }
     
 </style>
 

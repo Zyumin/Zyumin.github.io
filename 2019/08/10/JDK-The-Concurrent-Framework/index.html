@@ -24,7 +24,7 @@
 
 <link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.0.1" rel="stylesheet">
+<link href="/css/hl_theme/github-gist.css?v=1.0.1" rel="stylesheet">
 
 <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -119,7 +119,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="43">
-<input type="hidden" id="yelog_site_word_count" value="127.8k">
+<input type="hidden" id="yelog_site_word_count" value="126k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -154,6 +154,10 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">week</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hide</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -277,11 +281,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color3">gc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
+        <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -475,7 +479,7 @@
             <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
         </a>
         
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week" data-author="">
+        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
@@ -562,7 +566,7 @@
     </div>
     <div class="article-meta">
         
-        <span>字数:9k</span>
+        <span>字数:8.8k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -588,8 +592,8 @@
     .left-col .switch-area {
         display: none;
     }
-    .toc-level-3 i,
-    .toc-level-3 ol {
+    .toc-level-4 i,
+    .toc-level-4 ol {
         display: none !important;
     }
 </style>
@@ -607,10 +611,33 @@
 <p><strong>Interfaces</strong></p>
 <h5 id="Executor"><a href="#Executor" class="headerlink" title="Executor"></a>Executor</h5><p> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html" target="_blank" rel="noopener"><code>Executor</code></a> is a simple standardized interface for defining custom thread-like subsystems, including thread pools, asynchronous I/O, and lightweight task frameworks. </p>
 <p>Depending on which concrete Executor class is being used, tasks may execute in a newly created thread, an existing task-execution thread, or the thread calling <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html#execute-java.lang.Runnable-" target="_blank" rel="noopener"><code>execute</code></a>, and may execute sequentially or concurrently.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Executor</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">(Runnable command)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public interface Executor {
+    void execute(Runnable command);
+}
+</code></pre>
 <h5 id="ExecutorService"><a href="#ExecutorService" class="headerlink" title="ExecutorService"></a>ExecutorService</h5><p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g62obzhq7nj31ds0sujwc.jpg" alt="image-20190817144736755"></p>
 <p><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html" target="_blank" rel="noopener"><code>ExecutorService</code></a> provides a more complete asynchronous task execution framework. An ExecutorService manages queuing and scheduling of tasks, and allows controlled shutdown. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ExecutorService</span> <span class="keyword">extends</span> <span class="title">Executor</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">shutdown</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function">List&lt;Runnable&gt; <span class="title">shutdownNow</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">boolean</span> <span class="title">isShutdown</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">boolean</span> <span class="title">isTerminated</span><span class="params">()</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">boolean</span> <span class="title">awaitTermination</span><span class="params">(<span class="keyword">long</span> timeout, TimeUnit unit)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">   &lt;T&gt; <span class="function">Future&lt;T&gt; <span class="title">submit</span><span class="params">(Callable&lt;T&gt; task)</span></span>;</span><br><span class="line">   &lt;T&gt; <span class="function">Future&lt;T&gt; <span class="title">submit</span><span class="params">(Runnable task, T result)</span></span>;</span><br><span class="line">   Future&lt;?&gt; submit(Runnable task);</span><br><span class="line">   &lt;T&gt; List&lt;Future&lt;T&gt;&gt; invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks)</span><br><span class="line">        <span class="keyword">throws</span> InterruptedException;</span><br><span class="line">   &lt;T&gt; List&lt;Future&lt;T&gt;&gt; invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks,</span><br><span class="line">                                  <span class="keyword">long</span> timeout, TimeUnit unit)</span><br><span class="line">        <span class="keyword">throws</span> InterruptedException;</span><br><span class="line">   &lt;T&gt; <span class="function">T <span class="title">invokeAny</span><span class="params">(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException, ExecutionException</span>;</span><br><span class="line">   &lt;T&gt; <span class="function">T <span class="title">invokeAny</span><span class="params">(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks,<span class="keyword">long</span> timeout, TimeUnit unit)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException, ExecutionException, TimeoutException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public interface ExecutorService extends Executor {
+   void shutdown();
+   List&lt;Runnable&gt; shutdownNow();
+   boolean isShutdown();
+   boolean isTerminated();
+   boolean awaitTermination(long timeout, TimeUnit unit)
+        throws InterruptedException;
+   &lt;T&gt; Future&lt;T&gt; submit(Callable&lt;T&gt; task);
+   &lt;T&gt; Future&lt;T&gt; submit(Runnable task, T result);
+   Future&lt;?&gt; submit(Runnable task);
+   &lt;T&gt; List&lt;Future&lt;T&gt;&gt; invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks)
+        throws InterruptedException;
+   &lt;T&gt; List&lt;Future&lt;T&gt;&gt; invokeAll(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks,
+                                  long timeout, TimeUnit unit)
+        throws InterruptedException;
+   &lt;T&gt; T invokeAny(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks)
+        throws InterruptedException, ExecutionException;
+   &lt;T&gt; T invokeAny(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks,long timeout, TimeUnit unit)
+        throws InterruptedException, ExecutionException, TimeoutException;
+}
+</code></pre>
 <p>不同于submit</p>
 <p>方法invokeAny,invokeAll具有阻塞性。</p>
 <ul>
@@ -618,19 +645,111 @@
 <li>invokeAll等线程任务执行完毕后,取得全部任务的结果值。</li>
 </ul>
 <h5 id="ScheduledExecutorService"><a href="#ScheduledExecutorService" class="headerlink" title="ScheduledExecutorService"></a>ScheduledExecutorService</h5><p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ScheduledExecutorService.html" target="_blank" rel="noopener"><code>ScheduledExecutorService</code></a> subinterface and associated interfaces add support for delayed and periodic task execution. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ScheduledExecutorService</span> <span class="keyword">extends</span> <span class="title">ExecutorService</span> </span>&#123;</span><br><span class="line">   <span class="keyword">public</span> ScheduledFuture&lt;?&gt; schedule(Runnable command,<span class="keyword">long</span> delay, TimeUnit unit);</span><br><span class="line">   <span class="keyword">public</span> &lt;V&gt; <span class="function">ScheduledFuture&lt;V&gt; <span class="title">schedule</span><span class="params">(Callable&lt;V&gt; callable,<span class="keyword">long</span> delay, TimeUnit unit)</span></span>;</span><br><span class="line">   <span class="keyword">public</span> ScheduledFuture&lt;?&gt; scheduleAtFixedRate(Runnable command,</span><br><span class="line">                                                  <span class="keyword">long</span> initialDelay,</span><br><span class="line">                                                  <span class="keyword">long</span> period,</span><br><span class="line">                                                  TimeUnit unit);</span><br><span class="line">  <span class="keyword">public</span> ScheduledFuture&lt;?&gt; scheduleWithFixedDelay(Runnable command,</span><br><span class="line">                                                     <span class="keyword">long</span> initialDelay,</span><br><span class="line">                                                     <span class="keyword">long</span> delay,</span><br><span class="line">                                                     TimeUnit unit);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public interface ScheduledExecutorService extends ExecutorService {
+   public ScheduledFuture&lt;?&gt; schedule(Runnable command,long delay, TimeUnit unit);
+   public &lt;V&gt; ScheduledFuture&lt;V&gt; schedule(Callable&lt;V&gt; callable,long delay, TimeUnit unit);
+   public ScheduledFuture&lt;?&gt; scheduleAtFixedRate(Runnable command,
+                                                  long initialDelay,
+                                                  long period,
+                                                  TimeUnit unit);
+  public ScheduledFuture&lt;?&gt; scheduleWithFixedDelay(Runnable command,
+                                                     long initialDelay,
+                                                     long delay,
+                                                     TimeUnit unit);
+}
+</code></pre>
 <h5 id="Callable"><a href="#Callable" class="headerlink" title="Callable"></a>Callable</h5><p> ExecutorServices provide methods arranging asynchronous execution of any function expressed as <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html" target="_blank" rel="noopener"><code>Callable</code></a>, the result-bearing analog of <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html" target="_blank" rel="noopener"><code>Runnable</code></a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Callable</span>&lt;<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Computes a result, or throws an exception if unable to do so.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> computed result</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception if unable to compute a result</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">V <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">@FunctionalInterface
+public interface Callable&lt;V&gt; {
+    /**
+     * Computes a result, or throws an exception if unable to do so.
+     *
+     * @return computed result
+     * @throws Exception if unable to compute a result
+     */
+    V call() throws Exception;
+}
+</code></pre>
 <h5 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h5><p>A <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html" target="_blank" rel="noopener"><code>Future</code></a> returns the results of a function, allows determination of whether execution has completed, and provides a means to cancel execution.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Future</span>&lt;<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">cancel</span><span class="params">(<span class="keyword">boolean</span> mayInterruptIfRunning)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isCancelled</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isDone</span><span class="params">()</span></span>; </span><br><span class="line">    <span class="function">V <span class="title">get</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException, ExecutionException</span>;</span><br><span class="line">    <span class="function">V <span class="title">get</span><span class="params">(<span class="keyword">long</span> timeout, TimeUnit unit)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException, ExecutionException, TimeoutException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public interface Future&lt;V&gt; {
+    boolean cancel(boolean mayInterruptIfRunning);
+    boolean isCancelled();
+    boolean isDone(); 
+    V get() throws InterruptedException, ExecutionException;
+    V get(long timeout, TimeUnit unit)
+        throws InterruptedException, ExecutionException, TimeoutException;
+}
+</code></pre>
 <h5 id="RunnableFuture"><a href="#RunnableFuture" class="headerlink" title="RunnableFuture"></a>RunnableFuture</h5><p>A <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/RunnableFuture.html" target="_blank" rel="noopener"><code>RunnableFuture</code></a> is a <code>Future</code> that possesses a <code>run</code> method that upon execution, sets its results.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">RunnableFuture</span>&lt;<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">Runnable</span>, <span class="title">Future</span>&lt;<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Sets this Future to the result of its computation</span></span><br><span class="line"><span class="comment">     * unless it has been cancelled.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="ThreadFactory"><a href="#ThreadFactory" class="headerlink" title="ThreadFactory"></a>ThreadFactory</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ThreadFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Constructs a new &#123;<span class="doctag">@code</span> Thread&#125;.  Implementations may also initialize</span></span><br><span class="line"><span class="comment">     * priority, name, daemon status, &#123;<span class="doctag">@code</span> ThreadGroup&#125;, etc.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> r a runnable to be executed by new thread instance</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> constructed thread, or &#123;<span class="doctag">@code</span> null&#125; if the request to</span></span><br><span class="line"><span class="comment">     *         create a thread is rejected</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">Thread <span class="title">newThread</span><span class="params">(Runnable r)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public interface RunnableFuture&lt;V&gt; extends Runnable, Future&lt;V&gt; {
+    /**
+     * Sets this Future to the result of its computation
+     * unless it has been cancelled.
+     */
+    void run();
+}
+</code></pre>
+<h5 id="ThreadFactory"><a href="#ThreadFactory" class="headerlink" title="ThreadFactory"></a>ThreadFactory</h5><pre><code class="java">public interface ThreadFactory {
+
+    /**
+     * Constructs a new {@code Thread}.  Implementations may also initialize
+     * priority, name, daemon status, {@code ThreadGroup}, etc.
+     *
+     * @param r a runnable to be executed by new thread instance
+     * @return constructed thread, or {@code null} if the request to
+     *         create a thread is rejected
+     */
+    Thread newThread(Runnable r);
+}
+</code></pre>
 <p>构造新的线程,初始化 优先级 、名字 等</p>
 <p><strong>Implementations</strong> </p>
-<h5 id="ThreadPoolExecutor-amp-ScheduledThreadPoolExecutor"><a href="#ThreadPoolExecutor-amp-ScheduledThreadPoolExecutor" class="headerlink" title="ThreadPoolExecutor &amp; ScheduledThreadPoolExecutor"></a>ThreadPoolExecutor &amp; ScheduledThreadPoolExecutor</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadPoolExecutor</span> <span class="keyword">extends</span> <span class="title">AbstractExecutorService</span> </span>&#123;</span><br><span class="line">     <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * The main pool control state, ctl, is an atomic integer packing</span></span><br><span class="line"><span class="comment">     * two conceptual fields</span></span><br><span class="line"><span class="comment">     *   workerCount, indicating the effective number of threads</span></span><br><span class="line"><span class="comment">     *   runState,    indicating whether running, shutting down etc</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">extends</span> <span class="title">AbstractQueuedSynchronizer</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;...&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">xxx</span> <span class="keyword">implements</span> <span class="title">rejectedExecution</span></span>&#123;...&#125;</span><br><span class="line">    implements Executor&#123;..&#125;</span><br><span class="line">    implements ExecutorService&#123;..&#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="ThreadPoolExecutor-amp-ScheduledThreadPoolExecutor"><a href="#ThreadPoolExecutor-amp-ScheduledThreadPoolExecutor" class="headerlink" title="ThreadPoolExecutor &amp; ScheduledThreadPoolExecutor"></a>ThreadPoolExecutor &amp; ScheduledThreadPoolExecutor</h5><pre><code class="java">public class ThreadPoolExecutor extends AbstractExecutorService {
+     /**
+     * The main pool control state, ctl, is an atomic integer packing
+     * two conceptual fields
+     *   workerCount, indicating the effective number of threads
+     *   runState,    indicating whether running, shutting down etc
+     */
+    private final class Worker extends AbstractQueuedSynchronizer implements Runnable{...}
+    public static class xxx implements rejectedExecution{...}
+    implements Executor{..}
+    implements ExecutorService{..}
+    ...
+}
+</code></pre>
 <p>​    这个类很有意思呀,包含了运行状态,worker数量的计算,  Worker的实现,拒绝策略的实现,Executor的实现,另外注意构造函数,注意理解各个参数的含义⚠️</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScheduledThreadPoolExecutor</span> <span class="keyword">extends</span> <span class="title">ThreadPoolExecutor</span></span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">ScheduledExecutorService</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * This class specializes ThreadPoolExecutor implementation by</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 1. Using a custom task type, ScheduledFutureTask for</span></span><br><span class="line"><span class="comment">     *    tasks, even those that don't require scheduling (i.e.,</span></span><br><span class="line"><span class="comment">     *    those submitted using ExecutorService execute, not</span></span><br><span class="line"><span class="comment">     *    ScheduledExecutorService methods) which are treated as</span></span><br><span class="line"><span class="comment">     *    delayed tasks with a delay of zero.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 2. Using a custom queue (DelayedWorkQueue), a variant of</span></span><br><span class="line"><span class="comment">     *    unbounded DelayQueue. The lack of capacity constraint and</span></span><br><span class="line"><span class="comment">     *    the fact that corePoolSize and maximumPoolSize are</span></span><br><span class="line"><span class="comment">     *    effectively identical simplifies some execution mechanics</span></span><br><span class="line"><span class="comment">     *    (see delayedExecute) compared to ThreadPoolExecutor.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 3. Supporting optional run-after-shutdown parameters, which</span></span><br><span class="line"><span class="comment">     *    leads to overrides of shutdown methods to remove and cancel</span></span><br><span class="line"><span class="comment">     *    tasks that should NOT be run after shutdown, as well as</span></span><br><span class="line"><span class="comment">     *    different recheck logic when task (re)submission overlaps</span></span><br><span class="line"><span class="comment">     *    with a shutdown.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 4. Task decoration methods to allow interception and</span></span><br><span class="line"><span class="comment">     *    instrumentation, which are needed because subclasses cannot</span></span><br><span class="line"><span class="comment">     *    otherwise override submit methods to get this effect. These</span></span><br><span class="line"><span class="comment">     *    don't have any impact on pool control logic though.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">     ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class ScheduledThreadPoolExecutor extends ThreadPoolExecutor
+        implements ScheduledExecutorService {
+    /*
+     * This class specializes ThreadPoolExecutor implementation by
+     *
+     * 1. Using a custom task type, ScheduledFutureTask for
+     *    tasks, even those that don&#39;t require scheduling (i.e.,
+     *    those submitted using ExecutorService execute, not
+     *    ScheduledExecutorService methods) which are treated as
+     *    delayed tasks with a delay of zero.
+     *
+     * 2. Using a custom queue (DelayedWorkQueue), a variant of
+     *    unbounded DelayQueue. The lack of capacity constraint and
+     *    the fact that corePoolSize and maximumPoolSize are
+     *    effectively identical simplifies some execution mechanics
+     *    (see delayedExecute) compared to ThreadPoolExecutor.
+     *
+     * 3. Supporting optional run-after-shutdown parameters, which
+     *    leads to overrides of shutdown methods to remove and cancel
+     *    tasks that should NOT be run after shutdown, as well as
+     *    different recheck logic when task (re)submission overlaps
+     *    with a shutdown.
+     *
+     * 4. Task decoration methods to allow interception and
+     *    instrumentation, which are needed because subclasses cannot
+     *    otherwise override submit methods to get this effect. These
+     *    don&#39;t have any impact on pool control logic though.
+     */
+     ...
+}
+</code></pre>
 <p>​    与ThreadPoolExecutor不同的是,使用的是task,延迟队列,重写了onshutdown</p>
 <h5 id="Executors-1"><a href="#Executors-1" class="headerlink" title="Executors"></a>Executors</h5><p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executors.html" target="_blank" rel="noopener"><code>Executors</code></a> class provides factory methods for the most common kinds and configurations of Executors, as well as a few utility methods for using them. </p>
 <p>类似于Collections, Executors类为最常见的executor类型和配置提供工厂方法，以及一些使用它们的实用程序方法。</p>
@@ -680,13 +799,46 @@
 </tr>
 </tbody>
 </table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Queue</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * imple Queue</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e)</span></span>;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * imple Collection</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span>;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * BlockingQueue methods  put take </span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">put</span><span class="params">(E e)</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e, <span class="keyword">long</span> timeout, TimeUnit unit)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * Retrieves and removes the head of this queue</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">E <span class="title">take</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">    <span class="function">E <span class="title">poll</span><span class="params">(<span class="keyword">long</span> timeout, TimeUnit unit)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public interface BlockingQueue&lt;E&gt; extends Queue&lt;E&gt; {
+    /*
+     * imple Queue
+     */
+    boolean add(E e);
+    boolean offer(E e);
+    /*
+     * imple Collection
+     */
+    boolean remove(Object o);
+    public boolean contains(Object o);
+    /*
+     * BlockingQueue methods  put take 
+     */
+    void put(E e) throws InterruptedException;
+    boolean offer(E e, long timeout, TimeUnit unit)
+        throws InterruptedException;
+    /*
+     * Retrieves and removes the head of this queue
+     */
+    E take() throws InterruptedException;
+    E poll(long timeout, TimeUnit unit)
+        throws InterruptedException;
+
+}
+</code></pre>
 <p>​    实现了Queue接口 , 而Queue接口又实现了Collection,  而BlockingQueue 新增的有阻塞式的 put和take ,</p>
 <p>提供阻塞超时机制的, offer、poll(扩展了Queue的方法)</p>
 <h5 id="BlockingDeque-since-1-6-amp-TransferQueue-since-1-7"><a href="#BlockingDeque-since-1-6-amp-TransferQueue-since-1-7" class="headerlink" title="BlockingDeque(@since 1.6) &amp; TransferQueue(@since 1.7)"></a>BlockingDeque(@since 1.6) &amp; TransferQueue(@since 1.7)</h5><p>BlockingDeque与BlockingQueue类似</p>
 <p>LinkedBlockingDeque</p>
 <p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingDeque.html" target="_blank" rel="noopener"><code>BlockingDeque</code></a> interface extends <code>BlockingQueue</code> to support both FIFO and LIFO (stack-based) operations.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BlockingDeque</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">BlockingQueue</span>&lt;<span class="title">E</span>&gt;, <span class="title">Deque</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">putFirst</span><span class="params">(E e)</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">putLast</span><span class="params">(E e)</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">    <span class="function">E <span class="title">takeFirst</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">    <span class="function">E <span class="title">takeLast</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public interface BlockingDeque&lt;E&gt; extends BlockingQueue&lt;E&gt;, Deque&lt;E&gt; {
+    ...
+    void putFirst(E e) throws InterruptedException;
+    void putLast(E e) throws InterruptedException;
+    E takeFirst() throws InterruptedException;
+    E takeLast() throws InterruptedException;
+    ...
+}
+</code></pre>
 <p>TransferQueue </p>
 <p> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedTransferQueue.html" target="_blank" rel="noopener"><code>LinkedTransferQueue</code></a> introduce a synchronous <code>transfer</code> method (along with related features) in which a producer may optionally block awaiting its consumer</p>
 <blockquote>
@@ -708,7 +860,55 @@
 <p>TimeUnit类提供了多个粒度(包括纳秒)，用于指定和控制基于超时的操作。</p>
 <p>包中的大多数类除了不确定的等待之外，还包含基于超时的操作。在所有使用超时的情况下，超时指定方法在指示超时之前应该等待的最小时间。实现会在超时发生后“尽最大努力”尽快检测超时。然而，在检测到超时与实际在超时之后再次执行的线程之间可能会经过一段不确定的时间。</p>
 <p>所有接受超时参数的方法都将小于或等于零的值视为根本不等待。要等待“永远”，可以使用Long.MAX_VALUE值。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> TimeUnit &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Time unit representing one thousandth of a microsecond</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    NANOSECONDS &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">toNanos</span><span class="params">(<span class="keyword">long</span> d)</span>   </span>&#123; <span class="keyword">return</span> d; &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">toMicros</span><span class="params">(<span class="keyword">long</span> d)</span>  </span>&#123; <span class="keyword">return</span> d/(C1/C0); &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">toMillis</span><span class="params">(<span class="keyword">long</span> d)</span>  </span>&#123; <span class="keyword">return</span> d/(C2/C0); &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">toSeconds</span><span class="params">(<span class="keyword">long</span> d)</span> </span>&#123; <span class="keyword">return</span> d/(C3/C0); &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">toMinutes</span><span class="params">(<span class="keyword">long</span> d)</span> </span>&#123; <span class="keyword">return</span> d/(C4/C0); &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">toHours</span><span class="params">(<span class="keyword">long</span> d)</span>   </span>&#123; <span class="keyword">return</span> d/(C5/C0); &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">toDays</span><span class="params">(<span class="keyword">long</span> d)</span>    </span>&#123; <span class="keyword">return</span> d/(C6/C0); &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">convert</span><span class="params">(<span class="keyword">long</span> d, TimeUnit u)</span> </span>&#123; <span class="keyword">return</span> u.toNanos(d); &#125;</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">excessNanos</span><span class="params">(<span class="keyword">long</span> d, <span class="keyword">long</span> m)</span> </span>&#123; <span class="keyword">return</span> (<span class="keyword">int</span>)(d - (m*C2)); &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">		   MICROSECONDS &#123;</span><br><span class="line">    ...</span><br><span class="line">    &#125;,</span><br><span class="line">    ...</span><br><span class="line">		    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">convert</span><span class="params">(<span class="keyword">long</span> sourceDuration, TimeUnit sourceUnit)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> AbstractMethodError();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">excessNanos</span><span class="params">(<span class="keyword">long</span> d, <span class="keyword">long</span> m)</span></span>;</span><br><span class="line">			    </span><br><span class="line">	    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">timedWait</span><span class="params">(Object obj, <span class="keyword">long</span> timeout)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (timeout &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">long</span> ms = toMillis(timeout);</span><br><span class="line">            <span class="keyword">int</span> ns = excessNanos(timeout, ms);</span><br><span class="line">            obj.wait(ms, ns);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">timedJoin</span><span class="params">(Thread thread, <span class="keyword">long</span> timeout)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (timeout &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">long</span> ms = toMillis(timeout);</span><br><span class="line">            <span class="keyword">int</span> ns = excessNanos(timeout, ms);</span><br><span class="line">            thread.join(ms, ns);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sleep</span><span class="params">(<span class="keyword">long</span> timeout)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (timeout &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">long</span> ms = toMillis(timeout);</span><br><span class="line">            <span class="keyword">int</span> ns = excessNanos(timeout, ms);</span><br><span class="line">            Thread.sleep(ms, ns);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public enum TimeUnit {
+    /**
+     * Time unit representing one thousandth of a microsecond
+     */
+    NANOSECONDS {
+        public long toNanos(long d)   { return d; }
+        public long toMicros(long d)  { return d/(C1/C0); }
+        public long toMillis(long d)  { return d/(C2/C0); }
+        public long toSeconds(long d) { return d/(C3/C0); }
+        public long toMinutes(long d) { return d/(C4/C0); }
+        public long toHours(long d)   { return d/(C5/C0); }
+        public long toDays(long d)    { return d/(C6/C0); }
+        public long convert(long d, TimeUnit u) { return u.toNanos(d); }
+        int excessNanos(long d, long m) { return (int)(d - (m*C2)); }
+    },
+           MICROSECONDS {
+    ...
+    },
+    ...
+            public long convert(long sourceDuration, TimeUnit sourceUnit) {
+        throw new AbstractMethodError();
+    }
+    abstract int excessNanos(long d, long m);
+
+        public void timedWait(Object obj, long timeout)
+            throws InterruptedException {
+        if (timeout &gt; 0) {
+            long ms = toMillis(timeout);
+            int ns = excessNanos(timeout, ms);
+            obj.wait(ms, ns);
+        }
+    }
+    public void timedJoin(Thread thread, long timeout)
+            throws InterruptedException {
+        if (timeout &gt; 0) {
+            long ms = toMillis(timeout);
+            int ns = excessNanos(timeout, ms);
+            thread.join(ms, ns);
+        }
+    }
+    public void sleep(long timeout) throws InterruptedException {
+        if (timeout &gt; 0) {
+            long ms = toMillis(timeout);
+            int ns = excessNanos(timeout, ms);
+            Thread.sleep(ms, ns);
+        }
+    }
+}
+</code></pre>
 <h4 id="Synchronizers"><a href="#Synchronizers" class="headerlink" title="Synchronizers"></a>Synchronizers</h4><p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g62op94yg7j31pe0nqdiy.jpg" alt="image-20190817150022024"></p>
 <p>Five classes aid common special-purpose synchronization idioms.</p>
 <ul>
@@ -724,11 +924,115 @@
 <p>每个release()都会添加一个许可证，潜在地释放一个阻塞的收购者。</p>
 <p>但是，没有使用实际的许可证对象;信号量只保留可用数量的计数，并相应地执行操作。</p>
 <p>信号量通常用于限制能够访问某些(物理或逻辑)资源的线程数。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Semaphore</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Sync sync;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Synchronization implementation for semaphore.  Uses AQS state</span></span><br><span class="line"><span class="comment">     * to represent permits. Subclassed into fair and nonfair</span></span><br><span class="line"><span class="comment">     * versions.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">  <span class="keyword">abstract</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Sync</span> <span class="keyword">extends</span> <span class="title">AbstractQueuedSynchronizer</span> </span>&#123;</span><br><span class="line">     ...</span><br><span class="line">     <span class="function"><span class="keyword">final</span> <span class="keyword">int</span> <span class="title">nonfairTryAcquireShared</span><span class="params">(<span class="keyword">int</span> acquires)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">              <span class="keyword">int</span> available = getState();</span><br><span class="line">              <span class="keyword">int</span> remaining = available - acquires;</span><br><span class="line">              <span class="keyword">if</span> (remaining &lt; <span class="number">0</span> ||compareAndSetState(available, remaining))</span><br><span class="line">                    <span class="keyword">return</span> remaining;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">	  <span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">NonfairSync</span> <span class="keyword">extends</span> <span class="title">Sync</span> </span>&#123;</span><br><span class="line">       ...</span><br><span class="line">	       <span class="function"><span class="keyword">protected</span> <span class="keyword">int</span> <span class="title">tryAcquireShared</span><span class="params">(<span class="keyword">int</span> acquires)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">return</span> nonfairTryAcquireShared(acquires);</span><br><span class="line">       &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">FairSync</span> <span class="keyword">extends</span> <span class="title">Sync</span> </span>&#123;</span><br><span class="line">      ...</span><br><span class="line">      <span class="function"><span class="keyword">protected</span> <span class="keyword">int</span> <span class="title">tryAcquireShared</span><span class="params">(<span class="keyword">int</span> acquires)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">                <span class="keyword">if</span> (hasQueuedPredecessors())</span><br><span class="line">                    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">int</span> available = getState();</span><br><span class="line">                <span class="keyword">int</span> remaining = available - acquires;</span><br><span class="line">                <span class="keyword">if</span> (remaining &lt; <span class="number">0</span> ||compareAndSetState(available, remaining))</span><br><span class="line">                    <span class="keyword">return</span> remaining;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Semaphore</span><span class="params">(<span class="keyword">int</span> permits)</span> </span>&#123;</span><br><span class="line">       sync = <span class="keyword">new</span> NonfairSync(permits);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Semaphore</span><span class="params">(<span class="keyword">int</span> permits, <span class="keyword">boolean</span> fair)</span> </span>&#123;</span><br><span class="line">       sync = fair ? <span class="keyword">new</span> FairSync(permits) : <span class="keyword">new</span> NonfairSync(permits);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">acquire</span><span class="params">(<span class="keyword">int</span> permits)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (permits &lt; <span class="number">0</span>) <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</span><br><span class="line">        sync.acquireSharedInterruptibly(permits);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">release</span><span class="params">(<span class="keyword">int</span> permits)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (permits &lt; <span class="number">0</span>) <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</span><br><span class="line">        sync.releaseShared(permits);</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class Semaphore implements java.io.Serializable {
+  private final Sync sync;
+    /**
+     * Synchronization implementation for semaphore.  Uses AQS state
+     * to represent permits. Subclassed into fair and nonfair
+     * versions.
+     */
+  abstract static class Sync extends AbstractQueuedSynchronizer {
+     ...
+     final int nonfairTryAcquireShared(int acquires) {
+         for (;;) {
+              int available = getState();
+              int remaining = available - acquires;
+              if (remaining &lt; 0 ||compareAndSetState(available, remaining))
+                    return remaining;
+         }
+      }
+  }
+      static final class NonfairSync extends Sync {
+       ...
+           protected int tryAcquireShared(int acquires) {
+           return nonfairTryAcquireShared(acquires);
+       }
+  }
+  static final class FairSync extends Sync {
+      ...
+      protected int tryAcquireShared(int acquires) {
+            for (;;) {
+                if (hasQueuedPredecessors())
+                    return -1;
+                int available = getState();
+                int remaining = available - acquires;
+                if (remaining &lt; 0 ||compareAndSetState(available, remaining))
+                    return remaining;
+            }
+        }
+  }
+  public Semaphore(int permits) {
+       sync = new NonfairSync(permits);
+  }
+  public Semaphore(int permits, boolean fair) {
+       sync = fair ? new FairSync(permits) : new NonfairSync(permits);
+  }
+  public void acquire(int permits) throws InterruptedException {
+        if (permits &lt; 0) throw new IllegalArgumentException();
+        sync.acquireSharedInterruptibly(permits);
+  }
+  public void release(int permits) {
+        if (permits &lt; 0) throw new IllegalArgumentException();
+        sync.releaseShared(permits);
+  }
+  ...
+}
+</code></pre>
 <p>基于AbstractQueuedSynchronizer 实现,主要有acquire 和 release方法</p>
 <h5 id="CountDownLatch"><a href="#CountDownLatch" class="headerlink" title="CountDownLatch"></a>CountDownLatch</h5><p>A synchronization aid that allows one or more threads to wait until a set of operations being performed in other threads completes.</p>
 <p>一种同步辅助，允许一个或多个线程等待，直到在其他线程中执行的一组操作完成。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CountDownLatch</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Synchronization control For CountDownLatch.</span></span><br><span class="line"><span class="comment">     * Uses AQS state to represent count.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Sync</span> <span class="keyword">extends</span> <span class="title">AbstractQueuedSynchronizer</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">4982264981922014374L</span>;</span><br><span class="line"></span><br><span class="line">        Sync(<span class="keyword">int</span> count) &#123;</span><br><span class="line">            setState(count);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> getState();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">int</span> <span class="title">tryAcquireShared</span><span class="params">(<span class="keyword">int</span> acquires)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> (getState() == <span class="number">0</span>) ? <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">tryReleaseShared</span><span class="params">(<span class="keyword">int</span> releases)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// Decrement count; signal when transition to zero</span></span><br><span class="line">            <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">                <span class="keyword">int</span> c = getState();</span><br><span class="line">                <span class="keyword">if</span> (c == <span class="number">0</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                <span class="keyword">int</span> nextc = c-<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span> (compareAndSetState(c, nextc))</span><br><span class="line">                    <span class="keyword">return</span> nextc == <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Sync sync;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CountDownLatch</span><span class="params">(<span class="keyword">int</span> count)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (count &lt; <span class="number">0</span>) <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"count &lt; 0"</span>);</span><br><span class="line">        <span class="keyword">this</span>.sync = <span class="keyword">new</span> Sync(count);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">await</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        sync.acquireSharedInterruptibly(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">await</span><span class="params">(<span class="keyword">long</span> timeout, TimeUnit unit)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sync.tryAcquireSharedNanos(<span class="number">1</span>, unit.toNanos(timeout));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">countDown</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        sync.releaseShared(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sync.getCount();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class CountDownLatch {
+    /**
+     * Synchronization control For CountDownLatch.
+     * Uses AQS state to represent count.
+     */
+    private static final class Sync extends AbstractQueuedSynchronizer {
+        private static final long serialVersionUID = 4982264981922014374L;
+
+        Sync(int count) {
+            setState(count);
+        }
+
+        int getCount() {
+            return getState();
+        }
+
+        protected int tryAcquireShared(int acquires) {
+            return (getState() == 0) ? 1 : -1;
+        }
+
+        protected boolean tryReleaseShared(int releases) {
+            // Decrement count; signal when transition to zero
+            for (;;) {
+                int c = getState();
+                if (c == 0)
+                    return false;
+                int nextc = c-1;
+                if (compareAndSetState(c, nextc))
+                    return nextc == 0;
+            }
+        }
+    }
+    private final Sync sync;
+    public CountDownLatch(int count) {
+        if (count &lt; 0) throw new IllegalArgumentException(&quot;count &lt; 0&quot;);
+        this.sync = new Sync(count);
+    }
+    public void await() throws InterruptedException {
+        sync.acquireSharedInterruptibly(1);
+    }
+    public boolean await(long timeout, TimeUnit unit)
+        throws InterruptedException {
+        return sync.tryAcquireSharedNanos(1, unit.toNanos(timeout));
+    }
+    public void countDown() {
+        sync.releaseShared(1);
+    }
+    public long getCount() {
+        return sync.getCount();
+    }
+}
+</code></pre>
 <h5 id="CyclicBarrier"><a href="#CyclicBarrier" class="headerlink" title="CyclicBarrier"></a>CyclicBarrier</h5><p>与 CountDownLatch 类似, 最大的不同点在于调用时点是否阻塞 ,注意实现也是不同的</p>
 <p>从使用场景上来说，CyclicBarrier是让多个线程互相等待某一事件的发生，然后同时被唤醒。而上文讲的CountDownLatch是让某一线程等待多个线程的状态，然后该线程被唤醒。</p>
 <table>
@@ -753,7 +1057,54 @@
 </tr>
 </tbody>
 </table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CyclicBarrier</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CyclicBarrier</span><span class="params">(<span class="keyword">int</span> parties, Runnable barrierAction)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (parties &lt;= <span class="number">0</span>) <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</span><br><span class="line">        <span class="keyword">this</span>.parties = parties;</span><br><span class="line">        <span class="keyword">this</span>.count = parties;</span><br><span class="line">        <span class="keyword">this</span>.barrierCommand = barrierAction;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CyclicBarrier</span><span class="params">(<span class="keyword">int</span> parties)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(parties, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">await</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException, BrokenBarrierException </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> dowait(<span class="keyword">false</span>, <span class="number">0L</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (TimeoutException toe) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Error(toe); <span class="comment">// cannot happen</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBroken</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> ReentrantLock lock = <span class="keyword">this</span>.lock;</span><br><span class="line">        lock.lock();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> generation.broken;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reset</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> ReentrantLock lock = <span class="keyword">this</span>.lock;</span><br><span class="line">        lock.lock();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            breakBarrier();   <span class="comment">// break the current generation</span></span><br><span class="line">            nextGeneration(); <span class="comment">// start a new generation</span></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNumberWaiting</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">final</span> ReentrantLock lock = <span class="keyword">this</span>.lock;</span><br><span class="line">        lock.lock();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> parties - count;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class CyclicBarrier {
+    public CyclicBarrier(int parties, Runnable barrierAction) {
+        if (parties &lt;= 0) throw new IllegalArgumentException();
+        this.parties = parties;
+        this.count = parties;
+        this.barrierCommand = barrierAction;
+    }
+    public CyclicBarrier(int parties) {
+        this(parties, null);
+    }
+    public int await() throws InterruptedException, BrokenBarrierException {
+        try {
+            return dowait(false, 0L);
+        } catch (TimeoutException toe) {
+            throw new Error(toe); // cannot happen
+        }
+    }
+    public boolean isBroken() {
+        final ReentrantLock lock = this.lock;
+        lock.lock();
+        try {
+            return generation.broken;
+        } finally {
+            lock.unlock();
+        }
+    }
+    public void reset() {
+        final ReentrantLock lock = this.lock;
+        lock.lock();
+        try {
+            breakBarrier();   // break the current generation
+            nextGeneration(); // start a new generation
+        } finally {
+            lock.unlock();
+        }
+    }
+    public int getNumberWaiting() {
+        final ReentrantLock lock = this.lock;
+        lock.lock();
+        try {
+            return parties - count;
+        } finally {
+            lock.unlock();
+        }
+    }
+        ...
+}
+</code></pre>
 <p>​    </p>
 <h5 id="Phaser-since-1-7"><a href="#Phaser-since-1-7" class="headerlink" title="Phaser(@since 1.7)"></a>Phaser(@since 1.7)</h5><p>A reusable synchronization barrier, similar in functionality to <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CyclicBarrier.html" target="_blank" rel="noopener"><code>CyclicBarrier</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CountDownLatch.html" target="_blank" rel="noopener"><code>CountDownLatch</code></a> but supporting more flexible usage.</p>
 <p><strong>Registration</strong> </p>
@@ -778,7 +1129,48 @@
 <li>可以视作双向的同步队列；</li>
 <li>可应用于基因算法、流水线设计等场景。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Exchanger</span>&lt;<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@sun</span>.misc.Contended <span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> index;              <span class="comment">// Arena index</span></span><br><span class="line">        <span class="keyword">int</span> bound;              <span class="comment">// Last recorded value of Exchanger.bound</span></span><br><span class="line">        <span class="keyword">int</span> collides;           <span class="comment">// Number of CAS failures at current bound</span></span><br><span class="line">        <span class="keyword">int</span> hash;               <span class="comment">// Pseudo-random for spins</span></span><br><span class="line">        Object item;            <span class="comment">// This thread's current item</span></span><br><span class="line">        <span class="keyword">volatile</span> Object match;  <span class="comment">// Item provided by releasing thread</span></span><br><span class="line">        <span class="keyword">volatile</span> Thread parked; <span class="comment">// Set to this thread when parked, else null</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Participant</span> <span class="keyword">extends</span> <span class="title">ThreadLocal</span>&lt;<span class="title">Node</span>&gt; </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> Node <span class="title">initialValue</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="keyword">new</span> Node(); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Exchanger</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        participant = <span class="keyword">new</span> Participant();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> V <span class="title">exchange</span><span class="params">(V x)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Object v;</span><br><span class="line">        Object item = (x == <span class="keyword">null</span>) ? NULL_ITEM : x; <span class="comment">// translate null args</span></span><br><span class="line">        <span class="keyword">if</span> ((arena != <span class="keyword">null</span> ||</span><br><span class="line">             (v = slotExchange(item, <span class="keyword">false</span>, <span class="number">0L</span>)) == <span class="keyword">null</span>) &amp;&amp;</span><br><span class="line">            ((Thread.interrupted() || <span class="comment">// disambiguates null return</span></span><br><span class="line">              (v = arenaExchange(item, <span class="keyword">false</span>, <span class="number">0L</span>)) == <span class="keyword">null</span>)))</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> InterruptedException();</span><br><span class="line">        <span class="keyword">return</span> (v == NULL_ITEM) ? <span class="keyword">null</span> : (V)v;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> V <span class="title">exchange</span><span class="params">(V x, <span class="keyword">long</span> timeout, TimeUnit unit)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException, TimeoutException </span>&#123;</span><br><span class="line">        Object v;</span><br><span class="line">        Object item = (x == <span class="keyword">null</span>) ? NULL_ITEM : x;</span><br><span class="line">        <span class="keyword">long</span> ns = unit.toNanos(timeout);</span><br><span class="line">        <span class="keyword">if</span> ((arena != <span class="keyword">null</span> ||</span><br><span class="line">             (v = slotExchange(item, <span class="keyword">true</span>, ns)) == <span class="keyword">null</span>) &amp;&amp;</span><br><span class="line">            ((Thread.interrupted() ||</span><br><span class="line">              (v = arenaExchange(item, <span class="keyword">true</span>, ns)) == <span class="keyword">null</span>)))</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> InterruptedException();</span><br><span class="line">        <span class="keyword">if</span> (v == TIMED_OUT)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> TimeoutException();</span><br><span class="line">        <span class="keyword">return</span> (v == NULL_ITEM) ? <span class="keyword">null</span> : (V)v;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class Exchanger&lt;V&gt; {
+    @sun.misc.Contended static final class Node {
+        int index;              // Arena index
+        int bound;              // Last recorded value of Exchanger.bound
+        int collides;           // Number of CAS failures at current bound
+        int hash;               // Pseudo-random for spins
+        Object item;            // This thread&#39;s current item
+        volatile Object match;  // Item provided by releasing thread
+        volatile Thread parked; // Set to this thread when parked, else null
+    }
+    static final class Participant extends ThreadLocal&lt;Node&gt; {
+        public Node initialValue() { return new Node(); }
+    }
+    public Exchanger() {
+        participant = new Participant();
+    }
+    public V exchange(V x) throws InterruptedException {
+        Object v;
+        Object item = (x == null) ? NULL_ITEM : x; // translate null args
+        if ((arena != null ||
+             (v = slotExchange(item, false, 0L)) == null) &amp;&amp;
+            ((Thread.interrupted() || // disambiguates null return
+              (v = arenaExchange(item, false, 0L)) == null)))
+            throw new InterruptedException();
+        return (v == NULL_ITEM) ? null : (V)v;
+    }
+    public V exchange(V x, long timeout, TimeUnit unit)
+        throws InterruptedException, TimeoutException {
+        Object v;
+        Object item = (x == null) ? NULL_ITEM : x;
+        long ns = unit.toNanos(timeout);
+        if ((arena != null ||
+             (v = slotExchange(item, true, ns)) == null) &amp;&amp;
+            ((Thread.interrupted() ||
+              (v = arenaExchange(item, true, ns)) == null)))
+            throw new InterruptedException();
+        if (v == TIMED_OUT)
+            throw new TimeoutException();
+        return (v == NULL_ITEM) ? null : (V)v;
+    }
+}
+</code></pre>
 <p>有点类似于生产者/消费者 </p>
 <blockquote>
 <p>@see <a href="https://blog.csdn.net/coslay/article/details/45242581" target="_blank" rel="noopener">https://blog.csdn.net/coslay/article/details/45242581</a></p>
@@ -820,8 +1212,8 @@
 <p>一个支持单变量无锁线程安全编程的类的小工具包。本质上，这个包中的类将volatile值、字段和数组元素的概念扩展到那些还提供 <em>compareAndSet</em> 的原子条件更新操作的类</p>
 <p>A small toolkit of classes that support lock-free thread-safe programming on single variables.</p>
 <p>In essence, the classes in this package extend the notion of <code>volatile</code>  values, fields, and array elements to those that also provide an atomic conditional update operation of the form:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boolean compareAndSet(expectedValue, updateValue);</span><br></pre></td></tr></table></figure>
-<p>This method (which varies in argument types across different classes) atomically sets a variable to the <code>updateValue</code> if it currently holds the <code>expectedValue</code>, reporting <code>true</code> on success. </p>
+<pre><code> boolean compareAndSet(expectedValue, updateValue);
+</code></pre><p>This method (which varies in argument types across different classes) atomically sets a variable to the <code>updateValue</code> if it currently holds the <code>expectedValue</code>, reporting <code>true</code> on success. </p>
 <p>The classes in this package also contain methods to get and unconditionally set values, as well as a weaker conditional atomic update operation <code>weakCompareAndSet</code> described below.</p>
 <p>The memory effects for accesses and updates of atomics generally follow the rules for volatiles, as stated in <a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.4" target="_blank" rel="noopener">The Java Language Specification (17.4 Memory Model)</a>:</p>
 <ul>
@@ -832,7 +1224,25 @@
 <li><code>compareAndSet</code> and all other read-and-update operations such as <code>getAndIncrement</code> have the memory effects of both reading and writing <code>volatile</code> variables.</li>
 </ul>
 <h4 id="Atomic-Values"><a href="#Atomic-Values" class="headerlink" title="Atomic Values"></a>Atomic Values</h4><p>Instances of classes <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicBoolean.html" target="_blank" rel="noopener"><code>AtomicBoolean</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html" target="_blank" rel="noopener"><code>AtomicInteger</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLong.html" target="_blank" rel="noopener"><code>AtomicLong</code></a>, and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReference.html" target="_blank" rel="noopener"><code>AtomicReference</code></a> each provide access and updates to a single variable of the corresponding type. Each class also provides appropriate utility methods for that type. For example, classes <code>AtomicLong</code> and <code>AtomicInteger</code> provide atomic increment methods. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AtomicInteger</span> <span class="keyword">extends</span> <span class="title">Number</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> value;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Creates a new AtomicInteger with the given initial value.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> initialValue the initial value</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AtomicInteger</span><span class="params">(<span class="keyword">int</span> initialValue)</span> </span>&#123;</span><br><span class="line">        value = initialValue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Creates a new AtomicInteger with initial value &#123;<span class="doctag">@code</span> 0&#125;.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AtomicInteger</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class AtomicInteger extends Number implements java.io.Serializable {
+    private volatile int value;
+
+    /**
+     * Creates a new AtomicInteger with the given initial value.
+     *
+     * @param initialValue the initial value
+     */
+    public AtomicInteger(int initialValue) {
+        value = initialValue;
+    }
+
+    /**
+     * Creates a new AtomicInteger with initial value {@code 0}.
+     */
+    public AtomicInteger() {
+    }
+}
+</code></pre>
 <h4 id="Atomic-Fields"><a href="#Atomic-Fields" class="headerlink" title="Atomic Fields"></a>Atomic Fields</h4><p>In addition to classes representing single values, this package contains <em>Updater</em> classes that can be used to obtain <code>compareAndSet</code> operations on any selected <code>volatile</code> field of any selected class. <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReferenceFieldUpdater.html" target="_blank" rel="noopener"><code>AtomicReferenceFieldUpdater</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicIntegerFieldUpdater.html" target="_blank" rel="noopener"><code>AtomicIntegerFieldUpdater</code></a>, and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLongFieldUpdater.html" target="_blank" rel="noopener"><code>AtomicLongFieldUpdater</code></a> are reflection-based utilities that provide access to the associated field types. These are mainly of use in atomic data structures in which several <code>volatile</code> fields of the same node (for example, the links of a tree node) are independently subject to atomic updates. These classes enable greater flexibility in how and when to use atomic updates, at the expense of more awkward reflection-based setup, less convenient usage, and weaker guarantees.</p>
 <h4 id="Atomic-Arrays"><a href="#Atomic-Arrays" class="headerlink" title="Atomic Arrays"></a>Atomic Arrays</h4><p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicIntegerArray.html" target="_blank" rel="noopener"><code>AtomicIntegerArray</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLongArray.html" target="_blank" rel="noopener"><code>AtomicLongArray</code></a>, and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReferenceArray.html" target="_blank" rel="noopener"><code>AtomicReferenceArray</code></a> classes further extend atomic operation support to arrays of these types. These classes are also notable in providing <code>volatile</code> access semantics for their array elements, which is not supported for ordinary arrays.</p>
 <h4 id="Class-Summary"><a href="#Class-Summary" class="headerlink" title="Class Summary"></a>Class Summary</h4><table>
@@ -955,17 +1365,85 @@
 <p>An implementation is required to clearly document the semantics and guarantees provided by each of the locking methods. It must also obey the interruption semantics as defined in this interface, to the extent that interruption of lock acquisition is supported: which is either totally, or only on method entry.</p>
 <p>As interruption generally implies cancellation, and checks for interruption are often infrequent, an implementation can favor responding to an interrupt over normal method return. This is true even if it can be shown that the interrupt occurred after another action may have unblocked the thread. An implementation should document this behavior.</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Lock</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">lockInterruptibly</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">tryLock</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">tryLock</span><span class="params">(<span class="keyword">long</span> time, TimeUnit unit)</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">unlock</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">Condition <span class="title">newCondition</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public interface Lock {
+    void lock();
+    void lockInterruptibly() throws InterruptedException;
+    boolean tryLock();
+    boolean tryLock(long time, TimeUnit unit) throws InterruptedException;
+    void unlock();
+    Condition newCondition();
+}
+</code></pre>
 <h5 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h5><p>Lock的标准实现, 一种可重入互斥锁，具有与使用同步方法和语句访问的隐式监视器锁相同的基本行为和语义，但具有扩展功能。(获取等待队列,当前线程是否获得锁等监控,见 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractOwnableSynchronizer.html" target="_blank" rel="noopener"><code>AbstractOwnableSynchronizer</code></a>)</p>
 <p>ReentrantLock归最后一个成功锁定的线程所有，但还没有解锁它。当锁不属于其他线程时，调用锁的线程将返回并成功获取锁。如果当前线程已经拥有锁，该方法将立即返回。可以使用isHeldByCurrentThread()和getHoldCount()方法检查这一点。</p>
 <blockquote>
 <p>A reentrant mutual exclusion Lock with the same basic behavior and semantics as the implicit monitor lock accessed using synchronized methods and statements, but with extended capabilities.</p>
 <p>A ReentrantLock is owned by the thread last successfully locking, but not yet unlocking it. A thread invoking lock will return, successfully acquiring the lock, when the lock is not owned by another thread. The method will return immediately if the current thread already owns the lock. This can be checked using methods isHeldByCurrentThread(), and getHoldCount().</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReentrantLock</span> <span class="keyword">implements</span> <span class="title">Lock</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Sync sync;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Sync</span> <span class="keyword">extends</span> <span class="title">AbstractQueuedSynchronizer</span> </span>&#123;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">NonfairSync</span> <span class="keyword">extends</span> <span class="title">Sync</span></span>&#123;&#125;</span><br><span class="line">	    <span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">FairSync</span> <span class="keyword">extends</span> <span class="title">Sync</span></span>&#123;&#125;</span><br><span class="line">	    <span class="function"><span class="keyword">public</span> <span class="title">ReentrantLock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        sync = <span class="keyword">new</span> NonfairSync();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ReentrantLock</span><span class="params">(<span class="keyword">boolean</span> fair)</span> </span>&#123;</span><br><span class="line">        sync = fair ? <span class="keyword">new</span> FairSync() : <span class="keyword">new</span> NonfairSync();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getHoldCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sync.getHoldCount();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Thread <span class="title">getOwner</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sync.getOwner();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasWaiters</span><span class="params">(Condition condition)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (condition == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">        <span class="keyword">if</span> (!(condition <span class="keyword">instanceof</span> AbstractQueuedSynchronizer.ConditionObject))</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"not owner"</span>);</span><br><span class="line">        <span class="keyword">return</span> sync.hasWaiters((AbstractQueuedSynchronizer.ConditionObject)condition);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取队列的监控,省略了获取waitting的 </span></span><br><span class="line"><span class="comment">     */</span> </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Collection&lt;Thread&gt; <span class="title">getQueuedThreads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sync.getQueuedThreads();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getQueueLength</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sync.getQueueLength();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">hasQueuedThread</span><span class="params">(Thread thread)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sync.isQueued(thread);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getQueueLength</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sync.getQueueLength();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Collection&lt;Thread&gt; <span class="title">getQueuedThreads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sync.getQueuedThreads();</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class ReentrantLock implements Lock, java.io.Serializable {
+    private final Sync sync;
+    abstract static class Sync extends AbstractQueuedSynchronizer {
+        }
+        static final class NonfairSync extends Sync{}
+        static final class FairSync extends Sync{}
+        public ReentrantLock() {
+        sync = new NonfairSync();
+    }
+    public ReentrantLock(boolean fair) {
+        sync = fair ? new FairSync() : new NonfairSync();
+    }
+    public int getHoldCount() {
+        return sync.getHoldCount();
+    }
+    protected Thread getOwner() {
+        return sync.getOwner();
+    }
+    public boolean hasWaiters(Condition condition) {
+        if (condition == null)
+            throw new NullPointerException();
+        if (!(condition instanceof AbstractQueuedSynchronizer.ConditionObject))
+            throw new IllegalArgumentException(&quot;not owner&quot;);
+        return sync.hasWaiters((AbstractQueuedSynchronizer.ConditionObject)condition);
+    }
+    /**
+     * 获取队列的监控,省略了获取waitting的 
+     */ 
+    protected Collection&lt;Thread&gt; getQueuedThreads() {
+        return sync.getQueuedThreads();
+    }
+    public final int getQueueLength() {
+        return sync.getQueueLength();
+    }
+    public final boolean hasQueuedThread(Thread thread) {
+        return sync.isQueued(thread);
+    }
+    public final int getQueueLength() {
+        return sync.getQueueLength();
+    }
+    protected Collection&lt;Thread&gt; getQueuedThreads() {
+        return sync.getQueuedThreads();
+    }
+    ...
+}
+</code></pre>
 <h5 id="ReadWriteLock"><a href="#ReadWriteLock" class="headerlink" title="ReadWriteLock"></a>ReadWriteLock</h5><p>读写锁维护一对关联的锁，一个用于只读操作，另一个用于写操作。读锁可以由多个读线程同时持有，只要没有写线程。写锁是独占的。</p>
 <p>A <code>ReadWriteLock</code> maintains a pair of associated <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html" target="_blank" rel="noopener"><code>locks</code></a>, one for read-only operations and one for writing. The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReadWriteLock.html#readLock--" target="_blank" rel="noopener"><code>read lock</code></a> may be held simultaneously by multiple reader threads, so long as there are no writers. The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReadWriteLock.html#writeLock--" target="_blank" rel="noopener"><code>write lock</code></a> is exclusive.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ReadWriteLock</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Returns the lock used for reading.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> the lock used for reading</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">Lock <span class="title">readLock</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Returns the lock used for writing.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> the lock used for writing</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function">Lock <span class="title">writeLock</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public interface ReadWriteLock {
+    /**
+     * Returns the lock used for reading.
+     *
+     * @return the lock used for reading
+     */
+    Lock readLock();
+
+    /**
+     * Returns the lock used for writing.
+     *
+     * @return the lock used for writing
+     */
+    Lock writeLock();
+}
+</code></pre>
 <h5 id="ReentrantReadWriteLock"><a href="#ReentrantReadWriteLock" class="headerlink" title="ReentrantReadWriteLock"></a>ReentrantReadWriteLock</h5><p>可重入读写锁, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReadWriteLock.html" target="_blank" rel="noopener"><code>ReadWriteLock</code></a> 实现,类似<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html" target="_blank" rel="noopener"><code>ReentrantLock</code></a>.</p>
 <p>This class has the following properties:</p>
 <ul>
@@ -979,12 +1457,80 @@
 <li><strong>Condition support</strong> </li>
 <li><strong>Instrumentation</strong>  监控</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * This lock supports a maximum of 65535 recursive write locks and 65535 read locks.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReentrantReadWriteLock</span> <span class="keyword">implements</span> <span class="title">ReadWriteLock</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** Inner class providing readlock */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ReentrantReadWriteLock.ReadLock readerLock;</span><br><span class="line">    <span class="comment">/** Inner class providing writelock */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ReentrantReadWriteLock.WriteLock writerLock;</span><br><span class="line">    <span class="comment">/** Performs all synchronization mechanics */</span></span><br><span class="line">    <span class="keyword">final</span> Sync sync;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Creates a new &#123;<span class="doctag">@code</span> ReentrantReadWriteLock&#125; with</span></span><br><span class="line"><span class="comment">     * default (nonfair) ordering properties.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ReentrantReadWriteLock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(<span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Creates a new &#123;<span class="doctag">@code</span> ReentrantReadWriteLock&#125; with</span></span><br><span class="line"><span class="comment">     * the given fairness policy.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> fair &#123;<span class="doctag">@code</span> true&#125; if this lock should use a fair ordering policy</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ReentrantReadWriteLock</span><span class="params">(<span class="keyword">boolean</span> fair)</span> </span>&#123;</span><br><span class="line">        sync = fair ? <span class="keyword">new</span> FairSync() : <span class="keyword">new</span> NonfairSync();</span><br><span class="line">        readerLock = <span class="keyword">new</span> ReadLock(<span class="keyword">this</span>);</span><br><span class="line">        writerLock = <span class="keyword">new</span> WriteLock(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">			    <span class="comment">/*</span></span><br><span class="line"><span class="comment">			     * ReadWriteLock impl</span></span><br><span class="line"><span class="comment">			     */</span></span><br><span class="line">    <span class="keyword">public</span> ReentrantReadWriteLock.<span class="function">WriteLock <span class="title">writeLock</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> writerLock; &#125;</span><br><span class="line">    <span class="keyword">public</span> ReentrantReadWriteLock.<span class="function">ReadLock  <span class="title">readLock</span><span class="params">()</span>  </span>&#123; <span class="keyword">return</span> readerLock; &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Synchronization implementation for ReentrantReadWriteLock.</span></span><br><span class="line"><span class="comment">     * Subclassed into fair and nonfair versions.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Sync</span> <span class="keyword">extends</span> <span class="title">AbstractQueuedSynchronizer</span> </span>&#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SHARED_SHIFT   = <span class="number">16</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SHARED_UNIT    = (<span class="number">1</span> &lt;&lt; SHARED_SHIFT);</span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_COUNT      = (<span class="number">1</span> &lt;&lt; SHARED_SHIFT) - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> EXCLUSIVE_MASK = (<span class="number">1</span> &lt;&lt; SHARED_SHIFT) - <span class="number">1</span>;</span><br><span class="line">       ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> <span class="title">getThreadId</span><span class="params">(Thread thread)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> UNSAFE.getLongVolatile(thread, TID_OFFSET);</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ReadLock</span> <span class="keyword">implements</span> <span class="title">Lock</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">       ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">WriteLock</span> <span class="keyword">implements</span> <span class="title">Lock</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">       ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">/*
+ * This lock supports a maximum of 65535 recursive write locks and 65535 read locks.
+ */
+public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializable {
+    /** Inner class providing readlock */
+    private final ReentrantReadWriteLock.ReadLock readerLock;
+    /** Inner class providing writelock */
+    private final ReentrantReadWriteLock.WriteLock writerLock;
+    /** Performs all synchronization mechanics */
+    final Sync sync;
+    /**
+     * Creates a new {@code ReentrantReadWriteLock} with
+     * default (nonfair) ordering properties.
+     */
+    public ReentrantReadWriteLock() {
+        this(false);
+    }
+
+    /**
+     * Creates a new {@code ReentrantReadWriteLock} with
+     * the given fairness policy.
+     *
+     * @param fair {@code true} if this lock should use a fair ordering policy
+     */
+    public ReentrantReadWriteLock(boolean fair) {
+        sync = fair ? new FairSync() : new NonfairSync();
+        readerLock = new ReadLock(this);
+        writerLock = new WriteLock(this);
+    }
+                /*
+                 * ReadWriteLock impl
+                 */
+    public ReentrantReadWriteLock.WriteLock writeLock() { return writerLock; }
+    public ReentrantReadWriteLock.ReadLock  readLock()  { return readerLock; }
+    /**
+     * Synchronization implementation for ReentrantReadWriteLock.
+     * Subclassed into fair and nonfair versions.
+     */
+    abstract static class Sync extends AbstractQueuedSynchronizer {
+        static final int SHARED_SHIFT   = 16;
+        static final int SHARED_UNIT    = (1 &lt;&lt; SHARED_SHIFT);
+        static final int MAX_COUNT      = (1 &lt;&lt; SHARED_SHIFT) - 1;
+        static final int EXCLUSIVE_MASK = (1 &lt;&lt; SHARED_SHIFT) - 1;
+       ...
+    }
+    static final long getThreadId(Thread thread) {
+        return UNSAFE.getLongVolatile(thread, TID_OFFSET);
+    }
+    ...
+    public static class ReadLock implements Lock, java.io.Serializable {
+       ...
+    }
+    public static class WriteLock implements Lock, java.io.Serializable {
+       ...
+    }
+}
+</code></pre>
 <h4 id="Conditions-监视器"><a href="#Conditions-监视器" class="headerlink" title="Conditions(监视器)"></a>Conditions(监视器)</h4><p>条件将对象监视方法(wait、notify和notifyAll) 分解为不同的对象，通过将它们与任意锁实现相结合，从而实现每个对象具有多个等待集的效果。锁替换同步方法和语句的使用，条件替换对象监视器方法的使用。</p>
 <p><code>Condition</code> factors out the <code>Object</code> monitor methods (<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#wait--" target="_blank" rel="noopener"><code>wait</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#notify--" target="_blank" rel="noopener"><code>notify</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#notifyAll--" target="_blank" rel="noopener"><code>notifyAll</code></a>) into distinct objects to give the effect of having multiple wait-sets per object, by combining them with the use of arbitrary <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html" target="_blank" rel="noopener"><code>Lock</code></a> implementations. </p>
 <p>Where a <code>Lock</code> replaces the use of <code>synchronized</code> methods and statements, </p>
 <p>a <code>Condition</code> replaces the use of the Object monitor methods.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Condition</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">await</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * Causes the current thread to wait until it is signalled.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">awaitUninterruptibly</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">long</span> <span class="title">awaitNanos</span><span class="params">(<span class="keyword">long</span> nanosTimeout)</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">await</span><span class="params">(<span class="keyword">long</span> time, TimeUnit unit)</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">awaitUntil</span><span class="params">(Date deadline)</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">signal</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">signalAll</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public interface Condition {
+    void await() throws InterruptedException;
+    /*
+     * Causes the current thread to wait until it is signalled.
+     */
+    void awaitUninterruptibly();
+    long awaitNanos(long nanosTimeout) throws InterruptedException;
+    boolean await(long time, TimeUnit unit) throws InterruptedException;
+    boolean awaitUntil(Date deadline) throws InterruptedException;
+    void signal();
+    void signalAll();
+}
+</code></pre>
 <p>主要实现 : java.util.concurrent.locks.AbstractQueuedSynchronizer.ConditionObject</p>
 <h4 id="AbstractQueuedSynchronizers-阻塞队列"><a href="#AbstractQueuedSynchronizers-阻塞队列" class="headerlink" title="AbstractQueuedSynchronizers(阻塞队列)"></a>AbstractQueuedSynchronizers(阻塞队列)</h4><h5 id="AbstractQueuedSynchronizer"><a href="#AbstractQueuedSynchronizer" class="headerlink" title="AbstractQueuedSynchronizer"></a>AbstractQueuedSynchronizer</h5><p>AbstractQueuedSynchronizer类是一个有用的超类，用于定义依赖于排队阻塞线程的锁和其他同步器。</p>
 <h6 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h6><p>To use this class as the basis of a synchronizer, redefine the following methods, as applicable, by inspecting and/or modifying the synchronization state using <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#getState--" target="_blank" rel="noopener"><code>getState()</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#setState-int-" target="_blank" rel="noopener"><code>setState(int)</code></a> and/or <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#compareAndSetState-int-int-" target="_blank" rel="noopener"><code>compareAndSetState(int, int)</code></a>:</p>
@@ -997,11 +1543,134 @@
 </ul>
 <p>Each of these methods by default throws <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/UnsupportedOperationException.html" target="_blank" rel="noopener"><code>UnsupportedOperationException</code></a><em>only</em><code>final</code></p>
 <p>You may also find the inherited methods from <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractOwnableSynchronizer.html" target="_blank" rel="noopener"><code>AbstractOwnableSynchronizer</code></a> useful to keep track of the thread owning an exclusive synchronizer. You are encouraged to use them – this enables monitoring and diagnostic tools to assist users in determining which threads hold locks.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractQueuedSynchronizer</span> <span class="keyword">extends</span> <span class="title">AbstractOwnableSynchronizer</span></span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConditionObject</span> <span class="keyword">implements</span> <span class="title">Condition</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">        <span class="comment">/** First node of condition queue. */</span></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">transient</span> Node firstWaiter;</span><br><span class="line">        <span class="comment">/** Last node of condition queue. */</span></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">transient</span> Node lastWaiter;		    </span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * Adds a new waiter to wait queue.</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@return</span> its new wait node</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> Node <span class="title">addConditionWaiter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            Node t = lastWaiter;</span><br><span class="line">            <span class="comment">// If lastWaiter is cancelled, clean out.</span></span><br><span class="line">            <span class="keyword">if</span> (t != <span class="keyword">null</span> &amp;&amp; t.waitStatus != Node.CONDITION) &#123;</span><br><span class="line">                unlinkCancelledWaiters();</span><br><span class="line">                t = lastWaiter;</span><br><span class="line">            &#125;</span><br><span class="line">            Node node = <span class="keyword">new</span> Node(Thread.currentThread(), Node.CONDITION);</span><br><span class="line">            <span class="keyword">if</span> (t == <span class="keyword">null</span>)</span><br><span class="line">                firstWaiter = node;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                t.nextWaiter = node;</span><br><span class="line">            lastWaiter = node;</span><br><span class="line">            <span class="keyword">return</span> node;</span><br><span class="line">        &#125;        </span><br><span class="line">		    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">        <span class="comment">/** Marker to indicate a node is waiting in shared mode */</span></span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> Node SHARED = <span class="keyword">new</span> Node();</span><br><span class="line">        <span class="comment">/** Marker to indicate a node is waiting in exclusive mode */</span></span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> Node EXCLUSIVE = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/** waitStatus value to indicate thread has cancelled */</span></span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> CANCELLED =  <span class="number">1</span>;</span><br><span class="line">        <span class="comment">/** waitStatus value to indicate successor's thread needs unparking */</span></span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SIGNAL    = -<span class="number">1</span>;</span><br><span class="line">        <span class="comment">/** waitStatus value to indicate thread is waiting on condition */</span></span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> CONDITION = -<span class="number">2</span>;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * waitStatus value to indicate the next acquireShared should</span></span><br><span class="line"><span class="comment">         * unconditionally propagate</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PROPAGATE = -<span class="number">3</span>;</span><br><span class="line">        <span class="keyword">volatile</span> <span class="keyword">int</span> waitStatus;</span><br><span class="line">        <span class="keyword">volatile</span> Node prev;</span><br><span class="line">        <span class="keyword">volatile</span> Node next;</span><br><span class="line">        <span class="keyword">volatile</span> Thread thread;</span><br><span class="line">        Node nextWaiter;</span><br><span class="line">        <span class="function"><span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">isShared</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> nextWaiter == SHARED;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">	    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">acquire</span><span class="params">(<span class="keyword">int</span> arg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!tryAcquire(arg) &amp;&amp; acquireQueued(addWaiter(Node.EXCLUSIVE), arg))</span><br><span class="line">            selfInterrupt();</span><br><span class="line">    &#125;	    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">acquireShared</span><span class="params">(<span class="keyword">int</span> arg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (tryAcquireShared(arg) &lt; <span class="number">0</span>)</span><br><span class="line">            doAcquireShared(arg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">tryAcquireSharedNanos</span><span class="params">(<span class="keyword">int</span> arg, <span class="keyword">long</span> nanosTimeout)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (Thread.interrupted())</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> InterruptedException();</span><br><span class="line">        <span class="keyword">return</span> tryAcquireShared(arg) &gt;= <span class="number">0</span> ||</span><br><span class="line">            doAcquireSharedNanos(arg, nanosTimeout);</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">release</span><span class="params">(<span class="keyword">int</span> arg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (tryRelease(arg)) &#123;</span><br><span class="line">            Node h = head;</span><br><span class="line">            <span class="keyword">if</span> (h != <span class="keyword">null</span> &amp;&amp; h.waitStatus != <span class="number">0</span>)</span><br><span class="line">                unparkSuccessor(h);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">releaseShared</span><span class="params">(<span class="keyword">int</span> arg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (tryReleaseShared(arg)) &#123;</span><br><span class="line">            doReleaseShared();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public abstract class AbstractQueuedSynchronizer extends AbstractOwnableSynchronizer
+    implements java.io.Serializable {
+    public class ConditionObject implements Condition, java.io.Serializable {
+        /** First node of condition queue. */
+        private transient Node firstWaiter;
+        /** Last node of condition queue. */
+        private transient Node lastWaiter;            
+        /**
+         * Adds a new waiter to wait queue.
+         * @return its new wait node
+         */
+        private Node addConditionWaiter() {
+            Node t = lastWaiter;
+            // If lastWaiter is cancelled, clean out.
+            if (t != null &amp;&amp; t.waitStatus != Node.CONDITION) {
+                unlinkCancelledWaiters();
+                t = lastWaiter;
+            }
+            Node node = new Node(Thread.currentThread(), Node.CONDITION);
+            if (t == null)
+                firstWaiter = node;
+            else
+                t.nextWaiter = node;
+            lastWaiter = node;
+            return node;
+        }        
+            }
+    static final class Node {
+        /** Marker to indicate a node is waiting in shared mode */
+        static final Node SHARED = new Node();
+        /** Marker to indicate a node is waiting in exclusive mode */
+        static final Node EXCLUSIVE = null;
+
+        /** waitStatus value to indicate thread has cancelled */
+        static final int CANCELLED =  1;
+        /** waitStatus value to indicate successor&#39;s thread needs unparking */
+        static final int SIGNAL    = -1;
+        /** waitStatus value to indicate thread is waiting on condition */
+        static final int CONDITION = -2;
+        /**
+         * waitStatus value to indicate the next acquireShared should
+         * unconditionally propagate
+         */
+        static final int PROPAGATE = -3;
+        volatile int waitStatus;
+        volatile Node prev;
+        volatile Node next;
+        volatile Thread thread;
+        Node nextWaiter;
+        final boolean isShared() {
+            return nextWaiter == SHARED;
+        }
+
+    }
+        public final void acquire(int arg) {
+        if (!tryAcquire(arg) &amp;&amp; acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
+            selfInterrupt();
+    }        
+    public final void acquireShared(int arg) {
+        if (tryAcquireShared(arg) &lt; 0)
+            doAcquireShared(arg);
+    }
+    public final boolean tryAcquireSharedNanos(int arg, long nanosTimeout)
+            throws InterruptedException {
+        if (Thread.interrupted())
+            throw new InterruptedException();
+        return tryAcquireShared(arg) &gt;= 0 ||
+            doAcquireSharedNanos(arg, nanosTimeout);
+    }    
+    public final boolean release(int arg) {
+        if (tryRelease(arg)) {
+            Node h = head;
+            if (h != null &amp;&amp; h.waitStatus != 0)
+                unparkSuccessor(h);
+            return true;
+        }
+        return false;
+    }
+    public final boolean releaseShared(int arg) {
+        if (tryReleaseShared(arg)) {
+            doReleaseShared();
+            return true;
+        }
+        return false;
+    }   
+}
+</code></pre>
 <p>这个类比较关键, 复杂度太高了,涉及的细节太多,另单独分析</p>
 <h5 id="AbstractQueuedLongSynchronizer"><a href="#AbstractQueuedLongSynchronizer" class="headerlink" title="AbstractQueuedLongSynchronizer"></a>AbstractQueuedLongSynchronizer</h5><p>AbstractQueuedLongSynchronizer类提供了相同的功能，但是扩展了对64位同步状态的支持。</p>
 <h5 id="AbstractOwnableSynchronizer"><a href="#AbstractOwnableSynchronizer" class="headerlink" title="AbstractOwnableSynchronizer"></a>AbstractOwnableSynchronizer</h5><p>它们都扩展了AbstractOwnableSynchronizer类，这是一个简单的类，帮助记录当前持有独占同步的线程。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractOwnableSynchronizer</span></span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Use serial ID even though all fields transient. */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">3737899427754241961L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Empty constructor for use by subclasses.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="title">AbstractOwnableSynchronizer</span><span class="params">()</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * The current owner of exclusive mode synchronization.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">transient</span> Thread exclusiveOwnerThread;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Sets the thread that currently owns exclusive access.</span></span><br><span class="line"><span class="comment">     * A &#123;<span class="doctag">@code</span> null&#125; argument indicates that no thread owns access.</span></span><br><span class="line"><span class="comment">     * This method does not otherwise impose any synchronization or</span></span><br><span class="line"><span class="comment">     * &#123;<span class="doctag">@code</span> volatile&#125; field accesses.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> thread the owner thread</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setExclusiveOwnerThread</span><span class="params">(Thread thread)</span> </span>&#123;</span><br><span class="line">        exclusiveOwnerThread = thread;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Returns the thread last set by &#123;<span class="doctag">@code</span> setExclusiveOwnerThread&#125;,</span></span><br><span class="line"><span class="comment">     * or &#123;<span class="doctag">@code</span> null&#125; if never set.  This method does not otherwise</span></span><br><span class="line"><span class="comment">     * impose any synchronization or &#123;<span class="doctag">@code</span> volatile&#125; field accesses.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> the owner thread</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> Thread <span class="title">getExclusiveOwnerThread</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> exclusiveOwnerThread;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public abstract class AbstractOwnableSynchronizer
+    implements java.io.Serializable {
+
+    /** Use serial ID even though all fields transient. */
+    private static final long serialVersionUID = 3737899427754241961L;
+
+    /**
+     * Empty constructor for use by subclasses.
+     */
+    protected AbstractOwnableSynchronizer() { }
+
+    /**
+     * The current owner of exclusive mode synchronization.
+     */
+    private transient Thread exclusiveOwnerThread;
+
+    /**
+     * Sets the thread that currently owns exclusive access.
+     * A {@code null} argument indicates that no thread owns access.
+     * This method does not otherwise impose any synchronization or
+     * {@code volatile} field accesses.
+     * @param thread the owner thread
+     */
+    protected final void setExclusiveOwnerThread(Thread thread) {
+        exclusiveOwnerThread = thread;
+    }
+
+    /**
+     * Returns the thread last set by {@code setExclusiveOwnerThread},
+     * or {@code null} if never set.  This method does not otherwise
+     * impose any synchronization or {@code volatile} field accesses.
+     * @return the owner thread
+     */
+    protected final Thread getExclusiveOwnerThread() {
+        return exclusiveOwnerThread;
+    }
+}
+</code></pre>
 <h4 id="LockSupports"><a href="#LockSupports" class="headerlink" title="LockSupports"></a>LockSupports</h4><p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/LockSupport.html" target="_blank" rel="noopener"><code>LockSupport</code></a> class provides lower-level blocking and unblocking support that is useful for those developers implementing their own customized lock classes.</p>
 <p>LockSupport类提供了较低级别的阻塞和解除阻塞支持，这对于实现自定义锁类的开发人员非常有用。</p>
 <h3 id="Record📝"><a href="#Record📝" class="headerlink" title="Record📝"></a>Record📝</h3><ul>
@@ -1010,8 +1679,13 @@
 <li><p>java.util.concurrent.Semaphore.Sync#nonfairTryAcquireShared 和java.util.concurrent.Semaphore.Sync#reducePermits 为啥需要重复实现?</p>
 </li>
 <li><p>java.util.concurrent.locks.ReentrantReadWriteLock.ReadLock#newCondition ?</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Throws &#123;@code UnsupportedOperationException&#125; because</span><br><span class="line"> * &#123;@code ReadLocks&#125; do not support conditions.</span><br><span class="line"> *</span><br><span class="line"> * @throws UnsupportedOperationException always</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>  /**
+   * Throws {@code UnsupportedOperationException} because
+   * {@code ReadLocks} do not support conditions.
+   *
+   * @throws UnsupportedOperationException always
+   */
+</code></pre></li>
 </ul>
 
       
@@ -1023,7 +1697,7 @@
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>JDK_The Concurrent Framework</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">9k</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">8.8k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-08-10, 19:45:39</p>
     <p><span class="copy-title">最后更新:</span>2019-08-24, 18:57:12</p>
@@ -1070,7 +1744,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#ejb','#gc','#collections','#map','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#collections','#map','#spring-mvc','#spring-webflux',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -1228,6 +1902,15 @@
 
     /*引用块样式*/
     
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
 
     /*文章列表背景图*/
     
@@ -1251,16 +1934,6 @@
     }
     
 
-    
-    .post .pjax article :not(pre) > code {
-        color: #24292e;
-        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-        background-color: rgba(27,31,35,.05);
-        border-radius: 3px;
-        font-size: 85%;
-        margin: 0;
-        padding: .2em .4em;
-    }
     
 </style>
 

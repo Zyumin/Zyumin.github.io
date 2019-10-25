@@ -24,7 +24,7 @@
 
 <link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.0.1" rel="stylesheet">
+<link href="/css/hl_theme/github-gist.css?v=1.0.1" rel="stylesheet">
 
 <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -119,7 +119,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="43">
-<input type="hidden" id="yelog_site_word_count" value="127.8k">
+<input type="hidden" id="yelog_site_word_count" value="126k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -154,6 +154,10 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">week</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hide</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -277,11 +281,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color3">gc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
+        <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -475,7 +479,7 @@
             <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
         </a>
         
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week" data-author="">
+        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
@@ -564,7 +568,7 @@
     </div>
     <div class="article-meta">
         
-        <span>字数:2.6k</span>
+        <span>字数:2.5k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -590,8 +594,8 @@
     .left-col .switch-area {
         display: none;
     }
-    .toc-level-3 i,
-    .toc-level-3 ol {
+    .toc-level-4 i,
+    .toc-level-4 ol {
         display: none !important;
     }
 </style>
@@ -629,7 +633,13 @@
 <li>position：位置，下一个要读取或写入的索引位置。该位置不能大于limit的限制。</li>
 <li>mark：标记，标记后的索引位置，我们可以通过reset方法恢复position到该位置，该mark的位置要小于或等于position</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Invariants: mark &lt;= position &lt;= limit &lt;= capacity</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> mark = -<span class="number">1</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> position = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> limit;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> capacity;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">// Invariants: mark &lt;= position &lt;= limit &lt;= capacity
+private int mark = -1;
+private int position = 0;
+private int limit;
+private int capacity;
+
+</code></pre>
 <h5 id="method"><a href="#method" class="headerlink" title="method"></a>method</h5><ul>
 <li><p>clear : Clears this buffer.  The position is set to zero, the limit is set to the capacity, and the mark is discarded.</p>
 <p>  将position置为0，并不清除buffer内容。 </p>
@@ -644,7 +654,98 @@
 <li>Rewind(倒带,和flip相比少了对limit的操作) :  Rewinds this buffer.  The position is set to zero and the mark is discarded.</li>
 <li>Remaining\hasRemaining : Returns the number of elements between the current position and the limit.</li>
 </ul>
-<h5 id="source"><a href="#source" class="headerlink" title="source"></a>source</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">	    <span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Clears this buffer.  The position is set to zero, the limit is set to</span></span><br><span class="line"><span class="comment"> * the capacity, and the mark is discarded.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; Invoke this method before using a sequence of channel-read or</span></span><br><span class="line"><span class="comment"> * &lt;i&gt;put&lt;/i&gt; operations to fill this buffer.  For example:</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;blockquote&gt;&lt;pre&gt;</span></span><br><span class="line"><span class="comment"> * buf.clear();     // Prepare buffer for reading</span></span><br><span class="line"><span class="comment"> * in.read(buf);    // Read data&lt;/pre&gt;&lt;/blockquote&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; This method does not actually erase the data in the buffer, but it</span></span><br><span class="line"><span class="comment"> * is named as if it did because it will most often be used in situations</span></span><br><span class="line"><span class="comment"> * in which that might as well be the case. &lt;/p&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>  This buffer</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> Buffer <span class="title">clear</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    position = <span class="number">0</span>;</span><br><span class="line">    limit = capacity;</span><br><span class="line">    mark = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Flips this buffer.  The limit is set to the current position and then</span></span><br><span class="line"><span class="comment"> * the position is set to zero.  If the mark is defined then it is</span></span><br><span class="line"><span class="comment"> * discarded.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; After a sequence of channel-read or &lt;i&gt;put&lt;/i&gt; operations, invoke</span></span><br><span class="line"><span class="comment"> * this method to prepare for a sequence of channel-write or relative</span></span><br><span class="line"><span class="comment"> * &lt;i&gt;get&lt;/i&gt; operations.  For example:</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;blockquote&gt;&lt;pre&gt;</span></span><br><span class="line"><span class="comment"> * buf.put(magic);    // Prepend header</span></span><br><span class="line"><span class="comment"> * in.read(buf);      // Read data into rest of buffer</span></span><br><span class="line"><span class="comment"> * buf.flip();        // Flip buffer</span></span><br><span class="line"><span class="comment"> * out.write(buf);    // Write header + data to channel&lt;/pre&gt;&lt;/blockquote&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; This method is often used in conjunction with the &#123;<span class="doctag">@link</span></span></span><br><span class="line"><span class="comment"> * java.nio.ByteBuffer#compact compact&#125; method when transferring data from</span></span><br><span class="line"><span class="comment"> * one place to another.  &lt;/p&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>  This buffer</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> Buffer <span class="title">flip</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    limit = position;</span><br><span class="line">    position = <span class="number">0</span>;</span><br><span class="line">    mark = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Rewinds this buffer.  The position is set to zero and the mark is</span></span><br><span class="line"><span class="comment"> * discarded.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; Invoke this method before a sequence of channel-write or &lt;i&gt;get&lt;/i&gt;</span></span><br><span class="line"><span class="comment"> * operations, assuming that the limit has already been set</span></span><br><span class="line"><span class="comment"> * appropriately.  For example:</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;blockquote&gt;&lt;pre&gt;</span></span><br><span class="line"><span class="comment"> * out.write(buf);    // Write remaining data</span></span><br><span class="line"><span class="comment"> * buf.rewind();      // Rewind buffer</span></span><br><span class="line"><span class="comment"> * buf.get(array);    // Copy data into array&lt;/pre&gt;&lt;/blockquote&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>  This buffer</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> Buffer <span class="title">rewind</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    position = <span class="number">0</span>;</span><br><span class="line">    mark = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Returns the number of elements between the current position and the</span></span><br><span class="line"><span class="comment"> * limit.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>  The number of elements remaining in this buffer</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">remaining</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> limit - position;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Tells whether there are any elements between the current position and</span></span><br><span class="line"><span class="comment"> * the limit.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>  &lt;tt&gt;true&lt;/tt&gt; if, and only if, there is at least one element</span></span><br><span class="line"><span class="comment"> *          remaining in this buffer</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">hasRemaining</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> position &lt; limit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="source"><a href="#source" class="headerlink" title="source"></a>source</h5><pre><code class="java">                        /**
+     * Clears this buffer.  The position is set to zero, the limit is set to
+     * the capacity, and the mark is discarded.
+     *
+     * &lt;p&gt; Invoke this method before using a sequence of channel-read or
+     * &lt;i&gt;put&lt;/i&gt; operations to fill this buffer.  For example:
+     *
+     * &lt;blockquote&gt;&lt;pre&gt;
+     * buf.clear();     // Prepare buffer for reading
+     * in.read(buf);    // Read data&lt;/pre&gt;&lt;/blockquote&gt;
+     *
+     * &lt;p&gt; This method does not actually erase the data in the buffer, but it
+     * is named as if it did because it will most often be used in situations
+     * in which that might as well be the case. &lt;/p&gt;
+     *
+     * @return  This buffer
+     */
+    public final Buffer clear() {
+        position = 0;
+        limit = capacity;
+        mark = -1;
+        return this;
+    }
+
+    /**
+     * Flips this buffer.  The limit is set to the current position and then
+     * the position is set to zero.  If the mark is defined then it is
+     * discarded.
+     *
+     * &lt;p&gt; After a sequence of channel-read or &lt;i&gt;put&lt;/i&gt; operations, invoke
+     * this method to prepare for a sequence of channel-write or relative
+     * &lt;i&gt;get&lt;/i&gt; operations.  For example:
+     *
+     * &lt;blockquote&gt;&lt;pre&gt;
+     * buf.put(magic);    // Prepend header
+     * in.read(buf);      // Read data into rest of buffer
+     * buf.flip();        // Flip buffer
+     * out.write(buf);    // Write header + data to channel&lt;/pre&gt;&lt;/blockquote&gt;
+     *
+     * &lt;p&gt; This method is often used in conjunction with the {@link
+     * java.nio.ByteBuffer#compact compact} method when transferring data from
+     * one place to another.  &lt;/p&gt;
+     *
+     * @return  This buffer
+     */
+    public final Buffer flip() {
+        limit = position;
+        position = 0;
+        mark = -1;
+        return this;
+    }
+    /**
+     * Rewinds this buffer.  The position is set to zero and the mark is
+     * discarded.
+     *
+     * &lt;p&gt; Invoke this method before a sequence of channel-write or &lt;i&gt;get&lt;/i&gt;
+     * operations, assuming that the limit has already been set
+     * appropriately.  For example:
+     *
+     * &lt;blockquote&gt;&lt;pre&gt;
+     * out.write(buf);    // Write remaining data
+     * buf.rewind();      // Rewind buffer
+     * buf.get(array);    // Copy data into array&lt;/pre&gt;&lt;/blockquote&gt;
+     *
+     * @return  This buffer
+     */
+    public final Buffer rewind() {
+        position = 0;
+        mark = -1;
+        return this;
+    }
+    /**
+     * Returns the number of elements between the current position and the
+     * limit.
+     *
+     * @return  The number of elements remaining in this buffer
+     */
+    public final int remaining() {
+        return limit - position;
+    }
+
+    /**
+     * Tells whether there are any elements between the current position and
+     * the limit.
+     *
+     * @return  &lt;tt&gt;true&lt;/tt&gt; if, and only if, there is at least one element
+     *          remaining in this buffer
+     */
+    public final boolean hasRemaining() {
+        return position &lt; limit;
+    }
+</code></pre>
 <h4 id="buffer-extends"><a href="#buffer-extends" class="headerlink" title="buffer extends"></a>buffer extends</h4><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpyddkurj31ps0s0adh.jpg" alt="image-20190924145529968"></p>
 <p>Here is a list of the core <code>Buffer</code> implementations in Java NIO:</p>
 <ul>
@@ -659,11 +760,21 @@
 <p>These <code>Buffer</code>‘s cover the basic data types that you can send via IO: byte, short, int, long, float, double and characters.</p>
 <h4 id="ByteBuffer"><a href="#ByteBuffer" class="headerlink" title="ByteBuffer"></a>ByteBuffer</h4><p>ByteBuffer最核心的方法是put(byte)和get()。分别是往ByteBuffer里写一个字节，和读一个字节。</p>
 <p>值得注意的是，ByteBuffer的读写模式是分开的，正常的应用场景是：往ByteBuffer里写一些数据，然后flip()，然后再读出来。</p>
-<h5 id="allocate"><a href="#allocate" class="headerlink" title="allocate"></a>allocate</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ByteBuffer <span class="title">allocateDirect</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> DirectByteBuffer(capacity);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ByteBuffer <span class="title">allocate</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (capacity &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> HeapByteBuffer(capacity, capacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="allocate"><a href="#allocate" class="headerlink" title="allocate"></a>allocate</h5><pre><code class="java">                    public static ByteBuffer allocateDirect(int capacity) {
+        return new DirectByteBuffer(capacity);
+    }
+    public static ByteBuffer allocate(int capacity) {
+        if (capacity &lt; 0)
+            throw new IllegalArgumentException();
+        return new HeapByteBuffer(capacity, capacity);
+    }
+</code></pre>
 <h5 id="HeapByteBuffer"><a href="#HeapByteBuffer" class="headerlink" title="HeapByteBuffer"></a>HeapByteBuffer</h5><p>间接的ByteBuffer是在JVM的堆上面的。间接缓冲区就是我们通常说的堆缓冲区。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HeapByteBuffer</span> <span class="keyword">extends</span> <span class="title">ByteBuffer</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">class HeapByteBuffer extends ByteBuffer {}
+</code></pre>
 <h5 id="DirectByteBuffer"><a href="#DirectByteBuffer" class="headerlink" title="DirectByteBuffer"></a>DirectByteBuffer</h5><p>直接就是指MappedByteBuffer，直接使用内存映射（java的话就意味着在JVM之外分配虚拟地址空间）；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DirectByteBuffer</span> <span class="keyword">extends</span> <span class="title">MappedByteBuffer</span> <span class="keyword">implements</span> <span class="title">DirectBuffer</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">class DirectByteBuffer extends MappedByteBuffer implements DirectBuffer {}
+</code></pre>
 <p>资料:</p>
 <blockquote>
 <p><a href="https://cloud.tencent.com/developer/article/1428920" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1428920</a>  MappedByteBuffer VS FileChannel ，孰强孰弱</p>
@@ -678,7 +789,12 @@
 <li><p>force :该方法会强制将此缓冲区上的任何更改写入映射到永久磁盘存储器上。</p>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">MappedByteBuffer</span> <span class="keyword">extends</span> <span class="title">ByteBuffer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> MappedByteBuffer <span class="title">load</span><span class="params">( )</span></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">isLoaded</span><span class="params">( )</span></span></span><br><span class="line"><span class="function">    <span class="keyword">public</span> <span class="keyword">final</span> MappedByteBuffer <span class="title">force</span><span class="params">( )</span></span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="java">public abstract class MappedByteBuffer extends ByteBuffer {
+    public final MappedByteBuffer load( )
+    public final boolean isLoaded( )
+    public final MappedByteBuffer force( )
+}
+</code></pre>
 <p><a href="https://cloud.tencent.com/developer/article/1130046" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1130046</a></p>
 <h3 id="Channels"><a href="#Channels" class="headerlink" title="Channels"></a>Channels</h3><p>Typically, all IO in NIO starts with a <code>Channel</code>. A <code>Channel</code> is a bit like a stream. From the <code>Channel</code> data can be read into a <code>Buffer</code>. Data can also be written from a <code>Buffer</code> into a <code>Channel</code>. Here is an illustration of that:</p>
 <p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpybgjbdj309e06fjre.jpg" alt="Java NIO: Channels and Buffers"></p>
@@ -693,7 +809,7 @@
 <ul>
 <li><p>FileChannel  : reads data from and to files.</p>
 <p>  **public abstract long transferTo(long position,long count,WritableByteChannel target)</p>
-<pre><code>throws IOException**
+<pre><code>                       throws IOException**
 </code></pre><p>  This method is potentially much more efficient than a simple loop that reads from this channel and writes to the target channel. Many operating systems can transfer bytes directly from the filesystem cache to the target channel without actually copying them.</p>
 </li>
 <li><p>DatagramChannel : can read and write data over the network via UDP.</p>
@@ -708,8 +824,201 @@
 <p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g7cpycvhlgj30bc08zdg0.jpg" alt="Java NIO: Selectors"></p>
 <p>​                                 <strong>Java NIO: A Thread uses a Selector to handle 3 Channel’s</strong></p>
 <p>To use a <code>Selector</code> you register the <code>Channel</code>‘s with it. Then you call it’s <code>select()</code> method. This method will block until there is an event ready for one of the registered channels. Once the method returns, the thread can then process these events. Examples of events are incoming connection, data received etc.</p>
-<h5 id="full-demo"><a href="#full-demo" class="headerlink" title="full demo"></a>full demo</h5><h6 id="Server-demo"><a href="#Server-demo" class="headerlink" title="Server  demo"></a>Server  demo</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> nio;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.util.StringUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Closeable;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.InetSocketAddress;</span><br><span class="line"><span class="keyword">import</span> java.nio.ByteBuffer;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.SelectionKey;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.Selector;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.ServerSocketChannel;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.SocketChannel;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> zhengyumin</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> Nio服务端 使用selector接收消息</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019-09-25 1:22 AM</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NioServer</span> <span class="keyword">implements</span> <span class="title">Closeable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Selector selector;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ServerSocketChannel serverSocketChannel;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> port;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String hostname;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NioServer</span><span class="params">(<span class="keyword">int</span> port)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.port = port;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NioServer</span><span class="params">(<span class="keyword">int</span> port, String hostname)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.port = port;</span><br><span class="line">        <span class="keyword">this</span>.hostname = hostname;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> NioServer <span class="title">port</span><span class="params">(<span class="keyword">int</span> port)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> NioServer(port);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> NioServer <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"starting...."</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            startServer();</span><br><span class="line">            <span class="comment">//开启selector 并监听</span></span><br><span class="line">            startSelector();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"closing...."</span>);</span><br><span class="line">            selector.close();</span><br><span class="line">            serverSocketChannel.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startSelector</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        selector = Selector.open();</span><br><span class="line"></span><br><span class="line">        serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"startSelector succ"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> readyChannels = selector.selectNow();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (readyChannels == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"><span class="comment">//                    return;</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            Iterator&lt;SelectionKey&gt; keyIterator = selector.selectedKeys().iterator();</span><br><span class="line">            <span class="keyword">while</span> (keyIterator.hasNext()) &#123;</span><br><span class="line">                SelectionKey key = keyIterator.next();</span><br><span class="line">                <span class="keyword">if</span> (key.isAcceptable()) &#123;</span><br><span class="line">                    <span class="comment">// a connection was accepted by a ServerSocketChannel.</span></span><br><span class="line">                    connectEven(key, selector);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (key.isConnectable()) &#123;</span><br><span class="line">                    <span class="comment">// a connection was established with a remote server.</span></span><br><span class="line">                    System.out.println(<span class="string">"a connection was established with a remote server."</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (key.isReadable()) &#123;</span><br><span class="line">                    <span class="comment">// a channel is ready for reading</span></span><br><span class="line">                    readData(key);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (key.isWritable()) &#123;</span><br><span class="line">                    <span class="comment">// a channel is ready for writing</span></span><br><span class="line">                    System.out.println(<span class="string">"a channel is ready for writing"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                keyIterator.remove();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startServer</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//开启服务器</span></span><br><span class="line">        serverSocketChannel = ServerSocketChannel.open();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        serverSocketChannel.socket().bind(StringUtils.isEmpty(hostname) ?</span><br><span class="line">                <span class="keyword">new</span> InetSocketAddress(port) : <span class="keyword">new</span> InetSocketAddress(hostname, port));</span><br><span class="line"></span><br><span class="line">        serverSocketChannel.configureBlocking(<span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"startServer succ"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">connectEven</span><span class="params">(SelectionKey key, Selector selector)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            ServerSocketChannel server = (ServerSocketChannel) key.channel();</span><br><span class="line">            SocketChannel channel = server.accept();</span><br><span class="line">            channel.configureBlocking(<span class="keyword">false</span>);</span><br><span class="line">            <span class="comment">//获得远程连接的IP地址</span></span><br><span class="line">            System.out.println(<span class="string">"已有连接，连接的ip地址是"</span> + channel.socket().getInetAddress());</span><br><span class="line">            channel.register(selector, SelectionKey.OP_READ);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 数据读取处理</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> key</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">readData</span><span class="params">(SelectionKey key)</span> </span>&#123;</span><br><span class="line">        SocketChannel socketChannel = (SocketChannel) key.channel();</span><br><span class="line">        ByteBuffer buf = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> readSize = socketChannel.read(buf);</span><br><span class="line">            <span class="keyword">if</span> (readSize &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">byte</span>[] data = buf.array();</span><br><span class="line">                String msg = <span class="keyword">new</span> String(data, <span class="string">"UTF-8"</span>).trim();</span><br><span class="line">                System.out.println(msg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span>(NioServer nioServer =  NioServer.port(<span class="number">9999</span>)) &#123;</span><br><span class="line">            nioServer.start();</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="Client-demo"><a href="#Client-demo" class="headerlink" title="Client demo"></a>Client demo</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> nio;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.InetSocketAddress;</span><br><span class="line"><span class="keyword">import</span> java.nio.ByteBuffer;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.SocketChannel;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> zhengyumin</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> nio客户端demo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019-09-25 11:36 AM</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NioClientDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">        SocketChannel socketChannel = SocketChannel.open();</span><br><span class="line"></span><br><span class="line">        socketChannel.connect(<span class="keyword">new</span> InetSocketAddress(<span class="number">9999</span>));</span><br><span class="line"></span><br><span class="line">        String newData = <span class="string">"New String to write to file..."</span> + System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        ByteBuffer buf = ByteBuffer.allocate(<span class="number">48</span>);</span><br><span class="line">        buf.clear();</span><br><span class="line">        buf.put(newData.getBytes());</span><br><span class="line"></span><br><span class="line">        buf.flip();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(buf.hasRemaining()) &#123;</span><br><span class="line">            socketChannel.write(buf);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="full-demo"><a href="#full-demo" class="headerlink" title="full demo"></a>full demo</h5><h6 id="Server-demo"><a href="#Server-demo" class="headerlink" title="Server  demo"></a>Server  demo</h6><pre><code class="java">package nio;
+
+import org.springframework.util.StringUtils;
+
+import java.io.Closeable;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
+import java.util.Iterator;
+
+/**
+ * @author zhengyumin
+ * @description Nio服务端 使用selector接收消息
+ * @date 2019-09-25 1:22 AM
+ */
+public class NioServer implements Closeable{
+
+    private Selector selector;
+
+    private ServerSocketChannel serverSocketChannel;
+
+    private int port;
+
+    private String hostname;
+
+    public NioServer(int port) {
+        this.port = port;
+    }
+
+    public NioServer(int port, String hostname) {
+        this.port = port;
+        this.hostname = hostname;
+    }
+
+    public static NioServer port(int port) {
+        return new NioServer(port);
+    }
+
+    public NioServer start() {
+
+        System.out.println(&quot;starting....&quot;);
+
+        try {
+            startServer();
+            //开启selector 并监听
+            startSelector();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return this;
+    }
+
+    @Override
+    public void close() {
+        try {
+            System.out.println(&quot;closing....&quot;);
+            selector.close();
+            serverSocketChannel.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void startSelector() throws IOException {
+        selector = Selector.open();
+
+        serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+
+        System.out.println(&quot;startSelector succ&quot;);
+
+        while (true) {
+
+            int readyChannels = selector.selectNow();
+
+            if (readyChannels == 0) {
+                continue;
+//                    return;
+            }
+
+            Iterator&lt;SelectionKey&gt; keyIterator = selector.selectedKeys().iterator();
+            while (keyIterator.hasNext()) {
+                SelectionKey key = keyIterator.next();
+                if (key.isAcceptable()) {
+                    // a connection was accepted by a ServerSocketChannel.
+                    connectEven(key, selector);
+                } else if (key.isConnectable()) {
+                    // a connection was established with a remote server.
+                    System.out.println(&quot;a connection was established with a remote server.&quot;);
+                } else if (key.isReadable()) {
+                    // a channel is ready for reading
+                    readData(key);
+                } else if (key.isWritable()) {
+                    // a channel is ready for writing
+                    System.out.println(&quot;a channel is ready for writing&quot;);
+                }
+                keyIterator.remove();
+            }
+        }
+    }
+
+    private void startServer() throws Exception {
+        //开启服务器
+        serverSocketChannel = ServerSocketChannel.open();
+
+
+        serverSocketChannel.socket().bind(StringUtils.isEmpty(hostname) ?
+                new InetSocketAddress(port) : new InetSocketAddress(hostname, port));
+
+        serverSocketChannel.configureBlocking(false);
+
+        System.out.println(&quot;startServer succ&quot;);
+
+    }
+
+
+    private void connectEven(SelectionKey key, Selector selector) {
+        try {
+            ServerSocketChannel server = (ServerSocketChannel) key.channel();
+            SocketChannel channel = server.accept();
+            channel.configureBlocking(false);
+            //获得远程连接的IP地址
+            System.out.println(&quot;已有连接，连接的ip地址是&quot; + channel.socket().getInetAddress());
+            channel.register(selector, SelectionKey.OP_READ);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * 数据读取处理
+     *
+     * @param key
+     */
+    private void readData(SelectionKey key) {
+        SocketChannel socketChannel = (SocketChannel) key.channel();
+        ByteBuffer buf = ByteBuffer.allocate(1024);
+        try {
+            int readSize = socketChannel.read(buf);
+            if (readSize &gt; 0) {
+                byte[] data = buf.array();
+                String msg = new String(data, &quot;UTF-8&quot;).trim();
+                System.out.println(msg);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void main(String[] args) {
+        try(NioServer nioServer =  NioServer.port(9999)) {
+            nioServer.start();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }     
+}
+</code></pre>
+<h6 id="Client-demo"><a href="#Client-demo" class="headerlink" title="Client demo"></a>Client demo</h6><pre><code class="java">package nio;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.SocketChannel;
+
+/**
+ * @author zhengyumin
+ * @description nio客户端demo
+ * @date 2019-09-25 11:36 AM
+ */
+public class NioClientDemo {
+    public static void main(String[] args) throws IOException {
+
+        SocketChannel socketChannel = SocketChannel.open();
+
+        socketChannel.connect(new InetSocketAddress(9999));
+
+        String newData = &quot;New String to write to file...&quot; + System.currentTimeMillis();
+
+        ByteBuffer buf = ByteBuffer.allocate(48);
+        buf.clear();
+        buf.put(newData.getBytes());
+
+        buf.flip();
+
+        while(buf.hasRemaining()) {
+            socketChannel.write(buf);
+        }
+
+    }
+}
+</code></pre>
 <h4 id="Pipe-todo"><a href="#Pipe-todo" class="headerlink" title="Pipe(todo)"></a>Pipe(todo)</h4><p>​    </p>
 <h3 id="Charset-todo"><a href="#Charset-todo" class="headerlink" title="Charset(todo)"></a>Charset(todo)</h3><h3 id="File"><a href="#File" class="headerlink" title="File"></a>File</h3><h4 id="Path-Todo"><a href="#Path-Todo" class="headerlink" title="Path(Todo)"></a>Path(Todo)</h4><h4 id="Files-todo"><a href="#Files-todo" class="headerlink" title="Files(todo)"></a>Files(todo)</h4><h3 id="Java-NIO-vs-IO"><a href="#Java-NIO-vs-IO" class="headerlink" title="Java NIO vs. IO"></a>Java NIO vs. IO</h3><p>When studying both the Java NIO and IO API’s, a question quickly pops into mind:</p>
 <p><strong>When should I use IO and when should I use NIO?</strong></p>
@@ -787,7 +1096,7 @@
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>JDK_Packages_java_nio</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">2.6k</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">2.5k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-09-26, 10:39:22</p>
     <p><span class="copy-title">最后更新:</span>2019-09-30, 16:37:42</p>
@@ -834,7 +1143,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#ejb','#gc','#collections','#map','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#collections','#map','#spring-mvc','#spring-webflux',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -992,6 +1301,15 @@
 
     /*引用块样式*/
     
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
 
     /*文章列表背景图*/
     
@@ -1015,16 +1333,6 @@
     }
     
 
-    
-    .post .pjax article :not(pre) > code {
-        color: #24292e;
-        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-        background-color: rgba(27,31,35,.05);
-        border-radius: 3px;
-        font-size: 85%;
-        margin: 0;
-        padding: .2em .4em;
-    }
     
 </style>
 

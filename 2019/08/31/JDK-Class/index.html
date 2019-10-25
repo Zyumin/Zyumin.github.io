@@ -24,7 +24,7 @@
 
 <link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-<link href="/css/hl_theme/github.css?v=1.0.1" rel="stylesheet">
+<link href="/css/hl_theme/github-gist.css?v=1.0.1" rel="stylesheet">
 
 <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -119,7 +119,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="43">
-<input type="hidden" id="yelog_site_word_count" value="127.8k">
+<input type="hidden" id="yelog_site_word_count" value="126k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -154,6 +154,10 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">week</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hide</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -277,11 +281,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color3">gc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
+        <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -475,7 +479,7 @@
             <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
         </a>
         
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week" data-author="">
+        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
@@ -560,7 +564,7 @@
     </div>
     <div class="article-meta">
         
-        <span>字数:1.9k</span>
+        <span>字数:1.8k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -586,8 +590,8 @@
     .left-col .switch-area {
         display: none;
     }
-    .toc-level-3 i,
-    .toc-level-3 ol {
+    .toc-level-4 i,
+    .toc-level-4 ol {
         display: none !important;
     }
 </style>
@@ -626,9 +630,76 @@
 </ul>
 <p>更多细节可以查看 JLS 第8章</p>
 <p>getFields 分析</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// java.lang.reflect.Field handling</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Returns an array of "root" fields. These Field objects must NOT</span></span><br><span class="line"><span class="comment">// be propagated to the outside world, but must instead be copied</span></span><br><span class="line"><span class="comment">// via ReflectionFactory.copyField.</span></span><br><span class="line"><span class="keyword">private</span> Field[] privateGetDeclaredFields(<span class="keyword">boolean</span> publicOnly) &#123;</span><br><span class="line">    checkInitted();</span><br><span class="line">    Field[] res;</span><br><span class="line">    ReflectionData&lt;T&gt; rd = reflectionData();</span><br><span class="line">    <span class="keyword">if</span> (rd != <span class="keyword">null</span>) &#123;</span><br><span class="line">        res = publicOnly ? rd.declaredPublicFields : rd.declaredFields;</span><br><span class="line">        <span class="keyword">if</span> (res != <span class="keyword">null</span>) <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// No cached value available; request value from VM</span></span><br><span class="line">    res = Reflection.filterFields(<span class="keyword">this</span>, getDeclaredFields0(publicOnly));</span><br><span class="line">    <span class="keyword">if</span> (rd != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (publicOnly) &#123;</span><br><span class="line">            rd.declaredPublicFields = res;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            rd.declaredFields = res;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">//
+//
+// java.lang.reflect.Field handling
+//
+//
+
+// Returns an array of &quot;root&quot; fields. These Field objects must NOT
+// be propagated to the outside world, but must instead be copied
+// via ReflectionFactory.copyField.
+private Field[] privateGetDeclaredFields(boolean publicOnly) {
+    checkInitted();
+    Field[] res;
+    ReflectionData&lt;T&gt; rd = reflectionData();
+    if (rd != null) {
+        res = publicOnly ? rd.declaredPublicFields : rd.declaredFields;
+        if (res != null) return res;
+    }
+    // No cached value available; request value from VM
+    res = Reflection.filterFields(this, getDeclaredFields0(publicOnly));
+    if (rd != null) {
+        if (publicOnly) {
+            rd.declaredPublicFields = res;
+        } else {
+            rd.declaredFields = res;
+        }
+    }
+    return res;
+}
+</code></pre>
 <p>从缓存中获取, 如果为空则从VM获取 , 其中 reflectionData 反射缓存Bo  (useCaches 默认为true)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">transient</span> SoftReference&lt;ReflectionData&lt;T&gt;&gt; reflectionData;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Incremented by the VM on each call to JVM TI RedefineClasses()</span></span><br><span class="line"><span class="comment">// that redefines this class or a superclass.</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">transient</span> <span class="keyword">int</span> classRedefinedCount = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Lazily create and cache ReflectionData</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> ReflectionData&lt;T&gt; <span class="title">reflectionData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    SoftReference&lt;ReflectionData&lt;T&gt;&gt; reflectionData = <span class="keyword">this</span>.reflectionData;</span><br><span class="line">    <span class="keyword">int</span> classRedefinedCount = <span class="keyword">this</span>.classRedefinedCount;</span><br><span class="line">    ReflectionData&lt;T&gt; rd;</span><br><span class="line">    <span class="keyword">if</span> (useCaches &amp;&amp;</span><br><span class="line">        reflectionData != <span class="keyword">null</span> &amp;&amp;</span><br><span class="line">        (rd = reflectionData.get()) != <span class="keyword">null</span> &amp;&amp;</span><br><span class="line">        rd.redefinedCount == classRedefinedCount) &#123;</span><br><span class="line">        <span class="keyword">return</span> rd;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// else no SoftReference or cleared SoftReference or stale ReflectionData</span></span><br><span class="line">    <span class="comment">// -&gt; create and replace new instance</span></span><br><span class="line">    <span class="keyword">return</span> newReflectionData(reflectionData, classRedefinedCount);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> ReflectionData&lt;T&gt; <span class="title">newReflectionData</span><span class="params">(SoftReference&lt;ReflectionData&lt;T&gt;&gt; oldReflectionData,<span class="keyword">int</span> classRedefinedCount)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!useCaches) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            ReflectionData&lt;T&gt; rd = <span class="keyword">new</span> ReflectionData&lt;&gt;(classRedefinedCount);</span><br><span class="line">            <span class="comment">// try to CAS it...</span></span><br><span class="line">            <span class="keyword">if</span> (Atomic.casReflectionData(<span class="keyword">this</span>, oldReflectionData, <span class="keyword">new</span> SoftReference&lt;&gt;(rd))) &#123;</span><br><span class="line">                <span class="keyword">return</span> rd;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// else retry</span></span><br><span class="line">            oldReflectionData = <span class="keyword">this</span>.reflectionData;</span><br><span class="line">            classRedefinedCount = <span class="keyword">this</span>.classRedefinedCount;</span><br><span class="line">            <span class="keyword">if</span> (oldReflectionData != <span class="keyword">null</span> &amp;&amp;</span><br><span class="line">                (rd = oldReflectionData.get()) != <span class="keyword">null</span> &amp;&amp;</span><br><span class="line">                rd.redefinedCount == classRedefinedCount) &#123;</span><br><span class="line">                <span class="keyword">return</span> rd;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">private volatile transient SoftReference&lt;ReflectionData&lt;T&gt;&gt; reflectionData;
+
+// Incremented by the VM on each call to JVM TI RedefineClasses()
+// that redefines this class or a superclass.
+private volatile transient int classRedefinedCount = 0;
+
+// Lazily create and cache ReflectionData
+private ReflectionData&lt;T&gt; reflectionData() {
+    SoftReference&lt;ReflectionData&lt;T&gt;&gt; reflectionData = this.reflectionData;
+    int classRedefinedCount = this.classRedefinedCount;
+    ReflectionData&lt;T&gt; rd;
+    if (useCaches &amp;&amp;
+        reflectionData != null &amp;&amp;
+        (rd = reflectionData.get()) != null &amp;&amp;
+        rd.redefinedCount == classRedefinedCount) {
+        return rd;
+    }
+    // else no SoftReference or cleared SoftReference or stale ReflectionData
+    // -&gt; create and replace new instance
+    return newReflectionData(reflectionData, classRedefinedCount);
+}
+private ReflectionData&lt;T&gt; newReflectionData(SoftReference&lt;ReflectionData&lt;T&gt;&gt; oldReflectionData,int classRedefinedCount) {
+        if (!useCaches) return null;
+        while (true) {
+            ReflectionData&lt;T&gt; rd = new ReflectionData&lt;&gt;(classRedefinedCount);
+            // try to CAS it...
+            if (Atomic.casReflectionData(this, oldReflectionData, new SoftReference&lt;&gt;(rd))) {
+                return rd;
+            }
+            // else retry
+            oldReflectionData = this.reflectionData;
+            classRedefinedCount = this.classRedefinedCount;
+            if (oldReflectionData != null &amp;&amp;
+                (rd = oldReflectionData.get()) != null &amp;&amp;
+                rd.redefinedCount == classRedefinedCount) {
+                return rd;
+            }
+        }
+    }
+</code></pre>
 <p>简单总结 Class的成员 字段 方法 和构造函数  通常与反射一起使用</p>
 <h3 id="Class文件的构成"><a href="#Class文件的构成" class="headerlink" title="Class文件的构成"></a>Class文件的构成</h3><p>通过javac xxx 可以生成 xxx.class 文件</p>
 <p>字节码结构</p>
@@ -778,11 +849,96 @@
 <li>链接：执行下面的校验、准备和解析步骤，其中解析步骤是可选的。</li>
 <li>初始化：执行类变量赋值和静态代码块。</li>
 </ul>
-<h4 id="你知道Class-forName-和-ClassLoder-loadClass的区别吗"><a href="#你知道Class-forName-和-ClassLoder-loadClass的区别吗" class="headerlink" title="你知道Class.forName  和 ClassLoder.loadClass的区别吗?"></a>你知道Class.forName  和 ClassLoder.loadClass的区别吗?</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;<span class="comment">//静态块  </span></span><br><span class="line">        System.err.println(<span class="string">"static block run"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> String <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"init"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 静态代码块的执行是处在类加载的最后一个阶段“初始化”</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 加载 、验证、准备、解析、初始化</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticInitDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       </span><br><span class="line">        System.out.println(<span class="string">"run MyClass.class"</span>);</span><br><span class="line">        Class c = MyClass.class;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"run ClassLoader.loadClass"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          Thread.currentThread().getContextClassLoader().loadClass(<span class="string">"com.practical.MyClass"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"run Class forName"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Class.forName(<span class="string">"com.practical.MyClass"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="你知道Class-forName-和-ClassLoder-loadClass的区别吗"><a href="#你知道Class-forName-和-ClassLoder-loadClass的区别吗" class="headerlink" title="你知道Class.forName  和 ClassLoder.loadClass的区别吗?"></a>你知道Class.forName  和 ClassLoder.loadClass的区别吗?</h4><pre><code class="java">class MyClass {
+    static {//静态块  
+        System.err.println(&quot;static block run&quot;);
+    }
+    static String init(){
+        return &quot;init&quot;;
+    }
+}
+
+/**
+ * 静态代码块的执行是处在类加载的最后一个阶段“初始化”
+ *
+ * 加载 、验证、准备、解析、初始化
+ */
+public class StaticInitDemo {
+    public static void main(String[] args) {
+
+
+        System.out.println(&quot;run MyClass.class&quot;);
+        Class c = MyClass.class;
+
+        System.out.println(&quot;run ClassLoader.loadClass&quot;);
+        try {
+          Thread.currentThread().getContextClassLoader().loadClass(&quot;com.practical.MyClass&quot;);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(&quot;run Class forName&quot;);
+        try {
+            Class.forName(&quot;com.practical.MyClass&quot;);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
 <p>上述代码运行结果为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">run MyClass.class</span><br><span class="line">run ClassLoader.loadClass</span><br><span class="line">run Class forName</span><br><span class="line">static block run</span><br></pre></td></tr></table></figure>
-<h5 id="Class-forName"><a href="#Class-forName" class="headerlink" title="Class.forName"></a>Class.forName</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@CallerSensitive</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Class&lt;?&gt; forName(String className)</span><br><span class="line">            <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">    Class&lt;?&gt; caller = Reflection.getCallerClass();</span><br><span class="line">    <span class="keyword">return</span> forName0(className, <span class="keyword">true</span>, ClassLoader.getClassLoader(caller), caller);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="ClassLoader"><a href="#ClassLoader" class="headerlink" title="ClassLoader"></a>ClassLoader</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Class&lt;?&gt; loadClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">    <span class="keyword">return</span> loadClass(name, <span class="keyword">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"> <span class="keyword">protected</span> Class&lt;?&gt; loadClass(String name, <span class="keyword">boolean</span> resolve)</span><br><span class="line">        <span class="keyword">throws</span> ClassNotFoundException</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (getClassLoadingLock(name)) &#123;</span><br><span class="line">            <span class="comment">// First, check if the class has already been loaded</span></span><br><span class="line">            Class&lt;?&gt; c = findLoadedClass(name);</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">long</span> t0 = System.nanoTime();</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (parent != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        c = parent.loadClass(name, <span class="keyword">false</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        c = findBootstrapClassOrNull(name);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">                    <span class="comment">// ClassNotFoundException thrown if class not found</span></span><br><span class="line">                    <span class="comment">// from the non-null parent class loader</span></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (c == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="comment">// If still not found, then invoke findClass in order</span></span><br><span class="line">                    <span class="comment">// to find the class.</span></span><br><span class="line">                    <span class="keyword">long</span> t1 = System.nanoTime();</span><br><span class="line">                    c = findClass(name);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// this is the defining class loader; record the stats</span></span><br><span class="line">                    sun.misc.PerfCounter.getParentDelegationTime().addTime(t1 - t0);</span><br><span class="line">                    sun.misc.PerfCounter.getFindClassTime().addElapsedTimeFrom(t1);</span><br><span class="line">                    sun.misc.PerfCounter.getFindClasses().increment();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (resolve) &#123;</span><br><span class="line">                resolveClass(c);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<pre><code>run MyClass.class
+run ClassLoader.loadClass
+run Class forName
+static block run
+</code></pre><h5 id="Class-forName"><a href="#Class-forName" class="headerlink" title="Class.forName"></a>Class.forName</h5><pre><code class="java">@CallerSensitive
+public static Class&lt;?&gt; forName(String className)
+            throws ClassNotFoundException {
+    Class&lt;?&gt; caller = Reflection.getCallerClass();
+    return forName0(className, true, ClassLoader.getClassLoader(caller), caller);
+}
+</code></pre>
+<h5 id="ClassLoader"><a href="#ClassLoader" class="headerlink" title="ClassLoader"></a>ClassLoader</h5><pre><code class="java">public Class&lt;?&gt; loadClass(String name) throws ClassNotFoundException {
+    return loadClass(name, false);
+}
+ protected Class&lt;?&gt; loadClass(String name, boolean resolve)
+        throws ClassNotFoundException
+    {
+        synchronized (getClassLoadingLock(name)) {
+            // First, check if the class has already been loaded
+            Class&lt;?&gt; c = findLoadedClass(name);
+            if (c == null) {
+                long t0 = System.nanoTime();
+                try {
+                    if (parent != null) {
+                        c = parent.loadClass(name, false);
+                    } else {
+                        c = findBootstrapClassOrNull(name);
+                    }
+                } catch (ClassNotFoundException e) {
+                    // ClassNotFoundException thrown if class not found
+                    // from the non-null parent class loader
+                }
+
+                if (c == null) {
+                    // If still not found, then invoke findClass in order
+                    // to find the class.
+                    long t1 = System.nanoTime();
+                    c = findClass(name);
+
+                    // this is the defining class loader; record the stats
+                    sun.misc.PerfCounter.getParentDelegationTime().addTime(t1 - t0);
+                    sun.misc.PerfCounter.getFindClassTime().addElapsedTimeFrom(t1);
+                    sun.misc.PerfCounter.getFindClasses().increment();
+                }
+            }
+            if (resolve) {
+                resolveClass(c);
+            }
+            return c;
+        }
+    }
+</code></pre>
 <p>结论:</p>
 <p>Class.forName得到的class是已经初始化完成的，该方法适合那些在类加载时需要初始化一些东西的情况。比如，加载数据库驱动。</p>
 <p>Classloder.loaderClass得到的class是还没有链接的，该方法适合在类加载时不需要一些初始化的情况。</p>
@@ -798,7 +954,7 @@
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>JDK_Class</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">1.9k</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">1.8k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-08-31, 19:38:34</p>
     <p><span class="copy-title">最后更新:</span>2019-09-01, 17:29:33</p>
@@ -845,7 +1001,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#ejb','#gc','#collections','#map','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#collections','#map','#spring-mvc','#spring-webflux',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -1003,6 +1159,15 @@
 
     /*引用块样式*/
     
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
 
     /*文章列表背景图*/
     
@@ -1026,16 +1191,6 @@
     }
     
 
-    
-    .post .pjax article :not(pre) > code {
-        color: #24292e;
-        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-        background-color: rgba(27,31,35,.05);
-        border-radius: 3px;
-        font-size: 85%;
-        margin: 0;
-        padding: .2em .4em;
-    }
     
 </style>
 
