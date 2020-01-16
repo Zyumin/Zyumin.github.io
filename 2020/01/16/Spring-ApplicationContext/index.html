@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <title>Spring-ApplicationContext | Zyumin</title>
+  <meta name="keywords" content=" spring , applicationContext ">
+  <meta name="description" content="Spring-ApplicationContext | Zyumin">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
+<meta name="keywords" content="java">
+<meta property="og:type" content="website">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta property="og:site_name" content="Zyumin">
+<meta property="og:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-23T07:09:56.946Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tags">
+<meta name="twitter:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
+
+
+<link rel="icon" href="/img/avatar.png">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/github-gist.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.0.1"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.png">
+</a>
+<div class="author">
+    <span>zhengyumin</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="github" href="https://github.com/Zyumin" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"/>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=60037019" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"/>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(47)</small></div></li>
+    
+        
+            
+            <li><div data-rel="jdk">jdk<small>(13)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="java">java<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="spring">spring<small>(9)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="mysql">mysql<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="47">
+<input type="hidden" id="yelog_site_word_count" value="148.9k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off" id="local-search-input">
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none">
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">week</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hide</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">jdk</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">packages</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">utils</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">note</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">jvm</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">distributed</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">kafka</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">framework</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">netty</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">nio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">redis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">zookeeper</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Spec</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">tomcat</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">juc</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">classLoader</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">hotspot</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">j2ee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">summary</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ioc</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">lang</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">elasticsearch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">io</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">serialization</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">file</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">gc</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ejb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">event</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">collections</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">applicationContext</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">map</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">beanFactory</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">spring-mvc</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">spring-webflux</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">doc</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class="java " href="/2019/02/02/Overview_java/" data-tag="summary" data-author="">
+            <span class="post-title" title="Overview_java">Overview_java</span>
+            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
+        </a>
+        
+        <a id="top" class="spring " href="/2019/03/02/Overview_Spring/" data-tag="framework,spring" data-author="">
+            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
+            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
+        </a>
+        
+        <a id="top" class="jdk " href="/2019/06/13/Overview_JDK/" data-tag="jdk,hotspot" data-author="">
+            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
+            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
+        </a>
+        
+        <a class="spring " href="/2020/01/16/Spring-ApplicationContext/" data-tag="spring,applicationContext" data-author="">
+            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
+            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
+        </a>
+        
+        <a class="spring " href="/2019/12/05/spring-BeanFactory/" data-tag="spring,beanFactory" data-author="">
+            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
+            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
+        </a>
+        
+        <a class="spring " href="/2019/12/02/spring-Q-A/" data-tag="spring" data-author="">
+            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
+            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
+        </a>
+        
+        <a class="spring " href="/2019/10/29/Documentation-Spring-Core-IOC/" data-tag="spring,doc" data-author="">
+            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
+            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
+        </a>
+        
+        <a class="jdk " href="/2019/09/26/JDK-Packages-java-nio/" data-tag="jdk,packages,nio" data-author="">
+            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
+            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
+        </a>
+        
+        <a class="jdk " href="/2019/09/23/JDK-Packages-java-io/" data-tag="jdk,packages,io,serialization,file" data-author="">
+            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
+            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
+        </a>
+        
+        <a class="jdk " href="/2019/08/31/JDK-Class/" data-tag="jdk" data-author="">
+            <span class="post-title" title="JDK_Class">JDK_Class</span>
+            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
+        </a>
+        
+        <a class="jdk " href="/2019/08/31/JDK-Thread/" data-tag="jdk,jvm,hotspot" data-author="">
+            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
+            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
+        </a>
+        
+        <a class="java " href="/2019/08/29/JVM-main方法分析/" data-tag="java,jvm" data-author="">
+            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
+            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
+        </a>
+        
+        <a class="jdk " href="/2019/08/24/JDK-ReentrantLock/" data-tag="jdk,juc" data-author="">
+            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
+            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
+        </a>
+        
+        <a class="java " href="/2019/08/17/JVM-Synchronized/" data-tag="jvm" data-author="">
+            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
+            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
+        </a>
+        
+        <a class="java " href="/2019/08/11/Overview-Java-Virtual-Machine/" data-tag="jvm" data-author="">
+            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
+            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
+        </a>
+        
+        <a class="jdk " href="/2019/08/11/JDK-Packages-java-lang/" data-tag="jdk,packages,lang" data-author="">
+            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
+            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
+        </a>
+        
+        <a class="jdk " href="/2019/08/11/JDK-Packages-java-utils/" data-tag="jdk,packages,utils" data-author="">
+            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
+            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
+        </a>
+        
+        <a class="jdk " href="/2019/08/10/JDK-The-Concurrent-Framework/" data-tag="jdk,juc" data-author="">
+            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
+            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
+        </a>
+        
+        <a class="jdk " href="/2019/07/29/JDK-The-Collections-Framework/" data-tag="jdk,collections" data-author="">
+            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
+            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
+        </a>
+        
+        <a class="" href="/2019/07/10/Note-码农翻身/" data-tag="java,note" data-author="">
+            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
+            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
+        </a>
+        
+        <a class="jdk " href="/2019/07/06/JDK-ClassLoader/" data-tag="jdk,classLoader" data-author="">
+            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
+            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
+        </a>
+        
+        <a class="spring " href="/2019/07/03/spring-webApplication启动流程/" data-tag="spring,tomcat,classLoader,servlet,event" data-author="">
+            <span class="post-title" title="spring_WebApplication启动流程和Event">spring_WebApplication启动流程和Event</span>
+            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
+        </a>
+        
+        <a class="" href="/2019/06/26/Overview_Elasticsearch/" data-tag="framework,elasticsearch" data-author="">
+            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
+            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
+        </a>
+        
+        <a class="jdk " href="/2019/06/24/J-U-C-ConcurrentHashMap/" data-tag="juc,map" data-author="">
+            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
+            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
+        </a>
+        
+        <a class="java " href="/2019/06/19/JVM-Garbage-Collection/" data-tag="jvm,gc" data-author="">
+            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
+            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
+        </a>
+        
+        <a class="jdk " href="/2019/06/16/J-U-C-InterruptedException/" data-tag="juc" data-author="">
+            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
+            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
+        </a>
+        
+        <a class="java " href="/2019/06/14/Spec-JSR133/" data-tag="jvm,Spec,thread" data-author="">
+            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
+            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
+        </a>
+        
+        <a class="java " href="/2019/06/13/Spec-Java-Virtual-Machine/" data-tag="jvm,Spec" data-author="">
+            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
+            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
+        </a>
+        
+        <a class="" href="/2019/06/12/Overview_Kafka/" data-tag="kafka,framework" data-author="">
+            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
+            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
+        </a>
+        
+        <a class="" href="/2019/06/10/Overview_Redis/" data-tag="framework,redis" data-author="">
+            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
+            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
+        </a>
+        
+        <a class="" href="/2019/06/06/Note_java并发编程的艺术/" data-tag="java,note,juc" data-author="">
+            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
+            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
+        </a>
+        
+        <a class="" href="/2019/06/05/Overview_Netty/" data-tag="framework,netty,nio" data-author="">
+            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
+            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
+        </a>
+        
+        <a class="" href="/2019/06/05/Note_深入理解java虚拟机/" data-tag="java,note,jvm" data-author="">
+            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
+            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
+        </a>
+        
+        <a class="mysql " href="/2019/06/04/Overview_MySQL/" data-tag="mysql" data-author="">
+            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
+            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
+        </a>
+        
+        <a class="" href="/2019/06/03/Overview_Zookeeper/" data-tag="distributed,framework,zookeeper" data-author="">
+            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
+            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
+        </a>
+        
+        <a class="" href="/2019/06/03/Overview_Distributed/" data-tag="distributed" data-author="">
+            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
+            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
+        </a>
+        
+        <a class="spring " href="/2019/04/10/spring-api-1-0/" data-tag="spring" data-author="">
+            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
+            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
+        </a>
+        
+        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
+            <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
+            <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
+        </a>
+        
+        <a class="mysql " href="/2019/03/30/记一次mysql查询in的思考/" data-tag="mysql" data-author="">
+            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
+            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
+        </a>
+        
+        <a class="" href="/2019/03/26/记一次Broken-pipe问题的思考/" data-tag="tomcat" data-author="">
+            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
+            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
+        </a>
+        
+        <a class="" href="/2019/03/24/3月第三周知识点记录/" data-tag="week,hide" data-author="">
+            <span class="post-title" title="3月第三周知识点记录">3月第三周知识点记录</span>
+            <span class="post-date" title="2019-03-24 20:55:31">2019/03/24</span>
+        </a>
+        
+        <a class="" href="/2019/03/10/Note_Expert One-on-One-J2EE-Development-without-EJB/" data-tag="spring,j2ee,ejb" data-author="">
+            <span class="post-title" title="Expert One-on-One J2EE Development without EJB">Expert One-on-One J2EE Development without EJB</span>
+            <span class="post-date" title="2019-03-10 19:45:57">2019/03/10</span>
+        </a>
+        
+        <a class="" href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/" data-tag="spring,j2ee" data-author="">
+            <span class="post-title" title="Expert One-on-One J2EE Design and Development">Expert One-on-One J2EE Design and Development</span>
+            <span class="post-date" title="2019-03-10 19:45:18">2019/03/10</span>
+        </a>
+        
+        <a class="spring " href="/2019/03/03/spring-ioc/" data-tag="spring,ioc" data-author="">
+            <span class="post-title" title="spring-ioc">spring-ioc</span>
+            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        </a>
+        
+        <a class="spring " href="/2019/02/03/spring-mvc/" data-tag="spring,servlet,spring-mvc,spring-webflux" data-author="">
+            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
+            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        </a>
+        
+        <a class="" href="/2019/02/03/Overview_Tomcat/" data-tag="tomcat,servlet" data-author="">
+            <span class="post-title" title="servlet_tomcat">servlet_tomcat</span>
+            <span class="post-date" title="2019-02-03 15:49:08">2019/02/03</span>
+        </a>
+        
+        <a class="" href="/2019/02/02/Spec_Servlet/" data-tag="j2ee,servlet" data-author="">
+            <span class="post-title" title="j2ee_servlet">j2ee_servlet</span>
+            <span class="post-date" title="2019-02-02 18:05:54">2019/02/02</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Spring-ApplicationContext" class="article article-type-post" itemscope="" itemprop="blogPost">
+    
+        <h1 class="article-title">Spring-ApplicationContext</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="spring">spring</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color2">spring</a>
+            
+            <a href="javascript:" class="color4">applicationContext</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title="更新时间: 2020-01-16 21:20:14">2020-01-16 21:04</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:3.7k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ApplicationContext"><span class="toc-text">ApplicationContext</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#资源管理相关"><span class="toc-text">资源管理相关</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Enviroment"><span class="toc-text">Enviroment</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ResourceLoader"><span class="toc-text">ResourceLoader</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BeanDefinitionReader"><span class="toc-text">BeanDefinitionReader</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传统Spring中容器的启动流程"><span class="toc-text">传统Spring中容器的启动流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#传统Spring启动方式"><span class="toc-text">传统Spring启动方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传统Spring启动流程"><span class="toc-text">传统Spring启动流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ApplicationContext子类型"><span class="toc-text">ApplicationContext子类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#XmlWebApplicationContext相关类分析"><span class="toc-text">XmlWebApplicationContext相关类分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#setConfigLocations"><span class="toc-text">setConfigLocations</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#XmlBeanDefinitionReader"><span class="toc-text">XmlBeanDefinitionReader</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ApplicationContext启动流程"><span class="toc-text">ApplicationContext启动流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#obtainFreshBeanFactory"><span class="toc-text">obtainFreshBeanFactory</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#refreshBeanFactory"><span class="toc-text">refreshBeanFactory</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#getBeanFactory"><span class="toc-text">getBeanFactory</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#prepareBeanFactory"><span class="toc-text">prepareBeanFactory</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#postProcessBeanFactory"><span class="toc-text">postProcessBeanFactory</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#invokeBeanFactoryPostProcessors"><span class="toc-text">invokeBeanFactoryPostProcessors</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#registerBeanPostProcessors"><span class="toc-text">registerBeanPostProcessors</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#initMessageSource"><span class="toc-text">initMessageSource</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#initApplicationEventMulticaster"><span class="toc-text">initApplicationEventMulticaster</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#onRefresh"><span class="toc-text">onRefresh</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#registerListeners"><span class="toc-text">registerListeners</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#finishBeanFactoryInitialization"><span class="toc-text">finishBeanFactoryInitialization</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#finishRefresh"><span class="toc-text">finishRefresh</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web容器"><span class="toc-text">Web容器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot中的启动流程"><span class="toc-text">SpringBoot中的启动流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动方式"><span class="toc-text">启动方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动流程"><span class="toc-text">启动流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#server容器的启动方式"><span class="toc-text">server容器的启动方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#启动方式-1"><span class="toc-text">启动方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Servlet"><span class="toc-text">Servlet</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Reactive"><span class="toc-text">Reactive</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-4 i,
+    .toc-level-4 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基础容器接口</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaypg7vz0qj31je0readp.jpg" alt="image-20200115153732296"></p>
+<p>ApplicationContext</p>
+<ul>
+<li>ApplicationContext和BeanFactory的关系?</li>
+<li>Spring 中 ApplicationContext是怎么启动? 具体子类?</li>
+<li>Spring web容器和Spring容器的关系?</li>
+<li>SpringBoot中 ApplicationContext是怎么启动? 具体子类?</li>
+</ul>
+<h2 id="ApplicationContext"><a href="#ApplicationContext" class="headerlink" title="ApplicationContext"></a>ApplicationContext</h2><p>​    先来看看ApplicationContext接口的定义</p>
+<pre><code class="java">public interface ApplicationContext extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory,
+      MessageSource, ApplicationEventPublisher, ResourcePatternResolver {
+     ...
+}
+</code></pre>
+<p>​    ApplicationContext和BeanFactory的关系是? 从下面的接口定义中,似乎就是简单的继承,除了BeanFactory相关的接口 还新增了</p>
+<ul>
+<li>ResourceLoader (资源加载)、 EnvironmentCapable   (统称为资源管理)</li>
+<li>ApplicationEventPublisher (事件发布)</li>
+<li>MessageSource(国际化)</li>
+</ul>
+<h3 id="资源管理相关"><a href="#资源管理相关" class="headerlink" title="资源管理相关"></a>资源管理相关</h3><h4 id="Enviroment"><a href="#Enviroment" class="headerlink" title="Enviroment"></a>Enviroment</h4><p>@since 3.1 , 主要包含两部分 Profiles 和 properties </p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaypg8ty4qj31je0readp.jpg" alt="image-20200116162730961"></p>
+<p>初始化流程</p>
+<ul>
+<li>AbstractApplicationContext#getEnvironment</li>
+<li>AbstractRefreshableWebApplicationContext#createEnvironment</li>
+<li>AbstractRefreshableWebApplicationContext#customizePropertySources</li>
+<li>MutablePropertySources#addLast</li>
+</ul>
+<p>更多细节:</p>
+<p>@see org.springframework.core.env.PropertySource</p>
+<p>@see org.springframework.core.env.PropertyResolver</p>
+<p>@see org.springframework.context.support.PropertySourcesPlaceholderConfigurer</p>
+<p>扩展可参考: <a href="https://blog.csdn.net/zollty/article/details/86137826" target="_blank" rel="noopener">https://blog.csdn.net/zollty/article/details/86137826</a></p>
+<p>在SpringBoot中是通过ConfigFileApplicationListener,加载相关</p>
+<pre><code class="java">private void load(String location, String name, Profile profile,
+      DocumentFilterFactory filterFactory, DocumentConsumer consumer) {
+   if (!StringUtils.hasText(name)) {
+      for (PropertySourceLoader loader : this.propertySourceLoaders) {
+         if (canLoadFileExtension(loader, location)) {
+            load(loader, location, profile,
+                  filterFactory.getDocumentFilter(profile), consumer);
+            return;
+         }
+      }
+   }
+   Set&lt;String&gt; processed = new HashSet&lt;&gt;();
+   for (PropertySourceLoader loader : this.propertySourceLoaders) {
+      for (String fileExtension : loader.getFileExtensions()) {
+         if (processed.add(fileExtension)) {
+            loadForFileExtension(loader, location + name, &quot;.&quot; + fileExtension,
+                  profile, filterFactory, consumer);
+         }
+      }
+   }
+}
+</code></pre>
+<p>通过 org.springframework.boot.env.PropertySourceLoader 来加载</p>
+<pre><code class="java">public interface PropertySourceLoader {
+
+   /**
+    * Returns the file extensions that the loader supports (excluding the &#39;.&#39;).
+    * @return the file extensions
+    */
+   String[] getFileExtensions();
+
+   /**
+    * Load the resource into one or more property sources. Implementations may either
+    * return a list containing a single source, or in the case of a multi-document format
+    * such as yaml a source for each document in the resource.
+    * @param name the root name of the property source. If multiple documents are loaded
+    * an additional suffix should be added to the name for each source loaded.
+    * @param resource the resource to load
+    * @return a list property sources
+    * @throws IOException if the source cannot be loaded
+    */
+   List&lt;PropertySource&lt;?&gt;&gt; load(String name, Resource resource) throws IOException;
+}
+</code></pre>
+<p>org.springframework.boot.env.PropertiesPropertySourceLoader </p>
+<pre><code>@Override
+public List&lt;PropertySource&lt;?&gt;&gt; load(String name, Resource resource)
+      throws IOException {
+   Map&lt;String, ?&gt; properties = loadProperties(resource);
+   if (properties.isEmpty()) {
+      return Collections.emptyList();
+   }
+   return Collections
+         .singletonList(new OriginTrackedMapPropertySource(name, properties));
+}
+</code></pre><p>最后生成 OriginTrackedMapPropertySource</p>
+<h4 id="ResourceLoader"><a href="#ResourceLoader" class="headerlink" title="ResourceLoader"></a>ResourceLoader</h4><p>Resource接口有很多实现类，而ResourceLoader接口用于实现不同的Resource加载策略，即将不同Resource实例的创建交给ResourceLoader来计算。</p>
+<h4 id="BeanDefinitionReader"><a href="#BeanDefinitionReader" class="headerlink" title="BeanDefinitionReader"></a>BeanDefinitionReader</h4><p>使用Resource加载BeanDefinition</p>
+<pre><code class="java">public interface BeanDefinitionReader {
+
+   BeanDefinitionRegistry getRegistry();
+
+   @Nullable
+   ResourceLoader getResourceLoader();
+
+   @Nullable
+   ClassLoader getBeanClassLoader();
+
+   BeanNameGenerator getBeanNameGenerator();
+
+   //加载配置
+   int loadBeanDefinitions(Resource resource) throws BeanDefinitionStoreException;
+
+   int loadBeanDefinitions(Resource... resources) throws BeanDefinitionStoreException;
+
+     int loadBeanDefinitions(String location) throws BeanDefinitionStoreException;
+
+   int loadBeanDefinitions(String... locations) throws BeanDefinitionStoreException;
+
+}
+</code></pre>
+<h2 id="传统Spring中容器的启动流程"><a href="#传统Spring中容器的启动流程" class="headerlink" title="传统Spring中容器的启动流程"></a>传统Spring中容器的启动流程</h2><h3 id="传统Spring启动方式"><a href="#传统Spring启动方式" class="headerlink" title="传统Spring启动方式"></a>传统Spring启动方式</h3><p>​    传统的Spring容器的启动流程,  是依托于Servlet容器 , Servlet容器初始化完后,通过注册监听器, 实现回调</p>
+<p>通常在 WEB-INF/web.xml 下会有如下配置</p>
+<pre><code class="xml">&lt;listener&gt;
+   &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+&lt;/listener&gt;
+</code></pre>
+<p>在 org.springframework.web.context.ContextLoaderListener#contextInitialized 中</p>
+<pre><code class="java">public void contextInitialized(ServletContextEvent event) {
+   this.contextLoader = createContextLoader();
+   if (this.contextLoader == null) {
+      this.contextLoader = this;
+   }
+   this.contextLoader.initWebApplicationContext(event.getServletContext());
+}
+</code></pre>
+<h3 id="传统Spring启动流程"><a href="#传统Spring启动流程" class="headerlink" title="传统Spring启动流程"></a>传统Spring启动流程</h3><pre><code class="java">/**
+ * Initialize Spring&#39;s web application context for the given servlet context,
+ * using the application context provided at construction time, or creating a new one
+ * according to the &quot;{@link #CONTEXT_CLASS_PARAM contextClass}&quot; and
+ * &quot;{@link #CONFIG_LOCATION_PARAM contextConfigLocation}&quot; context-params.
+ * @param servletContext current servlet context
+ * @return the new WebApplicationContext
+ * @see #ContextLoader(WebApplicationContext)
+ * @see #CONTEXT_CLASS_PARAM
+ * @see #CONFIG_LOCATION_PARAM
+ */
+public WebApplicationContext initWebApplicationContext(ServletContext servletContext) {
+
+      //重复初始化检查
+      if (servletContext.getAttribute(
+         WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE) != null) {
+      throw new IllegalStateException(
+            &quot;Cannot initialize context because there is already a root application context present - check whether you have multiple ContextLoader* definitions in your web.xml!&quot;);
+   }
+
+   Log logger = LogFactory.getLog(ContextLoader.class);
+   long startTime = System.currentTimeMillis();
+   try {
+      // Store context in local instance variable, to guarantee that
+      // it is available on ServletContext shutdown.
+      //创建容器
+      if (this.context == null) {
+         this.context = createWebApplicationContext(servletContext);
+      }
+      if (this.context instanceof ConfigurableWebApplicationContext) {
+         ConfigurableWebApplicationContext cwac = (ConfigurableWebApplicationContext) this.context;
+         if (!cwac.isActive()) {
+            // The context has not yet been refreshed -&gt; provide services such as
+            // setting the parent context, setting the application context id, etc
+            if (cwac.getParent() == null) {
+               // The context instance was injected without an explicit parent -&gt;
+               // determine parent for root web application context, if any.
+               ApplicationContext parent = loadParentContext(servletContext);
+               cwac.setParent(parent);
+            }
+           //refresh操作
+            configureAndRefreshWebApplicationContext(cwac, servletContext);
+         }
+      }
+      servletContext.setAttribute(WebApplicationContext.
+                                  ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE, this.context);
+
+      ClassLoader ccl = Thread.currentThread().getContextClassLoader();
+      if (ccl == ContextLoader.class.getClassLoader()) {
+         currentContext = this.context;
+      }
+      else if (ccl != null) {
+         currentContextPerThread.put(ccl, this.context);
+      }
+      return this.context;
+   }
+   catch (RuntimeException ex) {
+      logger.error(&quot;Context initialization failed&quot;, ex);
+      servletContext.setAttribute(WebApplicationContext.
+                                  ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE, ex);
+      throw ex;
+   }
+   catch (Error err) {
+      logger.error(&quot;Context initialization failed&quot;, err);
+      servletContext.setAttribute(WebApplicationContext.
+                                  ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE, err);
+      throw err;
+   }
+}
+</code></pre>
+<h4 id="ApplicationContext子类型"><a href="#ApplicationContext子类型" class="headerlink" title="ApplicationContext子类型"></a>ApplicationContext子类型</h4><p>➡️ContextLoader#createWebApplicationContext(javax.servlet.ServletContext)</p>
+<p>​        ➡️ ContextLoader#determineContextClass</p>
+<p>​                ➡️ defaultStrategies.getProperty(WebApplicationContext.class.getName());</p>
+<p>其中defaultStrategies的值在static中初始化了,DEFAULT_STRATEGIES_PATH的定义为ContextLoader.properties</p>
+<pre><code class="java">static {
+   // Load default strategy implementations from properties file.
+   // This is currently strictly internal and not meant to be customized
+   // by application developers.
+   try {
+      ClassPathResource resource = new ClassPathResource(DEFAULT_STRATEGIES_PATH, ContextLoader.class);
+      defaultStrategies = PropertiesLoaderUtils.loadProperties(resource);
+   }
+   catch (IOException ex) {
+      throw new IllegalStateException(&quot;Could not load &#39;ContextLoader.properties&#39;: &quot; + ex.getMessage());
+   }
+}
+</code></pre>
+<p>在org/springframework/web/context/ContextLoader.properties路径下</p>
+<pre><code class="properties"># Default WebApplicationContext implementation class for ContextLoader.
+# Used as fallback when no explicit context implementation has been specified as context-param.
+# Not meant to be customized by application developers.
+
+org.springframework.web.context.WebApplicationContext=org.springframework.web.context.support.XmlWebApplicationContext
+</code></pre>
+<p>所以我们的子类型就是XmlWebApplicationContext</p>
+<h4 id="XmlWebApplicationContext相关类分析"><a href="#XmlWebApplicationContext相关类分析" class="headerlink" title="XmlWebApplicationContext相关类分析"></a>XmlWebApplicationContext相关类分析</h4><p>在XmlWebApplicationContext的doc中</p>
+<pre><code class="java">/
+* @see #setNamespace
+* @see #setConfigLocations
+* @see org.springframework.beans.factory.xml.XmlBeanDefinitionReader
+* @see org.springframework.web.context.ContextLoader#initWebApplicationContext
+* @see org.springframework.web.servlet.FrameworkServlet#initWebApplicationContext
+*/
+</code></pre>
+<h5 id="setConfigLocations"><a href="#setConfigLocations" class="headerlink" title="setConfigLocations"></a>setConfigLocations</h5><p>setConfigLocations 在web.xml中配置 , 用于获取目录</p>
+<pre><code class="xml">&lt;!--Spring --&gt;
+&lt;context-param&gt;
+   &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+   &lt;param-value&gt;
+      classpath*:/config-spring/spring-*.xml
+   &lt;/param-value&gt;
+&lt;/context-param&gt;
+</code></pre>
+<h5 id="XmlBeanDefinitionReader"><a href="#XmlBeanDefinitionReader" class="headerlink" title="XmlBeanDefinitionReader"></a>XmlBeanDefinitionReader</h5><pre><code class="java">@Override
+protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory) throws BeansException, IOException {
+   // Create a new XmlBeanDefinitionReader for the given BeanFactory.
+   XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
+
+   // Configure the bean definition reader with this context&#39;s
+   // resource loading environment.
+   beanDefinitionReader.setEnvironment(getEnvironment());
+   beanDefinitionReader.setResourceLoader(this);
+   beanDefinitionReader.setEntityResolver(new ResourceEntityResolver(this));
+
+   // Allow a subclass to provide custom initialization of the reader,
+   // then proceed with actually loading the bean definitions.
+   initBeanDefinitionReader(beanDefinitionReader);
+   loadBeanDefinitions(beanDefinitionReader);
+}
+</code></pre>
+<h4 id="ApplicationContext启动流程"><a href="#ApplicationContext启动流程" class="headerlink" title="ApplicationContext启动流程"></a>ApplicationContext启动流程</h4><p>关注refresh的部分,发现逻辑都在 AbstractApplicationContext</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaxcdwpu9nj31k40h0adl.jpg" alt="image-20200115164804998"></p>
+<p>org.springframework.web.context.ContextLoader#configureAndRefreshWebApplicationContext</p>
+<p>AbstractRefreshableWebApplicationContext(ConfigurableWebApplicationContext,servletContext相关)</p>
+<p>➡️AbstractRefreshableConfigApplicationContext(setConfigLocation)</p>
+<p>​        ➡️AbstractRefreshableApplicationContext ( loadBeanDefinitions、refreshBeanFactory)</p>
+<p>​                ➡️AbstractApplicationContext</p>
+<pre><code class="java">protected void configureAndRefreshWebApplicationContext(ConfigurableWebApplicationContext wac, ServletContext sc) {
+   if (ObjectUtils.identityToString(wac).equals(wac.getId())) {
+      // The application context id is still set to its original default value
+      // -&gt; assign a more useful id based on available information
+      String idParam = sc.getInitParameter(CONTEXT_ID_PARAM);
+      if (idParam != null) {
+         wac.setId(idParam);
+      }
+      else {
+         // Generate default id...
+         wac.setId(ConfigurableWebApplicationContext.APPLICATION_CONTEXT_ID_PREFIX +
+               ObjectUtils.getDisplayString(sc.getContextPath()));
+      }
+   }
+
+   wac.setServletContext(sc);
+   String configLocationParam = sc.getInitParameter(CONFIG_LOCATION_PARAM);
+   if (configLocationParam != null) {
+      wac.setConfigLocation(configLocationParam);
+   }
+
+   // The wac environment&#39;s #initPropertySources will be called in any case when the context
+   // is refreshed; do it eagerly here to ensure servlet property sources are in place for
+   // use in any post-processing or initialization that occurs below prior to #refresh
+   ConfigurableEnvironment env = wac.getEnvironment();
+   if (env instanceof ConfigurableWebEnvironment) {
+      ((ConfigurableWebEnvironment) env).initPropertySources(sc, null);
+   }
+
+   customizeContext(sc, wac);
+  //刷新
+   wac.refresh();
+}
+</code></pre>
+<p>refresh的定义在 org.springframework.context.ConfigurableApplicationContext#refresh</p>
+<p>实现在org.springframework.context.support.AbstractApplicationContext#refresh</p>
+<pre><code class="java">@Override
+public void refresh() throws BeansException, IllegalStateException {
+   synchronized (this.startupShutdownMonitor) {
+      // Prepare this context for refreshing.
+      prepareRefresh();
+      // Tell the subclass to refresh the internal bean factory.
+      ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
+      // Prepare the bean factory for use in this context.
+      prepareBeanFactory(beanFactory);
+      try {
+         // Allows post-processing of the bean factory in context subclasses.
+         postProcessBeanFactory(beanFactory);
+
+         // Invoke factory processors registered as beans in the context.
+         invokeBeanFactoryPostProcessors(beanFactory);
+
+         // Register bean processors that intercept bean creation.
+         registerBeanPostProcessors(beanFactory);
+
+         // Initialize message source for this context.
+         initMessageSource();
+
+         // Initialize event multicaster for this context.
+         initApplicationEventMulticaster();
+
+         // Initialize other special beans in specific context subclasses.
+         onRefresh();
+
+         // Check for listener beans and register them.
+         registerListeners();
+
+         // Instantiate all remaining (non-lazy-init) singletons.
+         finishBeanFactoryInitialization(beanFactory);
+
+         // Last step: publish corresponding event.
+         finishRefresh();
+      }
+      catch (BeansException ex) {
+         // Destroy already created singletons to avoid dangling resources.
+         destroyBeans();
+         // Reset &#39;active&#39; flag.
+         cancelRefresh(ex);
+         // Propagate exception to caller.
+         throw ex;
+      }
+      finally {
+         // Reset common introspection caches in Spring&#39;s core, since we
+         // might not ever need metadata for singleton beans anymore...
+         resetCommonCaches();
+      }
+   }
+}
+</code></pre>
+<h5 id="obtainFreshBeanFactory"><a href="#obtainFreshBeanFactory" class="headerlink" title="obtainFreshBeanFactory"></a>obtainFreshBeanFactory</h5><p>刷新并获取beanFactory, 这里只是实例化</p>
+<pre><code class="java">/**
+ * Tell the subclass to refresh the internal bean factory.
+ * @return the fresh BeanFactory instance
+ * @see #refreshBeanFactory()
+ * @see #getBeanFactory()
+ */
+protected ConfigurableListableBeanFactory obtainFreshBeanFactory() {
+   refreshBeanFactory();
+   return getBeanFactory();
+}
+</code></pre>
+<h6 id="refreshBeanFactory"><a href="#refreshBeanFactory" class="headerlink" title="refreshBeanFactory"></a>refreshBeanFactory</h6><p>org.springframework.context.support.AbstractApplicationContext#refreshBeanFactory</p>
+<p>实现org.springframework.context.support.AbstractRefreshableApplicationContext#refreshBeanFactory</p>
+<pre><code class="java">/**
+ * This implementation performs an actual refresh of this context&#39;s underlying
+ * bean factory, shutting down the previous bean factory (if any) and
+ * initializing a fresh bean factory for the next phase of the context&#39;s lifecycle.
+ */
+@Override
+protected final void refreshBeanFactory() throws BeansException {
+   if (hasBeanFactory()) {
+      destroyBeans();
+      closeBeanFactory();
+   }
+   try {
+      DefaultListableBeanFactory beanFactory = createBeanFactory();
+      beanFactory.setSerializationId(getId());
+      customizeBeanFactory(beanFactory);
+      loadBeanDefinitions(beanFactory);
+      synchronized (this.beanFactoryMonitor) {
+         this.beanFactory = beanFactory;
+      }
+   }
+   catch (IOException ex) {
+      throw new ApplicationContextException(&quot;I/O error parsing bean definition source for &quot; + getDisplayName(), ex);
+   }
+}
+
+</code></pre>
+<p>所谓的refresh就是销毁bean close ,再重新创建和加载 (注意手动注册的bean 再refresh后,不会存在)</p>
+<h6 id="getBeanFactory"><a href="#getBeanFactory" class="headerlink" title="getBeanFactory"></a>getBeanFactory</h6><p>org.springframework.context.support.AbstractApplicationContext#getBeanFactory</p>
+<pre><code class="java">public abstract class AbstractRefreshableApplicationContext extends AbstractApplicationContext {
+      /** Bean factory for this context. */
+      @Nullable
+      private DefaultListableBeanFactory beanFactory;
+
+      @Override
+      public final ConfigurableListableBeanFactory getBeanFactory() {
+         synchronized (this.beanFactoryMonitor) {
+            if (this.beanFactory == null) {
+               throw new IllegalStateException(&quot;BeanFactory not initialized or already closed - &quot; +
+                     &quot;call &#39;refresh&#39; before accessing beans via the ApplicationContext&quot;);
+            }
+            return this.beanFactory;
+         }
+      }
+}
+</code></pre>
+<p>可以发现ApplicationContext和BeanFactory是组合的方式, 把BeanFactory相关的操作都委派给beanFactory</p>
+<h5 id="prepareBeanFactory"><a href="#prepareBeanFactory" class="headerlink" title="prepareBeanFactory"></a>prepareBeanFactory</h5><p>初始化BeanFactory, 配置相关回调(Aware), 内建依赖, 注册相关监听器,环境信息</p>
+<pre><code class="java">protected void prepareBeanFactory(ConfigurableListableBeanFactory beanFactory) {
+   // Tell the internal bean factory to use the context&#39;s class loader etc.
+   beanFactory.setBeanClassLoader(getClassLoader());
+   beanFactory.setBeanExpressionResolver(new StandardBeanExpressionResolver(beanFactory.getBeanClassLoader()));
+   beanFactory.addPropertyEditorRegistrar(new ResourceEditorRegistrar(this, getEnvironment()));
+
+   // Configure the bean factory with context callbacks.
+   beanFactory.addBeanPostProcessor(new ApplicationContextAwareProcessor(this));
+   beanFactory.ignoreDependencyInterface(EnvironmentAware.class);
+   beanFactory.ignoreDependencyInterface(EmbeddedValueResolverAware.class);
+   beanFactory.ignoreDependencyInterface(ResourceLoaderAware.class);
+   beanFactory.ignoreDependencyInterface(ApplicationEventPublisherAware.class);
+   beanFactory.ignoreDependencyInterface(MessageSourceAware.class);
+   beanFactory.ignoreDependencyInterface(ApplicationContextAware.class);
+
+   // BeanFactory interface not registered as resolvable type in a plain factory.
+   // MessageSource registered (and found for autowiring) as a bean.
+   beanFactory.registerResolvableDependency(BeanFactory.class, beanFactory);
+   beanFactory.registerResolvableDependency(ResourceLoader.class, this);
+   beanFactory.registerResolvableDependency(ApplicationEventPublisher.class, this);
+   beanFactory.registerResolvableDependency(ApplicationContext.class, this);
+
+   // Register early post-processor for detecting inner beans as ApplicationListeners.
+   beanFactory.addBeanPostProcessor(new ApplicationListenerDetector(this));
+
+   // Detect a LoadTimeWeaver and prepare for weaving, if found.
+   if (beanFactory.containsBean(LOAD_TIME_WEAVER_BEAN_NAME)) {
+      beanFactory.addBeanPostProcessor(new LoadTimeWeaverAwareProcessor(beanFactory));
+      // Set a temporary ClassLoader for type matching.
+      beanFactory.setTempClassLoader(new ContextTypeMatchClassLoader(beanFactory.getBeanClassLoader()));
+   }
+
+   // Register default environment beans.
+   if (!beanFactory.containsLocalBean(ENVIRONMENT_BEAN_NAME)) {
+      beanFactory.registerSingleton(ENVIRONMENT_BEAN_NAME, getEnvironment());
+   }
+   if (!beanFactory.containsLocalBean(SYSTEM_PROPERTIES_BEAN_NAME)) {
+      beanFactory.registerSingleton(SYSTEM_PROPERTIES_BEAN_NAME, getEnvironment().getSystemProperties());
+   }
+   if (!beanFactory.containsLocalBean(SYSTEM_ENVIRONMENT_BEAN_NAME)) {
+      beanFactory.registerSingleton(SYSTEM_ENVIRONMENT_BEAN_NAME, getEnvironment().getSystemEnvironment());
+   }
+}
+</code></pre>
+<h5 id="postProcessBeanFactory"><a href="#postProcessBeanFactory" class="headerlink" title="postProcessBeanFactory"></a>postProcessBeanFactory</h5><p>当前容器(application)的后置处理,  允许BeanFactory初始化后, bean实例化前的修改</p>
+<pre><code class="java">/**
+ * Modify the application context&#39;s internal bean factory after its standard
+ * initialization. All bean definitions will have been loaded, but no beans
+ * will have been instantiated yet. This allows for registering special
+ * BeanPostProcessors etc in certain ApplicationContext implementations.
+ * @param beanFactory the bean factory used by the application context
+ */
+protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
+}
+</code></pre>
+<h5 id="invokeBeanFactoryPostProcessors"><a href="#invokeBeanFactoryPostProcessors" class="headerlink" title="invokeBeanFactoryPostProcessors"></a>invokeBeanFactoryPostProcessors</h5><p>注册并调用BeanFactoryPostProcessor</p>
+<pre><code>protected void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory beanFactory) {
+   PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(beanFactory, getBeanFactoryPostProcessors());
+
+   // Detect a LoadTimeWeaver and prepare for weaving, if found in the meantime
+   // (e.g. through an @Bean method registered by ConfigurationClassPostProcessor)
+   if (beanFactory.getTempClassLoader() == null &amp;&amp; beanFactory.containsBean(LOAD_TIME_WEAVER_BEAN_NAME)) {
+      beanFactory.addBeanPostProcessor(new LoadTimeWeaverAwareProcessor(beanFactory));
+      beanFactory.setTempClassLoader(new ContextTypeMatchClassLoader(beanFactory.getBeanClassLoader()));
+   }
+}
+</code></pre><p>具体细节见: org.springframework.context.support.PostProcessorRegistrationDelegate#</p>
+<p>invokeBeanFactoryPostProcessors(org.springframework.beans.factory.config.ConfigurableListableBeanFactory, java.util.List&lt;org.springframework.beans.factory.config.BeanFactoryPostProcessor&gt;)</p>
+<h5 id="registerBeanPostProcessors"><a href="#registerBeanPostProcessors" class="headerlink" title="registerBeanPostProcessors"></a>registerBeanPostProcessors</h5><p>注册BeanPostProcess</p>
+<pre><code class="java">public static void registerBeanPostProcessors(
+      ConfigurableListableBeanFactory beanFactory, AbstractApplicationContext applicationContext) {
+
+   String[] postProcessorNames = beanFactory.getBeanNamesForType(BeanPostProcessor.class, true, false);
+
+   // Register BeanPostProcessorChecker that logs an info message when
+   // a bean is created during BeanPostProcessor instantiation, i.e. when
+   // a bean is not eligible for getting processed by all BeanPostProcessors.
+   int beanProcessorTargetCount = beanFactory.getBeanPostProcessorCount() + 1 + postProcessorNames.length;
+   beanFactory.addBeanPostProcessor(new BeanPostProcessorChecker(beanFactory, beanProcessorTargetCount));
+
+   // Separate between BeanPostProcessors that implement PriorityOrdered,
+   // Ordered, and the rest.
+   List&lt;BeanPostProcessor&gt; priorityOrderedPostProcessors = new ArrayList&lt;&gt;();
+   List&lt;BeanPostProcessor&gt; internalPostProcessors = new ArrayList&lt;&gt;();
+   List&lt;String&gt; orderedPostProcessorNames = new ArrayList&lt;&gt;();
+   List&lt;String&gt; nonOrderedPostProcessorNames = new ArrayList&lt;&gt;();
+   for (String ppName : postProcessorNames) {
+      if (beanFactory.isTypeMatch(ppName, PriorityOrdered.class)) {
+         BeanPostProcessor pp = beanFactory.getBean(ppName, BeanPostProcessor.class);
+         priorityOrderedPostProcessors.add(pp);
+         if (pp instanceof MergedBeanDefinitionPostProcessor) {
+            internalPostProcessors.add(pp);
+         }
+      }
+      else if (beanFactory.isTypeMatch(ppName, Ordered.class)) {
+         orderedPostProcessorNames.add(ppName);
+      }
+      else {
+         nonOrderedPostProcessorNames.add(ppName);
+      }
+   }
+
+   // First, register the BeanPostProcessors that implement PriorityOrdered.
+   sortPostProcessors(priorityOrderedPostProcessors, beanFactory);
+   registerBeanPostProcessors(beanFactory, priorityOrderedPostProcessors);
+
+   // Next, register the BeanPostProcessors that implement Ordered.
+   List&lt;BeanPostProcessor&gt; orderedPostProcessors = new ArrayList&lt;&gt;(orderedPostProcessorNames.size());
+   for (String ppName : orderedPostProcessorNames) {
+      BeanPostProcessor pp = beanFactory.getBean(ppName, BeanPostProcessor.class);
+      orderedPostProcessors.add(pp);
+      if (pp instanceof MergedBeanDefinitionPostProcessor) {
+         internalPostProcessors.add(pp);
+      }
+   }
+   sortPostProcessors(orderedPostProcessors, beanFactory);
+   registerBeanPostProcessors(beanFactory, orderedPostProcessors);
+
+   // Now, register all regular BeanPostProcessors.
+   List&lt;BeanPostProcessor&gt; nonOrderedPostProcessors = new ArrayList&lt;&gt;(nonOrderedPostProcessorNames.size());
+   for (String ppName : nonOrderedPostProcessorNames) {
+      BeanPostProcessor pp = beanFactory.getBean(ppName, BeanPostProcessor.class);
+      nonOrderedPostProcessors.add(pp);
+      if (pp instanceof MergedBeanDefinitionPostProcessor) {
+         internalPostProcessors.add(pp);
+      }
+   }
+   registerBeanPostProcessors(beanFactory, nonOrderedPostProcessors);
+
+   // Finally, re-register all internal BeanPostProcessors.
+   sortPostProcessors(internalPostProcessors, beanFactory);
+   registerBeanPostProcessors(beanFactory, internalPostProcessors);
+
+   // Re-register post-processor for detecting inner beans as ApplicationListeners,
+   // moving it to the end of the processor chain (for picking up proxies etc).
+   beanFactory.addBeanPostProcessor(new ApplicationListenerDetector(applicationContext));
+}
+</code></pre>
+<h5 id="initMessageSource"><a href="#initMessageSource" class="headerlink" title="initMessageSource"></a>initMessageSource</h5><p>国际化(Initialize message source for this context.)</p>
+<h5 id="initApplicationEventMulticaster"><a href="#initApplicationEventMulticaster" class="headerlink" title="initApplicationEventMulticaster"></a>initApplicationEventMulticaster</h5><p>事件播放器, 配合listener使用(Initialize event multicaster for this context.)</p>
+<pre><code class="java">this.applicationEventMulticaster = new SimpleApplicationEventMulticaster(beanFactory);
+</code></pre>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gay6v2nxq1j31ac0iijtn.jpg" alt="image-20200116102230785"></p>
+<p>更多详情可以org.springframework.context.event.ApplicationEventMulticaster</p>
+<p>实现细节org.springframework.context.event.SimpleApplicationEventMulticaster</p>
+<p>#multicastEvent(org.springframework.context.ApplicationEvent, org.springframework.core.ResolvableType)</p>
+<p>tips: 默认实现是同步的, 可以设置执行器实现异步</p>
+<h5 id="onRefresh"><a href="#onRefresh" class="headerlink" title="onRefresh"></a>onRefresh</h5><p>模板方法 bean实例化前的操作(Initialize other special beans in specific context subclasses.)</p>
+<h5 id="registerListeners"><a href="#registerListeners" class="headerlink" title="registerListeners"></a>registerListeners</h5><p>注册监听器(Check for listener beans and register them.)</p>
+<pre><code class="java">/**
+ * Add beans that implement ApplicationListener as listeners.
+ * Doesn&#39;t affect other listeners, which can be added without being beans.
+ */
+protected void registerListeners() {
+   // Register statically specified listeners first.
+   for (ApplicationListener&lt;?&gt; listener : getApplicationListeners()) {
+      getApplicationEventMulticaster().addApplicationListener(listener);
+   }
+
+   // Do not initialize FactoryBeans here: We need to leave all regular beans
+   // uninitialized to let post-processors apply to them!
+   String[] listenerBeanNames = getBeanNamesForType(ApplicationListener.class, true, false);
+   for (String listenerBeanName : listenerBeanNames) {
+      getApplicationEventMulticaster().addApplicationListenerBean(listenerBeanName);
+   }
+
+   // Publish early application events now that we finally have a multicaster...
+   Set&lt;ApplicationEvent&gt; earlyEventsToProcess = this.earlyApplicationEvents;
+   this.earlyApplicationEvents = null;
+   if (earlyEventsToProcess != null) {
+      for (ApplicationEvent earlyEvent : earlyEventsToProcess) {
+         getApplicationEventMulticaster().multicastEvent(earlyEvent);
+      }
+   }
+}
+</code></pre>
+<p>1.注册静态添加的listener</p>
+<p>2.注册bean中的listener</p>
+<p>3.发布一些早期事件</p>
+<h5 id="finishBeanFactoryInitialization"><a href="#finishBeanFactoryInitialization" class="headerlink" title="finishBeanFactoryInitialization"></a>finishBeanFactoryInitialization</h5><p>实例化所有bean (Instantiate all remaining (non-lazy-init) singletons.)</p>
+<p>更多: org.springframework.beans.factory.config.ConfigurableListableBeanFactory#preInstantiateSingletons</p>
+<h5 id="finishRefresh"><a href="#finishRefresh" class="headerlink" title="finishRefresh"></a>finishRefresh</h5><p>发送相应事件 (publish corresponding event.)</p>
+<pre><code class="java">/**
+ * Finish the refresh of this context, invoking the LifecycleProcessor&#39;s
+ * onRefresh() method and publishing the
+ * {@link org.springframework.context.event.ContextRefreshedEvent}.
+ */
+protected void finishRefresh() {
+   // Clear context-level resource caches (such as ASM metadata from scanning).
+   clearResourceCaches();
+
+   // Initialize lifecycle processor for this context.
+   initLifecycleProcessor();
+
+   // Propagate refresh to lifecycle processor first.
+   getLifecycleProcessor().onRefresh();
+
+   // Publish the final event.
+   publishEvent(new ContextRefreshedEvent(this));
+
+   // Participate in LiveBeansView MBean, if active.
+   LiveBeansView.registerApplicationContext(this);
+}
+</code></pre>
+<p>1.关闭资源缓存</p>
+<p>2.初始化生命周期处理器</p>
+<p>3.触发生命周期处理器</p>
+<p>4.发布容器refresh事件</p>
+<p>5.LiveBeansView #getSnapshotAsJson()</p>
+<p>live bean的一个snapshot</p>
+<pre><code class="java">static void registerApplicationContext(ConfigurableApplicationContext applicationContext) {
+   String mbeanDomain = applicationContext.getEnvironment().getProperty(MBEAN_DOMAIN_PROPERTY_NAME);
+   if (mbeanDomain != null) {
+      synchronized (applicationContexts) {
+         if (applicationContexts.isEmpty()) {
+            try {
+               MBeanServer server = ManagementFactory.getPlatformMBeanServer();
+               applicationName = applicationContext.getApplicationName();
+               server.registerMBean(new LiveBeansView(),
+                     new ObjectName(mbeanDomain, MBEAN_APPLICATION_KEY, applicationName));
+            }
+            catch (Throwable ex) {
+               throw new ApplicationContextException(&quot;Failed to register LiveBeansView MBean&quot;, ex);
+            }
+         }
+         applicationContexts.add(applicationContext);
+      }
+   }
+}
+</code></pre>
+<p>用console attach后</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gay8erocujj31860u0tci.jpg" alt="image-20200116111603497"></p>
+<h3 id="Web容器"><a href="#Web容器" class="headerlink" title="Web容器"></a>Web容器</h3><p>​    当我们发起一次http请求时, 断点打在 AbstractApplicationContext#refresh 会发现又刷新了一次, 这是因为第一次刷新时spring容器(父容器), 而当第一次请求时,初始化springmvc容器 .并且刷新</p>
+<pre><code class="java">  at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:651)
+  at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:602)
+  at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:665)
+  at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:521)
+  at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:462)
+  at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:136)
+  at javax.servlet.GenericServlet.init(GenericServlet.java:158)
+  at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1230)
+  - locked &lt;0x1bf7&gt; (a org.apache.catalina.core.StandardWrapper)
+  at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1174)
+  at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1066)
+  at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:5370)
+  at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5668)
+  - locked &lt;0xc19&gt; (a org.apache.catalina.core.StandardContext)
+  at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:145)
+</code></pre>
+<p>根据堆栈信息找到调用链</p>
+<p>org.springframework.web.servlet.FrameworkServlet#initServletBean</p>
+<p>​    org.springframework.web.servlet.FrameworkServlet#initWebApplicationContext</p>
+<p>​            org.springframework.web.servlet.FrameworkServlet#configureAndRefreshWebApplicationContext</p>
+<h2 id="SpringBoot中的启动流程"><a href="#SpringBoot中的启动流程" class="headerlink" title="SpringBoot中的启动流程"></a>SpringBoot中的启动流程</h2><h3 id="启动方式"><a href="#启动方式" class="headerlink" title="启动方式"></a>启动方式</h3><p>我们需要了解SpringBoot的启动方式SpringApplication#run(java.lang.Class&lt;?&gt;, java.lang.String…)即可运行.无需再通过servlet容器的回调</p>
+<pre><code class="java">public static ConfigurableApplicationContext run(Class&lt;?&gt;[] primarySources,
+      String[] args) {
+   return new SpringApplication(primarySources).run(args);
+}
+</code></pre>
+<p>所以这里我们需要关注两部分, 构造函数,以及Run方法</p>
+<pre><code class="java">public SpringApplication(ResourceLoader resourceLoader, Class&lt;?&gt;... primarySources) {
+   this.resourceLoader = resourceLoader;
+   Assert.notNull(primarySources, &quot;PrimarySources must not be null&quot;);
+   this.primarySources = new LinkedHashSet&lt;&gt;(Arrays.asList(primarySources));
+   this.webApplicationType = WebApplicationType.deduceFromClasspath();
+   setInitializers((Collection) getSpringFactoriesInstances(
+         ApplicationContextInitializer.class));
+   setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class));
+   this.mainApplicationClass = deduceMainApplicationClass();
+}
+</code></pre>
+<p>从run说起</p>
+<pre><code class="java">/**
+ * Run the Spring application, creating and refreshing a new
+ * {@link ApplicationContext}.
+ * @param args the application arguments (usually passed from a Java main method)
+ * @return a running {@link ApplicationContext}
+ */
+public ConfigurableApplicationContext run(String... args) {
+   StopWatch stopWatch = new StopWatch();
+   stopWatch.start();
+   ConfigurableApplicationContext context = null;
+   Collection&lt;SpringBootExceptionReporter&gt; exceptionReporters = new ArrayList&lt;&gt;();
+   configureHeadlessProperty();
+   SpringApplicationRunListeners listeners = getRunListeners(args);
+   listeners.starting();
+   try {
+      ApplicationArguments applicationArguments = new DefaultApplicationArguments(
+            args);
+      ConfigurableEnvironment environment = prepareEnvironment(listeners,
+            applicationArguments);
+      configureIgnoreBeanInfo(environment);
+      Banner printedBanner = printBanner(environment);
+      context = createApplicationContext();
+      exceptionReporters = getSpringFactoriesInstances(
+            SpringBootExceptionReporter.class,
+            new Class[] { ConfigurableApplicationContext.class }, context);
+      prepareContext(context, environment, listeners, applicationArguments,
+            printedBanner);
+      refreshContext(context);
+      afterRefresh(context, applicationArguments);
+      stopWatch.stop();
+      if (this.logStartupInfo) {
+         new StartupInfoLogger(this.mainApplicationClass)
+               .logStarted(getApplicationLog(), stopWatch);
+      }
+      listeners.started(context);
+      callRunners(context, applicationArguments);
+   }
+   catch (Throwable ex) {
+      handleRunFailure(context, ex, exceptionReporters, listeners);
+      throw new IllegalStateException(ex);
+   }
+   try {
+      listeners.running(context);
+   }
+   catch (Throwable ex) {
+      handleRunFailure(context, ex, exceptionReporters, null);
+      throw new IllegalStateException(ex);
+   }
+   return context;
+}
+</code></pre>
+<h3 id="启动流程"><a href="#启动流程" class="headerlink" title="启动流程"></a>启动流程</h3><p>按照SpringApplicationRunListeners中的定义,可以稍微简单的分下步骤</p>
+<ol>
+<li>listeners.starting();</li>
+<li>listeners.environmentPrepared(environment);</li>
+<li>listeners.contextPrepared(context);</li>
+<li>listeners.contextLoaded(context);</li>
+<li>listeners.started(context);</li>
+<li>listeners.running(context); </li>
+</ol>
+<p>运行失败的情况 会调用listeners.failed(context, exception);</p>
+<h3 id="server容器的启动方式"><a href="#server容器的启动方式" class="headerlink" title="server容器的启动方式"></a>server容器的启动方式</h3><p>根据之前的分析,我们知道之前的传统spring的启动是通过servlet回调, 也就是先启动tomcat. </p>
+<p>​    server容器 -&gt; Spring容器</p>
+<p>SpringBoot中是自主启动 , 启动流程是 </p>
+<p>​    SpringBoot应用 -&gt; server容器</p>
+<h4 id="启动方式-1"><a href="#启动方式-1" class="headerlink" title="启动方式"></a>启动方式</h4><p>在分析Application的启动流程中 AbstractApplicationContext中留了个#onRefresh的方法, </p>
+<p>而在其子类中ServletWebServerApplicationContext重写了onRefresh的方法</p>
+<pre><code class="java">@Override
+protected void onRefresh() {
+   super.onRefresh();
+   try {
+      createWebServer();
+   }
+   catch (Throwable ex) {
+      throw new ApplicationContextException(&quot;Unable to start web server&quot;, ex);
+   }
+}
+</code></pre>
+<p>在createWebServer中</p>
+<pre><code class="java">private void createWebServer() {
+   WebServer webServer = this.webServer;
+   ServletContext servletContext = getServletContext();
+   if (webServer == null &amp;&amp; servletContext == null) {
+      ServletWebServerFactory factory = getWebServerFactory();
+      this.webServer = factory.getWebServer(getSelfInitializer());
+   }
+   else if (servletContext != null) {
+      try {
+         getSelfInitializer().onStartup(servletContext);
+      }
+      catch (ServletException ex) {
+         throw new ApplicationContextException(&quot;Cannot initialize servlet context&quot;,
+               ex);
+      }
+   }
+   initPropertySources();
+}
+</code></pre>
+<h4 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h4><p>org.springframework.boot.web.servlet.server.ServletWebServerFactory</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaygfr3reej31n20oe41t.jpg" alt="image-20200116155347978"></p>
+<h4 id="Reactive"><a href="#Reactive" class="headerlink" title="Reactive"></a>Reactive</h4><p>org.springframework.boot.web.reactive.server.ReactiveWebServerFactory</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaygjiloplj326o0nujuf.jpg" alt="image-20200116155728319"></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 951488791@qq.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Spring-ApplicationContext</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">3.7k</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-01-16, 21:04:45</p>
+    <p><span class="copy-title">最后更新:</span>2020-01-16, 21:20:14</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/01/16/Spring-ApplicationContext/" title="Spring-ApplicationContext">http://yoursite.com/2020/01/16/Spring-ApplicationContext/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 zhengyumin</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1"></script>
+
+<script src="/js/script.js?v=1.0.1"></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#event','#collections','#applicationContext','#map','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
