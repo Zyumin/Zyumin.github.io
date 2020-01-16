@@ -189,14 +189,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">juc</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">classLoader</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color5">java</a>
     </li>
     
@@ -213,7 +205,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">redis</a>
+        <a href="javascript:" class="color1">kafka</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -221,19 +213,11 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">redis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a href="javascript:" class="color5">zookeeper</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">kafka</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">Spec</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">thread</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -242,6 +226,14 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color4">nio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Spec</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">thread</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -257,7 +249,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">lang</a>
+        <a href="javascript:" class="color2">classLoader</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">juc</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -273,6 +269,18 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">lang</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">elasticsearch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a href="javascript:" class="color3">io</a>
     </li>
     
@@ -285,14 +293,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">elasticsearch</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">servlet</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color3">gc</a>
     </li>
     
@@ -301,15 +301,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">map</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color2">collections</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">doc</a>
+        <a href="javascript:" class="color4">map</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -318,6 +314,10 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">spring-webflux</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">doc</a>
     </li>
     
     <div class="clearfix"></div>
@@ -455,17 +455,17 @@
             <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
         </a>
         
-        <a class="" href="/2019/06/12/Overview_Kafka/" data-tag="framework,kafka" data-author="">
+        <a class="" href="/2019/06/12/Overview_Kafka/" data-tag="kafka,framework" data-author="">
             <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
             <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
         </a>
         
-        <a class="" href="/2019/06/10/Overview_Redis/" data-tag="redis,framework" data-author="">
+        <a class="" href="/2019/06/10/Overview_Redis/" data-tag="framework,redis" data-author="">
             <span class="post-title" title="redis深入浅出">redis深入浅出</span>
             <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
         </a>
         
-        <a class="" href="/2019/06/06/Note_java并发编程的艺术/" data-tag="juc,java,note" data-author="">
+        <a class="" href="/2019/06/06/Note_java并发编程的艺术/" data-tag="java,note,juc" data-author="">
             <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
             <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
         </a>
@@ -726,7 +726,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#juc','#classLoader','#java','#note','#jvm','#distributed','#redis','#framework','#zookeeper','#kafka','#Spec','#thread','#netty','#nio','#spring','#mysql','#tomcat','#lang','#hotspot','#j2ee','#summary','#io','#serialization','#file','#elasticsearch','#servlet','#gc','#ejb','#map','#collections','#doc','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#redis','#zookeeper','#netty','#nio','#Spec','#thread','#spring','#mysql','#tomcat','#classLoader','#juc','#hotspot','#j2ee','#summary','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#collections','#map','#spring-mvc','#spring-webflux','#doc',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
