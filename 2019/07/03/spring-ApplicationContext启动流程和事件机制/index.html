@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <title>spring_WebApplication启动流程和Event | Zyumin</title>
+  <title>spring_Application启动流程和Event | Zyumin</title>
   <meta name="keywords" content=" classLoader , spring , tomcat , servlet , event ">
-  <meta name="description" content="spring_WebApplication启动流程和Event | Zyumin">
+  <meta name="description" content="spring_Application启动流程和Event | Zyumin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
 <meta name="keywords" content="java">
@@ -135,7 +135,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="48">
-<input type="hidden" id="yelog_site_word_count" value="152.8k">
+<input type="hidden" id="yelog_site_word_count" value="152.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -201,15 +201,23 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">kafka</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">framework</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a href="javascript:" class="color2">distributed</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">juc</a>
+        <a href="javascript:" class="color2">classLoader</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">classLoader</a>
+        <a href="javascript:" class="color4">juc</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -225,14 +233,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">redis</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">framework</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color1">netty</a>
     </li>
     
@@ -241,7 +241,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">kafka</a>
+        <a href="javascript:" class="color1">redis</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -309,11 +309,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">aop</a>
+        <a href="javascript:" class="color1">event</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">event</a>
+        <a href="javascript:" class="color4">aop</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -355,7 +355,7 @@
             <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
         </a>
         
-        <a id="top" class="spring " href="/2019/03/02/Overview_Spring/" data-tag="spring,framework" data-author="">
+        <a id="top" class="spring " href="/2019/03/02/Overview_Spring/" data-tag="framework,spring" data-author="">
             <span class="post-title" title="Overview-Spring">Overview-Spring</span>
             <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
         </a>
@@ -460,8 +460,8 @@
             <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
         </a>
         
-        <a class="spring " href="/2019/07/03/spring-webApplication启动流程/" data-tag="classLoader,spring,tomcat,servlet,event" data-author="">
-            <span class="post-title" title="spring_WebApplication启动流程和Event">spring_WebApplication启动流程和Event</span>
+        <a class="spring " href="/2019/07/03/spring-ApplicationContext启动流程和事件机制/" data-tag="classLoader,spring,tomcat,servlet,event" data-author="">
+            <span class="post-title" title="spring_Application启动流程和Event">spring_Application启动流程和Event</span>
             <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
         </a>
         
@@ -495,12 +495,12 @@
             <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
         </a>
         
-        <a class="" href="/2019/06/12/Overview_Kafka/" data-tag="framework,kafka" data-author="">
+        <a class="" href="/2019/06/12/Overview_Kafka/" data-tag="kafka,framework" data-author="">
             <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
             <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
         </a>
         
-        <a class="" href="/2019/06/10/Overview_Redis/" data-tag="redis,framework" data-author="">
+        <a class="" href="/2019/06/10/Overview_Redis/" data-tag="framework,redis" data-author="">
             <span class="post-title" title="redis深入浅出">redis深入浅出</span>
             <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
         </a>
@@ -525,7 +525,7 @@
             <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
         </a>
         
-        <a class="" href="/2019/06/03/Overview_Zookeeper/" data-tag="distributed,framework,zookeeper" data-author="">
+        <a class="" href="/2019/06/03/Overview_Zookeeper/" data-tag="framework,distributed,zookeeper" data-author="">
             <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
             <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
         </a>
@@ -570,7 +570,7 @@
             <span class="post-date" title="2019-03-10 19:45:18">2019/03/10</span>
         </a>
         
-        <a class="spring " href="/2019/03/03/spring-ioc/" data-tag="spring,ioc" data-author="">
+        <a class="spring " href="/2019/03/03/spring-Core-Container/" data-tag="spring,ioc" data-author="">
             <span class="post-title" title="spring-ioc">spring-ioc</span>
             <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
         </a>
@@ -602,9 +602,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-spring-webApplication启动流程" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <article id="post-spring-ApplicationContext启动流程和事件机制" class="article article-type-post" itemscope="" itemprop="blogPost">
     
-        <h1 class="article-title">spring_WebApplication启动流程和Event</h1>
+        <h1 class="article-title">spring_Application启动流程和Event</h1>
     
     <div class="article-meta">
         
@@ -634,7 +634,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2020-01-16 21:21:10">2019-07-03 09:37</time>
+        创建时间:<time class="date" title="更新时间: 2020-01-25 15:05:23">2019-07-03 09:37</time>
         
     </div>
     <div class="article-meta">
@@ -675,7 +675,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g4mg6v52lnj30bj0at758.jpg" alt="喵.jpg"></p>
-<p>当事猫描述: 事情的经过是这样的,今天一如既往早早来到办公室,开始快乐的一天,本想着温故而知新一下,翻翻Servlet规范,看看之前的笔记, 忽然发现ServletContextListener , 想起我大哥的书中提到的一点 springBoot 的历史性意义,其中一点就包括,嵌入式(Embed)容器.</p>
+<p>当事猫罪行描述: 事情的经过是这样的,今天一如既往早早来到办公室,开始快乐的一天,本想着温故而知新一下,翻翻Servlet规范,看看之前的笔记, 忽然发现ServletContextListener , 想起我大哥的书中提到的一点 springBoot 的历史性意义,其中一点就包括,嵌入式(Embed)容器.</p>
 <ul>
 <li>在springBoot之前 ,web 应用依托web容器, 依赖servlet的监听事件(Event,EventListener) 即ServletContextListener,完成web应用的初始化. </li>
 <li>在springBoot时, web应用的启动流程就不再依托servlet容器,而是自发创建、选择 web容器</li>
@@ -1484,12 +1484,12 @@ public interface ApplicationEventPublisher {
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>spring_WebApplication启动流程和Event</p>
+    <p><span class="copy-title">文章标题:</span>spring_Application启动流程和Event</p>
     <p><span class="copy-title">文章字数:</span><span class="post-count">3.2k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-07-03, 09:37:08</p>
-    <p><span class="copy-title">最后更新:</span>2020-01-16, 21:21:10</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/03/spring-webApplication启动流程/" title="spring_WebApplication启动流程和Event">http://yoursite.com/2019/07/03/spring-webApplication启动流程/</a>
+    <p><span class="copy-title">最后更新:</span>2020-01-25, 15:05:23</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/03/spring-ApplicationContext启动流程和事件机制/" title="spring_Application启动流程和Event">http://yoursite.com/2019/07/03/spring-ApplicationContext启动流程和事件机制/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
@@ -1532,7 +1532,7 @@ public interface ApplicationEventPublisher {
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#juc','#classLoader','#hotspot','#j2ee','#spring','#redis','#framework','#netty','#nio','#kafka','#zookeeper','#Spec','#thread','#mysql','#tomcat','#lang','#elasticsearch','#summary','#ioc','#io','#serialization','#file','#gc','#ejb','#servlet','#collections','#aop','#event','#map','#applicationContext','#beanFactory','#doc','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#kafka','#framework','#distributed','#classLoader','#juc','#hotspot','#j2ee','#spring','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#mysql','#tomcat','#lang','#elasticsearch','#summary','#ioc','#io','#serialization','#file','#gc','#ejb','#servlet','#collections','#event','#aop','#map','#applicationContext','#beanFactory','#doc','#spring-mvc','#spring-webflux',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
