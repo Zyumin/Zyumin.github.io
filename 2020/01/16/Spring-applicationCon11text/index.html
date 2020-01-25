@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <title>Spring-ApplicationContext | Zyumin</title>
+  <title>Spring-application11Context | Zyumin</title>
   <meta name="keywords" content=" spring , applicationContext ">
-  <meta name="description" content="Spring-ApplicationContext | Zyumin">
+  <meta name="description" content="Spring-application11Context | Zyumin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
 <meta name="keywords" content="java">
@@ -607,9 +607,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Spring-ApplicationContext" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <article id="post-Spring-applicationCon11text" class="article article-type-post" itemscope="" itemprop="blogPost">
     
-        <h1 class="article-title">Spring-ApplicationContext</h1>
+        <h1 class="article-title">Spring-application11Context</h1>
     
     <div class="article-meta">
         
@@ -633,7 +633,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2020-01-25 16:55:03">2020-01-16 21:04</time>
+        创建时间:<time class="date" title="更新时间: 2020-01-25 16:55:01">2020-01-16 21:04</time>
         
     </div>
     <div class="article-meta">
@@ -682,7 +682,7 @@
 <li>SpringBoot中 ApplicationContext是怎么启动? 具体子类?</li>
 </ul>
 <p><strong>基础容器接口</strong></p>
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gb8wofkgu7j31je0redjh.jpg" alt="image-20200115153732296"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gb8ws3ulvdj31je0readp.jpg" alt="image-20200115153732296"></p>
 <h2 id="ApplicationContext"><a href="#ApplicationContext" class="headerlink" title="ApplicationContext"></a>ApplicationContext</h2><p>​    先来看看ApplicationContext接口的定义</p>
 <pre><code class="java">public interface ApplicationContext extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory,
       MessageSource, ApplicationEventPublisher, ResourcePatternResolver {
@@ -696,7 +696,7 @@
 <li>MessageSource(国际化)</li>
 </ul>
 <h3 id="资源管理相关"><a href="#资源管理相关" class="headerlink" title="资源管理相关"></a>资源管理相关</h3><h4 id="Enviroment"><a href="#Enviroment" class="headerlink" title="Enviroment"></a>Enviroment</h4><p>@since 3.1 , 主要包含两部分 Profiles 和 properties </p>
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gb8ws05s1lj31je0readp.jpg" alt="image-20200116162730961"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gb8wogtohrj31je0redjh.jpg" alt="image-20200116162730961"></p>
 <p>spring容器的初始化流程</p>
 <ul>
 <li>AbstractApplicationContext#getEnvironment</li>
@@ -957,7 +957,7 @@ protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory) throw
 }
 </code></pre>
 <h4 id="🌟ApplicationContext启动流程"><a href="#🌟ApplicationContext启动流程" class="headerlink" title="🌟ApplicationContext启动流程"></a>🌟ApplicationContext启动流程</h4><p>关注refresh的部分,发现逻辑都在 AbstractApplicationContext</p>
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gb8ws2uxhbj31k40h0djd.jpg" alt="image-20200115164804998"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gb8wosnp5qj31k40h0gp5.jpg" alt="image-20200115164804998"></p>
 <p>org.springframework.web.context.ContextLoader#configureAndRefreshWebApplicationContext</p>
 <p>AbstractRefreshableWebApplicationContext(ConfigurableWebApplicationContext,servletContext相关)</p>
 <p>➡️AbstractRefreshableConfigApplicationContext(setConfigLocation)</p>
@@ -1256,7 +1256,7 @@ protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactor
 <h5 id="initApplicationEventMulticaster"><a href="#initApplicationEventMulticaster" class="headerlink" title="initApplicationEventMulticaster"></a>initApplicationEventMulticaster</h5><p>事件播放器, 配合listener使用(Initialize event multicaster for this context.)</p>
 <pre><code class="java">this.applicationEventMulticaster = new SimpleApplicationEventMulticaster(beanFactory);
 </code></pre>
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gb8wrxh2gfj31ac0iimzf.jpg" alt="image-20200116102230785"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gb8wos02iqj31ac0iimzf.jpg" alt="image-20200116102230785"></p>
 <p>更多详情可以org.springframework.context.event.ApplicationEventMulticaster</p>
 <p>实现细节org.springframework.context.event.SimpleApplicationEventMulticaster</p>
 <p>#multicastEvent(org.springframework.context.ApplicationEvent, org.springframework.core.ResolvableType)</p>
@@ -1345,7 +1345,7 @@ protected void finishRefresh() {
 }
 </code></pre>
 <p>用console attach后</p>
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gb8wrzq77qj31860u0n0y.jpg" alt="image-20200116111603497"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gb8wogd1x6j31860u0n0y.jpg" alt="image-20200116111603497"></p>
 <h3 id="Web容器"><a href="#Web容器" class="headerlink" title="Web容器"></a>Web容器</h3><p>​    当我们发起一次http请求时, 断点打在 AbstractApplicationContext#refresh 会发现又刷新了一次, 这是因为第一次刷新时spring容器(父容器), 而当第一次请求时,初始化springmvc容器 .并且刷新</p>
 <pre><code class="java">  at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:651)
   at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:602)
@@ -1485,9 +1485,9 @@ protected void onRefresh() {
 }
 </code></pre>
 <h4 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h4><p>org.springframework.boot.web.servlet.server.ServletWebServerFactory</p>
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gb8wrz9dipj31n20oeadd.jpg" alt="image-20200116155347978"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gb8woof7r1j31n20oeadd.jpg" alt="image-20200116155347978"></p>
 <h4 id="Reactive"><a href="#Reactive" class="headerlink" title="Reactive"></a>Reactive</h4><p>org.springframework.boot.web.reactive.server.ReactiveWebServerFactory</p>
-<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gb8wrysp1qj326o0nu784.jpg" alt="image-20200116155728319"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gb8wot8kr1j326o0nuadw.jpg" alt="image-20200116155728319"></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 951488791@qq.com </span>
@@ -1497,12 +1497,12 @@ protected void onRefresh() {
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Spring-ApplicationContext</p>
+    <p><span class="copy-title">文章标题:</span>Spring-application11Context</p>
     <p><span class="copy-title">文章字数:</span><span class="post-count">3.9k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2020-01-16, 21:04:45</p>
-    <p><span class="copy-title">最后更新:</span>2020-01-25, 16:55:03</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/01/16/Spring-ApplicationContext/" title="Spring-ApplicationContext">http://yoursite.com/2020/01/16/Spring-ApplicationContext/</a>
+    <p><span class="copy-title">最后更新:</span>2020-01-25, 16:55:01</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/01/16/Spring-applicationCon11text/" title="Spring-application11Context">http://yoursite.com/2020/01/16/Spring-applicationCon11text/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
