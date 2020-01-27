@@ -135,7 +135,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="48">
-<input type="hidden" id="yelog_site_word_count" value="152.5k">
+<input type="hidden" id="yelog_site_word_count" value="152.6k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -197,11 +197,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">jvm</a>
+        <a href="javascript:" class="color2">distributed</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">distributed</a>
+        <a href="javascript:" class="color4">jvm</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -213,19 +213,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">netty</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">nio</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color1">redis</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">zookeeper</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -234,6 +222,18 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color2">thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">zookeeper</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">netty</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">nio</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -628,12 +628,12 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2020-01-25 11:16:48">2019-12-05 21:28</time>
+        创建时间:<time class="date" title="更新时间: 2020-01-27 13:47:59">2019-12-05 21:28</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:6.4k</span>
+        <span>字数:6.7k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1179,6 +1179,7 @@ public &lt;T&gt; T getBean(String name, @Nullable Class&lt;T&gt; requiredType, @
 <p>#getParentBeanFactory :  父容器查找(当前容器不存在) </p>
 <p>#getMergedLocalBeanDefinition : beanDefinition处理,dependsOn处理</p>
 <p>#createBean 创建bean逻辑</p>
+<p>#getSingleton缓存bean </p>
 <h4 id="AbstractAutowireCapableBeanFactory-createBean"><a href="#AbstractAutowireCapableBeanFactory-createBean" class="headerlink" title="AbstractAutowireCapableBeanFactory#createBean"></a>AbstractAutowireCapableBeanFactory#createBean</h4><pre><code class="java">protected Object createBean(String beanName, RootBeanDefinition mbd, @Nullable Object[] args){
     ...
         Class&lt;?&gt; resolvedClass = resolveBeanClass(mbd, beanName);
@@ -1253,6 +1254,33 @@ public &lt;T&gt; T getBean(String name, @Nullable Class&lt;T&gt; requiredType, @
    //进行一些初始化方法的调用，比如afterPropertiesSet等等。
         exposedObject = initializeBean(beanName, exposedObject, mbd);  
 
+    //提前暴露的类检查,防止非代理对象被提前暴露注入,导致两个bean不一致
+        if (earlySingletonExposure) {
+            Object earlySingletonReference = getSingleton(beanName, false);
+            if (earlySingletonReference != null) {
+                if (exposedObject == bean) {
+                    exposedObject = earlySingletonReference;
+                }
+                else if (!this.allowRawInjectionDespiteWrapping &amp;&amp; hasDependentBean(beanName)) {
+                    String[] dependentBeans = getDependentBeans(beanName);
+                    Set&lt;String&gt; actualDependentBeans = new LinkedHashSet&lt;&gt;(dependentBeans.length);
+                    for (String dependentBean : dependentBeans) {
+                        if (!removeSingletonIfCreatedForTypeCheckOnly(dependentBean)) {
+                            actualDependentBeans.add(dependentBean);
+                        }
+                    }
+                    if (!actualDependentBeans.isEmpty()) {
+                        throw new BeanCurrentlyInCreationException(beanName,
+                                &quot;Bean with name &#39;&quot; + beanName + &quot;&#39; has been injected into other beans [&quot; +
+                                StringUtils.collectionToCommaDelimitedString(actualDependentBeans) +
+                                &quot;] in its raw version as part of a circular reference, but has eventually been &quot; +
+                                &quot;wrapped. This means that said other beans do not use the final version of the &quot; +
+                                &quot;bean. This is often the result of over-eager type matching - consider using &quot; +
+                                &quot;&#39;getBeanNamesOfType&#39; with the &#39;allowEagerInit&#39; flag turned off, for example.&quot;);
+                    }
+                }
+            }
+        }    
    ...
    // Register bean as disposable.
         try {
@@ -1261,6 +1289,7 @@ public &lt;T&gt; T getBean(String name, @Nullable Class&lt;T&gt; requiredType, @
 }
 </code></pre>
 <p>这里调用了addSingletonFactory</p>
+<p>在 bean 初始化完成还后还需要进行依赖的检查，这时因为提前暴露的这个 bean(即使用工厂方法或构造方法创建出来的对象) initializeBean 还可以进行增强(例如aop代理)，这样这两个 bean 就不是同一个了。Spring 默认是不允许这种情况发生的。</p>
 <h4 id="AbstractAutowireCapableBeanFactory-createBeanInstance"><a href="#AbstractAutowireCapableBeanFactory-createBeanInstance" class="headerlink" title="AbstractAutowireCapableBeanFactory#createBeanInstance"></a>AbstractAutowireCapableBeanFactory#createBeanInstance</h4><p>实例化</p>
 <p>方式 根据工厂方法、构造函数、默认方式 </p>
 <p>方法:CGLIB/JDK</p>
@@ -1752,10 +1781,10 @@ public interface BeanDefinitionReader {
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>spring-BeanFactory</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">6.4k</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">6.7k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-12-05, 21:28:57</p>
-    <p><span class="copy-title">最后更新:</span>2020-01-25, 11:16:48</p>
+    <p><span class="copy-title">最后更新:</span>2020-01-27, 13:47:59</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/05/spring-BeanFactory/" title="spring-BeanFactory">http://yoursite.com/2019/12/05/spring-BeanFactory/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
@@ -1799,7 +1828,7 @@ public interface BeanDefinitionReader {
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#event','#aop','#collections','#applicationContext','#map','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#distributed','#jvm','#kafka','#framework','#redis','#Spec','#thread','#zookeeper','#netty','#nio','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#event','#aop','#collections','#applicationContext','#map','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

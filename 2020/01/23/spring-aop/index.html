@@ -135,7 +135,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="48">
-<input type="hidden" id="yelog_site_word_count" value="152.5k">
+<input type="hidden" id="yelog_site_word_count" value="152.6k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -197,11 +197,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">jvm</a>
+        <a href="javascript:" class="color2">distributed</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">distributed</a>
+        <a href="javascript:" class="color4">jvm</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -213,19 +213,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">netty</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">nio</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color1">redis</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">zookeeper</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -234,6 +222,18 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color2">thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">zookeeper</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">netty</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">nio</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -628,12 +628,12 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2020-01-24 13:07:56">2020-01-23 23:54</time>
+        创建时间:<time class="date" title="更新时间: 2020-01-27 12:22:18">2020-01-23 23:54</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:3.9k</span>
+        <span>字数:3.8k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -882,7 +882,8 @@ protected boolean shouldSkip(Class&lt;?&gt; beanClass, String beanName) {
 }
 </code></pre>
 <p>在AnnotationAwareAspectJAutoProxyCreator#findCandidateAdvisors中的调用就到了advisor的创建流程</p>
-<h6 id="postProcessAfterInitialization"><a href="#postProcessAfterInitialization" class="headerlink" title="#postProcessAfterInitialization"></a>#postProcessAfterInitialization</h6><pre><code class="java">    /**
+<h6 id="postProcessAfterInitialization"><a href="#postProcessAfterInitialization" class="headerlink" title="#postProcessAfterInitialization"></a>#postProcessAfterInitialization</h6><p>返回代理对象</p>
+<pre><code class="java">    /**
      * Create a proxy with the configured interceptors if the bean is
      * identified as one to proxy by the subclass.
      * @see #getAdvicesAndAdvisorsForBean
@@ -1171,8 +1172,8 @@ public class DefaultAopProxyFactory implements AopProxyFactory, Serializable {
         //...
     }
 </code></pre>
-<p>​    可以发现只是简单的取出调用链,并将实际操作委派给ReflectiveMethodInvocation</p>
-<p>ReflectiveMethodInvocation</p>
+<p>​    可以发现只是简单的取出调用链,并将实际操作委派给ReflectiveMethodInvocation ,注意这里根据join PointCut,去匹配命中的方法, 找出对应的调用链</p>
+<p><strong>ReflectiveMethodInvocation</strong></p>
 <pre><code class="java">@Override
 @Nullable
 public Object proceed() throws Throwable {
@@ -1205,7 +1206,7 @@ public Object proceed() throws Throwable {
    }
 }
 </code></pre>
-<p>依次执行dvice</p>
+<p>依次执行dvice,即切面中的各个通知, 通过反射实现方法调用,实例是通过工厂方法创建LazySingletonAspectInstanceFactoryDecorator</p>
 <p>org.springframework.aop.interceptor.ExposeInvocationInterceptor</p>
 <p>org.springframework.aop.aspectj.AspectJAfterThrowingAdvice</p>
 <p>org.springframework.aop.aspectj.AspectJAfterAdvice</p>
@@ -1236,22 +1237,6 @@ public class AspectInterceptor {
         //定义一个切入点 后面的通知直接引入切入点方法pointCut即可
         // ServerImpl下面的所有方法
     }
-
-//    /**
-//     * 环绕通知（连接到切入点开始执行，下一步进入前置通知，在下一步才是执行操作方法）
-//     * @param pjp
-//     * @return
-//     * @throws Throwable
-//     */
-//    @Around(value=&quot;pointCut()&quot;)
-//    public Object doBasicProfiling(ProceedingJoinPoint pjp) throws Throwable{
-//        System.out.println(&quot;@Around进入环绕通知...&quot;);
-//        //执行该方法
-//        Object object = pjp.proceed();
-//        System.out.println(pjp.getThis()+&quot;  操作结束，退出方法;环绕[@Around]结束！...&quot;);
-//        return object;
-//    }
-
     /**
      * 前置通知（进入环绕后执行，下一步执行方法）
      * @param joinPoint
@@ -1280,13 +1265,6 @@ public class AspectInterceptor {
         System.out.println(&quot;@After后置通知...&quot;);
     }
 
-//    /**
-//     * 最终通知（正常返回通知，最后执行）
-//     */
-//    @AfterReturning(value=&quot;pointCut()&quot;)
-//    public void doAfter(){
-//        System.out.println(&quot;@AfterReturning最终通知...End!&quot;);
-//    }
 }
 </code></pre>
 <h4 id="目标对象接口"><a href="#目标对象接口" class="headerlink" title="目标对象接口"></a>目标对象接口</h4><pre><code class="java">/**
@@ -1350,10 +1328,10 @@ public class AopStarter {
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>spring-aop</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">3.9k</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">3.8k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2020-01-23, 23:54:29</p>
-    <p><span class="copy-title">最后更新:</span>2020-01-24, 13:07:56</p>
+    <p><span class="copy-title">最后更新:</span>2020-01-27, 12:22:18</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/01/23/spring-aop/" title="spring-aop">http://yoursite.com/2020/01/23/spring-aop/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
@@ -1397,7 +1375,7 @@ public class AopStarter {
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#redis','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#event','#aop','#collections','#applicationContext','#map','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#distributed','#jvm','#kafka','#framework','#redis','#Spec','#thread','#zookeeper','#netty','#nio','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#summary','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#event','#aop','#collections','#applicationContext','#map','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
