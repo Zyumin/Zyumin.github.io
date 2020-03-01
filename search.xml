@@ -614,11 +614,11 @@
       
         <tags>
             
-            <tag> classLoader </tag>
+            <tag> spring </tag>
             
             <tag> tomcat </tag>
             
-            <tag> spring </tag>
+            <tag> classLoader </tag>
             
             <tag> servlet </tag>
             
@@ -824,9 +824,9 @@
       
         <tags>
             
-            <tag> framework </tag>
-            
             <tag> kafka </tag>
+            
+            <tag> framework </tag>
             
         </tags>
       
@@ -872,11 +872,11 @@
       
         <tags>
             
-            <tag> juc </tag>
-            
             <tag> java </tag>
             
             <tag> note </tag>
+            
+            <tag> juc </tag>
             
         </tags>
       
@@ -895,11 +895,11 @@
       
         <tags>
             
+            <tag> framework </tag>
+            
             <tag> netty </tag>
             
             <tag> nio </tag>
-            
-            <tag> framework </tag>
             
         </tags>
       
