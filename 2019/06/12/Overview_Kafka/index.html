@@ -3,30 +3,21 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   <title>kafka深入浅出 | Zyumin</title>
-  <meta name="keywords" content=" kafka , framework ">
+  <meta name="keywords" content=" framework , kafka ">
   <meta name="description" content="kafka深入浅出 | Zyumin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Redis 主从复制的配置和原理 Redis 哨兵机制(Sentinel)原理和实战 Redis 分布式的各种方案对比，包括客户端 Sharding、代理 Proxy 和 Redis Cluster  为什么需要 Redis 集群为什么需要集群?性能Redis 本身的 QPS 已经很高了，但是如果在一些并发量非常高的情况下，性能还是 会受到影响。这个时候我们希望有更多的 Redis 服务来完成工">
-<meta name="keywords" content="framework,redis">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Redis集群篇">
-<meta property="og:url" content="http://yoursite.com/2020/02/28/Redis集群篇/index.html">
+<meta name="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
+<meta name="keywords" content="java">
+<meta property="og:type" content="website">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="Zyumin">
-<meta property="og:description" content="Redis 主从复制的配置和原理 Redis 哨兵机制(Sentinel)原理和实战 Redis 分布式的各种方案对比，包括客户端 Sharding、代理 Proxy 和 Redis Cluster  为什么需要 Redis 集群为什么需要集群?性能Redis 本身的 QPS 已经很高了，但是如果在一些并发量非常高的情况下，性能还是 会受到影响。这个时候我们希望有更多的 Redis 服务来完成工">
+<meta property="og:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTly1gcc1hj285qj30zu0kq4bx.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTly1gcc7qn7pvuj30pu0fsjv9.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTly1gcc7rva7kbj30tq0f6tfg.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTly1gcc84wz2nhj30rq0jaq9s.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTly1gcc862xcvqj315c0q6tmu.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTly1gcc8a6qjukj30wq0mmqi5.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTly1gcc8j761vfj30pg0ga7cs.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/00831rSTly1gcc8n2jkl6j318y0jo12k.jpg">
-<meta property="og:updated_time" content="2020-02-28T10:54:13.080Z">
+<meta property="og:updated_time" content="2019-03-23T07:09:56.946Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis集群篇">
-<meta name="twitter:description" content="Redis 主从复制的配置和原理 Redis 哨兵机制(Sentinel)原理和实战 Redis 分布式的各种方案对比，包括客户端 Sharding、代理 Proxy 和 Redis Cluster  为什么需要 Redis 集群为什么需要集群?性能Redis 本身的 QPS 已经很高了，但是如果在一些并发量非常高的情况下，性能还是 会受到影响。这个时候我们希望有更多的 Redis 服务来完成工">
-<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/00831rSTly1gcc1hj285qj30zu0kq4bx.jpg">
+<meta name="twitter:title" content="tags">
+<meta name="twitter:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -152,7 +143,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="51">
-<input type="hidden" id="yelog_site_word_count" value="167.8k">
+<input type="hidden" id="yelog_site_word_count" value="171.3k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -206,6 +197,14 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">classLoader</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">juc</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a href="javascript:" class="color5">java</a>
     </li>
     
@@ -222,19 +221,15 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">kafka</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">framework</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color1">netty</a>
     </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color4">nio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">framework</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -254,19 +249,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">mysql</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color2">tomcat</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">juc</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">classLoader</a>
+        <a href="javascript:" class="color1">mysql</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -274,11 +261,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">j2ee</a>
+        <a href="javascript:" class="color5">lang</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">summary</a>
+        <a href="javascript:" class="color5">j2ee</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -286,19 +273,11 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">summary</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">ioc</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">lang</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">elasticsearch</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">servlet</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -311,6 +290,22 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">file</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">kafka</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">elasticsearch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">collections</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -330,15 +325,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">collections</a>
+        <a href="javascript:" class="color4">map</a>
     </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color4">applicationContext</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">map</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -492,7 +483,7 @@
             <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
         </a>
         
-        <a class="spring " href="/2019/07/03/spring-ApplicationContext启动流程和事件机制/" data-tag="spring,tomcat,classLoader,servlet,event" data-author="">
+        <a class="spring " href="/2019/07/03/spring-ApplicationContext启动流程和事件机制/" data-tag="classLoader,spring,tomcat,servlet,event" data-author="">
             <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
             <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
         </a>
@@ -527,7 +518,7 @@
             <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
         </a>
         
-        <a class="" href="/2019/06/12/Overview_Kafka/" data-tag="kafka,framework" data-author="">
+        <a class="" href="/2019/06/12/Overview_Kafka/" data-tag="framework,kafka" data-author="">
             <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
             <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
         </a>
@@ -537,12 +528,12 @@
             <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
         </a>
         
-        <a class="" href="/2019/06/06/Note_java并发编程的艺术/" data-tag="java,note,juc" data-author="">
+        <a class="" href="/2019/06/06/Note_java并发编程的艺术/" data-tag="juc,java,note" data-author="">
             <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
             <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
         </a>
         
-        <a class="" href="/2019/06/05/Overview_Netty/" data-tag="framework,netty,nio" data-author="">
+        <a class="" href="/2019/06/05/Overview_Netty/" data-tag="netty,nio,framework" data-author="">
             <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
             <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
         </a>
@@ -645,21 +636,21 @@
         
         <span class="tag">
             
-            <a href="javascript:" class="color1">kafka</a>
-            
             <a href="javascript:" class="color5">framework</a>
+            
+            <a href="javascript:" class="color1">kafka</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2019-07-05 09:35:11">2019-06-12 20:05</time>
+        创建时间:<time class="date" title="更新时间: 2020-03-18 21:30:14">2019-06-12 20:05</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:764</span>
+        <span>字数:4.3k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -678,7 +669,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么选择kafka"><span class="toc-text">为什么选择kafka</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#硬件选择"><span class="toc-text">硬件选择</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#集群"><span class="toc-text">集群</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#生产者"><span class="toc-text">生产者</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#消费者"><span class="toc-text">消费者</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建消费者"><span class="toc-text">创建消费者</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#订阅主题"><span class="toc-text">订阅主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#轮询-群组协调、分区再均衡、发送心跳、获取数据"><span class="toc-text">轮询 (群组协调、分区再均衡、发送心跳、获取数据)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交和偏移量-再均衡时会被重新处理"><span class="toc-text">提交和偏移量(再均衡时会被重新处理)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#再均衡监听"><span class="toc-text">再均衡监听</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从特定偏移量处开始处理记录"><span class="toc-text">从特定偏移量处开始处理记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优雅退出"><span class="toc-text">优雅退出</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#深入Kafka"><span class="toc-text">深入Kafka</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#集群成员关系"><span class="toc-text">集群成员关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#控制器-broker"><span class="toc-text">控制器 broker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复制"><span class="toc-text">复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理请求"><span class="toc-text">处理请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#物理存储"><span class="toc-text">物理存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分区分配"><span class="toc-text">分区分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件管理"><span class="toc-text">文件管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件格式"><span class="toc-text">文件格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#索引"><span class="toc-text">索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#清理"><span class="toc-text">清理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#可靠的数据传递"><span class="toc-text">可靠的数据传递</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#可靠性保证"><span class="toc-text">可靠性保证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复制-1"><span class="toc-text">复制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#同步副本"><span class="toc-text">同步副本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非同步副本"><span class="toc-text">非同步副本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#broker配置"><span class="toc-text">broker配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生产者-1"><span class="toc-text">生产者</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#消费者-1"><span class="toc-text">消费者</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka"><span class="toc-text">kafka</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#存储原理"><span class="toc-text">存储原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#性能"><span class="toc-text">性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些配置"><span class="toc-text">一些配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kafka消息的可靠性"><span class="toc-text">Kafka消息的可靠性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Producer"><span class="toc-text">Producer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Consumer"><span class="toc-text">Consumer</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -696,75 +687,138 @@
       
         <p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g3ymojzxi2j30u00u0gp5.jpg" alt="image-20190612200726343"></p>
 <a id="more"></a>
-<h1 id="为什么选择kafka"><a href="#为什么选择kafka" class="headerlink" title="为什么选择kafka"></a>为什么选择kafka</h1><ul>
-<li>多个生产者</li>
-<li>多个消费者</li>
-<li>基于磁盘的数据存储</li>
-<li>伸缩性</li>
-<li>高性能</li>
-</ul>
-<h1 id="硬件选择"><a href="#硬件选择" class="headerlink" title="硬件选择"></a>硬件选择</h1><ul>
-<li>磁盘吞吐量</li>
-<li>磁盘容量</li>
-<li>内存</li>
-<li>网络</li>
-<li>CPU</li>
-</ul>
-<p>磁盘容量和网络是瓶颈</p>
-<h1 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h1><p><img src="https://www.bonjourcs.com/2018/07/19/【Kafka-权威指南】-安装-Kafka/Kafka-Cluster.png" alt="img"></p>
-<p>Topic主题:一个主题可以有多个Partition分区</p>
-<h1 id="生产者"><a href="#生产者" class="headerlink" title="生产者"></a>生产者</h1><p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g3ynxeh7x5j30u00x741w.jpg" alt="overview of producer components"></p>
+<h2 id="kafka"><a href="#kafka" class="headerlink" title="kafka"></a>kafka</h2><h3 id="存储原理"><a href="#存储原理" class="headerlink" title="存储原理"></a>存储原理</h3><p>为什么快</p>
+<p>​    producer-&gt;broker-&gt;comsumer    </p>
+<p>​    </p>
+<p><strong>segment文件命名规则</strong></p>
+<p>​    磁盘顺序读</p>
+<p>​    topic (1)-&gt;partition(n) 分布在broker 负载均衡(根据key hash取模)</p>
+<p>​    文件分段 数据文件分段(顺序读写、分段命令、二分查找)</p>
+<p>​                         <img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyek8wkwjj31720fqdik.jpg" alt="image-20200311212633833"></p>
+<p>​    数据文件索引(分段索引、稀疏存储)</p>
+<p>查找的算法是</p>
 <ol>
-<li>ProducerRecord对象需要包含目标主题和内容 (可以指定键和分区) </li>
-<li>在发送时 先序列化成字节数组  </li>
-<li>数据被传给分区器(根据键,如果没有则使用轮询算法 随机) 添加到记录批次, </li>
-<li>最后独立线程负责把这些记录批次发送到相应broker上</li>
+<li><p>根据offset的值，查找segment段中的index索引文件。由于索引文件命名是以上一个文件的最后 一个offset进行命名的，所以，使用二分查找算法能够根据offset快速定位到指定的索引文件。</p>
+</li>
+<li><p>找到索引文件后，根据offset进行定位，找到索引文件中的符合范围的索引。(kafka采用稀疏索引的方式来提高查找性能)</p>
+</li>
+<li><p>得到position以后，再到对应的log文件中，从position出开始查找offset对应的消息，将每条消息</p>
+<p> 的offset与目标offset进行比较，直到找到消息</p>
+</li>
 </ol>
-<p>发送方式:</p>
+<p>比如说，我们要查找offset=2490这条消息，那么先找到00000000000000000000.index, 然后找到 [2487,49111]这个索引，再到log文件中，根据49111这个position开始查找，比较每条消息的offset是 否大于等于2490。最后查找到对应的消息以后返回</p>
+<p><strong>Log文件的消息内容分析</strong></p>
+<p>根据kafka提供的命令</p>
+<pre><code> offset: 5371 position: 102124 CreateTime: 1531477349286 isvalid: true keysize:
+-1 valuesize: 12 magic: 2 compresscodec: NONE producerId: -1 producerEpoch: -1
+sequence: -1 isTransactional: false headerKeys: [] payload: message_5371
+</code></pre><p>offset和position这两个前面已经讲过了、 createTime表示创建时间、keysize和valuesize表示key和 value的大小、 compresscodec表示压缩编码、payload:表示消息的具体内容    </p>
+<p>日志的清除策略以及压缩策略</p>
+<p><strong>日志清除策略</strong></p>
+<p>前面提到过，日志的分段存储，一方面能够减少单个文件内容的大小，另一方面，方便kafka进行日志 清理。日志的清理策略有两个</p>
 <ul>
-<li>异步发送</li>
-<li>同步发送</li>
-<li>异步回调方式</li>
+<li>根据消息的保留时间，当消息在kafka中保存的时间超过了指定的时间，就会触发清理过程<br>  根据topic存储的数据大小，当topic所占的日志文件大小大于一定的阀值，则可以开始删除最旧的消息。kafka会启动一个后台线程，定期检查是否存在可以删除的消息 </li>
 </ul>
-<p>确认接收ACK机制</p>
-<h1 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h1><p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g3ynx9cl1xj30jq0ge3zx.jpg" alt="number of consumers more than number of topic partitions"></p>
-<p>消费者组和消费者</p>
-<h2 id="创建消费者"><a href="#创建消费者" class="headerlink" title="创建消费者"></a>创建消费者</h2><h2 id="订阅主题"><a href="#订阅主题" class="headerlink" title="订阅主题"></a>订阅主题</h2><h2 id="轮询-群组协调、分区再均衡、发送心跳、获取数据"><a href="#轮询-群组协调、分区再均衡、发送心跳、获取数据" class="headerlink" title="轮询 (群组协调、分区再均衡、发送心跳、获取数据)"></a>轮询 (群组协调、分区再均衡、发送心跳、获取数据)</h2><p>​    轮询不只获取数据那么简单,第一次调用新消费者的poll方法 它会负责查找GroupCoordinator,加入群组,接受分配的分区</p>
-<h2 id="提交和偏移量-再均衡时会被重新处理"><a href="#提交和偏移量-再均衡时会被重新处理" class="headerlink" title="提交和偏移量(再均衡时会被重新处理)"></a>提交和偏移量(再均衡时会被重新处理)</h2><p>​    自动提交,会重复处理消息 ,每隔5s, 消费者会自动从poll方法接收到最大偏移量提交上去</p>
-<p>​    同步提交</p>
-<p>​    异步提交</p>
-<h2 id="再均衡监听"><a href="#再均衡监听" class="headerlink" title="再均衡监听"></a>再均衡监听</h2><h2 id="从特定偏移量处开始处理记录"><a href="#从特定偏移量处开始处理记录" class="headerlink" title="从特定偏移量处开始处理记录"></a>从特定偏移量处开始处理记录</h2><h2 id="优雅退出"><a href="#优雅退出" class="headerlink" title="优雅退出"></a>优雅退出</h2><h1 id="深入Kafka"><a href="#深入Kafka" class="headerlink" title="深入Kafka"></a>深入Kafka</h1><h2 id="集群成员关系"><a href="#集群成员关系" class="headerlink" title="集群成员关系"></a>集群成员关系</h2><p>用zookeeper来管理集群</p>
-<h2 id="控制器-broker"><a href="#控制器-broker" class="headerlink" title="控制器 broker"></a>控制器 broker</h2><h2 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h2><p>​    每个主题被分为若干个分区,每个分区有多个副本(每个broker可以有多个副本)</p>
-<p>​    每个分区 都有一个首领副本 所有生产者 消费者请求都会经过这个副本  和一个首选首领</p>
-<p>​    跟随者副本</p>
-<h2 id="处理请求"><a href="#处理请求" class="headerlink" title="处理请求"></a>处理请求</h2><p>​    生产请求 写入成功   acks = 0  or 1 or all</p>
-<p>​    获取请求 零复制  broker延迟作出响应以便积累足够的数据</p>
-<p>​    其他 元数据</p>
-<h2 id="物理存储"><a href="#物理存储" class="headerlink" title="物理存储"></a>物理存储</h2><h3 id="分区分配"><a href="#分区分配" class="headerlink" title="分区分配"></a>分区分配</h3><p>​        分区是一个基本存储单元</p>
-<h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3><p>​        kafka的数据不会一直保留,分区分成若干个片段  </p>
-<p>​        活跃片段永远不会被删除</p>
-<h3 id="文件格式"><a href="#文件格式" class="headerlink" title="文件格式"></a>文件格式</h3><p>​        消息、偏移量 、压缩</p>
-<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>​        每个分区维护一个索引 索引把偏移量映射到片段文件和偏移量在文件里的位置</p>
-<h3 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h3><p>​        delete和compact策略</p>
-<p>​        干净数据 清理过的</p>
-<p>​        污浊数据 清理后新写入的</p>
-<h1 id="可靠的数据传递"><a href="#可靠的数据传递" class="headerlink" title="可靠的数据传递"></a>可靠的数据传递</h1><h2 id="可靠性保证"><a href="#可靠性保证" class="headerlink" title="可靠性保证"></a>可靠性保证</h2><p>保证分区顺序</p>
-<p>只有当消息写入所有同步副本.(可以选择接受不同类型的确认)</p>
-<p>只要还有一个副本是活跃的,那么已提交的消息就不会丢失了</p>
-<p>消费者只能读取已经提交的消息</p>
-<h2 id="复制-1"><a href="#复制-1" class="headerlink" title="复制"></a>复制</h2><h3 id="同步副本"><a href="#同步副本" class="headerlink" title="同步副本"></a>同步副本</h3><ul>
-<li><p>活跃会话</p>
-</li>
-<li><p>从首领获取过最新消息</p>
-</li>
+<p>通过log.retention.bytes和log.retention.hours这两个参数来设置，当其中任意一个达到要求，都会执行删除。</p>
+<p><strong>日志压缩策略</strong></p>
+<p>Kafka还提供了“日志压缩(Log Compaction)”功能，通过这个功能可以有效的减少日志文件的大小， 缓解磁盘紧张的情况，在很多实际场景中，消息的key和value的值之间的对应关系是不断变化的，就像 数据库中的数据会不断被修改一样，消费者只关心key对应的最新的value。因此，我们可以开启kafka 的日志压缩功能，服务端会在后台启动启动Cleaner线程池，定期将相同的key进行合并，只保留最新的 value值。</p>
+<h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p><strong>磁盘存储的性能优化</strong></p>
+<p>​    我们现在大部分企业仍然用的是机械结构的磁盘，如果把消息以随机的方式写入到磁盘，那么磁盘首先 要做的就是寻址，也就是定位到数据所在的物理地址，在磁盘上就要找到对应的柱面、磁头以及对应的 扇区;这个过程相对内存来说会消耗大量时间，为了规避随机读写带来的时间消耗，kafka采用顺序写 的方式存储数据。即使是这样，但是频繁的I/O操作仍然会造成磁盘的性能瓶颈</p>
+<p><strong>零拷贝</strong></p>
+<p>消息从发送到落地保存，broker维护的消息日志本身就是文件目录，每个文件都是二进制保存，生产者 和消费者使用相同的格式来处理。在消费者获取消息时，服务器先从硬盘读取数据到内存，然后把内存 中的数据原封不动的通过socket发送给消费者。虽然这个操作描述起来很简单，但实际上经历了很多步 骤。</p>
+<p>操作系统将数据从磁盘读入到内核空间的页缓存</p>
+<ul>
+<li>应用程序将数据从内核空间读入到用户空间缓存中</li>
+<li>应用程序将数据写回到内核空间到socket缓存中</li>
+<li>操作系统将数据从socket缓冲区复制到网卡缓冲区，以便将数据经网络发出</li>
 </ul>
-<h3 id="非同步副本"><a href="#非同步副本" class="headerlink" title="非同步副本"></a>非同步副本</h3><h2 id="broker配置"><a href="#broker配置" class="headerlink" title="broker配置"></a>broker配置</h2><p>复制系数</p>
-<p>不完全的首领选举</p>
-<p>最少同步副本</p>
-<h2 id="生产者-1"><a href="#生产者-1" class="headerlink" title="生产者"></a>生产者</h2><h2 id="消费者-1"><a href="#消费者-1" class="headerlink" title="消费者"></a>消费者</h2><p>参考:</p>
+<p>通过“零拷贝”技术，可以去掉这些没必要的数据复制操作，同时也会减少上下文切换次数。现代的unix 操作系统提供一个优化的代码路径，用于将数据从页缓存传输到socket;在Linux中，是通过sendfile系 统调用来完成的。Java提供了访问这个系统调用的方法:FileChannel.transferTo API</p>
+<p>使用sendfile，只需要一次拷贝就行，允许操作系统将数据直接从页缓存发送到网络上。所以在这个优 化的路径中，只有最后一步将数据拷贝到网卡缓存中是需要的</p>
+<p><strong>页缓存</strong></p>
+<p>页缓存是操作系统实现的一种主要的磁盘缓存，但凡设计到缓存的，基本都是为了提升i/o性能，所以页 缓存是用来减少磁盘I/O操作的。</p>
+<p>磁盘高速缓存有两个重要因素:</p>
+<p>第一，访问磁盘的速度要远低于访问内存的速度，若从处理器L1和L2高速缓存访问则速度更快。 </p>
+<p>第二，数据一旦被访问，就很有可能短时间内再次访问。正是由于基于访问内存比磁盘快的多，所 以磁盘的内存缓存将给系统存储性能带来质的飞越。</p>
+<p>Kafka中大量使用了页缓存， 这是Kafka实现高吞吐的重要因素之 一 。 虽然消息都是先被写入页缓存， 然后由操作系统负责具体的刷盘任务的， 但在Kafka中同样提供了同步刷盘及间断性强制刷盘(fsync), 可以通过 log.flush.interval.messages 和 log.flush.interval.ms 参数来控制。</p>
+<p>同步刷盘能够保证消息的可靠性，避免因为宕机导致页缓存数据还未完成同步时造成的数据丢失。但是 实际使用上，我们没必要去考虑这样的因素以及这种问题带来的损失，消息可靠性可以由多副本来解 决，同步刷盘会带来性能的影响。 刷盘的操作由操作系统去完成即可</p>
+<h3 id="一些配置"><a href="#一些配置" class="headerlink" title="一些配置"></a>一些配置</h3><p><strong>group.id</strong></p>
+<p><strong>enable.auto.commit</strong></p>
+<p><strong>auto.offset.reset</strong></p>
+<p><strong>max.poll.records</strong></p>
+<h3 id="Kafka消息的可靠性"><a href="#Kafka消息的可靠性" class="headerlink" title="Kafka消息的可靠性"></a>Kafka消息的可靠性</h3><p>副本机制</p>
+<p>分区副本， 你可以创建更多的分区来提升可靠性，但是分区数过多也会带来性能上的开销，一般 来说，3个副本就能满足对大部分场景的可靠性要求</p>
+<p>确认机制</p>
+<p>Producer</p>
+<p>acks，生产者发送消息的可靠性，也就是我要保证我这个消息一定是到了broker并且完成了多副 本的持久化，但这种要求也同样会带来性能上的开销。它有几个可选项 1, -1(全部) ,0</p>
+<p>Consumer</p>
+<p>保障消息到了broker之后，消费者也需要有一定的保证，因为消费者也可能出现某些问题导致消 息没有消费到</p>
+<p>enable.auto.commit默认为true，也就是自动提交offset，自动提交是批量执行的，有一个时间窗 口，这种方式会带来重复提交或者消息丢失的问题，所以对于高可靠性要求的程序，要使用手动提 交。 对于高可靠要求的应用来说，宁愿重复消费也不应该因为消费异常而导致消息丢失</p>
+<h3 id="Producer"><a href="#Producer" class="headerlink" title="Producer"></a>Producer</h3><p><strong>异步发送</strong></p>
+<p>kafka客户端会积累一定量的消息统一组装成一个批量消息发送出 去，触发条件是前面提到的batch.size和linger.ms</p>
+<p><strong>batch.size</strong></p>
+<p>生产者发送多个消息到broker上的同一个分区时，为了减少网络请求带来的性能开销，通过批量的方式 来提交消息，可以通过这个参数来控制批量提交的字节数大小，默认大小是16384byte,也就是16kb， 意味着当一批消息大小达到指定的batch.size的时候会统一发送</p>
+<p><strong>linger.ms</strong></p>
+<p>Producer默认会把两次发送时间间隔内收集到的所有Requests进行一次聚合然后再发送，以此提高吞 吐量，而linger.ms就是为每次发送到broker的请求增加一些delay，以此来聚合更多的Message请求。 这个有点想TCP里面的Nagle算法，在TCP协议的传输中，为了减少大量小数据包的发送，采用了Nagle 算法，也就是基于小包的等-停协议。</p>
+<p>batch.size和linger.ms这两个参数是kafka性能优化的关键参数，很多同学会发现batch.size和 linger.ms这两者的作用是一样的，如果两个都配置了，那么怎么工作的呢?实际上，当二者都配 置的时候，只要满足其中一个要求，就会发送请求到broker上</p>
+<p>​    负载均衡</p>
+<p>​    批量</p>
+<p>​    压缩</p>
+<p>0:表示producer不需要等待broker的消息确认。这个选项时延最小但同时风险最大(因为当server宕</p>
+<p>机时，数据将会丢失)。 1:表示producer只需要获得kafka集群中的leader节点确认即可，这个选择时延较小同时确保了</p>
+<p>leader节点确认接收成功。 all(-1):需要ISR中所有的Replica给予接收确认，速度最慢，安全性最高，但是由于ISR可能会缩小到仅</p>
+<p>包含一个Replica，所以设置参数为all并不能一定避免数据丢失，</p>
+<h3 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h3><p>在实际生产过程中，每个topic都会有多个partitions，多个partitions的好处在于，</p>
+<p>一方面能够对 broker上的数据进行分片有效减少了消息的容量从而提升io性能。</p>
+<p>另外一方面，为了提高消费端的消费 能力，一般会通过多个consumer去消费同一个topic ，也就是消费端的负载均衡机制</p>
+<p>consumer和partition的数量建议</p>
+<ol>
+<li>如果consumer比partition多，是浪费，因为kafka的设计是在一个partition上是不允许并发的， 所以consumer数不要大于partition数</li>
+<li>如果consumer比partition少，一个consumer会对应于多个partitions，这里主要合理分配 consumer数和partition数，否则会导致partition里面的数据被取的不均匀。最好partiton数目是 consumer数目的整数倍，所以partition数目很重要，比如取24，就很容易设定consumer数目</li>
+<li>如果consumer从多个partition读到数据，不保证数据间的顺序性，kafka只保证在一个partition 上数据是有序的，但多个partition，根据你读的顺序会有不同</li>
+<li>增减consumer，broker，partition会导致rebalance，所以rebalance后consumer对应的 partition会发生变化</li>
+</ol>
+<p><strong>什么时候会触发这个策略呢?</strong></p>
+<p>当出现以下几种情况时，kafka会进行一次分区分配操作，也就是kafka consumer的rebalance</p>
+<p>1.同一个consumer group内新增了消费者</p>
+<p>2.消费者离开当前所属的consumer group，比如主动停机或者宕机 </p>
+<p>3.topic新增了分区(也就是分区数量发生了变化)</p>
+<p><strong>分区分配策略</strong></p>
+<p>一种是Range(默认)、 另一种是RoundRobin(轮询)、 StickyAssignor(粘性)。</p>
+<p><strong>StrickyAssignor</strong> **分配策略</p>
+<p>** kafka在0.11.x版本支持了StrickyAssignor, 翻译过来叫粘滞策略，它主要有两个目的</p>
+<p>分区的分配尽可能的均匀<br>分区的分配尽可能和上次分配保持相同</p>
+<p><strong>谁来执行Rebalance以及管理consumer的group呢?</strong></p>
+<p>Kafka提供了一个角色:coordinator来执行对于consumer group的管理，Kafka提供了一个角色: coordinator来执行对于consumer group的管理，当consumer group的第一个consumer启动的时 候，它会去和kafka server确定谁是它们组的coordinator。之后该group内的所有成员都会和该 coordinator进行协调通信</p>
+<p><strong>如何保存消费端的消费位置</strong></p>
+<p><strong>什么是</strong> <strong>offset</strong></p>
+<p>前面在讲解partition的时候，提到过offset， 每个topic可以划分多个分区(每个Topic至少有一个分 区)，同一topic下的不同分区包含的消息是不同的。每个消息在被添加到分区时，都会被分配一个 offset(称之为偏移量)，它是消息在此分区中的唯一编号，kafka通过offset保证消息在分区内的顺 序，offset的顺序不跨分区，即kafka只保证在同一个分区内的消息是有序的; 对于应用层的消费来 说，每次消费一个消息并且提交以后，会保存当前消费到的最近的一个offset。那么offset保存在哪 里?</p>
+<p><strong>offset在哪里维护</strong></p>
+<p>在kafka中，提供了一个<strong>consumer_offsets_*</strong>的一个topic, 把offset信息写入到这个topic中. consumer_offsets——按保存了每个consumer group某一时刻提交的offset信息。 __consumer_offsets 默认有50个分区。</p>
+<p>Math.abs(“groupid”.hashCode())%groupMetadataTopicPartitionCount ; </p>
+<p><strong>分区的副本机制 </strong>(副本机制,导致kafka的partition不能过多, 文件句柄,同步,写入确认)</p>
+<p>我们已经知道Kafka的每个topic都可以分为多个Partition，并且多个partition会均匀分布在集群的各个 节点下。虽然这种方式能够有效的对数据进行分片，但是对于每个partition来说，都是单点的，当其中 一个partition不可用的时候，那么这部分消息就没办法消费。所以kafka为了提高partition的可靠性而 提供了副本的概念(Replica),通过副本机制来实现冗余备份。</p>
+<p>每个分区可以有多个副本，并且在副本集合中会存在一个leader的副本，所有的读写请求都是由leader 副本来进行处理。剩余的其他副本都做为follower副本，follower副本会从leader副本同步消息日志。 这个有点类似zookeeper中leader和follower的概念，但是具体的时间方式还是有比较大的差异。所以 我们可以认为，副本集会存在一主多从的关系。</p>
+<p>一般情况下，同一个分区的多个副本会被均匀分配到集群中的不同broker上，当leader副本所在的 broker出现故障后，可以重新选举新的leader副本继续对外提供服务。通过这样的副本机制来提高 kafka集群的可用性</p>
+<p>Kafka分区下有可能有很多个副本(replica)用于实现冗余，从而进一步实现高可用。副本根据角色的不同</p>
+<p>可分为3类:<br> <strong>leader</strong>副本:响应clients端读写请求的副本 <strong>follower</strong>副本:被动地备份leader副本中的数据，不能响应clients端读写请求。</p>
+<p><strong>ISR</strong>副本:包含了leader副本和所有与leader副本保持同步的follower副本——如何判定是否与leader同 步后面会提到每个Kafka副本对象都有两个重要的属性:LEO和HW。注意是所有的副本，而不只是 leader副本。</p>
+<p><strong>LEO</strong>:即日志末端位移(log end offset)，记录了该副本底层日志(log)中下一条消息的位移值。注意是下 一条消息!也就是说，如果LEO=10，那么表示该副本保存了10条消息，位移值范围是[0, 9]。另外， leader LEO和follower LEO的更新是有区别的。我们后面会详细说</p>
+<p><strong>HW</strong>:即上面提到的水位值。对于同一个副本对象而言，其HW值不会大于LEO值。小于等于HW值的所 有消息都被认为是“已备份”的(replicated)。同理，leader副本和follower副本的HW更新是有区别的</p>
+<p>从生产者发出的 一 条消息首先会被写入分区的leader 副本，不过还需要等待ISR集合中的所有 follower副本都同步完之后才能被认为已经提交，之后才会更新分区的HW, 进而消费者可以消费 到这条消息。</p>
+<p>ISR集合中的副本必须满足两个条件</p>
+<p>\1. 副本所在节点必须维持着与zookeeper的连接</p>
+<p>\2. 副本最后一条消息的offset与leader副本的最后一条消息的offset之间的差值不能超过指定的阈值 (replica.lag.time.max.ms) replica.lag.time.max.ms:如果该follower在此时间间隔内一直没有追 上过leader的所有消息，则该follower就会被剔除isr列表</p>
+<p>\3. ISR数据保存在Zookeeper的 /brokers/topics/<topic>/partitions/<partitionid>/state 节点中</partitionid></topic></p>
+<p>参考:</p>
 <blockquote>
 <p>Kafka权威指南</p>
 </blockquote>
+<p>实践: <a href="https://www.infoq.cn/article/Q0o*QzLQiay31MWiOBJH" target="_blank" rel="noopener">https://www.infoq.cn/article/Q0o*QzLQiay31MWiOBJH</a></p>
+<p>版本<a href="https://blog.csdn.net/lidazhou/article/details/95909496?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">https://blog.csdn.net/lidazhou/article/details/95909496?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task</a></p>
+<p><a href="https://kafka.apache.org/documentation/" target="_blank" rel="noopener">https://kafka.apache.org/documentation/</a></p>
+<p><a href="https://rocketmq.apache.org/rocketmq/how-to-support-more-queues-in-rocketmq/" target="_blank" rel="noopener">https://rocketmq.apache.org/rocketmq/how-to-support-more-queues-in-rocketmq/</a></p>
+<p><a href="https://rocketmq.apache.org/docs/motivation/" target="_blank" rel="noopener">https://rocketmq.apache.org/docs/motivation/</a></p>
+<p> <a href="https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/" target="_blank" rel="noopener">https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/</a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 951488791@qq.com </span>
@@ -775,10 +829,10 @@
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>kafka深入浅出</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">764</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">4.3k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-06-12, 20:05:37</p>
-    <p><span class="copy-title">最后更新:</span>2019-07-05, 09:35:11</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-18, 21:30:14</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/06/12/Overview_Kafka/" title="kafka深入浅出">http://yoursite.com/2019/06/12/Overview_Kafka/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
@@ -822,7 +876,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#kafka','#framework','#netty','#nio','#zookeeper','#Spec','#thread','#spring','#mysql','#tomcat','#juc','#classLoader','#hotspot','#j2ee','#summary','#redis','#ioc','#lang','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#event','#aop','#collections','#applicationContext','#map','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#classLoader','#juc','#java','#note','#jvm','#distributed','#netty','#nio','#framework','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#hotspot','#lang','#j2ee','#redis','#summary','#ioc','#io','#serialization','#file','#kafka','#elasticsearch','#servlet','#collections','#gc','#ejb','#event','#aop','#map','#applicationContext','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
