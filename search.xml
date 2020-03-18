@@ -4,6 +4,52 @@
   
     
     <entry>
+      <title>Overview_Hbase</title>
+      <link href="/2020/03/18/Overview-Hbase/"/>
+      <url>/2020/03/18/Overview-Hbase/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-架构"><a href="#1-架构" class="headerlink" title="1.架构"></a>1.架构</h1><p><strong>逻辑结构</strong> </p><p>行  row key+多个cloum</p><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyfpq9aqej31cq0o2qlr.jpg" alt="image-20200318220931027" style="zoom:67%;"></p><p><strong>存储结构</strong> </p><p>​        每列一行列式存储,存储的是列信息.  (Rowkey  famili  info   ts  type  value  (按照时间戳 返回最大的数据 cell))</p><p><img src="http://tva1.sinaimg.cn/large/00831rSTly1gcyfsebdyej31dg0p4ne6.jpg" alt="image-20200318221204674" style="zoom:67%;"></p><p><strong>职责架构</strong>        </p><p>​        Region server 管理. Dml (data multi)</p><p>​            data :get put delete  (store-&gt; store file)</p><p>​            region : splitRegion compactRegion</p><p>​        Master的作用 ddl(data defined)</p><p>​            Table : create delete alter</p><p>​            RegionServer:分配regions到每个RegionServer,监控每个RegionServer的状态</p><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyflf95zvj31p60u044s.jpg" alt="image-20200315175244476"></p><h1 id="2-写流程"><a href="#2-写流程" class="headerlink" title="2.写流程"></a>2.写流程</h1><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyfli8kvoj31ee0ngq6o.jpg" alt="image-20200315180535234"></p><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyflfp8d7j31p60u044s.jpg" alt="image-20200315181610036">    </p><p>写wal 内存</p><p>​    写内存</p><p>​    wal同步</p><p>​    成功-&gt;提交</p><p>​    不成功-&gt;回滚</p><h1 id="3-flush流程"><a href="#3-flush流程" class="headerlink" title="3.flush流程"></a>3.flush流程</h1><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyflggz2zj31p60u044s.jpg" alt="image-20200315182048399"></p><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyflgu4lfj318l0u0q75.jpg" alt="image-20200315182225365"></p><h1 id="4-读流程"><a href="#4-读流程" class="headerlink" title="4.读流程"></a>4.读流程</h1><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyflha60ej31e60nwwi7.jpg" alt="image-20200315185530449"></p><h1 id="5-删除流程"><a href="#5-删除流程" class="headerlink" title="5.删除流程"></a>5.删除流程</h1><p>Flush (同个文件)和 compact (major)</p><p>删除标记 </p><p>Flush不会</p><p>compact会</p><h1 id="6-Split流程"><a href="#6-Split流程" class="headerlink" title="6.Split流程"></a>6.Split流程</h1><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyflja59rj31ge0o0qna.jpg" alt="image-20200315220805448"></p><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyflhrv2mj31cs0mq420.jpg" alt="image-20200315220835884"></p><p>预分区、不建议过多列簇(速度不一致,小文件)</p><h1 id="7-Compact流程"><a href="#7-Compact流程" class="headerlink" title="7.Compact流程"></a>7.Compact流程</h1><p> Minor compact只是进行文件merge操作，</p><p>而Major compact除了做文件Merge操作，还会将其中的delete项删除。</p><p>hbase为了防止小文件（被刷到磁盘的menstore）过多，以保证保证查询效率，hbase需要在必要的时候将这些小的store file合并成相对较大的store file，这个过程就称之为compaction。在hbase中，主要存在两种类型的compaction：minor compaction和major compaction。</p><p>major compaction 的功能是将所有的store file合并成一个，触发major compaction的可能条件有：major_compact 命令、majorCompact() API、region server自动运行（相关参数：hbase.hregion.majoucompaction 默认为24 小时、hbase.hregion.majorcompaction.jetter 默认值为0.2 防止region server 在同一时间进行major compaction）。hbase.hregion.majorcompaction.jetter参数的作用是：对参数hbase.hregion.majoucompaction 规定的值起到浮动的作用，假如两个参数都为默认值24和0,2，那么major compact最终使用的数值为：19.2~28.8 这个范围。</p><p>minor compaction的运行机制要复杂一些，它由一下几个参数共同决定：</p><p>hbase.hstore.compaction.min :默认值为 3，表示至少需要三个满足条件的store file时，minor compaction才会启动</p><p>hbase.hstore.compaction.max 默认值为10，表示一次minor compaction中最多选取10个store file</p><p>hbase.hstore.compaction.min.size 表示文件大小小于该值的store file 一定会加入到minor compaction的store file中</p><p>hbase.hstore.compaction.max.size 表示文件大小大于该值的store file 一定会被minor compaction排除</p><p>hbase.hstore.compaction.ratio 将store file 按照文件年龄排序（older to younger），minor compaction总是从older store file开始选择，如果该文件的size 小于它后面hbase.hstore.compaction.max 个store file size 之和乘以 该ratio，则该store file 也将加入到minor compaction 中。</p><p>如果对minor compaction过程还是不了解，可以去看hbase中关于minor compaction 的源码，或者：<a href="http://www.linuxidc.com/Linux/2013-05/83675.htm" target="_blank" rel="noopener">http://www.linuxidc.com/Linux/2013-05/83675.htm</a></p><p>优化: rowkey设计 预分区</p><p>参考：<a href="http://www.linuxidc.com/Linux/2013-05/83674.htm" target="_blank" rel="noopener">http://www.linuxidc.com/Linux/2013-05/83674.htm</a></p><p>参考:<a href="https://www.bilibili.com/video/av65591724?p=1" target="_blank" rel="noopener">https://www.bilibili.com/video/av65591724?p=1</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> distributed </tag>
+            
+            <tag> hbase </tag>
+            
+            <tag> framework </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Overview_Spark</title>
+      <link href="/2020/03/18/Overview-Spark/"/>
+      <url>/2020/03/18/Overview-Spark/</url>
+      
+        <content type="html"><![CDATA[<p>spark入门,看到一篇不错的文章记录下</p><a id="more"></a><p>Spark 是专为大规模数据处理而设计的快速通用的计算引擎，是apache的一个开源项目。是一种跟hadoop相似的通用分布式并行计算框架，但是两者之间还存在一些不同之处。spark是一种基于内存计算的分布式执行框架，在执行速度上大大优于hadoop.</p><h1 id="1-spark的历史"><a href="#1-spark的历史" class="headerlink" title="1. spark的历史"></a>1. spark的历史</h1><ul><li>2009年，spark诞生于加州大学伯克利分校AMPLab.</li><li>2010和2012年关于spark的两篇论文发表：<br>  M. Zaharia, M. Chowdhury, M. J. Franklin, S. Shenker, and I. Stoica, “Spark: cluster computing with working sets,” in Proceedings of the 2nd USENIX conference on Hot topics in cloud computing, 2010, pp. 10–10.<br>   M. Zaharia, M. Chowdhury, T. Das, A. Dave, J. Ma, M. McCauley, M. J. Franklin, S. Shenker, and I. Stoica, “Resilient distributed datasets: A fault-tolerant abstraction for in- memory cluster computing,” in Proceedings of the 9th USENIX conference on Networked Systems Design and Implementation, 2012, pp. 2–2.</li><li>2013年，在GitHub上成立了Spark开发社区并成为Apache孵化项目。</li><li>2014年2月，该项目成为Apache顶级项目。</li><li>2014年5月30日，Spark 1.0.0版正式上线。</li><li>至2016年底，spark的最新版本2.1.0已发布上线。</li><li>截止目前，Spark官方维护运营公司Databricks已经组织并举办了四年Spark Summit技术峰会。</li></ul><h1 id="2-spark的特点"><a href="#2-spark的特点" class="headerlink" title="2. spark的特点"></a>2. spark的特点</h1><ul><li>处理速度快<br>  随着信息技术的发展，数据也以惊人的数据在增长，而数据处理的速度也成为人们越来越关注的话题。由于spark支持内存级计算功能，因此spark执行速度要远远高于hadoop</li><li>多语言、多API支持<br>  Spark支持多语言。Spark允许Java、Scala、Python及R，这允许更多的开发者在自己熟悉的语言环境下进行工作，普及了Spark的应用范围。</li><li>多业务场景支持<br>  提供了对etl、流处理、机器学习和图计算等几种主流数据处理场景的支持</li><li>开源生态环境支持<br>  拥有广泛的开源生态环境的支持，底层数据源部分包括hdfs、cassandra、hbase以及alluxio等等，拥有yarn、mesos等分布式框架的支持，如下图所示：</li></ul><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyfkedaiyj30fe08u74u.jpg" alt="image-20190716100546382"></p><p>图1. Spark开源生态系统</p><h1 id="3-spark的体系结构"><a href="#3-spark的体系结构" class="headerlink" title="3. spark的体系结构"></a>3. spark的体系结构</h1><p>Spark主要包括Spark Core和在Spark Core基础之上建立的应用框架Spark SQL、Spark Streaming、MLlib和GraphX.<br> 　　Core库中主要包括上下文（Spark Context）、抽象数据集（RDD、DataFrame和DataSet）、调度器（Scheduler）、洗牌（shuffle）和序列化器（Serializer）等。Spark系统中的计算、IO、调度和shuffle等系统基本功能都在其中。<br> 　　在Core库之上就根据业务需求分为用于交互式查询的SQL、实时流处理Streaming、机器学习Mllib和图计算GraphX四大框架，除此外还有一些其他实验性项目如Tachyon、BlinkDB和Tungsten等。Hdfs是Spark主要应用的持久化存储系统。Spark 体系结构如下图所示：</p><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyfkcrer9j30ej07jwey.jpg" alt="image-20190716100603919"></p><p>图2. Spark 体系结构</p><h1 id="4-spark-执行框架"><a href="#4-spark-执行框架" class="headerlink" title="4. spark 执行框架"></a>4. spark 执行框架</h1><p>spark应用程序运行在分布式集群上，通过集群管理器（cluster manger）将驱动程序（driver program）节点跟工作节点（work node）相连，实现分布式并行工作。如下图所示：</p><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyfkddpbdj30cf061jrj.jpg" alt="image-20190716100625041"></p><p>​                                                                            图3. spark 执行流程</p><p>创建spark应用程序时，首先要创建sparkContext，SparkContext 允许驱动程序（spark driver）通过资源管理器访问集群。同时sparkContext还存有来自sparkConf的配置信息。这些配置信息用于分配集群资源，比如worker节点运行的executors 的number, memory 大小和cores等等。驱动程序将这些配置信息通知给集群管理器（cluster manager），集群管理器收到配置信息后，在集群上根据程序配置的executor number给应用程序寻找相应个数的工作节点（work node）。并在每个工作节点创建一个executor（作为单个执行单元），每个executor根据程序的配置信息分配响应的内存空间（如shuffle内存和存储内存等等）。<br> 　　程序执行时，根据rdd（弹性分布式数据集—spark程序中数据的基本类型）中分区的数量将每个stag（程序的每个执行步骤，以shuffle为边界）分成相同数目的task，分到各个executor中去执行。每个executor中一次执行的task数量是由程序调用时给executor配置的核数决定的。</p><h1 id="５-spark的基本数据类型"><a href="#５-spark的基本数据类型" class="headerlink" title="５. spark的基本数据类型"></a>５. spark的基本数据类型</h1><p>RDD、DataFrame和DataSet可以说是spark独有的三种基本的数据类型。Spark的核心概念是RDD (resilientdistributed dataset)，指的是一个只读的，可分区的分布式数据集，这个数据集的全部或部分可以缓存在内存中，在多次计算间重用。DataFrame是一个以RDD为基础的，但却是一种类似二维数据表的一种分布式数据集。与RDD不同的是，前者带有schema元信息，即DataFrame所表示的二维表数据集的每一列都带有名称和类型。这样，spark就可以使用sql操作dataframe，像操作数据库中的表一样。目前，spark sql支持大多数的sql数据库的操作。Dataset可以认为是DataFrame的一个特例，主要区别是Dataset每一个record存储的是一个强类型值而不是一个Row。后面版本DataFrame会继承DataSet，DataFrame和DataSet可以相互转化，df.as[ElementType]这样可以把DataFrame转化为DataSet，ds.toDF()这样可以把DataSet转化为DataFrame。创建Dataframe的代码如下所示：</p><pre><code>val df = spark.read.json(&quot;examples/src/main/resources/people.json&quot;)// Displays the content of the DataFrame to stdoutdf.show()// +----+-------+// | age|   name|// +----+-------+// |null|Michael|// |  30|   Andy|// |  19| Justin|// +----+-------+</code></pre><p>创建Ｄataset的代码如下所示：</p><pre><code>// Note: Case classes in Scala 2.10 can support only up to 22 fields. To work around this limit,// you can use custom classes that implement the Product interfacecase class Person(name: String, age: Long)// Encoders are created for case classesval caseClassDS = Seq(Person(&quot;Andy&quot;, 32)).toDS()caseClassDS.show()// +----+---+// |name|age|// +----+---+// |Andy| 32|// +----+---+// Encoders for most common types are automatically provided by importing spark.implicits._val primitiveDS = Seq(1, 2, 3).toDS()primitiveDS.map(_ + 1).collect() // Returns: Array(2, 3, 4)// DataFrames can be converted to a Dataset by providing a class. Mapping will be done by nameval path = &quot;examples/src/main/resources/people.json&quot;val peopleDS = spark.read.json(path).as[Person]peopleDS.show()// +----+-------+// | age|   name|// +----+-------+// |null|Michael|// |  30|   Andy|// |  19| Justin|// +----+-------+</code></pre><h1 id="6-spark-scheduler（spark任务调度）"><a href="#6-spark-scheduler（spark任务调度）" class="headerlink" title="6. spark scheduler（spark任务调度）"></a>6. spark scheduler（spark任务调度）</h1><p>(1) 在使用spark-summit提交spark程序后，根据提交时指定（deploy-mode）的位置，创建driver进程，driver进程根据sparkconf中的配置，初始化sparkcontext。Sparkcontext的启动后，创建DAG Scheduler（将DAG图分解成stage）和Task Scheduler（提交和监控task）两个调度模块。<br> 　　(2) driver进程根据配置参数向resource manager（资源管理器）申请资源（主要是用来执行的executor），resource manager接到到了Application的注册请求之后，会使用自己的资源调度算法，在spark集群的worker上，通知worker为application启动多个Executor。<br> 　　(3) executor创建后，会向resource manager进行资源及状态反馈，以便resource manager对executor进行状态监控，如监控到有失败的executor，则会立即重新创建。<br> 　　(4) Executor会向taskScheduler反向注册，以便获取taskScheduler分配的task。<br> 　　(5) Driver完成SparkContext初始化，继续执行application程序，当执行到Action时，就会创建Job。并且由DAGScheduler将Job划分多个Stage,每个Stage 由TaskSet 组成，并将TaskSet提交给taskScheduler,taskScheduler把TaskSet中的task依次提交给Executor, Executor在接收到task之后，会使用taskRunner（封装task的线程池）来封装task,然后，从Executor的线程池中取出一个线程来执行task。<br> 　　　就这样Spark的每个Stage被作为TaskSet提交给Executor执行，每个Task对应一个RDD的partition,执行我们的定义的算子和函数。直到所有操作执行完为止。如下图所示：</p><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyfkdvbb8j30cu081q3b.jpg" alt="image-20190716101520996"></p><p>图4. Spark 任务调度流程</p><h1 id="7-Spark作业调度中stage划分"><a href="#7-Spark作业调度中stage划分" class="headerlink" title="7. Spark作业调度中stage划分"></a>7. Spark作业调度中stage划分</h1><p>Spark在接收到提交的作业后，DAGScheduler会根据RDD之间的依赖关系将作业划分成多个stage，DAGSchedule在将划分的stage提交给TASKSchedule，TASKSchedule将每个stage分成多个task，交给executor执行。task的个数等于stage末端的RDD的分区个数。因此对了解stage的划分尤为重要。<br> 　　在spark中，RDD之间的依赖关系有两种：一种是窄依赖，一种是宽依赖。窄依赖的描述是：父RDD的分区最多只会被子RDD的一个分区使用。宽依赖是：父RDD的一个分区会被子RDD的多个分区使用。如下图所示：</p><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyfkf8ftlj30cq07ugm9.jpg" alt="image-20190716101534397"></p><p>图5. RDD的两种依赖关系</p><p>　　上图中，以一竖线作为分界，左边是窄依赖，右边是宽依赖。<br> 　　Stage的划分不仅根据RDD的依赖关系，还有一个原则是将依赖链断开，每个stage内部可以并行运行，整个作业按照stage顺序依次执行，最终完成整个Job。</p><p>实际划分时，DAGScheduler就是根据DAG图，从图的末端逆向遍历整个依赖链，一般是以一次shuffle为边界来划分的。一般划分stage是从程序执行流程的最后往前划分，遇到宽依赖就断开，遇到窄依赖就将将其加入当前stage中。一个典型的RDD Graph如下图所示：其中实线框是RDD，RDD内的实心矩形是各个分区，实线箭头表示父子分区间依赖关系，虚线框表示stage。针对下图流程首先根据最后一步join（宽依赖）操作来作为划分stage的边界，再往左走，A和B之间有个group by也为宽依赖，也可作为stage划分的边界，所以我们将下图划分为三个stage。</p><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyfkevj9bj30av07jdgc.jpg" alt="image-20190716101544528"></p><p>spark stream<br><a href="https://blog.csdn.net/wzqllwy/article/details/78869889" target="_blank" rel="noopener">https://blog.csdn.net/wzqllwy/article/details/78869889</a><br><a href="https://mp.weixin.qq.com/s/YpP4a8Xcu23lhYRjWOFbdQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/YpP4a8Xcu23lhYRjWOFbdQ</a><br><a href="https://bbs.csdn.net/topics/391038024" target="_blank" rel="noopener">https://bbs.csdn.net/topics/391038024</a><br><a href="https://blog.csdn.net/legotime/article/details/51836040" target="_blank" rel="noopener">https://blog.csdn.net/legotime/article/details/51836040</a><br><a href="http://dblab.xmu.edu.cn/blog/1733-2/" target="_blank" rel="noopener">http://dblab.xmu.edu.cn/blog/1733-2/</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> distributed </tag>
+            
+            <tag> framework </tag>
+            
+            <tag> spark </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Redis集群篇</title>
       <link href="/2020/02/28/Redis%E9%9B%86%E7%BE%A4%E7%AF%87/"/>
       <url>/2020/02/28/Redis%E9%9B%86%E7%BE%A4%E7%AF%87/</url>
@@ -614,11 +660,11 @@
       
         <tags>
             
-            <tag> classLoader </tag>
-            
             <tag> spring </tag>
             
             <tag> tomcat </tag>
+            
+            <tag> classLoader </tag>
             
             <tag> servlet </tag>
             
@@ -872,11 +918,11 @@
       
         <tags>
             
-            <tag> juc </tag>
-            
             <tag> java </tag>
             
             <tag> note </tag>
+            
+            <tag> juc </tag>
             
         </tags>
       
@@ -895,11 +941,11 @@
       
         <tags>
             
+            <tag> framework </tag>
+            
             <tag> netty </tag>
             
             <tag> nio </tag>
-            
-            <tag> framework </tag>
             
         </tags>
       
