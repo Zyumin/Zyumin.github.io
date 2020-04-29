@@ -143,7 +143,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="53">
-<input type="hidden" id="yelog_site_word_count" value="174.4k">
+<input type="hidden" id="yelog_site_word_count" value="176.1k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -245,11 +245,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">tomcat</a>
+        <a href="javascript:" class="color1">mysql</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">mysql</a>
+        <a href="javascript:" class="color2">tomcat</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -289,11 +289,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">elasticsearch</a>
+        <a href="javascript:" class="color1">kafka</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">kafka</a>
+        <a href="javascript:" class="color4">elasticsearch</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -313,11 +313,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
+        <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color3">gc</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -663,12 +663,12 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2020-03-18 21:30:14">2019-06-12 20:05</time>
+        创建时间:<time class="date" title="更新时间: 2020-04-21 17:04:18">2019-06-12 20:05</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:4.3k</span>
+        <span>字数:4.7k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -687,7 +687,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka"><span class="toc-text">kafka</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#存储原理"><span class="toc-text">存储原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#性能"><span class="toc-text">性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些配置"><span class="toc-text">一些配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kafka消息的可靠性"><span class="toc-text">Kafka消息的可靠性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Producer"><span class="toc-text">Producer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Consumer"><span class="toc-text">Consumer</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka"><span class="toc-text">kafka</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#存储原理"><span class="toc-text">存储原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#性能"><span class="toc-text">性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些配置"><span class="toc-text">一些配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kafka消息的可靠性"><span class="toc-text">Kafka消息的可靠性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Producer"><span class="toc-text">Producer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Consumer"><span class="toc-text">Consumer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深入分析Kafka高可用性"><span class="toc-text">深入分析Kafka高可用性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#producer"><span class="toc-text">producer</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -714,6 +714,7 @@
 <p>​    文件分段 数据文件分段(顺序读写、分段命令、二分查找)</p>
 <p>​                         <img src="https://tva1.sinaimg.cn/large/00831rSTly1gcyek8wkwjj31720fqdik.jpg" alt="image-20200311212633833"></p>
 <p>​    数据文件索引(分段索引、稀疏存储)</p>
+<p><img src="https://tva1.sinaimg.cn/large/00831rSTgy1gd0jx2heztj316w0smdq5.jpg" alt="image-20200320180603193" style="zoom:67%;"></p>
 <p>查找的算法是</p>
 <ol>
 <li><p>根据offset的值，查找segment段中的index索引文件。由于索引文件命名是以上一个文件的最后 一个offset进行命名的，所以，使用二分查找算法能够根据offset快速定位到指定的索引文件。</p>
@@ -730,17 +731,22 @@
 <pre><code> offset: 5371 position: 102124 CreateTime: 1531477349286 isvalid: true keysize:
 -1 valuesize: 12 magic: 2 compresscodec: NONE producerId: -1 producerEpoch: -1
 sequence: -1 isTransactional: false headerKeys: [] payload: message_5371
-</code></pre><p>offset和position这两个前面已经讲过了、 createTime表示创建时间、keysize和valuesize表示key和 value的大小、 compresscodec表示压缩编码、payload:表示消息的具体内容    </p>
+</code></pre><p>offset和position这两个前面已经讲过了、 </p>
+<p>createTime表示创建时间、</p>
+<p>keysize和valuesize表示key和 value的大小、 </p>
+<p>compresscodec表示压缩编码、</p>
+<p>payload:表示消息的具体内容    </p>
 <p>日志的清除策略以及压缩策略</p>
 <p><strong>日志清除策略</strong></p>
 <p>前面提到过，日志的分段存储，一方面能够减少单个文件内容的大小，另一方面，方便kafka进行日志 清理。日志的清理策略有两个</p>
 <ul>
-<li>根据消息的保留时间，当消息在kafka中保存的时间超过了指定的时间，就会触发清理过程<br>  根据topic存储的数据大小，当topic所占的日志文件大小大于一定的阀值，则可以开始删除最旧的消息。kafka会启动一个后台线程，定期检查是否存在可以删除的消息 </li>
+<li>根据消息的保留时间，当消息在kafka中保存的时间超过了指定的时间，就会触发清理过程</li>
+<li>根据topic存储的数据大小，当topic所占的日志文件大小大于一定的阀值，则可以开始删除最旧的消息。kafka会启动一个后台线程，定期检查是否存在可以删除的消息 </li>
 </ul>
 <p>通过log.retention.bytes和log.retention.hours这两个参数来设置，当其中任意一个达到要求，都会执行删除。</p>
 <p><strong>日志压缩策略</strong></p>
 <p>Kafka还提供了“日志压缩(Log Compaction)”功能，通过这个功能可以有效的减少日志文件的大小， 缓解磁盘紧张的情况，在很多实际场景中，消息的key和value的值之间的对应关系是不断变化的，就像 数据库中的数据会不断被修改一样，消费者只关心key对应的最新的value。因此，我们可以开启kafka 的日志压缩功能，服务端会在后台启动启动Cleaner线程池，定期将相同的key进行合并，只保留最新的 value值。</p>
-<h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p><strong>磁盘存储的性能优化</strong></p>
+<h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p><strong>磁盘存储的性能优化</strong> <strong>顺序写</strong></p>
 <p>​    我们现在大部分企业仍然用的是机械结构的磁盘，如果把消息以随机的方式写入到磁盘，那么磁盘首先 要做的就是寻址，也就是定位到数据所在的物理地址，在磁盘上就要找到对应的柱面、磁头以及对应的 扇区;这个过程相对内存来说会消耗大量时间，为了规避随机读写带来的时间消耗，kafka采用顺序写 的方式存储数据。即使是这样，但是频繁的I/O操作仍然会造成磁盘的性能瓶颈</p>
 <p><strong>零拷贝</strong></p>
 <p>消息从发送到落地保存，broker维护的消息日志本身就是文件目录，每个文件都是二进制保存，生产者 和消费者使用相同的格式来处理。在消费者获取消息时，服务器先从硬盘读取数据到内存，然后把内存 中的数据原封不动的通过socket发送给消费者。虽然这个操作描述起来很简单，但实际上经历了很多步 骤。</p>
@@ -784,7 +790,7 @@ sequence: -1 isTransactional: false headerKeys: [] payload: message_5371
 <p>0:表示producer不需要等待broker的消息确认。这个选项时延最小但同时风险最大(因为当server宕</p>
 <p>机时，数据将会丢失)。 1:表示producer只需要获得kafka集群中的leader节点确认即可，这个选择时延较小同时确保了</p>
 <p>leader节点确认接收成功。 all(-1):需要ISR中所有的Replica给予接收确认，速度最慢，安全性最高，但是由于ISR可能会缩小到仅</p>
-<p>包含一个Replica，所以设置参数为all并不能一定避免数据丢失，</p>
+<p>包含一个Replica，所以设置参数为all并不能一定避免数据丢失.</p>
 <h3 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h3><p>在实际生产过程中，每个topic都会有多个partitions，多个partitions的好处在于，</p>
 <p>一方面能够对 broker上的数据进行分片有效减少了消息的容量从而提升io性能。</p>
 <p>另外一方面，为了提高消费端的消费 能力，一般会通过多个consumer去消费同一个topic ，也就是消费端的负载均衡机制</p>
@@ -806,7 +812,9 @@ sequence: -1 isTransactional: false headerKeys: [] payload: message_5371
 <p>** kafka在0.11.x版本支持了StrickyAssignor, 翻译过来叫粘滞策略，它主要有两个目的</p>
 <p>分区的分配尽可能的均匀<br>分区的分配尽可能和上次分配保持相同</p>
 <p><strong>谁来执行Rebalance以及管理consumer的group呢?</strong></p>
-<p>Kafka提供了一个角色:coordinator来执行对于consumer group的管理，Kafka提供了一个角色: coordinator来执行对于consumer group的管理，当consumer group的第一个consumer启动的时 候，它会去和kafka server确定谁是它们组的coordinator。之后该group内的所有成员都会和该 coordinator进行协调通信</p>
+<p>Kafka提供了一个角色:coordinator来执行对于consumer group的管理，Kafka提供了一个角色: coordinator来执行对于consumer group的管理，</p>
+<p>当consumer group的第一个consumer启动的时 候，它会去和kafka server确定谁是它们组的coordinator。</p>
+<p>之后该group内的所有成员都会和该 coordinator进行协调通信</p>
 <p><strong>如何保存消费端的消费位置</strong></p>
 <p><strong>什么是</strong> <strong>offset</strong></p>
 <p>前面在讲解partition的时候，提到过offset， 每个topic可以划分多个分区(每个Topic至少有一个分 区)，同一topic下的不同分区包含的消息是不同的。每个消息在被添加到分区时，都会被分配一个 offset(称之为偏移量)，它是消息在此分区中的唯一编号，kafka通过offset保证消息在分区内的顺 序，offset的顺序不跨分区，即kafka只保证在同一个分区内的消息是有序的; 对于应用层的消费来 说，每次消费一个消息并且提交以后，会保存当前消费到的最近的一个offset。那么offset保存在哪 里?</p>
@@ -818,7 +826,8 @@ sequence: -1 isTransactional: false headerKeys: [] payload: message_5371
 <p>每个分区可以有多个副本，并且在副本集合中会存在一个leader的副本，所有的读写请求都是由leader 副本来进行处理。剩余的其他副本都做为follower副本，follower副本会从leader副本同步消息日志。 这个有点类似zookeeper中leader和follower的概念，但是具体的时间方式还是有比较大的差异。所以 我们可以认为，副本集会存在一主多从的关系。</p>
 <p>一般情况下，同一个分区的多个副本会被均匀分配到集群中的不同broker上，当leader副本所在的 broker出现故障后，可以重新选举新的leader副本继续对外提供服务。通过这样的副本机制来提高 kafka集群的可用性</p>
 <p>Kafka分区下有可能有很多个副本(replica)用于实现冗余，从而进一步实现高可用。副本根据角色的不同</p>
-<p>可分为3类:<br> <strong>leader</strong>副本:响应clients端读写请求的副本 <strong>follower</strong>副本:被动地备份leader副本中的数据，不能响应clients端读写请求。</p>
+<p>可分为3类:<br> <strong>leader</strong>副本:响应clients端读写请求的副本</p>
+<p> <strong>follower</strong>副本:被动地备份leader副本中的数据，不能响应clients端读写请求。</p>
 <p><strong>ISR</strong>副本:包含了leader副本和所有与leader副本保持同步的follower副本——如何判定是否与leader同 步后面会提到每个Kafka副本对象都有两个重要的属性:LEO和HW。注意是所有的副本，而不只是 leader副本。</p>
 <p><strong>LEO</strong>:即日志末端位移(log end offset)，记录了该副本底层日志(log)中下一条消息的位移值。注意是下 一条消息!也就是说，如果LEO=10，那么表示该副本保存了10条消息，位移值范围是[0, 9]。另外， leader LEO和follower LEO的更新是有区别的。我们后面会详细说</p>
 <p><strong>HW</strong>:即上面提到的水位值。对于同一个副本对象而言，其HW值不会大于LEO值。小于等于HW值的所 有消息都被认为是“已备份”的(replicated)。同理，leader副本和follower副本的HW更新是有区别的</p>
@@ -833,10 +842,37 @@ sequence: -1 isTransactional: false headerKeys: [] payload: message_5371
 </blockquote>
 <p>实践: <a href="https://www.infoq.cn/article/Q0o*QzLQiay31MWiOBJH" target="_blank" rel="noopener">https://www.infoq.cn/article/Q0o*QzLQiay31MWiOBJH</a></p>
 <p>版本<a href="https://blog.csdn.net/lidazhou/article/details/95909496?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">https://blog.csdn.net/lidazhou/article/details/95909496?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task</a></p>
+<p>0.7</p>
+<p>0.8 副本机制</p>
+<p>0.9</p>
+<p>0.10 <strong>Kafka Streams</strong></p>
+<p>0.11 一个是提供幂等性 Producer API 以及事务（Transaction） API；另一个是对 Kafka 消息格式做了重构。 </p>
+<p>1.0  Kafka Streams改进</p>
+<p>2.0</p>
+<p>官方文档</p>
 <p><a href="https://kafka.apache.org/documentation/" target="_blank" rel="noopener">https://kafka.apache.org/documentation/</a></p>
+<p>rocketmq的优化</p>
 <p><a href="https://rocketmq.apache.org/rocketmq/how-to-support-more-queues-in-rocketmq/" target="_blank" rel="noopener">https://rocketmq.apache.org/rocketmq/how-to-support-more-queues-in-rocketmq/</a></p>
 <p><a href="https://rocketmq.apache.org/docs/motivation/" target="_blank" rel="noopener">https://rocketmq.apache.org/docs/motivation/</a></p>
+<p>区别</p>
+<p><a href="https://zhuanlan.zhihu.com/p/73431430?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/73431430?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336</a></p>
+<p>怎么合理选择分区</p>
 <p> <a href="https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/" target="_blank" rel="noopener">https://www.confluent.io/blog/how-choose-number-topics-partitions-kafka-cluster/</a></p>
+<p>高可用 复制机制</p>
+<p><a href="https://zhuanlan.zhihu.com/p/46658003?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/46658003?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336</a></p>
+<h3 id="深入分析Kafka高可用性"><a href="#深入分析Kafka高可用性" class="headerlink" title="深入分析Kafka高可用性"></a>深入分析Kafka高可用性</h3><h4 id="producer"><a href="#producer" class="headerlink" title="producer"></a>producer</h4><p>①kafka复制机制</p>
+<p>②分区leader副本宕掉怎么选新的leader </p>
+<p>③高水位与leader epoch的详细分析</p>
+<p>④一些相关配置</p>
+<p>​    </p>
+<p>所有的生产者请求和消费者请求都经过leader副本，leader副本以外的副本都是follower副本，follower副本不处理来自客户端的请求，它们唯一的任务就是从leader副本那里复制消息，保持与leader副本一致的状态。如果leader 副本发生崩溃，其中的一个follower副本会被提升为新的leader副本。</p>
+<p>Kafka复制协议有两个阶段，</p>
+<p>第一阶段，follower从leader获取到消息；</p>
+<p>第二阶段，在下一轮的RPC中向leader发送fetch request确认收到消息。假设其他的follower也都确认了，那么leader会更新HW，并在接下来的RPC中响应给follower。</p>
+<p>同时，在重启一个follower时，这个follower可能会把日志截断到HW处（意味着此follower将会删除一些消息），然后从leader获取消息。</p>
+<p>会导致数据不一致 或者数据丢失</p>
+<p>在0.11版本使用leader epoch解决这两个问题。</p>
+<p>rocketmq和kafka</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 951488791@qq.com </span>
@@ -847,10 +883,10 @@ sequence: -1 isTransactional: false headerKeys: [] payload: message_5371
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>kafka深入浅出</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">4.3k</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">4.7k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-06-12, 20:05:37</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-18, 21:30:14</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-21, 17:04:18</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/06/12/Overview_Kafka/" title="kafka深入浅出">http://yoursite.com/2019/06/12/Overview_Kafka/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
@@ -894,7 +930,7 @@ sequence: -1 isTransactional: false headerKeys: [] payload: message_5371
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#distributed','#hbase','#framework','#jvm','#netty','#nio','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#spark','#summary','#redis','#ioc','#lang','#elasticsearch','#kafka','#servlet','#io','#serialization','#file','#gc','#ejb','#event','#aop','#collections','#applicationContext','#map','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#distributed','#hbase','#framework','#jvm','#netty','#nio','#zookeeper','#Spec','#thread','#spring','#mysql','#tomcat','#juc','#classLoader','#hotspot','#j2ee','#spark','#summary','#redis','#ioc','#lang','#kafka','#elasticsearch','#servlet','#io','#serialization','#file','#ejb','#gc','#event','#aop','#collections','#applicationContext','#map','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

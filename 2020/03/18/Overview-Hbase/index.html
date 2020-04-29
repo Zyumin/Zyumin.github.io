@@ -143,7 +143,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="53">
-<input type="hidden" id="yelog_site_word_count" value="174.4k">
+<input type="hidden" id="yelog_site_word_count" value="176.1k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -245,11 +245,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">tomcat</a>
+        <a href="javascript:" class="color1">mysql</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">mysql</a>
+        <a href="javascript:" class="color2">tomcat</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -289,11 +289,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">elasticsearch</a>
+        <a href="javascript:" class="color1">kafka</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">kafka</a>
+        <a href="javascript:" class="color4">elasticsearch</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -313,11 +313,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
+        <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color3">gc</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -665,12 +665,12 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2020-03-18 22:30:40">2020-03-18 22:00</time>
+        创建时间:<time class="date" title="更新时间: 2020-04-10 14:11:08">2020-03-18 22:00</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:684</span>
+        <span>字数:1.2k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -748,6 +748,9 @@
 <p>hbase.hstore.compaction.ratio 将store file 按照文件年龄排序（older to younger），minor compaction总是从older store file开始选择，如果该文件的size 小于它后面hbase.hstore.compaction.max 个store file size 之和乘以 该ratio，则该store file 也将加入到minor compaction 中。</p>
 <p>如果对minor compaction过程还是不了解，可以去看hbase中关于minor compaction 的源码，或者：<a href="http://www.linuxidc.com/Linux/2013-05/83675.htm" target="_blank" rel="noopener">http://www.linuxidc.com/Linux/2013-05/83675.htm</a></p>
 <p>优化: rowkey设计 预分区</p>
+<p><strong>写入优化</strong><br>写也是Hbase常有的操作之一，并且Hbase在写入操作上有着其他NoSQL无法比拟的优势，下面讲如何优化写入操作<br><strong>关闭写WAL日志</strong><br>一般为了保证系统的高可用性，WAL日志默认是开启状态，WAL主要用于灾难恢复的，如果应用可以容忍一定的数据丢失风险，可以在写数据的时候，关闭写WAL。<br><strong>风险：</strong> 当RegionServer宕机时，写入的数据出现丢失，且无法恢复。</p>
+<p><strong>设置AutoFlush</strong><br>Htable有一个属性是AutoFlush，该属性用于支持客户端的批量更新，默认是true，当客户端每收到一条数据，立刻发送到服务端，如果设置为false，当客户端提交put请求时候，先将该请求在客户端缓存，到达阈值的时候或者执行hbase.flushcommits()，才向RegionServer提交请求。<br><strong>风险</strong> 在请求未发送到RegionServer之前客户端崩溃，数据也会丢失<br>table.setAutoFlush(false);<br>table.setWriteBufferSize( 12 <em> 1024 </em> 1024 );</p>
+<p><strong>预创建Region</strong><br>一般表刚开始只有一个Region，插入该表的数据都会保存在此Region中，插入该表的所有塑化剂都会保存在该Region中，当到达一定的阈值时，才发生分裂。 这样开始时刻针对该表的写操作都集中在某台服务器上，造成这台服务器的压力很紧张，同时对整个集群资源的浪费。<br>建议刚开始的时候预创建Region，可以使用Hbase自带的RegionSplitter<br><strong>延迟日志flush</strong><br>默认写入操作，首先写入WAL，并且在1S内写入HDFS，这个时间默认是1S，可以通过参数配置<br>hbase.regionserver.optionallogflushinterval可以配置大一点的值，比如5s，这段时间数据会保留在内存中，直到RegionServer周期性的执行flush操作。<br>希望能帮助大家。</p>
 <p>参考：<a href="http://www.linuxidc.com/Linux/2013-05/83674.htm" target="_blank" rel="noopener">http://www.linuxidc.com/Linux/2013-05/83674.htm</a></p>
 <p>参考:<a href="https://www.bilibili.com/video/av65591724?p=1" target="_blank" rel="noopener">https://www.bilibili.com/video/av65591724?p=1</a></p>
 
@@ -760,10 +763,10 @@
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>Overview_Hbase</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">684</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">1.2k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2020-03-18, 22:00:51</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-18, 22:30:40</p>
+    <p><span class="copy-title">最后更新:</span>2020-04-10, 14:11:08</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/18/Overview-Hbase/" title="Overview_Hbase">http://yoursite.com/2020/03/18/Overview-Hbase/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
@@ -807,7 +810,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#distributed','#hbase','#framework','#jvm','#netty','#nio','#zookeeper','#Spec','#thread','#spring','#tomcat','#mysql','#juc','#classLoader','#hotspot','#j2ee','#spark','#summary','#redis','#ioc','#lang','#elasticsearch','#kafka','#servlet','#io','#serialization','#file','#gc','#ejb','#event','#aop','#collections','#applicationContext','#map','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#distributed','#hbase','#framework','#jvm','#netty','#nio','#zookeeper','#Spec','#thread','#spring','#mysql','#tomcat','#juc','#classLoader','#hotspot','#j2ee','#spark','#summary','#redis','#ioc','#lang','#kafka','#elasticsearch','#servlet','#io','#serialization','#file','#ejb','#gc','#event','#aop','#collections','#applicationContext','#map','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
