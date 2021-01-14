@@ -24,6 +24,8 @@
             
             <tag> gc </tag>
             
+            <tag> summary </tag>
+            
         </tags>
       
     </entry>
@@ -712,11 +714,11 @@
       
         <tags>
             
+            <tag> classLoader </tag>
+            
             <tag> spring </tag>
             
             <tag> tomcat </tag>
-            
-            <tag> classLoader </tag>
             
             <tag> servlet </tag>
             
@@ -1217,9 +1219,9 @@
       
         <tags>
             
-            <tag> spring </tag>
-            
             <tag> j2ee </tag>
+            
+            <tag> spring </tag>
             
             <tag> ejb </tag>
             
@@ -1240,9 +1242,9 @@
       
         <tags>
             
-            <tag> spring </tag>
-            
             <tag> j2ee </tag>
+            
+            <tag> spring </tag>
             
         </tags>
       
