@@ -118,7 +118,7 @@
     
         
             
-            <li><div data-rel="mysql">mysql<small>(2)</small></div>
+            <li><div data-rel="redis">redis<small>(4)</small></div>
                 
             </li>
             
@@ -126,7 +126,7 @@
     
         
             
-            <li><div data-rel="redis">redis<small>(4)</small></div>
+            <li><div data-rel="mysql">mysql<small>(2)</small></div>
                 
             </li>
             
@@ -143,7 +143,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="55">
-<input type="hidden" id="yelog_site_word_count" value="185.5k">
+<input type="hidden" id="yelog_site_word_count" value="185.6k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -205,11 +205,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">jvm</a>
+        <a href="javascript:" class="color2">distributed</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">distributed</a>
+        <a href="javascript:" class="color4">jvm</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -241,19 +241,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">mysql</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color2">tomcat</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">job</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">classLoader</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -261,15 +249,15 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">classLoader</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">gc</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a href="javascript:" class="color3">hotspot</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">j2ee</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">spark</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -277,7 +265,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">summary</a>
+        <a href="javascript:" class="color5">j2ee</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -285,7 +273,15 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">spark</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">ioc</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -305,6 +301,10 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">summary</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a href="javascript:" class="color3">io</a>
     </li>
     
@@ -317,19 +317,15 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">gc</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">ejb</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">event</a>
+        <a href="javascript:" class="color4">aop</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">aop</a>
+        <a href="javascript:" class="color1">event</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -341,6 +337,10 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">job</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">map</a>
     </li>
     
@@ -349,15 +349,15 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">doc</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color1">spring-mvc</a>
     </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">spring-webflux</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">doc</a>
     </li>
     
     <div class="clearfix"></div>
@@ -380,7 +380,7 @@
             <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
         </a>
         
-        <a id="top" class="java " href="/2021/01/13/GC调优总结/" data-tag="job" data-author="">
+        <a id="top" class="java " href="/2021/01/13/GC调优总结/" data-tag="jvm,gc" data-author="">
             <span class="post-title" title="GC调优总结">GC调优总结</span>
             <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
         </a>
@@ -1090,7 +1090,7 @@ search.remote.connect: true
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#netty','#nio','#framework','#zookeeper','#Spec','#thread','#spring','#mysql','#tomcat','#job','#classLoader','#juc','#hotspot','#j2ee','#spark','#hbase','#summary','#redis','#ioc','#lang','#kafka','#elasticsearch','#servlet','#io','#serialization','#file','#gc','#ejb','#event','#aop','#collections','#applicationContext','#map','#beanFactory','#doc','#spring-mvc','#spring-webflux',],
+            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#distributed','#jvm','#netty','#nio','#framework','#zookeeper','#Spec','#thread','#spring','#tomcat','#juc','#classLoader','#gc','#hotspot','#hbase','#j2ee','#redis','#spark','#ioc','#mysql','#lang','#kafka','#elasticsearch','#servlet','#summary','#io','#serialization','#file','#ejb','#aop','#event','#collections','#applicationContext','#job','#map','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
