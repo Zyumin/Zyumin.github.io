@@ -108,9 +108,9 @@
             
             <tag> distributed </tag>
             
-            <tag> hbase </tag>
-            
             <tag> framework </tag>
+            
+            <tag> hbase </tag>
             
         </tags>
       
@@ -131,9 +131,9 @@
             
             <tag> distributed </tag>
             
-            <tag> framework </tag>
-            
             <tag> spark </tag>
+            
+            <tag> framework </tag>
             
         </tags>
       
