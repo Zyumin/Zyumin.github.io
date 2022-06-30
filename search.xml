@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>再读设计模式</title>
+      <link href="/2022/06/30/%E5%86%8D%E8%AF%BB%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+      <url>/2022/06/30/%E5%86%8D%E8%AF%BB%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>春有百花秋有月 ，夏有凉风冬有雪 ，若无闲事挂心头，便是人间好时节—无门慧开禅师《春有百花秋有月》</p></blockquote><p>list:</p><p>从面向对象开始说起</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> design </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> design </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>GC调优总结</title>
       <link href="/2021/01/13/GC%E8%B0%83%E4%BC%98%E6%80%BB%E7%BB%93/"/>
       <url>/2021/01/13/GC%E8%B0%83%E4%BC%98%E6%80%BB%E7%BB%93/</url>
