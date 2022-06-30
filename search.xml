@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>about</title>
-      <link href="/2022/06/30/about/"/>
-      <url>/2022/06/30/about/</url>
-      
-        <content type="html"><![CDATA[<p>个人</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>再读设计模式</title>
       <link href="/2022/06/30/%E5%86%8D%E8%AF%BB%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
       <url>/2022/06/30/%E5%86%8D%E8%AF%BB%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
@@ -515,9 +502,9 @@
       
         <tags>
             
-            <tag> jdk </tag>
-            
             <tag> juc </tag>
+            
+            <tag> jdk </tag>
             
         </tags>
       
@@ -650,9 +637,9 @@
       
         <tags>
             
-            <tag> jdk </tag>
-            
             <tag> juc </tag>
+            
+            <tag> jdk </tag>
             
         </tags>
       
@@ -752,9 +739,9 @@
       
         <tags>
             
-            <tag> spring </tag>
-            
             <tag> classLoader </tag>
+            
+            <tag> spring </tag>
             
             <tag> servlet </tag>
             
