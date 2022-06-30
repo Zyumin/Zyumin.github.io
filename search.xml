@@ -477,9 +477,9 @@
       
         <tags>
             
-            <tag> juc </tag>
-            
             <tag> jdk </tag>
+            
+            <tag> juc </tag>
             
         </tags>
       
@@ -612,9 +612,9 @@
       
         <tags>
             
-            <tag> juc </tag>
-            
             <tag> jdk </tag>
+            
+            <tag> juc </tag>
             
         </tags>
       
@@ -714,9 +714,9 @@
       
         <tags>
             
-            <tag> classLoader </tag>
-            
             <tag> spring </tag>
+            
+            <tag> classLoader </tag>
             
             <tag> servlet </tag>
             
