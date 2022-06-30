@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   <title>JDK_The Concurrent Framework | Zyumin</title>
-  <meta name="keywords" content=" jdk , juc ">
+  <meta name="keywords" content=" juc , jdk ">
   <meta name="description" content="JDK_The Concurrent Framework | Zyumin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta name="keywords" content="java">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
 <meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-23T07:09:56.946Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-03-23T07:09:38.000Z">
+<meta property="article:modified_time" content="2019-03-23T07:09:56.000Z">
+<meta property="article:author" content="zhengyumin">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -30,7 +30,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
 
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script>
@@ -41,11 +41,11 @@
 
 
 
-<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
 
-<script src="/js/iconfont.js?v=1.0.1"></script>
+<script src="/js/iconfont.js?v=1.0.1" ></script>
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="false">
@@ -56,7 +56,7 @@
 <aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.png">
+    <img class="avatar" src="/img/avatar.png" />
 </a>
 <div class="author">
     <span>zhengyumin</span>
@@ -68,7 +68,7 @@
         <a title="github" href="https://github.com/Zyumin" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-github"/>
+                    <use xlink:href="#icon-github"></use>
                 </svg>
             
         </a>
@@ -78,7 +78,7 @@
         <a title="neteasemusic" href="https://music.163.com/#/user/home?id=60037019" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-neteasemusic"/>
+                    <use xlink:href="#icon-neteasemusic"></use>
                 </svg>
             
         </a>
@@ -94,7 +94,7 @@
     
         
             
-            <li><div data-rel="jdk">jdk<small>(13)</small></div>
+            <li><div data-rel="java">java<small>(9)</small></div>
                 
             </li>
             
@@ -102,7 +102,7 @@
     
         
             
-            <li><div data-rel="java">java<small>(9)</small></div>
+            <li><div data-rel="jdk">jdk<small>(13)</small></div>
                 
             </li>
             
@@ -118,7 +118,7 @@
     
         
             
-            <li><div data-rel="redis">redis<small>(4)</small></div>
+            <li><div data-rel="mysql">mysql<small>(2)</small></div>
                 
             </li>
             
@@ -126,7 +126,7 @@
     
         
             
-            <li><div data-rel="mysql">mysql<small>(2)</small></div>
+            <li><div data-rel="redis">redis<small>(4)</small></div>
                 
             </li>
             
@@ -143,7 +143,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="55">
-<input type="hidden" id="yelog_site_word_count" value="185.6k">
+<input type="hidden" id="yelog_site_word_count" value="189.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -166,11 +166,11 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off" id="local-search-input">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
         <i class="cross"></i>
         <span>
             <label for="tagswitch">Tags:</label>
-            <input id="tagswitch" type="checkbox" style="display: none">
+            <input id="tagswitch" type="checkbox" style="display: none" />
             <i id="tagsWitchIcon"></i>
         </span>
     </form>
@@ -185,51 +185,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">jdk</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">packages</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">utils</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">java</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">note</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">jvm</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">distributed</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">netty</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">nio</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">framework</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">zookeeper</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">Spec</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -241,67 +197,23 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">classLoader</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">juc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">hotspot</a>
+        <a href="javascript:" class="color4">jdk</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">j2ee</a>
+        <a href="javascript:" class="color4">map</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">spring</a>
+        <a href="javascript:" class="color2">classLoader</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">hbase</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">spark</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">redis</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">thread</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">tomcat</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">mysql</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">lang</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">elasticsearch</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">kafka</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">servlet</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ioc</a>
+        <a href="javascript:" class="color4">packages</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -317,11 +229,111 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color4">nio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">lang</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">doc</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">utils</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">hotspot</a>
     </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color2">collections</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">note</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">j2ee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ejb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">distributed</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">hbase</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">framework</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">spark</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">elasticsearch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">kafka</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">netty</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">redis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">tomcat</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">zookeeper</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Spec</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">applicationContext</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ioc</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -337,18 +349,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">map</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">applicationContext</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">beanFactory</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color1">spring-mvc</a>
     </li>
     
@@ -357,7 +357,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">doc</a>
+        <a href="javascript:" class="color2">beanFactory</a>
     </li>
     
     <div class="clearfix"></div>
@@ -370,279 +370,444 @@
     
     <nav id="title-list-nav">
         
-        <a id="top" class="java " href="/2019/02/02/Overview_java/" data-tag="summary" data-author="">
-            <span class="post-title" title="Overview_java">Overview_java</span>
-            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
-        </a>
-        
-        <a id="top" class="spring " href="/2019/03/02/Overview_Spring/" data-tag="framework,spring" data-author="">
-            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
-            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
-        </a>
-        
-        <a id="top" class="jdk " href="/2019/06/13/Overview_JDK/" data-tag="jdk,hotspot" data-author="">
-            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
-            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
-        </a>
-        
-        <a id="top" class="java " href="/2020/05/10/面试常见知识点梳理/" data-tag="job" data-author="">
-            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
-            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
-        </a>
-        
-        <a class="java " href="/2021/01/13/GC调优总结/" data-tag="jvm,gc,summary" data-author="">
-            <span class="post-title" title="GC调优总结">GC调优总结</span>
-            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Hbase/" data-tag="distributed,framework,hbase" data-author="">
-            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
-            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Spark/" data-tag="distributed,framework,spark" data-author="">
-            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
-            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis集群篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
-            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis实战篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
-            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis原理篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
-            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/23/spring-aop/" data-tag="spring,aop" data-author="">
-            <span class="post-title" title="spring-aop">spring-aop</span>
-            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/16/Spring-ApplicationContext/" data-tag="spring,applicationContext" data-author="">
-            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
-            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/05/spring-BeanFactory/" data-tag="spring,beanFactory" data-author="">
-            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
-            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/02/spring-Q-A/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
-            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
-        </a>
-        
-        <a class="spring " href="/2019/10/29/Documentation-Spring-Core-IOC/" data-tag="spring,doc" data-author="">
-            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
-            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/26/JDK-Packages-java-nio/" data-tag="jdk,packages,nio" data-author="">
-            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
-            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/23/JDK-Packages-java-io/" data-tag="jdk,packages,io,serialization,file" data-author="">
-            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
-            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Class/" data-tag="jdk" data-author="">
-            <span class="post-title" title="JDK_Class">JDK_Class</span>
-            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Thread/" data-tag="jdk,jvm,hotspot" data-author="">
-            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
-            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
-        </a>
-        
-        <a class="java " href="/2019/08/29/JVM-main方法分析/" data-tag="java,jvm" data-author="">
-            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
-            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/24/JDK-ReentrantLock/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
-            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
-        </a>
-        
-        <a class="java " href="/2019/08/17/JVM-Synchronized/" data-tag="jvm" data-author="">
-            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
-            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
-        </a>
-        
-        <a class="java " href="/2019/08/11/Overview-Java-Virtual-Machine/" data-tag="jvm" data-author="">
-            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
-            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-lang/" data-tag="jdk,packages,lang" data-author="">
-            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
-            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-utils/" data-tag="jdk,packages,utils" data-author="">
-            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
-            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/10/JDK-The-Concurrent-Framework/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
-            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/29/JDK-The-Collections-Framework/" data-tag="jdk,collections" data-author="">
-            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
-            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
-        </a>
-        
-        <a class="" href="/2019/07/10/Note-码农翻身/" data-tag="java,note" data-author="">
-            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
-            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/06/JDK-ClassLoader/" data-tag="jdk,classLoader" data-author="">
-            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
-            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
-        </a>
-        
-        <a class="spring " href="/2019/07/03/spring-ApplicationContext启动流程和事件机制/" data-tag="classLoader,spring,tomcat,servlet,event" data-author="">
-            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
-            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/26/Overview_Elasticsearch/" data-tag="framework,elasticsearch" data-author="">
-            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
-            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/24/J-U-C-ConcurrentHashMap/" data-tag="juc,map" data-author="">
-            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
-            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
-        </a>
-        
-        <a class="java " href="/2019/06/19/JVM-Garbage-Collection/" data-tag="jvm,gc" data-author="">
-            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
-            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/16/J-U-C-InterruptedException/" data-tag="juc" data-author="">
-            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
-            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
-        </a>
-        
-        <a class="java " href="/2019/06/14/Spec-JSR133/" data-tag="jvm,Spec,thread" data-author="">
-            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
-            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
-        </a>
-        
-        <a class="java " href="/2019/06/13/Spec-Java-Virtual-Machine/" data-tag="jvm,Spec" data-author="">
-            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
-            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
-        </a>
-        
-        <a class="" href="/2019/06/12/Overview_Kafka/" data-tag="framework,kafka" data-author="">
-            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
-            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
-        </a>
-        
-        <a class="redis " href="/2019/06/10/Overview_Redis/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
-            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
-        </a>
-        
-        <a class="" href="/2019/06/06/Note_java并发编程的艺术/" data-tag="java,note,juc" data-author="">
-            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
-            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Overview_Netty/" data-tag="netty,nio,framework" data-author="">
-            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
-            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Note_深入理解java虚拟机/" data-tag="java,note,jvm" data-author="">
-            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
-            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
-        </a>
-        
-        <a class="mysql " href="/2019/06/04/Overview_MySQL/" data-tag="mysql" data-author="">
-            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
-            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Zookeeper/" data-tag="distributed,framework,zookeeper" data-author="">
-            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
-            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Distributed/" data-tag="distributed" data-author="">
-            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
-            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
-        </a>
-        
-        <a class="spring " href="/2019/04/10/spring-api-1-0/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
-            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
-        </a>
-        
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/04/01/3%E6%9C%88%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
         
-        <a class="mysql " href="/2019/03/30/记一次mysql查询in的思考/" data-tag="mysql" data-author="">
-            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
-            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
-        </a>
-        
-        <a class="" href="/2019/03/26/记一次Broken-pipe问题的思考/" data-tag="tomcat" data-author="">
-            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
-            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
-        </a>
-        
-        <a class="" href="/2019/03/24/3月第三周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/03/24/3%E6%9C%88%E7%AC%AC%E4%B8%89%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第三周知识点记录">3月第三周知识点记录</span>
             <span class="post-date" title="2019-03-24 20:55:31">2019/03/24</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert One-on-One-J2EE-Development-without-EJB/" data-tag="j2ee,spring,ejb" data-author="">
+        <a  class="java "
+           href="/2021/01/13/GC%E8%B0%83%E4%BC%98%E6%80%BB%E7%BB%93/"
+           data-tag="jvm,gc,summary"
+           data-author="" >
+            <span class="post-title" title="GC调优总结">GC调优总结</span>
+            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/16/J-U-C-InterruptedException/"
+           data-tag="juc"
+           data-author="" >
+            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
+            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Class/"
+           data-tag="jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_Class">JDK_Class</span>
+            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/24/J-U-C-ConcurrentHashMap/"
+           data-tag="juc,map"
+           data-author="" >
+            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
+            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/06/JDK-ClassLoader/"
+           data-tag="jdk,classLoader"
+           data-author="" >
+            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
+            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/23/JDK-Packages-java-io/"
+           data-tag="jdk,packages,io,serialization,file"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
+            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/26/JDK-Packages-java-nio/"
+           data-tag="jdk,packages,nio"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
+            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-lang/"
+           data-tag="jdk,packages,lang"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
+            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/10/29/Documentation-Spring-Core-IOC/"
+           data-tag="spring,doc"
+           data-author="" >
+            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
+            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-utils/"
+           data-tag="jdk,packages,utils"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
+            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Thread/"
+           data-tag="jvm,jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
+            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/19/JVM-Garbage-Collection/"
+           data-tag="jvm,gc"
+           data-author="" >
+            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
+            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/29/JDK-The-Collections-Framework/"
+           data-tag="jdk,collections"
+           data-author="" >
+            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
+            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/24/JDK-ReentrantLock/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
+            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/29/JVM-main%E6%96%B9%E6%B3%95%E5%88%86%E6%9E%90/"
+           data-tag="jvm,java"
+           data-author="" >
+            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
+            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/17/JVM-Synchronized/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
+            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/07/10/Note-%E7%A0%81%E5%86%9C%E7%BF%BB%E8%BA%AB/"
+           data-tag="java,note"
+           data-author="" >
+            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
+            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert%20One-on-One-J2EE-Development-without-EJB/"
+           data-tag="spring,j2ee,ejb"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Development without EJB">Expert One-on-One J2EE Development without EJB</span>
             <span class="post-date" title="2019-03-10 19:45:57">2019/03/10</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/" data-tag="j2ee,spring" data-author="">
+        <a  class=""
+           href="/2019/06/06/Note_java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/"
+           data-tag="juc,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
+            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/10/JDK-The-Concurrent-Framework/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
+            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/18/Overview-Hbase/"
+           data-tag="distributed,hbase,framework"
+           data-author="" >
+            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
+            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Note_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA/"
+           data-tag="jvm,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
+            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/"
+           data-tag="spring,j2ee"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Design and Development">Expert One-on-One J2EE Design and Development</span>
             <span class="post-date" title="2019-03-10 19:45:18">2019/03/10</span>
         </a>
         
-        <a class="spring " href="/2019/03/03/spring-Core-Container预览/" data-tag="spring,ioc" data-author="">
-            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
-            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        <a  class="java "
+           href="/2019/08/11/Overview-Java-Virtual-Machine/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
+            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
         </a>
         
-        <a class="spring " href="/2019/02/03/spring-mvc/" data-tag="spring,servlet,spring-mvc,spring-webflux" data-author="">
-            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
-            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        <a  class=""
+           href="/2019/06/03/Overview_Distributed/"
+           data-tag="distributed"
+           data-author="" >
+            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
+            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
         </a>
         
-        <a class="" href="/2019/02/03/Overview_Tomcat/" data-tag="tomcat,servlet" data-author="">
+        <a  class=""
+           href="/2020/03/18/Overview-Spark/"
+           data-tag="distributed,framework,spark"
+           data-author="" >
+            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
+            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/26/Overview_Elasticsearch/"
+           data-tag="framework,elasticsearch"
+           data-author="" >
+            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
+            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/12/Overview_Kafka/"
+           data-tag="framework,kafka"
+           data-author="" >
+            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
+            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
+        </a>
+        
+        <a id="top" class="jdk "
+           href="/2019/06/13/Overview_JDK/"
+           data-tag="jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
+            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/06/04/Overview_MySQL/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
+            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Overview_Netty/"
+           data-tag="nio,framework,netty"
+           data-author="" >
+            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
+            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2019/06/10/Overview_Redis/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
+            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
+        </a>
+        
+        <a id="top" class="spring "
+           href="/2019/03/02/Overview_Spring/"
+           data-tag="spring,framework"
+           data-author="" >
+            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
+            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/03/Overview_Tomcat/"
+           data-tag="servlet,tomcat"
+           data-author="" >
             <span class="post-title" title="servlet_tomcat">servlet_tomcat</span>
             <span class="post-date" title="2019-02-03 15:49:08">2019/02/03</span>
         </a>
         
-        <a class="" href="/2019/02/02/Spec_Servlet/" data-tag="j2ee,servlet" data-author="">
+        <a  class=""
+           href="/2019/06/03/Overview_Zookeeper/"
+           data-tag="distributed,framework,zookeeper"
+           data-author="" >
+            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
+            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2019/02/02/Overview_java/"
+           data-tag="summary"
+           data-author="" >
+            <span class="post-title" title="Overview_java">Overview_java</span>
+            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%8E%9F%E7%90%86%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
+            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%AE%9E%E6%88%98%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
+            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E9%9B%86%E7%BE%A4%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
+            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/14/Spec-JSR133/"
+           data-tag="jvm,Spec,thread"
+           data-author="" >
+            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
+            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/13/Spec-Java-Virtual-Machine/"
+           data-tag="jvm,Spec"
+           data-author="" >
+            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
+            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/02/Spec_Servlet/"
+           data-tag="j2ee,servlet"
+           data-author="" >
             <span class="post-title" title="j2ee_servlet">j2ee_servlet</span>
             <span class="post-date" title="2019-02-02 18:05:54">2019/02/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/16/Spring-ApplicationContext/"
+           data-tag="spring,applicationContext"
+           data-author="" >
+            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
+            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/03/03/spring-Core-Container%E9%A2%84%E8%A7%88/"
+           data-tag="spring,ioc"
+           data-author="" >
+            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
+            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/02/spring-Q-A/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
+            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/07/03/spring-ApplicationContext%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/"
+           data-tag="classLoader,spring,servlet,tomcat,event"
+           data-author="" >
+            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
+            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/04/10/spring-api-1-0/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
+            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/26/%E8%AE%B0%E4%B8%80%E6%AC%A1Broken-pipe%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="tomcat"
+           data-author="" >
+            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
+            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/03/30/%E8%AE%B0%E4%B8%80%E6%AC%A1mysql%E6%9F%A5%E8%AF%A2in%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
+            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/23/spring-aop/"
+           data-tag="spring,aop"
+           data-author="" >
+            <span class="post-title" title="spring-aop">spring-aop</span>
+            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2020/05/10/%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/"
+           data-tag="job"
+           data-author="" >
+            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
+            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/02/03/spring-mvc/"
+           data-tag="spring,servlet,spring-mvc,spring-webflux"
+           data-author="" >
+            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
+            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/05/spring-BeanFactory/"
+           data-tag="spring,beanFactory"
+           data-author="" >
+            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
+            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
         </a>
         
     </nav>
@@ -657,7 +822,7 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-JDK-The-Concurrent-Framework" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <article id="post-JDK-The-Concurrent-Framework" class="article article-type-post" itemscope itemprop="blogPost">
     
         <h1 class="article-title">JDK_The Concurrent Framework</h1>
     
@@ -674,21 +839,21 @@
         
         <span class="tag">
             
-            <a href="javascript:" class="color4">jdk</a>
-            
             <a href="javascript:" class="color4">juc</a>
+            
+            <a href="javascript:" class="color4">jdk</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2020-01-12 23:08:14">2019-08-10 19:45</time>
+        创建时间:<time class="date" title='更新时间: 2020-01-12 23:08:14'>2019-08-10 19:45</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:8.8k</span>
+        <span>字数:9.1k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -707,7 +872,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Preface"><span class="toc-text">Preface</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-concurrent"><span class="toc-text">java.util.concurrent</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Executors"><span class="toc-text">Executors</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Executor"><span class="toc-text">Executor</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ExecutorService"><span class="toc-text">ExecutorService</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ScheduledExecutorService"><span class="toc-text">ScheduledExecutorService</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Callable"><span class="toc-text">Callable</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Future"><span class="toc-text">Future</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#RunnableFuture"><span class="toc-text">RunnableFuture</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ThreadFactory"><span class="toc-text">ThreadFactory</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ThreadPoolExecutor-amp-ScheduledThreadPoolExecutor"><span class="toc-text">ThreadPoolExecutor &amp; ScheduledThreadPoolExecutor</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Executors-1"><span class="toc-text">Executors</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#FutureTask-amp-ExecutorCompletionService"><span class="toc-text">FutureTask &amp; ExecutorCompletionService</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ForkJoinPool-amp-ForkJoinTask-amp-ForkJoinWorkerThread-since-1-7"><span class="toc-text">ForkJoinPool &amp; ForkJoinTask &amp; ForkJoinWorkerThread(@since 1.7)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Queues"><span class="toc-text">Queues</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#BlockingQueue"><span class="toc-text">BlockingQueue</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#BlockingDeque-since-1-6-amp-TransferQueue-since-1-7"><span class="toc-text">BlockingDeque(@since 1.6) &amp; TransferQueue(@since 1.7)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#LinkedBlockingQueue"><span class="toc-text">LinkedBlockingQueue</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ArrayBlockingQueue"><span class="toc-text">ArrayBlockingQueue</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SynchronousQueue"><span class="toc-text">SynchronousQueue</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#PriorityBlockingQueue"><span class="toc-text">PriorityBlockingQueue</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#DelayQueue"><span class="toc-text">DelayQueue.</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Timing"><span class="toc-text">Timing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Synchronizers"><span class="toc-text">Synchronizers</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Semaphore"><span class="toc-text">Semaphore</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CountDownLatch"><span class="toc-text">CountDownLatch</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CyclicBarrier"><span class="toc-text">CyclicBarrier</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Phaser-since-1-7"><span class="toc-text">Phaser(@since 1.7)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Exchanger"><span class="toc-text">Exchanger</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Concurrent-Collections"><span class="toc-text">Concurrent Collections</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ConcurrentHashMap"><span class="toc-text">ConcurrentHashMap</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ConcurrentSkipListMap"><span class="toc-text">ConcurrentSkipListMap</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ConcurrentSkipListSet"><span class="toc-text">ConcurrentSkipListSet</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CopyOnWriteArrayList"><span class="toc-text">CopyOnWriteArrayList</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CopyOnWriteArraySet"><span class="toc-text">CopyOnWriteArraySet</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Memory-Consistency-Properties-内存一致性"><span class="toc-text">Memory Consistency Properties (内存一致性)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-concurrent-atomic"><span class="toc-text">java.util.concurrent.atomic</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Atomic-Values"><span class="toc-text">Atomic Values</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Atomic-Fields"><span class="toc-text">Atomic Fields</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Atomic-Arrays"><span class="toc-text">Atomic Arrays</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Class-Summary"><span class="toc-text">Class Summary</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Designed"><span class="toc-text">Designed</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-concurrent-locks"><span class="toc-text">java.util.concurrent.locks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Locks-锁"><span class="toc-text">Locks(锁)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Lock"><span class="toc-text">Lock</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Lock与synchronized的异同"><span class="toc-text">Lock与synchronized的异同</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Implementation-Considerations"><span class="toc-text">Implementation Considerations</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ReentrantLock"><span class="toc-text">ReentrantLock</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ReadWriteLock"><span class="toc-text">ReadWriteLock</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ReentrantReadWriteLock"><span class="toc-text">ReentrantReadWriteLock</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Conditions-监视器"><span class="toc-text">Conditions(监视器)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AbstractQueuedSynchronizers-阻塞队列"><span class="toc-text">AbstractQueuedSynchronizers(阻塞队列)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#AbstractQueuedSynchronizer"><span class="toc-text">AbstractQueuedSynchronizer</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Usage"><span class="toc-text">Usage</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AbstractQueuedLongSynchronizer"><span class="toc-text">AbstractQueuedLongSynchronizer</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AbstractOwnableSynchronizer"><span class="toc-text">AbstractOwnableSynchronizer</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LockSupports"><span class="toc-text">LockSupports</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Record📝"><span class="toc-text">Record📝</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Preface"><span class="toc-text">Preface</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-concurrent"><span class="toc-text">java.util.concurrent</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Executors"><span class="toc-text">Executors</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Executor"><span class="toc-text">Executor</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ExecutorService"><span class="toc-text">ExecutorService</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ScheduledExecutorService"><span class="toc-text">ScheduledExecutorService</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Callable"><span class="toc-text">Callable</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Future"><span class="toc-text">Future</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#RunnableFuture"><span class="toc-text">RunnableFuture</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ThreadFactory"><span class="toc-text">ThreadFactory</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ThreadPoolExecutor-amp-ScheduledThreadPoolExecutor"><span class="toc-text">ThreadPoolExecutor &amp; ScheduledThreadPoolExecutor</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Executors-1"><span class="toc-text">Executors</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#FutureTask-amp-ExecutorCompletionService"><span class="toc-text">FutureTask &amp; ExecutorCompletionService</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ForkJoinPool-amp-ForkJoinTask-amp-ForkJoinWorkerThread-since-1-7"><span class="toc-text">ForkJoinPool &amp; ForkJoinTask &amp; ForkJoinWorkerThread(@since 1.7)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Queues"><span class="toc-text">Queues</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#BlockingQueue"><span class="toc-text">BlockingQueue</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#BlockingDeque-since-1-6-amp-TransferQueue-since-1-7"><span class="toc-text">BlockingDeque(@since 1.6) &amp; TransferQueue(@since 1.7)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#LinkedBlockingQueue"><span class="toc-text">LinkedBlockingQueue</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ArrayBlockingQueue"><span class="toc-text">ArrayBlockingQueue</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SynchronousQueue"><span class="toc-text">SynchronousQueue</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#PriorityBlockingQueue"><span class="toc-text">PriorityBlockingQueue</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#DelayQueue"><span class="toc-text">DelayQueue.</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Timing"><span class="toc-text">Timing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Synchronizers"><span class="toc-text">Synchronizers</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Semaphore"><span class="toc-text">Semaphore</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CountDownLatch"><span class="toc-text">CountDownLatch</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CyclicBarrier"><span class="toc-text">CyclicBarrier</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Phaser-since-1-7"><span class="toc-text">Phaser(@since 1.7)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Exchanger"><span class="toc-text">Exchanger</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Concurrent-Collections"><span class="toc-text">Concurrent Collections</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ConcurrentHashMap"><span class="toc-text">ConcurrentHashMap</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ConcurrentSkipListMap"><span class="toc-text">ConcurrentSkipListMap</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ConcurrentSkipListSet"><span class="toc-text">ConcurrentSkipListSet</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CopyOnWriteArrayList"><span class="toc-text">CopyOnWriteArrayList</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CopyOnWriteArraySet"><span class="toc-text">CopyOnWriteArraySet</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Memory-Consistency-Properties-%E5%86%85%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-text">Memory Consistency Properties (内存一致性)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-concurrent-atomic"><span class="toc-text">java.util.concurrent.atomic</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Atomic-Values"><span class="toc-text">Atomic Values</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Atomic-Fields"><span class="toc-text">Atomic Fields</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Atomic-Arrays"><span class="toc-text">Atomic Arrays</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Class-Summary"><span class="toc-text">Class Summary</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Designed"><span class="toc-text">Designed</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-util-concurrent-locks"><span class="toc-text">java.util.concurrent.locks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Locks-%E9%94%81"><span class="toc-text">Locks(锁)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Lock"><span class="toc-text">Lock</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Lock%E4%B8%8Esynchronized%E7%9A%84%E5%BC%82%E5%90%8C"><span class="toc-text">Lock与synchronized的异同</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Implementation-Considerations"><span class="toc-text">Implementation Considerations</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ReentrantLock"><span class="toc-text">ReentrantLock</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ReadWriteLock"><span class="toc-text">ReadWriteLock</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ReentrantReadWriteLock"><span class="toc-text">ReentrantReadWriteLock</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Conditions-%E7%9B%91%E8%A7%86%E5%99%A8"><span class="toc-text">Conditions(监视器)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AbstractQueuedSynchronizers-%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97"><span class="toc-text">AbstractQueuedSynchronizers(阻塞队列)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#AbstractQueuedSynchronizer"><span class="toc-text">AbstractQueuedSynchronizer</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Usage"><span class="toc-text">Usage</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AbstractQueuedLongSynchronizer"><span class="toc-text">AbstractQueuedLongSynchronizer</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AbstractOwnableSynchronizer"><span class="toc-text">AbstractOwnableSynchronizer</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LockSupports"><span class="toc-text">LockSupports</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Record%F0%9F%93%9D"><span class="toc-text">Record📝</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -724,22 +889,25 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g5utotuddmj30f409gjrs.jpg" alt="img"></p>
-<a id="more"></a>
+<span id="more"></span>
+
+
+
 <h3 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h3><p><img src="http://ww4.sinaimg.cn/large/006y8mN6gy1g6740ptmguj30lw0g0acz.jpg" alt="image-20190820172914051"></p>
 <p>CAS实现 、volatile语意  -&gt; AQS(AbstractQueuedSynchronizer)</p>
 <h3 id="java-util-concurrent"><a href="#java-util-concurrent" class="headerlink" title="java.util.concurrent"></a>java.util.concurrent</h3><p>Utility classes commonly useful in concurrent programming.This package includes a few small standardized extensible frameworks, as well as some classes that provide useful functionality and are otherwise tedious or difficult to implement.</p>
 <p>实用程序类通常用于并发编程。这个包, 包括一些小型的标准化可扩展框架，以及一些提供有用功能的类，通常这些类是单调乏味或难以实现的。</p>
 <h4 id="Executors"><a href="#Executors" class="headerlink" title="Executors"></a>Executors</h4><p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g62o7n38t1j324d0u0gt9.jpg" alt="image-20190817144324388"></p>
 <p><strong>Interfaces</strong></p>
-<h5 id="Executor"><a href="#Executor" class="headerlink" title="Executor"></a>Executor</h5><p> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html" target="_blank" rel="noopener"><code>Executor</code></a> is a simple standardized interface for defining custom thread-like subsystems, including thread pools, asynchronous I/O, and lightweight task frameworks. </p>
-<p>Depending on which concrete Executor class is being used, tasks may execute in a newly created thread, an existing task-execution thread, or the thread calling <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html#execute-java.lang.Runnable-" target="_blank" rel="noopener"><code>execute</code></a>, and may execute sequentially or concurrently.</p>
-<pre><code class="java">public interface Executor {
+<h5 id="Executor"><a href="#Executor" class="headerlink" title="Executor"></a>Executor</h5><p> <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html"><code>Executor</code></a> is a simple standardized interface for defining custom thread-like subsystems, including thread pools, asynchronous I&#x2F;O, and lightweight task frameworks. </p>
+<p>Depending on which concrete Executor class is being used, tasks may execute in a newly created thread, an existing task-execution thread, or the thread calling <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html#execute-java.lang.Runnable-"><code>execute</code></a>, and may execute sequentially or concurrently.</p>
+<pre><code class="java">public interface Executor &#123;
     void execute(Runnable command);
-}
+&#125;
 </code></pre>
 <h5 id="ExecutorService"><a href="#ExecutorService" class="headerlink" title="ExecutorService"></a>ExecutorService</h5><p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g62obzhq7nj31ds0sujwc.jpg" alt="image-20190817144736755"></p>
-<p><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html" target="_blank" rel="noopener"><code>ExecutorService</code></a> provides a more complete asynchronous task execution framework. An ExecutorService manages queuing and scheduling of tasks, and allows controlled shutdown. </p>
-<pre><code class="java">public interface ExecutorService extends Executor {
+<p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html"><code>ExecutorService</code></a> provides a more complete asynchronous task execution framework. An ExecutorService manages queuing and scheduling of tasks, and allows controlled shutdown. </p>
+<pre><code class="java">public interface ExecutorService extends Executor &#123;
    void shutdown();
    List&lt;Runnable&gt; shutdownNow();
    boolean isShutdown();
@@ -758,7 +926,7 @@
         throws InterruptedException, ExecutionException;
    &lt;T&gt; T invokeAny(Collection&lt;? extends Callable&lt;T&gt;&gt; tasks,long timeout, TimeUnit unit)
         throws InterruptedException, ExecutionException, TimeoutException;
-}
+&#125;
 </code></pre>
 <p>不同于submit</p>
 <p>方法invokeAny,invokeAll具有阻塞性。</p>
@@ -766,8 +934,8 @@
 <li>invokeAny取得第一个方法的返回值,当第一个任务结束后，会调用interrupt方法中断其它任务。</li>
 <li>invokeAll等线程任务执行完毕后,取得全部任务的结果值。</li>
 </ul>
-<h5 id="ScheduledExecutorService"><a href="#ScheduledExecutorService" class="headerlink" title="ScheduledExecutorService"></a>ScheduledExecutorService</h5><p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ScheduledExecutorService.html" target="_blank" rel="noopener"><code>ScheduledExecutorService</code></a> subinterface and associated interfaces add support for delayed and periodic task execution. </p>
-<pre><code class="java">public interface ScheduledExecutorService extends ExecutorService {
+<h5 id="ScheduledExecutorService"><a href="#ScheduledExecutorService" class="headerlink" title="ScheduledExecutorService"></a>ScheduledExecutorService</h5><p>The <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ScheduledExecutorService.html"><code>ScheduledExecutorService</code></a> subinterface and associated interfaces add support for delayed and periodic task execution. </p>
+<pre><code class="java">public interface ScheduledExecutorService extends ExecutorService &#123;
    public ScheduledFuture&lt;?&gt; schedule(Runnable command,long delay, TimeUnit unit);
    public &lt;V&gt; ScheduledFuture&lt;V&gt; schedule(Callable&lt;V&gt; callable,long delay, TimeUnit unit);
    public ScheduledFuture&lt;?&gt; scheduleAtFixedRate(Runnable command,
@@ -778,11 +946,11 @@
                                                      long initialDelay,
                                                      long delay,
                                                      TimeUnit unit);
-}
+&#125;
 </code></pre>
-<h5 id="Callable"><a href="#Callable" class="headerlink" title="Callable"></a>Callable</h5><p> ExecutorServices provide methods arranging asynchronous execution of any function expressed as <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html" target="_blank" rel="noopener"><code>Callable</code></a>, the result-bearing analog of <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html" target="_blank" rel="noopener"><code>Runnable</code></a></p>
+<h5 id="Callable"><a href="#Callable" class="headerlink" title="Callable"></a>Callable</h5><p> ExecutorServices provide methods arranging asynchronous execution of any function expressed as <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html"><code>Callable</code></a>, the result-bearing analog of <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html"><code>Runnable</code></a></p>
 <pre><code class="java">@FunctionalInterface
-public interface Callable&lt;V&gt; {
+public interface Callable&lt;V&gt; &#123;
     /**
      * Computes a result, or throws an exception if unable to do so.
      *
@@ -790,59 +958,59 @@ public interface Callable&lt;V&gt; {
      * @throws Exception if unable to compute a result
      */
     V call() throws Exception;
-}
+&#125;
 </code></pre>
-<h5 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h5><p>A <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html" target="_blank" rel="noopener"><code>Future</code></a> returns the results of a function, allows determination of whether execution has completed, and provides a means to cancel execution.</p>
-<pre><code class="java">public interface Future&lt;V&gt; {
+<h5 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h5><p>A <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html"><code>Future</code></a> returns the results of a function, allows determination of whether execution has completed, and provides a means to cancel execution.</p>
+<pre><code class="java">public interface Future&lt;V&gt; &#123;
     boolean cancel(boolean mayInterruptIfRunning);
     boolean isCancelled();
     boolean isDone(); 
     V get() throws InterruptedException, ExecutionException;
     V get(long timeout, TimeUnit unit)
         throws InterruptedException, ExecutionException, TimeoutException;
-}
+&#125;
 </code></pre>
-<h5 id="RunnableFuture"><a href="#RunnableFuture" class="headerlink" title="RunnableFuture"></a>RunnableFuture</h5><p>A <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/RunnableFuture.html" target="_blank" rel="noopener"><code>RunnableFuture</code></a> is a <code>Future</code> that possesses a <code>run</code> method that upon execution, sets its results.</p>
-<pre><code class="java">public interface RunnableFuture&lt;V&gt; extends Runnable, Future&lt;V&gt; {
+<h5 id="RunnableFuture"><a href="#RunnableFuture" class="headerlink" title="RunnableFuture"></a>RunnableFuture</h5><p>A <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/RunnableFuture.html"><code>RunnableFuture</code></a> is a <code>Future</code> that possesses a <code>run</code> method that upon execution, sets its results.</p>
+<pre><code class="java">public interface RunnableFuture&lt;V&gt; extends Runnable, Future&lt;V&gt; &#123;
     /**
      * Sets this Future to the result of its computation
      * unless it has been cancelled.
      */
     void run();
-}
+&#125;
 </code></pre>
-<h5 id="ThreadFactory"><a href="#ThreadFactory" class="headerlink" title="ThreadFactory"></a>ThreadFactory</h5><pre><code class="java">public interface ThreadFactory {
+<h5 id="ThreadFactory"><a href="#ThreadFactory" class="headerlink" title="ThreadFactory"></a>ThreadFactory</h5><pre><code class="java">public interface ThreadFactory &#123;
 
     /**
-     * Constructs a new {@code Thread}.  Implementations may also initialize
-     * priority, name, daemon status, {@code ThreadGroup}, etc.
+     * Constructs a new &#123;@code Thread&#125;.  Implementations may also initialize
+     * priority, name, daemon status, &#123;@code ThreadGroup&#125;, etc.
      *
      * @param r a runnable to be executed by new thread instance
-     * @return constructed thread, or {@code null} if the request to
+     * @return constructed thread, or &#123;@code null&#125; if the request to
      *         create a thread is rejected
      */
     Thread newThread(Runnable r);
-}
+&#125;
 </code></pre>
 <p>构造新的线程,初始化 优先级 、名字 等</p>
 <p><strong>Implementations</strong> </p>
-<h5 id="ThreadPoolExecutor-amp-ScheduledThreadPoolExecutor"><a href="#ThreadPoolExecutor-amp-ScheduledThreadPoolExecutor" class="headerlink" title="ThreadPoolExecutor &amp; ScheduledThreadPoolExecutor"></a>ThreadPoolExecutor &amp; ScheduledThreadPoolExecutor</h5><pre><code class="java">public class ThreadPoolExecutor extends AbstractExecutorService {
+<h5 id="ThreadPoolExecutor-amp-ScheduledThreadPoolExecutor"><a href="#ThreadPoolExecutor-amp-ScheduledThreadPoolExecutor" class="headerlink" title="ThreadPoolExecutor &amp; ScheduledThreadPoolExecutor"></a>ThreadPoolExecutor &amp; ScheduledThreadPoolExecutor</h5><pre><code class="java">public class ThreadPoolExecutor extends AbstractExecutorService &#123;
      /**
      * The main pool control state, ctl, is an atomic integer packing
      * two conceptual fields
      *   workerCount, indicating the effective number of threads
      *   runState,    indicating whether running, shutting down etc
      */
-    private final class Worker extends AbstractQueuedSynchronizer implements Runnable{...}
-    public static class xxx implements rejectedExecution{...}
-    implements Executor{..}
-    implements ExecutorService{..}
+    private final class Worker extends AbstractQueuedSynchronizer implements Runnable&#123;...&#125;
+    public static class xxx implements rejectedExecution&#123;...&#125;
+    implements Executor&#123;..&#125;
+    implements ExecutorService&#123;..&#125;
     ...
-}
+&#125;
 </code></pre>
-<p>​    这个类很有意思呀,包含了运行状态,worker数量的计算,  Worker的实现,拒绝策略的实现,Executor的实现,另外注意构造函数,注意理解各个参数的含义⚠️</p>
+<p>​	这个类很有意思呀,包含了运行状态,worker数量的计算,  Worker的实现,拒绝策略的实现,Executor的实现,另外注意构造函数,注意理解各个参数的含义⚠️</p>
 <pre><code class="java">public class ScheduledThreadPoolExecutor extends ThreadPoolExecutor
-        implements ScheduledExecutorService {
+        implements ScheduledExecutorService &#123;
     /*
      * This class specializes ThreadPoolExecutor implementation by
      *
@@ -870,17 +1038,17 @@ public interface Callable&lt;V&gt; {
      *    don&#39;t have any impact on pool control logic though.
      */
      ...
-}
+&#125;
 </code></pre>
-<p>​    与ThreadPoolExecutor不同的是,使用的是task,延迟队列,重写了onshutdown</p>
-<h5 id="Executors-1"><a href="#Executors-1" class="headerlink" title="Executors"></a>Executors</h5><p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executors.html" target="_blank" rel="noopener"><code>Executors</code></a> class provides factory methods for the most common kinds and configurations of Executors, as well as a few utility methods for using them. </p>
+<p>​	与ThreadPoolExecutor不同的是,使用的是task,延迟队列,重写了onshutdown</p>
+<h5 id="Executors-1"><a href="#Executors-1" class="headerlink" title="Executors"></a>Executors</h5><p>The <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executors.html"><code>Executors</code></a> class provides factory methods for the most common kinds and configurations of Executors, as well as a few utility methods for using them. </p>
 <p>类似于Collections, Executors类为最常见的executor类型和配置提供工厂方法，以及一些使用它们的实用程序方法。</p>
-<h5 id="FutureTask-amp-ExecutorCompletionService"><a href="#FutureTask-amp-ExecutorCompletionService" class="headerlink" title="FutureTask &amp; ExecutorCompletionService"></a>FutureTask &amp; ExecutorCompletionService</h5><p>Other utilities based on <code>Executors</code> include the concrete class <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/FutureTask.html" target="_blank" rel="noopener"><code>FutureTask</code></a> providing a common extensible implementation of Futures, and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorCompletionService.html" target="_blank" rel="noopener"><code>ExecutorCompletionService</code></a>, that assists in coordinating the processing of groups of asynchronous tasks.</p>
+<h5 id="FutureTask-amp-ExecutorCompletionService"><a href="#FutureTask-amp-ExecutorCompletionService" class="headerlink" title="FutureTask &amp; ExecutorCompletionService"></a>FutureTask &amp; ExecutorCompletionService</h5><p>Other utilities based on <code>Executors</code> include the concrete class <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/FutureTask.html"><code>FutureTask</code></a> providing a common extensible implementation of Futures, and <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorCompletionService.html"><code>ExecutorCompletionService</code></a>, that assists in coordinating the processing of groups of asynchronous tasks.</p>
 <p>基于executor的其他实用程序包括提供future公共可扩展实现的具体类FutureTask和ExecutorCompletionService，后者帮助协调异步任务组的处理。</p>
 <h5 id="ForkJoinPool-amp-ForkJoinTask-amp-ForkJoinWorkerThread-since-1-7"><a href="#ForkJoinPool-amp-ForkJoinTask-amp-ForkJoinWorkerThread-since-1-7" class="headerlink" title="ForkJoinPool &amp; ForkJoinTask &amp; ForkJoinWorkerThread(@since 1.7)"></a>ForkJoinPool &amp; ForkJoinTask &amp; ForkJoinWorkerThread(@since 1.7)</h5><p>ForkJoinPool的优势在于，可以充分利用多cpu，多核cpu的优势，把一个任务拆分成多个“小任务”，把多个“小任务”放到多个处理器核心上并行执行；当多个“小任务”执行完成之后，再将这些执行结果合并起来即可。</p>
 <p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g5utn9m71kj317y0tutgr.jpg" alt="image-20190810194656530"></p>
 <h4 id="Queues"><a href="#Queues" class="headerlink" title="Queues"></a>Queues</h4><p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g62ogwi8q8j32fw0gm0v5.jpg" alt="image-20190817145220963"></p>
-<h5 id="BlockingQueue"><a href="#BlockingQueue" class="headerlink" title="BlockingQueue"></a>BlockingQueue</h5><p>A <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html" target="_blank" rel="noopener"><code>Queue</code></a> that additionally supports operations that wait for the queue to become non-empty when retrieving an element, and wait for space to become available in the queue when storing an element.</p>
+<h5 id="BlockingQueue"><a href="#BlockingQueue" class="headerlink" title="BlockingQueue"></a>BlockingQueue</h5><p>A <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html"><code>Queue</code></a> that additionally supports operations that wait for the queue to become non-empty when retrieving an element, and wait for space to become available in the queue when storing an element.</p>
 <p><code>BlockingQueue</code> methods come in four forms, with different ways of handling operations that cannot be satisfied immediately, but may be satisfied at some point in the future: </p>
 <p>one throws an exception, </p>
 <p>the second returns a special value (either <code>null</code> or <code>false</code>, depending on the operation),</p>
@@ -890,38 +1058,36 @@ public interface Callable&lt;V&gt; {
 <table>
 <thead>
 <tr>
-<th style="text-align:left"></th>
-<th style="text-align:left"><em>Throws exception</em></th>
-<th style="text-align:left"><em>Special value</em></th>
-<th style="text-align:left"><em>Blocks</em></th>
-<th style="text-align:left"><em>Times out</em></th>
+<th align="left"></th>
+<th align="left"><em>Throws exception</em></th>
+<th align="left"><em>Special value</em></th>
+<th align="left"><em>Blocks</em></th>
+<th align="left"><em>Times out</em></th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>Insert</strong></td>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#add-E-" target="_blank" rel="noopener"><code>add(e)</code></a></td>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#offer-E-" target="_blank" rel="noopener"><code>offer(e)</code></a></td>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#put-E-" target="_blank" rel="noopener"><code>put(e)</code></a></td>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#offer-E-long-java.util.concurrent.TimeUnit-" target="_blank" rel="noopener"><code>offer(e, time, unit)</code></a></td>
+<tbody><tr>
+<td align="left"><strong>Insert</strong></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#add-E-"><code>add(e)</code></a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#offer-E-"><code>offer(e)</code></a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#put-E-"><code>put(e)</code></a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#offer-E-long-java.util.concurrent.TimeUnit-"><code>offer(e, time, unit)</code></a></td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>Remove</strong></td>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#remove-java.lang.Object-" target="_blank" rel="noopener"><code>remove()</code></a></td>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#poll-long-java.util.concurrent.TimeUnit-" target="_blank" rel="noopener"><code>poll()</code></a></td>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#take--" target="_blank" rel="noopener"><code>take()</code></a></td>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#poll-long-java.util.concurrent.TimeUnit-" target="_blank" rel="noopener"><code>poll(time, unit)</code></a></td>
+<td align="left"><strong>Remove</strong></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#remove-java.lang.Object-"><code>remove()</code></a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#poll-long-java.util.concurrent.TimeUnit-"><code>poll()</code></a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#take--"><code>take()</code></a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html#poll-long-java.util.concurrent.TimeUnit-"><code>poll(time, unit)</code></a></td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>Examine</strong></td>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html#element--" target="_blank" rel="noopener"><code>element()</code></a></td>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html#peek--" target="_blank" rel="noopener"><code>peek()</code></a></td>
-<td style="text-align:left"><em>not applicable</em></td>
-<td style="text-align:left"><em>not applicable</em></td>
+<td align="left"><strong>Examine</strong></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html#element--"><code>element()</code></a></td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html#peek--"><code>peek()</code></a></td>
+<td align="left"><em>not applicable</em></td>
+<td align="left"><em>not applicable</em></td>
 </tr>
-</tbody>
-</table>
-<pre><code class="java">public interface BlockingQueue&lt;E&gt; extends Queue&lt;E&gt; {
+</tbody></table>
+<pre><code class="java">public interface BlockingQueue&lt;E&gt; extends Queue&lt;E&gt; &#123;
     /*
      * imple Queue
      */
@@ -945,100 +1111,100 @@ public interface Callable&lt;V&gt; {
     E poll(long timeout, TimeUnit unit)
         throws InterruptedException;
 
-}
+&#125;
 </code></pre>
-<p>​    实现了Queue接口 , 而Queue接口又实现了Collection,  而BlockingQueue 新增的有阻塞式的 put和take ,</p>
+<p>​	实现了Queue接口 , 而Queue接口又实现了Collection,  而BlockingQueue 新增的有阻塞式的 put和take ,</p>
 <p>提供阻塞超时机制的, offer、poll(扩展了Queue的方法)</p>
 <h5 id="BlockingDeque-since-1-6-amp-TransferQueue-since-1-7"><a href="#BlockingDeque-since-1-6-amp-TransferQueue-since-1-7" class="headerlink" title="BlockingDeque(@since 1.6) &amp; TransferQueue(@since 1.7)"></a>BlockingDeque(@since 1.6) &amp; TransferQueue(@since 1.7)</h5><p>BlockingDeque与BlockingQueue类似</p>
 <p>LinkedBlockingDeque</p>
-<p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingDeque.html" target="_blank" rel="noopener"><code>BlockingDeque</code></a> interface extends <code>BlockingQueue</code> to support both FIFO and LIFO (stack-based) operations.</p>
-<pre><code class="java">public interface BlockingDeque&lt;E&gt; extends BlockingQueue&lt;E&gt;, Deque&lt;E&gt; {
+<p>The <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingDeque.html"><code>BlockingDeque</code></a> interface extends <code>BlockingQueue</code> to support both FIFO and LIFO (stack-based) operations.</p>
+<pre><code class="java">public interface BlockingDeque&lt;E&gt; extends BlockingQueue&lt;E&gt;, Deque&lt;E&gt; &#123;
     ...
     void putFirst(E e) throws InterruptedException;
     void putLast(E e) throws InterruptedException;
     E takeFirst() throws InterruptedException;
     E takeLast() throws InterruptedException;
     ...
-}
+&#125;
 </code></pre>
 <p>TransferQueue </p>
-<p> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedTransferQueue.html" target="_blank" rel="noopener"><code>LinkedTransferQueue</code></a> introduce a synchronous <code>transfer</code> method (along with related features) in which a producer may optionally block awaiting its consumer</p>
+<p> <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedTransferQueue.html"><code>LinkedTransferQueue</code></a> introduce a synchronous <code>transfer</code> method (along with related features) in which a producer may optionally block awaiting its consumer</p>
 <blockquote>
 <p>TransferQueue是一个聪明的队列，它是ConcurrentLinkedQueue, SynchronousQueue (在公平模式下), 无界的LinkedBlockingQueues等的超集。</p>
 </blockquote>
 <p>🌟这是个很厉害的队列~ 只有在消费者等待的情况下才会生产,  解决消费者和生产者速度不匹配的问题, 例如 out of memory .</p>
-<p>@see <a href="https://segmentfault.com/a/1190000011266361" target="_blank" rel="noopener">https://segmentfault.com/a/1190000011266361</a></p>
+<p>@see <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000011266361">https://segmentfault.com/a/1190000011266361</a></p>
 <p><strong>Implementations.</strong> </p>
-<p>Five implementations in <code>java.util.concurrent</code> support the extended <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html" target="_blank" rel="noopener"><code>BlockingQueue</code></a> interface, that defines blocking versions of put and take: <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank" rel="noopener"><code>LinkedBlockingQueue</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ArrayBlockingQueue.html" target="_blank" rel="noopener"><code>ArrayBlockingQueue</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/SynchronousQueue.html" target="_blank" rel="noopener"><code>SynchronousQueue</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/PriorityBlockingQueue.html" target="_blank" rel="noopener"><code>PriorityBlockingQueue</code></a>, and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/DelayQueue.html" target="_blank" rel="noopener"><code>DelayQueue</code></a>. The different classes cover the most common usage contexts for producer-consumer, messaging, parallel tasking, and related concurrent designs.</p>
+<p>Five implementations in <code>java.util.concurrent</code> support the extended <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html"><code>BlockingQueue</code></a> interface, that defines blocking versions of put and take: <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/LinkedBlockingQueue.html"><code>LinkedBlockingQueue</code></a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ArrayBlockingQueue.html"><code>ArrayBlockingQueue</code></a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/SynchronousQueue.html"><code>SynchronousQueue</code></a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/PriorityBlockingQueue.html"><code>PriorityBlockingQueue</code></a>, and <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/DelayQueue.html"><code>DelayQueue</code></a>. The different classes cover the most common usage contexts for producer-consumer, messaging, parallel tasking, and related concurrent designs.</p>
 <h5 id="LinkedBlockingQueue"><a href="#LinkedBlockingQueue" class="headerlink" title="LinkedBlockingQueue"></a>LinkedBlockingQueue</h5><p>有限阻塞队列,底层存储链表结构, 可以不指定大小, 默认Integer.MAX_VALUE</p>
 <h5 id="ArrayBlockingQueue"><a href="#ArrayBlockingQueue" class="headerlink" title="ArrayBlockingQueue"></a>ArrayBlockingQueue</h5><p>有限阻塞队列,底层存储是数组,需要指定大小初始化 , 另一个是可以指定ReentrantLock公平锁或者非公平锁</p>
 <h5 id="SynchronousQueue"><a href="#SynchronousQueue" class="headerlink" title="SynchronousQueue"></a>SynchronousQueue</h5><p>是一个空队列,用于传递数据</p>
 <p>SynchronousQueue使用两个队列（一个用于正在等待的生产者、另一个用于正在等待的消费者）和一个用来保护两个队列的锁。而LinkedTransferQueue使用CAS操作实现一个非阻塞的方法，这是避免序列化处理任务的关键。</p>
-<p>@see <a href="https://segmentfault.com/a/1190000011207824" target="_blank" rel="noopener">https://segmentfault.com/a/1190000011207824</a></p>
-<h5 id="PriorityBlockingQueue"><a href="#PriorityBlockingQueue" class="headerlink" title="PriorityBlockingQueue"></a>PriorityBlockingQueue</h5><p>优先级队列, 实现上使用了数组, 默认初始化大小是 DEFAULT_INITIAL_CAPACITY = 11</p>
+<p>@see <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000011207824">https://segmentfault.com/a/1190000011207824</a></p>
+<h5 id="PriorityBlockingQueue"><a href="#PriorityBlockingQueue" class="headerlink" title="PriorityBlockingQueue"></a>PriorityBlockingQueue</h5><p>优先级队列, 实现上使用了数组, 默认初始化大小是 DEFAULT_INITIAL_CAPACITY &#x3D; 11</p>
 <p>使用PriorityQueue,用于Serializable</p>
-<h5 id="DelayQueue"><a href="#DelayQueue" class="headerlink" title="DelayQueue."></a>DelayQueue.</h5><p>延迟队列,实现上使用了PriorityQueue,默认初始化大小是 DEFAULT_INITIAL_CAPACITY = 11(没有实现java.io.Serializable)</p>
-<h4 id="Timing"><a href="#Timing" class="headerlink" title="Timing"></a>Timing</h4><p>​    The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html" target="_blank" rel="noopener"><code>TimeUnit</code></a> class provides multiple granularities (including nanoseconds) for specifying and controlling time-out based operations. Most classes in the package contain operations based on time-outs in addition to indefinite waits. In all cases that time-outs are used, the time-out specifies the minimum time that the method should wait before indicating that it timed-out. Implementations make a “best effort” to detect time-outs as soon as possible after they occur. However, an indefinite amount of time may elapse between a time-out being detected and a thread actually executing again after that time-out. All methods that accept timeout parameters treat values less than or equal to zero to mean not to wait at all. To wait “forever”, you can use a value of <code>Long.MAX_VALUE</code>.</p>
+<h5 id="DelayQueue"><a href="#DelayQueue" class="headerlink" title="DelayQueue."></a>DelayQueue.</h5><p>延迟队列,实现上使用了PriorityQueue,默认初始化大小是 DEFAULT_INITIAL_CAPACITY &#x3D; 11(没有实现java.io.Serializable)</p>
+<h4 id="Timing"><a href="#Timing" class="headerlink" title="Timing"></a>Timing</h4><p>​	The <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html"><code>TimeUnit</code></a> class provides multiple granularities (including nanoseconds) for specifying and controlling time-out based operations. Most classes in the package contain operations based on time-outs in addition to indefinite waits. In all cases that time-outs are used, the time-out specifies the minimum time that the method should wait before indicating that it timed-out. Implementations make a “best effort” to detect time-outs as soon as possible after they occur. However, an indefinite amount of time may elapse between a time-out being detected and a thread actually executing again after that time-out. All methods that accept timeout parameters treat values less than or equal to zero to mean not to wait at all. To wait “forever”, you can use a value of <code>Long.MAX_VALUE</code>.</p>
 <p>TimeUnit类提供了多个粒度(包括纳秒)，用于指定和控制基于超时的操作。</p>
 <p>包中的大多数类除了不确定的等待之外，还包含基于超时的操作。在所有使用超时的情况下，超时指定方法在指示超时之前应该等待的最小时间。实现会在超时发生后“尽最大努力”尽快检测超时。然而，在检测到超时与实际在超时之后再次执行的线程之间可能会经过一段不确定的时间。</p>
 <p>所有接受超时参数的方法都将小于或等于零的值视为根本不等待。要等待“永远”，可以使用Long.MAX_VALUE值。</p>
-<pre><code class="java">public enum TimeUnit {
+<pre><code class="java">public enum TimeUnit &#123;
     /**
      * Time unit representing one thousandth of a microsecond
      */
-    NANOSECONDS {
-        public long toNanos(long d)   { return d; }
-        public long toMicros(long d)  { return d/(C1/C0); }
-        public long toMillis(long d)  { return d/(C2/C0); }
-        public long toSeconds(long d) { return d/(C3/C0); }
-        public long toMinutes(long d) { return d/(C4/C0); }
-        public long toHours(long d)   { return d/(C5/C0); }
-        public long toDays(long d)    { return d/(C6/C0); }
-        public long convert(long d, TimeUnit u) { return u.toNanos(d); }
-        int excessNanos(long d, long m) { return (int)(d - (m*C2)); }
-    },
-           MICROSECONDS {
+    NANOSECONDS &#123;
+        public long toNanos(long d)   &#123; return d; &#125;
+        public long toMicros(long d)  &#123; return d/(C1/C0); &#125;
+        public long toMillis(long d)  &#123; return d/(C2/C0); &#125;
+        public long toSeconds(long d) &#123; return d/(C3/C0); &#125;
+        public long toMinutes(long d) &#123; return d/(C4/C0); &#125;
+        public long toHours(long d)   &#123; return d/(C5/C0); &#125;
+        public long toDays(long d)    &#123; return d/(C6/C0); &#125;
+        public long convert(long d, TimeUnit u) &#123; return u.toNanos(d); &#125;
+        int excessNanos(long d, long m) &#123; return (int)(d - (m*C2)); &#125;
+    &#125;,
+           MICROSECONDS &#123;
     ...
-    },
+    &#125;,
     ...
-            public long convert(long sourceDuration, TimeUnit sourceUnit) {
+            public long convert(long sourceDuration, TimeUnit sourceUnit) &#123;
         throw new AbstractMethodError();
-    }
+    &#125;
     abstract int excessNanos(long d, long m);
-
+                
         public void timedWait(Object obj, long timeout)
-            throws InterruptedException {
-        if (timeout &gt; 0) {
+            throws InterruptedException &#123;
+        if (timeout &gt; 0) &#123;
             long ms = toMillis(timeout);
             int ns = excessNanos(timeout, ms);
             obj.wait(ms, ns);
-        }
-    }
+        &#125;
+    &#125;
     public void timedJoin(Thread thread, long timeout)
-            throws InterruptedException {
-        if (timeout &gt; 0) {
+            throws InterruptedException &#123;
+        if (timeout &gt; 0) &#123;
             long ms = toMillis(timeout);
             int ns = excessNanos(timeout, ms);
             thread.join(ms, ns);
-        }
-    }
-    public void sleep(long timeout) throws InterruptedException {
-        if (timeout &gt; 0) {
+        &#125;
+    &#125;
+    public void sleep(long timeout) throws InterruptedException &#123;
+        if (timeout &gt; 0) &#123;
             long ms = toMillis(timeout);
             int ns = excessNanos(timeout, ms);
             Thread.sleep(ms, ns);
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <h4 id="Synchronizers"><a href="#Synchronizers" class="headerlink" title="Synchronizers"></a>Synchronizers</h4><p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g62op94yg7j31pe0nqdiy.jpg" alt="image-20190817150022024"></p>
 <p>Five classes aid common special-purpose synchronization idioms.</p>
 <ul>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Semaphore.html" target="_blank" rel="noopener"><code>Semaphore</code></a> is a classic concurrency tool.</li>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CountDownLatch.html" target="_blank" rel="noopener"><code>CountDownLatch</code></a> is a very simple yet very common utility for blocking until a given number of signals, events, or conditions hold.</li>
-<li>A <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CyclicBarrier.html" target="_blank" rel="noopener"><code>CyclicBarrier</code></a> is a resettable multiway synchronization point useful in some styles of parallel programming.</li>
-<li>A <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Phaser.html" target="_blank" rel="noopener"><code>Phaser</code></a> provides a more flexible form of barrier that may be used to control phased computation among multiple threads.</li>
-<li>An <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Exchanger.html" target="_blank" rel="noopener"><code>Exchanger</code></a> allows two threads to exchange objects at a rendezvous point, and is useful in several pipeline designs.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Semaphore.html"><code>Semaphore</code></a> is a classic concurrency tool.</li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CountDownLatch.html"><code>CountDownLatch</code></a> is a very simple yet very common utility for blocking until a given number of signals, events, or conditions hold.</li>
+<li>A <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CyclicBarrier.html"><code>CyclicBarrier</code></a> is a resettable multiway synchronization point useful in some styles of parallel programming.</li>
+<li>A <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Phaser.html"><code>Phaser</code></a> provides a more flexible form of barrier that may be used to control phased computation among multiple threads.</li>
+<li>An <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Exchanger.html"><code>Exchanger</code></a> allows two threads to exchange objects at a rendezvous point, and is useful in several pipeline designs.</li>
 </ul>
 <h5 id="Semaphore"><a href="#Semaphore" class="headerlink" title="Semaphore"></a>Semaphore</h5><p>A counting semaphore. Conceptually, a semaphore maintains a set of permits. Each acquire() blocks if necessary until a permit is available, and then takes it. Each release() adds a permit, potentially releasing a blocking acquirer. However, no actual permit objects are used; the Semaphore just keeps a count of the number available and acts accordingly.<br>Semaphores are often used to restrict the number of threads than can access some (physical or logical) resource.</p>
 <p>计数信号量。从概念上讲，信号量维护一组许可证。</p>
@@ -1046,189 +1212,187 @@ public interface Callable&lt;V&gt; {
 <p>每个release()都会添加一个许可证，潜在地释放一个阻塞的收购者。</p>
 <p>但是，没有使用实际的许可证对象;信号量只保留可用数量的计数，并相应地执行操作。</p>
 <p>信号量通常用于限制能够访问某些(物理或逻辑)资源的线程数。</p>
-<pre><code class="java">public class Semaphore implements java.io.Serializable {
+<pre><code class="java">public class Semaphore implements java.io.Serializable &#123;
   private final Sync sync;
     /**
      * Synchronization implementation for semaphore.  Uses AQS state
      * to represent permits. Subclassed into fair and nonfair
      * versions.
      */
-  abstract static class Sync extends AbstractQueuedSynchronizer {
+  abstract static class Sync extends AbstractQueuedSynchronizer &#123;
      ...
-     final int nonfairTryAcquireShared(int acquires) {
-         for (;;) {
+     final int nonfairTryAcquireShared(int acquires) &#123;
+         for (;;) &#123;
               int available = getState();
               int remaining = available - acquires;
               if (remaining &lt; 0 ||compareAndSetState(available, remaining))
                     return remaining;
-         }
-      }
-  }
-      static final class NonfairSync extends Sync {
+         &#125;
+      &#125;
+  &#125;
+      static final class NonfairSync extends Sync &#123;
        ...
-           protected int tryAcquireShared(int acquires) {
+           protected int tryAcquireShared(int acquires) &#123;
            return nonfairTryAcquireShared(acquires);
-       }
-  }
-  static final class FairSync extends Sync {
+       &#125;
+  &#125;
+  static final class FairSync extends Sync &#123;
       ...
-      protected int tryAcquireShared(int acquires) {
-            for (;;) {
+      protected int tryAcquireShared(int acquires) &#123;
+            for (;;) &#123;
                 if (hasQueuedPredecessors())
                     return -1;
                 int available = getState();
                 int remaining = available - acquires;
                 if (remaining &lt; 0 ||compareAndSetState(available, remaining))
                     return remaining;
-            }
-        }
-  }
-  public Semaphore(int permits) {
+            &#125;
+        &#125;
+  &#125;
+  public Semaphore(int permits) &#123;
        sync = new NonfairSync(permits);
-  }
-  public Semaphore(int permits, boolean fair) {
+  &#125;
+  public Semaphore(int permits, boolean fair) &#123;
        sync = fair ? new FairSync(permits) : new NonfairSync(permits);
-  }
-  public void acquire(int permits) throws InterruptedException {
+  &#125;
+  public void acquire(int permits) throws InterruptedException &#123;
         if (permits &lt; 0) throw new IllegalArgumentException();
         sync.acquireSharedInterruptibly(permits);
-  }
-  public void release(int permits) {
+  &#125;
+  public void release(int permits) &#123;
         if (permits &lt; 0) throw new IllegalArgumentException();
         sync.releaseShared(permits);
-  }
+  &#125;
   ...
-}
+&#125;
 </code></pre>
 <p>基于AbstractQueuedSynchronizer 实现,主要有acquire 和 release方法</p>
 <h5 id="CountDownLatch"><a href="#CountDownLatch" class="headerlink" title="CountDownLatch"></a>CountDownLatch</h5><p>A synchronization aid that allows one or more threads to wait until a set of operations being performed in other threads completes.</p>
 <p>一种同步辅助，允许一个或多个线程等待，直到在其他线程中执行的一组操作完成。</p>
-<pre><code class="java">public class CountDownLatch {
+<pre><code class="java">public class CountDownLatch &#123;
     /**
      * Synchronization control For CountDownLatch.
      * Uses AQS state to represent count.
      */
-    private static final class Sync extends AbstractQueuedSynchronizer {
+    private static final class Sync extends AbstractQueuedSynchronizer &#123;
         private static final long serialVersionUID = 4982264981922014374L;
 
-        Sync(int count) {
+        Sync(int count) &#123;
             setState(count);
-        }
+        &#125;
 
-        int getCount() {
+        int getCount() &#123;
             return getState();
-        }
+        &#125;
 
-        protected int tryAcquireShared(int acquires) {
+        protected int tryAcquireShared(int acquires) &#123;
             return (getState() == 0) ? 1 : -1;
-        }
+        &#125;
 
-        protected boolean tryReleaseShared(int releases) {
+        protected boolean tryReleaseShared(int releases) &#123;
             // Decrement count; signal when transition to zero
-            for (;;) {
+            for (;;) &#123;
                 int c = getState();
                 if (c == 0)
                     return false;
                 int nextc = c-1;
                 if (compareAndSetState(c, nextc))
                     return nextc == 0;
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
     private final Sync sync;
-    public CountDownLatch(int count) {
+    public CountDownLatch(int count) &#123;
         if (count &lt; 0) throw new IllegalArgumentException(&quot;count &lt; 0&quot;);
         this.sync = new Sync(count);
-    }
-    public void await() throws InterruptedException {
+    &#125;
+    public void await() throws InterruptedException &#123;
         sync.acquireSharedInterruptibly(1);
-    }
+    &#125;
     public boolean await(long timeout, TimeUnit unit)
-        throws InterruptedException {
+        throws InterruptedException &#123;
         return sync.tryAcquireSharedNanos(1, unit.toNanos(timeout));
-    }
-    public void countDown() {
+    &#125;
+    public void countDown() &#123;
         sync.releaseShared(1);
-    }
-    public long getCount() {
+    &#125;
+    public long getCount() &#123;
         return sync.getCount();
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <h5 id="CyclicBarrier"><a href="#CyclicBarrier" class="headerlink" title="CyclicBarrier"></a>CyclicBarrier</h5><p>与 CountDownLatch 类似, 最大的不同点在于调用时点是否阻塞 ,注意实现也是不同的</p>
 <p>从使用场景上来说，CyclicBarrier是让多个线程互相等待某一事件的发生，然后同时被唤醒。而上文讲的CountDownLatch是让某一线程等待多个线程的状态，然后该线程被唤醒。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">CountDownLatch</th>
+<th align="left">CountDownLatch</th>
 <th>CyclicBarrier</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">减计数方式</td>
+<tbody><tr>
+<td align="left">减计数方式</td>
 <td>ReentrantLock</td>
 </tr>
 <tr>
-<td style="text-align:left">计数为0时，无法重置</td>
+<td align="left">计数为0时，无法重置</td>
 <td>计数置为0,重新开始</td>
 </tr>
 <tr>
-<td style="text-align:left">调用countDown()方法计数减一，调用await()方法只进行阻塞，对计数没任何影响</td>
+<td align="left">调用countDown()方法计数减一，调用await()方法只进行阻塞，对计数没任何影响</td>
 <td>调用await()方法计数count减1，减1后的值不等于构造方法的值，则线程阻塞,否则执行barrierCommand</td>
 </tr>
-</tbody>
-</table>
-<pre><code class="java">public class CyclicBarrier {
-    public CyclicBarrier(int parties, Runnable barrierAction) {
+</tbody></table>
+<pre><code class="java">public class CyclicBarrier &#123;
+    public CyclicBarrier(int parties, Runnable barrierAction) &#123;
         if (parties &lt;= 0) throw new IllegalArgumentException();
         this.parties = parties;
         this.count = parties;
         this.barrierCommand = barrierAction;
-    }
-    public CyclicBarrier(int parties) {
+    &#125;
+    public CyclicBarrier(int parties) &#123;
         this(parties, null);
-    }
-    public int await() throws InterruptedException, BrokenBarrierException {
-        try {
+    &#125;
+    public int await() throws InterruptedException, BrokenBarrierException &#123;
+        try &#123;
             return dowait(false, 0L);
-        } catch (TimeoutException toe) {
+        &#125; catch (TimeoutException toe) &#123;
             throw new Error(toe); // cannot happen
-        }
-    }
-    public boolean isBroken() {
+        &#125;
+    &#125;
+    public boolean isBroken() &#123;
         final ReentrantLock lock = this.lock;
         lock.lock();
-        try {
+        try &#123;
             return generation.broken;
-        } finally {
+        &#125; finally &#123;
             lock.unlock();
-        }
-    }
-    public void reset() {
+        &#125;
+    &#125;
+    public void reset() &#123;
         final ReentrantLock lock = this.lock;
         lock.lock();
-        try {
+        try &#123;
             breakBarrier();   // break the current generation
             nextGeneration(); // start a new generation
-        } finally {
+        &#125; finally &#123;
             lock.unlock();
-        }
-    }
-    public int getNumberWaiting() {
+        &#125;
+    &#125;
+    public int getNumberWaiting() &#123;
         final ReentrantLock lock = this.lock;
         lock.lock();
-        try {
+        try &#123;
             return parties - count;
-        } finally {
+        &#125; finally &#123;
             lock.unlock();
-        }
-    }
+        &#125;
+    &#125;
         ...
-}
+&#125;
 </code></pre>
-<p>​    </p>
-<h5 id="Phaser-since-1-7"><a href="#Phaser-since-1-7" class="headerlink" title="Phaser(@since 1.7)"></a>Phaser(@since 1.7)</h5><p>A reusable synchronization barrier, similar in functionality to <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CyclicBarrier.html" target="_blank" rel="noopener"><code>CyclicBarrier</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CountDownLatch.html" target="_blank" rel="noopener"><code>CountDownLatch</code></a> but supporting more flexible usage.</p>
+<p>​	</p>
+<h5 id="Phaser-since-1-7"><a href="#Phaser-since-1-7" class="headerlink" title="Phaser(@since 1.7)"></a>Phaser(@since 1.7)</h5><p>A reusable synchronization barrier, similar in functionality to <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CyclicBarrier.html"><code>CyclicBarrier</code></a> and <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CountDownLatch.html"><code>CountDownLatch</code></a> but supporting more flexible usage.</p>
 <p><strong>Registration</strong> </p>
 <p><strong>Synchronization</strong></p>
 <p><strong>Termination</strong> </p>
@@ -1238,11 +1402,11 @@ public interface Callable&lt;V&gt; {
 <p>Phaser顾名思义，与阶段相关。Phaser比较适合这样一种场景，一种任务可以分为多个阶段，现希望多个线程去处理该批任务，对于每个阶段，多个线程可以并发进行，但是希望保证只有前面一个阶段的任务完成之后才能开始后面的任务。</p>
 <p>这种场景可以使用多个CyclicBarrier来实现，每个CyclicBarrier负责等待一个阶段的任务全部完成。但是使用CyclicBarrier的缺点在于，需要明确知道总共有多少个阶段，同时并行的任务数需要提前预定义好，且无法动态修改。而Phaser可同时解决这两个问题。</p>
 <blockquote>
-<p>@see <a href="http://www.jasongj.com/java/thread_communication/" target="_blank" rel="noopener">http://www.jasongj.com/java/thread_communication/</a></p>
+<p>@see <a target="_blank" rel="noopener" href="http://www.jasongj.com/java/thread_communication/">http://www.jasongj.com/java/thread_communication/</a></p>
 </blockquote>
-<h5 id="Exchanger"><a href="#Exchanger" class="headerlink" title="Exchanger"></a>Exchanger</h5><p>A ==synchronization== point at which threads can pair and swap elements within pairs. </p>
-<p>Each thread presents some object on entry to the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Exchanger.html#exchange-V-" target="_blank" rel="noopener"><code>exchange</code></a> method, matches with a partner thread, and receives its partner’s object on return. </p>
-<p>An Exchanger may be viewed as a bidirectional form of a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/SynchronousQueue.html" target="_blank" rel="noopener"><code>SynchronousQueue</code></a>. </p>
+<h5 id="Exchanger"><a href="#Exchanger" class="headerlink" title="Exchanger"></a>Exchanger</h5><p>A &#x3D;&#x3D;synchronization&#x3D;&#x3D; point at which threads can pair and swap elements within pairs. </p>
+<p>Each thread presents some object on entry to the <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Exchanger.html#exchange-V-"><code>exchange</code></a> method, matches with a partner thread, and receives its partner’s object on return. </p>
+<p>An Exchanger may be viewed as a bidirectional form of a <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/SynchronousQueue.html"><code>SynchronousQueue</code></a>. </p>
 <p>Exchangers may be useful in applications such as genetic algorithms and pipeline designs.</p>
 <p>在以上的描述中，有几个要点：</p>
 <ul>
@@ -1251,8 +1415,8 @@ public interface Callable&lt;V&gt; {
 <li>可以视作双向的同步队列；</li>
 <li>可应用于基因算法、流水线设计等场景。</li>
 </ul>
-<pre><code class="java">public class Exchanger&lt;V&gt; {
-    @sun.misc.Contended static final class Node {
+<pre><code class="java">public class Exchanger&lt;V&gt; &#123;
+    @sun.misc.Contended static final class Node &#123;
         int index;              // Arena index
         int bound;              // Last recorded value of Exchanger.bound
         int collides;           // Number of CAS failures at current bound
@@ -1260,14 +1424,14 @@ public interface Callable&lt;V&gt; {
         Object item;            // This thread&#39;s current item
         volatile Object match;  // Item provided by releasing thread
         volatile Thread parked; // Set to this thread when parked, else null
-    }
-    static final class Participant extends ThreadLocal&lt;Node&gt; {
-        public Node initialValue() { return new Node(); }
-    }
-    public Exchanger() {
+    &#125;
+    static final class Participant extends ThreadLocal&lt;Node&gt; &#123;
+        public Node initialValue() &#123; return new Node(); &#125;
+    &#125;
+    public Exchanger() &#123;
         participant = new Participant();
-    }
-    public V exchange(V x) throws InterruptedException {
+    &#125;
+    public V exchange(V x) throws InterruptedException &#123;
         Object v;
         Object item = (x == null) ? NULL_ITEM : x; // translate null args
         if ((arena != null ||
@@ -1276,9 +1440,9 @@ public interface Callable&lt;V&gt; {
               (v = arenaExchange(item, false, 0L)) == null)))
             throw new InterruptedException();
         return (v == NULL_ITEM) ? null : (V)v;
-    }
+    &#125;
     public V exchange(V x, long timeout, TimeUnit unit)
-        throws InterruptedException, TimeoutException {
+        throws InterruptedException, TimeoutException &#123;
         Object v;
         Object item = (x == null) ? NULL_ITEM : x;
         long ns = unit.toNanos(timeout);
@@ -1290,29 +1454,29 @@ public interface Callable&lt;V&gt; {
         if (v == TIMED_OUT)
             throw new TimeoutException();
         return (v == NULL_ITEM) ? null : (V)v;
-    }
-}
+    &#125;
+&#125;
 </code></pre>
-<p>有点类似于生产者/消费者 </p>
+<p>有点类似于生产者&#x2F;消费者 </p>
 <blockquote>
-<p>@see <a href="https://blog.csdn.net/coslay/article/details/45242581" target="_blank" rel="noopener">https://blog.csdn.net/coslay/article/details/45242581</a></p>
+<p>@see <a target="_blank" rel="noopener" href="https://blog.csdn.net/coslay/article/details/45242581">https://blog.csdn.net/coslay/article/details/45242581</a></p>
 </blockquote>
 <h4 id="Concurrent-Collections"><a href="#Concurrent-Collections" class="headerlink" title="Concurrent Collections"></a>Concurrent Collections</h4><p>用于并发访问的集合(List、Map、Set)</p>
-<p>Besides Queues, this package supplies Collection implementations designed for use in multithreaded contexts: <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentHashMap.html" target="_blank" rel="noopener"><code>ConcurrentHashMap</code></a><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentSkipListMap.html" target="_blank" rel="noopener"><code>ConcurrentSkipListMap</code></a><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentSkipListSet.html" target="_blank" rel="noopener"><code>ConcurrentSkipListSet</code></a><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CopyOnWriteArrayList.html" target="_blank" rel="noopener"><code>CopyOnWriteArrayList</code></a><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CopyOnWriteArraySet.html" target="_blank" rel="noopener"><code>CopyOnWriteArraySet</code></a>    </p>
+<p>Besides Queues, this package supplies Collection implementations designed for use in multithreaded contexts: <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentHashMap.html"><code>ConcurrentHashMap</code></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentSkipListMap.html"><code>ConcurrentSkipListMap</code></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentSkipListSet.html"><code>ConcurrentSkipListSet</code></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CopyOnWriteArrayList.html"><code>CopyOnWriteArrayList</code></a><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CopyOnWriteArraySet.html"><code>CopyOnWriteArraySet</code></a>    </p>
 <p>When many threads are expected to access a given collection, a <code>ConcurrentHashMap</code> is normally preferable to a synchronized <code>HashMap</code>, and a <code>ConcurrentSkipListMap</code> is normally preferable to a synchronized <code>TreeMap</code>. A <code>CopyOnWriteArrayList</code> is preferable to a synchronized <code>ArrayList</code>when the expected number of reads and traversals greatly outnumber the number of updates to a list.</p>
 <p>与synchronized封装的类不同, Concurrent开头的支持并发访问</p>
 <p>The “Concurrent” prefix used with some classes in this package is a shorthand indicating several differences from similar “synchronized” classes. </p>
-<p>For example <code>java.util.Hashtable</code> and <code>Collections.synchronizedMap(new HashMap())</code> are synchronized. But <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentHashMap.html" target="_blank" rel="noopener"><code>ConcurrentHashMap</code></a> is “concurrent”. A concurrent collection is thread-safe, but not governed by a single exclusion lock. In the particular case of ConcurrentHashMap, it safely permits any number of concurrent reads as well as a tunable number of concurrent writes. </p>
+<p>For example <code>java.util.Hashtable</code> and <code>Collections.synchronizedMap(new HashMap())</code> are synchronized. But <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentHashMap.html"><code>ConcurrentHashMap</code></a> is “concurrent”. A concurrent collection is thread-safe, but not governed by a single exclusion lock. In the particular case of ConcurrentHashMap, it safely permits any number of concurrent reads as well as a tunable number of concurrent writes. </p>
 <p>“Synchronized” classes can be useful when you need to prevent all access to a collection via a single lock, at the expense of poorer scalability. In other cases in which multiple threads are expected to access a common collection, “concurrent” versions are normally preferable. And unsynchronized collections are preferable when either collections are unshared, or are accessible only when holding other locks.</p>
 <p>提供弱一致的遍历,而不是快速失败</p>
-<p>Most concurrent Collection implementations (including most Queues) also differ from the usual <code>java.util</code> conventions in that their <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html" target="_blank" rel="noopener">Iterators</a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Spliterator.html" target="_blank" rel="noopener">Spliterators</a> provide <em>weakly consistent</em> rather than fast-fail traversal:</p>
+<p>Most concurrent Collection implementations (including most Queues) also differ from the usual <code>java.util</code> conventions in that their <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html">Iterators</a> and <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/Spliterator.html">Spliterators</a> provide <em>weakly consistent</em> rather than fast-fail traversal:</p>
 <ul>
 <li>they may proceed concurrently with other operations</li>
-<li>they will never throw <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ConcurrentModificationException.html" target="_blank" rel="noopener"><code>ConcurrentModificationException</code></a></li>
+<li>they will never throw <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/ConcurrentModificationException.html"><code>ConcurrentModificationException</code></a></li>
 <li>they are guaranteed to traverse elements as they existed upon construction exactly once, and may (but are not guaranteed to) reflect any modifications subsequent to construction.</li>
 </ul>
 <h5 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h5><h5 id="ConcurrentSkipListMap"><a href="#ConcurrentSkipListMap" class="headerlink" title="ConcurrentSkipListMap"></a>ConcurrentSkipListMap</h5><h5 id="ConcurrentSkipListSet"><a href="#ConcurrentSkipListSet" class="headerlink" title="ConcurrentSkipListSet"></a>ConcurrentSkipListSet</h5><h5 id="CopyOnWriteArrayList"><a href="#CopyOnWriteArrayList" class="headerlink" title="CopyOnWriteArrayList"></a>CopyOnWriteArrayList</h5><h5 id="CopyOnWriteArraySet"><a href="#CopyOnWriteArraySet" class="headerlink" title="CopyOnWriteArraySet"></a>CopyOnWriteArraySet</h5><h4 id="Memory-Consistency-Properties-内存一致性"><a href="#Memory-Consistency-Properties-内存一致性" class="headerlink" title="Memory Consistency Properties (内存一致性)"></a>Memory Consistency Properties (内存一致性)</h4><p>Java语言规范第17章定义了内存操作上的<em>happens-before</em>关系，比如共享变量的读写。只有当写操作发生时(在读操作之前)，一个线程的写操作的结果才保证对另一个线程的读操作可见。同步和volatile构造，以及Thread.start()和Thread.join()方法，可以形成happens-before关系。</p>
-<p><a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.4.5" target="_blank" rel="noopener">Chapter 17 of the Java Language Specification</a> defines the <em>happens-before</em> relation on memory operations such as reads and writes of shared variables. The results of a write by one thread are guaranteed to be visible to a read by another thread only if the write operation <em>happens-before</em>  the read operation. The synchronized  and volatile constructs, as well as the Thread.start() and Thread.join() methods, can form <em>happens-before</em>  relationships. In particular:</p>
+<p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.4.5">Chapter 17 of the Java Language Specification</a> defines the <em>happens-before</em> relation on memory operations such as reads and writes of shared variables. The results of a write by one thread are guaranteed to be visible to a read by another thread only if the write operation <em>happens-before</em>  the read operation. The synchronized  and volatile constructs, as well as the Thread.start() and Thread.join() methods, can form <em>happens-before</em>  relationships. In particular:</p>
 <ul>
 <li>Each action in a thread <em>happens-before</em> every action in that thread that comes later in the program’s order.</li>
 <li>An unlock (<code>synchronized</code> block or method exit) of a monitor <em>happens-before</em> every subsequent lock (<code>synchronized</code> block or method entry) of that same monitor. And because the <em>happens-before</em> relation is transitive, all actions of a thread prior to unlocking <em>happen-before</em> all actions subsequent to any thread locking that monitor.</li>
@@ -1330,14 +1494,15 @@ public interface Callable&lt;V&gt; {
 <li>For each pair of threads that successfully exchange objects via an <code>Exchanger</code>, actions prior to the <code>exchange()</code> in each thread <em>happen-before</em> those subsequent to the corresponding <code>exchange()</code> in another thread.</li>
 <li>Actions prior to calling <code>CyclicBarrier.await</code> and <code>Phaser.awaitAdvance</code> (as well as its variants) <em>happen-before</em> actions performed by the barrier action, and actions performed by the barrier action <em>happen-before</em> actions subsequent to a successful return from the corresponding <code>await</code> in other threads.</li>
 </ul>
-<h3 id="java-util-concurrent-atomic"><a href="#java-util-concurrent-atomic" class="headerlink" title="java.util.concurrent.atomic"></a>java.util.concurrent.atomic</h3><p>​    </p>
+<h3 id="java-util-concurrent-atomic"><a href="#java-util-concurrent-atomic" class="headerlink" title="java.util.concurrent.atomic"></a>java.util.concurrent.atomic</h3><p>​	</p>
 <p>一个支持单变量无锁线程安全编程的类的小工具包。本质上，这个包中的类将volatile值、字段和数组元素的概念扩展到那些还提供 <em>compareAndSet</em> 的原子条件更新操作的类</p>
 <p>A small toolkit of classes that support lock-free thread-safe programming on single variables.</p>
 <p>In essence, the classes in this package extend the notion of <code>volatile</code>  values, fields, and array elements to those that also provide an atomic conditional update operation of the form:</p>
 <pre><code> boolean compareAndSet(expectedValue, updateValue);
-</code></pre><p>This method (which varies in argument types across different classes) atomically sets a variable to the <code>updateValue</code> if it currently holds the <code>expectedValue</code>, reporting <code>true</code> on success. </p>
+</code></pre>
+<p>This method (which varies in argument types across different classes) atomically sets a variable to the <code>updateValue</code> if it currently holds the <code>expectedValue</code>, reporting <code>true</code> on success. </p>
 <p>The classes in this package also contain methods to get and unconditionally set values, as well as a weaker conditional atomic update operation <code>weakCompareAndSet</code> described below.</p>
-<p>The memory effects for accesses and updates of atomics generally follow the rules for volatiles, as stated in <a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.4" target="_blank" rel="noopener">The Java Language Specification (17.4 Memory Model)</a>:</p>
+<p>The memory effects for accesses and updates of atomics generally follow the rules for volatiles, as stated in <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.4">The Java Language Specification (17.4 Memory Model)</a>:</p>
 <ul>
 <li><code>get</code> has the memory effects of reading a <code>volatile</code> variable.</li>
 <li><code>set</code> has the memory effects of writing (assigning) a <code>volatile</code> variable.</li>
@@ -1345,8 +1510,8 @@ public interface Callable&lt;V&gt; {
 <li><code>weakCompareAndSet</code> atomically reads and conditionally writes a variable but does <em>not</em> create any happens-before orderings, so provides no guarantees with respect to previous or subsequent reads and writes of any variables other than the target of the <code>weakCompareAndSet</code>.</li>
 <li><code>compareAndSet</code> and all other read-and-update operations such as <code>getAndIncrement</code> have the memory effects of both reading and writing <code>volatile</code> variables.</li>
 </ul>
-<h4 id="Atomic-Values"><a href="#Atomic-Values" class="headerlink" title="Atomic Values"></a>Atomic Values</h4><p>Instances of classes <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicBoolean.html" target="_blank" rel="noopener"><code>AtomicBoolean</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html" target="_blank" rel="noopener"><code>AtomicInteger</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLong.html" target="_blank" rel="noopener"><code>AtomicLong</code></a>, and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReference.html" target="_blank" rel="noopener"><code>AtomicReference</code></a> each provide access and updates to a single variable of the corresponding type. Each class also provides appropriate utility methods for that type. For example, classes <code>AtomicLong</code> and <code>AtomicInteger</code> provide atomic increment methods. </p>
-<pre><code class="java">public class AtomicInteger extends Number implements java.io.Serializable {
+<h4 id="Atomic-Values"><a href="#Atomic-Values" class="headerlink" title="Atomic Values"></a>Atomic Values</h4><p>Instances of classes <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicBoolean.html"><code>AtomicBoolean</code></a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html"><code>AtomicInteger</code></a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLong.html"><code>AtomicLong</code></a>, and <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReference.html"><code>AtomicReference</code></a> each provide access and updates to a single variable of the corresponding type. Each class also provides appropriate utility methods for that type. For example, classes <code>AtomicLong</code> and <code>AtomicInteger</code> provide atomic increment methods. </p>
+<pre><code class="java">public class AtomicInteger extends Number implements java.io.Serializable &#123;
     private volatile int value;
 
     /**
@@ -1354,119 +1519,117 @@ public interface Callable&lt;V&gt; {
      *
      * @param initialValue the initial value
      */
-    public AtomicInteger(int initialValue) {
+    public AtomicInteger(int initialValue) &#123;
         value = initialValue;
-    }
+    &#125;
 
     /**
-     * Creates a new AtomicInteger with initial value {@code 0}.
+     * Creates a new AtomicInteger with initial value &#123;@code 0&#125;.
      */
-    public AtomicInteger() {
-    }
-}
+    public AtomicInteger() &#123;
+    &#125;
+&#125;
 </code></pre>
-<h4 id="Atomic-Fields"><a href="#Atomic-Fields" class="headerlink" title="Atomic Fields"></a>Atomic Fields</h4><p>In addition to classes representing single values, this package contains <em>Updater</em> classes that can be used to obtain <code>compareAndSet</code> operations on any selected <code>volatile</code> field of any selected class. <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReferenceFieldUpdater.html" target="_blank" rel="noopener"><code>AtomicReferenceFieldUpdater</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicIntegerFieldUpdater.html" target="_blank" rel="noopener"><code>AtomicIntegerFieldUpdater</code></a>, and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLongFieldUpdater.html" target="_blank" rel="noopener"><code>AtomicLongFieldUpdater</code></a> are reflection-based utilities that provide access to the associated field types. These are mainly of use in atomic data structures in which several <code>volatile</code> fields of the same node (for example, the links of a tree node) are independently subject to atomic updates. These classes enable greater flexibility in how and when to use atomic updates, at the expense of more awkward reflection-based setup, less convenient usage, and weaker guarantees.</p>
-<h4 id="Atomic-Arrays"><a href="#Atomic-Arrays" class="headerlink" title="Atomic Arrays"></a>Atomic Arrays</h4><p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicIntegerArray.html" target="_blank" rel="noopener"><code>AtomicIntegerArray</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLongArray.html" target="_blank" rel="noopener"><code>AtomicLongArray</code></a>, and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReferenceArray.html" target="_blank" rel="noopener"><code>AtomicReferenceArray</code></a> classes further extend atomic operation support to arrays of these types. These classes are also notable in providing <code>volatile</code> access semantics for their array elements, which is not supported for ordinary arrays.</p>
+<h4 id="Atomic-Fields"><a href="#Atomic-Fields" class="headerlink" title="Atomic Fields"></a>Atomic Fields</h4><p>In addition to classes representing single values, this package contains <em>Updater</em> classes that can be used to obtain <code>compareAndSet</code> operations on any selected <code>volatile</code> field of any selected class. <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReferenceFieldUpdater.html"><code>AtomicReferenceFieldUpdater</code></a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicIntegerFieldUpdater.html"><code>AtomicIntegerFieldUpdater</code></a>, and <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLongFieldUpdater.html"><code>AtomicLongFieldUpdater</code></a> are reflection-based utilities that provide access to the associated field types. These are mainly of use in atomic data structures in which several <code>volatile</code> fields of the same node (for example, the links of a tree node) are independently subject to atomic updates. These classes enable greater flexibility in how and when to use atomic updates, at the expense of more awkward reflection-based setup, less convenient usage, and weaker guarantees.</p>
+<h4 id="Atomic-Arrays"><a href="#Atomic-Arrays" class="headerlink" title="Atomic Arrays"></a>Atomic Arrays</h4><p>The <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicIntegerArray.html"><code>AtomicIntegerArray</code></a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLongArray.html"><code>AtomicLongArray</code></a>, and <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReferenceArray.html"><code>AtomicReferenceArray</code></a> classes further extend atomic operation support to arrays of these types. These classes are also notable in providing <code>volatile</code> access semantics for their array elements, which is not supported for ordinary arrays.</p>
 <h4 id="Class-Summary"><a href="#Class-Summary" class="headerlink" title="Class Summary"></a>Class Summary</h4><table>
 <thead>
 <tr>
-<th style="text-align:left">Class</th>
-<th style="text-align:left">Description</th>
+<th align="left">Class</th>
+<th align="left">Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicBoolean.html" target="_blank" rel="noopener">AtomicBoolean</a></td>
-<td style="text-align:left">A <code>boolean</code> value that may be updated atomically.</td>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicBoolean.html">AtomicBoolean</a></td>
+<td align="left">A <code>boolean</code> value that may be updated atomically.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html" target="_blank" rel="noopener">AtomicInteger</a></td>
-<td style="text-align:left">An <code>int</code> value that may be updated atomically.</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicInteger.html">AtomicInteger</a></td>
+<td align="left">An <code>int</code> value that may be updated atomically.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicIntegerArray.html" target="_blank" rel="noopener">AtomicIntegerArray</a></td>
-<td style="text-align:left">An <code>int</code> array in which elements may be updated atomically.</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicIntegerArray.html">AtomicIntegerArray</a></td>
+<td align="left">An <code>int</code> array in which elements may be updated atomically.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicIntegerFieldUpdater.html" target="_blank" rel="noopener">AtomicIntegerFieldUpdater</a><t></t></td>
-<td style="text-align:left">A reflection-based utility that enables atomic updates to designated <code>volatile int</code> fields of designated classes.</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicIntegerFieldUpdater.html">AtomicIntegerFieldUpdater</a><T></td>
+<td align="left">A reflection-based utility that enables atomic updates to designated <code>volatile int</code> fields of designated classes.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLong.html" target="_blank" rel="noopener">AtomicLong</a></td>
-<td style="text-align:left">A <code>long</code> value that may be updated atomically.</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLong.html">AtomicLong</a></td>
+<td align="left">A <code>long</code> value that may be updated atomically.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLongArray.html" target="_blank" rel="noopener">AtomicLongArray</a></td>
-<td style="text-align:left">A <code>long</code> array in which elements may be updated atomically.</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLongArray.html">AtomicLongArray</a></td>
+<td align="left">A <code>long</code> array in which elements may be updated atomically.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLongFieldUpdater.html" target="_blank" rel="noopener">AtomicLongFieldUpdater</a><t></t></td>
-<td style="text-align:left">A reflection-based utility that enables atomic updates to designated <code>volatile long</code> fields of designated classes.</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicLongFieldUpdater.html">AtomicLongFieldUpdater</a><T></td>
+<td align="left">A reflection-based utility that enables atomic updates to designated <code>volatile long</code> fields of designated classes.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicMarkableReference.html" target="_blank" rel="noopener">AtomicMarkableReference</a><v></v></td>
-<td style="text-align:left">An <code>AtomicMarkableReference</code> maintains an object reference along with a mark bit, that can be updated atomically.</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicMarkableReference.html">AtomicMarkableReference</a><V></td>
+<td align="left">An <code>AtomicMarkableReference</code> maintains an object reference along with a mark bit, that can be updated atomically.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReference.html" target="_blank" rel="noopener">AtomicReference</a><v></v></td>
-<td style="text-align:left">An object reference that may be updated atomically.</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReference.html">AtomicReference</a><V></td>
+<td align="left">An object reference that may be updated atomically.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReferenceArray.html" target="_blank" rel="noopener">AtomicReferenceArray</a><e></e></td>
-<td style="text-align:left">An array of object references in which elements may be updated atomically.</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReferenceArray.html">AtomicReferenceArray</a><E></td>
+<td align="left">An array of object references in which elements may be updated atomically.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReferenceFieldUpdater.html" target="_blank" rel="noopener">AtomicReferenceFieldUpdater</a>&lt;T,V&gt;</td>
-<td style="text-align:left">A reflection-based utility that enables atomic updates to designated <code>volatile</code> reference fields of designated classes.</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReferenceFieldUpdater.html">AtomicReferenceFieldUpdater</a>&lt;T,V&gt;</td>
+<td align="left">A reflection-based utility that enables atomic updates to designated <code>volatile</code> reference fields of designated classes.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicStampedReference.html" target="_blank" rel="noopener">AtomicStampedReference</a><v></v></td>
-<td style="text-align:left">An <code>AtomicStampedReference</code> maintains an object reference along with an integer “stamp”, that can be updated atomically.</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicStampedReference.html">AtomicStampedReference</a><V></td>
+<td align="left">An <code>AtomicStampedReference</code> maintains an object reference along with an integer “stamp”, that can be updated atomically.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/DoubleAccumulator.html" target="_blank" rel="noopener">DoubleAccumulator</a></td>
-<td style="text-align:left">One or more variables that together maintain a running <code>double</code> value updated using a supplied function.</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/DoubleAccumulator.html">DoubleAccumulator</a></td>
+<td align="left">One or more variables that together maintain a running <code>double</code> value updated using a supplied function.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/DoubleAdder.html" target="_blank" rel="noopener">DoubleAdder</a></td>
-<td style="text-align:left">One or more variables that together maintain an initially zero <code>double</code> sum.</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/DoubleAdder.html">DoubleAdder</a></td>
+<td align="left">One or more variables that together maintain an initially zero <code>double</code> sum.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/LongAccumulator.html" target="_blank" rel="noopener">LongAccumulator</a></td>
-<td style="text-align:left">One or more variables that together maintain a running <code>long</code> value updated using a supplied function.</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/LongAccumulator.html">LongAccumulator</a></td>
+<td align="left">One or more variables that together maintain a running <code>long</code> value updated using a supplied function.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/LongAdder.html" target="_blank" rel="noopener">LongAdder</a></td>
-<td style="text-align:left">One or more variables that together maintain an initially zero <code>long</code> sum.</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/LongAdder.html">LongAdder</a></td>
+<td align="left">One or more variables that together maintain an initially zero <code>long</code> sum.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="Designed"><a href="#Designed" class="headerlink" title="Designed"></a>Designed</h4><p>原子类主要设计为用于实现非阻塞数据结构和相关基础结构类的构建块。该<code>compareAndSet</code>方法不是锁定的一般替代方法。仅当对象的关键更新仅限于<em>单个</em>变量时，它才适用。</p>
-<p>原子类不是通用替换 <code>java.lang.Integer</code>和相关类。他们<em>没有</em> 定义方法，如<code>equals</code>，<code>hashCode</code>和 <code>compareTo</code>。（因为预期原子变量会发生变异，所以它们对于散列表键的选择很差。）此外，只为那些在预期应用程序中常用的类型提供类。例如，没有用于表示的原子类<code>byte</code>。在您想要这样做的不常见的情况下，您可以使用a <code>AtomicInteger</code>来保存 <code>byte</code>值，并适当地进行投射。您还可以使用<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html#floatToRawIntBits-float-" target="_blank" rel="noopener"><code>Float.floatToRawIntBits(float)</code></a>和 <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html#intBitsToFloat-int-" target="_blank" rel="noopener"><code>Float.intBitsToFloat(int)</code></a>转换使用浮点数 ，并使用<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html#doubleToRawLongBits-double-" target="_blank" rel="noopener"><code>Double.doubleToRawLongBits(double)</code></a>和 <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html#longBitsToDouble-long-" target="_blank" rel="noopener"><code>Double.longBitsToDouble(long)</code></a>转换加倍。</p>
+<p>原子类不是通用替换 <code>java.lang.Integer</code>和相关类。他们<em>没有</em> 定义方法，如<code>equals</code>，<code>hashCode</code>和 <code>compareTo</code>。（因为预期原子变量会发生变异，所以它们对于散列表键的选择很差。）此外，只为那些在预期应用程序中常用的类型提供类。例如，没有用于表示的原子类<code>byte</code>。在您想要这样做的不常见的情况下，您可以使用a <code>AtomicInteger</code>来保存 <code>byte</code>值，并适当地进行投射。您还可以使用<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html#floatToRawIntBits-float-"><code>Float.floatToRawIntBits(float)</code></a>和 <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html#intBitsToFloat-int-"><code>Float.intBitsToFloat(int)</code></a>转换使用浮点数 ，并使用<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html#doubleToRawLongBits-double-"><code>Double.doubleToRawLongBits(double)</code></a>和 <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html#longBitsToDouble-long-"><code>Double.longBitsToDouble(long)</code></a>转换加倍。</p>
 <p>原文  : </p>
 <blockquote>
 <p>Atomic classes are designed primarily as building blocks for implementing non-blocking data structures and related infrastructure classes. The <code>compareAndSet</code> method is not a general replacement for locking. It applies only when critical updates for an object are confined to a <em>single</em> variable.</p>
-<p>Atomic classes are not general purpose replacements for <code>java.lang.Integer</code> and related classes. They do <em>not</em> define methods such as <code>equals</code>, <code>hashCode</code> and <code>compareTo</code>. (Because atomic variables are expected to be mutated, they are poor choices for hash table keys.) Additionally, classes are provided only for those types that are commonly useful in intended applications. For example, there is no atomic class for representing <code>byte</code>. In those infrequent cases where you would like to do so, you can use an <code>AtomicInteger</code>to hold <code>byte</code> values, and cast appropriately. You can also hold floats using <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html#floatToRawIntBits-float-" target="_blank" rel="noopener"><code>Float.floatToRawIntBits(float)</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html#intBitsToFloat-int-" target="_blank" rel="noopener"><code>Float.intBitsToFloat(int)</code></a> conversions, and doubles using <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html#doubleToRawLongBits-double-" target="_blank" rel="noopener"><code>Double.doubleToRawLongBits(double)</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html#longBitsToDouble-long-" target="_blank" rel="noopener"><code>Double.longBitsToDouble(long)</code></a>conversions.</p>
+<p>Atomic classes are not general purpose replacements for <code>java.lang.Integer</code> and related classes. They do <em>not</em> define methods such as <code>equals</code>, <code>hashCode</code> and <code>compareTo</code>. (Because atomic variables are expected to be mutated, they are poor choices for hash table keys.) Additionally, classes are provided only for those types that are commonly useful in intended applications. For example, there is no atomic class for representing <code>byte</code>. In those infrequent cases where you would like to do so, you can use an <code>AtomicInteger</code>to hold <code>byte</code> values, and cast appropriately. You can also hold floats using <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html#floatToRawIntBits-float-"><code>Float.floatToRawIntBits(float)</code></a> and <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html#intBitsToFloat-int-"><code>Float.intBitsToFloat(int)</code></a> conversions, and doubles using <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html#doubleToRawLongBits-double-"><code>Double.doubleToRawLongBits(double)</code></a> and <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html#longBitsToDouble-long-"><code>Double.longBitsToDouble(long)</code></a>conversions.</p>
 </blockquote>
-<p><strong><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/package-summary.html" target="_blank" rel="noopener">https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/package-summary.html</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/package-summary.html">https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/package-summary.html</a></strong></p>
 <h3 id="java-util-concurrent-locks"><a href="#java-util-concurrent-locks" class="headerlink" title="java.util.concurrent.locks"></a>java.util.concurrent.locks</h3><p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g62ox5893vj32f50u0q7l.jpg" alt="image-20190817150757762"></p>
 <p>注意ConditionObject (不知道为啥没有显示为AbstractQueuedSynchronizer inner class)</p>
 <p>接口和类提供了一个框架，用于锁定和等待,与内置同步和监视器不同的条件。该框架允许在使用锁和条件方面具有更大的灵活性，但代价是语法更加笨拙。</p>
 <p>Interfaces and classes providing a framework for locking and waiting for conditions that is distinct from built-in synchronization and monitors. The framework permits much greater flexibility in the use of locks and conditions, at the expense of more awkward syntax.</p>
-<h4 id="Locks-锁"><a href="#Locks-锁" class="headerlink" title="Locks(锁)"></a>Locks(锁)</h4><p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html" target="_blank" rel="noopener"><code>Lock</code></a> interface supports locking disciplines that differ in semantics (reentrant, fair, etc), and that can be used in non-block-structured contexts including hand-over-hand and lock reordering algorithms. The main implementation is <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html" target="_blank" rel="noopener"><code>ReentrantLock</code></a>.</p>
-<p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReadWriteLock.html" target="_blank" rel="noopener"><code>ReadWriteLock</code></a> interface similarly defines locks that may be shared among readers but are exclusive to writers. Only a single implementation, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html" target="_blank" rel="noopener"><code>ReentrantReadWriteLock</code></a>, is provided, since it covers most standard usage contexts. But programmers may create their own implementations to cover nonstandard requirements.</p>
+<h4 id="Locks-锁"><a href="#Locks-锁" class="headerlink" title="Locks(锁)"></a>Locks(锁)</h4><p>The <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html"><code>Lock</code></a> interface supports locking disciplines that differ in semantics (reentrant, fair, etc), and that can be used in non-block-structured contexts including hand-over-hand and lock reordering algorithms. The main implementation is <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html"><code>ReentrantLock</code></a>.</p>
+<p>The <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReadWriteLock.html"><code>ReadWriteLock</code></a> interface similarly defines locks that may be shared among readers but are exclusive to writers. Only a single implementation, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html"><code>ReentrantReadWriteLock</code></a>, is provided, since it covers most standard usage contexts. But programmers may create their own implementations to cover nonstandard requirements.</p>
 <p>Lock接口支持语义不同的锁定规则(可重入、公平等)，并且可以在非块结构上下文中使用，包括手动和锁重排序算法。主要实现是ReentrantLock。</p>
 <p>ReadWriteLock接口也类似地定义了锁，这些锁可以在readers之间共享，但只能由writers使用。只提供了一个实现ReentrantReadWriteLock，因为它涵盖了大多数标准使用上下文。但是程序员可以创建他们自己的实现来满足非标准需求。</p>
 <h5 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a>Lock</h5><h6 id="Lock与synchronized的异同"><a href="#Lock与synchronized的异同" class="headerlink" title="Lock与synchronized的异同"></a>Lock与synchronized的异同</h6><ul>
 <li>内存语义相同</li>
 </ul>
 <p><em>Memory Synchronization</em></p>
-<p>All <code>Lock</code> implementations <em>must</em> enforce the same memory synchronization semantics as provided by the built-in monitor lock, as described in <a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.4" target="_blank" rel="noopener">The Java Language Specification (17.4 Memory Model)</a>:</p>
+<p>All <code>Lock</code> implementations <em>must</em> enforce the same memory synchronization semantics as provided by the built-in monitor lock, as described in <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-17.html#jls-17.4">The Java Language Specification (17.4 Memory Model)</a>:</p>
 <ul>
 <li>A successful <code>lock</code> operation has the same memory synchronization effects as a successful <em>Lock</em> action.</li>
 <li>A successful <code>unlock</code> operation has the same memory synchronization effects as a successful <em>Unlock</em> action.</li>
 </ul>
-<p>Unsuccessful locking and unlocking operations, and reentrant locking/unlocking operations, do not require any memory synchronization effects.</p>
+<p>Unsuccessful locking and unlocking operations, and reentrant locking&#x2F;unlocking operations, do not require any memory synchronization effects.</p>
 <ul>
 <li><p>synchronization是关键字(可重入,非公平锁,锁的是对象Object), Lock是接口</p>
 </li>
@@ -1474,7 +1637,7 @@ public interface Callable&lt;V&gt; {
 <p>  When locking and unlocking occur in different scopes, care must be taken to ensure that all code that is executed while the lock is held is protected by try-finally or try-catch to ensure that the lock is released when necessary.</p>
 </li>
 <li><p>Lock 更加灵活,  支持非阻塞获取 ,可中断获取,和可超时获取.</p>
-<p>  <code>Lock</code> implementations provide additional functionality over the use of <code>synchronized</code> methods and statements by providing a non-blocking attempt to acquire a lock (<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html#tryLock--" target="_blank" rel="noopener"><code>tryLock()</code></a>), an attempt to acquire the lock that can be interrupted (<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html#lockInterruptibly--" target="_blank" rel="noopener"><code>lockInterruptibly()</code></a>, and an attempt to acquire the lock that can timeout (<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html#tryLock-long-java.util.concurrent.TimeUnit-" target="_blank" rel="noopener"><code>tryLock(long, TimeUnit)</code></a>).</p>
+<p>  <code>Lock</code> implementations provide additional functionality over the use of <code>synchronized</code> methods and statements by providing a non-blocking attempt to acquire a lock (<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html#tryLock--"><code>tryLock()</code></a>), an attempt to acquire the lock that can be interrupted (<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html#lockInterruptibly--"><code>lockInterruptibly()</code></a>, and an attempt to acquire the lock that can timeout (<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html#tryLock-long-java.util.concurrent.TimeUnit-"><code>tryLock(long, TimeUnit)</code></a>).</p>
 </li>
 </ul>
 <h6 id="Implementation-Considerations"><a href="#Implementation-Considerations" class="headerlink" title="Implementation Considerations"></a>Implementation Considerations</h6><p>三种形式的锁获取(可中断、不可中断和定时)在性能特征、顺序保证或其他实现质量方面可能有所不同。</p>
@@ -1487,70 +1650,70 @@ public interface Callable&lt;V&gt; {
 <p>An implementation is required to clearly document the semantics and guarantees provided by each of the locking methods. It must also obey the interruption semantics as defined in this interface, to the extent that interruption of lock acquisition is supported: which is either totally, or only on method entry.</p>
 <p>As interruption generally implies cancellation, and checks for interruption are often infrequent, an implementation can favor responding to an interrupt over normal method return. This is true even if it can be shown that the interrupt occurred after another action may have unblocked the thread. An implementation should document this behavior.</p>
 </blockquote>
-<pre><code class="java">public interface Lock {
+<pre><code class="java">public interface Lock &#123;
     void lock();
     void lockInterruptibly() throws InterruptedException;
     boolean tryLock();
     boolean tryLock(long time, TimeUnit unit) throws InterruptedException;
     void unlock();
     Condition newCondition();
-}
+&#125;
 </code></pre>
-<h5 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h5><p>Lock的标准实现, 一种可重入互斥锁，具有与使用同步方法和语句访问的隐式监视器锁相同的基本行为和语义，但具有扩展功能。(获取等待队列,当前线程是否获得锁等监控,见 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractOwnableSynchronizer.html" target="_blank" rel="noopener"><code>AbstractOwnableSynchronizer</code></a>)</p>
+<h5 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h5><p>Lock的标准实现, 一种可重入互斥锁，具有与使用同步方法和语句访问的隐式监视器锁相同的基本行为和语义，但具有扩展功能。(获取等待队列,当前线程是否获得锁等监控,见 <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractOwnableSynchronizer.html"><code>AbstractOwnableSynchronizer</code></a>)</p>
 <p>ReentrantLock归最后一个成功锁定的线程所有，但还没有解锁它。当锁不属于其他线程时，调用锁的线程将返回并成功获取锁。如果当前线程已经拥有锁，该方法将立即返回。可以使用isHeldByCurrentThread()和getHoldCount()方法检查这一点。</p>
 <blockquote>
 <p>A reentrant mutual exclusion Lock with the same basic behavior and semantics as the implicit monitor lock accessed using synchronized methods and statements, but with extended capabilities.</p>
 <p>A ReentrantLock is owned by the thread last successfully locking, but not yet unlocking it. A thread invoking lock will return, successfully acquiring the lock, when the lock is not owned by another thread. The method will return immediately if the current thread already owns the lock. This can be checked using methods isHeldByCurrentThread(), and getHoldCount().</p>
 </blockquote>
-<pre><code class="java">public class ReentrantLock implements Lock, java.io.Serializable {
+<pre><code class="java">public class ReentrantLock implements Lock, java.io.Serializable &#123;
     private final Sync sync;
-    abstract static class Sync extends AbstractQueuedSynchronizer {
-        }
-        static final class NonfairSync extends Sync{}
-        static final class FairSync extends Sync{}
-        public ReentrantLock() {
+    abstract static class Sync extends AbstractQueuedSynchronizer &#123;
+        &#125;
+        static final class NonfairSync extends Sync&#123;&#125;
+        static final class FairSync extends Sync&#123;&#125;
+        public ReentrantLock() &#123;
         sync = new NonfairSync();
-    }
-    public ReentrantLock(boolean fair) {
+    &#125;
+    public ReentrantLock(boolean fair) &#123;
         sync = fair ? new FairSync() : new NonfairSync();
-    }
-    public int getHoldCount() {
+    &#125;
+    public int getHoldCount() &#123;
         return sync.getHoldCount();
-    }
-    protected Thread getOwner() {
+    &#125;
+    protected Thread getOwner() &#123;
         return sync.getOwner();
-    }
-    public boolean hasWaiters(Condition condition) {
+    &#125;
+    public boolean hasWaiters(Condition condition) &#123;
         if (condition == null)
             throw new NullPointerException();
         if (!(condition instanceof AbstractQueuedSynchronizer.ConditionObject))
             throw new IllegalArgumentException(&quot;not owner&quot;);
         return sync.hasWaiters((AbstractQueuedSynchronizer.ConditionObject)condition);
-    }
+    &#125;
     /**
      * 获取队列的监控,省略了获取waitting的 
      */ 
-    protected Collection&lt;Thread&gt; getQueuedThreads() {
+    protected Collection&lt;Thread&gt; getQueuedThreads() &#123;
         return sync.getQueuedThreads();
-    }
-    public final int getQueueLength() {
+    &#125;
+    public final int getQueueLength() &#123;
         return sync.getQueueLength();
-    }
-    public final boolean hasQueuedThread(Thread thread) {
+    &#125;
+    public final boolean hasQueuedThread(Thread thread) &#123;
         return sync.isQueued(thread);
-    }
-    public final int getQueueLength() {
+    &#125;
+    public final int getQueueLength() &#123;
         return sync.getQueueLength();
-    }
-    protected Collection&lt;Thread&gt; getQueuedThreads() {
+    &#125;
+    protected Collection&lt;Thread&gt; getQueuedThreads() &#123;
         return sync.getQueuedThreads();
-    }
+    &#125;
     ...
-}
+&#125;
 </code></pre>
 <h5 id="ReadWriteLock"><a href="#ReadWriteLock" class="headerlink" title="ReadWriteLock"></a>ReadWriteLock</h5><p>读写锁维护一对关联的锁，一个用于只读操作，另一个用于写操作。读锁可以由多个读线程同时持有，只要没有写线程。写锁是独占的。</p>
-<p>A <code>ReadWriteLock</code> maintains a pair of associated <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html" target="_blank" rel="noopener"><code>locks</code></a>, one for read-only operations and one for writing. The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReadWriteLock.html#readLock--" target="_blank" rel="noopener"><code>read lock</code></a> may be held simultaneously by multiple reader threads, so long as there are no writers. The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReadWriteLock.html#writeLock--" target="_blank" rel="noopener"><code>write lock</code></a> is exclusive.</p>
-<pre><code class="java">public interface ReadWriteLock {
+<p>A <code>ReadWriteLock</code> maintains a pair of associated <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html"><code>locks</code></a>, one for read-only operations and one for writing. The <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReadWriteLock.html#readLock--"><code>read lock</code></a> may be held simultaneously by multiple reader threads, so long as there are no writers. The <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReadWriteLock.html#writeLock--"><code>write lock</code></a> is exclusive.</p>
+<pre><code class="java">public interface ReadWriteLock &#123;
     /**
      * Returns the lock used for reading.
      *
@@ -1564,9 +1727,9 @@ public interface Callable&lt;V&gt; {
      * @return the lock used for writing
      */
     Lock writeLock();
-}
+&#125;
 </code></pre>
-<h5 id="ReentrantReadWriteLock"><a href="#ReentrantReadWriteLock" class="headerlink" title="ReentrantReadWriteLock"></a>ReentrantReadWriteLock</h5><p>可重入读写锁, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReadWriteLock.html" target="_blank" rel="noopener"><code>ReadWriteLock</code></a> 实现,类似<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html" target="_blank" rel="noopener"><code>ReentrantLock</code></a>.</p>
+<h5 id="ReentrantReadWriteLock"><a href="#ReentrantReadWriteLock" class="headerlink" title="ReentrantReadWriteLock"></a>ReentrantReadWriteLock</h5><p>可重入读写锁, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReadWriteLock.html"><code>ReadWriteLock</code></a> 实现,类似<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html"><code>ReentrantLock</code></a>.</p>
 <p>This class has the following properties:</p>
 <ul>
 <li><strong>Acquisition order</strong>  请求顺序(公平、非公平)</li>
@@ -1582,7 +1745,7 @@ public interface Callable&lt;V&gt; {
 <pre><code class="java">/*
  * This lock supports a maximum of 65535 recursive write locks and 65535 read locks.
  */
-public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializable {
+public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializable &#123;
     /** Inner class providing readlock */
     private final ReentrantReadWriteLock.ReadLock readerLock;
     /** Inner class providing writelock */
@@ -1590,57 +1753,57 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     /** Performs all synchronization mechanics */
     final Sync sync;
     /**
-     * Creates a new {@code ReentrantReadWriteLock} with
+     * Creates a new &#123;@code ReentrantReadWriteLock&#125; with
      * default (nonfair) ordering properties.
      */
-    public ReentrantReadWriteLock() {
+    public ReentrantReadWriteLock() &#123;
         this(false);
-    }
+    &#125;
 
     /**
-     * Creates a new {@code ReentrantReadWriteLock} with
+     * Creates a new &#123;@code ReentrantReadWriteLock&#125; with
      * the given fairness policy.
      *
-     * @param fair {@code true} if this lock should use a fair ordering policy
+     * @param fair &#123;@code true&#125; if this lock should use a fair ordering policy
      */
-    public ReentrantReadWriteLock(boolean fair) {
+    public ReentrantReadWriteLock(boolean fair) &#123;
         sync = fair ? new FairSync() : new NonfairSync();
         readerLock = new ReadLock(this);
         writerLock = new WriteLock(this);
-    }
+    &#125;
                 /*
                  * ReadWriteLock impl
                  */
-    public ReentrantReadWriteLock.WriteLock writeLock() { return writerLock; }
-    public ReentrantReadWriteLock.ReadLock  readLock()  { return readerLock; }
+    public ReentrantReadWriteLock.WriteLock writeLock() &#123; return writerLock; &#125;
+    public ReentrantReadWriteLock.ReadLock  readLock()  &#123; return readerLock; &#125;
     /**
      * Synchronization implementation for ReentrantReadWriteLock.
      * Subclassed into fair and nonfair versions.
      */
-    abstract static class Sync extends AbstractQueuedSynchronizer {
+    abstract static class Sync extends AbstractQueuedSynchronizer &#123;
         static final int SHARED_SHIFT   = 16;
         static final int SHARED_UNIT    = (1 &lt;&lt; SHARED_SHIFT);
         static final int MAX_COUNT      = (1 &lt;&lt; SHARED_SHIFT) - 1;
         static final int EXCLUSIVE_MASK = (1 &lt;&lt; SHARED_SHIFT) - 1;
        ...
-    }
-    static final long getThreadId(Thread thread) {
+    &#125;
+    static final long getThreadId(Thread thread) &#123;
         return UNSAFE.getLongVolatile(thread, TID_OFFSET);
-    }
+    &#125;
     ...
-    public static class ReadLock implements Lock, java.io.Serializable {
+    public static class ReadLock implements Lock, java.io.Serializable &#123;
        ...
-    }
-    public static class WriteLock implements Lock, java.io.Serializable {
+    &#125;
+    public static class WriteLock implements Lock, java.io.Serializable &#123;
        ...
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <h4 id="Conditions-监视器"><a href="#Conditions-监视器" class="headerlink" title="Conditions(监视器)"></a>Conditions(监视器)</h4><p>条件将对象监视方法(wait、notify和notifyAll) 分解为不同的对象，通过将它们与任意锁实现相结合，从而实现每个对象具有多个等待集的效果。锁替换同步方法和语句的使用，条件替换对象监视器方法的使用。</p>
-<p><code>Condition</code> factors out the <code>Object</code> monitor methods (<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#wait--" target="_blank" rel="noopener"><code>wait</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#notify--" target="_blank" rel="noopener"><code>notify</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#notifyAll--" target="_blank" rel="noopener"><code>notifyAll</code></a>) into distinct objects to give the effect of having multiple wait-sets per object, by combining them with the use of arbitrary <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html" target="_blank" rel="noopener"><code>Lock</code></a> implementations. </p>
+<p><code>Condition</code> factors out the <code>Object</code> monitor methods (<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#wait--"><code>wait</code></a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#notify--"><code>notify</code></a> and <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#notifyAll--"><code>notifyAll</code></a>) into distinct objects to give the effect of having multiple wait-sets per object, by combining them with the use of arbitrary <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html"><code>Lock</code></a> implementations. </p>
 <p>Where a <code>Lock</code> replaces the use of <code>synchronized</code> methods and statements, </p>
 <p>a <code>Condition</code> replaces the use of the Object monitor methods.</p>
-<pre><code class="java">public interface Condition {
+<pre><code class="java">public interface Condition &#123;
     void await() throws InterruptedException;
     /*
      * Causes the current thread to wait until it is signalled.
@@ -1651,38 +1814,38 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     boolean awaitUntil(Date deadline) throws InterruptedException;
     void signal();
     void signalAll();
-}
+&#125;
 </code></pre>
 <p>主要实现 : java.util.concurrent.locks.AbstractQueuedSynchronizer.ConditionObject</p>
 <h4 id="AbstractQueuedSynchronizers-阻塞队列"><a href="#AbstractQueuedSynchronizers-阻塞队列" class="headerlink" title="AbstractQueuedSynchronizers(阻塞队列)"></a>AbstractQueuedSynchronizers(阻塞队列)</h4><h5 id="AbstractQueuedSynchronizer"><a href="#AbstractQueuedSynchronizer" class="headerlink" title="AbstractQueuedSynchronizer"></a>AbstractQueuedSynchronizer</h5><p>AbstractQueuedSynchronizer类是一个有用的超类，用于定义依赖于排队阻塞线程的锁和其他同步器。</p>
-<h6 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h6><p>To use this class as the basis of a synchronizer, redefine the following methods, as applicable, by inspecting and/or modifying the synchronization state using <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#getState--" target="_blank" rel="noopener"><code>getState()</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#setState-int-" target="_blank" rel="noopener"><code>setState(int)</code></a> and/or <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#compareAndSetState-int-int-" target="_blank" rel="noopener"><code>compareAndSetState(int, int)</code></a>:</p>
+<h6 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h6><p>To use this class as the basis of a synchronizer, redefine the following methods, as applicable, by inspecting and&#x2F;or modifying the synchronization state using <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#getState--"><code>getState()</code></a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#setState-int-"><code>setState(int)</code></a> and&#x2F;or <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#compareAndSetState-int-int-"><code>compareAndSetState(int, int)</code></a>:</p>
 <ul>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryAcquire-int-" target="_blank" rel="noopener"><code>tryAcquire(int)</code></a></li>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryRelease-int-" target="_blank" rel="noopener"><code>tryRelease(int)</code></a></li>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryAcquireShared-int-" target="_blank" rel="noopener"><code>tryAcquireShared(int)</code></a></li>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryReleaseShared-int-" target="_blank" rel="noopener"><code>tryReleaseShared(int)</code></a></li>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#isHeldExclusively--" target="_blank" rel="noopener"><code>isHeldExclusively()</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryAcquire-int-"><code>tryAcquire(int)</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryRelease-int-"><code>tryRelease(int)</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryAcquireShared-int-"><code>tryAcquireShared(int)</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryReleaseShared-int-"><code>tryReleaseShared(int)</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#isHeldExclusively--"><code>isHeldExclusively()</code></a></li>
 </ul>
-<p>Each of these methods by default throws <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/UnsupportedOperationException.html" target="_blank" rel="noopener"><code>UnsupportedOperationException</code></a><em>only</em><code>final</code></p>
-<p>You may also find the inherited methods from <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractOwnableSynchronizer.html" target="_blank" rel="noopener"><code>AbstractOwnableSynchronizer</code></a> useful to keep track of the thread owning an exclusive synchronizer. You are encouraged to use them – this enables monitoring and diagnostic tools to assist users in determining which threads hold locks.</p>
+<p>Each of these methods by default throws <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/UnsupportedOperationException.html"><code>UnsupportedOperationException</code></a><em>only</em><code>final</code></p>
+<p>You may also find the inherited methods from <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractOwnableSynchronizer.html"><code>AbstractOwnableSynchronizer</code></a> useful to keep track of the thread owning an exclusive synchronizer. You are encouraged to use them – this enables monitoring and diagnostic tools to assist users in determining which threads hold locks.</p>
 <pre><code class="java">public abstract class AbstractQueuedSynchronizer extends AbstractOwnableSynchronizer
-    implements java.io.Serializable {
-    public class ConditionObject implements Condition, java.io.Serializable {
+    implements java.io.Serializable &#123;
+    public class ConditionObject implements Condition, java.io.Serializable &#123;
         /** First node of condition queue. */
         private transient Node firstWaiter;
         /** Last node of condition queue. */
-        private transient Node lastWaiter;            
+        private transient Node lastWaiter;		    
         /**
          * Adds a new waiter to wait queue.
          * @return its new wait node
          */
-        private Node addConditionWaiter() {
+        private Node addConditionWaiter() &#123;
             Node t = lastWaiter;
             // If lastWaiter is cancelled, clean out.
-            if (t != null &amp;&amp; t.waitStatus != Node.CONDITION) {
+            if (t != null &amp;&amp; t.waitStatus != Node.CONDITION) &#123;
                 unlinkCancelledWaiters();
                 t = lastWaiter;
-            }
+            &#125;
             Node node = new Node(Thread.currentThread(), Node.CONDITION);
             if (t == null)
                 firstWaiter = node;
@@ -1690,9 +1853,9 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
                 t.nextWaiter = node;
             lastWaiter = node;
             return node;
-        }        
-            }
-    static final class Node {
+        &#125;        
+            &#125;
+    static final class Node &#123;
         /** Marker to indicate a node is waiting in shared mode */
         static final Node SHARED = new Node();
         /** Marker to indicate a node is waiting in exclusive mode */
@@ -1714,49 +1877,49 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
         volatile Node next;
         volatile Thread thread;
         Node nextWaiter;
-        final boolean isShared() {
+        final boolean isShared() &#123;
             return nextWaiter == SHARED;
-        }
-
-    }
-        public final void acquire(int arg) {
+        &#125;
+        
+    &#125;
+        public final void acquire(int arg) &#123;
         if (!tryAcquire(arg) &amp;&amp; acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
             selfInterrupt();
-    }        
-    public final void acquireShared(int arg) {
+    &#125;	    
+    public final void acquireShared(int arg) &#123;
         if (tryAcquireShared(arg) &lt; 0)
             doAcquireShared(arg);
-    }
+    &#125;
     public final boolean tryAcquireSharedNanos(int arg, long nanosTimeout)
-            throws InterruptedException {
+            throws InterruptedException &#123;
         if (Thread.interrupted())
             throw new InterruptedException();
         return tryAcquireShared(arg) &gt;= 0 ||
             doAcquireSharedNanos(arg, nanosTimeout);
-    }    
-    public final boolean release(int arg) {
-        if (tryRelease(arg)) {
+    &#125;    
+    public final boolean release(int arg) &#123;
+        if (tryRelease(arg)) &#123;
             Node h = head;
             if (h != null &amp;&amp; h.waitStatus != 0)
                 unparkSuccessor(h);
             return true;
-        }
+        &#125;
         return false;
-    }
-    public final boolean releaseShared(int arg) {
-        if (tryReleaseShared(arg)) {
+    &#125;
+    public final boolean releaseShared(int arg) &#123;
+        if (tryReleaseShared(arg)) &#123;
             doReleaseShared();
             return true;
-        }
+        &#125;
         return false;
-    }   
-}
+    &#125;   
+&#125;
 </code></pre>
 <p>这个类比较关键, 复杂度太高了,涉及的细节太多,另单独分析</p>
 <h5 id="AbstractQueuedLongSynchronizer"><a href="#AbstractQueuedLongSynchronizer" class="headerlink" title="AbstractQueuedLongSynchronizer"></a>AbstractQueuedLongSynchronizer</h5><p>AbstractQueuedLongSynchronizer类提供了相同的功能，但是扩展了对64位同步状态的支持。</p>
 <h5 id="AbstractOwnableSynchronizer"><a href="#AbstractOwnableSynchronizer" class="headerlink" title="AbstractOwnableSynchronizer"></a>AbstractOwnableSynchronizer</h5><p>它们都扩展了AbstractOwnableSynchronizer类，这是一个简单的类，帮助记录当前持有独占同步的线程。</p>
 <pre><code class="java">public abstract class AbstractOwnableSynchronizer
-    implements java.io.Serializable {
+    implements java.io.Serializable &#123;
 
     /** Use serial ID even though all fields transient. */
     private static final long serialVersionUID = 3737899427754241961L;
@@ -1764,7 +1927,7 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
     /**
      * Empty constructor for use by subclasses.
      */
-    protected AbstractOwnableSynchronizer() { }
+    protected AbstractOwnableSynchronizer() &#123; &#125;
 
     /**
      * The current owner of exclusive mode synchronization.
@@ -1773,27 +1936,27 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
 
     /**
      * Sets the thread that currently owns exclusive access.
-     * A {@code null} argument indicates that no thread owns access.
+     * A &#123;@code null&#125; argument indicates that no thread owns access.
      * This method does not otherwise impose any synchronization or
-     * {@code volatile} field accesses.
+     * &#123;@code volatile&#125; field accesses.
      * @param thread the owner thread
      */
-    protected final void setExclusiveOwnerThread(Thread thread) {
+    protected final void setExclusiveOwnerThread(Thread thread) &#123;
         exclusiveOwnerThread = thread;
-    }
+    &#125;
 
     /**
-     * Returns the thread last set by {@code setExclusiveOwnerThread},
-     * or {@code null} if never set.  This method does not otherwise
-     * impose any synchronization or {@code volatile} field accesses.
+     * Returns the thread last set by &#123;@code setExclusiveOwnerThread&#125;,
+     * or &#123;@code null&#125; if never set.  This method does not otherwise
+     * impose any synchronization or &#123;@code volatile&#125; field accesses.
      * @return the owner thread
      */
-    protected final Thread getExclusiveOwnerThread() {
+    protected final Thread getExclusiveOwnerThread() &#123;
         return exclusiveOwnerThread;
-    }
-}
+    &#125;
+&#125;
 </code></pre>
-<h4 id="LockSupports"><a href="#LockSupports" class="headerlink" title="LockSupports"></a>LockSupports</h4><p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/LockSupport.html" target="_blank" rel="noopener"><code>LockSupport</code></a> class provides lower-level blocking and unblocking support that is useful for those developers implementing their own customized lock classes.</p>
+<h4 id="LockSupports"><a href="#LockSupports" class="headerlink" title="LockSupports"></a>LockSupports</h4><p>The <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/LockSupport.html"><code>LockSupport</code></a> class provides lower-level blocking and unblocking support that is useful for those developers implementing their own customized lock classes.</p>
 <p>LockSupport类提供了较低级别的阻塞和解除阻塞支持，这对于实现自定义锁类的开发人员非常有用。</p>
 <h3 id="Record📝"><a href="#Record📝" class="headerlink" title="Record📝"></a>Record📝</h3><ul>
 <li><p>TimeUnit 为啥不都抽象方法?而是有些需要实现,有些需要抽象?</p>
@@ -1801,13 +1964,14 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
 <li><p>java.util.concurrent.Semaphore.Sync#nonfairTryAcquireShared 和java.util.concurrent.Semaphore.Sync#reducePermits 为啥需要重复实现?</p>
 </li>
 <li><p>java.util.concurrent.locks.ReentrantReadWriteLock.ReadLock#newCondition ?</p>
-<pre><code>  /**
-   * Throws {@code UnsupportedOperationException} because
-   * {@code ReadLocks} do not support conditions.
-   *
-   * @throws UnsupportedOperationException always
-   */
-</code></pre></li>
+<pre><code>/**
+ * Throws &#123;@code UnsupportedOperationException&#125; because
+ * &#123;@code ReadLocks&#125; do not support conditions.
+ *
+ * @throws UnsupportedOperationException always
+ */
+</code></pre>
+</li>
 </ul>
 
       
@@ -1819,13 +1983,13 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>JDK_The Concurrent Framework</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">8.8k</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">9.1k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-08-10, 19:45:39</p>
     <p><span class="copy-title">最后更新:</span>2020-01-12, 23:08:14</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/10/JDK-The-Concurrent-Framework/" title="JDK_The Concurrent Framework">http://yoursite.com/2019/08/10/JDK-The-Concurrent-Framework/</a>
     <p>
-        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
 </div>
 
@@ -1858,15 +2022,15 @@ public class ReentrantReadWriteLock implements ReadWriteLock, java.io.Serializab
 <div class="acParent"></div>
 
 </body>
-<script src="/js/jquery.pjax.js?v=1.0.1"></script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
 
-<script src="/js/script.js?v=1.0.1"></script>
+<script src="/js/script.js?v=1.0.1" ></script>
 <script>
     var img_resize = 'default';
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#netty','#nio','#framework','#zookeeper','#Spec','#gc','#summary','#classLoader','#juc','#hotspot','#j2ee','#spring','#hbase','#spark','#redis','#thread','#tomcat','#mysql','#lang','#elasticsearch','#kafka','#servlet','#ioc','#io','#serialization','#file','#ejb','#collections','#event','#aop','#job','#map','#applicationContext','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
+            'data': ['#week','#hide','#jvm','#gc','#summary','#juc','#jdk','#map','#classLoader','#packages','#io','#serialization','#file','#nio','#lang','#spring','#doc','#utils','#hotspot','#collections','#java','#note','#j2ee','#ejb','#distributed','#hbase','#framework','#spark','#elasticsearch','#kafka','#mysql','#netty','#redis','#servlet','#tomcat','#zookeeper','#Spec','#thread','#applicationContext','#ioc','#event','#aop','#job','#spring-mvc','#spring-webflux','#beanFactory',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   <title>Redis集群篇 | Zyumin</title>
   <meta name="keywords" content=" framework , redis ">
   <meta name="description" content="Redis集群篇 | Zyumin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta name="keywords" content="java">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
 <meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-23T07:09:56.946Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-03-23T07:09:38.000Z">
+<meta property="article:modified_time" content="2019-03-23T07:09:56.000Z">
+<meta property="article:author" content="zhengyumin">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -30,7 +30,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
 
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script>
@@ -41,11 +41,11 @@
 
 
 
-<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
 
-<script src="/js/iconfont.js?v=1.0.1"></script>
+<script src="/js/iconfont.js?v=1.0.1" ></script>
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="false">
@@ -56,7 +56,7 @@
 <aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.png">
+    <img class="avatar" src="/img/avatar.png" />
 </a>
 <div class="author">
     <span>zhengyumin</span>
@@ -68,7 +68,7 @@
         <a title="github" href="https://github.com/Zyumin" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-github"/>
+                    <use xlink:href="#icon-github"></use>
                 </svg>
             
         </a>
@@ -78,7 +78,7 @@
         <a title="neteasemusic" href="https://music.163.com/#/user/home?id=60037019" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-neteasemusic"/>
+                    <use xlink:href="#icon-neteasemusic"></use>
                 </svg>
             
         </a>
@@ -94,7 +94,7 @@
     
         
             
-            <li><div data-rel="jdk">jdk<small>(13)</small></div>
+            <li><div data-rel="java">java<small>(9)</small></div>
                 
             </li>
             
@@ -102,7 +102,7 @@
     
         
             
-            <li><div data-rel="java">java<small>(9)</small></div>
+            <li><div data-rel="jdk">jdk<small>(13)</small></div>
                 
             </li>
             
@@ -118,7 +118,7 @@
     
         
             
-            <li><div data-rel="redis">redis<small>(4)</small></div>
+            <li><div data-rel="mysql">mysql<small>(2)</small></div>
                 
             </li>
             
@@ -126,7 +126,7 @@
     
         
             
-            <li><div data-rel="mysql">mysql<small>(2)</small></div>
+            <li><div data-rel="redis">redis<small>(4)</small></div>
                 
             </li>
             
@@ -143,7 +143,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="55">
-<input type="hidden" id="yelog_site_word_count" value="185.6k">
+<input type="hidden" id="yelog_site_word_count" value="189.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -166,11 +166,11 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off" id="local-search-input">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
         <i class="cross"></i>
         <span>
             <label for="tagswitch">Tags:</label>
-            <input id="tagswitch" type="checkbox" style="display: none">
+            <input id="tagswitch" type="checkbox" style="display: none" />
             <i id="tagsWitchIcon"></i>
         </span>
     </form>
@@ -185,51 +185,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">jdk</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">packages</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">utils</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">java</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">note</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">jvm</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">distributed</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">netty</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">nio</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">framework</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">zookeeper</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">Spec</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -241,67 +197,23 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">classLoader</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">juc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">hotspot</a>
+        <a href="javascript:" class="color4">jdk</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">j2ee</a>
+        <a href="javascript:" class="color4">map</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">spring</a>
+        <a href="javascript:" class="color2">classLoader</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">hbase</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">spark</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">redis</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">thread</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">tomcat</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">mysql</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">lang</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">elasticsearch</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">kafka</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">servlet</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ioc</a>
+        <a href="javascript:" class="color4">packages</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -317,11 +229,111 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color4">nio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">lang</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">doc</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">utils</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">hotspot</a>
     </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color2">collections</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">note</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">j2ee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ejb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">distributed</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">hbase</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">framework</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">spark</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">elasticsearch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">kafka</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">netty</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">redis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">tomcat</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">zookeeper</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Spec</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">applicationContext</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ioc</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -337,18 +349,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">map</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">applicationContext</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">beanFactory</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color1">spring-mvc</a>
     </li>
     
@@ -357,7 +357,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">doc</a>
+        <a href="javascript:" class="color2">beanFactory</a>
     </li>
     
     <div class="clearfix"></div>
@@ -370,279 +370,444 @@
     
     <nav id="title-list-nav">
         
-        <a id="top" class="java " href="/2019/02/02/Overview_java/" data-tag="summary" data-author="">
-            <span class="post-title" title="Overview_java">Overview_java</span>
-            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
-        </a>
-        
-        <a id="top" class="spring " href="/2019/03/02/Overview_Spring/" data-tag="framework,spring" data-author="">
-            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
-            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
-        </a>
-        
-        <a id="top" class="jdk " href="/2019/06/13/Overview_JDK/" data-tag="jdk,hotspot" data-author="">
-            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
-            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
-        </a>
-        
-        <a id="top" class="java " href="/2020/05/10/面试常见知识点梳理/" data-tag="job" data-author="">
-            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
-            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
-        </a>
-        
-        <a class="java " href="/2021/01/13/GC调优总结/" data-tag="jvm,gc,summary" data-author="">
-            <span class="post-title" title="GC调优总结">GC调优总结</span>
-            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Hbase/" data-tag="distributed,framework,hbase" data-author="">
-            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
-            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Spark/" data-tag="distributed,framework,spark" data-author="">
-            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
-            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis集群篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
-            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis实战篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
-            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis原理篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
-            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/23/spring-aop/" data-tag="spring,aop" data-author="">
-            <span class="post-title" title="spring-aop">spring-aop</span>
-            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/16/Spring-ApplicationContext/" data-tag="spring,applicationContext" data-author="">
-            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
-            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/05/spring-BeanFactory/" data-tag="spring,beanFactory" data-author="">
-            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
-            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/02/spring-Q-A/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
-            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
-        </a>
-        
-        <a class="spring " href="/2019/10/29/Documentation-Spring-Core-IOC/" data-tag="spring,doc" data-author="">
-            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
-            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/26/JDK-Packages-java-nio/" data-tag="jdk,packages,nio" data-author="">
-            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
-            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/23/JDK-Packages-java-io/" data-tag="jdk,packages,io,serialization,file" data-author="">
-            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
-            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Class/" data-tag="jdk" data-author="">
-            <span class="post-title" title="JDK_Class">JDK_Class</span>
-            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Thread/" data-tag="jdk,jvm,hotspot" data-author="">
-            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
-            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
-        </a>
-        
-        <a class="java " href="/2019/08/29/JVM-main方法分析/" data-tag="java,jvm" data-author="">
-            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
-            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/24/JDK-ReentrantLock/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
-            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
-        </a>
-        
-        <a class="java " href="/2019/08/17/JVM-Synchronized/" data-tag="jvm" data-author="">
-            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
-            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
-        </a>
-        
-        <a class="java " href="/2019/08/11/Overview-Java-Virtual-Machine/" data-tag="jvm" data-author="">
-            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
-            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-lang/" data-tag="jdk,packages,lang" data-author="">
-            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
-            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-utils/" data-tag="jdk,packages,utils" data-author="">
-            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
-            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/10/JDK-The-Concurrent-Framework/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
-            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/29/JDK-The-Collections-Framework/" data-tag="jdk,collections" data-author="">
-            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
-            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
-        </a>
-        
-        <a class="" href="/2019/07/10/Note-码农翻身/" data-tag="java,note" data-author="">
-            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
-            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/06/JDK-ClassLoader/" data-tag="jdk,classLoader" data-author="">
-            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
-            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
-        </a>
-        
-        <a class="spring " href="/2019/07/03/spring-ApplicationContext启动流程和事件机制/" data-tag="classLoader,spring,tomcat,servlet,event" data-author="">
-            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
-            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/26/Overview_Elasticsearch/" data-tag="framework,elasticsearch" data-author="">
-            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
-            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/24/J-U-C-ConcurrentHashMap/" data-tag="juc,map" data-author="">
-            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
-            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
-        </a>
-        
-        <a class="java " href="/2019/06/19/JVM-Garbage-Collection/" data-tag="jvm,gc" data-author="">
-            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
-            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/16/J-U-C-InterruptedException/" data-tag="juc" data-author="">
-            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
-            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
-        </a>
-        
-        <a class="java " href="/2019/06/14/Spec-JSR133/" data-tag="jvm,Spec,thread" data-author="">
-            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
-            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
-        </a>
-        
-        <a class="java " href="/2019/06/13/Spec-Java-Virtual-Machine/" data-tag="jvm,Spec" data-author="">
-            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
-            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
-        </a>
-        
-        <a class="" href="/2019/06/12/Overview_Kafka/" data-tag="framework,kafka" data-author="">
-            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
-            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
-        </a>
-        
-        <a class="redis " href="/2019/06/10/Overview_Redis/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
-            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
-        </a>
-        
-        <a class="" href="/2019/06/06/Note_java并发编程的艺术/" data-tag="java,note,juc" data-author="">
-            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
-            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Overview_Netty/" data-tag="netty,nio,framework" data-author="">
-            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
-            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Note_深入理解java虚拟机/" data-tag="java,note,jvm" data-author="">
-            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
-            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
-        </a>
-        
-        <a class="mysql " href="/2019/06/04/Overview_MySQL/" data-tag="mysql" data-author="">
-            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
-            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Zookeeper/" data-tag="distributed,framework,zookeeper" data-author="">
-            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
-            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Distributed/" data-tag="distributed" data-author="">
-            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
-            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
-        </a>
-        
-        <a class="spring " href="/2019/04/10/spring-api-1-0/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
-            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
-        </a>
-        
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/04/01/3%E6%9C%88%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
         
-        <a class="mysql " href="/2019/03/30/记一次mysql查询in的思考/" data-tag="mysql" data-author="">
-            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
-            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
-        </a>
-        
-        <a class="" href="/2019/03/26/记一次Broken-pipe问题的思考/" data-tag="tomcat" data-author="">
-            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
-            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
-        </a>
-        
-        <a class="" href="/2019/03/24/3月第三周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/03/24/3%E6%9C%88%E7%AC%AC%E4%B8%89%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第三周知识点记录">3月第三周知识点记录</span>
             <span class="post-date" title="2019-03-24 20:55:31">2019/03/24</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert One-on-One-J2EE-Development-without-EJB/" data-tag="j2ee,spring,ejb" data-author="">
+        <a  class="java "
+           href="/2021/01/13/GC%E8%B0%83%E4%BC%98%E6%80%BB%E7%BB%93/"
+           data-tag="jvm,gc,summary"
+           data-author="" >
+            <span class="post-title" title="GC调优总结">GC调优总结</span>
+            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/16/J-U-C-InterruptedException/"
+           data-tag="juc"
+           data-author="" >
+            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
+            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Class/"
+           data-tag="jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_Class">JDK_Class</span>
+            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/24/J-U-C-ConcurrentHashMap/"
+           data-tag="juc,map"
+           data-author="" >
+            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
+            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/06/JDK-ClassLoader/"
+           data-tag="jdk,classLoader"
+           data-author="" >
+            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
+            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/23/JDK-Packages-java-io/"
+           data-tag="jdk,packages,io,serialization,file"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
+            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/26/JDK-Packages-java-nio/"
+           data-tag="jdk,packages,nio"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
+            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-lang/"
+           data-tag="jdk,packages,lang"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
+            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/10/29/Documentation-Spring-Core-IOC/"
+           data-tag="spring,doc"
+           data-author="" >
+            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
+            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-utils/"
+           data-tag="jdk,packages,utils"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
+            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Thread/"
+           data-tag="jvm,jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
+            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/19/JVM-Garbage-Collection/"
+           data-tag="jvm,gc"
+           data-author="" >
+            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
+            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/29/JDK-The-Collections-Framework/"
+           data-tag="jdk,collections"
+           data-author="" >
+            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
+            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/24/JDK-ReentrantLock/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
+            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/29/JVM-main%E6%96%B9%E6%B3%95%E5%88%86%E6%9E%90/"
+           data-tag="jvm,java"
+           data-author="" >
+            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
+            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/17/JVM-Synchronized/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
+            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/07/10/Note-%E7%A0%81%E5%86%9C%E7%BF%BB%E8%BA%AB/"
+           data-tag="java,note"
+           data-author="" >
+            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
+            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert%20One-on-One-J2EE-Development-without-EJB/"
+           data-tag="spring,j2ee,ejb"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Development without EJB">Expert One-on-One J2EE Development without EJB</span>
             <span class="post-date" title="2019-03-10 19:45:57">2019/03/10</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/" data-tag="j2ee,spring" data-author="">
+        <a  class=""
+           href="/2019/06/06/Note_java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/"
+           data-tag="juc,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
+            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/10/JDK-The-Concurrent-Framework/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
+            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/18/Overview-Hbase/"
+           data-tag="distributed,hbase,framework"
+           data-author="" >
+            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
+            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Note_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA/"
+           data-tag="jvm,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
+            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/"
+           data-tag="spring,j2ee"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Design and Development">Expert One-on-One J2EE Design and Development</span>
             <span class="post-date" title="2019-03-10 19:45:18">2019/03/10</span>
         </a>
         
-        <a class="spring " href="/2019/03/03/spring-Core-Container预览/" data-tag="spring,ioc" data-author="">
-            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
-            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        <a  class="java "
+           href="/2019/08/11/Overview-Java-Virtual-Machine/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
+            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
         </a>
         
-        <a class="spring " href="/2019/02/03/spring-mvc/" data-tag="spring,servlet,spring-mvc,spring-webflux" data-author="">
-            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
-            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        <a  class=""
+           href="/2019/06/03/Overview_Distributed/"
+           data-tag="distributed"
+           data-author="" >
+            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
+            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
         </a>
         
-        <a class="" href="/2019/02/03/Overview_Tomcat/" data-tag="tomcat,servlet" data-author="">
+        <a  class=""
+           href="/2020/03/18/Overview-Spark/"
+           data-tag="distributed,framework,spark"
+           data-author="" >
+            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
+            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/26/Overview_Elasticsearch/"
+           data-tag="framework,elasticsearch"
+           data-author="" >
+            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
+            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/12/Overview_Kafka/"
+           data-tag="framework,kafka"
+           data-author="" >
+            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
+            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
+        </a>
+        
+        <a id="top" class="jdk "
+           href="/2019/06/13/Overview_JDK/"
+           data-tag="jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
+            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/06/04/Overview_MySQL/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
+            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Overview_Netty/"
+           data-tag="nio,framework,netty"
+           data-author="" >
+            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
+            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2019/06/10/Overview_Redis/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
+            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
+        </a>
+        
+        <a id="top" class="spring "
+           href="/2019/03/02/Overview_Spring/"
+           data-tag="spring,framework"
+           data-author="" >
+            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
+            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/03/Overview_Tomcat/"
+           data-tag="servlet,tomcat"
+           data-author="" >
             <span class="post-title" title="servlet_tomcat">servlet_tomcat</span>
             <span class="post-date" title="2019-02-03 15:49:08">2019/02/03</span>
         </a>
         
-        <a class="" href="/2019/02/02/Spec_Servlet/" data-tag="j2ee,servlet" data-author="">
+        <a  class=""
+           href="/2019/06/03/Overview_Zookeeper/"
+           data-tag="distributed,framework,zookeeper"
+           data-author="" >
+            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
+            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2019/02/02/Overview_java/"
+           data-tag="summary"
+           data-author="" >
+            <span class="post-title" title="Overview_java">Overview_java</span>
+            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%8E%9F%E7%90%86%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
+            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%AE%9E%E6%88%98%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
+            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E9%9B%86%E7%BE%A4%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
+            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/14/Spec-JSR133/"
+           data-tag="jvm,Spec,thread"
+           data-author="" >
+            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
+            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/13/Spec-Java-Virtual-Machine/"
+           data-tag="jvm,Spec"
+           data-author="" >
+            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
+            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/02/Spec_Servlet/"
+           data-tag="j2ee,servlet"
+           data-author="" >
             <span class="post-title" title="j2ee_servlet">j2ee_servlet</span>
             <span class="post-date" title="2019-02-02 18:05:54">2019/02/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/16/Spring-ApplicationContext/"
+           data-tag="spring,applicationContext"
+           data-author="" >
+            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
+            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/03/03/spring-Core-Container%E9%A2%84%E8%A7%88/"
+           data-tag="spring,ioc"
+           data-author="" >
+            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
+            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/02/spring-Q-A/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
+            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/07/03/spring-ApplicationContext%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/"
+           data-tag="classLoader,spring,servlet,tomcat,event"
+           data-author="" >
+            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
+            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/04/10/spring-api-1-0/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
+            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/26/%E8%AE%B0%E4%B8%80%E6%AC%A1Broken-pipe%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="tomcat"
+           data-author="" >
+            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
+            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/03/30/%E8%AE%B0%E4%B8%80%E6%AC%A1mysql%E6%9F%A5%E8%AF%A2in%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
+            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/23/spring-aop/"
+           data-tag="spring,aop"
+           data-author="" >
+            <span class="post-title" title="spring-aop">spring-aop</span>
+            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2020/05/10/%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/"
+           data-tag="job"
+           data-author="" >
+            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
+            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/02/03/spring-mvc/"
+           data-tag="spring,servlet,spring-mvc,spring-webflux"
+           data-author="" >
+            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
+            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/05/spring-BeanFactory/"
+           data-tag="spring,beanFactory"
+           data-author="" >
+            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
+            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
         </a>
         
     </nav>
@@ -657,7 +822,7 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Redis集群篇" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <article id="post-Redis集群篇" class="article article-type-post" itemscope itemprop="blogPost">
     
         <h1 class="article-title">Redis集群篇</h1>
     
@@ -683,7 +848,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2020-06-26 21:18:32">2020-02-28 18:52</time>
+        创建时间:<time class="date" title='更新时间: 2020-06-26 21:18:32'>2020-02-28 18:52</time>
         
     </div>
     <div class="article-meta">
@@ -707,7 +872,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么需要-Redis-集群"><span class="toc-text">为什么需要 Redis 集群</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么需要集群"><span class="toc-text">为什么需要集群?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#性能"><span class="toc-text">性能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#扩展"><span class="toc-text">扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可用性"><span class="toc-text">可用性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-主从复制-replication"><span class="toc-text">Redis 主从复制(replication)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#主从复制原理"><span class="toc-text">主从复制原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#连接阶段"><span class="toc-text">连接阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据同步阶段"><span class="toc-text">数据同步阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#命令传播阶段"><span class="toc-text">命令传播阶段</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主从复制的不足"><span class="toc-text">主从复制的不足</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可用性保证之-Sentinel"><span class="toc-text">可用性保证之 Sentinel</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Sentinel原理"><span class="toc-text">Sentinel原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务下线"><span class="toc-text">服务下线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#故障转移"><span class="toc-text">故障转移</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Ratf-算法"><span class="toc-text">Ratf 算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#故障转移-1"><span class="toc-text">故障转移</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sentinel的功能总结"><span class="toc-text">Sentinel的功能总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#哨兵机制的不足"><span class="toc-text">哨兵机制的不足</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-分布式方案"><span class="toc-text">Redis 分布式方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端-Sharding"><span class="toc-text">客户端 Sharding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代理-Proxy"><span class="toc-text">代理 Proxy</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Twemproxy"><span class="toc-text">Twemproxy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Codis"><span class="toc-text">Codis</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis-Cluster"><span class="toc-text">Redis Cluster</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#架构"><span class="toc-text">架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据分布"><span class="toc-text">数据分布</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#哈希后取模"><span class="toc-text">哈希后取模</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#一致性哈希"><span class="toc-text">一致性哈希</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#虚拟节点"><span class="toc-text">虚拟节点</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Redis-虚拟槽分区"><span class="toc-text">Redis 虚拟槽分区</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端重定向"><span class="toc-text">客户端重定向</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据迁移"><span class="toc-text">数据迁移</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#高可用和主从切换原理"><span class="toc-text">高可用和主从切换原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-Redis-%E9%9B%86%E7%BE%A4"><span class="toc-text">为什么需要 Redis 集群</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E9%9B%86%E7%BE%A4"><span class="toc-text">为什么需要集群?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%A7%E8%83%BD"><span class="toc-text">性能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A9%E5%B1%95"><span class="toc-text">扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E7%94%A8%E6%80%A7"><span class="toc-text">可用性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6-replication"><span class="toc-text">Redis 主从复制(replication)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%8E%9F%E7%90%86"><span class="toc-text">主从复制原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E9%98%B6%E6%AE%B5"><span class="toc-text">连接阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E9%98%B6%E6%AE%B5"><span class="toc-text">数据同步阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E4%BC%A0%E6%92%AD%E9%98%B6%E6%AE%B5"><span class="toc-text">命令传播阶段</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E7%9A%84%E4%B8%8D%E8%B6%B3"><span class="toc-text">主从复制的不足</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E7%94%A8%E6%80%A7%E4%BF%9D%E8%AF%81%E4%B9%8B-Sentinel"><span class="toc-text">可用性保证之 Sentinel</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Sentinel%E5%8E%9F%E7%90%86"><span class="toc-text">Sentinel原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E4%B8%8B%E7%BA%BF"><span class="toc-text">服务下线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB"><span class="toc-text">故障转移</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Ratf-%E7%AE%97%E6%B3%95"><span class="toc-text">Ratf 算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB-1"><span class="toc-text">故障转移</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sentinel%E7%9A%84%E5%8A%9F%E8%83%BD%E6%80%BB%E7%BB%93"><span class="toc-text">Sentinel的功能总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6%E7%9A%84%E4%B8%8D%E8%B6%B3"><span class="toc-text">哨兵机制的不足</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%B9%E6%A1%88"><span class="toc-text">Redis 分布式方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-Sharding"><span class="toc-text">客户端 Sharding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%90%86-Proxy"><span class="toc-text">代理 Proxy</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Twemproxy"><span class="toc-text">Twemproxy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Codis"><span class="toc-text">Codis</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis-Cluster"><span class="toc-text">Redis Cluster</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84"><span class="toc-text">架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83"><span class="toc-text">数据分布</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E5%90%8E%E5%8F%96%E6%A8%A1"><span class="toc-text">哈希后取模</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C"><span class="toc-text">一致性哈希</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E8%8A%82%E7%82%B9"><span class="toc-text">虚拟节点</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Redis-%E8%99%9A%E6%8B%9F%E6%A7%BD%E5%88%86%E5%8C%BA"><span class="toc-text">Redis 虚拟槽分区</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%87%8D%E5%AE%9A%E5%90%91"><span class="toc-text">客户端重定向</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB"><span class="toc-text">数据迁移</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E5%8F%AF%E7%94%A8%E5%92%8C%E4%B8%BB%E4%BB%8E%E5%88%87%E6%8D%A2%E5%8E%9F%E7%90%86"><span class="toc-text">高可用和主从切换原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -746,7 +911,7 @@
 <p>通过 master_repl_offset 记录的偏移量</p>
 <p>redis&gt; info replication</p>
 <p><strong>主从同步细节</strong></p>
-<p><a href="https://zhuanlan.zhihu.com/p/56579802?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/56579802?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/56579802?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336">https://zhuanlan.zhihu.com/p/56579802?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=557574927448846336</a></p>
 <p>部分重同步功能由以下 3 部分组成：</p>
 <ul>
 <li>主从服务器的复制偏移量</li>
@@ -760,9 +925,10 @@
 <p>创建一台监控服务器来监控所有 Redis 服务节点的状态，比如，master 节点超过一 定时间没有给监控服务器发送心跳报文，就把 master 标记为下线，然后把某一个 slave 变成 master。应用每一次都是从这个监控服务器拿到 master 的地址。</p>
 <p>Redis 的 Sentinel 就是这种思路:通过运行监控服务器来保证服务的可用性。</p>
 <p>官网:</p>
-<p><a href="https://redis.io/topics/sentinel" target="_blank" rel="noopener">https://redis.io/topics/sentinel</a></p>
+<p><a target="_blank" rel="noopener" href="https://redis.io/topics/sentinel">https://redis.io/topics/sentinel</a></p>
 <p>从 Redis2.8 版本起，提供了一个稳定版本的 Sentinel(哨兵)，用来解决高可用的 问题。它是一个特殊状态的 redis 实例。</p>
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcc1hj285qj30zu0kq4bx.jpg" alt="image-20200228131448520" style="zoom:67%;"></p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTly1gcc1hj285qj30zu0kq4bx.jpg" alt="image-20200228131448520" style="zoom:67%;" />
+
 <p>为了保证监控服务器的可用性，我们会对 Sentinel 做集群的部署。Sentinel 既监控 所有的 Redis 服务，Sentinel 之间也相互监控。</p>
 <p>注意:Sentinel 本身没有主从之分，只有 Redis 服务节点有主从之分。</p>
 <p>概念梳理:master，slave(redis group)，sentinel，sentinel 集合</p>
@@ -771,7 +937,7 @@
 <h3 id="故障转移"><a href="#故障转移" class="headerlink" title="故障转移"></a>故障转移</h3><p>大体上有两个步骤:领导选举，数据复制。</p>
 <p>Raft 是一个共识算法(consensus algorithm)。比如比特币之类的加密货币，就 需要共识算法。Spring Cloud 的注册中心解决方案 Consul 也用到了 Raft 协议。</p>
 <p>如果 master 被标记为下线，就会开始故障转移流程。<br> 既然有这么多的 Sentinel 节点，由谁来做故障转移的事情呢? 故障转移流程的第一步就是在 Sentinel 集群选择一个 Leader，由 Leader 完成故障转移流程。Sentinle 通过 Raft 算法，实现 Sentinel 选举。</p>
-<h4 id="Ratf-算法"><a href="#Ratf-算法" class="headerlink" title="Ratf 算法"></a>Ratf 算法</h4><p>Raft 的核心思想:先到先得，少数服从多数。 Raft 算法演示: <a href="http://thesecretlivesofdata.com/raft/" target="_blank" rel="noopener">http://thesecretlivesofdata.com/raft/</a></p>
+<h4 id="Ratf-算法"><a href="#Ratf-算法" class="headerlink" title="Ratf 算法"></a>Ratf 算法</h4><p>Raft 的核心思想:先到先得，少数服从多数。 Raft 算法演示: <a target="_blank" rel="noopener" href="http://thesecretlivesofdata.com/raft/">http://thesecretlivesofdata.com/raft/</a></p>
 <h4 id="故障转移-1"><a href="#故障转移-1" class="headerlink" title="故障转移"></a>故障转移</h4><p><strong>问题:怎么让一个原来的 slave 节点成为主节点?</strong></p>
 <p>1、选出 Sentinel Leader 之后，由 Sentinel Leader 向某个节点发送 slaveof no one 命令，让它成为独立节点。</p>
 <p>2、然后向其他节点发送 slaveof x.x.x.x xxxx(本机服务)，让它们成为这个节点的 子节点，故障转移完成。</p>
@@ -790,17 +956,22 @@
 <p>第一种是在客户端实现相关的逻辑，例如用取模或者一致性哈希对 key 进行分片，查询和修改都先判断 key 的路由。</p>
 <p>第二种是把做分片处理的逻辑抽取出来，运行一个独立的代理服务，客户端连接到 这个代理服务，代理服务做请求的转发。</p>
 <p>第三种就是基于服务端实现。</p>
-<h3 id="客户端-Sharding"><a href="#客户端-Sharding" class="headerlink" title="客户端 Sharding"></a>客户端 Sharding</h3><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcc7qn7pvuj30pu0fsjv9.jpg" alt="image-20200228165110433" style="zoom:67%;"></p>
+<h3 id="客户端-Sharding"><a href="#客户端-Sharding" class="headerlink" title="客户端 Sharding"></a>客户端 Sharding</h3><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcc7qn7pvuj30pu0fsjv9.jpg" alt="image-20200228165110433" style="zoom:67%;" />
+
+
+
 <p>使用 ShardedJedis 之类的客户端分片代码的优势是配置简单，不依赖于其他中间件，分区的逻辑可以自定义，比较灵活。但是基于客户端的方案，不能实现动态的服务增减，每个客户端需要自行维护分片策略，存在重复代码。</p>
 <p>第二种思路就是把分片的代码抽取出来，做成一个公共服务，所有的客户端都连接 到这个代理层。由代理层来实现请求和转发。</p>
-<h3 id="代理-Proxy"><a href="#代理-Proxy" class="headerlink" title="代理 Proxy"></a>代理 Proxy</h3><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcc7rva7kbj30tq0f6tfg.jpg" alt="image-20200228165221320" style="zoom:67%;"></p>
+<h3 id="代理-Proxy"><a href="#代理-Proxy" class="headerlink" title="代理 Proxy"></a>代理 Proxy</h3><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcc7rva7kbj30tq0f6tfg.jpg" alt="image-20200228165221320" style="zoom:67%;" />
+
 <p>典型的代理分区方案有 Twitter 开源的 Twemproxy 和国内的豌豆荚开源的 Codis。</p>
 <h4 id="Twemproxy"><a href="#Twemproxy" class="headerlink" title="Twemproxy"></a>Twemproxy</h4><p>two-em-proxy</p>
-<p><a href="https://github.com/twitter/twemproxy" target="_blank" rel="noopener">https://github.com/twitter/twemproxy</a></p>
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcc84wz2nhj30rq0jaq9s.jpg" alt="image-20200228170453482" style="zoom:67%;"></p>
-<p>Twemproxy 的优点:比较稳定，可用性高。<br> 不足: 1、出现故障不能自动转移，架构复杂，需要借助其他组件(LVS/HAProxy +Keepalived)实现 HA </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/twitter/twemproxy">https://github.com/twitter/twemproxy</a></p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTly1gcc84wz2nhj30rq0jaq9s.jpg" alt="image-20200228170453482" style="zoom:67%;" />
+
+<p>Twemproxy 的优点:比较稳定，可用性高。<br> 不足: 1、出现故障不能自动转移，架构复杂，需要借助其他组件(LVS&#x2F;HAProxy +Keepalived)实现 HA </p>
 <p>2、扩缩容需要修改配置，不能实现平滑地扩缩容(需要重新分布数据)。</p>
-<h4 id="Codis"><a href="#Codis" class="headerlink" title="Codis"></a>Codis</h4><p><a href="https://github.com/CodisLabs/codis" target="_blank" rel="noopener">https://github.com/CodisLabs/codis</a></p>
+<h4 id="Codis"><a href="#Codis" class="headerlink" title="Codis"></a>Codis</h4><p><a target="_blank" rel="noopener" href="https://github.com/CodisLabs/codis">https://github.com/CodisLabs/codis</a></p>
 <p>Codis 是一个代理中间件，用 Go 语言开发的。 功能:客户端连接 Codis 跟连接 Redis 没有区别。</p>
 <table>
 <thead>
@@ -811,8 +982,7 @@
 <th>Redis Cluster</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>重新分片不需要重启</td>
 <td>Yes</td>
 <td>No</td>
@@ -842,29 +1012,36 @@
 <td>所有</td>
 <td>支持 cluster 协议的客户 端</td>
 </tr>
-</tbody>
-</table>
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcc862xcvqj315c0q6tmu.jpg" alt="image-20200228170600698" style="zoom:67%;"></p>
+</tbody></table>
+<img src="https://tva1.sinaimg.cn/large/00831rSTly1gcc862xcvqj315c0q6tmu.jpg" alt="image-20200228170600698" style="zoom:67%;" />
+
 <p>分片原理:Codis 把所有的 key 分成了 N 个槽(例如 1024)，每个槽对应一个分组， 一个分组对应于一个或者一组 Redis 实例。Codis 对 key 进行 CRC32 运算，得到一个 32 位的数字，然后模以 N(槽的个数)，得到余数，这个就是 key 对应的槽，槽后面就 是 Redis 的实例。</p>
-<h3 id="Redis-Cluster"><a href="#Redis-Cluster" class="headerlink" title="Redis Cluster"></a>Redis Cluster</h3><p><a href="https://redis.io/topics/cluster-tutorial/" target="_blank" rel="noopener">https://redis.io/topics/cluster-tutorial/</a></p>
+<h3 id="Redis-Cluster"><a href="#Redis-Cluster" class="headerlink" title="Redis Cluster"></a>Redis Cluster</h3><p><a target="_blank" rel="noopener" href="https://redis.io/topics/cluster-tutorial/">https://redis.io/topics/cluster-tutorial/</a></p>
 <p>Redis Cluster 是在 Redis 3.0 的版本正式推出的，用来解决分布式的需求，同时也 可以实现高可用。跟 Codis 不一样，它是去中心化的，客户端可以连接到任意一个可用 节点。</p>
 <p>数据分片有几个关键的问题需要解决: </p>
 <p>1、数据怎么相对均匀地分片</p>
 <p> 2、客户端怎么访问到相应的节点和数据</p>
 <p> 3、重新分片的过程，怎么保证正常服务</p>
-<h4 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h4><p>​    Redis Cluster 可以看成是由多个 Redis 实例组成的数据集合。客户端不需要关注数 据的子集到底存储在哪个节点，只需要关注这个集合整体。</p>
+<h4 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h4><p>​	Redis Cluster 可以看成是由多个 Redis 实例组成的数据集合。客户端不需要关注数 据的子集到底存储在哪个节点，只需要关注这个集合整体。</p>
 <p>以 3 主 3 从为例，节点之间两两交互，共享数据分片、节点状态等信息。</p>
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcc8a6qjukj30wq0mmqi5.jpg" alt="image-20200228170956874" style="zoom:67%;"></p>
-<h4 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h4><h5 id="哈希后取模"><a href="#哈希后取模" class="headerlink" title="哈希后取模"></a>哈希后取模</h5><p>​    例如，hash(key)%N，根据余数，决定映射到那一个节点。这种方式比较简单，属 于静态的分片规则。但是一旦节点数量变化，新增或者减少，由于取模的 N 发生变化， 数据需要重新分布。为了解决这个问题，我们又有了一致性哈希算法。</p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTly1gcc8a6qjukj30wq0mmqi5.jpg" alt="image-20200228170956874" style="zoom:67%;" />
+
+<h4 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h4><h5 id="哈希后取模"><a href="#哈希后取模" class="headerlink" title="哈希后取模"></a>哈希后取模</h5><p>​	例如，hash(key)%N，根据余数，决定映射到那一个节点。这种方式比较简单，属 于静态的分片规则。但是一旦节点数量变化，新增或者减少，由于取模的 N 发生变化， 数据需要重新分布。为了解决这个问题，我们又有了一致性哈希算法。</p>
 <h5 id="一致性哈希"><a href="#一致性哈希" class="headerlink" title="一致性哈希"></a>一致性哈希</h5><p>一致性哈希的原理:</p>
 <p>把所有的哈希值空间组织成一个虚拟的圆环(哈希环)，整个空间按顺时针方向组 织。因为是环形空间，0 和 2^32-1 是重叠的。</p>
 <p>谷歌的 MurmurHash 就是一致性哈希算法。在分布式系统中，负载均衡、分库分表 等场景中都有应用。</p>
 <p>一致性哈希解决了动态增减节点时，所有数据都需要重新分布的问题，它只会影响 到下一个相邻的节点，对其他节点没有影响。</p>
 <p>但是这样的一致性哈希算法有一个缺点，因为节点不一定是均匀地分布的，特别是在节点数比较少的情况下，所以数据不能得到均匀分布。解决这个问题的办法是引入虚拟节点(Virtual Node)。</p>
-<h6 id="虚拟节点"><a href="#虚拟节点" class="headerlink" title="虚拟节点"></a>虚拟节点</h6><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcc8j761vfj30pg0ga7cs.jpg" alt="image-20200228171836576" style="zoom:50%;"></p>
+<h6 id="虚拟节点"><a href="#虚拟节点" class="headerlink" title="虚拟节点"></a>虚拟节点</h6><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcc8j761vfj30pg0ga7cs.jpg" alt="image-20200228171836576" style="zoom:50%;" />
+
+
+
 <h6 id="Redis-虚拟槽分区"><a href="#Redis-虚拟槽分区" class="headerlink" title="Redis 虚拟槽分区"></a>Redis 虚拟槽分区</h6><p>Redis 既没有用哈希取模，也没有用一致性哈希，而是用虚拟槽来实现的。</p>
 <p>Redis 创建了 16384 个槽(slot)，每个节点负责一定区间的 slot。比如 Node1 负 责 0-5460，Node2 负责 5461-10922，Node3 负责 10923-16383。</p>
-<p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gcc8n2jkl6j318y0jo12k.jpg" alt="image-20200228172220767" style="zoom:67%;"></p>
+<img src="https://tva1.sinaimg.cn/large/00831rSTly1gcc8n2jkl6j318y0jo12k.jpg" alt="image-20200228172220767" style="zoom:67%;" />
+
+
+
 <p>注意:key 与 slot 的关系是永远不会变的，会变的只有 slot 和 Redis 节点的关系。</p>
 <p><strong>问题:怎么让相关的数据落到同一个节点上?</strong></p>
 <p>在 key 里面加入{hash tag}即可。Redis 在计算槽编号的时候只会获取{}之间的字符 串进行槽编号计算，这样由于上面两个不同的键，{}里面的字符串是相同的，因此他们可 以被计算出相同的槽。</p>
@@ -872,7 +1049,8 @@
 <h4 id="客户端重定向"><a href="#客户端重定向" class="headerlink" title="客户端重定向"></a>客户端重定向</h4><p>比如在 7291 端口的 Redis 的 redis-cli 客户端操作:</p>
 <pre><code>127.0.0.1:7291&gt; set qs 1
  (error) MOVED 13724 127.0.0.1:7293
-</code></pre><p>服务端返回 MOVED，也就是根据 key 计算出来的 slot 不归 7191 端口管理，而是 归 7293 端口管理，服务端返回 MOVED 告诉客户端去 7293 端口操作。</p>
+</code></pre>
+<p>服务端返回 MOVED，也就是根据 key 计算出来的 slot 不归 7191 端口管理，而是 归 7293 端口管理，服务端返回 MOVED 告诉客户端去 7293 端口操作。</p>
 <p><strong>问题:新增或下线了 Master 节点，数据怎么迁移(重新分配)?</strong></p>
 <h4 id="数据迁移"><a href="#数据迁移" class="headerlink" title="数据迁移"></a>数据迁移</h4><p>因为 key 和 slot 的关系是永远不会变的，当新增了节点的时候，需要把原有的 slot 分配给新的节点负责，并且把相关的数据迁移过来。</p>
 <p><strong>问题:只有主节点可以写，一个主节点挂了，从节点怎么变成主节点?</strong></p>
@@ -912,9 +1090,9 @@
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2020-02-28, 18:52:52</p>
     <p><span class="copy-title">最后更新:</span>2020-06-26, 21:18:32</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/28/Redis集群篇/" title="Redis集群篇">http://yoursite.com/2020/02/28/Redis集群篇/</a>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/28/Redis%E9%9B%86%E7%BE%A4%E7%AF%87/" title="Redis集群篇">http://yoursite.com/2020/02/28/Redis%E9%9B%86%E7%BE%A4%E7%AF%87/</a>
     <p>
-        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
 </div>
 
@@ -947,15 +1125,15 @@
 <div class="acParent"></div>
 
 </body>
-<script src="/js/jquery.pjax.js?v=1.0.1"></script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
 
-<script src="/js/script.js?v=1.0.1"></script>
+<script src="/js/script.js?v=1.0.1" ></script>
 <script>
     var img_resize = 'default';
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#netty','#nio','#framework','#zookeeper','#Spec','#gc','#summary','#classLoader','#juc','#hotspot','#j2ee','#spring','#hbase','#spark','#redis','#thread','#tomcat','#mysql','#lang','#elasticsearch','#kafka','#servlet','#ioc','#io','#serialization','#file','#ejb','#collections','#event','#aop','#job','#map','#applicationContext','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
+            'data': ['#week','#hide','#jvm','#gc','#summary','#juc','#jdk','#map','#classLoader','#packages','#io','#serialization','#file','#nio','#lang','#spring','#doc','#utils','#hotspot','#collections','#java','#note','#j2ee','#ejb','#distributed','#hbase','#framework','#spark','#elasticsearch','#kafka','#mysql','#netty','#redis','#servlet','#tomcat','#zookeeper','#Spec','#thread','#applicationContext','#ioc','#event','#aop','#job','#spring-mvc','#spring-webflux','#beanFactory',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

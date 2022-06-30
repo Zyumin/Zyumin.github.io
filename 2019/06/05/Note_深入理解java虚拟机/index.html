@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   <title>Note_深入理解java虚拟机 | Zyumin</title>
-  <meta name="keywords" content=" java , note , jvm ">
+  <meta name="keywords" content=" jvm , java , note ">
   <meta name="description" content="Note_深入理解java虚拟机 | Zyumin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta name="keywords" content="java">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
 <meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-23T07:09:56.946Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-03-23T07:09:38.000Z">
+<meta property="article:modified_time" content="2019-03-23T07:09:56.000Z">
+<meta property="article:author" content="zhengyumin">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -30,7 +30,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
 
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script>
@@ -41,11 +41,11 @@
 
 
 
-<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
 
-<script src="/js/iconfont.js?v=1.0.1"></script>
+<script src="/js/iconfont.js?v=1.0.1" ></script>
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="false">
@@ -56,7 +56,7 @@
 <aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.png">
+    <img class="avatar" src="/img/avatar.png" />
 </a>
 <div class="author">
     <span>zhengyumin</span>
@@ -68,7 +68,7 @@
         <a title="github" href="https://github.com/Zyumin" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-github"/>
+                    <use xlink:href="#icon-github"></use>
                 </svg>
             
         </a>
@@ -78,7 +78,7 @@
         <a title="neteasemusic" href="https://music.163.com/#/user/home?id=60037019" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-neteasemusic"/>
+                    <use xlink:href="#icon-neteasemusic"></use>
                 </svg>
             
         </a>
@@ -94,7 +94,7 @@
     
         
             
-            <li><div data-rel="jdk">jdk<small>(13)</small></div>
+            <li><div data-rel="java">java<small>(9)</small></div>
                 
             </li>
             
@@ -102,7 +102,7 @@
     
         
             
-            <li><div data-rel="java">java<small>(9)</small></div>
+            <li><div data-rel="jdk">jdk<small>(13)</small></div>
                 
             </li>
             
@@ -118,7 +118,7 @@
     
         
             
-            <li><div data-rel="redis">redis<small>(4)</small></div>
+            <li><div data-rel="mysql">mysql<small>(2)</small></div>
                 
             </li>
             
@@ -126,7 +126,7 @@
     
         
             
-            <li><div data-rel="mysql">mysql<small>(2)</small></div>
+            <li><div data-rel="redis">redis<small>(4)</small></div>
                 
             </li>
             
@@ -143,7 +143,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="55">
-<input type="hidden" id="yelog_site_word_count" value="185.6k">
+<input type="hidden" id="yelog_site_word_count" value="189.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -166,11 +166,11 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off" id="local-search-input">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
         <i class="cross"></i>
         <span>
             <label for="tagswitch">Tags:</label>
-            <input id="tagswitch" type="checkbox" style="display: none">
+            <input id="tagswitch" type="checkbox" style="display: none" />
             <i id="tagsWitchIcon"></i>
         </span>
     </form>
@@ -185,51 +185,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">jdk</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">packages</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">utils</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">java</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">note</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">jvm</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">distributed</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">netty</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">nio</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">framework</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">zookeeper</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">Spec</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -241,67 +197,23 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">classLoader</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">juc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">hotspot</a>
+        <a href="javascript:" class="color4">jdk</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">j2ee</a>
+        <a href="javascript:" class="color4">map</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">spring</a>
+        <a href="javascript:" class="color2">classLoader</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">hbase</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">spark</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">redis</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">thread</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">tomcat</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">mysql</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">lang</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">elasticsearch</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">kafka</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">servlet</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ioc</a>
+        <a href="javascript:" class="color4">packages</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -317,11 +229,111 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color4">nio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">lang</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">doc</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">utils</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">hotspot</a>
     </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color2">collections</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">note</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">j2ee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ejb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">distributed</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">hbase</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">framework</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">spark</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">elasticsearch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">kafka</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">netty</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">redis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">tomcat</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">zookeeper</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Spec</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">applicationContext</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ioc</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -337,18 +349,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">map</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">applicationContext</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">beanFactory</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color1">spring-mvc</a>
     </li>
     
@@ -357,7 +357,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">doc</a>
+        <a href="javascript:" class="color2">beanFactory</a>
     </li>
     
     <div class="clearfix"></div>
@@ -370,279 +370,444 @@
     
     <nav id="title-list-nav">
         
-        <a id="top" class="java " href="/2019/02/02/Overview_java/" data-tag="summary" data-author="">
-            <span class="post-title" title="Overview_java">Overview_java</span>
-            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
-        </a>
-        
-        <a id="top" class="spring " href="/2019/03/02/Overview_Spring/" data-tag="framework,spring" data-author="">
-            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
-            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
-        </a>
-        
-        <a id="top" class="jdk " href="/2019/06/13/Overview_JDK/" data-tag="jdk,hotspot" data-author="">
-            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
-            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
-        </a>
-        
-        <a id="top" class="java " href="/2020/05/10/面试常见知识点梳理/" data-tag="job" data-author="">
-            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
-            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
-        </a>
-        
-        <a class="java " href="/2021/01/13/GC调优总结/" data-tag="jvm,gc,summary" data-author="">
-            <span class="post-title" title="GC调优总结">GC调优总结</span>
-            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Hbase/" data-tag="distributed,framework,hbase" data-author="">
-            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
-            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Spark/" data-tag="distributed,framework,spark" data-author="">
-            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
-            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis集群篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
-            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis实战篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
-            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis原理篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
-            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/23/spring-aop/" data-tag="spring,aop" data-author="">
-            <span class="post-title" title="spring-aop">spring-aop</span>
-            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/16/Spring-ApplicationContext/" data-tag="spring,applicationContext" data-author="">
-            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
-            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/05/spring-BeanFactory/" data-tag="spring,beanFactory" data-author="">
-            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
-            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/02/spring-Q-A/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
-            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
-        </a>
-        
-        <a class="spring " href="/2019/10/29/Documentation-Spring-Core-IOC/" data-tag="spring,doc" data-author="">
-            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
-            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/26/JDK-Packages-java-nio/" data-tag="jdk,packages,nio" data-author="">
-            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
-            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/23/JDK-Packages-java-io/" data-tag="jdk,packages,io,serialization,file" data-author="">
-            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
-            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Class/" data-tag="jdk" data-author="">
-            <span class="post-title" title="JDK_Class">JDK_Class</span>
-            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Thread/" data-tag="jdk,jvm,hotspot" data-author="">
-            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
-            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
-        </a>
-        
-        <a class="java " href="/2019/08/29/JVM-main方法分析/" data-tag="java,jvm" data-author="">
-            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
-            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/24/JDK-ReentrantLock/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
-            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
-        </a>
-        
-        <a class="java " href="/2019/08/17/JVM-Synchronized/" data-tag="jvm" data-author="">
-            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
-            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
-        </a>
-        
-        <a class="java " href="/2019/08/11/Overview-Java-Virtual-Machine/" data-tag="jvm" data-author="">
-            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
-            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-lang/" data-tag="jdk,packages,lang" data-author="">
-            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
-            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-utils/" data-tag="jdk,packages,utils" data-author="">
-            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
-            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/10/JDK-The-Concurrent-Framework/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
-            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/29/JDK-The-Collections-Framework/" data-tag="jdk,collections" data-author="">
-            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
-            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
-        </a>
-        
-        <a class="" href="/2019/07/10/Note-码农翻身/" data-tag="java,note" data-author="">
-            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
-            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/06/JDK-ClassLoader/" data-tag="jdk,classLoader" data-author="">
-            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
-            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
-        </a>
-        
-        <a class="spring " href="/2019/07/03/spring-ApplicationContext启动流程和事件机制/" data-tag="classLoader,spring,tomcat,servlet,event" data-author="">
-            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
-            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/26/Overview_Elasticsearch/" data-tag="framework,elasticsearch" data-author="">
-            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
-            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/24/J-U-C-ConcurrentHashMap/" data-tag="juc,map" data-author="">
-            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
-            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
-        </a>
-        
-        <a class="java " href="/2019/06/19/JVM-Garbage-Collection/" data-tag="jvm,gc" data-author="">
-            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
-            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/16/J-U-C-InterruptedException/" data-tag="juc" data-author="">
-            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
-            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
-        </a>
-        
-        <a class="java " href="/2019/06/14/Spec-JSR133/" data-tag="jvm,Spec,thread" data-author="">
-            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
-            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
-        </a>
-        
-        <a class="java " href="/2019/06/13/Spec-Java-Virtual-Machine/" data-tag="jvm,Spec" data-author="">
-            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
-            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
-        </a>
-        
-        <a class="" href="/2019/06/12/Overview_Kafka/" data-tag="framework,kafka" data-author="">
-            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
-            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
-        </a>
-        
-        <a class="redis " href="/2019/06/10/Overview_Redis/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
-            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
-        </a>
-        
-        <a class="" href="/2019/06/06/Note_java并发编程的艺术/" data-tag="java,note,juc" data-author="">
-            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
-            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Overview_Netty/" data-tag="netty,nio,framework" data-author="">
-            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
-            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Note_深入理解java虚拟机/" data-tag="java,note,jvm" data-author="">
-            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
-            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
-        </a>
-        
-        <a class="mysql " href="/2019/06/04/Overview_MySQL/" data-tag="mysql" data-author="">
-            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
-            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Zookeeper/" data-tag="distributed,framework,zookeeper" data-author="">
-            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
-            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Distributed/" data-tag="distributed" data-author="">
-            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
-            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
-        </a>
-        
-        <a class="spring " href="/2019/04/10/spring-api-1-0/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
-            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
-        </a>
-        
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/04/01/3%E6%9C%88%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
         
-        <a class="mysql " href="/2019/03/30/记一次mysql查询in的思考/" data-tag="mysql" data-author="">
-            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
-            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
-        </a>
-        
-        <a class="" href="/2019/03/26/记一次Broken-pipe问题的思考/" data-tag="tomcat" data-author="">
-            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
-            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
-        </a>
-        
-        <a class="" href="/2019/03/24/3月第三周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/03/24/3%E6%9C%88%E7%AC%AC%E4%B8%89%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第三周知识点记录">3月第三周知识点记录</span>
             <span class="post-date" title="2019-03-24 20:55:31">2019/03/24</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert One-on-One-J2EE-Development-without-EJB/" data-tag="j2ee,spring,ejb" data-author="">
+        <a  class="java "
+           href="/2021/01/13/GC%E8%B0%83%E4%BC%98%E6%80%BB%E7%BB%93/"
+           data-tag="jvm,gc,summary"
+           data-author="" >
+            <span class="post-title" title="GC调优总结">GC调优总结</span>
+            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/16/J-U-C-InterruptedException/"
+           data-tag="juc"
+           data-author="" >
+            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
+            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Class/"
+           data-tag="jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_Class">JDK_Class</span>
+            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/24/J-U-C-ConcurrentHashMap/"
+           data-tag="juc,map"
+           data-author="" >
+            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
+            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/06/JDK-ClassLoader/"
+           data-tag="jdk,classLoader"
+           data-author="" >
+            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
+            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/23/JDK-Packages-java-io/"
+           data-tag="jdk,packages,io,serialization,file"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
+            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/26/JDK-Packages-java-nio/"
+           data-tag="jdk,packages,nio"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
+            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-lang/"
+           data-tag="jdk,packages,lang"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
+            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/10/29/Documentation-Spring-Core-IOC/"
+           data-tag="spring,doc"
+           data-author="" >
+            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
+            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-utils/"
+           data-tag="jdk,packages,utils"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
+            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Thread/"
+           data-tag="jvm,jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
+            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/19/JVM-Garbage-Collection/"
+           data-tag="jvm,gc"
+           data-author="" >
+            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
+            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/29/JDK-The-Collections-Framework/"
+           data-tag="jdk,collections"
+           data-author="" >
+            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
+            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/24/JDK-ReentrantLock/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
+            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/29/JVM-main%E6%96%B9%E6%B3%95%E5%88%86%E6%9E%90/"
+           data-tag="jvm,java"
+           data-author="" >
+            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
+            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/17/JVM-Synchronized/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
+            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/07/10/Note-%E7%A0%81%E5%86%9C%E7%BF%BB%E8%BA%AB/"
+           data-tag="java,note"
+           data-author="" >
+            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
+            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert%20One-on-One-J2EE-Development-without-EJB/"
+           data-tag="spring,j2ee,ejb"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Development without EJB">Expert One-on-One J2EE Development without EJB</span>
             <span class="post-date" title="2019-03-10 19:45:57">2019/03/10</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/" data-tag="j2ee,spring" data-author="">
+        <a  class=""
+           href="/2019/06/06/Note_java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/"
+           data-tag="juc,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
+            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/10/JDK-The-Concurrent-Framework/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
+            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/18/Overview-Hbase/"
+           data-tag="distributed,hbase,framework"
+           data-author="" >
+            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
+            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Note_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA/"
+           data-tag="jvm,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
+            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/"
+           data-tag="spring,j2ee"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Design and Development">Expert One-on-One J2EE Design and Development</span>
             <span class="post-date" title="2019-03-10 19:45:18">2019/03/10</span>
         </a>
         
-        <a class="spring " href="/2019/03/03/spring-Core-Container预览/" data-tag="spring,ioc" data-author="">
-            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
-            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        <a  class="java "
+           href="/2019/08/11/Overview-Java-Virtual-Machine/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
+            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
         </a>
         
-        <a class="spring " href="/2019/02/03/spring-mvc/" data-tag="spring,servlet,spring-mvc,spring-webflux" data-author="">
-            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
-            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        <a  class=""
+           href="/2019/06/03/Overview_Distributed/"
+           data-tag="distributed"
+           data-author="" >
+            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
+            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
         </a>
         
-        <a class="" href="/2019/02/03/Overview_Tomcat/" data-tag="tomcat,servlet" data-author="">
+        <a  class=""
+           href="/2020/03/18/Overview-Spark/"
+           data-tag="distributed,framework,spark"
+           data-author="" >
+            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
+            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/26/Overview_Elasticsearch/"
+           data-tag="framework,elasticsearch"
+           data-author="" >
+            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
+            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/12/Overview_Kafka/"
+           data-tag="framework,kafka"
+           data-author="" >
+            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
+            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
+        </a>
+        
+        <a id="top" class="jdk "
+           href="/2019/06/13/Overview_JDK/"
+           data-tag="jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
+            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/06/04/Overview_MySQL/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
+            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Overview_Netty/"
+           data-tag="nio,framework,netty"
+           data-author="" >
+            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
+            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2019/06/10/Overview_Redis/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
+            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
+        </a>
+        
+        <a id="top" class="spring "
+           href="/2019/03/02/Overview_Spring/"
+           data-tag="spring,framework"
+           data-author="" >
+            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
+            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/03/Overview_Tomcat/"
+           data-tag="servlet,tomcat"
+           data-author="" >
             <span class="post-title" title="servlet_tomcat">servlet_tomcat</span>
             <span class="post-date" title="2019-02-03 15:49:08">2019/02/03</span>
         </a>
         
-        <a class="" href="/2019/02/02/Spec_Servlet/" data-tag="j2ee,servlet" data-author="">
+        <a  class=""
+           href="/2019/06/03/Overview_Zookeeper/"
+           data-tag="distributed,framework,zookeeper"
+           data-author="" >
+            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
+            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2019/02/02/Overview_java/"
+           data-tag="summary"
+           data-author="" >
+            <span class="post-title" title="Overview_java">Overview_java</span>
+            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%8E%9F%E7%90%86%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
+            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%AE%9E%E6%88%98%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
+            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E9%9B%86%E7%BE%A4%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
+            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/14/Spec-JSR133/"
+           data-tag="jvm,Spec,thread"
+           data-author="" >
+            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
+            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/13/Spec-Java-Virtual-Machine/"
+           data-tag="jvm,Spec"
+           data-author="" >
+            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
+            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/02/Spec_Servlet/"
+           data-tag="j2ee,servlet"
+           data-author="" >
             <span class="post-title" title="j2ee_servlet">j2ee_servlet</span>
             <span class="post-date" title="2019-02-02 18:05:54">2019/02/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/16/Spring-ApplicationContext/"
+           data-tag="spring,applicationContext"
+           data-author="" >
+            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
+            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/03/03/spring-Core-Container%E9%A2%84%E8%A7%88/"
+           data-tag="spring,ioc"
+           data-author="" >
+            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
+            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/02/spring-Q-A/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
+            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/07/03/spring-ApplicationContext%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/"
+           data-tag="classLoader,spring,servlet,tomcat,event"
+           data-author="" >
+            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
+            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/04/10/spring-api-1-0/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
+            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/26/%E8%AE%B0%E4%B8%80%E6%AC%A1Broken-pipe%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="tomcat"
+           data-author="" >
+            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
+            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/03/30/%E8%AE%B0%E4%B8%80%E6%AC%A1mysql%E6%9F%A5%E8%AF%A2in%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
+            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/23/spring-aop/"
+           data-tag="spring,aop"
+           data-author="" >
+            <span class="post-title" title="spring-aop">spring-aop</span>
+            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2020/05/10/%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/"
+           data-tag="job"
+           data-author="" >
+            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
+            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/02/03/spring-mvc/"
+           data-tag="spring,servlet,spring-mvc,spring-webflux"
+           data-author="" >
+            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
+            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/05/spring-BeanFactory/"
+           data-tag="spring,beanFactory"
+           data-author="" >
+            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
+            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
         </a>
         
     </nav>
@@ -657,7 +822,7 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Note_深入理解java虚拟机" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <article id="post-Note_深入理解java虚拟机" class="article article-type-post" itemscope itemprop="blogPost">
     
         <h1 class="article-title">Note_深入理解java虚拟机</h1>
     
@@ -668,18 +833,18 @@
         
         <span class="tag">
             
+            <a href="javascript:" class="color4">jvm</a>
+            
             <a href="javascript:" class="color5">java</a>
             
             <a href="javascript:" class="color5">note</a>
-            
-            <a href="javascript:" class="color4">jvm</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2019-08-12 10:39:53">2019-06-05 21:12</time>
+        创建时间:<time class="date" title='更新时间: 2019-08-12 10:39:53'>2019-06-05 21:12</time>
         
     </div>
     <div class="article-meta">
@@ -703,7 +868,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#内存区域"><span class="toc-text">内存区域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#运行时数据区域"><span class="toc-text">运行时数据区域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#程序计数器"><span class="toc-text">程序计数器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java虚拟机栈"><span class="toc-text">Java虚拟机栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#本地方法栈"><span class="toc-text">本地方法栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java堆"><span class="toc-text">Java堆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法区"><span class="toc-text">方法区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#直接内存"><span class="toc-text">直接内存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HotSpot虚拟机对象探秘"><span class="toc-text">HotSpot虚拟机对象探秘</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#对象的创建"><span class="toc-text">对象的创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对象的内存布局"><span class="toc-text">对象的内存布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对象的访问定位"><span class="toc-text">对象的访问定位</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾收集器与内存分配策略"><span class="toc-text">垃圾收集器与内存分配策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对象可回收判断"><span class="toc-text">对象可回收判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾收集算法"><span class="toc-text">垃圾收集算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标记-清除算法"><span class="toc-text">标记-清除算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#复制算法"><span class="toc-text">复制算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#标记-整理算法"><span class="toc-text">标记-整理算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分代收集算法"><span class="toc-text">分代收集算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HotSpot算法实现"><span class="toc-text">HotSpot算法实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾收集器"><span class="toc-text">垃圾收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#理解GC日志"><span class="toc-text">理解GC日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾收集器参数"><span class="toc-text">垃圾收集器参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存分配与回收策略"><span class="toc-text">内存分配与回收策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟机性能监控与故障处理工具"><span class="toc-text">虚拟机性能监控与故障处理工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JDK的命令行工具"><span class="toc-text">JDK的命令行工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JDK的可视化工具"><span class="toc-text">JDK的可视化工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JConsole"><span class="toc-text">JConsole</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VisualVM"><span class="toc-text">VisualVM</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类文件结构"><span class="toc-text">类文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#无关性的基石"><span class="toc-text">无关性的基石</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Class类文件的结构"><span class="toc-text">Class类文件的结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字节码指令简介"><span class="toc-text">字节码指令简介</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟机类加载机制"><span class="toc-text">虚拟机类加载机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载的时机"><span class="toc-text">类加载的时机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载的过程"><span class="toc-text">类加载的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载器"><span class="toc-text">类加载器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟机字节码执行引擎"><span class="toc-text">虚拟机字节码执行引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#运行时栈帧结构"><span class="toc-text">运行时栈帧结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法调用"><span class="toc-text">方法调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态类型语言支持"><span class="toc-text">动态类型语言支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于栈的字节码解释执行引擎"><span class="toc-text">基于栈的字节码解释执行引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例"><span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译器优化"><span class="toc-text">编译器优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Javac编译器"><span class="toc-text">Javac编译器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java语法糖"><span class="toc-text">Java语法糖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实战：插入式注解"><span class="toc-text">实战：插入式注解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行期优化"><span class="toc-text">运行期优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HotSpot虚拟机内的即时编译器"><span class="toc-text">HotSpot虚拟机内的即时编译器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译优化技术"><span class="toc-text">编译优化技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与C-编译器对比"><span class="toc-text">与C++编译器对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java内存模型与线程"><span class="toc-text">Java内存模型与线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java内存模型（JMM）"><span class="toc-text">Java内存模型（JMM）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#主内存与工作内存"><span class="toc-text">主内存与工作内存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内存间交互操作"><span class="toc-text">内存间交互操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#约束"><span class="toc-text">约束</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#volatile"><span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特征"><span class="toc-text">特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#先行发生原则-happen-before"><span class="toc-text">先行发生原则 happen-before</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java与线程"><span class="toc-text">Java与线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#线程"><span class="toc-text">线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java线程调度"><span class="toc-text">Java线程调度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#状态转换"><span class="toc-text">状态转换</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程安全与锁优化"><span class="toc-text">线程安全与锁优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线程安全"><span class="toc-text">线程安全</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安全程度"><span class="toc-text">安全程度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程安全的实现方法"><span class="toc-text">线程安全的实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-互斥同步（悲观）"><span class="toc-text">1.互斥同步（悲观）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-非阻塞同步（乐观）"><span class="toc-text">2.非阻塞同步（乐观）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-无同步方案"><span class="toc-text">3.无同步方案</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锁优化"><span class="toc-text">锁优化</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F"><span class="toc-text">内存区域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F"><span class="toc-text">运行时数据区域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="toc-text">程序计数器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="toc-text">Java虚拟机栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="toc-text">本地方法栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java%E5%A0%86"><span class="toc-text">Java堆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="toc-text">方法区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98"><span class="toc-text">直接内存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HotSpot%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AF%B9%E8%B1%A1%E6%8E%A2%E7%A7%98"><span class="toc-text">HotSpot虚拟机对象探秘</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-text">对象的创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="toc-text">对象的内存布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D"><span class="toc-text">对象的访问定位</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="toc-text">垃圾收集器与内存分配策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%8F%AF%E5%9B%9E%E6%94%B6%E5%88%A4%E6%96%AD"><span class="toc-text">对象可回收判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="toc-text">垃圾收集算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="toc-text">标记-清除算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95"><span class="toc-text">复制算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0-%E6%95%B4%E7%90%86%E7%AE%97%E6%B3%95"><span class="toc-text">标记-整理算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="toc-text">分代收集算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HotSpot%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">HotSpot算法实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-text">垃圾收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%A7%A3GC%E6%97%A5%E5%BF%97"><span class="toc-text">理解GC日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E5%8F%82%E6%95%B0"><span class="toc-text">垃圾收集器参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5"><span class="toc-text">内存分配与回收策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E4%B8%8E%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7"><span class="toc-text">虚拟机性能监控与故障处理工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JDK%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7"><span class="toc-text">JDK的命令行工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JDK%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7"><span class="toc-text">JDK的可视化工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JConsole"><span class="toc-text">JConsole</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VisualVM"><span class="toc-text">VisualVM</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-text">类文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E5%85%B3%E6%80%A7%E7%9A%84%E5%9F%BA%E7%9F%B3"><span class="toc-text">无关性的基石</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Class%E7%B1%BB%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-text">Class类文件的结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E7%AE%80%E4%BB%8B"><span class="toc-text">字节码指令简介</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-text">虚拟机类加载机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E6%97%B6%E6%9C%BA"><span class="toc-text">类加载的时机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">类加载的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="toc-text">类加载器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E"><span class="toc-text">虚拟机字节码执行引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E6%A0%88%E5%B8%A7%E7%BB%93%E6%9E%84"><span class="toc-text">运行时栈帧结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8"><span class="toc-text">方法调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E7%B1%BB%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%94%AF%E6%8C%81"><span class="toc-text">动态类型语言支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%A0%88%E7%9A%84%E5%AD%97%E8%8A%82%E7%A0%81%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E"><span class="toc-text">基于栈的字节码解释执行引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E4%BC%98%E5%8C%96"><span class="toc-text">编译器优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Javac%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-text">Javac编译器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java%E8%AF%AD%E6%B3%95%E7%B3%96"><span class="toc-text">Java语法糖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%EF%BC%9A%E6%8F%92%E5%85%A5%E5%BC%8F%E6%B3%A8%E8%A7%A3"><span class="toc-text">实战：插入式注解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%9C%9F%E4%BC%98%E5%8C%96"><span class="toc-text">运行期优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HotSpot%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%86%85%E7%9A%84%E5%8D%B3%E6%97%B6%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-text">HotSpot虚拟机内的即时编译器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF"><span class="toc-text">编译优化技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8EC-%E7%BC%96%E8%AF%91%E5%99%A8%E5%AF%B9%E6%AF%94"><span class="toc-text">与C++编译器对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B"><span class="toc-text">Java内存模型与线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%88JMM%EF%BC%89"><span class="toc-text">Java内存模型（JMM）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E5%86%85%E5%AD%98%E4%B8%8E%E5%B7%A5%E4%BD%9C%E5%86%85%E5%AD%98"><span class="toc-text">主内存与工作内存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E9%97%B4%E4%BA%A4%E4%BA%92%E6%93%8D%E4%BD%9C"><span class="toc-text">内存间交互操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%A6%E6%9D%9F"><span class="toc-text">约束</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#volatile"><span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%BE%81"><span class="toc-text">特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E8%A1%8C%E5%8F%91%E7%94%9F%E5%8E%9F%E5%88%99-happen-before"><span class="toc-text">先行发生原则 happen-before</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java%E4%B8%8E%E7%BA%BF%E7%A8%8B"><span class="toc-text">Java与线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B"><span class="toc-text">线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6"><span class="toc-text">Java线程调度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2"><span class="toc-text">状态转换</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B8%8E%E9%94%81%E4%BC%98%E5%8C%96"><span class="toc-text">线程安全与锁优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="toc-text">线程安全</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E7%A8%8B%E5%BA%A6"><span class="toc-text">安全程度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="toc-text">线程安全的实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E4%BA%92%E6%96%A5%E5%90%8C%E6%AD%A5%EF%BC%88%E6%82%B2%E8%A7%82%EF%BC%89"><span class="toc-text">1.互斥同步（悲观）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5%EF%BC%88%E4%B9%90%E8%A7%82%EF%BC%89"><span class="toc-text">2.非阻塞同步（乐观）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E6%97%A0%E5%90%8C%E6%AD%A5%E6%96%B9%E6%A1%88"><span class="toc-text">3.无同步方案</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E4%BC%98%E5%8C%96"><span class="toc-text">锁优化</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -720,77 +885,80 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g3qlkg3awoj30yg0mx4qp.jpg" alt="image-20190605212425037"></p>
-<a id="more"></a>
-<p>​    这里只是简单的列出书中的知识点, 其实本书是对相关规范(JVM和JLS)和基于虚拟机规范官方实现(HotSpot)的总结 ,更多详细可以看下面的扩展链接</p>
-<h2 id="内存区域"><a href="#内存区域" class="headerlink" title="内存区域"></a>内存区域</h2><h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>​    线程独立，在虚拟机概念模型里，字节码解释器工作时通过这个计数器来选取下一条需要执行的指令</p>
-<h4 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h4><p>​    线程独立，每个方法在执行时会创建一个栈帧，调用直至执行完成的过程，就对应一个栈帧在虚拟机栈中入栈到出栈的过程</p>
-<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><p>​    与虚拟机栈类似，不过它为Native方法服务</p>
-<h4 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h4><p>​    线程共享，所有对象实例以及数组都要在堆上分配（不绝对）<br>​    不绝对的原因：JIT编译器发展与逃逸分析技术逐渐成熟，栈上分配、标量替换</p>
-<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><p>​    线程共享，用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码<br>​    运行时常量池, 用于存放编译器生成的各种字面量和符号引用</p>
-<h4 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h4><p>​    并不是虚拟机运行时数据区的一部分，会收到本机总内存大小以及处理器寻址空间的限制<br>​    NIO，引入一种基于通道与缓冲区的I/O方式</p>
+<span id="more"></span>
+
+
+
+<p>​	这里只是简单的列出书中的知识点, 其实本书是对相关规范(JVM和JLS)和基于虚拟机规范官方实现(HotSpot)的总结 ,更多详细可以看下面的扩展链接</p>
+<h2 id="内存区域"><a href="#内存区域" class="headerlink" title="内存区域"></a>内存区域</h2><h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>​	线程独立，在虚拟机概念模型里，字节码解释器工作时通过这个计数器来选取下一条需要执行的指令</p>
+<h4 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h4><p>​	线程独立，每个方法在执行时会创建一个栈帧，调用直至执行完成的过程，就对应一个栈帧在虚拟机栈中入栈到出栈的过程</p>
+<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><p>​	与虚拟机栈类似，不过它为Native方法服务</p>
+<h4 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h4><p>​	线程共享，所有对象实例以及数组都要在堆上分配（不绝对）<br>​	不绝对的原因：JIT编译器发展与逃逸分析技术逐渐成熟，栈上分配、标量替换</p>
+<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><p>​	线程共享，用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码<br>​	运行时常量池, 用于存放编译器生成的各种字面量和符号引用</p>
+<h4 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h4><p>​	并不是虚拟机运行时数据区的一部分，会收到本机总内存大小以及处理器寻址空间的限制<br>​	NIO，引入一种基于通道与缓冲区的I&#x2F;O方式</p>
 <h3 id="HotSpot虚拟机对象探秘"><a href="#HotSpot虚拟机对象探秘" class="headerlink" title="HotSpot虚拟机对象探秘"></a>HotSpot虚拟机对象探秘</h3><h4 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h4><ol>
 <li>检查</li>
 <li>类加载</li>
 <li>分配内存</li>
 <li>初始化零值</li>
 <li>对象头处理</li>
-<li><init>初始化</init></li>
+<li><init>初始化</li>
 </ol>
 <h4 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h4><p>对象头<br>        对象自身的运行时数据<br>                        对象哈希码、对象分代年龄<br>                        GC分代年龄<br>                        锁状态标记<br>                        线程持有的锁<br>                        偏向线程ID<br>                        偏向时间戳<br>        类型指针<br>实例数据<br>对齐填充<br>        对象大小必须是8字节的整数倍</p>
 <h4 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h4><p>使用句柄<br>        reference存储的对象的句柄地址,句柄包含了实例数据和数据类型各种的地址<br>        优势,在对象被移动时，只会改变句柄中的实例数据指针，而reference本身不需要修改<br>直接指针（HotSpot虚拟机使用）<br>        reference存储的是对象地址<br>        优势,速度快，节省了一次指针定位的时间开销</p>
 <hr>
-<h2 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h2><h3 id="对象可回收判断"><a href="#对象可回收判断" class="headerlink" title="对象可回收判断"></a>对象可回收判断</h3><p>​            引用计数算法<br>​                缺点是很难解决对象相互引用问题<br>​            可达性分析算法 GC Roots对象<br>​                虚拟机栈中引用的对象<br>​                方法区中类静态属性引用的对象<br>​                方法区中常量引用的对象<br>​                本地方法栈中JNI引用的对象<br>​            引用<br>​                强引用<br>​                软引用<br>​                    在系统将要发生内存溢出异常之前，将会把这些对象列进回收范围之中进行二次回收<br>​                弱引用<br>​                    只能生存到下一次垃圾收集发生之前<br>​                虚引用<br>​            生存还是死亡<br>​                1.第一次标记<br>​                2.是否覆盖finalize方法，或者finalize方法已经被虚拟机调用过<br>​                3.放置在F-Queue队列<br>​            回收方法区<br>​                废弃常量<br>​                    无引用<br>​                无用的类<br>​                    该类的所有实例都已经被回收<br>​                    加载该类的ClassLoader已经被回收<br>​                    该类对应的java.lang.Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法</p>
-<h3 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h3><h4 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h4><p>​    不足<br>​            效率问题<br>​            空间问题</p>
+<h2 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h2><h3 id="对象可回收判断"><a href="#对象可回收判断" class="headerlink" title="对象可回收判断"></a>对象可回收判断</h3><p>​			引用计数算法<br>​				缺点是很难解决对象相互引用问题<br>​			可达性分析算法 GC Roots对象<br>​				虚拟机栈中引用的对象<br>​				方法区中类静态属性引用的对象<br>​				方法区中常量引用的对象<br>​				本地方法栈中JNI引用的对象<br>​			引用<br>​				强引用<br>​				软引用<br>​					在系统将要发生内存溢出异常之前，将会把这些对象列进回收范围之中进行二次回收<br>​				弱引用<br>​					只能生存到下一次垃圾收集发生之前<br>​				虚引用<br>​			生存还是死亡<br>​				1.第一次标记<br>​				2.是否覆盖finalize方法，或者finalize方法已经被虚拟机调用过<br>​				3.放置在F-Queue队列<br>​			回收方法区<br>​				废弃常量<br>​					无引用<br>​				无用的类<br>​					该类的所有实例都已经被回收<br>​					加载该类的ClassLoader已经被回收<br>​					该类对应的java.lang.Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法</p>
+<h3 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h3><h4 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h4><p>​	不足<br>​			效率问题<br>​			空间问题</p>
 <h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><p>不足：将内存缩小为原来的一半<br>优化：由于新生代对象大部分都是朝生夕死，所以将内存划分为8：1（Eden和Survivor）</p>
 <h4 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h4><p>老年代</p>
 <h4 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h4><p>根据对象存活周期的不同将内存划分为几块，根据各个年代的特点采用最适合的收集算法</p>
 <h3 id="HotSpot算法实现"><a href="#HotSpot算法实现" class="headerlink" title="HotSpot算法实现"></a>HotSpot算法实现</h3><p>枚举根节点<br>                使用OopMap的数据结构来得知哪些地方存放这对象引用（执行上下文和全局的引用位置）<br>安全点<br>HotSpot没有为每条指令都生成OopMap，只有在特定的位置，这些位置称为安全点<br>程序执行时，只有达到安全点才能暂停<br>GC时候怎么让线程都在最近安全点停止<br>        抢先式中断<br>            GC时候，先把所有线程中断，如果发现有线程没有在安全点上，就恢复线程，让它跑到安全点<br>        主动式中断<br>            GC需要中断的时候，不直接对线程操作，通过设置一个标记，各个线程在安全点时候去轮询这个标识，发现中断标识为真时候就自动挂起<br>安全区域<br>                是指在一段代码片段之中引用关系不会发生变化<br>                进入safe Region中的代码，会标识自己进入safe Region</p>
 <h3 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h3><p>Serial收集器<br>                运行在Client模式下的单线程垃圾收集器的虚拟机<br>ParNew收集器<br>                运行在Server模式下的多线程垃圾收集器的虚拟机<br>Parallel Scavenge收集器<br>                可控制的吞吐量<br>Serial Old收集器<br>ParOld收集器<br>CMS收集器<br>        最短回收停顿时间为目标的收集器<br>                运行过程<br>                    初始标记<br>                        标记一下GC Roots能直接关联到的对象，STop The World<br>                    并发标记<br>                        GC Roots Tracing的过程<br>                    重新标记<br>                        修正并发标记期间因用户程序继续运行而导致标记产生变动的那一部分对象的标记记录,STop The World<br>                    并发清除<br>                缺点<br>                    对CPU资源非常敏感<br>                    无法处理浮动垃圾<br>                    标记清除，碎片过多的解决方案<br>                        UseCMSCompactAtFullCollection<br>                            FullGC前先内存合并<br>                        CMSFullGCsBeforeCompaction<br>                            执行多少次不压缩的FullGC后，跟着来一次带压缩的<br>G1收集器（JDK1.7）<br>                特点<br>                    并行与并发<br>                    分代收集<br>                    空间整合<br>                    可预测的停顿<br>                        基于Region，维护一个优先列表，有计划的回收区域垃圾，优先回收价值大的Region<br>                        Remembered Set来避免全堆扫描，保存Region之间的对象引用以及其他收集器中的新生代与老年代之间的对象引用<br>                步骤<br>                    初始标记<br>                    并发标记<br>                    最终标记<br>                        虚拟机将并发标记期间对象的变化记录在线程Remembered Set Logs里，合并到Remember Set中，需停顿，可并行<br>                    筛选回收<br>                        对Region的回收价值和成本进行排序，根据用户期待的GC停顿时间来制定回收计划</p>
-<h3 id="理解GC日志"><a href="#理解GC日志" class="headerlink" title="理解GC日志"></a>理解GC日志</h3><h3 id="垃圾收集器参数"><a href="#垃圾收集器参数" class="headerlink" title="垃圾收集器参数"></a>垃圾收集器参数</h3><h3 id="内存分配与回收策略"><a href="#内存分配与回收策略" class="headerlink" title="内存分配与回收策略"></a>内存分配与回收策略</h3><p>​            对象优先在Eden分配<br>​            大对象直接进入老年代<br>​            长期存活的对象将进入老年代<br>​            动态对象年龄判断<br>​            空间分配担保</p>
+<h3 id="理解GC日志"><a href="#理解GC日志" class="headerlink" title="理解GC日志"></a>理解GC日志</h3><h3 id="垃圾收集器参数"><a href="#垃圾收集器参数" class="headerlink" title="垃圾收集器参数"></a>垃圾收集器参数</h3><h3 id="内存分配与回收策略"><a href="#内存分配与回收策略" class="headerlink" title="内存分配与回收策略"></a>内存分配与回收策略</h3><p>​			对象优先在Eden分配<br>​			大对象直接进入老年代<br>​			长期存活的对象将进入老年代<br>​			动态对象年龄判断<br>​			空间分配担保</p>
 <hr>
-<h2 id="虚拟机性能监控与故障处理工具"><a href="#虚拟机性能监控与故障处理工具" class="headerlink" title="虚拟机性能监控与故障处理工具"></a>虚拟机性能监控与故障处理工具</h2><h3 id="JDK的命令行工具"><a href="#JDK的命令行工具" class="headerlink" title="JDK的命令行工具"></a>JDK的命令行工具</h3><p>​            jps<br>​                JVM Process Status Tool，显示指定系统内所有的HotSpot虚拟机进程<br>​            jstat<br>​                JVM Statistics Monitoring Tool，用于收集HotSpot虚拟机各方面的运行数据<br>​            jinfo<br>​                Configuration Info for Java，显示虚拟机配置信息<br>​            jmap<br>​                Memory Map for Java，生成虚拟机的内存快照（heapdump文件），另外finalize执行队列、Java堆、永久代的详细信息<br>​            jhat<br>​                JVM Heap Dump Browser，用于分析headdump文件，建立一个HTTP/HTML服务器<br>​            jstack<br>​                Stack Trace for Java ，显示虚拟机的线程快照，主要目的是定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源</p>
-<h3 id="JDK的可视化工具"><a href="#JDK的可视化工具" class="headerlink" title="JDK的可视化工具"></a>JDK的可视化工具</h3><h4 id="JConsole"><a href="#JConsole" class="headerlink" title="JConsole"></a>JConsole</h4><p>​        概述 jps<br>​        内存 jstat<br>​        线程 jstack<br>​        类<br>​        VM概要 jinfo<br>​        VMBean</p>
-<h4 id="VisualVM"><a href="#VisualVM" class="headerlink" title="VisualVM"></a>VisualVM</h4><p>​                功能<br>​                    显示虚拟机进程以及进程的配置、环境信息（jps、jinfo）<br>​                    监视应用程序的CPU、GC、堆、方法区以及线程的信息（jstat、jstack）<br>​                    dump以及分析堆转储快照（jmap、jhat）<br>​                    方法级的程序运行性能分析，找出被调用最多、运行时间最长的方法<br>​                    离线程序快照：收集程序的运行时配置、线程dump、内存dump等信息建立ige快照<br>​                    …<br>​                插件<br>​                    BTrace动态日志跟踪</p>
+<h2 id="虚拟机性能监控与故障处理工具"><a href="#虚拟机性能监控与故障处理工具" class="headerlink" title="虚拟机性能监控与故障处理工具"></a>虚拟机性能监控与故障处理工具</h2><h3 id="JDK的命令行工具"><a href="#JDK的命令行工具" class="headerlink" title="JDK的命令行工具"></a>JDK的命令行工具</h3><p>​			jps<br>​				JVM Process Status Tool，显示指定系统内所有的HotSpot虚拟机进程<br>​			jstat<br>​				JVM Statistics Monitoring Tool，用于收集HotSpot虚拟机各方面的运行数据<br>​			jinfo<br>​				Configuration Info for Java，显示虚拟机配置信息<br>​			jmap<br>​				Memory Map for Java，生成虚拟机的内存快照（heapdump文件），另外finalize执行队列、Java堆、永久代的详细信息<br>​			jhat<br>​				JVM Heap Dump Browser，用于分析headdump文件，建立一个HTTP&#x2F;HTML服务器<br>​			jstack<br>​				Stack Trace for Java ，显示虚拟机的线程快照，主要目的是定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源</p>
+<h3 id="JDK的可视化工具"><a href="#JDK的可视化工具" class="headerlink" title="JDK的可视化工具"></a>JDK的可视化工具</h3><h4 id="JConsole"><a href="#JConsole" class="headerlink" title="JConsole"></a>JConsole</h4><p>​		概述 jps<br>​		内存 jstat<br>​		线程 jstack<br>​		类<br>​		VM概要 jinfo<br>​		VMBean</p>
+<h4 id="VisualVM"><a href="#VisualVM" class="headerlink" title="VisualVM"></a>VisualVM</h4><p>​				功能<br>​					显示虚拟机进程以及进程的配置、环境信息（jps、jinfo）<br>​					监视应用程序的CPU、GC、堆、方法区以及线程的信息（jstat、jstack）<br>​					dump以及分析堆转储快照（jmap、jhat）<br>​					方法级的程序运行性能分析，找出被调用最多、运行时间最长的方法<br>​					离线程序快照：收集程序的运行时配置、线程dump、内存dump等信息建立ige快照<br>​					…<br>​				插件<br>​					BTrace动态日志跟踪</p>
 <hr>
-<h2 id="类文件结构"><a href="#类文件结构" class="headerlink" title="类文件结构"></a>类文件结构</h2><h3 id="无关性的基石"><a href="#无关性的基石" class="headerlink" title="无关性的基石"></a>无关性的基石</h3><p>​            平台无关性<br>​                操作系统的应用层面上，虚拟机载入和执行同一种平台无关的字节码<br>​            语言无关系<br>​                Groovy<br>​                Scala<br>​                …</p>
-<h3 id="Class类文件的结构"><a href="#Class类文件的结构" class="headerlink" title="Class类文件的结构"></a>Class类文件的结构</h3><p>​            魔数与Class文件的版本<br>​            常量池<br>​            访问标志<br>​            类索引、父类索引与接口索引集合<br>​            字段表集合<br>​            方法表集合<br>​            属性表集合</p>
-<h3 id="字节码指令简介"><a href="#字节码指令简介" class="headerlink" title="字节码指令简介"></a>字节码指令简介</h3><p>​            字节码与数据类型<br>​            加载和存储指令<br>​            运算指令<br>​            类型转换指令<br>​            对象创建与访问指令<br>​            操作数栈管理指令<br>​            控制转移指令<br>​            方法调用和返回指令<br>​            异常处理指令<br>​            同步指令</p>
+<h2 id="类文件结构"><a href="#类文件结构" class="headerlink" title="类文件结构"></a>类文件结构</h2><h3 id="无关性的基石"><a href="#无关性的基石" class="headerlink" title="无关性的基石"></a>无关性的基石</h3><p>​			平台无关性<br>​				操作系统的应用层面上，虚拟机载入和执行同一种平台无关的字节码<br>​			语言无关系<br>​				Groovy<br>​				Scala<br>​				…</p>
+<h3 id="Class类文件的结构"><a href="#Class类文件的结构" class="headerlink" title="Class类文件的结构"></a>Class类文件的结构</h3><p>​			魔数与Class文件的版本<br>​			常量池<br>​			访问标志<br>​			类索引、父类索引与接口索引集合<br>​			字段表集合<br>​			方法表集合<br>​			属性表集合</p>
+<h3 id="字节码指令简介"><a href="#字节码指令简介" class="headerlink" title="字节码指令简介"></a>字节码指令简介</h3><p>​			字节码与数据类型<br>​			加载和存储指令<br>​			运算指令<br>​			类型转换指令<br>​			对象创建与访问指令<br>​			操作数栈管理指令<br>​			控制转移指令<br>​			方法调用和返回指令<br>​			异常处理指令<br>​			同步指令</p>
 <hr>
-<h2 id="虚拟机类加载机制"><a href="#虚拟机类加载机制" class="headerlink" title="虚拟机类加载机制"></a>虚拟机类加载机制</h2><h3 id="类加载的时机"><a href="#类加载的时机" class="headerlink" title="类加载的时机"></a>类加载的时机</h3><p>必须初始化的情况<br>​                遇见字节码指令<br>​                    new<br>​                        使用new关键字实例化对象的时候<br>​                    getstatic<br>​                    putstatic<br>​                    invokestatic<br>​                    读取或设置一个类的静态字段，调用一个类的静态方法的时候<br>​                使用java.lang.reflect包对类进行反射调用的时候，触发其初始化<br>​                初始一个类的时候，如果发现其父类没有进行初始化，对其父类进行初始化<br>​                虚拟机启动时，用户需要指定一个要执行的主类，会先初始化这个主类<br>​                MethodHandle实例最后解析结果REF_(..)static的方法句柄，句柄对应的类没有初始化，需要先触发其初始化<br>类的生命周期<br>加载<br>连接<br>​                    验证<br>​                    准备<br>​                    解析<br>初始化<br>使用<br>卸载<br>​                </p>
-<h3 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h3><p>​            加载<br>​                1.通过一个类的全限定名来获取定义此类的二进制字节流<br>​                    从ZIP包获取<br>​                    从网络中获取<br>​                    运行时计算生成，动态代理<br>​                    其他文件，JSP<br>​                    从数据库中读取<br>​                2.将这个字节流所代表的静态存储结构转换为方法区的运行时数据结构<br>​                3.在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口<br>​            连接<br>​                验证<br>​                    1.文件格式<br>​                        Class文件格式规范<br>​                    2.元数据<br>​                        对字节码的语义分析<br>​                    3.字节码<br>​                        通过数据流和控制流，语义是否合法和符合逻辑的<br>​                    4.符合引用<br>​                        将符号引用转化为直接引用的时候<br>​                    基于方法区的存储结构进行<br>​                准备<br>​                    为类变量分配内存并设置类变量初始化值的阶段<br>​                解析<br>​                    虚拟机将常量池内的符号引用替换为直接引用的过程<br>​                    定义解释<br>​                        符号引用<br>​                            与虚拟机布局无关，但是符号引用必须一致，因为符号引用的字面量形式明确定义在Java虚拟机规范Class文件格式汇总<br>​                        直接引用<br>​                            是直接指向目标的指针、相对偏移量或是一个能间接定位到目标的句柄，与虚拟机布局相关<br>​                    优化<br>​                        对第一次解析的结果进行缓存，在运行时常量池中记录直接引用，并把常量标识为已解析状态（除了invokedynamic）<br>​                    针对<br>​                        类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点<br>​            初始化</p>
-<h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><p>​            类与类加载器<br>​                类是否相等的比较，前提是这两个类由同一个类加载器加载的前提下才有意义<br>​            双亲委派模型<br>​                启动类加载器<br>​                扩展类加载器<br>​                应用程序类加载器<br>​            破坏双亲委派模型<br>​                第一次破坏<br>​                    原因：向前兼容<br>​                    解决方法：ClassLoader新增一个protected方法findClass<br>​                第二次破坏<br>​                    原因：基础类想要调用SPI（Service Provider Interface）<br>​                    解决方法：线程上下文类加载器<br>​                第三次破坏<br>​                    原因：追求程序的动态性，代码热替换，模块热部署<br>​                    解决方法：OSGI</p>
+<h2 id="虚拟机类加载机制"><a href="#虚拟机类加载机制" class="headerlink" title="虚拟机类加载机制"></a>虚拟机类加载机制</h2><h3 id="类加载的时机"><a href="#类加载的时机" class="headerlink" title="类加载的时机"></a>类加载的时机</h3><p>必须初始化的情况<br>​				遇见字节码指令<br>​					new<br>​						使用new关键字实例化对象的时候<br>​					getstatic<br>​					putstatic<br>​					invokestatic<br>​					读取或设置一个类的静态字段，调用一个类的静态方法的时候<br>​				使用java.lang.reflect包对类进行反射调用的时候，触发其初始化<br>​				初始一个类的时候，如果发现其父类没有进行初始化，对其父类进行初始化<br>​				虚拟机启动时，用户需要指定一个要执行的主类，会先初始化这个主类<br>​				MethodHandle实例最后解析结果REF_(..)static的方法句柄，句柄对应的类没有初始化，需要先触发其初始化<br>类的生命周期<br>加载<br>连接<br>​					验证<br>​					准备<br>​					解析<br>初始化<br>使用<br>卸载<br>​				</p>
+<h3 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h3><p>​			加载<br>​				1.通过一个类的全限定名来获取定义此类的二进制字节流<br>​					从ZIP包获取<br>​					从网络中获取<br>​					运行时计算生成，动态代理<br>​					其他文件，JSP<br>​					从数据库中读取<br>​				2.将这个字节流所代表的静态存储结构转换为方法区的运行时数据结构<br>​				3.在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口<br>​			连接<br>​				验证<br>​					1.文件格式<br>​						Class文件格式规范<br>​					2.元数据<br>​						对字节码的语义分析<br>​					3.字节码<br>​						通过数据流和控制流，语义是否合法和符合逻辑的<br>​					4.符合引用<br>​						将符号引用转化为直接引用的时候<br>​					基于方法区的存储结构进行<br>​				准备<br>​					为类变量分配内存并设置类变量初始化值的阶段<br>​				解析<br>​					虚拟机将常量池内的符号引用替换为直接引用的过程<br>​					定义解释<br>​						符号引用<br>​							与虚拟机布局无关，但是符号引用必须一致，因为符号引用的字面量形式明确定义在Java虚拟机规范Class文件格式汇总<br>​						直接引用<br>​							是直接指向目标的指针、相对偏移量或是一个能间接定位到目标的句柄，与虚拟机布局相关<br>​					优化<br>​						对第一次解析的结果进行缓存，在运行时常量池中记录直接引用，并把常量标识为已解析状态（除了invokedynamic）<br>​					针对<br>​						类或接口、字段、类方法、接口方法、方法类型、方法句柄和调用点<br>​			初始化</p>
+<h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><p>​			类与类加载器<br>​				类是否相等的比较，前提是这两个类由同一个类加载器加载的前提下才有意义<br>​			双亲委派模型<br>​				启动类加载器<br>​				扩展类加载器<br>​				应用程序类加载器<br>​			破坏双亲委派模型<br>​				第一次破坏<br>​					原因：向前兼容<br>​					解决方法：ClassLoader新增一个protected方法findClass<br>​				第二次破坏<br>​					原因：基础类想要调用SPI（Service Provider Interface）<br>​					解决方法：线程上下文类加载器<br>​				第三次破坏<br>​					原因：追求程序的动态性，代码热替换，模块热部署<br>​					解决方法：OSGI</p>
 <hr>
-<h2 id="虚拟机字节码执行引擎"><a href="#虚拟机字节码执行引擎" class="headerlink" title="虚拟机字节码执行引擎"></a>虚拟机字节码执行引擎</h2><h3 id="运行时栈帧结构"><a href="#运行时栈帧结构" class="headerlink" title="运行时栈帧结构"></a>运行时栈帧结构</h3><p>​            局部变量表<br>​                是一组变量值存储空间，用于存放方法参数和方法内部定义的局部变量，Slot为最小单位<br>​                局部变量表不像类变量，并不会赋默认值<br>​            操作栈<br>​                LIFO栈<br>​            动态连接<br>​                每个栈帧都包含了一个指向运行时常量池中该栈帧所属方法的引用，持有这个引用是为了支持方法调用过程中的动态连接<br>​            返回地址<br>​                正常执行返回<br>​                异常退出<br>​            …</p>
-<h3 id="方法调用"><a href="#方法调用" class="headerlink" title="方法调用"></a>方法调用</h3><p>​            唯一任务就是确定被调用方法的版本（即调用哪一个方法）<br>​            解析<br>​                字节码指令<br>​                    invokestatic<br>​                        调用静态方法<br>​                    invokespecial<br>​                        调用实例构造器<init>方法、私有方法和父类方法<br>​                    invokevirtual<br>​                        调用所有虚方法<br>​                    invokeinterface<br>​                        调用接口方法，会在运行时再缺点一个实现此接口的对象<br>​                    invokedynamic<br>​                        先在运行时动态解析出调用点限定符所引用的的方法，然后执行，分派逻辑是用户所设定的引导方法决定的<br>​                    非虚方法，除了这两个指令，还包含被final修饰的方法<br>​            分派<br>​                静态分派<br>​                    所有依赖静态类型来定位方法执行版本的分派动作称为静态分派<br>​                动态分派<br>​                    invokevirtual指令的运行时解析过程<br>​                        1.找到操作数栈顶的第一个元素所指向的对象的实际类型，记为C<br>​                        2.如果在类型C中找到与常量中的描述符和简单名称都相符的方法，则进行权限校验<br>​                            通过，则返回这个方法的直接引用，查找过程结束<br>​                            否则，则返回java.lang.IllegalAccessError异常<br>​                        3.否则，按照继承关系从下往上依次对C的各个父类进行第2步的搜索和验证过程<br>​                        4.如果始终没有找到合适的方法，则抛出java.lang.AbstractMethodError异常<br>​                单分派与多分派<br>​                    Java语言是一门静态多分派、动态单分派的语言<br>​                虚拟机动态分派的实现<br>​                    虚方法表<br>​                        虚方法表中存放着各个方法的实际入口地址<br>​                    非稳定“激进”优化<br>​                        内联缓存<br>​                        基于“类型继承关系分析技术”的守护内联</init></p>
-<h3 id="动态类型语言支持"><a href="#动态类型语言支持" class="headerlink" title="动态类型语言支持"></a>动态类型语言支持</h3><p>​            动态类型语言<br>​                关键特征是它的类型检查的主题过程是在运行期而不是编译期<br>​            JDK1.7与动态类型<br>​                1.7之前，虚拟机实现动态类型语言的方式，留个占位符类型，运行时动态生成字节码实现具体类型到占位符类型的适配<br>​            java.lang.invoke包<br>​                本质上<br>​                    MethodHandle是在模拟字节码层次的方法调用<br>​                        findStatic<br>​                            invokestatic<br>​                        findVirtual<br>​                            invokevirtual<br>​                        findSpecial<br>​                            invokespecial<br>​                    Reflection是在模拟Java代码层次的方法调用<br>​                内容上<br>​                    MethodHandle仅仅包含与执行方法相关的信息 轻量级<br>​                    Reflection包含了方法的签名、描述符以及方法属性表中各种属性的Java端表示方式，执行权限等运行期信息 重量级<br>​                性能上<br>​                    MethodHandle 是对字节码的方法指令调用模拟，所以可以复用虚拟机的各种优化，例如方法内联等<br>​                    Reflection 没有相应的优化<br>​            invokedynamic指令</p>
-<h3 id="基于栈的字节码解释执行引擎"><a href="#基于栈的字节码解释执行引擎" class="headerlink" title="基于栈的字节码解释执行引擎"></a>基于栈的字节码解释执行引擎</h3><p>​            解释执行<br>​                程序源码<br>​                词法分析<br>​                单词流<br>​                语法分析<br>​                抽象语法树<br>​                指令流<br>​                解释器<br>​                解释执行<br>​                优化器<br>​                中间代码<br>​                生成器<br>​                目标代码<br>​                步骤一： javac执行<br>​                步骤二：解释执行<br>​                步骤二：传统编译原理<br>​            基于栈的指令集与基于寄存器的指令集<br>​                基于栈的指令集<br>​                    优点<br>​                        可移植<br>​                    缺点<br>​                        性能慢<br>​                基于寄存器的指令集</p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>​            Tomcat正统的类加载器架构<br>​                需要满足的要求<br>​                    部署在同一个服务器上的两个Web应用程序所使用的Java类库可以实现相互隔离<br>​                    部署在同一个服务器上的两个Web应用程序所使用的Java类库可以相互共享<br>​                    服务器需要尽可能地保证自身的安全不受部署的Web应用程序影响<br>​                    支持JSP应用的Web服务器<br>​                Tomcat目录<br>​                    /common目录<br>​                        类库可被Tomcat和所有的Web应用程序共同使用<br>​                    /server目录<br>​                        类库可被Tomcat使用，对所有的Web应用程序都不可见<br>​                    /shared目录<br>​                        类库可被所有的Web应用程序共同使用，但对Tomcat自身不可见<br>​                    /WEB-INF目录<br>​                        类库仅对此Web应用程序使用<br>​                    Tomcat 6.x版本 合并到一个lib目录<br>​            OSGi 灵活类加载器架构<br>​                Bundle<br>​                    声明它所依赖的Java Package（通过Import-Package描述）<br>​                    声明允许导出发布的Java Package（通过Export-Package描述）<br>​                类加载的查找规则<br>​                    以java.*开头的类，委托给父类加载器加载<br>​                    否则，委托列表名单内的类，委托给父类加载器<br>​                    否则，Import列表中的类，委托给Export这个类的Bundle的类加载器假期<br>​                    否则，查找当前Bundle的Classpath，使用自己的类加载器加载<br>​                    否则，查找是否在在自己Fragment Bundle中，如果是，则委派给Fragment Bundle的类加载器<br>​                    否则，查找Dynamic Import列表的Bundle，委派给对应Bundle的类加载器<br>​                    否则，类查找失败<br>​                提供强大功能的同时，也引入了额外的复杂度，带来了线程死锁和内存泄露的风险（bundle的相互依赖）<br>​            字节码生成技术与动态代理的实现<br>​                字节码生成技术<br>​                    字节码类库<br>​                        Javassist<br>​                        CGLib<br>​                        ASM<br>​                    javac<br>​                    JSP、AOP、动态代理、反射<br>​                动态代理<br>​                    代理类<br>​                        大致过程就是根据Class文件的格式规范去拼接字节码<br>​            Retrotranslator<br>​                跨越JDK版本，具体实现是使用ASM对字节码修改<br>​                JDK每次升级新增功能分类<br>​                    编译器层面做的改进<br>​                        自动拆箱装箱<br>​                    对Java API代码增强<br>​                        JDK1.2的Collections集合类，JDK1.5的concurrent并发包<br>​                    需要在字节码中进行支持的改动<br>​                        譬如，动态语言支持，invokedynamic字节码指令<br>​                    虚拟机内部的改进<br>​                        JDK1.5实现JSR-133规范重新定义Java内存模型（JMM）<br>​                    只能模拟这两类<br>​            实战：远程执行功能<br>​                目标<br>​                    不依赖JDK版本<br>​                    不改变原有服务端程序的部署，不依赖任何第三方类库<br>​                    不侵入原有程序<br>​                    “临时代码”需要直接支持java语言<br>​                    “临时代码”需要具备足够的自由度，不需要依赖特定的类<br>​                    “临时代码”的执行结果可以返回客户端<br>​                问题及解决思路<br>​                    如何编译提交到服务器的Java代码<br>​                        使用tools.jar包<br>​                        javac编译好，上传字节码（.class）文件到服务端<br>​                    如何执行编译之后的Java代码<br>​                        让类加载器加载这个类生成一个Class对象，然后反射调用一下某个方法<br>​                    如何收集Java代码的执行结果<br>​                        使用标准输出和标准错误输出获取打印的信息，会影响到原有程序，这里标准输出设备是虚拟机线程全局共享的资源<br>​                        使用自己定义的PrintStream对象，会把其他线程向标准输出中打印的信息也收集了<br>​                        直接在执行的类中把对System.out的符合引用替换为我们准备的PrintStream的符合引用</p>
+<h2 id="虚拟机字节码执行引擎"><a href="#虚拟机字节码执行引擎" class="headerlink" title="虚拟机字节码执行引擎"></a>虚拟机字节码执行引擎</h2><h3 id="运行时栈帧结构"><a href="#运行时栈帧结构" class="headerlink" title="运行时栈帧结构"></a>运行时栈帧结构</h3><p>​			局部变量表<br>​				是一组变量值存储空间，用于存放方法参数和方法内部定义的局部变量，Slot为最小单位<br>​				局部变量表不像类变量，并不会赋默认值<br>​			操作栈<br>​				LIFO栈<br>​			动态连接<br>​				每个栈帧都包含了一个指向运行时常量池中该栈帧所属方法的引用，持有这个引用是为了支持方法调用过程中的动态连接<br>​			返回地址<br>​				正常执行返回<br>​				异常退出<br>​			…</p>
+<h3 id="方法调用"><a href="#方法调用" class="headerlink" title="方法调用"></a>方法调用</h3><p>​			唯一任务就是确定被调用方法的版本（即调用哪一个方法）<br>​			解析<br>​				字节码指令<br>​					invokestatic<br>​						调用静态方法<br>​					invokespecial<br>​						调用实例构造器<init>方法、私有方法和父类方法<br>​					invokevirtual<br>​						调用所有虚方法<br>​					invokeinterface<br>​						调用接口方法，会在运行时再缺点一个实现此接口的对象<br>​					invokedynamic<br>​						先在运行时动态解析出调用点限定符所引用的的方法，然后执行，分派逻辑是用户所设定的引导方法决定的<br>​					非虚方法，除了这两个指令，还包含被final修饰的方法<br>​			分派<br>​				静态分派<br>​					所有依赖静态类型来定位方法执行版本的分派动作称为静态分派<br>​				动态分派<br>​					invokevirtual指令的运行时解析过程<br>​						1.找到操作数栈顶的第一个元素所指向的对象的实际类型，记为C<br>​						2.如果在类型C中找到与常量中的描述符和简单名称都相符的方法，则进行权限校验<br>​							通过，则返回这个方法的直接引用，查找过程结束<br>​							否则，则返回java.lang.IllegalAccessError异常<br>​						3.否则，按照继承关系从下往上依次对C的各个父类进行第2步的搜索和验证过程<br>​						4.如果始终没有找到合适的方法，则抛出java.lang.AbstractMethodError异常<br>​				单分派与多分派<br>​					Java语言是一门静态多分派、动态单分派的语言<br>​				虚拟机动态分派的实现<br>​					虚方法表<br>​						虚方法表中存放着各个方法的实际入口地址<br>​					非稳定“激进”优化<br>​						内联缓存<br>​						基于“类型继承关系分析技术”的守护内联</p>
+<h3 id="动态类型语言支持"><a href="#动态类型语言支持" class="headerlink" title="动态类型语言支持"></a>动态类型语言支持</h3><p>​			动态类型语言<br>​				关键特征是它的类型检查的主题过程是在运行期而不是编译期<br>​			JDK1.7与动态类型<br>​				1.7之前，虚拟机实现动态类型语言的方式，留个占位符类型，运行时动态生成字节码实现具体类型到占位符类型的适配<br>​			java.lang.invoke包<br>​				本质上<br>​					MethodHandle是在模拟字节码层次的方法调用<br>​						findStatic<br>​							invokestatic<br>​						findVirtual<br>​							invokevirtual<br>​						findSpecial<br>​							invokespecial<br>​					Reflection是在模拟Java代码层次的方法调用<br>​				内容上<br>​					MethodHandle仅仅包含与执行方法相关的信息 轻量级<br>​					Reflection包含了方法的签名、描述符以及方法属性表中各种属性的Java端表示方式，执行权限等运行期信息 重量级<br>​				性能上<br>​					MethodHandle 是对字节码的方法指令调用模拟，所以可以复用虚拟机的各种优化，例如方法内联等<br>​					Reflection 没有相应的优化<br>​			invokedynamic指令</p>
+<h3 id="基于栈的字节码解释执行引擎"><a href="#基于栈的字节码解释执行引擎" class="headerlink" title="基于栈的字节码解释执行引擎"></a>基于栈的字节码解释执行引擎</h3><p>​			解释执行<br>​				程序源码<br>​				词法分析<br>​				单词流<br>​				语法分析<br>​				抽象语法树<br>​				指令流<br>​				解释器<br>​				解释执行<br>​				优化器<br>​				中间代码<br>​				生成器<br>​				目标代码<br>​				步骤一： javac执行<br>​				步骤二：解释执行<br>​				步骤二：传统编译原理<br>​			基于栈的指令集与基于寄存器的指令集<br>​				基于栈的指令集<br>​					优点<br>​						可移植<br>​					缺点<br>​						性能慢<br>​				基于寄存器的指令集</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>​			Tomcat正统的类加载器架构<br>​				需要满足的要求<br>​					部署在同一个服务器上的两个Web应用程序所使用的Java类库可以实现相互隔离<br>​					部署在同一个服务器上的两个Web应用程序所使用的Java类库可以相互共享<br>​					服务器需要尽可能地保证自身的安全不受部署的Web应用程序影响<br>​					支持JSP应用的Web服务器<br>​				Tomcat目录<br>​					&#x2F;common目录<br>​						类库可被Tomcat和所有的Web应用程序共同使用<br>​					&#x2F;server目录<br>​						类库可被Tomcat使用，对所有的Web应用程序都不可见<br>​					&#x2F;shared目录<br>​						类库可被所有的Web应用程序共同使用，但对Tomcat自身不可见<br>​					&#x2F;WEB-INF目录<br>​						类库仅对此Web应用程序使用<br>​					Tomcat 6.x版本 合并到一个lib目录<br>​			OSGi 灵活类加载器架构<br>​				Bundle<br>​					声明它所依赖的Java Package（通过Import-Package描述）<br>​					声明允许导出发布的Java Package（通过Export-Package描述）<br>​				类加载的查找规则<br>​					以java.*开头的类，委托给父类加载器加载<br>​					否则，委托列表名单内的类，委托给父类加载器<br>​					否则，Import列表中的类，委托给Export这个类的Bundle的类加载器假期<br>​					否则，查找当前Bundle的Classpath，使用自己的类加载器加载<br>​					否则，查找是否在在自己Fragment Bundle中，如果是，则委派给Fragment Bundle的类加载器<br>​					否则，查找Dynamic Import列表的Bundle，委派给对应Bundle的类加载器<br>​					否则，类查找失败<br>​				提供强大功能的同时，也引入了额外的复杂度，带来了线程死锁和内存泄露的风险（bundle的相互依赖）<br>​			字节码生成技术与动态代理的实现<br>​				字节码生成技术<br>​					字节码类库<br>​						Javassist<br>​						CGLib<br>​						ASM<br>​					javac<br>​					JSP、AOP、动态代理、反射<br>​				动态代理<br>​					代理类<br>​						大致过程就是根据Class文件的格式规范去拼接字节码<br>​			Retrotranslator<br>​				跨越JDK版本，具体实现是使用ASM对字节码修改<br>​				JDK每次升级新增功能分类<br>​					编译器层面做的改进<br>​						自动拆箱装箱<br>​					对Java API代码增强<br>​						JDK1.2的Collections集合类，JDK1.5的concurrent并发包<br>​					需要在字节码中进行支持的改动<br>​						譬如，动态语言支持，invokedynamic字节码指令<br>​					虚拟机内部的改进<br>​						JDK1.5实现JSR-133规范重新定义Java内存模型（JMM）<br>​					只能模拟这两类<br>​			实战：远程执行功能<br>​				目标<br>​					不依赖JDK版本<br>​					不改变原有服务端程序的部署，不依赖任何第三方类库<br>​					不侵入原有程序<br>​					“临时代码”需要直接支持java语言<br>​					“临时代码”需要具备足够的自由度，不需要依赖特定的类<br>​					“临时代码”的执行结果可以返回客户端<br>​				问题及解决思路<br>​					如何编译提交到服务器的Java代码<br>​						使用tools.jar包<br>​						javac编译好，上传字节码（.class）文件到服务端<br>​					如何执行编译之后的Java代码<br>​						让类加载器加载这个类生成一个Class对象，然后反射调用一下某个方法<br>​					如何收集Java代码的执行结果<br>​						使用标准输出和标准错误输出获取打印的信息，会影响到原有程序，这里标准输出设备是虚拟机线程全局共享的资源<br>​						使用自己定义的PrintStream对象，会把其他线程向标准输出中打印的信息也收集了<br>​						直接在执行的类中把对System.out的符合引用替换为我们准备的PrintStream的符合引用</p>
 <hr>
-<h2 id="编译器优化"><a href="#编译器优化" class="headerlink" title="编译器优化"></a>编译器优化</h2><p>虚拟机团队把对性能的优化集中到了后端的即时编译器中，这样可以让那些不是由Javac产生的Class文件也同样能享受到编译器优化所带来的好处    </p>
-<h3 id="Javac编译器"><a href="#Javac编译器" class="headerlink" title="Javac编译器"></a>Javac编译器</h3><p>编译过程<br>                准备过程：初始化插入式注解处理器<br>1.解析与填充符合表过程<br>                    1.词法分析、语法分析<br>                        词法分析<br>                            将源代码的字符流转变为标记（Token）集合<br>                        语法分析<br>                            是根据Token序列构造抽象语法树的过程<br>                    2.输入到符号表<br>                        符号表<br>                            是由一组符号地址和符合信息构成的表格（K-V）<br>2.插入式注解处理器的注解处理过程<br>                    注解处理器<br>                        可以把它看作是一组编译器的插件，可以读取、修改、添加抽象语法树中的任意元素<br>                        注意：每次处理完注解，如果由修改都会Round<br>3.分析与字节码生成过程<br>                    1.标注检查<br>                        检查的内容包括，变量使用前是否已被声明，变量与赋值之间的数据类型是否能够匹配等<br>                    2.数据流分析<br>                        检查程序局部变量在使用前是否有赋值、方法的每条路径是否都有返回值、是否所有的受查异常都被正确处理<br>                    3.解语法糖<br>                        泛型<br>                        变长参数<br>                        自动装箱/拆箱<br>                    4.生成字节码<br>                        把前面所生成的信息（语法符合表）转换为字节码写到磁盘中<br>                        少量代码添加和转换工作<br>                            实例构造器和类构造器<br>                            字符串的加操作替换为StringBuffer或builder的append操作<br>                    语义分析</p>
-<h3 id="Java语法糖"><a href="#Java语法糖" class="headerlink" title="Java语法糖"></a>Java语法糖</h3><p>​            泛型与类型擦除<br>​                C# 类型膨胀，真实泛型<br>​                Java 伪泛型<br>​            自动拆箱/装箱、变长参数、泛型<br>​            条件编译<br>​                只能实现在语句基本块级别的条件编译，去除分支不成立的代码块</p>
+<h2 id="编译器优化"><a href="#编译器优化" class="headerlink" title="编译器优化"></a>编译器优化</h2><p>虚拟机团队把对性能的优化集中到了后端的即时编译器中，这样可以让那些不是由Javac产生的Class文件也同样能享受到编译器优化所带来的好处	</p>
+<h3 id="Javac编译器"><a href="#Javac编译器" class="headerlink" title="Javac编译器"></a>Javac编译器</h3><p>编译过程<br>                准备过程：初始化插入式注解处理器<br>1.解析与填充符合表过程<br>                    1.词法分析、语法分析<br>                        词法分析<br>                            将源代码的字符流转变为标记（Token）集合<br>                        语法分析<br>                            是根据Token序列构造抽象语法树的过程<br>                    2.输入到符号表<br>                        符号表<br>                            是由一组符号地址和符合信息构成的表格（K-V）<br>2.插入式注解处理器的注解处理过程<br>                    注解处理器<br>                        可以把它看作是一组编译器的插件，可以读取、修改、添加抽象语法树中的任意元素<br>                        注意：每次处理完注解，如果由修改都会Round<br>3.分析与字节码生成过程<br>                    1.标注检查<br>                        检查的内容包括，变量使用前是否已被声明，变量与赋值之间的数据类型是否能够匹配等<br>                    2.数据流分析<br>                        检查程序局部变量在使用前是否有赋值、方法的每条路径是否都有返回值、是否所有的受查异常都被正确处理<br>                    3.解语法糖<br>                        泛型<br>                        变长参数<br>                        自动装箱&#x2F;拆箱<br>                    4.生成字节码<br>                        把前面所生成的信息（语法符合表）转换为字节码写到磁盘中<br>                        少量代码添加和转换工作<br>                            实例构造器和类构造器<br>                            字符串的加操作替换为StringBuffer或builder的append操作<br>                    语义分析</p>
+<h3 id="Java语法糖"><a href="#Java语法糖" class="headerlink" title="Java语法糖"></a>Java语法糖</h3><p>​			泛型与类型擦除<br>​				C# 类型膨胀，真实泛型<br>​				Java 伪泛型<br>​			自动拆箱&#x2F;装箱、变长参数、泛型<br>​			条件编译<br>​				只能实现在语句基本块级别的条件编译，去除分支不成立的代码块</p>
 <h3 id="实战：插入式注解"><a href="#实战：插入式注解" class="headerlink" title="实战：插入式注解"></a>实战：插入式注解</h3><hr>
-<h2 id="运行期优化"><a href="#运行期优化" class="headerlink" title="运行期优化"></a>运行期优化</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>​            为何HotSpot虚拟机要使用解释器与编译器并存的架构？<br>​            为何HotSpot虚拟机要实现两个不同的即时编译器？<br>​            程序合何时使用解释器执行？何时使用编译器执行？<br>​            哪些程序代码会被编译为本地代码？如何编译为本地代码？<br>​            如何从外部观察即时编译器的编译过程和编译结果？<br>​            </p>
-<h3 id="HotSpot虚拟机内的即时编译器"><a href="#HotSpot虚拟机内的即时编译器" class="headerlink" title="HotSpot虚拟机内的即时编译器"></a>HotSpot虚拟机内的即时编译器</h3><p>​    编译器与解释器<br>​        解释器<br>​            Interperter<br>​        编译器<br>​            Client Compiler<br>​            Server Compiler<br>​    编译对象与触发条件（Client即时编译方式）<br>​        热点代码<br>​            被多次掉调用的方法<br>​            被多次执行的循环体（OSR编译，栈上替换）<br>​        热点探测<br>​            基于采样的热点探测<br>​            基于计数器的热点探测（HotSpot）<br>​                方法调用<br>​                回边计数器<br>​        热度衰减<br>​            当超过一定的时间限度，如果方法的调用次数仍然不足以让它提交给即时编译器编译，那这个方法的调用计数器就会被减少一半<br>​    编译过程<br>​        Client Compiler<br>​            第一阶段<br>​                字节码<br>​                方法内联、常量传播、其他优化…<br>​                HIR（SSA形式）<br>​            第二阶段<br>​                空值检查消除、范围检查消除、其他优化…<br>​                优化后的HIR<br>​                HIR到LIR的转换<br>​            第三阶段<br>​                使用线性扫描算法在LIR上分配寄存器<br>​                在LIR上做窥孔优化<br>​                生成机器码<br>​        Server Compiler<br>​            它还会执行所有经典的优化动作<br>​                无用代码消除<br>​                循环展开<br>​                循环表达式外提<br>​                常量传播<br>​                消除公共子表达式<br>​                基本块重排序<br>​                …<br>​            还会实施一些与Java语言特性密切相关的优化技术<br>​                范围检查消除<br>​                空值检查消除<br>​                …<br>​            根据Cllient Compiler提供的性能监控信息，进行一些不稳定的激进优化<br>​                守护内联<br>​                分支频率预测<br>​                …<br>​    查看及分析即时编译结果</p>
-<h3 id="编译优化技术"><a href="#编译优化技术" class="headerlink" title="编译优化技术"></a>编译优化技术</h3><p>​    优化技术概览<br>​        编译器策略<br>​            延迟编译<br>​            分层编译<br>​            栈上替换<br>​            延迟优化<br>​            程序依赖图表示<br>​            静态单赋值表示<br>​        基于性能监控的优化技术<br>​            乐观空值断言<br>​            乐观类型断言<br>​            乐观类型增强<br>​            乐观数组长度增强<br>​            裁剪未被选择的分支<br>​            乐观的多态内联<br>​            多支频率预测<br>​            调用频率预测<br>​        基于证据的优化技术<br>​            精确类型判断<br>​            内存值推断<br>​            内存值跟踪<br>​            常量折叠<br>​            重组<br>​            操作符退化<br>​            空值检查消除<br>​            类型检测退化<br>​            类型检测消除<br>​            代数化简<br>​            公共子表达式消除<br>​        数据流敏感重写<br>​            条件常量传播<br>​            基于流承载的类型缩减转换<br>​            无用代码消除<br>​        语言相关的优化技术<br>​            类型继承关系分析<br>​            去虚拟化<br>​            符合常量传播<br>​            自动装箱消除<br>​            逃逸分析<br>​            锁消除<br>​            锁膨胀<br>​            消除反射<br>​        内存及代码位置变换<br>​            表达式提升<br>​            表达式下沉<br>​            冗余存储消除<br>​            相邻存储合并<br>​            交汇点分离<br>​        循环变换<br>​            循环展开<br>​            循环剥离<br>​            安全点消除<br>​            迭代范围分离<br>​            范围检查消除<br>​            循环向量化<br>​        全局代码调整<br>​            内联<br>​            全局代码外提<br>​            基于热度的代码布局<br>​            Switch调整<br>​        控制流图变换<br>​            本地编码编排<br>​            本地代码封包<br>​            延迟槽填充<br>​            着色图寄存器分配<br>​            线性扫描寄存器分配<br>​            复写聚合<br>​            常量分裂<br>​            复写移除<br>​            地址模式匹配<br>​            指令窥孔优化<br>​            基于确定有限状态机的代码生成</p>
-<h3 id="与C-编译器对比"><a href="#与C-编译器对比" class="headerlink" title="与C++编译器对比"></a>与C++编译器对比</h3><p>​    劣势<br>​        1.即时编译器运行占用用户程序的运行时间，它能提供的优化手段受制于编译成本<br>​        2.Java语言是动态的类型安全语言，需要由虚拟机来确保程序不会违反语言语义或访问非结构化内存<br>​        3.Java语言没有virtual关键字，进行优化时的难度大于C/C++<br>​        4.Java语言是动态扩展的语言，运行时加载新的类可能改变程序类型的继承关系，这使得对一些全局优化只能使用激进的手段<br>​        5.Java内存都是在堆上分配的，只有方法中的局部变量才能在栈上分配，而C/C++的对象由多种内存分配方式<br>​    </p>
+<h2 id="运行期优化"><a href="#运行期优化" class="headerlink" title="运行期优化"></a>运行期优化</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>​			为何HotSpot虚拟机要使用解释器与编译器并存的架构？<br>​			为何HotSpot虚拟机要实现两个不同的即时编译器？<br>​			程序合何时使用解释器执行？何时使用编译器执行？<br>​			哪些程序代码会被编译为本地代码？如何编译为本地代码？<br>​			如何从外部观察即时编译器的编译过程和编译结果？<br>​			</p>
+<h3 id="HotSpot虚拟机内的即时编译器"><a href="#HotSpot虚拟机内的即时编译器" class="headerlink" title="HotSpot虚拟机内的即时编译器"></a>HotSpot虚拟机内的即时编译器</h3><p>​	编译器与解释器<br>​		解释器<br>​			Interperter<br>​		编译器<br>​			Client Compiler<br>​			Server Compiler<br>​	编译对象与触发条件（Client即时编译方式）<br>​		热点代码<br>​			被多次掉调用的方法<br>​			被多次执行的循环体（OSR编译，栈上替换）<br>​		热点探测<br>​			基于采样的热点探测<br>​			基于计数器的热点探测（HotSpot）<br>​				方法调用<br>​				回边计数器<br>​		热度衰减<br>​			当超过一定的时间限度，如果方法的调用次数仍然不足以让它提交给即时编译器编译，那这个方法的调用计数器就会被减少一半<br>​	编译过程<br>​		Client Compiler<br>​			第一阶段<br>​				字节码<br>​				方法内联、常量传播、其他优化…<br>​				HIR（SSA形式）<br>​			第二阶段<br>​				空值检查消除、范围检查消除、其他优化…<br>​				优化后的HIR<br>​				HIR到LIR的转换<br>​			第三阶段<br>​				使用线性扫描算法在LIR上分配寄存器<br>​				在LIR上做窥孔优化<br>​				生成机器码<br>​		Server Compiler<br>​			它还会执行所有经典的优化动作<br>​				无用代码消除<br>​				循环展开<br>​				循环表达式外提<br>​				常量传播<br>​				消除公共子表达式<br>​				基本块重排序<br>​				…<br>​			还会实施一些与Java语言特性密切相关的优化技术<br>​				范围检查消除<br>​				空值检查消除<br>​				…<br>​			根据Cllient Compiler提供的性能监控信息，进行一些不稳定的激进优化<br>​				守护内联<br>​				分支频率预测<br>​				…<br>​	查看及分析即时编译结果</p>
+<h3 id="编译优化技术"><a href="#编译优化技术" class="headerlink" title="编译优化技术"></a>编译优化技术</h3><p>​	优化技术概览<br>​		编译器策略<br>​			延迟编译<br>​			分层编译<br>​			栈上替换<br>​			延迟优化<br>​			程序依赖图表示<br>​			静态单赋值表示<br>​		基于性能监控的优化技术<br>​			乐观空值断言<br>​			乐观类型断言<br>​			乐观类型增强<br>​			乐观数组长度增强<br>​			裁剪未被选择的分支<br>​			乐观的多态内联<br>​			多支频率预测<br>​			调用频率预测<br>​		基于证据的优化技术<br>​			精确类型判断<br>​			内存值推断<br>​			内存值跟踪<br>​			常量折叠<br>​			重组<br>​			操作符退化<br>​			空值检查消除<br>​			类型检测退化<br>​			类型检测消除<br>​			代数化简<br>​			公共子表达式消除<br>​		数据流敏感重写<br>​			条件常量传播<br>​			基于流承载的类型缩减转换<br>​			无用代码消除<br>​		语言相关的优化技术<br>​			类型继承关系分析<br>​			去虚拟化<br>​			符合常量传播<br>​			自动装箱消除<br>​			逃逸分析<br>​			锁消除<br>​			锁膨胀<br>​			消除反射<br>​		内存及代码位置变换<br>​			表达式提升<br>​			表达式下沉<br>​			冗余存储消除<br>​			相邻存储合并<br>​			交汇点分离<br>​		循环变换<br>​			循环展开<br>​			循环剥离<br>​			安全点消除<br>​			迭代范围分离<br>​			范围检查消除<br>​			循环向量化<br>​		全局代码调整<br>​			内联<br>​			全局代码外提<br>​			基于热度的代码布局<br>​			Switch调整<br>​		控制流图变换<br>​			本地编码编排<br>​			本地代码封包<br>​			延迟槽填充<br>​			着色图寄存器分配<br>​			线性扫描寄存器分配<br>​			复写聚合<br>​			常量分裂<br>​			复写移除<br>​			地址模式匹配<br>​			指令窥孔优化<br>​			基于确定有限状态机的代码生成</p>
+<h3 id="与C-编译器对比"><a href="#与C-编译器对比" class="headerlink" title="与C++编译器对比"></a>与C++编译器对比</h3><p>​	劣势<br>​		1.即时编译器运行占用用户程序的运行时间，它能提供的优化手段受制于编译成本<br>​		2.Java语言是动态的类型安全语言，需要由虚拟机来确保程序不会违反语言语义或访问非结构化内存<br>​		3.Java语言没有virtual关键字，进行优化时的难度大于C&#x2F;C++<br>​		4.Java语言是动态扩展的语言，运行时加载新的类可能改变程序类型的继承关系，这使得对一些全局优化只能使用激进的手段<br>​		5.Java内存都是在堆上分配的，只有方法中的局部变量才能在栈上分配，而C&#x2F;C++的对象由多种内存分配方式<br>​	</p>
 <p>优势<br>        动态安全、动态扩展、垃圾回收</p>
 <hr>
-<h2 id="Java内存模型与线程"><a href="#Java内存模型与线程" class="headerlink" title="Java内存模型与线程"></a>Java内存模型与线程</h2><h3 id="Java内存模型（JMM）"><a href="#Java内存模型（JMM）" class="headerlink" title="Java内存模型（JMM）"></a>Java内存模型（JMM）</h3><h4 id="主内存与工作内存"><a href="#主内存与工作内存" class="headerlink" title="主内存与工作内存"></a>主内存与工作内存</h4><p>​            主内存<br>​                所有变量都存储在主内存<br>​            工作内存<br>​                每条线程都有一个工作内存，保存了该线程使用到的变量的主内存副本拷贝</p>
-<h4 id="内存间交互操作"><a href="#内存间交互操作" class="headerlink" title="内存间交互操作"></a>内存间交互操作</h4><p>​            lock<br>​                它把一个变量标识为一条线程独占的状态<br>​            unlock<br>​                它把一个处于锁定状态的变量释放出来<br>​            read<br>​                它把一个变量的值从主内存传输到线程的工作内存中<br>​            write<br>​                它把store操作从工作内存中得到的变量的值放入主内存变量<br>​            load<br>​                它把read操作从内存中得到的变量值放入工作内存的变量副本中<br>​            use<br>​                它把工作内存中一个变量的值传递给执行引擎，每当虚拟机遇到一个需要使用到变量的值的字节码指令时将会执行这个操作<br>​            assign<br>​                它把一个从执行引擎接收到的值赋给工作内存的变量，每当虚拟机遇到一个给变量赋值的字节码指令时执行这个操作<br>​            store<br>​                它把工作内存中一个变量的值传送到主内存中，以便write使用<br>​            作用于主内存<br>​            作用于工作内存</p>
-<h4 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h4><p>​            不允许read和load、store和write操作之一单独出现<br>​            不允许一个线程丢弃它的最近assign操作<br>​            不允许一个线程无原因地把数据从线程的工作内存同步回主内存<br>​            一个新的变量只能在主内存中“诞生，use和store操作之前，必须先assign和load<br>​            一个变量在同一时刻只允许一条线程对其进行lock操作，但是同一条线程可以多次lock<br>​            如果一个变量执行lock操作，那么清空工作内存中此变量的值，执行引擎使用这个变量前，需要重新load或assign<br>​            一个变量没有被lock,就不允许被unlock，另外不允许unlock其他线程<br>​            一个变量执行unlock操作之前，必须先把此变量同步回主内存中（store、write）</p>
-<h4 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h4><p>​            特征<br>​                1.保证此变量对所有线程的可见性<br>​                2.禁止指令重排<br>​            仍需要加锁的场景<br>​                运算结果并不依赖变量当前值<br>​                变量不需要与其他的状态变量共同参与不变约束</p>
-<h4 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h4><p>​            原子性<br>​                synchronized块保证原子性<br>​            可见性<br>​                volatile可见性，synchronized和final<br>​            有序性<br>​                volatile禁止指令重排，synchronized保证同一个锁两个同步块只能串行</p>
-<h4 id="先行发生原则-happen-before"><a href="#先行发生原则-happen-before" class="headerlink" title="先行发生原则 happen-before"></a>先行发生原则 happen-before</h4><p>​            程序次序规则<br>​            管程锁定规则<br>​            volatile<br>​            线程启动规则<br>​            线程终止规则<br>​            线程中断规则<br>​            对象终结规则<br>​            传递性</p>
-<h3 id="Java与线程"><a href="#Java与线程" class="headerlink" title="Java与线程"></a>Java与线程</h3><h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><p>​            1.使用内核线程实现<br>​            2.使用用户线程实现<br>​            3.使用用户线程加轻量级进程混合实现<br>​            4.java线程的实现</p>
-<h4 id="Java线程调度"><a href="#Java线程调度" class="headerlink" title="Java线程调度"></a>Java线程调度</h4><p>​            协同式线程调度<br>​            抢占式线程调度<br>​                线程优先级（不确定性）</p>
-<h4 id="状态转换"><a href="#状态转换" class="headerlink" title="状态转换"></a>状态转换</h4><p>​            新建(New)<br>​            运行(Runable)<br>​                Running<br>​                Ready<br>​            无限期等待 (Wating)<br>​            限期等待(Timed Wating)<br>​            阻塞(Blocked)<br>​            结束(Terminated)</p>
+<h2 id="Java内存模型与线程"><a href="#Java内存模型与线程" class="headerlink" title="Java内存模型与线程"></a>Java内存模型与线程</h2><h3 id="Java内存模型（JMM）"><a href="#Java内存模型（JMM）" class="headerlink" title="Java内存模型（JMM）"></a>Java内存模型（JMM）</h3><h4 id="主内存与工作内存"><a href="#主内存与工作内存" class="headerlink" title="主内存与工作内存"></a>主内存与工作内存</h4><p>​			主内存<br>​				所有变量都存储在主内存<br>​			工作内存<br>​				每条线程都有一个工作内存，保存了该线程使用到的变量的主内存副本拷贝</p>
+<h4 id="内存间交互操作"><a href="#内存间交互操作" class="headerlink" title="内存间交互操作"></a>内存间交互操作</h4><p>​			lock<br>​				它把一个变量标识为一条线程独占的状态<br>​			unlock<br>​				它把一个处于锁定状态的变量释放出来<br>​			read<br>​				它把一个变量的值从主内存传输到线程的工作内存中<br>​			write<br>​				它把store操作从工作内存中得到的变量的值放入主内存变量<br>​			load<br>​				它把read操作从内存中得到的变量值放入工作内存的变量副本中<br>​			use<br>​				它把工作内存中一个变量的值传递给执行引擎，每当虚拟机遇到一个需要使用到变量的值的字节码指令时将会执行这个操作<br>​			assign<br>​				它把一个从执行引擎接收到的值赋给工作内存的变量，每当虚拟机遇到一个给变量赋值的字节码指令时执行这个操作<br>​			store<br>​				它把工作内存中一个变量的值传送到主内存中，以便write使用<br>​			作用于主内存<br>​			作用于工作内存</p>
+<h4 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h4><p>​			不允许read和load、store和write操作之一单独出现<br>​			不允许一个线程丢弃它的最近assign操作<br>​			不允许一个线程无原因地把数据从线程的工作内存同步回主内存<br>​			一个新的变量只能在主内存中“诞生，use和store操作之前，必须先assign和load<br>​			一个变量在同一时刻只允许一条线程对其进行lock操作，但是同一条线程可以多次lock<br>​			如果一个变量执行lock操作，那么清空工作内存中此变量的值，执行引擎使用这个变量前，需要重新load或assign<br>​			一个变量没有被lock,就不允许被unlock，另外不允许unlock其他线程<br>​			一个变量执行unlock操作之前，必须先把此变量同步回主内存中（store、write）</p>
+<h4 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h4><p>​			特征<br>​				1.保证此变量对所有线程的可见性<br>​				2.禁止指令重排<br>​			仍需要加锁的场景<br>​				运算结果并不依赖变量当前值<br>​				变量不需要与其他的状态变量共同参与不变约束</p>
+<h4 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h4><p>​			原子性<br>​				synchronized块保证原子性<br>​			可见性<br>​				volatile可见性，synchronized和final<br>​			有序性<br>​				volatile禁止指令重排，synchronized保证同一个锁两个同步块只能串行</p>
+<h4 id="先行发生原则-happen-before"><a href="#先行发生原则-happen-before" class="headerlink" title="先行发生原则 happen-before"></a>先行发生原则 happen-before</h4><p>​			程序次序规则<br>​			管程锁定规则<br>​			volatile<br>​			线程启动规则<br>​			线程终止规则<br>​			线程中断规则<br>​			对象终结规则<br>​			传递性</p>
+<h3 id="Java与线程"><a href="#Java与线程" class="headerlink" title="Java与线程"></a>Java与线程</h3><h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><p>​			1.使用内核线程实现<br>​			2.使用用户线程实现<br>​			3.使用用户线程加轻量级进程混合实现<br>​			4.java线程的实现</p>
+<h4 id="Java线程调度"><a href="#Java线程调度" class="headerlink" title="Java线程调度"></a>Java线程调度</h4><p>​			协同式线程调度<br>​			抢占式线程调度<br>​				线程优先级（不确定性）</p>
+<h4 id="状态转换"><a href="#状态转换" class="headerlink" title="状态转换"></a>状态转换</h4><p>​			新建(New)<br>​			运行(Runable)<br>​				Running<br>​				Ready<br>​			无限期等待 (Wating)<br>​			限期等待(Timed Wating)<br>​			阻塞(Blocked)<br>​			结束(Terminated)</p>
 <hr>
-<h2 id="线程安全与锁优化"><a href="#线程安全与锁优化" class="headerlink" title="线程安全与锁优化"></a>线程安全与锁优化</h2><h3 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h3><h4 id="安全程度"><a href="#安全程度" class="headerlink" title="安全程度"></a>安全程度</h4><p>​            1.不可变<br>​                final<br>​                String<br>​                枚举类型<br>​                …<br>​            2.绝对线程安全<br>​                不管运行时环境如何，调用者都不需要任何额外的同步措施<br>​                如Vector就不是绝对线程安全<br>​            3.相对线程安全<br>​                我们通常意义上所讲的线程安全<br>​            4.线程兼容<br>​                不是线程安全的，ArrayList、HashMap<br>​            5.线程对立<br>​                死锁</p>
-<h4 id="线程安全的实现方法"><a href="#线程安全的实现方法" class="headerlink" title="线程安全的实现方法"></a>线程安全的实现方法</h4><h5 id="1-互斥同步（悲观）"><a href="#1-互斥同步（悲观）" class="headerlink" title="1.互斥同步（悲观）"></a>1.互斥同步（悲观）</h5><p>​                保证共享数据在同一个时刻只被一个线程使用<br>​                手段<br>​                    临界区<br>​                    互斥量<br>​                    信号量<br>​                synchronized<br>​                    阻塞唤醒，需要操作系统来帮忙，所以需要从用户态切换到核心态<br>​                    虚拟机优化自旋锁，自旋等待<br>​                ReentrantLock重入锁<br>​                    等待可中断<br>​                        当持有锁的线程长期不释放锁，正在等待的线程可以选择放弃等待，改为处理其他事情<br>​                    可实现公平锁<br>​                        多个线程在等待同一个锁的时候，按照申请锁的时间顺序来依次获得锁<br>​                    锁可以绑定多个对象<br>​                        可以同时绑定多个Condition对象</p>
-<h5 id="2-非阻塞同步（乐观）"><a href="#2-非阻塞同步（乐观）" class="headerlink" title="2.非阻塞同步（乐观）"></a>2.非阻塞同步（乐观）</h5><p>​                指令<br>​                    Test-and-Set<br>​                    Fetch-and-Increment<br>​                    Swap<br>​                    Compare-and-Swap（CAS）<br>​                        内存位置<br>​                        旧的预期值<br>​                        新值<br>​                    Load-Linked/Store-Conditional（LL/SC）<br>​                    20世纪已存在大多数</p>
-<h5 id="3-无同步方案"><a href="#3-无同步方案" class="headerlink" title="3.无同步方案"></a>3.无同步方案</h5><p>​                可重入代码<br>​                    只要输入相同的数据，都能返回相同的结果<br>​                线程本地存储<br>​                    共享数据限制在一个线程内</p>
-<h3 id="锁优化"><a href="#锁优化" class="headerlink" title="锁优化"></a>锁优化</h3><p>​        自旋锁与自适应锁<br>​        锁消除<br>​        锁粗化<br>​        轻量级锁<br>​            CAS操作<br>​        偏向锁<br>​            当另外一个线程去尝试获取这个锁的时候，偏向模式就宣告结束</p>
+<h2 id="线程安全与锁优化"><a href="#线程安全与锁优化" class="headerlink" title="线程安全与锁优化"></a>线程安全与锁优化</h2><h3 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h3><h4 id="安全程度"><a href="#安全程度" class="headerlink" title="安全程度"></a>安全程度</h4><p>​			1.不可变<br>​				final<br>​				String<br>​				枚举类型<br>​				…<br>​			2.绝对线程安全<br>​				不管运行时环境如何，调用者都不需要任何额外的同步措施<br>​				如Vector就不是绝对线程安全<br>​			3.相对线程安全<br>​				我们通常意义上所讲的线程安全<br>​			4.线程兼容<br>​				不是线程安全的，ArrayList、HashMap<br>​			5.线程对立<br>​				死锁</p>
+<h4 id="线程安全的实现方法"><a href="#线程安全的实现方法" class="headerlink" title="线程安全的实现方法"></a>线程安全的实现方法</h4><h5 id="1-互斥同步（悲观）"><a href="#1-互斥同步（悲观）" class="headerlink" title="1.互斥同步（悲观）"></a>1.互斥同步（悲观）</h5><p>​				保证共享数据在同一个时刻只被一个线程使用<br>​				手段<br>​					临界区	<br>​					互斥量<br>​					信号量<br>​				synchronized<br>​					阻塞唤醒，需要操作系统来帮忙，所以需要从用户态切换到核心态<br>​					虚拟机优化自旋锁，自旋等待<br>​				ReentrantLock重入锁<br>​					等待可中断<br>​						当持有锁的线程长期不释放锁，正在等待的线程可以选择放弃等待，改为处理其他事情<br>​					可实现公平锁<br>​						多个线程在等待同一个锁的时候，按照申请锁的时间顺序来依次获得锁<br>​					锁可以绑定多个对象<br>​						可以同时绑定多个Condition对象</p>
+<h5 id="2-非阻塞同步（乐观）"><a href="#2-非阻塞同步（乐观）" class="headerlink" title="2.非阻塞同步（乐观）"></a>2.非阻塞同步（乐观）</h5><p>​				指令<br>​					Test-and-Set<br>​					Fetch-and-Increment<br>​					Swap<br>​					Compare-and-Swap（CAS）<br>​						内存位置<br>​						旧的预期值<br>​						新值<br>​					Load-Linked&#x2F;Store-Conditional（LL&#x2F;SC）<br>​					20世纪已存在大多数</p>
+<h5 id="3-无同步方案"><a href="#3-无同步方案" class="headerlink" title="3.无同步方案"></a>3.无同步方案</h5><p>​				可重入代码<br>​					只要输入相同的数据，都能返回相同的结果<br>​				线程本地存储<br>​					共享数据限制在一个线程内</p>
+<h3 id="锁优化"><a href="#锁优化" class="headerlink" title="锁优化"></a>锁优化</h3><p>​		自旋锁与自适应锁<br>​		锁消除<br>​		锁粗化<br>​		轻量级锁<br>​			CAS操作<br>​		偏向锁<br>​			当另外一个线程去尝试获取这个锁的时候，偏向模式就宣告结束</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 951488791@qq.com </span>
@@ -805,9 +973,9 @@
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-06-05, 21:12:25</p>
     <p><span class="copy-title">最后更新:</span>2019-08-12, 10:39:53</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/06/05/Note_深入理解java虚拟机/" title="Note_深入理解java虚拟机">http://yoursite.com/2019/06/05/Note_深入理解java虚拟机/</a>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/06/05/Note_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA/" title="Note_深入理解java虚拟机">http://yoursite.com/2019/06/05/Note_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA/</a>
     <p>
-        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
 </div>
 
@@ -840,15 +1008,15 @@
 <div class="acParent"></div>
 
 </body>
-<script src="/js/jquery.pjax.js?v=1.0.1"></script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
 
-<script src="/js/script.js?v=1.0.1"></script>
+<script src="/js/script.js?v=1.0.1" ></script>
 <script>
     var img_resize = 'default';
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#netty','#nio','#framework','#zookeeper','#Spec','#gc','#summary','#classLoader','#juc','#hotspot','#j2ee','#spring','#hbase','#spark','#redis','#thread','#tomcat','#mysql','#lang','#elasticsearch','#kafka','#servlet','#ioc','#io','#serialization','#file','#ejb','#collections','#event','#aop','#job','#map','#applicationContext','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
+            'data': ['#week','#hide','#jvm','#gc','#summary','#juc','#jdk','#map','#classLoader','#packages','#io','#serialization','#file','#nio','#lang','#spring','#doc','#utils','#hotspot','#collections','#java','#note','#j2ee','#ejb','#distributed','#hbase','#framework','#spark','#elasticsearch','#kafka','#mysql','#netty','#redis','#servlet','#tomcat','#zookeeper','#Spec','#thread','#applicationContext','#ioc','#event','#aop','#job','#spring-mvc','#spring-webflux','#beanFactory',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

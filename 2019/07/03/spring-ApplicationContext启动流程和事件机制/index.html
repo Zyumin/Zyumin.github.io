@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   <title>spring-ApplicationContext启动流程和事件机制 | Zyumin</title>
-  <meta name="keywords" content=" classLoader , spring , tomcat , servlet , event ">
+  <meta name="keywords" content=" classLoader , spring , servlet , tomcat , event ">
   <meta name="description" content="spring-ApplicationContext启动流程和事件机制 | Zyumin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta name="keywords" content="java">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
 <meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-23T07:09:56.946Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-03-23T07:09:38.000Z">
+<meta property="article:modified_time" content="2019-03-23T07:09:56.000Z">
+<meta property="article:author" content="zhengyumin">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -30,7 +30,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
 
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script>
@@ -41,11 +41,11 @@
 
 
 
-<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
 
-<script src="/js/iconfont.js?v=1.0.1"></script>
+<script src="/js/iconfont.js?v=1.0.1" ></script>
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="false">
@@ -56,7 +56,7 @@
 <aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.png">
+    <img class="avatar" src="/img/avatar.png" />
 </a>
 <div class="author">
     <span>zhengyumin</span>
@@ -68,7 +68,7 @@
         <a title="github" href="https://github.com/Zyumin" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-github"/>
+                    <use xlink:href="#icon-github"></use>
                 </svg>
             
         </a>
@@ -78,7 +78,7 @@
         <a title="neteasemusic" href="https://music.163.com/#/user/home?id=60037019" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-neteasemusic"/>
+                    <use xlink:href="#icon-neteasemusic"></use>
                 </svg>
             
         </a>
@@ -94,7 +94,7 @@
     
         
             
-            <li><div data-rel="jdk">jdk<small>(13)</small></div>
+            <li><div data-rel="java">java<small>(9)</small></div>
                 
             </li>
             
@@ -102,7 +102,7 @@
     
         
             
-            <li><div data-rel="java">java<small>(9)</small></div>
+            <li><div data-rel="jdk">jdk<small>(13)</small></div>
                 
             </li>
             
@@ -118,7 +118,7 @@
     
         
             
-            <li><div data-rel="redis">redis<small>(4)</small></div>
+            <li><div data-rel="mysql">mysql<small>(2)</small></div>
                 
             </li>
             
@@ -126,7 +126,7 @@
     
         
             
-            <li><div data-rel="mysql">mysql<small>(2)</small></div>
+            <li><div data-rel="redis">redis<small>(4)</small></div>
                 
             </li>
             
@@ -143,7 +143,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="55">
-<input type="hidden" id="yelog_site_word_count" value="185.6k">
+<input type="hidden" id="yelog_site_word_count" value="189.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -166,11 +166,11 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off" id="local-search-input">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
         <i class="cross"></i>
         <span>
             <label for="tagswitch">Tags:</label>
-            <input id="tagswitch" type="checkbox" style="display: none">
+            <input id="tagswitch" type="checkbox" style="display: none" />
             <i id="tagsWitchIcon"></i>
         </span>
     </form>
@@ -185,51 +185,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">jdk</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">packages</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">utils</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">java</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">note</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">jvm</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">distributed</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">netty</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">nio</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">framework</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">zookeeper</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">Spec</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -241,67 +197,23 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">classLoader</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">juc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">hotspot</a>
+        <a href="javascript:" class="color4">jdk</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">j2ee</a>
+        <a href="javascript:" class="color4">map</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">spring</a>
+        <a href="javascript:" class="color2">classLoader</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">hbase</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">spark</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">redis</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">thread</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">tomcat</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">mysql</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">lang</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">elasticsearch</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">kafka</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">servlet</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ioc</a>
+        <a href="javascript:" class="color4">packages</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -317,11 +229,111 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color4">nio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">lang</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">doc</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">utils</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">hotspot</a>
     </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color2">collections</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">note</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">j2ee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ejb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">distributed</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">hbase</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">framework</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">spark</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">elasticsearch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">kafka</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">netty</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">redis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">tomcat</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">zookeeper</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Spec</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">applicationContext</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ioc</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -337,18 +349,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">map</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">applicationContext</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">beanFactory</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color1">spring-mvc</a>
     </li>
     
@@ -357,7 +357,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">doc</a>
+        <a href="javascript:" class="color2">beanFactory</a>
     </li>
     
     <div class="clearfix"></div>
@@ -370,279 +370,444 @@
     
     <nav id="title-list-nav">
         
-        <a id="top" class="java " href="/2019/02/02/Overview_java/" data-tag="summary" data-author="">
-            <span class="post-title" title="Overview_java">Overview_java</span>
-            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
-        </a>
-        
-        <a id="top" class="spring " href="/2019/03/02/Overview_Spring/" data-tag="framework,spring" data-author="">
-            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
-            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
-        </a>
-        
-        <a id="top" class="jdk " href="/2019/06/13/Overview_JDK/" data-tag="jdk,hotspot" data-author="">
-            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
-            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
-        </a>
-        
-        <a id="top" class="java " href="/2020/05/10/面试常见知识点梳理/" data-tag="job" data-author="">
-            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
-            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
-        </a>
-        
-        <a class="java " href="/2021/01/13/GC调优总结/" data-tag="jvm,gc,summary" data-author="">
-            <span class="post-title" title="GC调优总结">GC调优总结</span>
-            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Hbase/" data-tag="distributed,framework,hbase" data-author="">
-            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
-            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Spark/" data-tag="distributed,framework,spark" data-author="">
-            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
-            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis集群篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
-            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis实战篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
-            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis原理篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
-            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/23/spring-aop/" data-tag="spring,aop" data-author="">
-            <span class="post-title" title="spring-aop">spring-aop</span>
-            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/16/Spring-ApplicationContext/" data-tag="spring,applicationContext" data-author="">
-            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
-            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/05/spring-BeanFactory/" data-tag="spring,beanFactory" data-author="">
-            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
-            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/02/spring-Q-A/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
-            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
-        </a>
-        
-        <a class="spring " href="/2019/10/29/Documentation-Spring-Core-IOC/" data-tag="spring,doc" data-author="">
-            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
-            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/26/JDK-Packages-java-nio/" data-tag="jdk,packages,nio" data-author="">
-            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
-            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/23/JDK-Packages-java-io/" data-tag="jdk,packages,io,serialization,file" data-author="">
-            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
-            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Class/" data-tag="jdk" data-author="">
-            <span class="post-title" title="JDK_Class">JDK_Class</span>
-            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Thread/" data-tag="jdk,jvm,hotspot" data-author="">
-            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
-            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
-        </a>
-        
-        <a class="java " href="/2019/08/29/JVM-main方法分析/" data-tag="java,jvm" data-author="">
-            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
-            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/24/JDK-ReentrantLock/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
-            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
-        </a>
-        
-        <a class="java " href="/2019/08/17/JVM-Synchronized/" data-tag="jvm" data-author="">
-            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
-            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
-        </a>
-        
-        <a class="java " href="/2019/08/11/Overview-Java-Virtual-Machine/" data-tag="jvm" data-author="">
-            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
-            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-lang/" data-tag="jdk,packages,lang" data-author="">
-            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
-            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-utils/" data-tag="jdk,packages,utils" data-author="">
-            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
-            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/10/JDK-The-Concurrent-Framework/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
-            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/29/JDK-The-Collections-Framework/" data-tag="jdk,collections" data-author="">
-            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
-            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
-        </a>
-        
-        <a class="" href="/2019/07/10/Note-码农翻身/" data-tag="java,note" data-author="">
-            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
-            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/06/JDK-ClassLoader/" data-tag="jdk,classLoader" data-author="">
-            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
-            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
-        </a>
-        
-        <a class="spring " href="/2019/07/03/spring-ApplicationContext启动流程和事件机制/" data-tag="classLoader,spring,tomcat,servlet,event" data-author="">
-            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
-            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/26/Overview_Elasticsearch/" data-tag="framework,elasticsearch" data-author="">
-            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
-            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/24/J-U-C-ConcurrentHashMap/" data-tag="juc,map" data-author="">
-            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
-            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
-        </a>
-        
-        <a class="java " href="/2019/06/19/JVM-Garbage-Collection/" data-tag="jvm,gc" data-author="">
-            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
-            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/16/J-U-C-InterruptedException/" data-tag="juc" data-author="">
-            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
-            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
-        </a>
-        
-        <a class="java " href="/2019/06/14/Spec-JSR133/" data-tag="jvm,Spec,thread" data-author="">
-            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
-            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
-        </a>
-        
-        <a class="java " href="/2019/06/13/Spec-Java-Virtual-Machine/" data-tag="jvm,Spec" data-author="">
-            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
-            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
-        </a>
-        
-        <a class="" href="/2019/06/12/Overview_Kafka/" data-tag="framework,kafka" data-author="">
-            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
-            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
-        </a>
-        
-        <a class="redis " href="/2019/06/10/Overview_Redis/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
-            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
-        </a>
-        
-        <a class="" href="/2019/06/06/Note_java并发编程的艺术/" data-tag="java,note,juc" data-author="">
-            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
-            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Overview_Netty/" data-tag="netty,nio,framework" data-author="">
-            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
-            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Note_深入理解java虚拟机/" data-tag="java,note,jvm" data-author="">
-            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
-            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
-        </a>
-        
-        <a class="mysql " href="/2019/06/04/Overview_MySQL/" data-tag="mysql" data-author="">
-            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
-            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Zookeeper/" data-tag="distributed,framework,zookeeper" data-author="">
-            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
-            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Distributed/" data-tag="distributed" data-author="">
-            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
-            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
-        </a>
-        
-        <a class="spring " href="/2019/04/10/spring-api-1-0/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
-            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
-        </a>
-        
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/04/01/3%E6%9C%88%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
         
-        <a class="mysql " href="/2019/03/30/记一次mysql查询in的思考/" data-tag="mysql" data-author="">
-            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
-            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
-        </a>
-        
-        <a class="" href="/2019/03/26/记一次Broken-pipe问题的思考/" data-tag="tomcat" data-author="">
-            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
-            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
-        </a>
-        
-        <a class="" href="/2019/03/24/3月第三周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/03/24/3%E6%9C%88%E7%AC%AC%E4%B8%89%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第三周知识点记录">3月第三周知识点记录</span>
             <span class="post-date" title="2019-03-24 20:55:31">2019/03/24</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert One-on-One-J2EE-Development-without-EJB/" data-tag="j2ee,spring,ejb" data-author="">
+        <a  class="java "
+           href="/2021/01/13/GC%E8%B0%83%E4%BC%98%E6%80%BB%E7%BB%93/"
+           data-tag="jvm,gc,summary"
+           data-author="" >
+            <span class="post-title" title="GC调优总结">GC调优总结</span>
+            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/16/J-U-C-InterruptedException/"
+           data-tag="juc"
+           data-author="" >
+            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
+            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Class/"
+           data-tag="jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_Class">JDK_Class</span>
+            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/24/J-U-C-ConcurrentHashMap/"
+           data-tag="juc,map"
+           data-author="" >
+            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
+            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/06/JDK-ClassLoader/"
+           data-tag="jdk,classLoader"
+           data-author="" >
+            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
+            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/23/JDK-Packages-java-io/"
+           data-tag="jdk,packages,io,serialization,file"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
+            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/26/JDK-Packages-java-nio/"
+           data-tag="jdk,packages,nio"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
+            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-lang/"
+           data-tag="jdk,packages,lang"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
+            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/10/29/Documentation-Spring-Core-IOC/"
+           data-tag="spring,doc"
+           data-author="" >
+            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
+            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-utils/"
+           data-tag="jdk,packages,utils"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
+            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Thread/"
+           data-tag="jvm,jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
+            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/19/JVM-Garbage-Collection/"
+           data-tag="jvm,gc"
+           data-author="" >
+            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
+            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/29/JDK-The-Collections-Framework/"
+           data-tag="jdk,collections"
+           data-author="" >
+            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
+            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/24/JDK-ReentrantLock/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
+            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/29/JVM-main%E6%96%B9%E6%B3%95%E5%88%86%E6%9E%90/"
+           data-tag="jvm,java"
+           data-author="" >
+            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
+            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/17/JVM-Synchronized/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
+            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/07/10/Note-%E7%A0%81%E5%86%9C%E7%BF%BB%E8%BA%AB/"
+           data-tag="java,note"
+           data-author="" >
+            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
+            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert%20One-on-One-J2EE-Development-without-EJB/"
+           data-tag="spring,j2ee,ejb"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Development without EJB">Expert One-on-One J2EE Development without EJB</span>
             <span class="post-date" title="2019-03-10 19:45:57">2019/03/10</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/" data-tag="j2ee,spring" data-author="">
+        <a  class=""
+           href="/2019/06/06/Note_java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/"
+           data-tag="juc,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
+            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/10/JDK-The-Concurrent-Framework/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
+            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/18/Overview-Hbase/"
+           data-tag="distributed,hbase,framework"
+           data-author="" >
+            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
+            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Note_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA/"
+           data-tag="jvm,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
+            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/"
+           data-tag="spring,j2ee"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Design and Development">Expert One-on-One J2EE Design and Development</span>
             <span class="post-date" title="2019-03-10 19:45:18">2019/03/10</span>
         </a>
         
-        <a class="spring " href="/2019/03/03/spring-Core-Container预览/" data-tag="spring,ioc" data-author="">
-            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
-            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        <a  class="java "
+           href="/2019/08/11/Overview-Java-Virtual-Machine/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
+            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
         </a>
         
-        <a class="spring " href="/2019/02/03/spring-mvc/" data-tag="spring,servlet,spring-mvc,spring-webflux" data-author="">
-            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
-            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        <a  class=""
+           href="/2019/06/03/Overview_Distributed/"
+           data-tag="distributed"
+           data-author="" >
+            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
+            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
         </a>
         
-        <a class="" href="/2019/02/03/Overview_Tomcat/" data-tag="tomcat,servlet" data-author="">
+        <a  class=""
+           href="/2020/03/18/Overview-Spark/"
+           data-tag="distributed,framework,spark"
+           data-author="" >
+            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
+            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/26/Overview_Elasticsearch/"
+           data-tag="framework,elasticsearch"
+           data-author="" >
+            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
+            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/12/Overview_Kafka/"
+           data-tag="framework,kafka"
+           data-author="" >
+            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
+            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
+        </a>
+        
+        <a id="top" class="jdk "
+           href="/2019/06/13/Overview_JDK/"
+           data-tag="jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
+            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/06/04/Overview_MySQL/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
+            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Overview_Netty/"
+           data-tag="nio,framework,netty"
+           data-author="" >
+            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
+            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2019/06/10/Overview_Redis/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
+            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
+        </a>
+        
+        <a id="top" class="spring "
+           href="/2019/03/02/Overview_Spring/"
+           data-tag="spring,framework"
+           data-author="" >
+            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
+            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/03/Overview_Tomcat/"
+           data-tag="servlet,tomcat"
+           data-author="" >
             <span class="post-title" title="servlet_tomcat">servlet_tomcat</span>
             <span class="post-date" title="2019-02-03 15:49:08">2019/02/03</span>
         </a>
         
-        <a class="" href="/2019/02/02/Spec_Servlet/" data-tag="j2ee,servlet" data-author="">
+        <a  class=""
+           href="/2019/06/03/Overview_Zookeeper/"
+           data-tag="distributed,framework,zookeeper"
+           data-author="" >
+            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
+            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2019/02/02/Overview_java/"
+           data-tag="summary"
+           data-author="" >
+            <span class="post-title" title="Overview_java">Overview_java</span>
+            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%8E%9F%E7%90%86%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
+            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%AE%9E%E6%88%98%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
+            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E9%9B%86%E7%BE%A4%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
+            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/14/Spec-JSR133/"
+           data-tag="jvm,Spec,thread"
+           data-author="" >
+            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
+            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/13/Spec-Java-Virtual-Machine/"
+           data-tag="jvm,Spec"
+           data-author="" >
+            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
+            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/02/Spec_Servlet/"
+           data-tag="j2ee,servlet"
+           data-author="" >
             <span class="post-title" title="j2ee_servlet">j2ee_servlet</span>
             <span class="post-date" title="2019-02-02 18:05:54">2019/02/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/16/Spring-ApplicationContext/"
+           data-tag="spring,applicationContext"
+           data-author="" >
+            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
+            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/03/03/spring-Core-Container%E9%A2%84%E8%A7%88/"
+           data-tag="spring,ioc"
+           data-author="" >
+            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
+            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/02/spring-Q-A/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
+            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/07/03/spring-ApplicationContext%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/"
+           data-tag="classLoader,spring,servlet,tomcat,event"
+           data-author="" >
+            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
+            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/04/10/spring-api-1-0/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
+            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/26/%E8%AE%B0%E4%B8%80%E6%AC%A1Broken-pipe%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="tomcat"
+           data-author="" >
+            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
+            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/03/30/%E8%AE%B0%E4%B8%80%E6%AC%A1mysql%E6%9F%A5%E8%AF%A2in%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
+            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/23/spring-aop/"
+           data-tag="spring,aop"
+           data-author="" >
+            <span class="post-title" title="spring-aop">spring-aop</span>
+            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2020/05/10/%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/"
+           data-tag="job"
+           data-author="" >
+            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
+            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/02/03/spring-mvc/"
+           data-tag="spring,servlet,spring-mvc,spring-webflux"
+           data-author="" >
+            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
+            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/05/spring-BeanFactory/"
+           data-tag="spring,beanFactory"
+           data-author="" >
+            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
+            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
         </a>
         
     </nav>
@@ -657,7 +822,7 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-spring-ApplicationContext启动流程和事件机制" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <article id="post-spring-ApplicationContext启动流程和事件机制" class="article article-type-post" itemscope itemprop="blogPost">
     
         <h1 class="article-title">spring-ApplicationContext启动流程和事件机制</h1>
     
@@ -678,9 +843,9 @@
             
             <a href="javascript:" class="color2">spring</a>
             
-            <a href="javascript:" class="color2">tomcat</a>
-            
             <a href="javascript:" class="color3">servlet</a>
+            
+            <a href="javascript:" class="color2">tomcat</a>
             
             <a href="javascript:" class="color1">event</a>
             
@@ -689,12 +854,12 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2020-01-25 16:47:31">2019-07-03 09:37</time>
+        创建时间:<time class="date" title='更新时间: 2020-01-25 16:47:31'>2019-07-03 09:37</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:3.2k</span>
+        <span>字数:3.5k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -713,7 +878,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDK中的事件机制"><span class="toc-text">JDK中的事件机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat的事件机制"><span class="toc-text">Tomcat的事件机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#事件-LifecycleEvent"><span class="toc-text">事件 (LifecycleEvent)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件监听者-LifecycleListener"><span class="toc-text">事件监听者(LifecycleListener)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件发布者-LifecycleBase"><span class="toc-text">事件发布者(LifecycleBase)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-web应用启动流程"><span class="toc-text">Spring web应用启动流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ContextLoaderListener"><span class="toc-text">ContextLoaderListener</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ServletContextEvent"><span class="toc-text">ServletContextEvent</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#startInternal方法"><span class="toc-text">startInternal方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#listenerStart方法"><span class="toc-text">listenerStart方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring的事件"><span class="toc-text">Spring的事件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ApplicationEvent"><span class="toc-text">ApplicationEvent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ApplicationListener"><span class="toc-text">ApplicationListener</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ApplicationContext"><span class="toc-text">ApplicationContext</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ApplicationEventPublisher"><span class="toc-text">ApplicationEventPublisher</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AbstractApplicationContext"><span class="toc-text">AbstractApplicationContext</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ApplicationEventMulticaster"><span class="toc-text">ApplicationEventMulticaster</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ClassLoader"><span class="toc-text">ClassLoader</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDK%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6"><span class="toc-text">JDK中的事件机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6"><span class="toc-text">Tomcat的事件机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6-LifecycleEvent"><span class="toc-text">事件 (LifecycleEvent)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC%E8%80%85-LifecycleListener"><span class="toc-text">事件监听者(LifecycleListener)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%8F%91%E5%B8%83%E8%80%85-LifecycleBase"><span class="toc-text">事件发布者(LifecycleBase)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-web%E5%BA%94%E7%94%A8%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B"><span class="toc-text">Spring web应用启动流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ContextLoaderListener"><span class="toc-text">ContextLoaderListener</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ServletContextEvent"><span class="toc-text">ServletContextEvent</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#startInternal%E6%96%B9%E6%B3%95"><span class="toc-text">startInternal方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#listenerStart%E6%96%B9%E6%B3%95"><span class="toc-text">listenerStart方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring%E7%9A%84%E4%BA%8B%E4%BB%B6"><span class="toc-text">Spring的事件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ApplicationEvent"><span class="toc-text">ApplicationEvent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ApplicationListener"><span class="toc-text">ApplicationListener</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ApplicationContext"><span class="toc-text">ApplicationContext</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ApplicationEventPublisher"><span class="toc-text">ApplicationEventPublisher</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AbstractApplicationContext"><span class="toc-text">AbstractApplicationContext</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ApplicationEventMulticaster"><span class="toc-text">ApplicationEventMulticaster</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ClassLoader"><span class="toc-text">ClassLoader</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -736,13 +901,16 @@
 <li>在springBoot时, web应用的启动流程就不再依托servlet容器,而是自发创建、选择 web容器</li>
 </ul>
 <p>当然 , 我们今天的重点是SpringBoot之前,web应用是怎么启动的. </p>
-<a id="more"></a>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​    前面提到过在SpringBoot之前, web应用的启动是基于servlet的回调,而其中涉及tomcat的生命周期和事件,所以有以下议题:</p>
+<span id="more"></span>
+
+
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​	前面提到过在SpringBoot之前, web应用的启动是基于servlet的回调,而其中涉及tomcat的生命周期和事件,所以有以下议题:</p>
 <ul>
-<li>​    <u>JDK事件机制</u></li>
-<li>​    <u>Tomcat事件机制</u></li>
+<li>​	<u>JDK事件机制</u></li>
+<li>​	<u>Tomcat事件机制</u></li>
 <li>​    <u>Spring-web应用启动流程</u></li>
-<li>​    <u>Spring事件机制</u></li>
+<li>​	<u>Spring事件机制</u></li>
 </ul>
 <h2 id="JDK中的事件机制"><a href="#JDK中的事件机制" class="headerlink" title="JDK中的事件机制"></a>JDK中的事件机制</h2><p>JDK中对事件机制的各个角色提供了完善的抽象，主要包括3个角色：</p>
 <ul>
@@ -752,21 +920,21 @@
 </ul>
 <h2 id="Tomcat的事件机制"><a href="#Tomcat的事件机制" class="headerlink" title="Tomcat的事件机制"></a>Tomcat的事件机制</h2><h3 id="事件-LifecycleEvent"><a href="#事件-LifecycleEvent" class="headerlink" title="事件 (LifecycleEvent)"></a>事件 (LifecycleEvent)</h3><p>Tomcat容器,定义了很多生命周期相关的事件. <code>org.apache.catalina.LifecycleEvent</code> </p>
 <p>主要的事件在<code>org.apache.catalina.Lifecycle</code></p>
-<pre><code class="java">public final class LifecycleEvent extends EventObject {
+<pre><code class="java">public final class LifecycleEvent extends EventObject &#123;
 
     //......
 
-    public LifecycleEvent(Lifecycle lifecycle, String type, Object data) {
+    public LifecycleEvent(Lifecycle lifecycle, String type, Object data) &#123;
 
         super(lifecycle);
         this.type = type;
         this.data = data;
-    }
+    &#125;
 
     //......
-}
+&#125;
 
-public interface Lifecycle {
+public interface Lifecycle &#123;
     /**
      * The LifecycleEvent type for the &quot;component after init&quot; event.
      */
@@ -783,131 +951,129 @@ public interface Lifecycle {
     public static final String START_EVENT = &quot;start&quot;;
 
     //......
-}
-
+&#125;
 </code></pre>
 <h3 id="事件监听者-LifecycleListener"><a href="#事件监听者-LifecycleListener" class="headerlink" title="事件监听者(LifecycleListener)"></a>事件监听者(LifecycleListener)</h3><p>监听者使用LifecycleEvent参数用来在tomcat的各个阶段处理进行相应处理。<code>org.apache.catalina.LifecycleListener</code> 有众多实现,其中<code>org.apache.catalina.startup.ContextConfig</code> 这个类在解析server.xml的时候用来监听StandardContext的各个阶段的事件，并做出相应处理</p>
-<pre><code class="java">public interface LifecycleListener {
+<pre><code class="java">public interface LifecycleListener &#123;
 
     public void lifecycleEvent(LifecycleEvent event);
-}
+&#125;
 
-public class ContextConfig implements LifecycleListener {
-
+public class ContextConfig implements LifecycleListener &#123;
+    
     //......
     @Override
-    public void lifecycleEvent(LifecycleEvent event) {
+    public void lifecycleEvent(LifecycleEvent event) &#123;
 
         // Identify the context we are associated with
-        try {
+        try &#123;
             context = (Context) event.getLifecycle();
-        } catch (ClassCastException e) {
+        &#125; catch (ClassCastException e) &#123;
             log.error(sm.getString(&quot;contextConfig.cce&quot;, event.getLifecycle()), e);
             return;
-        }
+        &#125;
 
         // Process the event that has occurred
-        if (event.getType().equals(Lifecycle.CONFIGURE_START_EVENT)) {
+        if (event.getType().equals(Lifecycle.CONFIGURE_START_EVENT)) &#123;
             configureStart();
-        } else if (event.getType().equals(Lifecycle.BEFORE_START_EVENT)) {
+        &#125; else if (event.getType().equals(Lifecycle.BEFORE_START_EVENT)) &#123;
             beforeStart();
-        } else if (event.getType().equals(Lifecycle.AFTER_START_EVENT)) {
+        &#125; else if (event.getType().equals(Lifecycle.AFTER_START_EVENT)) &#123;
             // Restore docBase for management tools
-            if (originalDocBase != null) {
+            if (originalDocBase != null) &#123;
                 context.setDocBase(originalDocBase);
-            }
-        } else if (event.getType().equals(Lifecycle.CONFIGURE_STOP_EVENT)) {
+            &#125;
+        &#125; else if (event.getType().equals(Lifecycle.CONFIGURE_STOP_EVENT)) &#123;
             configureStop();
-        } else if (event.getType().equals(Lifecycle.AFTER_INIT_EVENT)) {
+        &#125; else if (event.getType().equals(Lifecycle.AFTER_INIT_EVENT)) &#123;
             init();
-        } else if (event.getType().equals(Lifecycle.AFTER_DESTROY_EVENT)) {
+        &#125; else if (event.getType().equals(Lifecycle.AFTER_DESTROY_EVENT)) &#123;
             destroy();
-        }
-    }
+        &#125;
+    &#125;
 
     //......
-}
-
+&#125;
 </code></pre>
 <h3 id="事件发布者-LifecycleBase"><a href="#事件发布者-LifecycleBase" class="headerlink" title="事件发布者(LifecycleBase)"></a>事件发布者(LifecycleBase)</h3><p>LifecycleBase 把事件管理委派给了LifecycleSupport,它是监听对象的一个管理类，它把对监听对象的添加移除以及发布事件几个操作进行了统一管理，避免EventSource类中出现太多管理监听对象的逻辑。</p>
-<pre><code class="java">public abstract class LifecycleBase implements Lifecycle{
+<pre><code class="java">public abstract class LifecycleBase implements Lifecycle&#123;
 
     //......
     private LifecycleSupport lifecycle = new LifecycleSupport(this);
 
     @Override
-    public void addLifecycleListener(LifecycleListener listener) {
+    public void addLifecycleListener(LifecycleListener listener) &#123;
         lifecycle.addLifecycleListener(listener);
-    }
+    &#125;
 
     @Override
-    public void removeLifecycleListener(LifecycleListener listener) {
+    public void removeLifecycleListener(LifecycleListener listener) &#123;
         lifecycle.removeLifecycleListener(listener);
-    }
+    &#125;
 
-    protected void fireLifecycleEvent(String type, Object data) {
+    protected void fireLifecycleEvent(String type, Object data) &#123;
         lifecycle.fireLifecycleEvent(type, data);
-    }
+    &#125;
     //......
-}
+&#125;
 
-public final class LifecycleSupport {
+public final class LifecycleSupport &#123;
 
     //......
 
     //监听对象集合
     private LifecycleListener listeners[] = new LifecycleListener[0];
-
+    
     private final Object listenersLock = new Object(); // Lock object for changes to listeners
 
     //添加监听对象
-    public void addLifecycleListener(LifecycleListener listener) {
+    public void addLifecycleListener(LifecycleListener listener) &#123;
 
-      synchronized (listenersLock) {
+      synchronized (listenersLock) &#123;
           LifecycleListener results[] =
             new LifecycleListener[listeners.length + 1];
           for (int i = 0; i &lt; listeners.length; i++)
               results[i] = listeners[i];
           results[listeners.length] = listener;
           listeners = results;
-      }
+      &#125;
 
-    }
+    &#125;
 
     //发布监听对象
-    public void fireLifecycleEvent(String type, Object data) {
+    public void fireLifecycleEvent(String type, Object data) &#123;
 
         LifecycleEvent event = new LifecycleEvent(lifecycle, type, data);
         LifecycleListener interested[] = listeners;
         for (int i = 0; i &lt; interested.length; i++)
             interested[i].lifecycleEvent(event);
 
-    }
+    &#125;
 
     //移除监听对象
-    public void removeLifecycleListener(LifecycleListener listener) {
+    public void removeLifecycleListener(LifecycleListener listener) &#123;
 
-        synchronized (listenersLock) {
+        synchronized (listenersLock) &#123;
             int n = -1;
-            for (int i = 0; i &lt; listeners.length; i++) {
-                if (listeners[i] == listener) {
+            for (int i = 0; i &lt; listeners.length; i++) &#123;
+                if (listeners[i] == listener) &#123;
                     n = i;
                     break;
-                }
-            }
+                &#125;
+            &#125;
             if (n &lt; 0)
                 return;
             LifecycleListener results[] =
               new LifecycleListener[listeners.length - 1];
             int j = 0;
-            for (int i = 0; i &lt; listeners.length; i++) {
+            for (int i = 0; i &lt; listeners.length; i++) &#123;
                 if (i != n)
                     results[j++] = listeners[i];
-            }
+            &#125;
             listeners = results;
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <h2 id="Spring-web应用启动流程"><a href="#Spring-web应用启动流程" class="headerlink" title="Spring web应用启动流程"></a>Spring web应用启动流程</h2><h3 id="ContextLoaderListener"><a href="#ContextLoaderListener" class="headerlink" title="ContextLoaderListener"></a>ContextLoaderListener</h3><p>在一个spring 的web项目中, 通常需要在web.xml配置 ContextLoaderListener</p>
 <pre><code class="xml">&lt;listener&gt;
@@ -921,75 +1087,75 @@ public final class LifecycleSupport {
 <pre><code class="java">/**
  * Initialize the root web application context.
  */
-public void contextInitialized(ServletContextEvent event) {
+public void contextInitialized(ServletContextEvent event) &#123;
    this.contextLoader = createContextLoader();
-   if (this.contextLoader == null) {
+   if (this.contextLoader == null) &#123;
       this.contextLoader = this;
-   }
+   &#125;
    this.contextLoader.initWebApplicationContext(event.getServletContext());
-}
+&#125;
 </code></pre>
 <p>可以看到是一个ServletContextEvent ,因为这里的Listener是配置在web.xml,所以它是tomcat容器的一个listener,那么事件的发布就是 LifecycleBase</p>
 <h3 id="ServletContextEvent"><a href="#ServletContextEvent" class="headerlink" title="ServletContextEvent"></a>ServletContextEvent</h3><p>通过查看LifecycleBase的实现 ,最终发现Tomcat 具体的操作在<code>org.apache.catalina.core.StandardContext</code></p>
 <h4 id="startInternal方法"><a href="#startInternal方法" class="headerlink" title="startInternal方法"></a>startInternal方法</h4><pre><code class="java">/**
  * Start this component and implement the requirements
- * of {@link org.apache.catalina.util.LifecycleBase#startInternal()}.
+ * of &#123;@link org.apache.catalina.util.LifecycleBase#startInternal()&#125;.
  *
  * @exception LifecycleException if this component detects a fatal error
  *  that prevents this component from being used
  */
 @Override
-protected synchronized void startInternal() throws LifecycleException {
+protected synchronized void startInternal() throws LifecycleException &#123;
 
     if(log.isDebugEnabled())
         log.debug(&quot;Starting &quot; + getBaseName());
 
     // Send j2ee.state.starting notification
-    if (this.getObjectName() != null) {
+    if (this.getObjectName() != null) &#123;
         Notification notification = new Notification(&quot;j2ee.state.starting&quot;,
                 this.getObjectName(), sequenceNumber.getAndIncrement());
         broadcaster.sendNotification(notification);
-    }
+    &#125;
 
     setConfigured(false);
     boolean ok = true;
 
     // Currently this is effectively a NO-OP but needs to be called to
     // ensure the NamingResources follows the correct lifecycle
-    if (namingResources != null) {
+    if (namingResources != null) &#123;
         namingResources.start();
-    }
+    &#125;
 
     // Add missing components as necessary
-    if (webappResources == null) {   // (1) Required by Loader
+    if (webappResources == null) &#123;   // (1) Required by Loader
         if (log.isDebugEnabled())
             log.debug(&quot;Configuring default Resources&quot;);
-        try {
+        try &#123;
             String docBase = getDocBase();
-            if (docBase == null) {
+            if (docBase == null) &#123;
                 setResources(new EmptyDirContext());
-            } else if (docBase.endsWith(&quot;.war&quot;)
-                    &amp;&amp; !(new File(getBasePath())).isDirectory()) {
+            &#125; else if (docBase.endsWith(&quot;.war&quot;)
+                    &amp;&amp; !(new File(getBasePath())).isDirectory()) &#123;
                 setResources(new WARDirContext());
-            } else {
+            &#125; else &#123;
                 setResources(new FileDirContext());
-            }
-        } catch (IllegalArgumentException e) {
+            &#125;
+        &#125; catch (IllegalArgumentException e) &#123;
             log.error(sm.getString(&quot;standardContext.resourcesInit&quot;), e);
             ok = false;
-        }
-    }
-    if (ok) {
-        if (!resourcesStart()) {
+        &#125;
+    &#125;
+    if (ok) &#123;
+        if (!resourcesStart()) &#123;
             throw new LifecycleException(&quot;Error in resourceStart()&quot;);
-        }
-    }
+        &#125;
+    &#125;
 
-    if (getLoader() == null) {
+    if (getLoader() == null) &#123;
         WebappLoader webappLoader = new WebappLoader(getParentClassLoader());
         webappLoader.setDelegate(getDelegate());
         setLoader(webappLoader);
-    }
+    &#125;
 
     // Initialize character set mapper
     getCharsetMapper();
@@ -999,35 +1165,35 @@ protected synchronized void startInternal() throws LifecycleException {
 
     // Validate required extensions
     boolean dependencyCheck = true;
-    try {
+    try &#123;
         dependencyCheck = ExtensionValidator.validateApplication
             (getResources(), this);
-    } catch (IOException ioe) {
+    &#125; catch (IOException ioe) &#123;
         log.error(sm.getString(&quot;standardContext.extensionValidationError&quot;), ioe);
         dependencyCheck = false;
-    }
+    &#125;
 
-    if (!dependencyCheck) {
+    if (!dependencyCheck) &#123;
         // do not make application available if dependency check fails
         ok = false;
-    }
+    &#125;
 
     // Reading the &quot;catalina.useNaming&quot; environment variable
     String useNamingProperty = System.getProperty(&quot;catalina.useNaming&quot;);
     if ((useNamingProperty != null)
-        &amp;&amp; (useNamingProperty.equals(&quot;false&quot;))) {
+        &amp;&amp; (useNamingProperty.equals(&quot;false&quot;))) &#123;
         useNaming = false;
-    }
+    &#125;
 
-    if (ok &amp;&amp; isUseNaming()) {
-        if (getNamingContextListener() == null) {
+    if (ok &amp;&amp; isUseNaming()) &#123;
+        if (getNamingContextListener() == null) &#123;
             NamingContextListener ncl = new NamingContextListener();
             ncl.setName(getNamingContextName());
             ncl.setExceptionOnFailedWrite(getJndiExceptionOnFailedWrite());
             addLifecycleListener(ncl);
             setNamingContextListener(ncl);
-        }
-    }
+        &#125;
+    &#125;
 
     // Standard container startup
     if (log.isDebugEnabled())
@@ -1037,8 +1203,8 @@ protected synchronized void startInternal() throws LifecycleException {
     // Binding thread
     ClassLoader oldCCL = bindThread();
 
-    try {
-        if (ok) {
+    try &#123;
+        if (ok) &#123;
             // Start our subordinate components, if any
             Loader loader = getLoaderInternal();
             if ((loader != null) &amp;&amp; (loader instanceof Lifecycle))
@@ -1070,65 +1236,65 @@ protected synchronized void startInternal() throws LifecycleException {
             fireLifecycleEvent(Lifecycle.CONFIGURE_START_EVENT, null);
 
             // Start our child containers, if not already started
-            for (Container child : findChildren()) {
-                if (!child.getState().isAvailable()) {
+            for (Container child : findChildren()) &#123;
+                if (!child.getState().isAvailable()) &#123;
                     child.start();
-                }
-            }
+                &#125;
+            &#125;
 
             // Start the Valves in our pipeline (including the basic),
             // if any
-            if (pipeline instanceof Lifecycle) {
+            if (pipeline instanceof Lifecycle) &#123;
                 ((Lifecycle) pipeline).start();
-            }
+            &#125;
 
             // Acquire clustered manager
             Manager contextManager = null;
             Manager manager = getManagerInternal();
-            if (manager == null) {
-                if (log.isDebugEnabled()) {
+            if (manager == null) &#123;
+                if (log.isDebugEnabled()) &#123;
                     log.debug(sm.getString(&quot;standardContext.cluster.noManager&quot;,
                             Boolean.valueOf((getCluster() != null)),
                             Boolean.valueOf(distributable)));
-                }
-                if ( (getCluster() != null) &amp;&amp; distributable) {
-                    try {
+                &#125;
+                if ( (getCluster() != null) &amp;&amp; distributable) &#123;
+                    try &#123;
                         contextManager = getCluster().createManager(getName());
-                    } catch (Exception ex) {
+                    &#125; catch (Exception ex) &#123;
                         log.error(&quot;standardContext.clusterFail&quot;, ex);
                         ok = false;
-                    }
-                } else {
+                    &#125;
+                &#125; else &#123;
                     contextManager = new StandardManager();
-                }
+                &#125;
                 manager = contextManager;
-            }
+            &#125;
 
             // Configure default manager if none was specified
-            if (contextManager != null) {
-                if (log.isDebugEnabled()) {
+            if (contextManager != null) &#123;
+                if (log.isDebugEnabled()) &#123;
                     log.debug(sm.getString(&quot;standardContext.manager&quot;,
                             contextManager.getClass().getName()));
-                }
+                &#125;
                 setManager(contextManager);
-            }
+            &#125;
 
-            if (manager!=null &amp;&amp; (getCluster() != null) &amp;&amp; distributable) {
+            if (manager!=null &amp;&amp; (getCluster() != null) &amp;&amp; distributable) &#123;
                 //let the cluster know that there is a context that is distributable
                 //and that it has its own manager
                 getCluster().registerManager(manager);
-            }
-        }
+            &#125;
+        &#125;
 
-    } finally {
+    &#125; finally &#123;
         // Unbinding thread
         unbindThread(oldCCL);
-    }
+    &#125;
 
-    if (!getConfigured()) {
+    if (!getConfigured()) &#123;
         log.error(sm.getString(&quot;standardContext.configurationFail&quot;));
         ok = false;
-    }
+    &#125;
 
     // We put the resources into the servlet context
     if (ok)
@@ -1141,118 +1307,117 @@ protected synchronized void startInternal() throws LifecycleException {
     // Binding thread
     oldCCL = bindThread();
 
-    if (ok ) {
-        if (getInstanceManager() == null) {
+    if (ok ) &#123;
+        if (getInstanceManager() == null) &#123;
             javax.naming.Context context = null;
-            if (isUseNaming() &amp;&amp; getNamingContextListener() != null) {
+            if (isUseNaming() &amp;&amp; getNamingContextListener() != null) &#123;
                 context = getNamingContextListener().getEnvContext();
-            }
+            &#125;
             Map&lt;String, Map&lt;String, String&gt;&gt; injectionMap = buildInjectionMap(
                     getIgnoreAnnotations() ? new NamingResources(): getNamingResources());
             setInstanceManager(new DefaultInstanceManager(context,
                     injectionMap, this, this.getClass().getClassLoader()));
             getServletContext().setAttribute(
                     InstanceManager.class.getName(), getInstanceManager());
-        }
-    }
+        &#125;
+    &#125;
 
-    try {
+    try &#123;
         // Create context attributes that will be required
-        if (ok) {
+        if (ok) &#123;
             getServletContext().setAttribute(
                     JarScanner.class.getName(), getJarScanner());
-        }
+        &#125;
 
         // Set up the context init params
         mergeParameters();
 
         // Call ServletContainerInitializers
         for (Map.Entry&lt;ServletContainerInitializer, Set&lt;Class&lt;?&gt;&gt;&gt; entry :
-            initializers.entrySet()) {
-            try {
+            initializers.entrySet()) &#123;
+            try &#123;
                 entry.getKey().onStartup(entry.getValue(),
                         getServletContext());
-            } catch (ServletException e) {
+            &#125; catch (ServletException e) &#123;
                 log.error(sm.getString(&quot;standardContext.sciFail&quot;), e);
                 ok = false;
                 break;
-            }
-        }
+            &#125;
+        &#125;
 
         // Configure and call application event listeners
-        if (ok) {
-            if (!listenerStart()) {
+        if (ok) &#123;
+            if (!listenerStart()) &#123;
                 log.error(sm.getString(&quot;standardContext.listenerFail&quot;));
                 ok = false;
-            }
-        }
+            &#125;
+        &#125;
 
-        try {
+        try &#123;
             // Start manager
             Manager manager = getManagerInternal();
-            if ((manager != null) &amp;&amp; (manager instanceof Lifecycle)) {
+            if ((manager != null) &amp;&amp; (manager instanceof Lifecycle)) &#123;
                 ((Lifecycle) getManager()).start();
-            }
-        } catch(Exception e) {
+            &#125;
+        &#125; catch(Exception e) &#123;
             log.error(sm.getString(&quot;standardContext.managerFail&quot;), e);
             ok = false;
-        }
+        &#125;
 
         // Configure and call application filters
-        if (ok) {
-            if (!filterStart()) {
+        if (ok) &#123;
+            if (!filterStart()) &#123;
                 log.error(sm.getString(&quot;standardContext.filterFail&quot;));
                 ok = false;
-            }
-        }
+            &#125;
+        &#125;
 
         // Load and initialize all &quot;load on startup&quot; servlets
-        if (ok) {
-            if (!loadOnStartup(findChildren())){
+        if (ok) &#123;
+            if (!loadOnStartup(findChildren()))&#123;
                 log.error(sm.getString(&quot;standardContext.servletFail&quot;));
                 ok = false;
-            }
-        }
+            &#125;
+        &#125;
 
         // Start ContainerBackgroundProcessor thread
         super.threadStart();
-    } finally {
+    &#125; finally &#123;
         // Unbinding thread
         unbindThread(oldCCL);
-    }
+    &#125;
 
     // Set available status depending upon startup success
-    if (ok) {
+    if (ok) &#123;
         if (log.isDebugEnabled())
             log.debug(&quot;Starting completed&quot;);
-    } else {
+    &#125; else &#123;
         log.error(sm.getString(&quot;standardContext.startFailed&quot;, getName()));
-    }
+    &#125;
 
     startTime=System.currentTimeMillis();
 
     // Send j2ee.state.running notification
-    if (ok &amp;&amp; (this.getObjectName() != null)) {
+    if (ok &amp;&amp; (this.getObjectName() != null)) &#123;
         Notification notification =
             new Notification(&quot;j2ee.state.running&quot;, this.getObjectName(),
                              sequenceNumber.getAndIncrement());
         broadcaster.sendNotification(notification);
-    }
+    &#125;
 
     // Close all JARs right away to avoid always opening a peak number
     // of files on startup
-    if (getLoader() instanceof WebappLoader) {
+    if (getLoader() instanceof WebappLoader) &#123;
         ((WebappLoader) getLoader()).closeJARs(true);
-    }
+    &#125;
 
     // Reinitializing if something went wrong
-    if (!ok) {
+    if (!ok) &#123;
         setState(LifecycleState.FAILED);
-    } else {
+    &#125; else &#123;
         setState(LifecycleState.STARTING);
-    }
-}
-
+    &#125;
+&#125;
 </code></pre>
 <h4 id="listenerStart方法"><a href="#listenerStart方法" class="headerlink" title="listenerStart方法"></a>listenerStart方法</h4><p>注意<code>listenerStart</code>  ,Configure and call application event listeners 通知所有listeners</p>
 <pre><code class="java">/**
@@ -1260,7 +1425,7 @@ protected synchronized void startInternal() throws LifecycleException {
  * for this Context.  Return &lt;code&gt;true&lt;/code&gt; if all listeners wre
  * initialized successfully, or &lt;code&gt;false&lt;/code&gt; otherwise.
  */
-public boolean listenerStart() {
+public boolean listenerStart() &#123;
     if (log.isDebugEnabled())
         log.debug(&quot;Configuring application event listeners&quot;);
 
@@ -1268,62 +1433,62 @@ public boolean listenerStart() {
     ApplicationListener listeners[] = applicationListeners;
     Object results[] = new Object[listeners.length];
     boolean ok = true;
-    for (int i = 0; i &lt; results.length; i++) {
+    for (int i = 0; i &lt; results.length; i++) &#123;
         if (getLogger().isDebugEnabled())
             getLogger().debug(&quot; Configuring event listener class &#39;&quot; +
                 listeners[i] + &quot;&#39;&quot;);
-        try {
+        try &#123;
             ApplicationListener listener = listeners[i];
             results[i] = getInstanceManager().newInstance(
                     listener.getClassName());
-            if (listener.isPluggabilityBlocked()) {
+            if (listener.isPluggabilityBlocked()) &#123;
                 noPluggabilityListeners.add(results[i]);
-            }
-        } catch (Throwable t) {
+            &#125;
+        &#125; catch (Throwable t) &#123;
             t = ExceptionUtils.unwrapInvocationTargetException(t);
             ExceptionUtils.handleThrowable(t);
             getLogger().error
                 (sm.getString(&quot;standardContext.applicationListener&quot;,
                               listeners[i].getClassName()), t);
             ok = false;
-        }
-    }
-    if (!ok) {
+        &#125;
+    &#125;
+    if (!ok) &#123;
         getLogger().error(sm.getString(&quot;standardContext.applicationSkipped&quot;));
         return (false);
-    }
+    &#125;
 
     // Sort listeners in two arrays
     ArrayList&lt;Object&gt; eventListeners = new ArrayList&lt;Object&gt;();
     ArrayList&lt;Object&gt; lifecycleListeners = new ArrayList&lt;Object&gt;();
-    for (int i = 0; i &lt; results.length; i++) {
+    for (int i = 0; i &lt; results.length; i++) &#123;
         if ((results[i] instanceof ServletContextAttributeListener)
             || (results[i] instanceof ServletRequestAttributeListener)
             || (results[i] instanceof ServletRequestListener)
-            || (results[i] instanceof HttpSessionAttributeListener)) {
+            || (results[i] instanceof HttpSessionAttributeListener)) &#123;
             eventListeners.add(results[i]);
-        }
+        &#125;
         if ((results[i] instanceof ServletContextListener)
-            || (results[i] instanceof HttpSessionListener)) {
+            || (results[i] instanceof HttpSessionListener)) &#123;
             lifecycleListeners.add(results[i]);
-        }
-    }
+        &#125;
+    &#125;
 
     // Listener instances may have been added directly to this Context by
     // ServletContextInitializers and other code via the pluggability APIs.
     // Put them these listeners after the ones defined in web.xml and/or
     // annotations then overwrite the list of instances with the new, full
     // list.
-    for (Object eventListener: getApplicationEventListeners()) {
+    for (Object eventListener: getApplicationEventListeners()) &#123;
         eventListeners.add(eventListener);
-    }
+    &#125;
     setApplicationEventListeners(eventListeners.toArray());
-    for (Object lifecycleListener: getApplicationLifecycleListeners()) {
+    for (Object lifecycleListener: getApplicationLifecycleListeners()) &#123;
         lifecycleListeners.add(lifecycleListener);
-        if (lifecycleListener instanceof ServletContextListener) {
+        if (lifecycleListener instanceof ServletContextListener) &#123;
             noPluggabilityListeners.add(lifecycleListener);
-        }
-    }
+        &#125;
+    &#125;
     setApplicationLifecycleListeners(lifecycleListeners.toArray());
 
     // Send application start events
@@ -1335,48 +1500,48 @@ public boolean listenerStart() {
     context.setNewServletContextListenerAllowed(false);
 
     Object instances[] = getApplicationLifecycleListeners();
-    if (instances == null || instances.length == 0) {
+    if (instances == null || instances.length == 0) &#123;
         return ok;
-    }
+    &#125;
 
     ServletContextEvent event = new ServletContextEvent(getServletContext());
     ServletContextEvent tldEvent = null;
-    if (noPluggabilityListeners.size() &gt; 0) {
+    if (noPluggabilityListeners.size() &gt; 0) &#123;
         noPluggabilityServletContext = new NoPluggabilityServletContext(getServletContext());
         tldEvent = new ServletContextEvent(noPluggabilityServletContext);
-    }
-    for (int i = 0; i &lt; instances.length; i++) {
+    &#125;
+    for (int i = 0; i &lt; instances.length; i++) &#123;
         if (instances[i] == null)
             continue;
         if (!(instances[i] instanceof ServletContextListener))
             continue;
         ServletContextListener listener =
             (ServletContextListener) instances[i];
-        try {
+        try &#123;
             fireContainerEvent(&quot;beforeContextInitialized&quot;, listener);
-            if (noPluggabilityListeners.contains(listener)) {
+            if (noPluggabilityListeners.contains(listener)) &#123;
                 listener.contextInitialized(tldEvent);
-            } else {
+            &#125; else &#123;
                 listener.contextInitialized(event);
-            }
+            &#125;
             fireContainerEvent(&quot;afterContextInitialized&quot;, listener);
-        } catch (Throwable t) {
+        &#125; catch (Throwable t) &#123;
             ExceptionUtils.handleThrowable(t);
             fireContainerEvent(&quot;afterContextInitialized&quot;, listener);
             getLogger().error
                 (sm.getString(&quot;standardContext.listenerStart&quot;,
                               instances[i].getClass().getName()), t);
             ok = false;
-        }
-    }
+        &#125;
+    &#125;
     return (ok);
-}
+&#125;
 </code></pre>
 <p>简单总结下,tomcat容器启动后,发出通知ServletContextEvent, ContextLoaderListener接收到后,初始化web应用</p>
 <h2 id="Spring的事件"><a href="#Spring的事件" class="headerlink" title="Spring的事件"></a>Spring的事件</h2><h3 id="ApplicationEvent"><a href="#ApplicationEvent" class="headerlink" title="ApplicationEvent"></a>ApplicationEvent</h3><p>spring里面的主要实现是ApplicationEvent, 这里我们关注它的容器的事件, ApplicationContextEvent,是spring容器在启动时触发的事件对象：</p>
 <p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g4mw9xtrt9j31p60hydi8.jpg" alt="image-20190703195300527"></p>
 <h3 id="ApplicationListener"><a href="#ApplicationListener" class="headerlink" title="ApplicationListener"></a>ApplicationListener</h3><pre><code class="java">@FunctionalInterface
-public interface ApplicationListener&lt;E extends ApplicationEvent&gt; extends EventListener {
+public interface ApplicationListener&lt;E extends ApplicationEvent&gt; extends EventListener &#123;
 
    /**
     * Handle an application event.
@@ -1384,16 +1549,16 @@ public interface ApplicationListener&lt;E extends ApplicationEvent&gt; extends E
     */
    void onApplicationEvent(E event);
 
-}
+&#125;
 </code></pre>
 <p>那么在spring框架中是怎么发布这些事件的呢？</p>
 <h3 id="ApplicationContext"><a href="#ApplicationContext" class="headerlink" title="ApplicationContext"></a>ApplicationContext</h3><h4 id="ApplicationEventPublisher"><a href="#ApplicationEventPublisher" class="headerlink" title="ApplicationEventPublisher"></a>ApplicationEventPublisher</h4><p>查看<code>ApplicationContext</code> 发现继承了<code>ApplicationEventPublisher</code> </p>
-<pre><code class="java">public interface ApplicationContext extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory,MessageSource, ApplicationEventPublisher, ResourcePatternResolver {
-        }
+<pre><code class="java">public interface ApplicationContext extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory,MessageSource, ApplicationEventPublisher, ResourcePatternResolver &#123;
+        &#125;
 
 
 @FunctionalInterface
-public interface ApplicationEventPublisher {
+public interface ApplicationEventPublisher &#123;
 
     /**
      * Notify all &lt;strong&gt;matching&lt;/strong&gt; listeners registered with this
@@ -1402,133 +1567,133 @@ public interface ApplicationEventPublisher {
      * @param event the event to publish
      * @see org.springframework.web.context.support.RequestHandledEvent
      */
-    default void publishEvent(ApplicationEvent event) {
+    default void publishEvent(ApplicationEvent event) &#123;
                 publishEvent((Object) event);
-    }
+    &#125;
 
     /**
      * Notify all &lt;strong&gt;matching&lt;/strong&gt; listeners registered with this
      * application of an event.
-     * &lt;p&gt;If the specified {@code event} is not an {@link ApplicationEvent},
-     * it is wrapped in a {@link PayloadApplicationEvent}.
+     * &lt;p&gt;If the specified &#123;@code event&#125; is not an &#123;@link ApplicationEvent&#125;,
+     * it is wrapped in a &#123;@link PayloadApplicationEvent&#125;.
      * @param event the event to publish
      * @since 4.2
      * @see PayloadApplicationEvent
      */
     void publishEvent(Object event);
-}
+&#125;
 </code></pre>
 <h4 id="AbstractApplicationContext"><a href="#AbstractApplicationContext" class="headerlink" title="AbstractApplicationContext"></a>AbstractApplicationContext</h4><p>然后publishEvent的实现在<code>AbstractApplicationContext</code> 中</p>
-<pre><code class="java">protected void publishEvent(Object event, @Nullable ResolvableType eventType) {
+<pre><code class="java">protected void publishEvent(Object event, @Nullable ResolvableType eventType) &#123;
         Assert.notNull(event, &quot;Event must not be null&quot;);
 
         // Decorate event as an ApplicationEvent if necessary
         ApplicationEvent applicationEvent;
-        if (event instanceof ApplicationEvent) {
+        if (event instanceof ApplicationEvent) &#123;
             applicationEvent = (ApplicationEvent) event;
-        }
-        else {
+        &#125;
+        else &#123;
             applicationEvent = new PayloadApplicationEvent&lt;&gt;(this, event);
-            if (eventType == null) {
+            if (eventType == null) &#123;
                 eventType = ((PayloadApplicationEvent) applicationEvent).getResolvableType();
-            }
-        }
+            &#125;
+        &#125;
 
         // Multicast right now if possible - or lazily once the multicaster is initialized
-        if (this.earlyApplicationEvents != null) {
+        if (this.earlyApplicationEvents != null) &#123;
             this.earlyApplicationEvents.add(applicationEvent);
-        }
-        else {
+        &#125;
+        else &#123;
             getApplicationEventMulticaster().multicastEvent(applicationEvent, eventType);
-        }
+        &#125;
 
         // Publish event via parent context as well...
-        if (this.parent != null) {
-            if (this.parent instanceof AbstractApplicationContext) {
+        if (this.parent != null) &#123;
+            if (this.parent instanceof AbstractApplicationContext) &#123;
                 ((AbstractApplicationContext) this.parent).publishEvent(event, eventType);
-            }
-            else {
+            &#125;
+            else &#123;
                 this.parent.publishEvent(event);
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
 </code></pre>
 <h4 id="ApplicationEventMulticaster"><a href="#ApplicationEventMulticaster" class="headerlink" title="ApplicationEventMulticaster"></a>ApplicationEventMulticaster</h4><p>其中调用了委派给了<code>ApplicationEventMulticaster</code>,具体实现在 <code>SimpleApplicationEventMulticaster</code></p>
-<pre><code class="java">public class SimpleApplicationEventMulticaster extends AbstractApplicationEventMulticaster {
+<pre><code class="java">public class SimpleApplicationEventMulticaster extends AbstractApplicationEventMulticaster &#123;
     @Override
-    public void multicastEvent(final ApplicationEvent event, @Nullable ResolvableType eventType) {
+    public void multicastEvent(final ApplicationEvent event, @Nullable ResolvableType eventType) &#123;
         ResolvableType type = (eventType != null ? eventType : resolveDefaultEventType(event));
-        for (final ApplicationListener&lt;?&gt; listener : getApplicationListeners(event, type)) {
+        for (final ApplicationListener&lt;?&gt; listener : getApplicationListeners(event, type)) &#123;
             Executor executor = getTaskExecutor();
-            if (executor != null) {
+            if (executor != null) &#123;
                 executor.execute(() -&gt; invokeListener(listener, event));
-            }
-            else {
+            &#125;
+            else &#123;
                 invokeListener(listener, event);
-            }
-        }
-    }
-}
+            &#125;
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p> 至此,事件机制完事啦.  (啊!信息量有点大)</p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="ClassLoader"><a href="#ClassLoader" class="headerlink" title="ClassLoader"></a>ClassLoader</h3><p>信息量有点大,就再附赠点东西吧…. 在<code>ContextLoader#initWebApplicationContext</code> 方法中有关于getContextClassLoader</p>
-<pre><code class="java">public class ContextLoader {
-    public WebApplicationContext initWebApplicationContext(ServletContext servletContext) {
-        if (servletContext.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE) != null) {
+<pre><code class="java">public class ContextLoader &#123;
+    public WebApplicationContext initWebApplicationContext(ServletContext servletContext) &#123;
+        if (servletContext.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE) != null) &#123;
             throw new IllegalStateException(
                     &quot;Cannot initialize context because there is already a root application context present - &quot; +
                     &quot;check whether you have multiple ContextLoader* definitions in your web.xml!&quot;);
-        }
+        &#125;
 
         Log logger = LogFactory.getLog(ContextLoader.class);
         servletContext.log(&quot;Initializing Spring root WebApplicationContext&quot;);
-        if (logger.isInfoEnabled()) {
+        if (logger.isInfoEnabled()) &#123;
             logger.info(&quot;Root WebApplicationContext: initialization started&quot;);
-        }
+        &#125;
         long startTime = System.currentTimeMillis();
 
-        try {
+        try &#123;
             // Store context in local instance variable, to guarantee that
             // it is available on ServletContext shutdown.
-            if (this.context == null) {
+            if (this.context == null) &#123;
                 this.context = createWebApplicationContext(servletContext);
-            }
-            if (this.context instanceof ConfigurableWebApplicationContext) {
+            &#125;
+            if (this.context instanceof ConfigurableWebApplicationContext) &#123;
                 ConfigurableWebApplicationContext cwac = (ConfigurableWebApplicationContext) this.context;
-                if (!cwac.isActive()) {
+                if (!cwac.isActive()) &#123;
                     // The context has not yet been refreshed -&gt; provide services such as
                     // setting the parent context, setting the application context id, etc
-                    if (cwac.getParent() == null) {
+                    if (cwac.getParent() == null) &#123;
                         // The context instance was injected without an explicit parent -&gt;
                         // determine parent for root web application context, if any.
                         ApplicationContext parent = loadParentContext(servletContext);
                         cwac.setParent(parent);
-                    }
+                    &#125;
                     configureAndRefreshWebApplicationContext(cwac, servletContext);
-                }
-            }
+                &#125;
+            &#125;
             servletContext.setAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE, this.context);
 
             ClassLoader ccl = Thread.currentThread().getContextClassLoader();
-            if (ccl == ContextLoader.class.getClassLoader()) {
+            if (ccl == ContextLoader.class.getClassLoader()) &#123;
                 currentContext = this.context;
-            }
-            else if (ccl != null) {
+            &#125;
+            else if (ccl != null) &#123;
                 currentContextPerThread.put(ccl, this.context);
-            }
+            &#125;
 
                    //....
-    }
-}
+    &#125;
+&#125;
 </code></pre>
-<p>其中, ClassLoader ccl = Thread.currentThread().getContextClassLoader(); </p>
+<p>其中, ClassLoader ccl &#x3D; Thread.currentThread().getContextClassLoader(); </p>
 <p>层次结构是WebAppClassLoader -&gt;URLClassLoader。-&gt;AppClassLoader-&gt;ExtClassLoader-&gt;null</p>
 <p>注意⚠️ : 其中URLClassLoader 对应的是Tomcat ClassLoader中的common (可以看之前的一篇文章哈,servlet-tomcat)</p>
 <p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g4mxg1xal0j311w06iq50.jpg" alt="img"></p>
 <p>More details see:</p>
 <blockquote>
-<p><a href="http://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html" target="_blank" rel="noopener">Tomcat Class Loader</a></p>
-<p><a href="https://docs.oracle.com/javase/tutorial/ext/basics/load.html" target="_blank" rel="noopener">Java Class Loader</a></p>
+<p><a target="_blank" rel="noopener" href="http://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html">Tomcat Class Loader</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/ext/basics/load.html">Java Class Loader</a></p>
 </blockquote>
 
       
@@ -1540,13 +1705,13 @@ public interface ApplicationEventPublisher {
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>spring-ApplicationContext启动流程和事件机制</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">3.2k</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">3.5k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-07-03, 09:37:08</p>
     <p><span class="copy-title">最后更新:</span>2020-01-25, 16:47:31</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/03/spring-ApplicationContext启动流程和事件机制/" title="spring-ApplicationContext启动流程和事件机制">http://yoursite.com/2019/07/03/spring-ApplicationContext启动流程和事件机制/</a>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/03/spring-ApplicationContext%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/" title="spring-ApplicationContext启动流程和事件机制">http://yoursite.com/2019/07/03/spring-ApplicationContext%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/</a>
     <p>
-        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
 </div>
 
@@ -1579,15 +1744,15 @@ public interface ApplicationEventPublisher {
 <div class="acParent"></div>
 
 </body>
-<script src="/js/jquery.pjax.js?v=1.0.1"></script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
 
-<script src="/js/script.js?v=1.0.1"></script>
+<script src="/js/script.js?v=1.0.1" ></script>
 <script>
     var img_resize = 'default';
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#netty','#nio','#framework','#zookeeper','#Spec','#gc','#summary','#classLoader','#juc','#hotspot','#j2ee','#spring','#hbase','#spark','#redis','#thread','#tomcat','#mysql','#lang','#elasticsearch','#kafka','#servlet','#ioc','#io','#serialization','#file','#ejb','#collections','#event','#aop','#job','#map','#applicationContext','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
+            'data': ['#week','#hide','#jvm','#gc','#summary','#juc','#jdk','#map','#classLoader','#packages','#io','#serialization','#file','#nio','#lang','#spring','#doc','#utils','#hotspot','#collections','#java','#note','#j2ee','#ejb','#distributed','#hbase','#framework','#spark','#elasticsearch','#kafka','#mysql','#netty','#redis','#servlet','#tomcat','#zookeeper','#Spec','#thread','#applicationContext','#ioc','#event','#aop','#job','#spring-mvc','#spring-webflux','#beanFactory',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

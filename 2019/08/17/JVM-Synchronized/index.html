@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   <title>JVM_Synchronized | Zyumin</title>
   <meta name="keywords" content=" jvm ">
   <meta name="description" content="JVM_Synchronized | Zyumin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta name="keywords" content="java">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
 <meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-23T07:09:56.946Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-03-23T07:09:38.000Z">
+<meta property="article:modified_time" content="2019-03-23T07:09:56.000Z">
+<meta property="article:author" content="zhengyumin">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -30,7 +30,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
 
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script>
@@ -41,11 +41,11 @@
 
 
 
-<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
 
-<script src="/js/iconfont.js?v=1.0.1"></script>
+<script src="/js/iconfont.js?v=1.0.1" ></script>
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="false">
@@ -56,7 +56,7 @@
 <aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.png">
+    <img class="avatar" src="/img/avatar.png" />
 </a>
 <div class="author">
     <span>zhengyumin</span>
@@ -68,7 +68,7 @@
         <a title="github" href="https://github.com/Zyumin" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-github"/>
+                    <use xlink:href="#icon-github"></use>
                 </svg>
             
         </a>
@@ -78,7 +78,7 @@
         <a title="neteasemusic" href="https://music.163.com/#/user/home?id=60037019" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-neteasemusic"/>
+                    <use xlink:href="#icon-neteasemusic"></use>
                 </svg>
             
         </a>
@@ -94,7 +94,7 @@
     
         
             
-            <li><div data-rel="jdk">jdk<small>(13)</small></div>
+            <li><div data-rel="java">java<small>(9)</small></div>
                 
             </li>
             
@@ -102,7 +102,7 @@
     
         
             
-            <li><div data-rel="java">java<small>(9)</small></div>
+            <li><div data-rel="jdk">jdk<small>(13)</small></div>
                 
             </li>
             
@@ -118,7 +118,7 @@
     
         
             
-            <li><div data-rel="redis">redis<small>(4)</small></div>
+            <li><div data-rel="mysql">mysql<small>(2)</small></div>
                 
             </li>
             
@@ -126,7 +126,7 @@
     
         
             
-            <li><div data-rel="mysql">mysql<small>(2)</small></div>
+            <li><div data-rel="redis">redis<small>(4)</small></div>
                 
             </li>
             
@@ -143,7 +143,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="55">
-<input type="hidden" id="yelog_site_word_count" value="185.6k">
+<input type="hidden" id="yelog_site_word_count" value="189.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -166,11 +166,11 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off" id="local-search-input">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
         <i class="cross"></i>
         <span>
             <label for="tagswitch">Tags:</label>
-            <input id="tagswitch" type="checkbox" style="display: none">
+            <input id="tagswitch" type="checkbox" style="display: none" />
             <i id="tagsWitchIcon"></i>
         </span>
     </form>
@@ -185,51 +185,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">jdk</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">packages</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">utils</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">java</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">note</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">jvm</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">distributed</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">netty</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">nio</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">framework</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">zookeeper</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">Spec</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -241,67 +197,23 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">classLoader</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">juc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">hotspot</a>
+        <a href="javascript:" class="color4">jdk</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">j2ee</a>
+        <a href="javascript:" class="color4">map</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">spring</a>
+        <a href="javascript:" class="color2">classLoader</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">hbase</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">spark</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">redis</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">thread</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">tomcat</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">mysql</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">lang</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">elasticsearch</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">kafka</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">servlet</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ioc</a>
+        <a href="javascript:" class="color4">packages</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -317,11 +229,111 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color4">nio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">lang</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">doc</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">utils</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">hotspot</a>
     </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color2">collections</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">note</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">j2ee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ejb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">distributed</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">hbase</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">framework</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">spark</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">elasticsearch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">kafka</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">netty</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">redis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">tomcat</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">zookeeper</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Spec</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">applicationContext</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ioc</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -337,18 +349,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">map</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">applicationContext</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">beanFactory</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color1">spring-mvc</a>
     </li>
     
@@ -357,7 +357,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">doc</a>
+        <a href="javascript:" class="color2">beanFactory</a>
     </li>
     
     <div class="clearfix"></div>
@@ -370,279 +370,444 @@
     
     <nav id="title-list-nav">
         
-        <a id="top" class="java " href="/2019/02/02/Overview_java/" data-tag="summary" data-author="">
-            <span class="post-title" title="Overview_java">Overview_java</span>
-            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
-        </a>
-        
-        <a id="top" class="spring " href="/2019/03/02/Overview_Spring/" data-tag="framework,spring" data-author="">
-            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
-            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
-        </a>
-        
-        <a id="top" class="jdk " href="/2019/06/13/Overview_JDK/" data-tag="jdk,hotspot" data-author="">
-            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
-            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
-        </a>
-        
-        <a id="top" class="java " href="/2020/05/10/面试常见知识点梳理/" data-tag="job" data-author="">
-            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
-            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
-        </a>
-        
-        <a class="java " href="/2021/01/13/GC调优总结/" data-tag="jvm,gc,summary" data-author="">
-            <span class="post-title" title="GC调优总结">GC调优总结</span>
-            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Hbase/" data-tag="distributed,framework,hbase" data-author="">
-            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
-            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Spark/" data-tag="distributed,framework,spark" data-author="">
-            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
-            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis集群篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
-            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis实战篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
-            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis原理篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
-            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/23/spring-aop/" data-tag="spring,aop" data-author="">
-            <span class="post-title" title="spring-aop">spring-aop</span>
-            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/16/Spring-ApplicationContext/" data-tag="spring,applicationContext" data-author="">
-            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
-            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/05/spring-BeanFactory/" data-tag="spring,beanFactory" data-author="">
-            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
-            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/02/spring-Q-A/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
-            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
-        </a>
-        
-        <a class="spring " href="/2019/10/29/Documentation-Spring-Core-IOC/" data-tag="spring,doc" data-author="">
-            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
-            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/26/JDK-Packages-java-nio/" data-tag="jdk,packages,nio" data-author="">
-            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
-            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/23/JDK-Packages-java-io/" data-tag="jdk,packages,io,serialization,file" data-author="">
-            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
-            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Class/" data-tag="jdk" data-author="">
-            <span class="post-title" title="JDK_Class">JDK_Class</span>
-            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Thread/" data-tag="jdk,jvm,hotspot" data-author="">
-            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
-            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
-        </a>
-        
-        <a class="java " href="/2019/08/29/JVM-main方法分析/" data-tag="java,jvm" data-author="">
-            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
-            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/24/JDK-ReentrantLock/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
-            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
-        </a>
-        
-        <a class="java " href="/2019/08/17/JVM-Synchronized/" data-tag="jvm" data-author="">
-            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
-            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
-        </a>
-        
-        <a class="java " href="/2019/08/11/Overview-Java-Virtual-Machine/" data-tag="jvm" data-author="">
-            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
-            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-lang/" data-tag="jdk,packages,lang" data-author="">
-            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
-            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-utils/" data-tag="jdk,packages,utils" data-author="">
-            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
-            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/10/JDK-The-Concurrent-Framework/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
-            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/29/JDK-The-Collections-Framework/" data-tag="jdk,collections" data-author="">
-            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
-            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
-        </a>
-        
-        <a class="" href="/2019/07/10/Note-码农翻身/" data-tag="java,note" data-author="">
-            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
-            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/06/JDK-ClassLoader/" data-tag="jdk,classLoader" data-author="">
-            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
-            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
-        </a>
-        
-        <a class="spring " href="/2019/07/03/spring-ApplicationContext启动流程和事件机制/" data-tag="classLoader,spring,tomcat,servlet,event" data-author="">
-            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
-            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/26/Overview_Elasticsearch/" data-tag="framework,elasticsearch" data-author="">
-            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
-            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/24/J-U-C-ConcurrentHashMap/" data-tag="juc,map" data-author="">
-            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
-            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
-        </a>
-        
-        <a class="java " href="/2019/06/19/JVM-Garbage-Collection/" data-tag="jvm,gc" data-author="">
-            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
-            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/16/J-U-C-InterruptedException/" data-tag="juc" data-author="">
-            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
-            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
-        </a>
-        
-        <a class="java " href="/2019/06/14/Spec-JSR133/" data-tag="jvm,Spec,thread" data-author="">
-            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
-            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
-        </a>
-        
-        <a class="java " href="/2019/06/13/Spec-Java-Virtual-Machine/" data-tag="jvm,Spec" data-author="">
-            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
-            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
-        </a>
-        
-        <a class="" href="/2019/06/12/Overview_Kafka/" data-tag="framework,kafka" data-author="">
-            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
-            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
-        </a>
-        
-        <a class="redis " href="/2019/06/10/Overview_Redis/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
-            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
-        </a>
-        
-        <a class="" href="/2019/06/06/Note_java并发编程的艺术/" data-tag="java,note,juc" data-author="">
-            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
-            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Overview_Netty/" data-tag="netty,nio,framework" data-author="">
-            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
-            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Note_深入理解java虚拟机/" data-tag="java,note,jvm" data-author="">
-            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
-            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
-        </a>
-        
-        <a class="mysql " href="/2019/06/04/Overview_MySQL/" data-tag="mysql" data-author="">
-            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
-            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Zookeeper/" data-tag="distributed,framework,zookeeper" data-author="">
-            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
-            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Distributed/" data-tag="distributed" data-author="">
-            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
-            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
-        </a>
-        
-        <a class="spring " href="/2019/04/10/spring-api-1-0/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
-            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
-        </a>
-        
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/04/01/3%E6%9C%88%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
         
-        <a class="mysql " href="/2019/03/30/记一次mysql查询in的思考/" data-tag="mysql" data-author="">
-            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
-            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
-        </a>
-        
-        <a class="" href="/2019/03/26/记一次Broken-pipe问题的思考/" data-tag="tomcat" data-author="">
-            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
-            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
-        </a>
-        
-        <a class="" href="/2019/03/24/3月第三周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/03/24/3%E6%9C%88%E7%AC%AC%E4%B8%89%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第三周知识点记录">3月第三周知识点记录</span>
             <span class="post-date" title="2019-03-24 20:55:31">2019/03/24</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert One-on-One-J2EE-Development-without-EJB/" data-tag="j2ee,spring,ejb" data-author="">
+        <a  class="java "
+           href="/2021/01/13/GC%E8%B0%83%E4%BC%98%E6%80%BB%E7%BB%93/"
+           data-tag="jvm,gc,summary"
+           data-author="" >
+            <span class="post-title" title="GC调优总结">GC调优总结</span>
+            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/16/J-U-C-InterruptedException/"
+           data-tag="juc"
+           data-author="" >
+            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
+            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Class/"
+           data-tag="jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_Class">JDK_Class</span>
+            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/24/J-U-C-ConcurrentHashMap/"
+           data-tag="juc,map"
+           data-author="" >
+            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
+            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/06/JDK-ClassLoader/"
+           data-tag="jdk,classLoader"
+           data-author="" >
+            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
+            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/23/JDK-Packages-java-io/"
+           data-tag="jdk,packages,io,serialization,file"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
+            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/26/JDK-Packages-java-nio/"
+           data-tag="jdk,packages,nio"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
+            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-lang/"
+           data-tag="jdk,packages,lang"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
+            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/10/29/Documentation-Spring-Core-IOC/"
+           data-tag="spring,doc"
+           data-author="" >
+            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
+            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-utils/"
+           data-tag="jdk,packages,utils"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
+            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Thread/"
+           data-tag="jvm,jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
+            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/19/JVM-Garbage-Collection/"
+           data-tag="jvm,gc"
+           data-author="" >
+            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
+            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/29/JDK-The-Collections-Framework/"
+           data-tag="jdk,collections"
+           data-author="" >
+            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
+            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/24/JDK-ReentrantLock/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
+            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/29/JVM-main%E6%96%B9%E6%B3%95%E5%88%86%E6%9E%90/"
+           data-tag="jvm,java"
+           data-author="" >
+            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
+            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/17/JVM-Synchronized/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
+            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/07/10/Note-%E7%A0%81%E5%86%9C%E7%BF%BB%E8%BA%AB/"
+           data-tag="java,note"
+           data-author="" >
+            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
+            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert%20One-on-One-J2EE-Development-without-EJB/"
+           data-tag="spring,j2ee,ejb"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Development without EJB">Expert One-on-One J2EE Development without EJB</span>
             <span class="post-date" title="2019-03-10 19:45:57">2019/03/10</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/" data-tag="j2ee,spring" data-author="">
+        <a  class=""
+           href="/2019/06/06/Note_java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/"
+           data-tag="juc,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
+            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/10/JDK-The-Concurrent-Framework/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
+            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/18/Overview-Hbase/"
+           data-tag="distributed,hbase,framework"
+           data-author="" >
+            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
+            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Note_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA/"
+           data-tag="jvm,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
+            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/"
+           data-tag="spring,j2ee"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Design and Development">Expert One-on-One J2EE Design and Development</span>
             <span class="post-date" title="2019-03-10 19:45:18">2019/03/10</span>
         </a>
         
-        <a class="spring " href="/2019/03/03/spring-Core-Container预览/" data-tag="spring,ioc" data-author="">
-            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
-            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        <a  class="java "
+           href="/2019/08/11/Overview-Java-Virtual-Machine/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
+            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
         </a>
         
-        <a class="spring " href="/2019/02/03/spring-mvc/" data-tag="spring,servlet,spring-mvc,spring-webflux" data-author="">
-            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
-            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        <a  class=""
+           href="/2019/06/03/Overview_Distributed/"
+           data-tag="distributed"
+           data-author="" >
+            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
+            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
         </a>
         
-        <a class="" href="/2019/02/03/Overview_Tomcat/" data-tag="tomcat,servlet" data-author="">
+        <a  class=""
+           href="/2020/03/18/Overview-Spark/"
+           data-tag="distributed,framework,spark"
+           data-author="" >
+            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
+            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/26/Overview_Elasticsearch/"
+           data-tag="framework,elasticsearch"
+           data-author="" >
+            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
+            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/12/Overview_Kafka/"
+           data-tag="framework,kafka"
+           data-author="" >
+            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
+            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
+        </a>
+        
+        <a id="top" class="jdk "
+           href="/2019/06/13/Overview_JDK/"
+           data-tag="jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
+            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/06/04/Overview_MySQL/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
+            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Overview_Netty/"
+           data-tag="nio,framework,netty"
+           data-author="" >
+            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
+            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2019/06/10/Overview_Redis/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
+            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
+        </a>
+        
+        <a id="top" class="spring "
+           href="/2019/03/02/Overview_Spring/"
+           data-tag="spring,framework"
+           data-author="" >
+            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
+            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/03/Overview_Tomcat/"
+           data-tag="servlet,tomcat"
+           data-author="" >
             <span class="post-title" title="servlet_tomcat">servlet_tomcat</span>
             <span class="post-date" title="2019-02-03 15:49:08">2019/02/03</span>
         </a>
         
-        <a class="" href="/2019/02/02/Spec_Servlet/" data-tag="j2ee,servlet" data-author="">
+        <a  class=""
+           href="/2019/06/03/Overview_Zookeeper/"
+           data-tag="distributed,framework,zookeeper"
+           data-author="" >
+            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
+            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2019/02/02/Overview_java/"
+           data-tag="summary"
+           data-author="" >
+            <span class="post-title" title="Overview_java">Overview_java</span>
+            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%8E%9F%E7%90%86%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
+            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%AE%9E%E6%88%98%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
+            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E9%9B%86%E7%BE%A4%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
+            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/14/Spec-JSR133/"
+           data-tag="jvm,Spec,thread"
+           data-author="" >
+            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
+            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/13/Spec-Java-Virtual-Machine/"
+           data-tag="jvm,Spec"
+           data-author="" >
+            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
+            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/02/Spec_Servlet/"
+           data-tag="j2ee,servlet"
+           data-author="" >
             <span class="post-title" title="j2ee_servlet">j2ee_servlet</span>
             <span class="post-date" title="2019-02-02 18:05:54">2019/02/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/16/Spring-ApplicationContext/"
+           data-tag="spring,applicationContext"
+           data-author="" >
+            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
+            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/03/03/spring-Core-Container%E9%A2%84%E8%A7%88/"
+           data-tag="spring,ioc"
+           data-author="" >
+            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
+            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/02/spring-Q-A/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
+            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/07/03/spring-ApplicationContext%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/"
+           data-tag="classLoader,spring,servlet,tomcat,event"
+           data-author="" >
+            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
+            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/04/10/spring-api-1-0/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
+            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/26/%E8%AE%B0%E4%B8%80%E6%AC%A1Broken-pipe%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="tomcat"
+           data-author="" >
+            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
+            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/03/30/%E8%AE%B0%E4%B8%80%E6%AC%A1mysql%E6%9F%A5%E8%AF%A2in%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
+            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/23/spring-aop/"
+           data-tag="spring,aop"
+           data-author="" >
+            <span class="post-title" title="spring-aop">spring-aop</span>
+            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2020/05/10/%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/"
+           data-tag="job"
+           data-author="" >
+            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
+            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/02/03/spring-mvc/"
+           data-tag="spring,servlet,spring-mvc,spring-webflux"
+           data-author="" >
+            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
+            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/05/spring-BeanFactory/"
+           data-tag="spring,beanFactory"
+           data-author="" >
+            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
+            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
         </a>
         
     </nav>
@@ -657,7 +822,7 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-JVM-Synchronized" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <article id="post-JVM-Synchronized" class="article article-type-post" itemscope itemprop="blogPost">
     
         <h1 class="article-title">JVM_Synchronized</h1>
     
@@ -681,7 +846,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2020-04-10 12:57:36">2019-08-17 17:01</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-10 12:57:36'>2019-08-17 17:01</time>
         
     </div>
     <div class="article-meta">
@@ -705,7 +870,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM-Synchronized"><span class="toc-text">JVM_Synchronized</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java对象的组成"><span class="toc-text">Java对象的组成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Header-对象头"><span class="toc-text">Header (对象头)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#mark-word存储结构"><span class="toc-text">mark word存储结构</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锁升级与对比"><span class="toc-text">锁升级与对比</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JOL工具"><span class="toc-text">JOL工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#无锁"><span class="toc-text">无锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#偏向锁"><span class="toc-text">偏向锁</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#从无锁状态到偏向锁"><span class="toc-text">从无锁状态到偏向锁</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#偏向锁的撤销"><span class="toc-text">偏向锁的撤销</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#适用场景"><span class="toc-text">适用场景</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#偏向锁对象头"><span class="toc-text">偏向锁对象头</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#轻量级锁"><span class="toc-text">轻量级锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重量级锁"><span class="toc-text">重量级锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重量级锁、轻量级锁和偏向锁之间转换"><span class="toc-text">重量级锁、轻量级锁和偏向锁之间转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重量级锁、轻量级锁和偏向锁之间对比"><span class="toc-text">重量级锁、轻量级锁和偏向锁之间对比</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锁优化"><span class="toc-text">锁优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jvm层面"><span class="toc-text">jvm层面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#适应式自旋"><span class="toc-text">适应式自旋</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#锁消除"><span class="toc-text">锁消除</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#锁粗化"><span class="toc-text">锁粗化</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#语言编程"><span class="toc-text">语言编程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#减少锁持有的时间"><span class="toc-text">减少锁持有的时间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#锁分离"><span class="toc-text">锁分离</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#减小锁的力度"><span class="toc-text">减小锁的力度</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM-Synchronized"><span class="toc-text">JVM_Synchronized</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-text">Java对象的组成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Header-%E5%AF%B9%E8%B1%A1%E5%A4%B4"><span class="toc-text">Header (对象头)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#mark-word%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-text">mark word存储结构</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E5%8D%87%E7%BA%A7%E4%B8%8E%E5%AF%B9%E6%AF%94"><span class="toc-text">锁升级与对比</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JOL%E5%B7%A5%E5%85%B7"><span class="toc-text">JOL工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E9%94%81"><span class="toc-text">无锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%8F%E5%90%91%E9%94%81"><span class="toc-text">偏向锁</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%8E%E6%97%A0%E9%94%81%E7%8A%B6%E6%80%81%E5%88%B0%E5%81%8F%E5%90%91%E9%94%81"><span class="toc-text">从无锁状态到偏向锁</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%81%8F%E5%90%91%E9%94%81%E7%9A%84%E6%92%A4%E9%94%80"><span class="toc-text">偏向锁的撤销</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">适用场景</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%81%8F%E5%90%91%E9%94%81%E5%AF%B9%E8%B1%A1%E5%A4%B4"><span class="toc-text">偏向锁对象头</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%BB%E9%87%8F%E7%BA%A7%E9%94%81"><span class="toc-text">轻量级锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E9%87%8F%E7%BA%A7%E9%94%81"><span class="toc-text">重量级锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E9%87%8F%E7%BA%A7%E9%94%81%E3%80%81%E8%BD%BB%E9%87%8F%E7%BA%A7%E9%94%81%E5%92%8C%E5%81%8F%E5%90%91%E9%94%81%E4%B9%8B%E9%97%B4%E8%BD%AC%E6%8D%A2"><span class="toc-text">重量级锁、轻量级锁和偏向锁之间转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E9%87%8F%E7%BA%A7%E9%94%81%E3%80%81%E8%BD%BB%E9%87%8F%E7%BA%A7%E9%94%81%E5%92%8C%E5%81%8F%E5%90%91%E9%94%81%E4%B9%8B%E9%97%B4%E5%AF%B9%E6%AF%94"><span class="toc-text">重量级锁、轻量级锁和偏向锁之间对比</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E4%BC%98%E5%8C%96"><span class="toc-text">锁优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jvm%E5%B1%82%E9%9D%A2"><span class="toc-text">jvm层面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%82%E5%BA%94%E5%BC%8F%E8%87%AA%E6%97%8B"><span class="toc-text">适应式自旋</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%81%E6%B6%88%E9%99%A4"><span class="toc-text">锁消除</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%81%E7%B2%97%E5%8C%96"><span class="toc-text">锁粗化</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B"><span class="toc-text">语言编程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%87%8F%E5%B0%91%E9%94%81%E6%8C%81%E6%9C%89%E7%9A%84%E6%97%B6%E9%97%B4"><span class="toc-text">减少锁持有的时间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%81%E5%88%86%E7%A6%BB"><span class="toc-text">锁分离</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%87%8F%E5%B0%8F%E9%94%81%E7%9A%84%E5%8A%9B%E5%BA%A6"><span class="toc-text">减小锁的力度</span></a></li></ol></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -721,14 +886,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="JVM-Synchronized"><a href="#JVM-Synchronized" class="headerlink" title="JVM_Synchronized"></a>JVM_Synchronized</h2><p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g6696x82ypj31800t04qp.jpg" alt=""></p>
+        <h2 id="JVM-Synchronized"><a href="#JVM-Synchronized" class="headerlink" title="JVM_Synchronized"></a>JVM_Synchronized</h2><p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g6696x82ypj31800t04qp.jpg"></p>
 <p>浅谈下jvm对Synchronized的优化</p>
 <ul>
 <li>对象的分布</li>
 <li>锁升级</li>
 <li>锁优化</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
+
 <h3 id="Java对象的组成"><a href="#Java对象的组成" class="headerlink" title="Java对象的组成"></a>Java对象的组成</h3><p>在HotSpot虚拟机中,对象在内存中存储的布局可以分为3块区域 : 对象头(Header)、实例数据(Instance Data)、填充(Padding)</p>
 <h4 id="Header-对象头"><a href="#Header-对象头" class="headerlink" title="Header (对象头)"></a>Header (对象头)</h4><p>Java对象的对象头由 mark word 和  klass pointer 、Array length</p>
 <p>mark word: 存储了同步状态、标识、hashcode、GC状态等等。</p>
@@ -749,8 +915,7 @@
 <th>状态</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0</td>
 <td>01</td>
 <td>无锁</td>
@@ -775,8 +940,7 @@
 <td>11</td>
 <td>GC标记</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>age：Java GC标记位对象年龄。</p>
 <p>identity_hashcode：对象标识Hash码，采用延迟加载技术。当对象使用HashCode()计算后，并会将结果写到该对象头中。当对象被锁定时，该值会移动到线程Monitor中。</p>
 <p>thread：持有偏向锁的线程ID和其他信息。这个线程ID并不是JVM分配的线程ID号，和Java Thread中的ID是两个概念。</p>
@@ -794,19 +958,19 @@
 &lt;/dependency&gt;
 </code></pre>
 <h4 id="无锁"><a href="#无锁" class="headerlink" title="无锁"></a>无锁</h4><p>首先先来看看无锁状态下的对象实例数据分布,简单的一个Class对象</p>
-<pre><code class="java">public class ObjectLayoutDemo {
-    public static class A {
+<pre><code class="java">public class ObjectLayoutDemo &#123;
+    public static class A &#123;
         boolean flag = false;
-    }
+    &#125;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException &#123;
         A a = new A();
         System.out.println(ClassLayout.parseInstance(a).toPrintable());
         // 手动调用hashCode 触发懒加载
         System.out.println(Integer.toBinaryString(a.hashCode()));
         System.out.println(ClassLayout.parseInstance(a).toPrintable());
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>看看输出结果</p>
 <p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g62s3w1yhzj31ks0980un.jpg" alt="img"></p>
@@ -822,39 +986,40 @@
 <p>下图显示的</p>
 <p>线程1演示了偏向锁初始化的流程</p>
 <p>线程2演示了偏向锁的撤销的流程</p>
-<p><img src="http://ww3.sinaimg.cn/large/006y8mN6gy1g686ckc6u2j30to0x4tap.jpg" width="70%" height="70%"></p>
-<h5 id="偏向锁对象头"><a href="#偏向锁对象头" class="headerlink" title="偏向锁对象头"></a>偏向锁对象头</h5><pre><code class="java">public class BiasedLockDemo {
-    public static void main(String[] args) throws InterruptedException {
+<img src="http://ww3.sinaimg.cn/large/006y8mN6gy1g686ckc6u2j30to0x4tap.jpg" width="70%" height="70%" />
+
+<h5 id="偏向锁对象头"><a href="#偏向锁对象头" class="headerlink" title="偏向锁对象头"></a>偏向锁对象头</h5><pre><code class="java">public class BiasedLockDemo &#123;
+    public static void main(String[] args) throws InterruptedException &#123;
         Thread.sleep(5000);
         ObjectLayoutDemo.A a = new ObjectLayoutDemo.A();
-
+        
         System.out.println(ClassLayout.parseInstance(a).toPrintable());
-
-        Thread thread1 = new Thread(() -&gt; {
-            synchronized (a){
+        
+        Thread thread1 = new Thread(() -&gt; &#123;
+            synchronized (a)&#123;
                 System.out.println(&quot;thread1 locking&quot;);
                 System.out.println(ClassLayout.parseInstance(a).toPrintable());
-            }
-        });
+            &#125;
+        &#125;);
 
-        Thread thread2 = new Thread(() -&gt; {
-            synchronized (a){
+        Thread thread2 = new Thread(() -&gt; &#123;
+            synchronized (a)&#123;
                 //开始撤销， 直接return 模拟偏向锁撤销到未锁定
                 return;
-            }
-        });
+            &#125;
+        &#125;);
         thread1.start();
         //让thread1执行完同步代码块中方法。
         thread1.join();
 
         System.out.println(&quot;thread1&#39;s state:&quot; + thread1.isAlive());
-
+        
         thread2.start();
 
         System.out.println(&quot;after thread2:&quot;+ClassLayout.parseInstance(a).toPrintable());
 
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>结果</p>
 <p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g65dr635fgj31x20p8n38.jpg" alt="image-20190819225819224"></p>
@@ -864,38 +1029,38 @@
 <p>第二次打印,可以看到记录了线程ID. </p>
 <p>第三次偏向锁撤销</p>
 <h4 id="轻量级锁"><a href="#轻量级锁" class="headerlink" title="轻量级锁"></a>轻量级锁</h4><p>轻量级锁所适应的场景是线程交替执行同步块的情况</p>
-<pre><code class="java">public class LightLockDemo {
-    public static void main(String[] args) throws InterruptedException {
+<pre><code class="java">public class LightLockDemo &#123;
+    public static void main(String[] args) throws InterruptedException &#123;
         Thread.sleep(5000);
         ObjectLayoutDemo.A a = new ObjectLayoutDemo.A();
 
-        Thread thread1 = new Thread(){
+        Thread thread1 = new Thread()&#123;
             @Override
-            public void run() {
-                synchronized (a){
+            public void run() &#123;
+                synchronized (a)&#123;
                     System.out.println(&quot;thread1 locking&quot;);
                     System.out.println(ClassLayout.parseInstance(a).toPrintable());
-                }
-            }
-        };
+                &#125;
+            &#125;
+        &#125;;
 
-        Thread thread2 = new Thread(){
+        Thread thread2 = new Thread()&#123;
             @Override
-            public void run() {
-                synchronized (a){
+            public void run() &#123;
+                synchronized (a)&#123;
                     System.out.println(&quot;thread2 locking&quot;);
                     System.out.println(ClassLayout.parseInstance(a).toPrintable());
-                }
-            }
-        };
+                &#125;
+            &#125;
+        &#125;;
         thread1.start();
         //让thread1执行完同步代码块中方法,并退出线程
         thread1.join();
-
+        
         System.out.println(&quot;thread1&#39;s state:&quot; + thread1.isAlive());
         thread2.start();
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>结果</p>
 <p><img src="http://ww3.sinaimg.cn/large/006y8mN6gy1g6741i6togj31m80hw78j.jpg" alt="image-20190820110735105"></p>
@@ -908,36 +1073,37 @@
 <p>线程2 CAS 同样尝试,获取失败,尝试自旋获取(成功,说明线程1退出了同步块)失败升级为 重量级锁,阻塞等待唤醒</p>
 <p><em>重量级锁解锁</em></p>
 <p>线程1 解锁CAS 将Displace Mark Word替换回对象头, 失败,对象头已被线程2修改(膨胀为重量级锁),释放锁并唤醒等待的线程(同时清除指向栈的指针)</p>
-<p><img src="http://ww3.sinaimg.cn/large/006y8mN6gy1g6741n0890j30ty0teang.jpg" width="70%" height="70%"></p>
+<img src="http://ww3.sinaimg.cn/large/006y8mN6gy1g6741n0890j30ty0teang.jpg" width="70%" height="70%" />
+
 <p>example</p>
-<pre><code class="java">public static void main(String[] args) throws InterruptedException {
+<pre><code class="java">public static void main(String[] args) throws InterruptedException &#123;
     Thread.sleep(5000);
     ObjectLayoutDemo.A a = new ObjectLayoutDemo.A();
-    Thread thread1 = new Thread(() -&gt; {
-        synchronized (a) {
+    Thread thread1 = new Thread(() -&gt; &#123;
+        synchronized (a) &#123;
             System.out.println(&quot;thread1 locking&quot;);
             System.out.println(ClassLayout.parseInstance(a).toPrintable());
-            try {
+            try &#123;
                 //让线程晚点儿死亡，造成锁的竞争
                 Thread.sleep(2000);
-            } catch (InterruptedException e) {
+            &#125; catch (InterruptedException e) &#123;
                 e.printStackTrace();
-            }
-        }
-    });
-    Thread thread2 = new Thread(() -&gt; {
-        synchronized (a) {
+            &#125;
+        &#125;
+    &#125;);
+    Thread thread2 = new Thread(() -&gt; &#123;
+        synchronized (a) &#123;
             System.out.println(&quot;thread2 locking&quot;);
             System.out.println(ClassLayout.parseInstance(a).toPrintable());
-        }
-    });
+        &#125;
+    &#125;);
     thread1.start();
 
     //模拟a从轻量级锁到重量级锁到转变
     Thread.sleep(1000);
 
     thread2.start();
-}
+&#125;
 </code></pre>
 <p>结果</p>
 <p><img src="http://ww2.sinaimg.cn/large/006y8mN6gy1g6741rqho3j31nc0g0djm.jpg" alt="image-20190820110339698"></p>
@@ -945,49 +1111,51 @@
 <p>第一次打印是轻量级锁</p>
 <p>第二次打印为重量级锁</p>
 <p>注意 两次执行的线程ID也不一致了</p>
-<h4 id="重量级锁、轻量级锁和偏向锁之间转换"><a href="#重量级锁、轻量级锁和偏向锁之间转换" class="headerlink" title="重量级锁、轻量级锁和偏向锁之间转换"></a>重量级锁、轻量级锁和偏向锁之间转换</h4><p><img src="http://ww2.sinaimg.cn/large/006y8mN6gy1g6741wij92j30wy0fkack.jpg" width="70%" height="70%"></p>
+<h4 id="重量级锁、轻量级锁和偏向锁之间转换"><a href="#重量级锁、轻量级锁和偏向锁之间转换" class="headerlink" title="重量级锁、轻量级锁和偏向锁之间转换"></a>重量级锁、轻量级锁和偏向锁之间转换</h4><img src="http://ww2.sinaimg.cn/large/006y8mN6gy1g6741wij92j30wy0fkack.jpg" width="70%" height="70%" />
+
+
+
 <h4 id="重量级锁、轻量级锁和偏向锁之间对比"><a href="#重量级锁、轻量级锁和偏向锁之间对比" class="headerlink" title="重量级锁、轻量级锁和偏向锁之间对比"></a>重量级锁、轻量级锁和偏向锁之间对比</h4><table>
 <thead>
 <tr>
 <th>锁</th>
-<th style="text-align:left">优点</th>
+<th align="left">优点</th>
 <th>缺点</th>
 <th>适用场景</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>偏向锁</td>
-<td style="text-align:left">加锁和解锁不需要额外的消耗，和执行非同步方法比仅存在纳秒级的差距。</td>
+<td align="left">加锁和解锁不需要额外的消耗，和执行非同步方法比仅存在纳秒级的差距。</td>
 <td>如果线程间存在锁竞争，会带来额外的锁撤销的消耗。</td>
 <td>适用于只有一个线程访问同步块场景。</td>
 </tr>
 <tr>
 <td>轻量级锁</td>
-<td style="text-align:left">竞争的线程不会阻塞，提高了程序的响应速度。</td>
+<td align="left">竞争的线程不会阻塞，提高了程序的响应速度。</td>
 <td>如果始终得不到锁竞争的线程使用自旋会消耗CPU。</td>
 <td>追求响应时间。同步块执行速度非常快。</td>
 </tr>
 <tr>
 <td>重量级锁</td>
-<td style="text-align:left">线程竞争不使用自旋，不会消耗CPU。</td>
+<td align="left">线程竞争不使用自旋，不会消耗CPU。</td>
 <td>线程阻塞，响应时间缓慢。</td>
 <td>追求吞吐量。同步块执行速度较长。</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h3 id="锁优化"><a href="#锁优化" class="headerlink" title="锁优化"></a>锁优化</h3><h4 id="jvm层面"><a href="#jvm层面" class="headerlink" title="jvm层面"></a>jvm层面</h4><h5 id="适应式自旋"><a href="#适应式自旋" class="headerlink" title="适应式自旋"></a>适应式自旋</h5><p>适应性自旋，简单来说就是线程如果自旋成功了，则下次自旋的次数会更多，如果自旋失败了，则自旋的次数就会减少。</p>
 <h5 id="锁消除"><a href="#锁消除" class="headerlink" title="锁消除"></a>锁消除</h5><p>锁消除是指虚拟机即时编译器(JIT)在运行时，对一些代码上要求同步，但是被检测到不可能存在共享数据竞争的锁进行消除。</p>
 <pre><code>-server -XX:+DoEscapeAnalysis -XX:+EliminateLocks
-</code></pre><h5 id="锁粗化"><a href="#锁粗化" class="headerlink" title="锁粗化"></a>锁粗化</h5><p>如果一系列的连续操作都对同一个对象反复加锁和解锁，甚至加锁操作是出现在循环体中的，那即使没有线程竞争，频繁地进行互斥同步操作也会导致不必要的性能损耗。</p>
+</code></pre>
+<h5 id="锁粗化"><a href="#锁粗化" class="headerlink" title="锁粗化"></a>锁粗化</h5><p>如果一系列的连续操作都对同一个对象反复加锁和解锁，甚至加锁操作是出现在循环体中的，那即使没有线程竞争，频繁地进行互斥同步操作也会导致不必要的性能损耗。</p>
 <h4 id="语言编程"><a href="#语言编程" class="headerlink" title="语言编程"></a>语言编程</h4><h5 id="减少锁持有的时间"><a href="#减少锁持有的时间" class="headerlink" title="减少锁持有的时间"></a>减少锁持有的时间</h5><p>只对需要同步代码加锁</p>
 <h5 id="锁分离"><a href="#锁分离" class="headerlink" title="锁分离"></a>锁分离</h5><p>ReadWriteLock</p>
 <h5 id="减小锁的力度"><a href="#减小锁的力度" class="headerlink" title="减小锁的力度"></a>减小锁的力度</h5><p>ConcurrentHashMap</p>
 <blockquote>
-<p>link:<a href="https://houbb.github.io/2018/10/08/jvm-30-lock-optimize" target="_blank" rel="noopener">https://houbb.github.io/2018/10/08/jvm-30-lock-optimize</a></p>
-<p>link:<a href="https://www.cnblogs.com/paddix/p/5405678.html" target="_blank" rel="noopener">https://www.cnblogs.com/paddix/p/5405678.html</a></p>
-<p>link : <a href="https://www.cnblogs.com/LemonFive/p/11246086.html" target="_blank" rel="noopener">https://www.cnblogs.com/LemonFive/p/11246086.html</a></p>
-<p>link:<a href="https://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon98ThinSlides.pdf" target="_blank" rel="noopener">https://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon98ThinSlides.pdf</a></p>
+<p>link:<a target="_blank" rel="noopener" href="https://houbb.github.io/2018/10/08/jvm-30-lock-optimize">https://houbb.github.io/2018/10/08/jvm-30-lock-optimize</a></p>
+<p>link:<a target="_blank" rel="noopener" href="https://www.cnblogs.com/paddix/p/5405678.html">https://www.cnblogs.com/paddix/p/5405678.html</a></p>
+<p>link : <a target="_blank" rel="noopener" href="https://www.cnblogs.com/LemonFive/p/11246086.html">https://www.cnblogs.com/LemonFive/p/11246086.html</a></p>
+<p>link:<a target="_blank" rel="noopener" href="https://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon98ThinSlides.pdf">https://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon98ThinSlides.pdf</a></p>
 <p>深入理解java虚拟机</p>
 <p>java并发编程艺术</p>
 </blockquote>
@@ -1007,7 +1175,7 @@
     <p><span class="copy-title">最后更新:</span>2020-04-10, 12:57:36</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/17/JVM-Synchronized/" title="JVM_Synchronized">http://yoursite.com/2019/08/17/JVM-Synchronized/</a>
     <p>
-        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
 </div>
 
@@ -1040,15 +1208,15 @@
 <div class="acParent"></div>
 
 </body>
-<script src="/js/jquery.pjax.js?v=1.0.1"></script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
 
-<script src="/js/script.js?v=1.0.1"></script>
+<script src="/js/script.js?v=1.0.1" ></script>
 <script>
     var img_resize = 'default';
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#netty','#nio','#framework','#zookeeper','#Spec','#gc','#summary','#classLoader','#juc','#hotspot','#j2ee','#spring','#hbase','#spark','#redis','#thread','#tomcat','#mysql','#lang','#elasticsearch','#kafka','#servlet','#ioc','#io','#serialization','#file','#ejb','#collections','#event','#aop','#job','#map','#applicationContext','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
+            'data': ['#week','#hide','#jvm','#gc','#summary','#juc','#jdk','#map','#classLoader','#packages','#io','#serialization','#file','#nio','#lang','#spring','#doc','#utils','#hotspot','#collections','#java','#note','#j2ee','#ejb','#distributed','#hbase','#framework','#spark','#elasticsearch','#kafka','#mysql','#netty','#redis','#servlet','#tomcat','#zookeeper','#Spec','#thread','#applicationContext','#ioc','#event','#aop','#job','#spring-mvc','#spring-webflux','#beanFactory',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

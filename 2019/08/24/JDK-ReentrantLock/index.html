@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   <title>JDK_ReentrantLock | Zyumin</title>
-  <meta name="keywords" content=" jdk , juc ">
+  <meta name="keywords" content=" juc , jdk ">
   <meta name="description" content="JDK_ReentrantLock | Zyumin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta name="keywords" content="java">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
 <meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-23T07:09:56.946Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-03-23T07:09:38.000Z">
+<meta property="article:modified_time" content="2019-03-23T07:09:56.000Z">
+<meta property="article:author" content="zhengyumin">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -30,7 +30,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
 
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script>
@@ -41,11 +41,11 @@
 
 
 
-<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
 
-<script src="/js/iconfont.js?v=1.0.1"></script>
+<script src="/js/iconfont.js?v=1.0.1" ></script>
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="false">
@@ -56,7 +56,7 @@
 <aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.png">
+    <img class="avatar" src="/img/avatar.png" />
 </a>
 <div class="author">
     <span>zhengyumin</span>
@@ -68,7 +68,7 @@
         <a title="github" href="https://github.com/Zyumin" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-github"/>
+                    <use xlink:href="#icon-github"></use>
                 </svg>
             
         </a>
@@ -78,7 +78,7 @@
         <a title="neteasemusic" href="https://music.163.com/#/user/home?id=60037019" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-neteasemusic"/>
+                    <use xlink:href="#icon-neteasemusic"></use>
                 </svg>
             
         </a>
@@ -94,7 +94,7 @@
     
         
             
-            <li><div data-rel="jdk">jdk<small>(13)</small></div>
+            <li><div data-rel="java">java<small>(9)</small></div>
                 
             </li>
             
@@ -102,7 +102,7 @@
     
         
             
-            <li><div data-rel="java">java<small>(9)</small></div>
+            <li><div data-rel="jdk">jdk<small>(13)</small></div>
                 
             </li>
             
@@ -118,7 +118,7 @@
     
         
             
-            <li><div data-rel="redis">redis<small>(4)</small></div>
+            <li><div data-rel="mysql">mysql<small>(2)</small></div>
                 
             </li>
             
@@ -126,7 +126,7 @@
     
         
             
-            <li><div data-rel="mysql">mysql<small>(2)</small></div>
+            <li><div data-rel="redis">redis<small>(4)</small></div>
                 
             </li>
             
@@ -143,7 +143,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="55">
-<input type="hidden" id="yelog_site_word_count" value="185.6k">
+<input type="hidden" id="yelog_site_word_count" value="189.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -166,11 +166,11 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off" id="local-search-input">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
         <i class="cross"></i>
         <span>
             <label for="tagswitch">Tags:</label>
-            <input id="tagswitch" type="checkbox" style="display: none">
+            <input id="tagswitch" type="checkbox" style="display: none" />
             <i id="tagsWitchIcon"></i>
         </span>
     </form>
@@ -185,51 +185,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">jdk</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">packages</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">utils</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">java</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">note</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">jvm</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">distributed</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">netty</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">nio</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">framework</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">zookeeper</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">Spec</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -241,67 +197,23 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">classLoader</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">juc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">hotspot</a>
+        <a href="javascript:" class="color4">jdk</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">j2ee</a>
+        <a href="javascript:" class="color4">map</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">spring</a>
+        <a href="javascript:" class="color2">classLoader</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">hbase</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">spark</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">redis</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">thread</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">tomcat</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">mysql</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">lang</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">elasticsearch</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">kafka</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">servlet</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ioc</a>
+        <a href="javascript:" class="color4">packages</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -317,11 +229,111 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color4">nio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">lang</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">doc</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">utils</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">hotspot</a>
     </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color2">collections</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">note</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">j2ee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ejb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">distributed</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">hbase</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">framework</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">spark</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">elasticsearch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">kafka</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">netty</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">redis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">tomcat</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">zookeeper</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Spec</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">applicationContext</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ioc</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -337,18 +349,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">map</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">applicationContext</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">beanFactory</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color1">spring-mvc</a>
     </li>
     
@@ -357,7 +357,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">doc</a>
+        <a href="javascript:" class="color2">beanFactory</a>
     </li>
     
     <div class="clearfix"></div>
@@ -370,279 +370,444 @@
     
     <nav id="title-list-nav">
         
-        <a id="top" class="java " href="/2019/02/02/Overview_java/" data-tag="summary" data-author="">
-            <span class="post-title" title="Overview_java">Overview_java</span>
-            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
-        </a>
-        
-        <a id="top" class="spring " href="/2019/03/02/Overview_Spring/" data-tag="framework,spring" data-author="">
-            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
-            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
-        </a>
-        
-        <a id="top" class="jdk " href="/2019/06/13/Overview_JDK/" data-tag="jdk,hotspot" data-author="">
-            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
-            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
-        </a>
-        
-        <a id="top" class="java " href="/2020/05/10/面试常见知识点梳理/" data-tag="job" data-author="">
-            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
-            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
-        </a>
-        
-        <a class="java " href="/2021/01/13/GC调优总结/" data-tag="jvm,gc,summary" data-author="">
-            <span class="post-title" title="GC调优总结">GC调优总结</span>
-            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Hbase/" data-tag="distributed,framework,hbase" data-author="">
-            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
-            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Spark/" data-tag="distributed,framework,spark" data-author="">
-            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
-            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis集群篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
-            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis实战篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
-            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis原理篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
-            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/23/spring-aop/" data-tag="spring,aop" data-author="">
-            <span class="post-title" title="spring-aop">spring-aop</span>
-            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/16/Spring-ApplicationContext/" data-tag="spring,applicationContext" data-author="">
-            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
-            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/05/spring-BeanFactory/" data-tag="spring,beanFactory" data-author="">
-            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
-            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/02/spring-Q-A/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
-            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
-        </a>
-        
-        <a class="spring " href="/2019/10/29/Documentation-Spring-Core-IOC/" data-tag="spring,doc" data-author="">
-            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
-            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/26/JDK-Packages-java-nio/" data-tag="jdk,packages,nio" data-author="">
-            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
-            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/23/JDK-Packages-java-io/" data-tag="jdk,packages,io,serialization,file" data-author="">
-            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
-            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Class/" data-tag="jdk" data-author="">
-            <span class="post-title" title="JDK_Class">JDK_Class</span>
-            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Thread/" data-tag="jdk,jvm,hotspot" data-author="">
-            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
-            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
-        </a>
-        
-        <a class="java " href="/2019/08/29/JVM-main方法分析/" data-tag="java,jvm" data-author="">
-            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
-            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/24/JDK-ReentrantLock/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
-            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
-        </a>
-        
-        <a class="java " href="/2019/08/17/JVM-Synchronized/" data-tag="jvm" data-author="">
-            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
-            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
-        </a>
-        
-        <a class="java " href="/2019/08/11/Overview-Java-Virtual-Machine/" data-tag="jvm" data-author="">
-            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
-            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-lang/" data-tag="jdk,packages,lang" data-author="">
-            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
-            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-utils/" data-tag="jdk,packages,utils" data-author="">
-            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
-            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/10/JDK-The-Concurrent-Framework/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
-            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/29/JDK-The-Collections-Framework/" data-tag="jdk,collections" data-author="">
-            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
-            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
-        </a>
-        
-        <a class="" href="/2019/07/10/Note-码农翻身/" data-tag="java,note" data-author="">
-            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
-            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/06/JDK-ClassLoader/" data-tag="jdk,classLoader" data-author="">
-            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
-            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
-        </a>
-        
-        <a class="spring " href="/2019/07/03/spring-ApplicationContext启动流程和事件机制/" data-tag="classLoader,spring,tomcat,servlet,event" data-author="">
-            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
-            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/26/Overview_Elasticsearch/" data-tag="framework,elasticsearch" data-author="">
-            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
-            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/24/J-U-C-ConcurrentHashMap/" data-tag="juc,map" data-author="">
-            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
-            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
-        </a>
-        
-        <a class="java " href="/2019/06/19/JVM-Garbage-Collection/" data-tag="jvm,gc" data-author="">
-            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
-            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/16/J-U-C-InterruptedException/" data-tag="juc" data-author="">
-            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
-            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
-        </a>
-        
-        <a class="java " href="/2019/06/14/Spec-JSR133/" data-tag="jvm,Spec,thread" data-author="">
-            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
-            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
-        </a>
-        
-        <a class="java " href="/2019/06/13/Spec-Java-Virtual-Machine/" data-tag="jvm,Spec" data-author="">
-            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
-            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
-        </a>
-        
-        <a class="" href="/2019/06/12/Overview_Kafka/" data-tag="framework,kafka" data-author="">
-            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
-            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
-        </a>
-        
-        <a class="redis " href="/2019/06/10/Overview_Redis/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
-            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
-        </a>
-        
-        <a class="" href="/2019/06/06/Note_java并发编程的艺术/" data-tag="java,note,juc" data-author="">
-            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
-            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Overview_Netty/" data-tag="netty,nio,framework" data-author="">
-            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
-            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Note_深入理解java虚拟机/" data-tag="java,note,jvm" data-author="">
-            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
-            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
-        </a>
-        
-        <a class="mysql " href="/2019/06/04/Overview_MySQL/" data-tag="mysql" data-author="">
-            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
-            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Zookeeper/" data-tag="distributed,framework,zookeeper" data-author="">
-            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
-            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Distributed/" data-tag="distributed" data-author="">
-            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
-            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
-        </a>
-        
-        <a class="spring " href="/2019/04/10/spring-api-1-0/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
-            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
-        </a>
-        
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/04/01/3%E6%9C%88%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
         
-        <a class="mysql " href="/2019/03/30/记一次mysql查询in的思考/" data-tag="mysql" data-author="">
-            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
-            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
-        </a>
-        
-        <a class="" href="/2019/03/26/记一次Broken-pipe问题的思考/" data-tag="tomcat" data-author="">
-            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
-            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
-        </a>
-        
-        <a class="" href="/2019/03/24/3月第三周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/03/24/3%E6%9C%88%E7%AC%AC%E4%B8%89%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第三周知识点记录">3月第三周知识点记录</span>
             <span class="post-date" title="2019-03-24 20:55:31">2019/03/24</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert One-on-One-J2EE-Development-without-EJB/" data-tag="j2ee,spring,ejb" data-author="">
+        <a  class="java "
+           href="/2021/01/13/GC%E8%B0%83%E4%BC%98%E6%80%BB%E7%BB%93/"
+           data-tag="jvm,gc,summary"
+           data-author="" >
+            <span class="post-title" title="GC调优总结">GC调优总结</span>
+            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/16/J-U-C-InterruptedException/"
+           data-tag="juc"
+           data-author="" >
+            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
+            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Class/"
+           data-tag="jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_Class">JDK_Class</span>
+            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/24/J-U-C-ConcurrentHashMap/"
+           data-tag="juc,map"
+           data-author="" >
+            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
+            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/06/JDK-ClassLoader/"
+           data-tag="jdk,classLoader"
+           data-author="" >
+            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
+            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/23/JDK-Packages-java-io/"
+           data-tag="jdk,packages,io,serialization,file"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
+            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/26/JDK-Packages-java-nio/"
+           data-tag="jdk,packages,nio"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
+            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-lang/"
+           data-tag="jdk,packages,lang"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
+            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/10/29/Documentation-Spring-Core-IOC/"
+           data-tag="spring,doc"
+           data-author="" >
+            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
+            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-utils/"
+           data-tag="jdk,packages,utils"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
+            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Thread/"
+           data-tag="jvm,jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
+            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/19/JVM-Garbage-Collection/"
+           data-tag="jvm,gc"
+           data-author="" >
+            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
+            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/29/JDK-The-Collections-Framework/"
+           data-tag="jdk,collections"
+           data-author="" >
+            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
+            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/24/JDK-ReentrantLock/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
+            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/29/JVM-main%E6%96%B9%E6%B3%95%E5%88%86%E6%9E%90/"
+           data-tag="jvm,java"
+           data-author="" >
+            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
+            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/17/JVM-Synchronized/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
+            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/07/10/Note-%E7%A0%81%E5%86%9C%E7%BF%BB%E8%BA%AB/"
+           data-tag="java,note"
+           data-author="" >
+            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
+            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert%20One-on-One-J2EE-Development-without-EJB/"
+           data-tag="spring,j2ee,ejb"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Development without EJB">Expert One-on-One J2EE Development without EJB</span>
             <span class="post-date" title="2019-03-10 19:45:57">2019/03/10</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/" data-tag="j2ee,spring" data-author="">
+        <a  class=""
+           href="/2019/06/06/Note_java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/"
+           data-tag="juc,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
+            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/10/JDK-The-Concurrent-Framework/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
+            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/18/Overview-Hbase/"
+           data-tag="distributed,hbase,framework"
+           data-author="" >
+            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
+            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Note_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA/"
+           data-tag="jvm,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
+            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/"
+           data-tag="spring,j2ee"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Design and Development">Expert One-on-One J2EE Design and Development</span>
             <span class="post-date" title="2019-03-10 19:45:18">2019/03/10</span>
         </a>
         
-        <a class="spring " href="/2019/03/03/spring-Core-Container预览/" data-tag="spring,ioc" data-author="">
-            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
-            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        <a  class="java "
+           href="/2019/08/11/Overview-Java-Virtual-Machine/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
+            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
         </a>
         
-        <a class="spring " href="/2019/02/03/spring-mvc/" data-tag="spring,servlet,spring-mvc,spring-webflux" data-author="">
-            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
-            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        <a  class=""
+           href="/2019/06/03/Overview_Distributed/"
+           data-tag="distributed"
+           data-author="" >
+            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
+            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
         </a>
         
-        <a class="" href="/2019/02/03/Overview_Tomcat/" data-tag="tomcat,servlet" data-author="">
+        <a  class=""
+           href="/2020/03/18/Overview-Spark/"
+           data-tag="distributed,framework,spark"
+           data-author="" >
+            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
+            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/26/Overview_Elasticsearch/"
+           data-tag="framework,elasticsearch"
+           data-author="" >
+            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
+            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/12/Overview_Kafka/"
+           data-tag="framework,kafka"
+           data-author="" >
+            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
+            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
+        </a>
+        
+        <a id="top" class="jdk "
+           href="/2019/06/13/Overview_JDK/"
+           data-tag="jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
+            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/06/04/Overview_MySQL/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
+            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Overview_Netty/"
+           data-tag="nio,framework,netty"
+           data-author="" >
+            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
+            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2019/06/10/Overview_Redis/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
+            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
+        </a>
+        
+        <a id="top" class="spring "
+           href="/2019/03/02/Overview_Spring/"
+           data-tag="spring,framework"
+           data-author="" >
+            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
+            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/03/Overview_Tomcat/"
+           data-tag="servlet,tomcat"
+           data-author="" >
             <span class="post-title" title="servlet_tomcat">servlet_tomcat</span>
             <span class="post-date" title="2019-02-03 15:49:08">2019/02/03</span>
         </a>
         
-        <a class="" href="/2019/02/02/Spec_Servlet/" data-tag="j2ee,servlet" data-author="">
+        <a  class=""
+           href="/2019/06/03/Overview_Zookeeper/"
+           data-tag="distributed,framework,zookeeper"
+           data-author="" >
+            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
+            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2019/02/02/Overview_java/"
+           data-tag="summary"
+           data-author="" >
+            <span class="post-title" title="Overview_java">Overview_java</span>
+            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%8E%9F%E7%90%86%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
+            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%AE%9E%E6%88%98%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
+            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E9%9B%86%E7%BE%A4%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
+            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/14/Spec-JSR133/"
+           data-tag="jvm,Spec,thread"
+           data-author="" >
+            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
+            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/13/Spec-Java-Virtual-Machine/"
+           data-tag="jvm,Spec"
+           data-author="" >
+            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
+            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/02/Spec_Servlet/"
+           data-tag="j2ee,servlet"
+           data-author="" >
             <span class="post-title" title="j2ee_servlet">j2ee_servlet</span>
             <span class="post-date" title="2019-02-02 18:05:54">2019/02/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/16/Spring-ApplicationContext/"
+           data-tag="spring,applicationContext"
+           data-author="" >
+            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
+            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/03/03/spring-Core-Container%E9%A2%84%E8%A7%88/"
+           data-tag="spring,ioc"
+           data-author="" >
+            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
+            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/02/spring-Q-A/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
+            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/07/03/spring-ApplicationContext%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/"
+           data-tag="classLoader,spring,servlet,tomcat,event"
+           data-author="" >
+            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
+            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/04/10/spring-api-1-0/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
+            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/26/%E8%AE%B0%E4%B8%80%E6%AC%A1Broken-pipe%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="tomcat"
+           data-author="" >
+            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
+            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/03/30/%E8%AE%B0%E4%B8%80%E6%AC%A1mysql%E6%9F%A5%E8%AF%A2in%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
+            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/23/spring-aop/"
+           data-tag="spring,aop"
+           data-author="" >
+            <span class="post-title" title="spring-aop">spring-aop</span>
+            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2020/05/10/%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/"
+           data-tag="job"
+           data-author="" >
+            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
+            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/02/03/spring-mvc/"
+           data-tag="spring,servlet,spring-mvc,spring-webflux"
+           data-author="" >
+            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
+            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/05/spring-BeanFactory/"
+           data-tag="spring,beanFactory"
+           data-author="" >
+            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
+            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
         </a>
         
     </nav>
@@ -657,7 +822,7 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-JDK-ReentrantLock" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <article id="post-JDK-ReentrantLock" class="article article-type-post" itemscope itemprop="blogPost">
     
         <h1 class="article-title">JDK_ReentrantLock</h1>
     
@@ -674,21 +839,21 @@
         
         <span class="tag">
             
-            <a href="javascript:" class="color4">jdk</a>
-            
             <a href="javascript:" class="color4">juc</a>
+            
+            <a href="javascript:" class="color4">jdk</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2020-03-21 00:18:32">2019-08-24 18:48</time>
+        创建时间:<time class="date" title='更新时间: 2020-03-21 00:18:32'>2019-08-24 18:48</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:6.6k</span>
+        <span>字数:6.8k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -707,7 +872,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#可重入锁-ReentrantLock-skeleton"><span class="toc-text">可重入锁(ReentrantLock skeleton)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#类关系图-Class-Diagrams"><span class="toc-text">类关系图(Class Diagrams)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#框架细节-skeleton"><span class="toc-text">框架细节(skeleton)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#锁的实现-Lock-implement"><span class="toc-text">锁的实现(Lock implement)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#扩展功能-extended-capabilities"><span class="toc-text">扩展功能(extended capabilities)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抽象同步队列-AQS"><span class="toc-text">抽象同步队列(AQS )</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Class-Diagrams"><span class="toc-text">Class Diagrams</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AQS-skeleton"><span class="toc-text">AQS skeleton</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#队列节点-Node"><span class="toc-text">队列节点(Node)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#数据结构-struct"><span class="toc-text">数据结构(struct)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#模式-mode"><span class="toc-text">模式(mode)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#状态-waitStatus"><span class="toc-text">状态(waitStatus)</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#队列节点的相关操作-Node-operation"><span class="toc-text">队列节点的相关操作(Node operation)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#CAS"><span class="toc-text">CAS</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#UnsupportedOperationException-method"><span class="toc-text">UnsupportedOperationException method</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Condition"><span class="toc-text">Condition</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AQS-impl-example"><span class="toc-text">AQS impl example</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加锁-解锁分析-lock-unlock"><span class="toc-text">加锁/解锁分析 (lock /unlock)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tryAcquire"><span class="toc-text">tryAcquire</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#addWaiter"><span class="toc-text">addWaiter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#acquireQueued"><span class="toc-text">acquireQueued</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#shouldParkAfterFailedAcquire"><span class="toc-text">shouldParkAfterFailedAcquire</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#parkAndCheckInterrupt"><span class="toc-text">parkAndCheckInterrupt</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#队列状态"><span class="toc-text">队列状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#一致性问题"><span class="toc-text">一致性问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#可见性问题"><span class="toc-text">可见性问题</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#条件分析-Condition"><span class="toc-text">条件分析(Condition)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#类关系图-Class-Diagrams-1"><span class="toc-text">类关系图(Class Diagrams)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#await"><span class="toc-text">await</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#addConditionWaiter"><span class="toc-text">addConditionWaiter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#fullyRelease-释放Lock"><span class="toc-text">fullyRelease(释放Lock)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#isOnSyncQueue-阻塞"><span class="toc-text">isOnSyncQueue(阻塞)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#checkInterruptWhileWaiting-检查是否被中断"><span class="toc-text">checkInterruptWhileWaiting (检查是否被中断)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#信号前中断的特殊情况"><span class="toc-text">信号前中断的特殊情况</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#unlinkCancelledWaiters"><span class="toc-text">unlinkCancelledWaiters</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#reportInterruptAfterWait"><span class="toc-text">reportInterruptAfterWait</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#signal"><span class="toc-text">signal</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#transferForSignal"><span class="toc-text">transferForSignal</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结-1"><span class="toc-text">总结</span></a></li></ol></li>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81-ReentrantLock-skeleton"><span class="toc-text">可重入锁(ReentrantLock skeleton)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E5%85%B3%E7%B3%BB%E5%9B%BE-Class-Diagrams"><span class="toc-text">类关系图(Class Diagrams)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6%E7%BB%86%E8%8A%82-skeleton"><span class="toc-text">框架细节(skeleton)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%81%E7%9A%84%E5%AE%9E%E7%8E%B0-Lock-implement"><span class="toc-text">锁的实现(Lock implement)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E5%8A%9F%E8%83%BD-extended-capabilities"><span class="toc-text">扩展功能(extended capabilities)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E5%90%8C%E6%AD%A5%E9%98%9F%E5%88%97-AQS"><span class="toc-text">抽象同步队列(AQS )</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Class-Diagrams"><span class="toc-text">Class Diagrams</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AQS-skeleton"><span class="toc-text">AQS skeleton</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%98%9F%E5%88%97%E8%8A%82%E7%82%B9-Node"><span class="toc-text">队列节点(Node)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-struct"><span class="toc-text">数据结构(struct)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F-mode"><span class="toc-text">模式(mode)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%8A%B6%E6%80%81-waitStatus"><span class="toc-text">状态(waitStatus)</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%98%9F%E5%88%97%E8%8A%82%E7%82%B9%E7%9A%84%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C-Node-operation"><span class="toc-text">队列节点的相关操作(Node operation)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#CAS"><span class="toc-text">CAS</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#UnsupportedOperationException-method"><span class="toc-text">UnsupportedOperationException method</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Condition"><span class="toc-text">Condition</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#AQS-impl-example"><span class="toc-text">AQS impl example</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E9%94%81-x2F-%E8%A7%A3%E9%94%81%E5%88%86%E6%9E%90-lock-x2F-unlock"><span class="toc-text">加锁&#x2F;解锁分析 (lock &#x2F;unlock)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tryAcquire"><span class="toc-text">tryAcquire</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#addWaiter"><span class="toc-text">addWaiter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#acquireQueued"><span class="toc-text">acquireQueued</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#shouldParkAfterFailedAcquire"><span class="toc-text">shouldParkAfterFailedAcquire</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#parkAndCheckInterrupt"><span class="toc-text">parkAndCheckInterrupt</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%98%9F%E5%88%97%E7%8A%B6%E6%80%81"><span class="toc-text">队列状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E8%87%B4%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-text">一致性问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%AF%E8%A7%81%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-text">可见性问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E5%88%86%E6%9E%90-Condition"><span class="toc-text">条件分析(Condition)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E5%85%B3%E7%B3%BB%E5%9B%BE-Class-Diagrams-1"><span class="toc-text">类关系图(Class Diagrams)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#await"><span class="toc-text">await</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#addConditionWaiter"><span class="toc-text">addConditionWaiter</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#fullyRelease-%E9%87%8A%E6%94%BELock"><span class="toc-text">fullyRelease(释放Lock)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#isOnSyncQueue-%E9%98%BB%E5%A1%9E"><span class="toc-text">isOnSyncQueue(阻塞)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#checkInterruptWhileWaiting-%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E8%A2%AB%E4%B8%AD%E6%96%AD"><span class="toc-text">checkInterruptWhileWaiting (检查是否被中断)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E5%89%8D%E4%B8%AD%E6%96%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5"><span class="toc-text">信号前中断的特殊情况</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#unlinkCancelledWaiters"><span class="toc-text">unlinkCancelledWaiters</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#reportInterruptAfterWait"><span class="toc-text">reportInterruptAfterWait</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#signal"><span class="toc-text">signal</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#transferForSignal"><span class="toc-text">transferForSignal</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-text">总结</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -730,36 +895,42 @@
 <li>Lock 、unlock</li>
 <li>Condition</li>
 </ul>
-<a id="more"></a>
-<h3 id="可重入锁-ReentrantLock-skeleton"><a href="#可重入锁-ReentrantLock-skeleton" class="headerlink" title="可重入锁(ReentrantLock skeleton)"></a>可重入锁(ReentrantLock skeleton)</h3><h4 id="类关系图-Class-Diagrams"><a href="#类关系图-Class-Diagrams" class="headerlink" title="类关系图(Class Diagrams)"></a>类关系图(Class Diagrams)</h4><p>​    从下图的类图来看,<code>ReentrantLock</code>  类实现了<code>Lock</code> 接口, 非阻塞式,超时支持.</p>
-<p>​    更多细节参考 <a href="https://zyumin.github.io/2019/08/10/JDK-The-Concurrent-Framework/#Locks-锁" target="_blank" rel="noopener">JDK-The-Concurrent-Framework</a></p>
-<p><img src="http://ww2.sinaimg.cn/large/006y8mN6gy1g69g1omdxdj31c80pwgnw.jpg" width="70%" height="70%"></p>
-<h4 id="框架细节-skeleton"><a href="#框架细节-skeleton" class="headerlink" title="框架细节(skeleton)"></a>框架细节(skeleton)</h4><p>#### </p>
-<p><img src="http://ww4.sinaimg.cn/large/006y8mN6gy1g69k0z6ir1j30u00y8tfp.jpg" width="70%" height="70%"></p>
+<span id="more"></span>
+
+
+
+<h3 id="可重入锁-ReentrantLock-skeleton"><a href="#可重入锁-ReentrantLock-skeleton" class="headerlink" title="可重入锁(ReentrantLock skeleton)"></a>可重入锁(ReentrantLock skeleton)</h3><h4 id="类关系图-Class-Diagrams"><a href="#类关系图-Class-Diagrams" class="headerlink" title="类关系图(Class Diagrams)"></a>类关系图(Class Diagrams)</h4><p>​	从下图的类图来看,<code>ReentrantLock</code>  类实现了<code>Lock</code> 接口, 非阻塞式,超时支持.</p>
+<p>​	更多细节参考 <a target="_blank" rel="noopener" href="https://zyumin.github.io/2019/08/10/JDK-The-Concurrent-Framework/#Locks-%E9%94%81">JDK-The-Concurrent-Framework</a></p>
+<img src="http://ww2.sinaimg.cn/large/006y8mN6gy1g69g1omdxdj31c80pwgnw.jpg" width="70%" height="70%">
+
+<h4 id="框架细节-skeleton"><a href="#框架细节-skeleton" class="headerlink" title="框架细节(skeleton)"></a>框架细节(skeleton)</h4><h4 id=""><a href="#" class="headerlink" title=""></a></h4><img src="http://ww4.sinaimg.cn/large/006y8mN6gy1g69k0z6ir1j30u00y8tfp.jpg" width="70%" height="70%">
+
+
+
 <h5 id="锁的实现-Lock-implement"><a href="#锁的实现-Lock-implement" class="headerlink" title="锁的实现(Lock implement)"></a>锁的实现(Lock implement)</h5><p>看ReentrantLock的源码我们可以发现,实现Lock接口的类 都由Sync 处理, Sync 类是extends AbstractQueuedSynchronizer. Sync 有两个实现,分别是公平和非公平锁</p>
 <h5 id="扩展功能-extended-capabilities"><a href="#扩展功能-extended-capabilities" class="headerlink" title="扩展功能(extended capabilities)"></a>扩展功能(extended capabilities)</h5><p>除了实现Lock 的方法外,  还具有扩展功能。获取等待队列,当前线程是否获得锁等监控</p>
 <p>源码:</p>
-<pre><code class="java">public class ReentrantLock implements Lock, java.io.Serializable {
+<pre><code class="java">public class ReentrantLock implements Lock, java.io.Serializable &#123;
     private final Sync sync;
-    abstract static class Sync extends AbstractQueuedSynchronizer {
+    abstract static class Sync extends AbstractQueuedSynchronizer &#123;
       ...
-        }
-        static final class NonfairSync extends Sync{}
-        static final class FairSync extends Sync{}
-        public ReentrantLock() {
+        &#125;
+        static final class NonfairSync extends Sync&#123;&#125;
+        static final class FairSync extends Sync&#123;&#125;
+        public ReentrantLock() &#123;
         sync = new NonfairSync();
-    }
-    public ReentrantLock(boolean fair) {
+    &#125;
+    public ReentrantLock(boolean fair) &#123;
         sync = fair ? new FairSync() : new NonfairSync();
-    }
-    public void lock() {
+    &#125;
+    public void lock() &#123;
         sync.lock();
-    }
-    public void unlock() {
+    &#125;
+    public void unlock() &#123;
         sync.release(1);
-    }
+    &#125;
     ...
-}
+&#125;
 </code></pre>
 <h3 id="抽象同步队列-AQS"><a href="#抽象同步队列-AQS" class="headerlink" title="抽象同步队列(AQS )"></a>抽象同步队列(AQS )</h3><h4 id="Class-Diagrams"><a href="#Class-Diagrams" class="headerlink" title="Class Diagrams"></a>Class Diagrams</h4><p><img src="http://tva1.sinaimg.cn/large/006y8mN6gy1g6aynej1qtj30u10u0n0j.jpg" alt="image-20190823192643197"></p>
 <p>我们需要关注的是蓝色圈圈里的, AQS 其实底层用的是volatile 的Node节点 和 CAS 的操作, 实现阻塞队列的语义.  </p>
@@ -818,9 +989,9 @@
         /**
          * Returns true if node is waiting in shared mode.
          */
-        final boolean isShared() {
+        final boolean isShared() &#123;
             return nextWaiter == SHARED;
-        }
+        &#125;
 </code></pre>
 <h6 id="状态-waitStatus"><a href="#状态-waitStatus" class="headerlink" title="状态(waitStatus)"></a>状态(waitStatus)</h6><p> 状态相关细节如下 </p>
 <pre><code class="java">        /** waitStatus value to indicate thread has cancelled */
@@ -888,8 +1059,8 @@
     private static final long waitStatusOffset;
     private static final long nextOffset;
 
-    static {
-        try {
+    static &#123;
+        try &#123;
             stateOffset = unsafe.objectFieldOffset
                 (AbstractQueuedSynchronizer.class.getDeclaredField(&quot;state&quot;));
             headOffset = unsafe.objectFieldOffset
@@ -901,167 +1072,167 @@
             nextOffset = unsafe.objectFieldOffset
                 (Node.class.getDeclaredField(&quot;next&quot;));
 
-        } catch (Exception ex) { throw new Error(ex); }
-    }
+        &#125; catch (Exception ex) &#123; throw new Error(ex); &#125;
+    &#125;
     /**
      * CAS head field. Used only by enq.
      */
-    private final boolean compareAndSetHead(Node update) {
+    private final boolean compareAndSetHead(Node update) &#123;
         return unsafe.compareAndSwapObject(this, headOffset, null, update);
-    }
+    &#125;
     /**
      * CAS tail field. Used only by enq.
      */
-    private final boolean compareAndSetTail(Node expect, Node update) {
+    private final boolean compareAndSetTail(Node expect, Node update) &#123;
         return unsafe.compareAndSwapObject(this, tailOffset, expect, update);
-    }
+    &#125;
     /**
      * CAS waitStatus field of a node.
      */
-    private static final boolean compareAndSetWaitStatus(Node node,int expect,int update) {
+    private static final boolean compareAndSetWaitStatus(Node node,int expect,int update) &#123;
         return unsafe.compareAndSwapInt(node, waitStatusOffset,expect, update);
-    }
+    &#125;
     /**
      * CAS next field of a node.
      */
-    private static final boolean compareAndSetNext(Node node,Node expect, Node update) {
+    private static final boolean compareAndSetNext(Node node,Node expect, Node update) &#123;
         return unsafe.compareAndSwapObject(node, nextOffset, expect, update);
-    }
+    &#125;
 </code></pre>
 <p>state</p>
 <p> 队列状态, 例如, <code>ReentrantLock</code> 中用于记录重入次数</p>
 <pre><code class="java">/**
  * Atomically sets synchronization state to the given updated
  * value if the current state value equals the expected value.
- * This operation has memory semantics of a {@code volatile} read
+ * This operation has memory semantics of a &#123;@code volatile&#125; read
  * and write.
  *
  * @param expect the expected value
  * @param update the new value
- * @return {@code true} if successful. False return indicates that the actual
+ * @return &#123;@code true&#125; if successful. False return indicates that the actual
  *         value was not equal to the expected value.
  */
-protected final boolean compareAndSetState(int expect, int update) {
+protected final boolean compareAndSetState(int expect, int update) &#123;
     // See below for intrinsics setup to support this
     return unsafe.compareAndSwapInt(this, stateOffset, expect, update);
-}
+&#125;
     /**
      * The synchronization state.
      */
     private volatile int state;
 </code></pre>
 <h6 id="UnsupportedOperationException-method"><a href="#UnsupportedOperationException-method" class="headerlink" title="UnsupportedOperationException method"></a>UnsupportedOperationException method</h6><p>子类需要实现的方法, UnsupportedOperationException method</p>
-<p>To use this class as the basis of a synchronizer, redefine the following methods, as applicable, by inspecting and/or modifying the synchronization state using <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#getState--" target="_blank" rel="noopener"><code>getState()</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#setState-int-" target="_blank" rel="noopener"><code>setState(int)</code></a> and/or <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#compareAndSetState-int-int-" target="_blank" rel="noopener"><code>compareAndSetState(int, int)</code></a>:</p>
+<p>To use this class as the basis of a synchronizer, redefine the following methods, as applicable, by inspecting and&#x2F;or modifying the synchronization state using <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#getState--"><code>getState()</code></a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#setState-int-"><code>setState(int)</code></a> and&#x2F;or <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#compareAndSetState-int-int-"><code>compareAndSetState(int, int)</code></a>:</p>
 <ul>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryAcquire-int-" target="_blank" rel="noopener"><code>tryAcquire(int)</code></a></li>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryRelease-int-" target="_blank" rel="noopener"><code>tryRelease(int)</code></a></li>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryAcquireShared-int-" target="_blank" rel="noopener"><code>tryAcquireShared(int)</code></a></li>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryReleaseShared-int-" target="_blank" rel="noopener"><code>tryReleaseShared(int)</code></a></li>
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#isHeldExclusively--" target="_blank" rel="noopener"><code>isHeldExclusively()</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryAcquire-int-"><code>tryAcquire(int)</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryRelease-int-"><code>tryRelease(int)</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryAcquireShared-int-"><code>tryAcquireShared(int)</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#tryReleaseShared-int-"><code>tryReleaseShared(int)</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractQueuedSynchronizer.html#isHeldExclusively--"><code>isHeldExclusively()</code></a></li>
 </ul>
-<p>Each of these methods by default throws <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/UnsupportedOperationException.html" target="_blank" rel="noopener"><code>UnsupportedOperationException</code></a><em>only</em><code>final</code></p>
-<p>You may also find the inherited methods from <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractOwnableSynchronizer.html" target="_blank" rel="noopener"><code>AbstractOwnableSynchronizer</code></a> useful to keep track of the thread owning an exclusive synchronizer. You are encouraged to use them – this enables monitoring and diagnostic tools to assist users in determining which threads hold locks.</p>
+<p>Each of these methods by default throws <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/lang/UnsupportedOperationException.html"><code>UnsupportedOperationException</code></a><em>only</em><code>final</code></p>
+<p>You may also find the inherited methods from <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/AbstractOwnableSynchronizer.html"><code>AbstractOwnableSynchronizer</code></a> useful to keep track of the thread owning an exclusive synchronizer. You are encouraged to use them – this enables monitoring and diagnostic tools to assist users in determining which threads hold locks.</p>
 <h5 id="Condition"><a href="#Condition" class="headerlink" title="Condition"></a>Condition</h5><p>条件队列相关,下文分析</p>
 <h5 id="AQS-impl-example"><a href="#AQS-impl-example" class="headerlink" title="AQS impl example"></a>AQS impl example</h5><p>ReentrantLock中的实现,  重点看看tryAcquire tryRelease的实现,  这里以Sync的实现NonfairSync (默认的非公平锁,注意非公平体现 不能保证FIFO,会造成线程饥饿, 但是好处是减少上下文切换)分析</p>
 <p>Sync:</p>
-<pre><code class="java">abstract static class Sync extends AbstractQueuedSynchronizer {
+<pre><code class="java">abstract static class Sync extends AbstractQueuedSynchronizer &#123;
         //抽象方法 留给子类实现
         abstract void lock();
         // 尝试加锁,初始化或者重入可以加锁成功
-        final boolean nonfairTryAcquire(int acquires) {
+        final boolean nonfairTryAcquire(int acquires) &#123;
             final Thread current = Thread.currentThread();
             int c = getState();
-            if (c == 0) {
-                if (compareAndSetState(0, acquires)) {
+            if (c == 0) &#123;
+                if (compareAndSetState(0, acquires)) &#123;
                     setExclusiveOwnerThread(current);
                     return true;
-                }
-            }
-            else if (current == getExclusiveOwnerThread()) {
+                &#125;
+            &#125;
+            else if (current == getExclusiveOwnerThread()) &#123;
                 int nextc = c + acquires;
                 if (nextc &lt; 0) // overflow
                     throw new Error(&quot;Maximum lock count exceeded&quot;);
                 setState(nextc);
                 return true;
-            }
+            &#125;
             return false;
-        }
+        &#125;
         //尝试释放锁
-        protected final boolean tryRelease(int releases) {
+        protected final boolean tryRelease(int releases) &#123;
             int c = getState() - releases;
             if (Thread.currentThread() != getExclusiveOwnerThread())
                 throw new IllegalMonitorStateException();
             boolean free = false;
-            if (c == 0) {
+            if (c == 0) &#123;
                 free = true;
                 setExclusiveOwnerThread(null);
-            }
+            &#125;
             setState(c);
             return free;
-        }
+        &#125;
         //当前线程是否持有锁
-        protected final boolean isHeldExclusively() {
+        protected final boolean isHeldExclusively() &#123;
             // While we must in general read state before owner,
             // we don&#39;t need to do so to check if current thread is owner
             return getExclusiveOwnerThread() == Thread.currentThread();
-        }
+        &#125;
                    ...
-}
+&#125;
 </code></pre>
 <p>NonfairSync :</p>
-<pre><code class="java">static final class NonfairSync extends Sync {
+<pre><code class="java">static final class NonfairSync extends Sync &#123;
     private static final long serialVersionUID = 7316153563782823691L;
 
     /**
      * Performs lock.  Try immediate barge, backing up to normal
      * acquire on failure.
      */
-    final void lock() {
+    final void lock() &#123;
         if (compareAndSetState(0, 1))
             setExclusiveOwnerThread(Thread.currentThread());
         else
             acquire(1);
-    }
+    &#125;
 
-    protected final boolean tryAcquire(int acquires) {
+    protected final boolean tryAcquire(int acquires) &#123;
         return nonfairTryAcquire(acquires);
-    }
-}
+    &#125;
+&#125;
 </code></pre>
-<h3 id="加锁-解锁分析-lock-unlock"><a href="#加锁-解锁分析-lock-unlock" class="headerlink" title="加锁/解锁分析 (lock /unlock)"></a>加锁/解锁分析 (lock /unlock)</h3><p>我们从<code>java.util.concurrent.locks.ReentrantLock.NonfairSync#lock</code>入手 , 来看看语言层面怎么实现同步语义( 注意,实现过程没有用到同步语义,所以我们要重点关注volidate,cas 以及顺序等)</p>
+<h3 id="加锁-x2F-解锁分析-lock-x2F-unlock"><a href="#加锁-x2F-解锁分析-lock-x2F-unlock" class="headerlink" title="加锁&#x2F;解锁分析 (lock &#x2F;unlock)"></a>加锁&#x2F;解锁分析 (lock &#x2F;unlock)</h3><p>我们从<code>java.util.concurrent.locks.ReentrantLock.NonfairSync#lock</code>入手 , 来看看语言层面怎么实现同步语义( 注意,实现过程没有用到同步语义,所以我们要重点关注volidate,cas 以及顺序等)</p>
 <pre><code class="java">/**
  * Performs lock.  Try immediate barge, backing up to normal
  * acquire on failure.
  */
-final void lock() {
+final void lock() &#123;
     //CAS设置state,成功则获取锁,并设置当前占有锁的线程
     if (compareAndSetState(0, 1))
         setExclusiveOwnerThread(Thread.currentThread());
     else
    //否则进行获取锁的操作(阻塞、入队等)
         acquire(1);
-}
+&#125;
 </code></pre>
 <p>如果CAS获取失败, 调用<code>java.util.concurrent.locks.AbstractQueuedSynchronizer#acquire</code></p>
 <pre><code class="java"> /**
   * Acquires in exclusive mode, ignoring interrupts.  Implemented
-  * by invoking at least once {@link #tryAcquire},
+  * by invoking at least once &#123;@link #tryAcquire&#125;,
   * returning on success.  Otherwise the thread is queued, possibly
-  * repeatedly blocking and unblocking, invoking {@link
-  * #tryAcquire} until success.  This method can be used
-  * to implement method {@link Lock#lock}.
+  * repeatedly blocking and unblocking, invoking &#123;@link
+  * #tryAcquire&#125; until success.  This method can be used
+  * to implement method &#123;@link Lock#lock&#125;.
   *
   * @param arg the acquire argument.  This value is conveyed to
-  *  {@link #tryAcquire} but is otherwise uninterpreted and
+  *  &#123;@link #tryAcquire&#125; but is otherwise uninterpreted and
   *  can represent anything you like.
   */
-public final void acquire(int arg) {
+public final void acquire(int arg) &#123;
     //获取失败 , 并且返回acquireQueued 返回true(阻塞状态被中断) 
     if (!tryAcquire(arg) &amp;&amp;
         acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
         //回放中断
         selfInterrupt();
-}
+&#125;
 </code></pre>
 <p>下面, 依次分析下面三个方法:</p>
 <ul>
@@ -1070,21 +1241,21 @@ public final void acquire(int arg) {
 <li>acquireQueued</li>
 </ul>
 <h4 id="tryAcquire"><a href="#tryAcquire" class="headerlink" title="tryAcquire"></a>tryAcquire</h4><p>在阻塞之前, 再次(注意在一开始lock方法中就尝试过一次, 可能是作者有意为之,或是…)尝试获取</p>
-<pre><code class="java">  protected final boolean tryAcquire(int acquires) {
+<pre><code class="java">  protected final boolean tryAcquire(int acquires) &#123;
       return nonfairTryAcquire(acquires);
-  }
-  final boolean nonfairTryAcquire(int acquires) {
+  &#125;
+  final boolean nonfairTryAcquire(int acquires) &#123;
       final Thread current = Thread.currentThread();
       int c = getState();
       //如果当前state为0, 再次尝试获取
-      if (c == 0) {
-    if (compareAndSetState(0, acquires)) {
+      if (c == 0) &#123;
+    if (compareAndSetState(0, acquires)) &#123;
         setExclusiveOwnerThread(current);
         return true;
-    }
-      }
+    &#125;
+      &#125;
       //判断是否重入线程
-      else if (current == getExclusiveOwnerThread()) {
+      else if (current == getExclusiveOwnerThread()) &#123;
     //这里操作无需加锁, 是线程安全的,其他线程是进不到这里
     int nextc = c + acquires;
     //最大可重入次数是Integer.MAX
@@ -1092,9 +1263,9 @@ public final void acquire(int arg) {
         throw new Error(&quot;Maximum lock count exceeded&quot;);
     setState(nextc);
     return true;
-      }
+      &#125;
       return false;
-  }
+  &#125;
 </code></pre>
 <h4 id="addWaiter"><a href="#addWaiter" class="headerlink" title="addWaiter"></a>addWaiter</h4><p> 因为第一次CAS尝试逻辑和enq方法中一致, 所以我们只需要关注enq中的操作即可</p>
 <pre><code class="java">/**
@@ -1103,46 +1274,46 @@ public final void acquire(int arg) {
  * @param mode Node.EXCLUSIVE for exclusive, Node.SHARED for shared
  * @return the new node
  */
-private Node addWaiter(Node mode) {
+private Node addWaiter(Node mode) &#123;
     //注意这里入参mode是EXCLUSIVE , 即上面Node中的mode
     Node node = new Node(Thread.currentThread(), mode);
     // Try the fast path of enq; backup to full enq on failure
     Node pred = tail;
     //当tail队列不为空的时候,说明已经初始化过了, 直接进行一次CAS操作
-    if (pred != null) {
+    if (pred != null) &#123;
         node.prev = pred;
-        if (compareAndSetTail(pred, node)) {
+        if (compareAndSetTail(pred, node)) &#123;
             pred.next = node;
             return node;
-        }
-    }
+        &#125;
+    &#125;
     //否则进入enq
     enq(node);
     return node;
-}
+&#125;
 
   /**
    * Inserts node into queue, initializing if necessary. See picture above.
    * @param node the node to insert
    * @return node&#39;s predecessor
    */
-  private Node enq(final Node node) {
-    for (;;) {
+  private Node enq(final Node node) &#123;
+    for (;;) &#123;
       Node t = tail;
       //初始化队列
-      if (t == null) { // Must initialize
+      if (t == null) &#123; // Must initialize
         if (compareAndSetHead(new Node()))
           tail = head;
-      } else {
+      &#125; else &#123;
         //非原子操作, 会出现 &quot;队列在prev方向一致，next方向不一致&quot;
         node.prev = t;
-        if (compareAndSetTail(t, node)) {
+        if (compareAndSetTail(t, node)) &#123;
           t.next = node;
           return t;
-        }
-      }
-    }
-  }
+        &#125;
+      &#125;
+    &#125;
+  &#125;
 </code></pre>
 <p>注意这里, 在插入过程中，会出现“node.prev指向旧的尾节点，但旧的尾节点.next为null未指向node（尽管，尾指针指向node）”的状态，即“<strong>队列在prev方向一致，next方向不一致</strong>”</p>
 <p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g6aync8atgj30nq0b5q3c.jpg" alt="AQS@enqå¼±ä¸è´ç¶æ"></p>
@@ -1153,35 +1324,35 @@ private Node addWaiter(Node mode) {
  *
  * @param node the node
  * @param arg the acquire argument
- * @return {@code true} if interrupted while waiting
+ * @return &#123;@code true&#125; if interrupted while waiting
  */
-final boolean acquireQueued(final Node node, int arg) {
+final boolean acquireQueued(final Node node, int arg) &#123;
     boolean failed = true;
-    try {
+    try &#123;
         boolean interrupted = false;
-        for (;;) {
+        for (;;) &#123;
             final Node p = node.predecessor();
             //如果当前节点的前继节点是头节点,才开始尝试获取锁,获取成功则返回
-            if (p == head &amp;&amp; tryAcquire(arg)) {
+            if (p == head &amp;&amp; tryAcquire(arg)) &#123;
                 //Head 一开始为空节点
                 setHead(node);
                 p.next = null; // help GC
                 failed = false;
                 return interrupted;
-            }
+            &#125;
             //否则,阻塞或处理中断
             if (shouldParkAfterFailedAcquire(p, node) &amp;&amp;
                 parkAndCheckInterrupt())
                 interrupted = true;
-        }
-    } finally {
+        &#125;
+    &#125; finally &#123;
         if (failed)
             cancelAcquire(node);
-    }
-}
+    &#125;
+&#125;
 </code></pre>
-<p>​    如果获取失败,  AQS.shouldParkAfterFailedAcquire()判断是否需要阻塞等待，如果需要，则通过AQS#parkAndCheckInterrupt()阻塞等待，直到被唤醒或被中断。</p>
-<h6 id="shouldParkAfterFailedAcquire"><a href="#shouldParkAfterFailedAcquire" class="headerlink" title="shouldParkAfterFailedAcquire"></a>shouldParkAfterFailedAcquire</h6><p>​    请求获取锁失败后处理, 是否需要阻塞判断,以及队列状态的维护</p>
+<p>​	如果获取失败,  AQS.shouldParkAfterFailedAcquire()判断是否需要阻塞等待，如果需要，则通过AQS#parkAndCheckInterrupt()阻塞等待，直到被唤醒或被中断。</p>
+<h6 id="shouldParkAfterFailedAcquire"><a href="#shouldParkAfterFailedAcquire" class="headerlink" title="shouldParkAfterFailedAcquire"></a>shouldParkAfterFailedAcquire</h6><p>​	请求获取锁失败后处理, 是否需要阻塞判断,以及队列状态的维护</p>
 <pre><code class="java">  /**
    * Checks and updates status for a node that failed to acquire.
    * Returns true if thread should block. This is the main signal
@@ -1189,9 +1360,9 @@ final boolean acquireQueued(final Node node, int arg) {
    *
    * @param pred node&#39;s predecessor holding status
    * @param node the node
-   * @return {@code true} if thread should block
+   * @return &#123;@code true&#125; if thread should block
    */
-  private static boolean shouldParkAfterFailedAcquire(Node pred, Node node) {
+  private static boolean shouldParkAfterFailedAcquire(Node pred, Node node) &#123;
     int ws = pred.waitStatus;
     if (ws == Node.SIGNAL)
       /*
@@ -1200,18 +1371,18 @@ final boolean acquireQueued(final Node node, int arg) {
        */
       return true;
     //如果前继节点的状态大于0,则代表是取消状态,需要维护队列节点的状态
-    if (ws &gt; 0) {
+    if (ws &gt; 0) &#123;
       /*
        * Predecessor was cancelled. Skip over predecessors and
        * indicate retry.
        */
       //因为当前node为尾节点,遍历队列, 找到未被取消的节点
-      do {
+      do &#123;
         node.prev = pred = pred.prev;
-      } while (pred.waitStatus &gt; 0);
+      &#125; while (pred.waitStatus &gt; 0);
       //非原子操作, 会出现 &quot;队列在prev方向一致，next方向不一致&quot;
       pred.next = node;
-    } else {
+    &#125; else &#123;
       /*
        * waitStatus must be 0 or PROPAGATE.  Indicate that we
        * need a signal, but don&#39;t park yet.  Caller will need to
@@ -1219,21 +1390,21 @@ final boolean acquireQueued(final Node node, int arg) {
        */
       //CAS修改ws的状态,直到ws的状态修改成功,才返回true需要阻塞
       compareAndSetWaitStatus(pred, ws, Node.SIGNAL);
-    }
+    &#125;
     return false;
-  }
+  &#125;
 </code></pre>
 <p>注意这里, 在插入过程中，会出现“node.prev指向非CACELLED的node，非CACELLED的node.next指向node（CACELLED）”的状态，即“<strong>队列在prev方向一致，next方向不一致</strong>”</p>
 <p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g6aynd2ovpj31cm0jkab7.jpg" alt="image-20190824131725953"></p>
 <h6 id="parkAndCheckInterrupt"><a href="#parkAndCheckInterrupt" class="headerlink" title="parkAndCheckInterrupt"></a>parkAndCheckInterrupt</h6><pre><code class="java">  /**
    * Convenience method to park and then check if interrupted
    *
-   * @return {@code true} if interrupted
+   * @return &#123;@code true&#125; if interrupted
    */
-  private final boolean parkAndCheckInterrupt() {
+  private final boolean parkAndCheckInterrupt() &#123;
     LockSupport.park(this);
     return Thread.interrupted();
-  }
+  &#125;
 </code></pre>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><h5 id="队列状态"><a href="#队列状态" class="headerlink" title="队列状态"></a>队列状态</h5><p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g6ayndml1ij318w0j8q3z.jpg" alt="image-20190824114533939"></p>
 <ul>
@@ -1241,46 +1412,46 @@ final boolean acquireQueued(final Node node, int arg) {
 <li>除了尾节点，剩余节点都满足<code>waitStatus==SIGNAL</code>，表示释放后需要唤醒后继节点。</li>
 </ul>
 <p>tips:unlock的可以按照以上分析</p>
-<h5 id="一致性问题"><a href="#一致性问题" class="headerlink" title="一致性问题"></a>一致性问题</h5><p>​    为什么要从尾节点向前遍历，而不能从node向后遍历？这是因为，AQS中的等待队列基于一个弱一致性双向链表实现，允许某些时刻下，<strong>队列在prev方向一致，next方向不一致</strong>。 (上述已经分析了,这里做个总结)</p>
+<h5 id="一致性问题"><a href="#一致性问题" class="headerlink" title="一致性问题"></a>一致性问题</h5><p>​	为什么要从尾节点向前遍历，而不能从node向后遍历？这是因为，AQS中的等待队列基于一个弱一致性双向链表实现，允许某些时刻下，<strong>队列在prev方向一致，next方向不一致</strong>。 (上述已经分析了,这里做个总结)</p>
 <blockquote>
 <p>理想情况下，队列每时每刻都处于一致的状态（强一致性模型），从node向后遍历找第一个未取消节点是更高效的做法。然而，维护一致性通常需要牺牲部分性能，为了进一步的提升性能，脑洞大开的神牛们想出了各种高性能的弱一致性模型。尽管模型允许了更多弱一致状态，但所有弱一致状态都在控制之下，不会出现一致性问题。</p>
 </blockquote>
 <h5 id="可见性问题"><a href="#可见性问题" class="headerlink" title="可见性问题"></a>可见性问题</h5><p>我们以tryRelease为例子, 看volidate的用法(对照tryAcquire分析tryRelease)</p>
-<pre><code class="java">protected final boolean tryRelease(int releases) {
+<pre><code class="java">protected final boolean tryRelease(int releases) &#123;
     int c = getState() - releases;
     if (Thread.currentThread() != getExclusiveOwnerThread())
         throw new IllegalMonitorStateException();
     boolean free = false;
-    if (c == 0) {
+    if (c == 0) &#123;
         free = true;
         //先写exclusiveOwnerThread C
         setExclusiveOwnerThread(null);
-    }
+    &#125;
     //再写state D
     setState(c);
     return free;
-}
+&#125;
 //
-final boolean nonfairTryAcquire(int acquires) {
+final boolean nonfairTryAcquire(int acquires) &#123;
     final Thread current = Thread.currentThread();
     //先读state  A
     int c = getState();
-    if (c == 0) {
-      if (compareAndSetState(0, acquires)) {
+    if (c == 0) &#123;
+      if (compareAndSetState(0, acquires)) &#123;
         setExclusiveOwnerThread(current);
         return true;
-      }
-    }
+      &#125;
+    &#125;
     //再读exclusiveOwnerThread B
-    else if (current == getExclusiveOwnerThread()) {
+    else if (current == getExclusiveOwnerThread()) &#123;
       int nextc = c + acquires;
       if (nextc &lt; 0) // overflow
         throw new Error(&quot;Maximum lock count exceeded&quot;);
       setState(nextc);
       return true;
-    }
+    &#125;
     return false;
-  }
+  &#125;
 </code></pre>
 <p>核心是三条Happens-Before规则：</p>
 <ul>
@@ -1317,21 +1488,21 @@ final boolean nonfairTryAcquire(int acquires) {
 <h4 id="类关系图-Class-Diagrams-1"><a href="#类关系图-Class-Diagrams-1" class="headerlink" title="类关系图(Class Diagrams)"></a>类关系图(Class Diagrams)</h4><p>与AQS skeleton类似,也是维护了一个条件队列,下面以await和signal()分析</p>
 <p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g6aynfh4hvj30u0101gqh.jpg" alt="image-20190824151905654"></p>
 <h4 id="await"><a href="#await" class="headerlink" title="await"></a>await</h4><p>可以先简单理解没有中断版本的,只是设置中断标记,不会抛出异常</p>
-<pre><code class="java">public final void awaitUninterruptibly() {
+<pre><code class="java">public final void awaitUninterruptibly() &#123;
     Node node = addConditionWaiter();
     int savedState = fullyRelease(node);
     boolean interrupted = false;
-    while (!isOnSyncQueue(node)) {
+    while (!isOnSyncQueue(node)) &#123;
         LockSupport.park(this);
         if (Thread.interrupted())
             interrupted = true;
-    }
+    &#125;
     if (acquireQueued(node, savedState) || interrupted)
         selfInterrupt();
-}
+&#125;
 </code></pre>
 <p>注意调用await,会释放当前线程持有的Lock,知道被通知或中断(signal)</p>
-<pre><code class="java">public final void await() throws InterruptedException {
+<pre><code class="java">public final void await() throws InterruptedException &#123;
     if (Thread.interrupted())
         throw new InterruptedException();
     // 创建等待节点并放入队尾
@@ -1341,12 +1512,12 @@ final boolean nonfairTryAcquire(int acquires) {
     /***** 无锁状态开始 *****/
     int interruptMode = 0;
     //如果不在AQS的同步队列中(signal中入队), 阻塞,直到收到信号或被中断
-    while (!isOnSyncQueue(node)) {
+    while (!isOnSyncQueue(node)) &#123;
         LockSupport.park(this);
         //现在node的是AQS条件队列上的节点,后续的操作 与#lock方法的类似
         if ((interruptMode = checkInterruptWhileWaiting(node)) != 0)
             break;
-    }
+    &#125;
                         //恢复申请锁状态,并更新中断状态
     if (acquireQueued(node, savedState) &amp;&amp; interruptMode != THROW_IE)
         interruptMode = REINTERRUPT;
@@ -1357,7 +1528,7 @@ final boolean nonfairTryAcquire(int acquires) {
     //如果之前发生中断,则更具中断模式重放中断
     if (interruptMode != 0)
         reportInterruptAfterWait(interruptMode);
-}
+&#125;
 </code></pre>
 <p>ConditionObject#await()同ReentrantLock#lockInterruptibly()一样，都是可中断的：调用ConditionObject#await()后，当前线程将保持阻塞，直到收到信号或被中断。</p>
 <h5 id="addConditionWaiter"><a href="#addConditionWaiter" class="headerlink" title="addConditionWaiter"></a>addConditionWaiter</h5><p>java.util.concurrent.locks.AbstractQueuedSynchronizer.ConditionObject#addConditionWaiter</p>
@@ -1366,14 +1537,14 @@ final boolean nonfairTryAcquire(int acquires) {
  * Adds a new waiter to wait queue.
  * @return its new wait node
  */
-private Node addConditionWaiter() {
+private Node addConditionWaiter() &#123;
     Node t = lastWaiter;
     // If lastWaiter is cancelled, clean out.
     // 维护队列状态
-    if (t != null &amp;&amp; t.waitStatus != Node.CONDITION) {
+    if (t != null &amp;&amp; t.waitStatus != Node.CONDITION) &#123;
         unlinkCancelledWaiters();
         t = lastWaiter;
-    }
+    &#125;
     Node node = new Node(Thread.currentThread(), Node.CONDITION);
     //队列是否为空,初始化头节点
     if (t == null)
@@ -1382,7 +1553,7 @@ private Node addConditionWaiter() {
         t.nextWaiter = node;
     lastWaiter = node;
     return node;
-}
+&#125;
 </code></pre>
 <p>需要提醒一下，尽管此处没有任何线程安全的保护，但实际使用时不会出现任何线程安全问题——因为<strong>条件队列的使用要求我们在调用await或signal时持有与该条件队列唯一相关的锁</strong>。(和AQS中的队列的操作相比,没有CAS操作)</p>
 <p>到这里，得到两个ReentrantLock与ConditionObject在实现上的重要区别：</p>
@@ -1400,22 +1571,22 @@ private Node addConditionWaiter() {
  * @param node the condition node for this wait
  * @return previous sync state
  */
-final long fullyRelease(Node node) {
+final long fullyRelease(Node node) &#123;
     boolean failed = true;
-    try {
+    try &#123;
         long savedState = getState();
-        if (release(savedState)) {
+        if (release(savedState)) &#123;
             failed = false;
             return savedState;
-        } else {
+        &#125; else &#123;
             //必须在Lock之后才能调用wait(),与unlock()同理
             throw new IllegalMonitorStateException();
-        }
-    } finally {
+        &#125;
+    &#125; finally &#123;
         if (failed)
             node.waitStatus = Node.CANCELLED;
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>release可以看之前的tryrelease分析,AQS#fullyRelease()返回后，调用ConditionObject#await()的线程就释放了锁(这里必须释放锁, 否则就会出现其他调用Lock的地方无法获取锁,阻塞)</p>
 <h5 id="isOnSyncQueue-阻塞"><a href="#isOnSyncQueue-阻塞" class="headerlink" title="isOnSyncQueue(阻塞)"></a>isOnSyncQueue(阻塞)</h5><p>java.util.concurrent.locks.AbstractQueuedSynchronizer#isOnSyncQueue</p>
@@ -1428,7 +1599,7 @@ final long fullyRelease(Node node) {
  * @param node the node
  * @return true if is reacquiring
  */
-final boolean isOnSyncQueue(Node node) {
+final boolean isOnSyncQueue(Node node) &#123;
     //如果是头节点 或者当前节点是CONDITION
     if (node.waitStatus == Node.CONDITION || node.prev == null)
         return false;
@@ -1443,22 +1614,22 @@ final boolean isOnSyncQueue(Node node) {
      * there, so we hardly ever traverse much.
      */
     return findNodeFromTail(node);
-}
+&#125;
     /**
      * Returns true if node is on sync queue by searching backwards from tail.
      * Called only when needed by isOnSyncQueue.
      * @return true if present
      */
-    private boolean findNodeFromTail(Node node) {
+    private boolean findNodeFromTail(Node node) &#123;
         Node t = tail;
-        for (;;) {
+        for (;;) &#123;
             if (t == node)
                 return true;
             if (t == null)
                 return false;
             t = t.prev;
-        }
-    }
+        &#125;
+    &#125;
 </code></pre>
 <p><strong>先 跳转到 signal 的分析</strong></p>
 <p>AQS#isOnSyncQueue()判断节点node是否已经被放入了AQS内部的等待队列，是的话返回true，否则返回false。主要分几种情况：</p>
@@ -1480,19 +1651,19 @@ final boolean isOnSyncQueue(Node node) {
  * before signalled, REINTERRUPT if after signalled, or
  * 0 if not interrupted.
  */
-private int checkInterruptWhileWaiting(Node node) {
+private int checkInterruptWhileWaiting(Node node) &#123;
     //是否发生了中断,否则返回0
     return Thread.interrupted() ?
         (transferAfterCancelledWait(node) ? THROW_IE : REINTERRUPT) :
         0;
-}
+&#125;
 
- final boolean transferAfterCancelledWait(Node node) {
+ final boolean transferAfterCancelledWait(Node node) &#123;
         //发生在中断之前
-        if (compareAndSetWaitStatus(node, Node.CONDITION, 0)) {
+        if (compareAndSetWaitStatus(node, Node.CONDITION, 0)) &#123;
             enq(node);
             return true;
-        }
+        &#125;
         /*
          * If we lost out to a signal(), then we can&#39;t proceed
          * until it finishes its enq().  Cancelling during an
@@ -1502,11 +1673,11 @@ private int checkInterruptWhileWaiting(Node node) {
         while (!isOnSyncQueue(node))
             Thread.yield();
         return false;
-    }
+    &#125;
 </code></pre>
 <p>首先，根据<code>Thread.interrupted()</code>判断是否发生了中断。<em>如果未发生中断</em>，则<code>Thread.interrupted()</code>返回false，<em>ConditionObject#checkInterruptWhileWaiting()最终返回0</em>。</p>
-<p>否则，继续调用AQS#transferAfterCancelledWait()判断发生中断的时机。<em>如果是在收到信号前发生了中断</em>，AQS#transferForSignal()6行还没来得及执行，必然满足<code>node.waitStatus == CONDITION</code>，则CAS设置node.waitStatus并将node入队（等待后面调用AQS#acquireQueued()竞争锁），然后返回true，<em>ConditionObject#checkInterruptWhileWaiting()最终返回THROW_IE == -1</em>。</p>
-<p>否则，一定是<em>在收到信号后发生了中断</em>，但可能AQS#transferForSignal()6行执行完但9行未执行完，即node未完成入队，因此，21-22行空等待至node完成入队，然后返回false，<em>ConditionObject#checkInterruptWhileWaiting()最终返回REINTERRUPT == 1</em>。</p>
+<p>否则，继续调用AQS#transferAfterCancelledWait()判断发生中断的时机。<em>如果是在收到信号前发生了中断</em>，AQS#transferForSignal()6行还没来得及执行，必然满足<code>node.waitStatus == CONDITION</code>，则CAS设置node.waitStatus并将node入队（等待后面调用AQS#acquireQueued()竞争锁），然后返回true，<em>ConditionObject#checkInterruptWhileWaiting()最终返回THROW_IE &#x3D;&#x3D; -1</em>。</p>
+<p>否则，一定是<em>在收到信号后发生了中断</em>，但可能AQS#transferForSignal()6行执行完但9行未执行完，即node未完成入队，因此，21-22行空等待至node完成入队，然后返回false，<em>ConditionObject#checkInterruptWhileWaiting()最终返回REINTERRUPT &#x3D;&#x3D; 1</em>。</p>
 <p>终于跳出了循环，要重新申请锁了。(与#lock方法类似的就不重复分析)</p>
 <h6 id="信号前中断的特殊情况"><a href="#信号前中断的特殊情况" class="headerlink" title="信号前中断的特殊情况"></a>信号前中断的特殊情况</h6><p><strong>信号前中断会导致node同时处于AQS与ConditionObject两方的等待队列中</strong>（使用不同的指针连接节点）：</p>
 <p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g6ayngc1x4j30rj0h1wfi.jpg" alt="AQSä¸ConditionObjectå±äº«èç¹"></p>
@@ -1537,16 +1708,16 @@ private int checkInterruptWhileWaiting(Node node) {
  * without requiring many re-traversals during cancellation
  * storms.
  */
-private void unlinkCancelledWaiters() {
+private void unlinkCancelledWaiters() &#123;
     //当前节点
     Node t = firstWaiter;
     //上一个节点
     Node trail = null;
-    while (t != null) {
+    while (t != null) &#123;
         //下一个节点
         Node next = t.nextWaiter;
         //不是CONDITION,移除当前节点(就是把上个节点的nextWaiter执行下个节点)
-        if (t.waitStatus != Node.CONDITION) {
+        if (t.waitStatus != Node.CONDITION) &#123;
             t.nextWaiter = null;
             //如果trail为空,说明是头节点,直接替换firstWaiter
             if (trail == null)
@@ -1556,13 +1727,13 @@ private void unlinkCancelledWaiters() {
             //设置尾节点
             if (next == null)
                 lastWaiter = trail;
-        }
+        &#125;
         else  //保留当前节点为上个节点
             trail = t;
         //移动当前节点,开始下一轮
         t = next;
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <h5 id="reportInterruptAfterWait"><a href="#reportInterruptAfterWait" class="headerlink" title="reportInterruptAfterWait"></a>reportInterruptAfterWait</h5><p>java.util.concurrent.locks.AbstractQueuedSynchronizer.ConditionObject#reportInterruptAfterWait</p>
 <pre><code class="java">/**
@@ -1570,12 +1741,12 @@ private void unlinkCancelledWaiters() {
  * does nothing, depending on mode.
  */
 private void reportInterruptAfterWait(int interruptMode)
-    throws InterruptedException {
+    throws InterruptedException &#123;
     if (interruptMode == THROW_IE)
         throw new InterruptedException();
     else if (interruptMode == REINTERRUPT)
         selfInterrupt();
-}
+&#125;
 </code></pre>
 <h4 id="signal"><a href="#signal" class="headerlink" title="signal"></a>signal</h4><p>唤醒一个等待在Conditon上的线程,该线程从等待方法返回前必须获得与Condition相关联的锁</p>
 <pre><code class="java">    /**
@@ -1583,32 +1754,32 @@ private void reportInterruptAfterWait(int interruptMode)
      * wait queue for this condition to the wait queue for the
      * owning lock.
      *
-     * @throws IllegalMonitorStateException if {@link #isHeldExclusively}
-     *     returns {@code false}
+     * @throws IllegalMonitorStateException if &#123;@link #isHeldExclusively&#125;
+     *     returns &#123;@code false&#125;
      */
-    public final void signal() {
+    public final void signal() &#123;
       if (!isHeldExclusively())
         throw new IllegalMonitorStateException();
       Node first = firstWaiter;
       //表示有节点进入了条件队列内部的等待队列，需要被唤醒
       if (first != null)
         doSignal(first);
-    }
+    &#125;
     /**
      * Removes and transfers nodes until hit non-cancelled one or
      * null. Split out from signal in part to encourage compilers
      * to inline the case of no waiters.
      * @param first (non-null) the first node on condition queue
      */
-    private void doSignal(Node first) {
-      do {
+    private void doSignal(Node first) &#123;
+      do &#123;
         //firstWaiter后移一位
         if ((firstWaiter = first.nextWaiter) == null)
           lastWaiter = null;
         first.nextWaiter = null;
       //试将条件队列内部的等待节点转换为AQS内部的等待节点，如果当前节点转换失败，就继续尝试下一节点
-      } while (!transferForSignal(first) &amp;&amp;(first = firstWaiter) != null);
-    }
+      &#125; while (!transferForSignal(first) &amp;&amp;(first = firstWaiter) != null);
+    &#125;
 </code></pre>
 <h5 id="transferForSignal"><a href="#transferForSignal" class="headerlink" title="transferForSignal"></a>transferForSignal</h5><pre><code class="java">/**
  * Transfers a node from a condition queue onto sync queue.
@@ -1617,7 +1788,7 @@ private void reportInterruptAfterWait(int interruptMode)
  * @return true if successfully transferred (else the node was
  * cancelled before signal)
  */
-final boolean transferForSignal(Node node) {
+final boolean transferForSignal(Node node) &#123;
     /*
      * If cannot change waitStatus, the node has been cancelled.
      */
@@ -1632,13 +1803,13 @@ final boolean transferForSignal(Node node) {
      */
     //入队，返回旧的队尾节点，也就是新节点node的前继节点。
     Node p = enq(node);
-
+    
     //只有正在执行AQS#acquireQueued()的线程T1能够与正在执行到这里的线程T2发生竞争。
     int ws = p.waitStatus;
     if (ws &gt; 0 || !compareAndSetWaitStatus(p, ws, Node.SIGNAL))
         LockSupport.unpark(node.thread);
     return true;
-}
+&#125;
 </code></pre>
 <p>回到ConditionObject#doSignal()与ConditionObject#signal()，成功结束。对于用户而言，线程此时已经被唤醒，尽管其大概率还在AQS内部阻塞排队，等待<strong>重新</strong>获得锁。</p>
 <p>实际上，<em>就算去掉10-12行也是满足正确性要求的</em>。因为线程T2释放锁后，依然会将从队头开始的第一个非取消节点唤醒，该节点会继续ConditionObject#await()中的工作</p>
@@ -1656,13 +1827,13 @@ final boolean transferForSignal(Node node) {
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>JDK_ReentrantLock</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">6.6k</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">6.8k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-08-24, 18:48:54</p>
     <p><span class="copy-title">最后更新:</span>2020-03-21, 00:18:32</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/24/JDK-ReentrantLock/" title="JDK_ReentrantLock">http://yoursite.com/2019/08/24/JDK-ReentrantLock/</a>
     <p>
-        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
 </div>
 
@@ -1695,15 +1866,15 @@ final boolean transferForSignal(Node node) {
 <div class="acParent"></div>
 
 </body>
-<script src="/js/jquery.pjax.js?v=1.0.1"></script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
 
-<script src="/js/script.js?v=1.0.1"></script>
+<script src="/js/script.js?v=1.0.1" ></script>
 <script>
     var img_resize = 'default';
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#netty','#nio','#framework','#zookeeper','#Spec','#gc','#summary','#classLoader','#juc','#hotspot','#j2ee','#spring','#hbase','#spark','#redis','#thread','#tomcat','#mysql','#lang','#elasticsearch','#kafka','#servlet','#ioc','#io','#serialization','#file','#ejb','#collections','#event','#aop','#job','#map','#applicationContext','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
+            'data': ['#week','#hide','#jvm','#gc','#summary','#juc','#jdk','#map','#classLoader','#packages','#io','#serialization','#file','#nio','#lang','#spring','#doc','#utils','#hotspot','#collections','#java','#note','#j2ee','#ejb','#distributed','#hbase','#framework','#spark','#elasticsearch','#kafka','#mysql','#netty','#redis','#servlet','#tomcat','#zookeeper','#Spec','#thread','#applicationContext','#ioc','#event','#aop','#job','#spring-mvc','#spring-webflux','#beanFactory',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

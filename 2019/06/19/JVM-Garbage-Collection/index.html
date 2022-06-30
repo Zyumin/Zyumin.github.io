@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   <title>JVM_Garbage Collection | Zyumin</title>
   <meta name="keywords" content=" jvm , gc ">
   <meta name="description" content="JVM_Garbage Collection | Zyumin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta name="keywords" content="java">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
 <meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-23T07:09:56.946Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-03-23T07:09:38.000Z">
+<meta property="article:modified_time" content="2019-03-23T07:09:56.000Z">
+<meta property="article:author" content="zhengyumin">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -30,7 +30,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
 
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script>
@@ -41,11 +41,11 @@
 
 
 
-<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
 
-<script src="/js/iconfont.js?v=1.0.1"></script>
+<script src="/js/iconfont.js?v=1.0.1" ></script>
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="false">
@@ -56,7 +56,7 @@
 <aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.png">
+    <img class="avatar" src="/img/avatar.png" />
 </a>
 <div class="author">
     <span>zhengyumin</span>
@@ -68,7 +68,7 @@
         <a title="github" href="https://github.com/Zyumin" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-github"/>
+                    <use xlink:href="#icon-github"></use>
                 </svg>
             
         </a>
@@ -78,7 +78,7 @@
         <a title="neteasemusic" href="https://music.163.com/#/user/home?id=60037019" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-neteasemusic"/>
+                    <use xlink:href="#icon-neteasemusic"></use>
                 </svg>
             
         </a>
@@ -94,7 +94,7 @@
     
         
             
-            <li><div data-rel="jdk">jdk<small>(13)</small></div>
+            <li><div data-rel="java">java<small>(9)</small></div>
                 
             </li>
             
@@ -102,7 +102,7 @@
     
         
             
-            <li><div data-rel="java">java<small>(9)</small></div>
+            <li><div data-rel="jdk">jdk<small>(13)</small></div>
                 
             </li>
             
@@ -118,7 +118,7 @@
     
         
             
-            <li><div data-rel="redis">redis<small>(4)</small></div>
+            <li><div data-rel="mysql">mysql<small>(2)</small></div>
                 
             </li>
             
@@ -126,7 +126,7 @@
     
         
             
-            <li><div data-rel="mysql">mysql<small>(2)</small></div>
+            <li><div data-rel="redis">redis<small>(4)</small></div>
                 
             </li>
             
@@ -143,7 +143,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="55">
-<input type="hidden" id="yelog_site_word_count" value="185.6k">
+<input type="hidden" id="yelog_site_word_count" value="189.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -166,11 +166,11 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off" id="local-search-input">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
         <i class="cross"></i>
         <span>
             <label for="tagswitch">Tags:</label>
-            <input id="tagswitch" type="checkbox" style="display: none">
+            <input id="tagswitch" type="checkbox" style="display: none" />
             <i id="tagsWitchIcon"></i>
         </span>
     </form>
@@ -185,51 +185,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">jdk</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">packages</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">utils</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">java</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">note</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">jvm</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">distributed</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">netty</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">nio</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">framework</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">zookeeper</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">Spec</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -241,67 +197,23 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">classLoader</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">juc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">hotspot</a>
+        <a href="javascript:" class="color4">jdk</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">j2ee</a>
+        <a href="javascript:" class="color4">map</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">spring</a>
+        <a href="javascript:" class="color2">classLoader</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">hbase</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">spark</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">redis</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">thread</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">tomcat</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">mysql</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">lang</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">elasticsearch</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">kafka</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">servlet</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ioc</a>
+        <a href="javascript:" class="color4">packages</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -317,11 +229,111 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color4">nio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">lang</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">doc</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">utils</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">hotspot</a>
     </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color2">collections</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">note</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">j2ee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ejb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">distributed</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">hbase</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">framework</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">spark</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">elasticsearch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">kafka</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">netty</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">redis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">tomcat</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">zookeeper</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Spec</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">applicationContext</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ioc</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -337,18 +349,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">map</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">applicationContext</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">beanFactory</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color1">spring-mvc</a>
     </li>
     
@@ -357,7 +357,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">doc</a>
+        <a href="javascript:" class="color2">beanFactory</a>
     </li>
     
     <div class="clearfix"></div>
@@ -370,279 +370,444 @@
     
     <nav id="title-list-nav">
         
-        <a id="top" class="java " href="/2019/02/02/Overview_java/" data-tag="summary" data-author="">
-            <span class="post-title" title="Overview_java">Overview_java</span>
-            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
-        </a>
-        
-        <a id="top" class="spring " href="/2019/03/02/Overview_Spring/" data-tag="framework,spring" data-author="">
-            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
-            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
-        </a>
-        
-        <a id="top" class="jdk " href="/2019/06/13/Overview_JDK/" data-tag="jdk,hotspot" data-author="">
-            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
-            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
-        </a>
-        
-        <a id="top" class="java " href="/2020/05/10/面试常见知识点梳理/" data-tag="job" data-author="">
-            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
-            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
-        </a>
-        
-        <a class="java " href="/2021/01/13/GC调优总结/" data-tag="jvm,gc,summary" data-author="">
-            <span class="post-title" title="GC调优总结">GC调优总结</span>
-            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Hbase/" data-tag="distributed,framework,hbase" data-author="">
-            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
-            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Spark/" data-tag="distributed,framework,spark" data-author="">
-            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
-            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis集群篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
-            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis实战篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
-            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis原理篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
-            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/23/spring-aop/" data-tag="spring,aop" data-author="">
-            <span class="post-title" title="spring-aop">spring-aop</span>
-            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/16/Spring-ApplicationContext/" data-tag="spring,applicationContext" data-author="">
-            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
-            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/05/spring-BeanFactory/" data-tag="spring,beanFactory" data-author="">
-            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
-            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/02/spring-Q-A/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
-            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
-        </a>
-        
-        <a class="spring " href="/2019/10/29/Documentation-Spring-Core-IOC/" data-tag="spring,doc" data-author="">
-            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
-            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/26/JDK-Packages-java-nio/" data-tag="jdk,packages,nio" data-author="">
-            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
-            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/23/JDK-Packages-java-io/" data-tag="jdk,packages,io,serialization,file" data-author="">
-            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
-            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Class/" data-tag="jdk" data-author="">
-            <span class="post-title" title="JDK_Class">JDK_Class</span>
-            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Thread/" data-tag="jdk,jvm,hotspot" data-author="">
-            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
-            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
-        </a>
-        
-        <a class="java " href="/2019/08/29/JVM-main方法分析/" data-tag="java,jvm" data-author="">
-            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
-            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/24/JDK-ReentrantLock/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
-            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
-        </a>
-        
-        <a class="java " href="/2019/08/17/JVM-Synchronized/" data-tag="jvm" data-author="">
-            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
-            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
-        </a>
-        
-        <a class="java " href="/2019/08/11/Overview-Java-Virtual-Machine/" data-tag="jvm" data-author="">
-            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
-            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-lang/" data-tag="jdk,packages,lang" data-author="">
-            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
-            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-utils/" data-tag="jdk,packages,utils" data-author="">
-            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
-            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/10/JDK-The-Concurrent-Framework/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
-            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/29/JDK-The-Collections-Framework/" data-tag="jdk,collections" data-author="">
-            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
-            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
-        </a>
-        
-        <a class="" href="/2019/07/10/Note-码农翻身/" data-tag="java,note" data-author="">
-            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
-            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/06/JDK-ClassLoader/" data-tag="jdk,classLoader" data-author="">
-            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
-            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
-        </a>
-        
-        <a class="spring " href="/2019/07/03/spring-ApplicationContext启动流程和事件机制/" data-tag="classLoader,spring,tomcat,servlet,event" data-author="">
-            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
-            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/26/Overview_Elasticsearch/" data-tag="framework,elasticsearch" data-author="">
-            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
-            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/24/J-U-C-ConcurrentHashMap/" data-tag="juc,map" data-author="">
-            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
-            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
-        </a>
-        
-        <a class="java " href="/2019/06/19/JVM-Garbage-Collection/" data-tag="jvm,gc" data-author="">
-            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
-            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/16/J-U-C-InterruptedException/" data-tag="juc" data-author="">
-            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
-            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
-        </a>
-        
-        <a class="java " href="/2019/06/14/Spec-JSR133/" data-tag="jvm,Spec,thread" data-author="">
-            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
-            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
-        </a>
-        
-        <a class="java " href="/2019/06/13/Spec-Java-Virtual-Machine/" data-tag="jvm,Spec" data-author="">
-            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
-            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
-        </a>
-        
-        <a class="" href="/2019/06/12/Overview_Kafka/" data-tag="framework,kafka" data-author="">
-            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
-            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
-        </a>
-        
-        <a class="redis " href="/2019/06/10/Overview_Redis/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
-            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
-        </a>
-        
-        <a class="" href="/2019/06/06/Note_java并发编程的艺术/" data-tag="java,note,juc" data-author="">
-            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
-            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Overview_Netty/" data-tag="netty,nio,framework" data-author="">
-            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
-            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Note_深入理解java虚拟机/" data-tag="java,note,jvm" data-author="">
-            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
-            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
-        </a>
-        
-        <a class="mysql " href="/2019/06/04/Overview_MySQL/" data-tag="mysql" data-author="">
-            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
-            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Zookeeper/" data-tag="distributed,framework,zookeeper" data-author="">
-            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
-            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Distributed/" data-tag="distributed" data-author="">
-            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
-            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
-        </a>
-        
-        <a class="spring " href="/2019/04/10/spring-api-1-0/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
-            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
-        </a>
-        
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/04/01/3%E6%9C%88%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
         
-        <a class="mysql " href="/2019/03/30/记一次mysql查询in的思考/" data-tag="mysql" data-author="">
-            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
-            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
-        </a>
-        
-        <a class="" href="/2019/03/26/记一次Broken-pipe问题的思考/" data-tag="tomcat" data-author="">
-            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
-            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
-        </a>
-        
-        <a class="" href="/2019/03/24/3月第三周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/03/24/3%E6%9C%88%E7%AC%AC%E4%B8%89%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第三周知识点记录">3月第三周知识点记录</span>
             <span class="post-date" title="2019-03-24 20:55:31">2019/03/24</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert One-on-One-J2EE-Development-without-EJB/" data-tag="j2ee,spring,ejb" data-author="">
+        <a  class="java "
+           href="/2021/01/13/GC%E8%B0%83%E4%BC%98%E6%80%BB%E7%BB%93/"
+           data-tag="jvm,gc,summary"
+           data-author="" >
+            <span class="post-title" title="GC调优总结">GC调优总结</span>
+            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/16/J-U-C-InterruptedException/"
+           data-tag="juc"
+           data-author="" >
+            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
+            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Class/"
+           data-tag="jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_Class">JDK_Class</span>
+            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/24/J-U-C-ConcurrentHashMap/"
+           data-tag="juc,map"
+           data-author="" >
+            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
+            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/06/JDK-ClassLoader/"
+           data-tag="jdk,classLoader"
+           data-author="" >
+            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
+            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/23/JDK-Packages-java-io/"
+           data-tag="jdk,packages,io,serialization,file"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
+            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/26/JDK-Packages-java-nio/"
+           data-tag="jdk,packages,nio"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
+            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-lang/"
+           data-tag="jdk,packages,lang"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
+            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/10/29/Documentation-Spring-Core-IOC/"
+           data-tag="spring,doc"
+           data-author="" >
+            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
+            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-utils/"
+           data-tag="jdk,packages,utils"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
+            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Thread/"
+           data-tag="jvm,jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
+            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/19/JVM-Garbage-Collection/"
+           data-tag="jvm,gc"
+           data-author="" >
+            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
+            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/29/JDK-The-Collections-Framework/"
+           data-tag="jdk,collections"
+           data-author="" >
+            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
+            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/24/JDK-ReentrantLock/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
+            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/29/JVM-main%E6%96%B9%E6%B3%95%E5%88%86%E6%9E%90/"
+           data-tag="jvm,java"
+           data-author="" >
+            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
+            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/17/JVM-Synchronized/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
+            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/07/10/Note-%E7%A0%81%E5%86%9C%E7%BF%BB%E8%BA%AB/"
+           data-tag="java,note"
+           data-author="" >
+            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
+            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert%20One-on-One-J2EE-Development-without-EJB/"
+           data-tag="spring,j2ee,ejb"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Development without EJB">Expert One-on-One J2EE Development without EJB</span>
             <span class="post-date" title="2019-03-10 19:45:57">2019/03/10</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/" data-tag="j2ee,spring" data-author="">
+        <a  class=""
+           href="/2019/06/06/Note_java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/"
+           data-tag="juc,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
+            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/10/JDK-The-Concurrent-Framework/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
+            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/18/Overview-Hbase/"
+           data-tag="distributed,hbase,framework"
+           data-author="" >
+            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
+            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Note_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA/"
+           data-tag="jvm,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
+            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/"
+           data-tag="spring,j2ee"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Design and Development">Expert One-on-One J2EE Design and Development</span>
             <span class="post-date" title="2019-03-10 19:45:18">2019/03/10</span>
         </a>
         
-        <a class="spring " href="/2019/03/03/spring-Core-Container预览/" data-tag="spring,ioc" data-author="">
-            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
-            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        <a  class="java "
+           href="/2019/08/11/Overview-Java-Virtual-Machine/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
+            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
         </a>
         
-        <a class="spring " href="/2019/02/03/spring-mvc/" data-tag="spring,servlet,spring-mvc,spring-webflux" data-author="">
-            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
-            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        <a  class=""
+           href="/2019/06/03/Overview_Distributed/"
+           data-tag="distributed"
+           data-author="" >
+            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
+            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
         </a>
         
-        <a class="" href="/2019/02/03/Overview_Tomcat/" data-tag="tomcat,servlet" data-author="">
+        <a  class=""
+           href="/2020/03/18/Overview-Spark/"
+           data-tag="distributed,framework,spark"
+           data-author="" >
+            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
+            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/26/Overview_Elasticsearch/"
+           data-tag="framework,elasticsearch"
+           data-author="" >
+            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
+            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/12/Overview_Kafka/"
+           data-tag="framework,kafka"
+           data-author="" >
+            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
+            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
+        </a>
+        
+        <a id="top" class="jdk "
+           href="/2019/06/13/Overview_JDK/"
+           data-tag="jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
+            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/06/04/Overview_MySQL/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
+            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Overview_Netty/"
+           data-tag="nio,framework,netty"
+           data-author="" >
+            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
+            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2019/06/10/Overview_Redis/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
+            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
+        </a>
+        
+        <a id="top" class="spring "
+           href="/2019/03/02/Overview_Spring/"
+           data-tag="spring,framework"
+           data-author="" >
+            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
+            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/03/Overview_Tomcat/"
+           data-tag="servlet,tomcat"
+           data-author="" >
             <span class="post-title" title="servlet_tomcat">servlet_tomcat</span>
             <span class="post-date" title="2019-02-03 15:49:08">2019/02/03</span>
         </a>
         
-        <a class="" href="/2019/02/02/Spec_Servlet/" data-tag="j2ee,servlet" data-author="">
+        <a  class=""
+           href="/2019/06/03/Overview_Zookeeper/"
+           data-tag="distributed,framework,zookeeper"
+           data-author="" >
+            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
+            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2019/02/02/Overview_java/"
+           data-tag="summary"
+           data-author="" >
+            <span class="post-title" title="Overview_java">Overview_java</span>
+            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%8E%9F%E7%90%86%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
+            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%AE%9E%E6%88%98%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
+            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E9%9B%86%E7%BE%A4%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
+            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/14/Spec-JSR133/"
+           data-tag="jvm,Spec,thread"
+           data-author="" >
+            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
+            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/13/Spec-Java-Virtual-Machine/"
+           data-tag="jvm,Spec"
+           data-author="" >
+            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
+            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/02/Spec_Servlet/"
+           data-tag="j2ee,servlet"
+           data-author="" >
             <span class="post-title" title="j2ee_servlet">j2ee_servlet</span>
             <span class="post-date" title="2019-02-02 18:05:54">2019/02/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/16/Spring-ApplicationContext/"
+           data-tag="spring,applicationContext"
+           data-author="" >
+            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
+            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/03/03/spring-Core-Container%E9%A2%84%E8%A7%88/"
+           data-tag="spring,ioc"
+           data-author="" >
+            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
+            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/02/spring-Q-A/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
+            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/07/03/spring-ApplicationContext%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/"
+           data-tag="classLoader,spring,servlet,tomcat,event"
+           data-author="" >
+            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
+            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/04/10/spring-api-1-0/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
+            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/26/%E8%AE%B0%E4%B8%80%E6%AC%A1Broken-pipe%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="tomcat"
+           data-author="" >
+            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
+            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/03/30/%E8%AE%B0%E4%B8%80%E6%AC%A1mysql%E6%9F%A5%E8%AF%A2in%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
+            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/23/spring-aop/"
+           data-tag="spring,aop"
+           data-author="" >
+            <span class="post-title" title="spring-aop">spring-aop</span>
+            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2020/05/10/%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/"
+           data-tag="job"
+           data-author="" >
+            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
+            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/02/03/spring-mvc/"
+           data-tag="spring,servlet,spring-mvc,spring-webflux"
+           data-author="" >
+            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
+            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/05/spring-BeanFactory/"
+           data-tag="spring,beanFactory"
+           data-author="" >
+            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
+            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
         </a>
         
     </nav>
@@ -657,7 +822,7 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-JVM-Garbage-Collection" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <article id="post-JVM-Garbage-Collection" class="article article-type-post" itemscope itemprop="blogPost">
     
         <h1 class="article-title">JVM_Garbage Collection</h1>
     
@@ -683,7 +848,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2020-04-10 15:49:18">2019-06-19 00:28</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-10 15:49:18'>2019-06-19 00:28</time>
         
     </div>
     <div class="article-meta">
@@ -707,7 +872,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Preface"><span class="toc-text">Preface</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction-to-Garbage-Collection-Tuning"><span class="toc-text">Introduction to Garbage Collection Tuning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ergonomics"><span class="toc-text">Ergonomics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#默认配置"><span class="toc-text">默认配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于特性调整"><span class="toc-text">基于特性调整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#策略"><span class="toc-text">策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Garbage-Collector-Implementation"><span class="toc-text">Garbage Collector Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾回收分代策略"><span class="toc-text">垃圾回收分代策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分代"><span class="toc-text">分代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#性能注意事项"><span class="toc-text">性能注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#吞吐和占用空间测量"><span class="toc-text">吞吐和占用空间测量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Factors-Affecting-Garbage-Collection-Performance"><span class="toc-text">Factors Affecting Garbage Collection Performance</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#堆总大小"><span class="toc-text">堆总大小</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#默认配置-1"><span class="toc-text">默认配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#动态缩小堆空间"><span class="toc-text">动态缩小堆空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#年轻代"><span class="toc-text">年轻代</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Available-Collectors"><span class="toc-text">Available Collectors</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#串行收集器"><span class="toc-text">串行收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#并行收集器"><span class="toc-text">并行收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#并发收集器"><span class="toc-text">并发收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Z收集器"><span class="toc-text">Z收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#选择收集器"><span class="toc-text">选择收集器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Collectors-Implementation"><span class="toc-text">Collectors  Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Parallel-Collector"><span class="toc-text">The Parallel Collector</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Mostly-Concurrent-Collectors"><span class="toc-text">The Mostly Concurrent Collectors</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Concurrent-Mark-Sweep-CMS-Collector"><span class="toc-text">Concurrent Mark Sweep (CMS) Collector</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CMS-性能和结构"><span class="toc-text">CMS 性能和结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Concurrent-Mode-Failure"><span class="toc-text">Concurrent Mode Failure</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GC时间过长和OutOfMemoryError"><span class="toc-text">GC时间过长和OutOfMemoryError</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#浮动垃圾"><span class="toc-text">浮动垃圾</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#暂停"><span class="toc-text">暂停</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#回收时机"><span class="toc-text">回收时机</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#暂停调度"><span class="toc-text">暂停调度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#日志"><span class="toc-text">日志</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Garbage-First-Garbage-Collector"><span class="toc-text">Garbage-First Garbage Collector</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Region"><span class="toc-text">Region</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CardTable"><span class="toc-text">CardTable</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Garbage-First-Garbage-Collector-Tuning"><span class="toc-text">Garbage-First Garbage Collector Tuning</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Z-Garbage-Collector"><span class="toc-text">The Z Garbage Collector</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Setting-the-Heap-Size"><span class="toc-text">Setting the Heap Size</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Setting-Number-of-Concurrent-GC-Threads"><span class="toc-text">Setting Number of Concurrent GC Threads</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other-Considerations"><span class="toc-text">Other Considerations</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Preface"><span class="toc-text">Preface</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction-to-Garbage-Collection-Tuning"><span class="toc-text">Introduction to Garbage Collection Tuning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ergonomics"><span class="toc-text">Ergonomics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE"><span class="toc-text">默认配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%89%B9%E6%80%A7%E8%B0%83%E6%95%B4"><span class="toc-text">基于特性调整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%96%E7%95%A5"><span class="toc-text">策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Garbage-Collector-Implementation"><span class="toc-text">Garbage Collector Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%88%86%E4%BB%A3%E7%AD%96%E7%95%A5"><span class="toc-text">垃圾回收分代策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E4%BB%A3"><span class="toc-text">分代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">性能注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%9E%E5%90%90%E5%92%8C%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E6%B5%8B%E9%87%8F"><span class="toc-text">吞吐和占用空间测量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Factors-Affecting-Garbage-Collection-Performance"><span class="toc-text">Factors Affecting Garbage Collection Performance</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E6%80%BB%E5%A4%A7%E5%B0%8F"><span class="toc-text">堆总大小</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE-1"><span class="toc-text">默认配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E7%BC%A9%E5%B0%8F%E5%A0%86%E7%A9%BA%E9%97%B4"><span class="toc-text">动态缩小堆空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B4%E8%BD%BB%E4%BB%A3"><span class="toc-text">年轻代</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Available-Collectors"><span class="toc-text">Available Collectors</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%B2%E8%A1%8C%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-text">串行收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-text">并行收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-text">并发收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Z%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-text">Z收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-text">选择收集器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Collectors-Implementation"><span class="toc-text">Collectors  Implementation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Parallel-Collector"><span class="toc-text">The Parallel Collector</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Mostly-Concurrent-Collectors"><span class="toc-text">The Mostly Concurrent Collectors</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Concurrent-Mark-Sweep-CMS-Collector"><span class="toc-text">Concurrent Mark Sweep (CMS) Collector</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CMS-%E6%80%A7%E8%83%BD%E5%92%8C%E7%BB%93%E6%9E%84"><span class="toc-text">CMS 性能和结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Concurrent-Mode-Failure"><span class="toc-text">Concurrent Mode Failure</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GC%E6%97%B6%E9%97%B4%E8%BF%87%E9%95%BF%E5%92%8COutOfMemoryError"><span class="toc-text">GC时间过长和OutOfMemoryError</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B5%AE%E5%8A%A8%E5%9E%83%E5%9C%BE"><span class="toc-text">浮动垃圾</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9A%82%E5%81%9C"><span class="toc-text">暂停</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9B%9E%E6%94%B6%E6%97%B6%E6%9C%BA"><span class="toc-text">回收时机</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9A%82%E5%81%9C%E8%B0%83%E5%BA%A6"><span class="toc-text">暂停调度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%A5%E5%BF%97"><span class="toc-text">日志</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Garbage-First-Garbage-Collector"><span class="toc-text">Garbage-First Garbage Collector</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Region"><span class="toc-text">Region</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CardTable"><span class="toc-text">CardTable</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Garbage-First-Garbage-Collector-Tuning"><span class="toc-text">Garbage-First Garbage Collector Tuning</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Z-Garbage-Collector"><span class="toc-text">The Z Garbage Collector</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Setting-the-Heap-Size"><span class="toc-text">Setting the Heap Size</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Setting-Number-of-Concurrent-GC-Threads"><span class="toc-text">Setting Number of Concurrent GC Threads</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other-Considerations"><span class="toc-text">Other Considerations</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -724,9 +889,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g4c1nxma40j30u00gwdig.jpg" alt="https://image.ipaiban.com/upload-ueditor-image-20190616-1560688476336071298.jpg"></p>
-<a id="more"></a>
-<p>基于<a href="https://docs.oracle.com/en/java/javase/12/gctuning/hotspot-virtual-machine-garbage-collection-tuning-guide.pdf" target="_blank" rel="noopener">HotSpot Virtual Machine Garbage Collection Tuning Guide</a>的整理( ´ー`) , jDK12</p>
-<p>Or <a href="https://docs.oracle.com/en/java/javase/12/gctuning/index.html" target="_blank" rel="noopener">https://docs.oracle.com/en/java/javase/12/gctuning/index.html</a></p>
+<span id="more"></span>
+
+
+
+<p>基于<a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/hotspot-virtual-machine-garbage-collection-tuning-guide.pdf">HotSpot Virtual Machine Garbage Collection Tuning Guide</a>的整理( ´ー&#96;) , jDK12</p>
+<p>Or <a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/index.html">https://docs.oracle.com/en/java/javase/12/gctuning/index.html</a></p>
 <h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><blockquote>
 <p>The <em>Java Platform, Standard Edition HotSpot Virtual Machine Garbage Collection<br>Tuning Guide</em> describes the garbage collection methods included in the Java HotSpot<br>Virtual Machine (Java HotSpot VM) and helps you determine which one is the best for<br>your needs.</p>
 </blockquote>
@@ -755,33 +923,32 @@
 <li>Behavior-Based Tuning <ul>
 <li>Maximum Pause-Time Goal </li>
 <li>Throughput Goal  </li>
-<li>Footprint </li>
+<li>Footprint</li>
 </ul>
 </li>
-<li>Tuning Strategy </li>
+<li>Tuning Strategy</li>
 </ol>
 <h3 id="默认配置"><a href="#默认配置" class="headerlink" title="默认配置"></a>默认配置</h3><ul>
 <li>Garbage-First (G1) collector </li>
 <li>The maximum number of GC threads is limited by heap size and available CPU </li>
 <li>resources </li>
-<li>Initial heap size of 1/64 of physical memory </li>
-<li>Maximum heap size of 1/4 of physical memory </li>
-<li>Tiered compiler, using both C1 and C2 </li>
+<li>Initial heap size of 1&#x2F;64 of physical memory </li>
+<li>Maximum heap size of 1&#x2F;4 of physical memory </li>
+<li>Tiered compiler, using both C1 and C2</li>
 </ul>
 <h3 id="基于特性调整"><a href="#基于特性调整" class="headerlink" title="基于特性调整"></a>基于特性调整</h3><ul>
-<li><p>Maximum Pause-Time Goal</p>
-<ul>
+<li>Maximum Pause-Time Goal<ul>
 <li><p>These adjustments may cause garbage collection to occur more frequently, reducing the overall throughput of the application.</p>
 </li>
-<li><p>command-line option -XX:MaxGCPauseMillis=<em><nnn></nnn></em></p>
+<li><p>command-line option -XX:MaxGCPauseMillis&#x3D;<em><nnn></em></p>
 </li>
 </ul>
 </li>
-<li><p>Throughput Goal</p>
-<ul>
-<li>If the throughput goal isn’t being met, then one possible action for the garbage<br>  collector is to increase the size of the heap so that the time spent in the application<br>  between collection pauses can be longer.</li>
-<li><p>command-line option -XX:GCTimeRatio=<em>nnn</em>  (The ratio of</p>
-<p>  garbage collection time to application time is 1/ (1+<em>nnn</em>))</p>
+<li>Throughput Goal<ul>
+<li><p>If the throughput goal isn’t being met, then one possible action for the garbage<br>  collector is to increase the size of the heap so that the time spent in the application<br>  between collection pauses can be longer.</p>
+</li>
+<li><p>command-line option -XX:GCTimeRatio&#x3D;<em>nnn</em>  (The ratio of</p>
+<p>  garbage collection time to application time is 1&#x2F; (1+<em>nnn</em>))</p>
 </li>
 </ul>
 </li>
@@ -790,10 +957,10 @@
 </ul>
 </li>
 </ul>
-<h3 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h3><p>​    The heap grows or shrinks to a size that supports the chosen throughput goal. Learn about heap tuning strategies such as choosing a maximum heap size, and choosing maximum pause-time goal. </p>
-<p>​    <strong>Don’t choose a maximum value for the heap unless you know that you need a heap greater than the default maximum heap size</strong> </p>
-<p>​    <strong>If the heap grows to its maximum size and the throughput goal isn’t being met, then</strong><br><strong>the maximum heap size is too small for the throughput goal.</strong></p>
-<p>​    <strong>If the throughput goal can be met, but pauses are too long, then select a maximum</strong><br><strong>pause-time goal</strong></p>
+<h3 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h3><p>​	The heap grows or shrinks to a size that supports the chosen throughput goal. Learn about heap tuning strategies such as choosing a maximum heap size, and choosing maximum pause-time goal. </p>
+<p>​	<strong>Don’t choose a maximum value for the heap unless you know that you need a heap greater than the default maximum heap size</strong> </p>
+<p>​	<strong>If the heap grows to its maximum size and the throughput goal isn’t being met, then</strong><br><strong>the maximum heap size is too small for the throughput goal.</strong></p>
+<p>​	<strong>If the throughput goal can be met, but pauses are too long, then select a maximum</strong><br><strong>pause-time goal</strong></p>
 <h2 id="Garbage-Collector-Implementation"><a href="#Garbage-Collector-Implementation" class="headerlink" title="Garbage Collector Implementation"></a>Garbage Collector Implementation</h2><blockquote>
 <p>However, when garbage collection is the principal bottleneck, it’s useful to understand<br>some aspects of the implementation. Garbage collectors make assumptions about the<br>way applications use objects, and these are reflected in tunable parameters that can<br>be adjusted for improved performance without sacrificing the power of the abstraction.</p>
 </blockquote>
@@ -803,12 +970,12 @@
 <li>Generational Garbage Collection </li>
 <li>Generations </li>
 <li>Performance Considerations </li>
-<li>Throughput and Footprint Measurement </li>
+<li>Throughput and Footprint Measurement</li>
 </ul>
 <h3 id="垃圾回收分代策略"><a href="#垃圾回收分代策略" class="headerlink" title="垃圾回收分代策略"></a>垃圾回收分代策略</h3><p>The Java HotSpot VM incorporates a number of different garbage collection algorithms that all use a technique called generational collection.</p>
 <p>每次都遍历每个可到到达对象,这种效率是不可取的,所以需要选择合适的回收策略</p>
 <p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g466cazspsj30f309w74j.jpg" alt="Description of Figure 3-1 follows"></p>
-<p><strong><em>Typical Distribution for Lifetimes of Objects</em></strong></p>
+<p><em><strong>Typical Distribution for Lifetimes of Objects</strong></em></p>
 <p>从上图可以发现,大多数对象都是年轻对象 (x轴为当前生命周期存活的大小,y轴为对象内存分配分代位置)</p>
 <h3 id="分代"><a href="#分代" class="headerlink" title="分代"></a>分代</h3><blockquote>
 <p>To optimize for this scenario, memory is managed in generations (memory pools holding objects of different ages). Garbage collection occurs in each generation when the generation fills up.<br>The vast majority of objects are allocated in a pool dedicated to young objects (the young generation), and most objects die there.</p>
@@ -836,12 +1003,12 @@
 <li>Total Heap <ul>
 <li>–  Heap Options Affecting Generation Size </li>
 <li>–  Default Option Values for Heap Size </li>
-<li>–  Conserving Dynamic Footprint by Minimizing Java Heap Size </li>
+<li>–  Conserving Dynamic Footprint by Minimizing Java Heap Size</li>
 </ul>
 </li>
 <li>The Young Generation <ul>
 <li>–  Young Generation Size Options </li>
-<li>–  Survivor Space Sizing </li>
+<li>–  Survivor Space Sizing</li>
 </ul>
 </li>
 </ul>
@@ -849,43 +1016,41 @@
 <p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g467ufa9uoj30fo04rwem.jpg" alt="Description of Figure 4-1 follows"></p>
 <p><strong>Heap Options</strong></p>
 <p>其中图中的Virtual 表示 -Xms 小于 -Xmx 的部分</p>
-<h4 id="默认配置-1"><a href="#默认配置-1" class="headerlink" title="默认配置"></a>默认配置</h4><p><strong><em>Default Options for 64-Bit Solaris Operating System</em></strong></p>
+<h4 id="默认配置-1"><a href="#默认配置-1" class="headerlink" title="默认配置"></a>默认配置</h4><p><em><strong>Default Options for 64-Bit Solaris Operating System</strong></em></p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Option</th>
-<th style="text-align:left">Default Value</th>
+<th align="left">Option</th>
+<th align="left">Default Value</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>-XX:MinHeapFreeRatio</code></td>
-<td style="text-align:left">40</td>
+<tbody><tr>
+<td align="left"><code>-XX:MinHeapFreeRatio</code></td>
+<td align="left">40</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>-XX:MaxHeapFreeRatio</code></td>
-<td style="text-align:left">70</td>
+<td align="left"><code>-XX:MaxHeapFreeRatio</code></td>
+<td align="left">70</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>-Xms</code></td>
-<td style="text-align:left">6656 KB</td>
+<td align="left"><code>-Xms</code></td>
+<td align="left">6656 KB</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>-Xmx</code></td>
-<td style="text-align:left">calculated</td>
+<td align="left"><code>-Xmx</code></td>
+<td align="left">calculated</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>The following are general guidelines regarding heap sizes for server applications:</p>
 <ul>
 <li><p>Unless you have problems with pauses, try granting as much memory as possible to the virtual machine. The default size is often too small. </p>
 </li>
 <li><p>Setting -Xms and -Xmx to the same value increases predictability by removing the most important sizing decision from the virtual machine. However, the virtual machine is then unable to compensate if you make a poor choice. </p>
 </li>
-<li><p>In general, increase the memory as you increase the number of processors, because allocation can be made parallel. </p>
+<li><p>In general, increase the memory as you increase the number of processors, because allocation can be made parallel.</p>
 </li>
 </ul>
-<p>​    </p>
+<p>​	</p>
 <h4 id="动态缩小堆空间"><a href="#动态缩小堆空间" class="headerlink" title="动态缩小堆空间"></a>动态缩小堆空间</h4><p>Lowering - XX:MaxHeapFreeRatio to as low as 10% and -XX:MinHeapFreeRatio has shown to successfully reduce the heap size without too much performance degradation; </p>
 <p>In addition, you can specify -XX:-ShrinkHeapInSteps, which immediately reduces the Java heap to the target size (specified by the parameter -XX:MaxHeapFreeRatio) </p>
 <h3 id="年轻代"><a href="#年轻代" class="headerlink" title="年轻代"></a>年轻代</h3><blockquote>
@@ -895,30 +1060,28 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Option</th>
-<th style="text-align:left">Default Value</th>
+<th align="left">Option</th>
+<th align="left">Default Value</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>-XX:NewRatio</code></td>
-<td style="text-align:left">2</td>
+<tbody><tr>
+<td align="left"><code>-XX:NewRatio</code></td>
+<td align="left">2</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>-XX:NewSize</code></td>
-<td style="text-align:left">1310 MB</td>
+<td align="left"><code>-XX:NewSize</code></td>
+<td align="left">1310 MB</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>-XX:MaxNewSize</code></td>
-<td style="text-align:left">not limited</td>
+<td align="left"><code>-XX:MaxNewSize</code></td>
+<td align="left">not limited</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>-XX:SurvivorRatio</code></td>
-<td style="text-align:left">8</td>
+<td align="left"><code>-XX:SurvivorRatio</code></td>
+<td align="left">8</td>
 </tr>
-</tbody>
-</table>
-<p><strong><em>Default Option Values for Survivor Space Sizing</em></strong></p>
+</tbody></table>
+<p><em><strong>Default Option Values for Survivor Space Sizing</strong></em></p>
 <p>The following are general guidelines for server applications:</p>
 <ul>
 <li>First decide on the maximum heap size that you can afford to give the virtual machine. Then, plot your performance metric against the young generation sizes to find the best setting.<ul>
@@ -942,10 +1105,10 @@
 </li>
 <li><p>The Mostly Concurrent Collectors </p>
 </li>
-<li><p>Selecting a Collector </p>
+<li><p>Selecting a Collector</p>
 </li>
 </ul>
-<p>​    </p>
+<p>​	</p>
 <h3 id="串行收集器"><a href="#串行收集器" class="headerlink" title="串行收集器"></a>串行收集器</h3><p>It’s best-suited to single processor machines because it can’t take advantage of multiprocessor hardware, although it can be useful on multiprocessors for applications with small data sets (up to approximately 100 MB).  </p>
 <p>收集过程,不会执行用户线程,一般适用于单处理器机器,也可以用于多处理器的小内存应用(100MB左右)</p>
 <h3 id="并行收集器"><a href="#并行收集器" class="headerlink" title="并行收集器"></a>并行收集器</h3><p>The parallel collector is also known as <em>throughput collector</em>, it’s a generational collector similar to the serial collector. The primary difference between the serial and parallel collectors is that the parallel collector has multiple threads that are used to speed up garbage collection. </p>
@@ -957,12 +1120,12 @@
 </li>
 <li><p>CMS collector : This collector is for applications that prefer shorter garbage collection pauses and can afford to share processor resources with the garbage collection. </p>
 <p>  Use the option -XX:+UseConcMarkSweepGC to enable the CMS collector </p>
-<p>  The CMS collector is deprecated as of JDK 9. </p>
+<p>  The CMS collector is deprecated as of JDK 9.</p>
 </li>
 </ul>
 <p>并发收集器指在垃圾收集的过程同时还可以执行用户线程(会有短暂停止)</p>
 <h3 id="Z收集器"><a href="#Z收集器" class="headerlink" title="Z收集器"></a>Z收集器</h3><p>The Z Garbage Collector (ZGC) is a scalable low latency garbage collector. ZGC performs all expensive work concurrently, without stopping the execution of application threads. </p>
-<p>ZGC is intended for applications which require low latency (less than 10 ms pauses) and/or use a very large heap (multi-terabytes). You can enable is by using the -XX: +UseZGC option. </p>
+<p>ZGC is intended for applications which require low latency (less than 10 ms pauses) and&#x2F;or use a very large heap (multi-terabytes). You can enable is by using the -XX: +UseZGC option. </p>
 <p>ZGC is available as an experimental feature, starting with JDK 11. </p>
 <p>适用于低延迟(10ms)和大堆的应用程序</p>
 <h3 id="选择收集器"><a href="#选择收集器" class="headerlink" title="选择收集器"></a>选择收集器</h3><blockquote>
@@ -979,7 +1142,7 @@
 </li>
 <li><p>If response time is more important than overall throughput and garbage collection pauses must be kept shorter than approximately one second, then select a mostly concurrent collector with -XX:+UseG1GC or -XX:+UseConcMarkSweepGC. </p>
 </li>
-<li><p>If response time is a high priority, and/or you are using a very large heap, then select a fully concurrent collector with -XX:UseZGC. </p>
+<li><p>If response time is a high priority, and&#x2F;or you are using a very large heap, then select a fully concurrent collector with -XX:UseZGC.</p>
 </li>
 </ul>
 <p>选择合适的垃圾收集器只是一个起点, 仍需要通过调整VM参数 来达到需要的性能</p>
@@ -995,30 +1158,28 @@
 <li><p>Parallel Collector Ergonomics </p>
 <ul>
 <li><p>–  Options to Specify Parallel Collector Behaviors </p>
-<ul>
+</li>
 <li><p>–  Priority of Parallel Collector Goals </p>
 </li>
 <li><p>–  Parallel Collector Generation Size Adjustments </p>
 </li>
-<li><p>–  Parallel Collector Default Heap Size </p>
+<li><p>–  Parallel Collector Default Heap Size</p>
 </li>
 </ul>
-<p>* Specification of Parallel Collector Initial and Maximum Heap Sizes </p>
-</li>
-</ul>
+<p>  * Specification of Parallel Collector Initial and Maximum Heap Sizes </p>
 </li>
 <li><p>Excessive Parallel Collector Time and OutOfMemoryError </p>
 </li>
-<li><p>Parallel Collector Measurements </p>
+<li><p>Parallel Collector Measurements</p>
 </li>
 </ul>
 <h3 id="The-Mostly-Concurrent-Collectors"><a href="#The-Mostly-Concurrent-Collectors" class="headerlink" title="The Mostly Concurrent Collectors"></a>The Mostly Concurrent Collectors</h3><blockquote>
-<p>On an <em>N</em> processor system, the concurrent part of the collection uses <em>K</em>/<em>N</em> of the available processors, where 1 &lt;= <em>K</em> &lt;= ceiling<em>{N/4</em>}. </p>
+<p>On an <em>N</em> processor system, the concurrent part of the collection uses <em>K</em>&#x2F;<em>N</em> of the available processors, where 1 &lt;&#x3D; <em>K</em> &lt;&#x3D; ceiling*{N&#x2F;4*}. </p>
 <p>In addition to the use of processors during concurrent phases, additional overhead is incurred to enable concurrency. Thus, while garbage collection pauses are typically much shorter with the concurrent collector, application throughput also tends to be slightly lower than with the other collectors. </p>
 <p>As <em>N</em> increases, the reduction in processor resources due to concurrent garbage collection becomes smaller, and the benefit from concurrent collection increases. </p>
 <p>Because at least one processor is used for garbage collection during the concurrent phases, the concurrent collectors don’t normally provide any benefit on a uniprocessor (single-core) machine.</p>
 </blockquote>
-<p>在多核处理器上,垃圾收集线程为 1 &lt;= <em>K</em> &lt;= ceiling<em>{N/4</em>} , 随着N的增多收益越大 , 同时注意在单核上并不适用</p>
+<p>在多核处理器上,垃圾收集线程为 1 &lt;&#x3D; <em>K</em> &lt;&#x3D; ceiling*{N&#x2F;4*} , 随着N的增多收益越大 , 同时注意在单核上并不适用</p>
 <h4 id="Concurrent-Mark-Sweep-CMS-Collector"><a href="#Concurrent-Mark-Sweep-CMS-Collector" class="headerlink" title="Concurrent Mark Sweep (CMS) Collector"></a>Concurrent Mark Sweep (CMS) Collector</h4><blockquote>
 <p>The Concurrent Mark Sweep (CMS) collector is designed for applications that prefer<br>shorter garbage collection pauses and that can afford to share processor resources<br>with the garbage collector while the application is running.</p>
 </blockquote>
@@ -1032,19 +1193,19 @@
 <li>Concurrent Mark Sweep Collector Concurrent Phases </li>
 <li>Starting a Concurrent Collection Cycle </li>
 <li>Scheduling Pauses </li>
-<li>Concurrent Mark Sweep Collector Measurements </li>
+<li>Concurrent Mark Sweep Collector Measurements</li>
 </ul>
-<h5 id="CMS-性能和结构"><a href="#CMS-性能和结构" class="headerlink" title="CMS 性能和结构"></a>CMS 性能和结构</h5><p><img src="http://media.licdn.com/dms/image/C4E12AQH4VHeTMCfxmA/article-cover_image-shrink_720_1280/0?e=1566432000&amp;v=beta&amp;t=ECo_SPDpBCkQlyNbEXoIgmVeTTaxLrfz7pC66OJ2mlc" alt="JVM"></p>
+<h5 id="CMS-性能和结构"><a href="#CMS-性能和结构" class="headerlink" title="CMS 性能和结构"></a>CMS 性能和结构</h5><p><img src="http://media.licdn.com/dms/image/C4E12AQH4VHeTMCfxmA/article-cover_image-shrink_720_1280/0?e=1566432000&v=beta&t=ECo_SPDpBCkQlyNbEXoIgmVeTTaxLrfz7pC66OJ2mlc" alt="JVM"></p>
 <p>标记和清除,更多细节参考如下</p>
 <blockquote>
-<p><a href="https://www.linkedin.com/pulse/jvm-why-cms-garbage-collector-deprecating-kunal-saxena" target="_blank" rel="noopener">why-cms-garbage-collector-deprecating</a></p>
-<p><a href="https://juejin.im/post/5c152fefe51d45366873544a" target="_blank" rel="noopener">CMS七个阶段</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.linkedin.com/pulse/jvm-why-cms-garbage-collector-deprecating-kunal-saxena">why-cms-garbage-collector-deprecating</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/post/5c152fefe51d45366873544a">CMS七个阶段</a></p>
 </blockquote>
 <h5 id="Concurrent-Mode-Failure"><a href="#Concurrent-Mode-Failure" class="headerlink" title="Concurrent Mode Failure"></a>Concurrent Mode Failure</h5><blockquote>
 <p>As described previously, in normal operation, the CMS collector does most of its<br>tracing and sweeping work with the application threads still running, so only brief<br>pauses are seen by the application threads. However, if the CMS collector is unable to<br>finish reclaiming the unreachable objects before the old generation fills up, or if an<br>allocation cannot be satisfied with the available free space blocks in the old<br>generation, then the application is paused and the collection is completed with all the<br>application threads stopped. </p>
 <p>If a concurrent collection is interrupted by an explicit garbage<br>collection (System.gc()) or for a garbage collection needed to provide information<br>for diagnostic tools, then a concurrent mode interruption is reported.</p>
 </blockquote>
-<p>CMS在并发标记阶段收集失败时候(用户线程并发运行,所以会产生垃圾,如果这时候old区满了,会stop the world,退化成单线程) 至于为什么用单线程,这个是个历史遗留问题,<a href="https://www.zhihu.com/question/50398881" target="_blank" rel="noopener">传送门</a></p>
+<p>CMS在并发标记阶段收集失败时候(用户线程并发运行,所以会产生垃圾,如果这时候old区满了,会stop the world,退化成单线程) 至于为什么用单线程,这个是个历史遗留问题,<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/50398881">传送门</a></p>
 <p>如果在并发标记阶段被其他打断(System.gc()),会被报告</p>
 <h5 id="GC时间过长和OutOfMemoryError"><a href="#GC时间过长和OutOfMemoryError" class="headerlink" title="GC时间过长和OutOfMemoryError"></a>GC时间过长和OutOfMemoryError</h5><p>The CMS collector throws an OutOfMemoryError if too much time is being spent in<br>garbage collection: If more than 98% of the total time is spent in garbage collection<br>and less than 2% of the heap is recovered, then an OutOfMemoryError is thrown.</p>
 <h5 id="浮动垃圾"><a href="#浮动垃圾" class="headerlink" title="浮动垃圾"></a>浮动垃圾</h5><blockquote>
@@ -1074,7 +1235,7 @@
 <h5 id="回收时机"><a href="#回收时机" class="headerlink" title="回收时机"></a>回收时机</h5><blockquote>
 <p>There are several ways to start a concurrent collection.</p>
 <p>Based on recent history, the CMS collector maintains estimates of the time remaining<br>before the old generation will be exhausted and of the time needed for a concurrent<br>collection cycle. Using these dynamic estimates, a concurrent collection cycle is<br>started with the aim of completing the collection cycle before the old generation is<br>exhausted. These estimates are padded for safety because concurrent mode failure<br>can be very costly.</p>
-<p>A concurrent collection also starts if the occupancy of the old generation exceeds an<br>initiating occupancy (a percentage of the old generation). The default value for this<br>initiating occupancy threshold is approximately 92%, but the value is subject to change<br>from release to release. This value can be manually adjusted using the command-line<br>option -XX:CMSInitiatingOccupancyFraction=<n>, where <n> is an integral<br>percentage (0 to 100) of the old generation size.</n></n></p>
+<p>A concurrent collection also starts if the occupancy of the old generation exceeds an<br>initiating occupancy (a percentage of the old generation). The default value for this<br>initiating occupancy threshold is approximately 92%, but the value is subject to change<br>from release to release. This value can be manually adjusted using the command-line<br>option -XX:CMSInitiatingOccupancyFraction&#x3D;<N>, where <N> is an integral<br>percentage (0 to 100) of the old generation size.</p>
 </blockquote>
 <p>根据最近的历史记录，CMS收集器维护对旧一代用尽之前剩余时间的估计以及并发收集周期所需的时间。</p>
 <p>Old区使用率占比 </p>
@@ -1099,58 +1260,59 @@
 [122,254s][info][gc] GC(657) Concurrent Reset (122,254s)
 [122,255s][info][gc] GC(657) Concurrent Reset (122,254s, 122,255s) 0,952ms
 [122,297s][info][gc] GC(661) Pause Young (Allocation Failure) 259M-&gt;128M(485M) (122,291s, 122,297s) 5,797ms
-</code></pre><p>The output for the CMS collection (GC ID 657) is interspersed with the output from the minor collections (GC IDs 658, 659 and 660);</p>
+</code></pre>
+<p>The output for the CMS collection (GC ID 657) is interspersed with the output from the minor collections (GC IDs 658, 659 and 660);</p>
 <p>The initial mark pause is typically short relative to the minor collection pause time. The concurrent phases (concurrent mark, concurrent preclean, and concurrent sweep) normally last significantly longer than a minor collection pause, as indicated in the CMS collector output example</p>
 <p>从gc log 可以看到young gc 是会并存的,同时cms的主要耗时是  Concurrent phases</p>
 <p>同时注意每次stop the world 算一次full gc</p>
 <h4 id="Garbage-First-Garbage-Collector"><a href="#Garbage-First-Garbage-Collector" class="headerlink" title="Garbage-First Garbage Collector"></a>Garbage-First Garbage Collector</h4><p>This section describes the Garbage-First (G1) Garbage Collector (GC).</p>
 <p>Topics</p>
 <ul>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-0394E76A-1A8F-425E-A0D0-B48A3DC82B42" target="_blank" rel="noopener">Introduction to Garbage-First Garbage Collector</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-CE6F94B6-71AF-45D5-829E-DEADD9BA929D" target="_blank" rel="noopener">Enabling G1</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-0394E76A-1A8F-425E-A0D0-B48A3DC82B42">Introduction to Garbage-First Garbage Collector</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-CE6F94B6-71AF-45D5-829E-DEADD9BA929D">Enabling G1</a></li>
 <li>Basic Concepts<ul>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-15921907-B297-43A4-8C48-DC88035BC7CF" target="_blank" rel="noopener">Heap Layout</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-F1BE86FA-3EDC-4D4F-BDB4-4B044AD83180" target="_blank" rel="noopener">Garbage Collection Cycle</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-15921907-B297-43A4-8C48-DC88035BC7CF">Heap Layout</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-F1BE86FA-3EDC-4D4F-BDB4-4B044AD83180">Garbage Collection Cycle</a></li>
 </ul>
 </li>
 <li>Garbage-First Internals<ul>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-572C9203-AB27-46F1-9D33-42BA4F3C6BF3" target="_blank" rel="noopener">Determining Initiating Heap Occupancy</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-AC383806-7FA7-4698-8B92-4FD092B9F368" target="_blank" rel="noopener">Marking</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-BE157AF6-29E7-461A-82CF-50C1978785DA" target="_blank" rel="noopener">Behavior in Very Tight Heap Situations</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-572C9203-AB27-46F1-9D33-42BA4F3C6BF3" target="_blank" rel="noopener">Determining Initiating Heap Occupancy</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-D74F3CC7-CC9F-45B5-B03D-510AEEAC2DAC" target="_blank" rel="noopener">Humongous Objects</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-C268549C-7D95-499C-9B24-A6670B44E49C" target="_blank" rel="noopener">Young-Only Phase Generation Sizing</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-6D6B18B1-063B-48FF-99E3-5AF059C43CE8" target="_blank" rel="noopener">Space-Reclamation Phase Generation Sizing</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-572C9203-AB27-46F1-9D33-42BA4F3C6BF3">Determining Initiating Heap Occupancy</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-AC383806-7FA7-4698-8B92-4FD092B9F368">Marking</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-BE157AF6-29E7-461A-82CF-50C1978785DA">Behavior in Very Tight Heap Situations</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-572C9203-AB27-46F1-9D33-42BA4F3C6BF3">Determining Initiating Heap Occupancy</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-D74F3CC7-CC9F-45B5-B03D-510AEEAC2DAC">Humongous Objects</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-C268549C-7D95-499C-9B24-A6670B44E49C">Young-Only Phase Generation Sizing</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-6D6B18B1-063B-48FF-99E3-5AF059C43CE8">Space-Reclamation Phase Generation Sizing</a></li>
 </ul>
 </li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-082C967F-2DAC-4B59-8A81-0CEC6EEB9016" target="_blank" rel="noopener">Ergonomic Defaults for G1 GC</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-98E80C82-24D8-41D4-BC39-B2583F04F1FF" target="_blank" rel="noopener">Comparison to Other Collectors</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-082C967F-2DAC-4B59-8A81-0CEC6EEB9016">Ergonomic Defaults for G1 GC</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector.html#GUID-98E80C82-24D8-41D4-BC39-B2583F04F1FF">Comparison to Other Collectors</a></li>
 </ul>
-<p>与CMS类似 , 但长时间运行后受碎片化影响的CMS，G1会增量式的整理/压缩堆里的数据，避免受碎片化影响</p>
-<h5 id="Region"><a href="#Region" class="headerlink" title="Region"></a>Region</h5><p>​    将堆分为多个Region, G1 preferentially collects regions with the least amount of live data, or “garbage first”,即收集垃圾最多的Region ,”incremental collection”</p>
-<h5 id="CardTable"><a href="#CardTable" class="headerlink" title="CardTable"></a>CardTable</h5><p>​    因为G1只回收一部分Region, 所以回收的时候需要知道哪些其他Region的对象引用着自己Region的对象，因为采用的copying算法需要移动对象，所以要更新引用为对象的新地址</p>
-<p>​    在普通的分代收集中也是如此，分代收集中年轻代收集需要老年代到年轻代的引用的记录，通常叫做remembered set(简称RS)</p>
+<p>与CMS类似 , 但长时间运行后受碎片化影响的CMS，G1会增量式的整理&#x2F;压缩堆里的数据，避免受碎片化影响</p>
+<h5 id="Region"><a href="#Region" class="headerlink" title="Region"></a>Region</h5><p>​	将堆分为多个Region, G1 preferentially collects regions with the least amount of live data, or “garbage first”,即收集垃圾最多的Region ,”incremental collection”</p>
+<h5 id="CardTable"><a href="#CardTable" class="headerlink" title="CardTable"></a>CardTable</h5><p>​	因为G1只回收一部分Region, 所以回收的时候需要知道哪些其他Region的对象引用着自己Region的对象，因为采用的copying算法需要移动对象，所以要更新引用为对象的新地址</p>
+<p>​	在普通的分代收集中也是如此，分代收集中年轻代收集需要老年代到年轻代的引用的记录，通常叫做remembered set(简称RS)</p>
 <p> concurrent mode failure后的并行化</p>
-<p><a href="http://link.zhihu.com/?target=http%3A//openjdk.java.net/jeps/307" target="_blank" rel="noopener">JEP 307: Parallel Full GC for G1</a></p>
+<p><a href="http://link.zhihu.com/?target=http://openjdk.java.net/jeps/307">JEP 307: Parallel Full GC for G1</a></p>
 <h4 id="Garbage-First-Garbage-Collector-Tuning"><a href="#Garbage-First-Garbage-Collector-Tuning" class="headerlink" title="Garbage-First Garbage Collector Tuning"></a>Garbage-First Garbage Collector Tuning</h4><p>This section describes how to adapt Garbage-First garbage collector (G1 GC) behavior in case it does not meet your requirements.</p>
 <p>Topics</p>
 <ul>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-0BB3B742-A985-4D5E-A9C5-433A127FE0F6" target="_blank" rel="noopener">General Recommendations for G1</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-E26056D1-02A5-4367-94EF-72C66D314AF7" target="_blank" rel="noopener">Moving to G1 from Other Collectors</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-0BB3B742-A985-4D5E-A9C5-433A127FE0F6">General Recommendations for G1</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-E26056D1-02A5-4367-94EF-72C66D314AF7">Moving to G1 from Other Collectors</a></li>
 <li>Improving G1 Performance<ul>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-0DD93225-0BCF-4605-B365-E9833F5BD2FC" target="_blank" rel="noopener">Observing Full Garbage Collections</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-2428DA90-B93D-48E6-B336-A849ADF1C552" target="_blank" rel="noopener">Humongous Object Fragmentation</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-0DD93225-0BCF-4605-B365-E9833F5BD2FC">Observing Full Garbage Collections</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-2428DA90-B93D-48E6-B336-A849ADF1C552">Humongous Object Fragmentation</a></li>
 <li>Tuning for Latency<ul>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-8D9B2530-E370-4B8B-8ADD-A43674FC6658" target="_blank" rel="noopener">Unusual System or Real-Time Usage</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-40B64CD4-9844-4E3E-A0BB-81556AC04C74" target="_blank" rel="noopener">Reference Object Processing Takes Too Long</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-5FD5BDB1-DB7D-4E31-9296-19C0A28F810C" target="_blank" rel="noopener">Young-Only Collections Within the Young-Only Phase Take Too Long</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-D2B6ADCE-6766-4FF8-AA9D-B7F4F3D0F469" target="_blank" rel="noopener">Mixed Collections Take Too Long</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-A0343B53-A690-4DDE-98F9-9877096DBF0F" target="_blank" rel="noopener">High Update RS and Scan RS Times</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-8D9B2530-E370-4B8B-8ADD-A43674FC6658">Unusual System or Real-Time Usage</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-40B64CD4-9844-4E3E-A0BB-81556AC04C74">Reference Object Processing Takes Too Long</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-5FD5BDB1-DB7D-4E31-9296-19C0A28F810C">Young-Only Collections Within the Young-Only Phase Take Too Long</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-D2B6ADCE-6766-4FF8-AA9D-B7F4F3D0F469">Mixed Collections Take Too Long</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-A0343B53-A690-4DDE-98F9-9877096DBF0F">High Update RS and Scan RS Times</a></li>
 </ul>
 </li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-70E3F150-B68E-4787-BBF1-F91315AC9AB9" target="_blank" rel="noopener">Tuning for Throughput</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-0770AB01-E334-4E23-B307-FD2114B16E0E" target="_blank" rel="noopener">Tuning for Heap Size</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-379B3888-FE24-4C3F-9E38-26434EB04F89" target="_blank" rel="noopener">Tunable Defaults</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-70E3F150-B68E-4787-BBF1-F91315AC9AB9">Tuning for Throughput</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-0770AB01-E334-4E23-B307-FD2114B16E0E">Tuning for Heap Size</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/garbage-first-garbage-collector-tuning.html#GUID-379B3888-FE24-4C3F-9E38-26434EB04F89">Tunable Defaults</a></li>
 </ul>
 </li>
 </ul>
@@ -1161,10 +1323,10 @@
 <h2 id="Other-Considerations"><a href="#Other-Considerations" class="headerlink" title="Other Considerations"></a>Other Considerations</h2><p>This section covers other situations that affect garbage collection.</p>
 <p>Topics</p>
 <ul>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/other-considerations.html#GUID-A7B0991C-661F-47BE-AEDB-74C6BDBDE181" target="_blank" rel="noopener">Finalization and Weak, Soft, and Phantom References</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/other-considerations.html#GUID-9E3E5371-20F5-4B70-A003-9D7851B115AF" target="_blank" rel="noopener">Explicit Garbage Collection</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/other-considerations.html#GUID-BFB89453-60C0-42AC-81CA-87D59B0ACE2E" target="_blank" rel="noopener">Soft References</a></li>
-<li><a href="https://docs.oracle.com/en/java/javase/12/gctuning/other-considerations.html#GUID-B29C9153-3530-4C15-9154-E74F44E3DAD9" target="_blank" rel="noopener">Class Metadata</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/other-considerations.html#GUID-A7B0991C-661F-47BE-AEDB-74C6BDBDE181">Finalization and Weak, Soft, and Phantom References</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/other-considerations.html#GUID-9E3E5371-20F5-4B70-A003-9D7851B115AF">Explicit Garbage Collection</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/other-considerations.html#GUID-BFB89453-60C0-42AC-81CA-87D59B0ACE2E">Soft References</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/en/java/javase/12/gctuning/other-considerations.html#GUID-B29C9153-3530-4C15-9154-E74F44E3DAD9">Class Metadata</a></li>
 </ul>
 <blockquote>
 <p>These features can create performance artifacts at the Java programming language level. An example of this is relying on finalization to close file descriptors, which makes an external resource (descriptors) dependent on garbage collection promptness. Relying on garbage collection to manage resources other than memory is almost always a bad idea.</p>
@@ -1186,7 +1348,7 @@
     <p><span class="copy-title">最后更新:</span>2020-04-10, 15:49:18</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/06/19/JVM-Garbage-Collection/" title="JVM_Garbage Collection">http://yoursite.com/2019/06/19/JVM-Garbage-Collection/</a>
     <p>
-        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
 </div>
 
@@ -1219,15 +1381,15 @@
 <div class="acParent"></div>
 
 </body>
-<script src="/js/jquery.pjax.js?v=1.0.1"></script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
 
-<script src="/js/script.js?v=1.0.1"></script>
+<script src="/js/script.js?v=1.0.1" ></script>
 <script>
     var img_resize = 'default';
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#netty','#nio','#framework','#zookeeper','#Spec','#gc','#summary','#classLoader','#juc','#hotspot','#j2ee','#spring','#hbase','#spark','#redis','#thread','#tomcat','#mysql','#lang','#elasticsearch','#kafka','#servlet','#ioc','#io','#serialization','#file','#ejb','#collections','#event','#aop','#job','#map','#applicationContext','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
+            'data': ['#week','#hide','#jvm','#gc','#summary','#juc','#jdk','#map','#classLoader','#packages','#io','#serialization','#file','#nio','#lang','#spring','#doc','#utils','#hotspot','#collections','#java','#note','#j2ee','#ejb','#distributed','#hbase','#framework','#spark','#elasticsearch','#kafka','#mysql','#netty','#redis','#servlet','#tomcat','#zookeeper','#Spec','#thread','#applicationContext','#ioc','#event','#aop','#job','#spring-mvc','#spring-webflux','#beanFactory',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   <title>J.U.C_ConcurrentHashMap | Zyumin</title>
   <meta name="keywords" content=" juc , map ">
   <meta name="description" content="J.U.C_ConcurrentHashMap | Zyumin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta name="keywords" content="java">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
 <meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-23T07:09:56.946Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-03-23T07:09:38.000Z">
+<meta property="article:modified_time" content="2019-03-23T07:09:56.000Z">
+<meta property="article:author" content="zhengyumin">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -30,7 +30,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
 
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script>
@@ -41,11 +41,11 @@
 
 
 
-<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
 
-<script src="/js/iconfont.js?v=1.0.1"></script>
+<script src="/js/iconfont.js?v=1.0.1" ></script>
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="false">
@@ -56,7 +56,7 @@
 <aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.png">
+    <img class="avatar" src="/img/avatar.png" />
 </a>
 <div class="author">
     <span>zhengyumin</span>
@@ -68,7 +68,7 @@
         <a title="github" href="https://github.com/Zyumin" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-github"/>
+                    <use xlink:href="#icon-github"></use>
                 </svg>
             
         </a>
@@ -78,7 +78,7 @@
         <a title="neteasemusic" href="https://music.163.com/#/user/home?id=60037019" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-neteasemusic"/>
+                    <use xlink:href="#icon-neteasemusic"></use>
                 </svg>
             
         </a>
@@ -94,7 +94,7 @@
     
         
             
-            <li><div data-rel="jdk">jdk<small>(13)</small></div>
+            <li><div data-rel="java">java<small>(9)</small></div>
                 
             </li>
             
@@ -102,7 +102,7 @@
     
         
             
-            <li><div data-rel="java">java<small>(9)</small></div>
+            <li><div data-rel="jdk">jdk<small>(13)</small></div>
                 
             </li>
             
@@ -118,7 +118,7 @@
     
         
             
-            <li><div data-rel="redis">redis<small>(4)</small></div>
+            <li><div data-rel="mysql">mysql<small>(2)</small></div>
                 
             </li>
             
@@ -126,7 +126,7 @@
     
         
             
-            <li><div data-rel="mysql">mysql<small>(2)</small></div>
+            <li><div data-rel="redis">redis<small>(4)</small></div>
                 
             </li>
             
@@ -143,7 +143,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="55">
-<input type="hidden" id="yelog_site_word_count" value="185.6k">
+<input type="hidden" id="yelog_site_word_count" value="189.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -166,11 +166,11 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off" id="local-search-input">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
         <i class="cross"></i>
         <span>
             <label for="tagswitch">Tags:</label>
-            <input id="tagswitch" type="checkbox" style="display: none">
+            <input id="tagswitch" type="checkbox" style="display: none" />
             <i id="tagsWitchIcon"></i>
         </span>
     </form>
@@ -185,51 +185,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">jdk</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">packages</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">utils</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">java</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">note</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">jvm</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">distributed</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">netty</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">nio</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">framework</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">zookeeper</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">Spec</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -241,67 +197,23 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">classLoader</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">juc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">hotspot</a>
+        <a href="javascript:" class="color4">jdk</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">j2ee</a>
+        <a href="javascript:" class="color4">map</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">spring</a>
+        <a href="javascript:" class="color2">classLoader</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">hbase</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">spark</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">redis</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">thread</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">tomcat</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">mysql</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">lang</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">elasticsearch</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">kafka</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">servlet</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ioc</a>
+        <a href="javascript:" class="color4">packages</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -317,11 +229,111 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color4">nio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">lang</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">doc</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">utils</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">hotspot</a>
     </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color2">collections</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">note</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">j2ee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ejb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">distributed</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">hbase</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">framework</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">spark</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">elasticsearch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">kafka</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">netty</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">redis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">tomcat</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">zookeeper</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Spec</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">applicationContext</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ioc</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -337,18 +349,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">map</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">applicationContext</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">beanFactory</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color1">spring-mvc</a>
     </li>
     
@@ -357,7 +357,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">doc</a>
+        <a href="javascript:" class="color2">beanFactory</a>
     </li>
     
     <div class="clearfix"></div>
@@ -370,279 +370,444 @@
     
     <nav id="title-list-nav">
         
-        <a id="top" class="java " href="/2019/02/02/Overview_java/" data-tag="summary" data-author="">
-            <span class="post-title" title="Overview_java">Overview_java</span>
-            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
-        </a>
-        
-        <a id="top" class="spring " href="/2019/03/02/Overview_Spring/" data-tag="framework,spring" data-author="">
-            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
-            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
-        </a>
-        
-        <a id="top" class="jdk " href="/2019/06/13/Overview_JDK/" data-tag="jdk,hotspot" data-author="">
-            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
-            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
-        </a>
-        
-        <a id="top" class="java " href="/2020/05/10/面试常见知识点梳理/" data-tag="job" data-author="">
-            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
-            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
-        </a>
-        
-        <a class="java " href="/2021/01/13/GC调优总结/" data-tag="jvm,gc,summary" data-author="">
-            <span class="post-title" title="GC调优总结">GC调优总结</span>
-            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Hbase/" data-tag="distributed,framework,hbase" data-author="">
-            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
-            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Spark/" data-tag="distributed,framework,spark" data-author="">
-            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
-            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis集群篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
-            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis实战篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
-            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis原理篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
-            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/23/spring-aop/" data-tag="spring,aop" data-author="">
-            <span class="post-title" title="spring-aop">spring-aop</span>
-            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/16/Spring-ApplicationContext/" data-tag="spring,applicationContext" data-author="">
-            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
-            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/05/spring-BeanFactory/" data-tag="spring,beanFactory" data-author="">
-            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
-            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/02/spring-Q-A/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
-            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
-        </a>
-        
-        <a class="spring " href="/2019/10/29/Documentation-Spring-Core-IOC/" data-tag="spring,doc" data-author="">
-            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
-            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/26/JDK-Packages-java-nio/" data-tag="jdk,packages,nio" data-author="">
-            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
-            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/23/JDK-Packages-java-io/" data-tag="jdk,packages,io,serialization,file" data-author="">
-            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
-            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Class/" data-tag="jdk" data-author="">
-            <span class="post-title" title="JDK_Class">JDK_Class</span>
-            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Thread/" data-tag="jdk,jvm,hotspot" data-author="">
-            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
-            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
-        </a>
-        
-        <a class="java " href="/2019/08/29/JVM-main方法分析/" data-tag="java,jvm" data-author="">
-            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
-            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/24/JDK-ReentrantLock/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
-            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
-        </a>
-        
-        <a class="java " href="/2019/08/17/JVM-Synchronized/" data-tag="jvm" data-author="">
-            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
-            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
-        </a>
-        
-        <a class="java " href="/2019/08/11/Overview-Java-Virtual-Machine/" data-tag="jvm" data-author="">
-            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
-            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-lang/" data-tag="jdk,packages,lang" data-author="">
-            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
-            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-utils/" data-tag="jdk,packages,utils" data-author="">
-            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
-            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/10/JDK-The-Concurrent-Framework/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
-            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/29/JDK-The-Collections-Framework/" data-tag="jdk,collections" data-author="">
-            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
-            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
-        </a>
-        
-        <a class="" href="/2019/07/10/Note-码农翻身/" data-tag="java,note" data-author="">
-            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
-            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/06/JDK-ClassLoader/" data-tag="jdk,classLoader" data-author="">
-            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
-            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
-        </a>
-        
-        <a class="spring " href="/2019/07/03/spring-ApplicationContext启动流程和事件机制/" data-tag="classLoader,spring,tomcat,servlet,event" data-author="">
-            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
-            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/26/Overview_Elasticsearch/" data-tag="framework,elasticsearch" data-author="">
-            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
-            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/24/J-U-C-ConcurrentHashMap/" data-tag="juc,map" data-author="">
-            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
-            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
-        </a>
-        
-        <a class="java " href="/2019/06/19/JVM-Garbage-Collection/" data-tag="jvm,gc" data-author="">
-            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
-            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/16/J-U-C-InterruptedException/" data-tag="juc" data-author="">
-            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
-            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
-        </a>
-        
-        <a class="java " href="/2019/06/14/Spec-JSR133/" data-tag="jvm,Spec,thread" data-author="">
-            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
-            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
-        </a>
-        
-        <a class="java " href="/2019/06/13/Spec-Java-Virtual-Machine/" data-tag="jvm,Spec" data-author="">
-            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
-            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
-        </a>
-        
-        <a class="" href="/2019/06/12/Overview_Kafka/" data-tag="framework,kafka" data-author="">
-            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
-            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
-        </a>
-        
-        <a class="redis " href="/2019/06/10/Overview_Redis/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
-            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
-        </a>
-        
-        <a class="" href="/2019/06/06/Note_java并发编程的艺术/" data-tag="java,note,juc" data-author="">
-            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
-            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Overview_Netty/" data-tag="netty,nio,framework" data-author="">
-            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
-            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Note_深入理解java虚拟机/" data-tag="java,note,jvm" data-author="">
-            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
-            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
-        </a>
-        
-        <a class="mysql " href="/2019/06/04/Overview_MySQL/" data-tag="mysql" data-author="">
-            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
-            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Zookeeper/" data-tag="distributed,framework,zookeeper" data-author="">
-            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
-            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Distributed/" data-tag="distributed" data-author="">
-            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
-            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
-        </a>
-        
-        <a class="spring " href="/2019/04/10/spring-api-1-0/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
-            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
-        </a>
-        
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/04/01/3%E6%9C%88%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
         
-        <a class="mysql " href="/2019/03/30/记一次mysql查询in的思考/" data-tag="mysql" data-author="">
-            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
-            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
-        </a>
-        
-        <a class="" href="/2019/03/26/记一次Broken-pipe问题的思考/" data-tag="tomcat" data-author="">
-            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
-            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
-        </a>
-        
-        <a class="" href="/2019/03/24/3月第三周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/03/24/3%E6%9C%88%E7%AC%AC%E4%B8%89%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第三周知识点记录">3月第三周知识点记录</span>
             <span class="post-date" title="2019-03-24 20:55:31">2019/03/24</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert One-on-One-J2EE-Development-without-EJB/" data-tag="j2ee,spring,ejb" data-author="">
+        <a  class="java "
+           href="/2021/01/13/GC%E8%B0%83%E4%BC%98%E6%80%BB%E7%BB%93/"
+           data-tag="jvm,gc,summary"
+           data-author="" >
+            <span class="post-title" title="GC调优总结">GC调优总结</span>
+            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/16/J-U-C-InterruptedException/"
+           data-tag="juc"
+           data-author="" >
+            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
+            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Class/"
+           data-tag="jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_Class">JDK_Class</span>
+            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/24/J-U-C-ConcurrentHashMap/"
+           data-tag="juc,map"
+           data-author="" >
+            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
+            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/06/JDK-ClassLoader/"
+           data-tag="jdk,classLoader"
+           data-author="" >
+            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
+            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/23/JDK-Packages-java-io/"
+           data-tag="jdk,packages,io,serialization,file"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
+            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/26/JDK-Packages-java-nio/"
+           data-tag="jdk,packages,nio"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
+            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-lang/"
+           data-tag="jdk,packages,lang"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
+            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/10/29/Documentation-Spring-Core-IOC/"
+           data-tag="spring,doc"
+           data-author="" >
+            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
+            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-utils/"
+           data-tag="jdk,packages,utils"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
+            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Thread/"
+           data-tag="jvm,jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
+            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/19/JVM-Garbage-Collection/"
+           data-tag="jvm,gc"
+           data-author="" >
+            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
+            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/29/JDK-The-Collections-Framework/"
+           data-tag="jdk,collections"
+           data-author="" >
+            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
+            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/24/JDK-ReentrantLock/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
+            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/29/JVM-main%E6%96%B9%E6%B3%95%E5%88%86%E6%9E%90/"
+           data-tag="jvm,java"
+           data-author="" >
+            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
+            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/17/JVM-Synchronized/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
+            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/07/10/Note-%E7%A0%81%E5%86%9C%E7%BF%BB%E8%BA%AB/"
+           data-tag="java,note"
+           data-author="" >
+            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
+            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert%20One-on-One-J2EE-Development-without-EJB/"
+           data-tag="spring,j2ee,ejb"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Development without EJB">Expert One-on-One J2EE Development without EJB</span>
             <span class="post-date" title="2019-03-10 19:45:57">2019/03/10</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/" data-tag="j2ee,spring" data-author="">
+        <a  class=""
+           href="/2019/06/06/Note_java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/"
+           data-tag="juc,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
+            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/10/JDK-The-Concurrent-Framework/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
+            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/18/Overview-Hbase/"
+           data-tag="distributed,hbase,framework"
+           data-author="" >
+            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
+            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Note_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA/"
+           data-tag="jvm,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
+            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/"
+           data-tag="spring,j2ee"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Design and Development">Expert One-on-One J2EE Design and Development</span>
             <span class="post-date" title="2019-03-10 19:45:18">2019/03/10</span>
         </a>
         
-        <a class="spring " href="/2019/03/03/spring-Core-Container预览/" data-tag="spring,ioc" data-author="">
-            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
-            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        <a  class="java "
+           href="/2019/08/11/Overview-Java-Virtual-Machine/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
+            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
         </a>
         
-        <a class="spring " href="/2019/02/03/spring-mvc/" data-tag="spring,servlet,spring-mvc,spring-webflux" data-author="">
-            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
-            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        <a  class=""
+           href="/2019/06/03/Overview_Distributed/"
+           data-tag="distributed"
+           data-author="" >
+            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
+            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
         </a>
         
-        <a class="" href="/2019/02/03/Overview_Tomcat/" data-tag="tomcat,servlet" data-author="">
+        <a  class=""
+           href="/2020/03/18/Overview-Spark/"
+           data-tag="distributed,framework,spark"
+           data-author="" >
+            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
+            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/26/Overview_Elasticsearch/"
+           data-tag="framework,elasticsearch"
+           data-author="" >
+            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
+            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/12/Overview_Kafka/"
+           data-tag="framework,kafka"
+           data-author="" >
+            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
+            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
+        </a>
+        
+        <a id="top" class="jdk "
+           href="/2019/06/13/Overview_JDK/"
+           data-tag="jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
+            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/06/04/Overview_MySQL/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
+            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Overview_Netty/"
+           data-tag="nio,framework,netty"
+           data-author="" >
+            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
+            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2019/06/10/Overview_Redis/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
+            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
+        </a>
+        
+        <a id="top" class="spring "
+           href="/2019/03/02/Overview_Spring/"
+           data-tag="spring,framework"
+           data-author="" >
+            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
+            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/03/Overview_Tomcat/"
+           data-tag="servlet,tomcat"
+           data-author="" >
             <span class="post-title" title="servlet_tomcat">servlet_tomcat</span>
             <span class="post-date" title="2019-02-03 15:49:08">2019/02/03</span>
         </a>
         
-        <a class="" href="/2019/02/02/Spec_Servlet/" data-tag="j2ee,servlet" data-author="">
+        <a  class=""
+           href="/2019/06/03/Overview_Zookeeper/"
+           data-tag="distributed,framework,zookeeper"
+           data-author="" >
+            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
+            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2019/02/02/Overview_java/"
+           data-tag="summary"
+           data-author="" >
+            <span class="post-title" title="Overview_java">Overview_java</span>
+            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%8E%9F%E7%90%86%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
+            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%AE%9E%E6%88%98%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
+            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E9%9B%86%E7%BE%A4%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
+            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/14/Spec-JSR133/"
+           data-tag="jvm,Spec,thread"
+           data-author="" >
+            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
+            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/13/Spec-Java-Virtual-Machine/"
+           data-tag="jvm,Spec"
+           data-author="" >
+            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
+            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/02/Spec_Servlet/"
+           data-tag="j2ee,servlet"
+           data-author="" >
             <span class="post-title" title="j2ee_servlet">j2ee_servlet</span>
             <span class="post-date" title="2019-02-02 18:05:54">2019/02/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/16/Spring-ApplicationContext/"
+           data-tag="spring,applicationContext"
+           data-author="" >
+            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
+            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/03/03/spring-Core-Container%E9%A2%84%E8%A7%88/"
+           data-tag="spring,ioc"
+           data-author="" >
+            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
+            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/02/spring-Q-A/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
+            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/07/03/spring-ApplicationContext%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/"
+           data-tag="classLoader,spring,servlet,tomcat,event"
+           data-author="" >
+            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
+            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/04/10/spring-api-1-0/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
+            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/26/%E8%AE%B0%E4%B8%80%E6%AC%A1Broken-pipe%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="tomcat"
+           data-author="" >
+            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
+            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/03/30/%E8%AE%B0%E4%B8%80%E6%AC%A1mysql%E6%9F%A5%E8%AF%A2in%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
+            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/23/spring-aop/"
+           data-tag="spring,aop"
+           data-author="" >
+            <span class="post-title" title="spring-aop">spring-aop</span>
+            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2020/05/10/%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/"
+           data-tag="job"
+           data-author="" >
+            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
+            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/02/03/spring-mvc/"
+           data-tag="spring,servlet,spring-mvc,spring-webflux"
+           data-author="" >
+            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
+            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/05/spring-BeanFactory/"
+           data-tag="spring,beanFactory"
+           data-author="" >
+            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
+            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
         </a>
         
     </nav>
@@ -657,7 +822,7 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-J-U-C-ConcurrentHashMap" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <article id="post-J-U-C-ConcurrentHashMap" class="article article-type-post" itemscope itemprop="blogPost">
     
         <h1 class="article-title">J.U.C_ConcurrentHashMap</h1>
     
@@ -683,12 +848,12 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2020-04-14 15:33:05">2019-06-24 19:03</time>
+        创建时间:<time class="date" title='更新时间: 2020-04-14 15:33:05'>2019-06-24 19:03</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:7k</span>
+        <span>字数:7.1k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -724,27 +889,28 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g4cgatpl82j30qo0k03zd.jpg" alt="img"></p>
-<a id="more"></a>
-<h2 id="preface"><a href="#preface" class="headerlink" title="preface"></a>preface</h2><p>​    做为办公室的游泳健将,鱼是不可能不摸的. 今天在查找接口文档的时候,发现一些业务,像商详、秒杀,这些抗流都是使用的本地缓存,  第二层再是redis. </p>
-<p>​    那么本地缓存一般会使用的都是Map结构(例如key为skuId), 现在使用最多的就是Guava Cache,  然而Spring5即将放弃掉Guava Cache作为缓存机制，而改用Caffeine作为新的本地Cache的组件.(至于为啥,不是一两句能够讲清的 主要是性能,其次是语言方面 函数式编程) 这些实现都是基于今天要讲的CHM</p>
-<p>​    PS:以下内容基于JDK 1.8</p>
+<span id="more"></span>
+
+<h2 id="preface"><a href="#preface" class="headerlink" title="preface"></a>preface</h2><p>​	做为办公室的游泳健将,鱼是不可能不摸的. 今天在查找接口文档的时候,发现一些业务,像商详、秒杀,这些抗流都是使用的本地缓存,  第二层再是redis. </p>
+<p>​	那么本地缓存一般会使用的都是Map结构(例如key为skuId), 现在使用最多的就是Guava Cache,  然而Spring5即将放弃掉Guava Cache作为缓存机制，而改用Caffeine作为新的本地Cache的组件.(至于为啥,不是一两句能够讲清的 主要是性能,其次是语言方面 函数式编程) 这些实现都是基于今天要讲的CHM</p>
+<p>​	PS:以下内容基于JDK 1.8</p>
 <h2 id="Map-Implementations"><a href="#Map-Implementations" class="headerlink" title="Map Implementations"></a>Map Implementations</h2><p>CHM是Map 的一种实现, 这里再简单说说Map的其他实现. Map的实现分为通用实现(General-Purpose Map Implementations)，专用实现(Special-Purpose Map Implementations)和并发实现(Concurrent Map Implementations)。</p>
-<p><a href="https://docs.oracle.com/javase/tutorial/collections/implementations/map.html" target="_blank" rel="noopener">More see here</a>  (Map接口在1.8有挺多改动的,例如complete 、merge)</p>
+<p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/collections/implementations/map.html">More see here</a>  (Map接口在1.8有挺多改动的,例如complete 、merge)</p>
 <h3 id="General-Purpose-Map-Implementations"><a href="#General-Purpose-Map-Implementations" class="headerlink" title="General-Purpose Map Implementations"></a>General-Purpose Map Implementations</h3><blockquote>
-<p>The three general-purpose <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html" target="_blank" rel="noopener"><code>Map</code></a> implementations are <a href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html" target="_blank" rel="noopener"><code>HashMap</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html" target="_blank" rel="noopener"><code>TreeMap</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashMap.html" target="_blank" rel="noopener"><code>LinkedHashMap</code></a>.If you need <code>SortedMap</code> operations or key-ordered <code>Collection</code>-view iteration, use <code>TreeMap</code>; if you want maximum speed and don’t care about iteration order, use <code>HashMap</code>; if you want near-<code>HashMap</code> performance and insertion-order iteration, use <code>LinkedHashMap</code></p>
+<p>The three general-purpose <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html"><code>Map</code></a> implementations are <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html"><code>HashMap</code></a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html"><code>TreeMap</code></a> and <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashMap.html"><code>LinkedHashMap</code></a>.If you need <code>SortedMap</code> operations or key-ordered <code>Collection</code>-view iteration, use <code>TreeMap</code>; if you want maximum speed and don’t care about iteration order, use <code>HashMap</code>; if you want near-<code>HashMap</code> performance and insertion-order iteration, use <code>LinkedHashMap</code></p>
 </blockquote>
 <p>TreeMap 用于排序 </p>
 <p>LinkedHashMap 额外维护一个队列, 可以用它来简单实现一个LRU算法</p>
 <h3 id="Special-Purpose-Map-Implementations"><a href="#Special-Purpose-Map-Implementations" class="headerlink" title="Special-Purpose Map Implementations"></a>Special-Purpose Map Implementations</h3><blockquote>
-<p>There are three special-purpose Map implementations — <a href="https://docs.oracle.com/javase/8/docs/api/java/util/EnumMap.html" target="_blank" rel="noopener"><code>EnumMap</code></a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/util/WeakHashMap.html" target="_blank" rel="noopener"><code>WeakHashMap</code></a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/IdentityHashMap.html" target="_blank" rel="noopener"><code>IdentityHashMap</code></a>. <code>EnumMap</code>, which is internally implemented as an <code>array</code>, is a high-performance <code>Map</code> implementation for use with enum keys. This implementation combines the richness and safety of the <code>Map</code> interface with a speed approaching that of an array. If you want to map an enum to a value, you should always use an <code>EnumMap</code> in preference to an array.</p>
+<p>There are three special-purpose Map implementations — <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/EnumMap.html"><code>EnumMap</code></a>, <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/WeakHashMap.html"><code>WeakHashMap</code></a> and <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/java/util/IdentityHashMap.html"><code>IdentityHashMap</code></a>. <code>EnumMap</code>, which is internally implemented as an <code>array</code>, is a high-performance <code>Map</code> implementation for use with enum keys. This implementation combines the richness and safety of the <code>Map</code> interface with a speed approaching that of an array. If you want to map an enum to a value, you should always use an <code>EnumMap</code> in preference to an array.</p>
 <p><code>WeakHashMap</code> is an implementation of the <code>Map</code> interface that stores only weak references to its keys. Storing only weak references allows a key-value pair to be garbage-collected when its key is no longer referenced outside of the <code>WeakHashMap</code>. This class provides the easiest way to harness the power of weak references. It is useful for implementing “registry-like” data structures, where the utility of an entry vanishes when its key is no longer reachable by any thread.</p>
 <p><code>IdentityHashMap</code> is an identity-based <code>Map</code> implementation based on a hash table. This class is useful for topology-preserving object graph transformations, such as serialization or deep-copying. To perform such transformations, you need to maintain an identity-based “node table” that keeps track of which objects have already been seen. Identity-based maps are also used to maintain object-to-meta-information mappings in dynamic debuggers and similar systems. Finally, identity-based maps are useful in thwarting “spoof attacks” that are a result of intentionally perverse <code>equals</code> methods because <code>IdentityHashMap</code> never invokes the <code>equals</code> method on its keys. An added benefit of this implementation is that it is fast</p>
 </blockquote>
-<p>IdentityHashMap 不用调用equals ,而是使用==判断</p>
+<p>IdentityHashMap 不用调用equals ,而是使用&#x3D;&#x3D;判断</p>
 <h3 id="Concurrent-Map-Implementations"><a href="#Concurrent-Map-Implementations" class="headerlink" title="Concurrent Map Implementations"></a>Concurrent Map Implementations</h3><blockquote>
 <p><code>ConcurrentHashMap</code> is a highly concurrent, high-performance implementation backed up by a hash table. This implementation never blocks when performing retrievals and allows the client to select the concurrency level for updates. It is intended as a drop-in replacement for <code>Hashtable</code>: in addition to implementing <code>ConcurrentMap</code>, it supports all the legacy methods peculiar to <code>Hashtable</code>. Again, if you don’t need the legacy operations, be careful to manipulate it with the <code>ConcurrentMap</code> interface.</p>
 </blockquote>
-<p>​    CHM是Hashtable的代替者, 至于原因嘛, 当然是性能啦. Hashtable 的实现是简单的在方法上面加synchronized ,这样会导致锁的竞争对象是实例本身.(如果是static 方法 锁的是整个类对象)</p>
+<p>​	CHM是Hashtable的代替者, 至于原因嘛, 当然是性能啦. Hashtable 的实现是简单的在方法上面加synchronized ,这样会导致锁的竞争对象是实例本身.(如果是static 方法 锁的是整个类对象)</p>
 <h2 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h2><p>通常我们应该站在实现者的角度,而不仅仅是使用者的角度, 通过猜测作者的意图, 换位思考,换成我来实现我会怎么做</p>
 <h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><pre><code class="java">
 /*
@@ -1041,7 +1207,7 @@
  * or the bin becomes invalidated (upon resizing).
  */
 </code></pre>
-<p>​    当在一个空bin中insert第一个node时，其使用CAS操作来同步，而对于其他的update操作(insert,delete, and replace)则需要使用锁来同步。而在每一个bucket中，一般使用此bin中第一个node作为这个bin的锁，锁住整个bucket。（因为新放入bin的node总会添加到list的末尾，故除了delete掉第一个节点或resize数组之外，这个节点总是此bin的第一个node，具有稳定性）。</p>
+<p>​	当在一个空bin中insert第一个node时，其使用CAS操作来同步，而对于其他的update操作(insert,delete, and replace)则需要使用锁来同步。而在每一个bucket中，一般使用此bin中第一个node作为这个bin的锁，锁住整个bucket。（因为新放入bin的node总会添加到list的末尾，故除了delete掉第一个节点或resize数组之外，这个节点总是此bin的第一个node，具有稳定性）。</p>
 <pre><code class="java">/*
  * The main disadvantage of per-bin locks is that other update
  * operations on other nodes in a bin list protected by the same
@@ -1071,7 +1237,7 @@
  * elements is roughly 1 / (8  * #elements) under random hashes.
  */
 </code></pre>
-<p>​    当使用锁,锁住bin节点的第一个节点的时候, 最大的问题是其他访问这个bin需要等待(例如equals 和mapping 的过程花费了很长时间 ) 然而,  其实就像上面提到过的通常链表为空或者只有一个.  因为冲突的概率很低</p>
+<p>​	当使用锁,锁住bin节点的第一个节点的时候, 最大的问题是其他访问这个bin需要等待(例如equals 和mapping 的过程花费了很长时间 ) 然而,  其实就像上面提到过的通常链表为空或者只有一个.  因为冲突的概率很低</p>
 <pre><code class="java">/*
  * Actual hash code distributions encountered in practice
  * sometimes deviate significantly from uniform randomness.  This
@@ -1124,7 +1290,7 @@
 </code></pre>
 <p>重新扩容当负载因子超过0.75  , 扩容通常是power-of-two ,渐进式的方式,多次扩容(通过transferIndex)  ,</p>
 <p>使用字段sizeCtl来确保不会重复扩容. </p>
-<p>这种扩容通常是相同的索引,或者移动power-of-two 位置(1/6的概率需要cloning) 旧表只包含forwarding node（具有散列字段“MOVED”）做为新表的key</p>
+<p>这种扩容通常是相同的索引,或者移动power-of-two 位置(1&#x2F;6的概率需要cloning) 旧表只包含forwarding node（具有散列字段“MOVED”）做为新表的key</p>
 <pre><code class="java">/*
  * Each bin transfer requires its bin lock, which can stall
  * waiting for locks while resizing. However, because other
@@ -1147,7 +1313,7 @@
  * suggesting use of a stack here.)
  */
 </code></pre>
-<p>​    调整大小时,每个bin移动的时候都需要对bin锁定。但是，因为其他线程可以加入并帮助调整大小而不是争用锁，总耗时会更多(多线程帮助扩容)。扩容时还必须确保旧表和新表中的所有可访问的bin都可以被任何遍历使用更多细节看<code>TableStack</code>、 <code>Traverser</code></p>
+<p>​	调整大小时,每个bin移动的时候都需要对bin锁定。但是，因为其他线程可以加入并帮助调整大小而不是争用锁，总耗时会更多(多线程帮助扩容)。扩容时还必须确保旧表和新表中的所有可访问的bin都可以被任何遍历使用更多细节看<code>TableStack</code>、 <code>Traverser</code></p>
 <pre><code class="java">/*
  * The element count is maintained using a specialization of
  * LongAdder. We need to incorporate a specialization rather than
@@ -1163,7 +1329,7 @@
  * threshold (and after resizing, many fewer do so).
  */
 </code></pre>
-<p>​    使用<code>LongAdder</code> 来统计元素的个数</p>
+<p>​	使用<code>LongAdder</code> 来统计元素的个数</p>
 <h4 id="TreeBins"><a href="#TreeBins" class="headerlink" title="TreeBins"></a>TreeBins</h4><pre><code class="java">/*
  * TreeBins use a special form of comparison for search and
  * related operations (which is the main reason we cannot use
@@ -1202,8 +1368,8 @@
  * maximize aggregate expected throughput.
  */
 </code></pre>
-<p>​    TreeBins , On insertion, to keep a total ordering (or as close as is required here) across rebalancings, we compare classes and identityHashCodes as tie-breakers.</p>
-<p>​    TreeBins还需要额外的锁定机制。 尽管在更新期间readers总是可以进行列表遍历，但是树遍历不是，主要是因为可以改变根节点和/或其链接的树旋转。使用读写锁实现,读不会阻塞</p>
+<p>​	TreeBins , On insertion, to keep a total ordering (or as close as is required here) across rebalancings, we compare classes and identityHashCodes as tie-breakers.</p>
+<p>​	TreeBins还需要额外的锁定机制。 尽管在更新期间readers总是可以进行列表遍历，但是树遍历不是，主要是因为可以改变根节点和&#x2F;或其链接的树旋转。使用读写锁实现,读不会阻塞</p>
 <h4 id="baggage"><a href="#baggage" class="headerlink" title="baggage"></a>baggage</h4><pre><code class="java">/*     
  * Maintaining API and serialization compatibility with previous
  * versions of this class introduces several oddities. Mainly: We
@@ -1230,7 +1396,7 @@
  * bulk operations.
  */
 </code></pre>
-<p>​    ConcurrentHashMap 的源码可读性非常高,按照如上方式组织代码</p>
+<p>​	ConcurrentHashMap 的源码可读性非常高,按照如上方式组织代码</p>
 <h4 id="main-declarations"><a href="#main-declarations" class="headerlink" title="main declarations"></a>main declarations</h4><pre><code class="java">//默认bin数组的大小，必须为2的n次方
 private static final int DEFAULT_CAPACITY = 16;            
 
@@ -1251,11 +1417,11 @@ static final int NCPU = Runtime.getRuntime().availableProcessors();
 
 
 /** For serialization compatibility.  兼容*/
-private static final ObjectStreamField[] serialPersistentFields = {
+private static final ObjectStreamField[] serialPersistentFields = &#123;
    new ObjectStreamField(&quot;segments&quot;, Segment[].class),
    new ObjectStreamField(&quot;segmentMask&quot;, Integer.TYPE),
    new ObjectStreamField(&quot;segmentShift&quot;, Integer.TYPE)
-};
+&#125;;
 //兼容
 private static final int DEFAULT_CONCURRENCY_LEVEL = 16;
 /*
@@ -1265,54 +1431,53 @@ static final int MOVED     = -1; // hash for forwarding nodes
 static final int TREEBIN   = -2; // hash for roots of trees
 static final int RESERVED  = -3; // hash for transient reservations
 static final int HASH_BITS = 0x7fffffff; // usable bits of normal node hash
-
 </code></pre>
-<h4 id="Node-1"><a href="#Node-1" class="headerlink" title="Node"></a>Node</h4><pre><code class="java">static class Node&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; {
+<h4 id="Node-1"><a href="#Node-1" class="headerlink" title="Node"></a>Node</h4><pre><code class="java">static class Node&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;
     final int hash;
     final K key;
     volatile V val;
     volatile Node&lt;K,V&gt; next;
 
-    Node(int hash, K key, V val, Node&lt;K,V&gt; next) {
+    Node(int hash, K key, V val, Node&lt;K,V&gt; next) &#123;
         this.hash = hash;
         this.key = key;
         this.val = val;
         this.next = next;
-    }
+    &#125;
 
-    public final K getKey()       { return key; }
-    public final V getValue()     { return val; }
-    public final int hashCode()   { return key.hashCode() ^ val.hashCode(); }
-    public final String toString(){ return key + &quot;=&quot; + val; }
-    public final V setValue(V value) {
+    public final K getKey()       &#123; return key; &#125;
+    public final V getValue()     &#123; return val; &#125;
+    public final int hashCode()   &#123; return key.hashCode() ^ val.hashCode(); &#125;
+    public final String toString()&#123; return key + &quot;=&quot; + val; &#125;
+    public final V setValue(V value) &#123;
         throw new UnsupportedOperationException();
-    }
+    &#125;
 
-    public final boolean equals(Object o) {
+    public final boolean equals(Object o) &#123;
         Object k, v, u; Map.Entry&lt;?,?&gt; e;
         return ((o instanceof Map.Entry) &amp;&amp;
                 (k = (e = (Map.Entry&lt;?,?&gt;)o).getKey()) != null &amp;&amp;
                 (v = e.getValue()) != null &amp;&amp;
                 (k == key || k.equals(key)) &amp;&amp;
                 (v == (u = val) || v.equals(u)));
-    }
+    &#125;
 
     /**
      * Virtualized support for map.get(); overridden in subclasses.
      */
-    Node&lt;K,V&gt; find(int h, Object k) {
+    Node&lt;K,V&gt; find(int h, Object k) &#123;
         Node&lt;K,V&gt; e = this;
-        if (k != null) {
-            do {
+        if (k != null) &#123;
+            do &#123;
                 K ek;
                 if (e.hash == h &amp;&amp;
                     ((ek = e.key) == k || (ek != null &amp;&amp; k.equals(ek))))
                     return e;
-            } while ((e = e.next) != null);
-        }
+            &#125; while ((e = e.next) != null);
+        &#125;
         return null;
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <h4 id="Static-utilities"><a href="#Static-utilities" class="headerlink" title="Static utilities"></a>Static utilities</h4><pre><code class="java">/**
  * Spreads (XORs) higher bits of hash to lower and also forces top
@@ -1330,15 +1495,15 @@ static final int HASH_BITS = 0x7fffffff; // usable bits of normal node hash
  * to incorporate impact of the highest bits that would otherwise
  * never be used in index calculations because of table bounds.
  */
-static final int spread(int h) {
+static final int spread(int h) &#123;
     return (h ^ (h &gt;&gt;&gt; 16)) &amp; HASH_BITS;
-}
+&#125;
 
 /**
  * Returns a power of two table size for the given desired capacity.
  * See Hackers Delight, sec 3.2
  */
-private static final int tableSizeFor(int c) {
+private static final int tableSizeFor(int c) &#123;
     int n = c - 1;
     n |= n &gt;&gt;&gt; 1;
     n |= n &gt;&gt;&gt; 2;
@@ -1346,73 +1511,73 @@ private static final int tableSizeFor(int c) {
     n |= n &gt;&gt;&gt; 8;
     n |= n &gt;&gt;&gt; 16;
     return (n &lt; 0) ? 1 : (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
-}
+&#125;
 
 /**
  * Returns x&#39;s Class if it is of the form &quot;class C implements
  * Comparable&lt;C&gt;&quot;, else null.
  */
-static Class&lt;?&gt; comparableClassFor(Object x) {
-    if (x instanceof Comparable) {
+static Class&lt;?&gt; comparableClassFor(Object x) &#123;
+    if (x instanceof Comparable) &#123;
         Class&lt;?&gt; c; Type[] ts, as; Type t; ParameterizedType p;
         if ((c = x.getClass()) == String.class) // bypass checks
             return c;
-        if ((ts = c.getGenericInterfaces()) != null) {
-            for (int i = 0; i &lt; ts.length; ++i) {
+        if ((ts = c.getGenericInterfaces()) != null) &#123;
+            for (int i = 0; i &lt; ts.length; ++i) &#123;
                 if (((t = ts[i]) instanceof ParameterizedType) &amp;&amp;
                     ((p = (ParameterizedType)t).getRawType() ==
                      Comparable.class) &amp;&amp;
                     (as = p.getActualTypeArguments()) != null &amp;&amp;
                     as.length == 1 &amp;&amp; as[0] == c) // type arg is c
                     return c;
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
     return null;
-}
+&#125;
 
 /**
  * Returns k.compareTo(x) if x matches kc (k&#39;s screened comparable
  * class), else 0.
  */
-@SuppressWarnings({&quot;rawtypes&quot;,&quot;unchecked&quot;}) // for cast to Comparable
-static int compareComparables(Class&lt;?&gt; kc, Object k, Object x) {
+@SuppressWarnings(&#123;&quot;rawtypes&quot;,&quot;unchecked&quot;&#125;) // for cast to Comparable
+static int compareComparables(Class&lt;?&gt; kc, Object k, Object x) &#123;
     return (x == null || x.getClass() != kc ? 0 :
             ((Comparable)k).compareTo(x));
-}
+&#125;
 </code></pre>
 <h4 id="Main-public-methods"><a href="#Main-public-methods" class="headerlink" title="Main public methods"></a>Main public methods</h4><h5 id="Construct"><a href="#Construct" class="headerlink" title="Construct"></a>Construct</h5><pre><code class="java">/**
  * Creates a new, empty map with the default initial table size (16).
  */
-public ConcurrentHashMap() {
-}
+public ConcurrentHashMap() &#123;
+&#125;
 
 /**
  * Creates a new, empty map with an initial table size
  * accommodating the specified number of elements without the need
  * to dynamically resize.
  */
-public ConcurrentHashMap(int initialCapacity) {
+public ConcurrentHashMap(int initialCapacity) &#123;
     if (initialCapacity &lt; 0)
         throw new IllegalArgumentException();
     int cap = ((initialCapacity &gt;= (MAXIMUM_CAPACITY &gt;&gt;&gt; 1)) ?
                MAXIMUM_CAPACITY :
                tableSizeFor(initialCapacity + (initialCapacity &gt;&gt;&gt; 1) + 1));
     this.sizeCtl = cap;
-}
+&#125;
 
 /**
  * Creates a new map with the same mappings as the given map.
  */
-public ConcurrentHashMap(Map&lt;? extends K, ? extends V&gt; m) {
+public ConcurrentHashMap(Map&lt;? extends K, ? extends V&gt; m) &#123;
     this.sizeCtl = DEFAULT_CAPACITY;
     putAll(m);
-}
+&#125;
 
 /**
  * Creates a new, empty map with an initial table size based on
- * the given number of elements ({@code initialCapacity}) and
- * initial table density ({@code loadFactor}).
+ * the given number of elements (&#123;@code initialCapacity&#125;) and
+ * initial table density (&#123;@code loadFactor&#125;).
  *
  * @param initialCapacity the initial capacity. The implementation
  * performs internal sizing to accommodate this many elements,
@@ -1424,15 +1589,15 @@ public ConcurrentHashMap(Map&lt;? extends K, ? extends V&gt; m) {
  *
  * @since 1.6
  */
-public ConcurrentHashMap(int initialCapacity, float loadFactor) {
+public ConcurrentHashMap(int initialCapacity, float loadFactor) &#123;
     this(initialCapacity, loadFactor, 1);
-}
+&#125;
 
 /**
  * Creates a new, empty map with an initial table size based on
- * the given number of elements ({@code initialCapacity}), table
- * density ({@code loadFactor}), and number of concurrently
- * updating threads ({@code concurrencyLevel}).
+ * the given number of elements (&#123;@code initialCapacity&#125;), table
+ * density (&#123;@code loadFactor&#125;), and number of concurrently
+ * updating threads (&#123;@code concurrencyLevel&#125;).
  *
  * @param initialCapacity the initial capacity. The implementation
  * performs internal sizing to accommodate this many elements,
@@ -1447,7 +1612,7 @@ public ConcurrentHashMap(int initialCapacity, float loadFactor) {
  * nonpositive
  */
 public ConcurrentHashMap(int initialCapacity,
-                         float loadFactor, int concurrencyLevel) {
+                         float loadFactor, int concurrencyLevel) &#123;
     if (!(loadFactor &gt; 0.0f) || initialCapacity &lt; 0 || concurrencyLevel &lt;= 0)
         throw new IllegalArgumentException();
     if (initialCapacity &lt; concurrencyLevel)   // Use at least as many bins
@@ -1456,143 +1621,144 @@ public ConcurrentHashMap(int initialCapacity,
     int cap = (size &gt;= (long)MAXIMUM_CAPACITY) ?
         MAXIMUM_CAPACITY : tableSizeFor((int)size);
     this.sizeCtl = cap;
-}
+&#125;
 </code></pre>
-<h5 id="Size"><a href="#Size" class="headerlink" title="Size"></a>Size</h5><pre><code class="java">public int size() {
+<h5 id="Size"><a href="#Size" class="headerlink" title="Size"></a>Size</h5><pre><code class="java">public int size() &#123;
     long n = sumCount();
     return ((n &lt; 0L) ? 0 :
             (n &gt; (long)Integer.MAX_VALUE) ? Integer.MAX_VALUE :
             (int)n);
-}
+&#125;
 /* ---------------- Counter support -------------- */
 
 /**
  * A padded cell for distributing counts.  Adapted from LongAdder
  * and Striped64.  See their internal docs for explanation.
  */
-@sun.misc.Contended static final class CounterCell {
+@sun.misc.Contended static final class CounterCell &#123;
     volatile long value;
-    CounterCell(long x) { value = x; }
-}
+    CounterCell(long x) &#123; value = x; &#125;
+&#125;
 
-final long sumCount() {
+final long sumCount() &#123;
     CounterCell[] as = counterCells; CounterCell a;
     long sum = baseCount;
-    if (as != null) {
-        for (int i = 0; i &lt; as.length; ++i) {
+    if (as != null) &#123;
+        for (int i = 0; i &lt; as.length; ++i) &#123;
             if ((a = as[i]) != null)
                 sum += a.value;
-        }
-    }
+        &#125;
+    &#125;
     return sum;
-}
+&#125;
 </code></pre>
-<h5 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h5><pre><code class="java">public boolean containsKey(Object key) {
+<h5 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h5><pre><code class="java">public boolean containsKey(Object key) &#123;
     return get(key) != null;
-}
+&#125;
 
-public V get(Object key) {
+public V get(Object key) &#123;
     Node&lt;K,V&gt;[] tab; 
     Node&lt;K,V&gt; e, p; 
     int n, eh; 
     K ek;
     //通过位运算取得bit高位来使key分布更均匀,当key=null时，会抛出空指针异常
     int h = spread(key.hashCode());    
-
+                                                            
     //e 取得bin中的first node
-    if ((tab = table) != null &amp;&amp; (n = tab.length) &gt; 0 &amp;&amp; (e = tabAt(tab, (n - 1) &amp; h)) != null) {
-        if ((eh = e.hash) == h) {                                      
+    if ((tab = table) != null &amp;&amp; (n = tab.length) &gt; 0 &amp;&amp; (e = tabAt(tab, (n - 1) &amp; h)) != null) &#123;
+        if ((eh = e.hash) == h) &#123;                                      
             if ((ek = e.key) == key || (ek != null &amp;&amp; key.equals(ek)))
                 return e.val;
-        }
+        &#125;
         else if (eh &lt; 0)
             return (p = e.find(h, key)) != null ? p.val : null;
 
         //遍历链表
-        while ((e = e.next) != null) {      
+        while ((e = e.next) != null) &#123;      
             if (e.hash == h &amp;&amp; ((ek = e.key) == key || (ek != null &amp;&amp; key.equals(ek))))
                 return e.val;
-        }
-    }
+        &#125;
+    &#125;
     return null;
-}
+&#125;
 </code></pre>
 <h5 id="Put"><a href="#Put" class="headerlink" title="Put"></a>Put</h5><pre><code class="java">/** Implementation for put and putIfAbsent */
-final V putVal(K key, V value, boolean onlyIfAbsent) {
+final V putVal(K key, V value, boolean onlyIfAbsent) &#123;
     if (key == null || value == null) throw new NullPointerException();
     int hash = spread(key.hashCode());
     int binCount = 0;
-    for (Node&lt;K,V&gt;[] tab = table;;) {
+    for (Node&lt;K,V&gt;[] tab = table;;) &#123;
         Node&lt;K,V&gt; f; int n, i, fh;
             //延迟初始化
         if (tab == null || (n = tab.length) == 0)
             tab = initTable();   
                         //当向empty bin 中添加node时，并不使用锁，而使用CAS操作来添加
-        else if ((f = tabAt(tab, i = (n - 1) &amp; hash)) == null) {
+        else if ((f = tabAt(tab, i = (n - 1) &amp; hash)) == null) &#123;
             if (casTabAt(tab, i, null,
                          new Node&lt;K,V&gt;(hash, key, value, null)))
                 break;                   
-        }
+        &#125;
         //处于扩容状态,帮助扩容
         else if ((fh = f.hash) == MOVED)
             tab = helpTransfer(tab, f);
-        else {
+        else &#123;
             V oldVal = null;
                 //锁住bin节点
-            synchronized (f) {
-                if (tabAt(tab, i) == f) {
-                    if (fh &gt;= 0) {
+            synchronized (f) &#123;
+                if (tabAt(tab, i) == f) &#123;
+                    if (fh &gt;= 0) &#123;
                         binCount = 1;
-                        for (Node&lt;K,V&gt; e = f;; ++binCount) {
+                        for (Node&lt;K,V&gt; e = f;; ++binCount) &#123;
                             K ek;
                             if (e.hash == hash &amp;&amp;
                                 ((ek = e.key) == key ||
-                                 (ek != null &amp;&amp; key.equals(ek)))) {
+                                 (ek != null &amp;&amp; key.equals(ek)))) &#123;
                                 oldVal = e.val;
                                 if (!onlyIfAbsent)
                                     e.val = value;
                                 break;
-                            }
+                            &#125;
                             Node&lt;K,V&gt; pred = e;
-                            if ((e = e.next) == null) {
+                            if ((e = e.next) == null) &#123;
                                 pred.next = new Node&lt;K,V&gt;(hash, key,
                                                           value, null);
                                 break;
-                            }
-                        }
-                    }
-                    else if (f instanceof TreeBin) {
+                            &#125;
+                        &#125;
+                    &#125;
+                    else if (f instanceof TreeBin) &#123;
                         Node&lt;K,V&gt; p;
                         binCount = 2;
                         if ((p = ((TreeBin&lt;K,V&gt;)f).putTreeVal(hash, key,
-                                                       value)) != null) {
+                                                       value)) != null) &#123;
                             oldVal = p.val;
                             if (!onlyIfAbsent)
                                 p.val = value;
-                        }
-                    }
-                }
-            }
+                        &#125;
+                    &#125;
+                &#125;
+            &#125;
             //先插入再转换成tree
-            if (binCount != 0) {
+            if (binCount != 0) &#123;
                 if (binCount &gt;= TREEIFY_THRESHOLD)
                     treeifyBin(tab, i);
                 if (oldVal != null)
                     return oldVal;
                 break;
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
     addCount(1L, binCount);
     return null;
-}
+&#125;
 </code></pre>
 <p>可以看到ConcurrentHashMap 为了提高性能做了很多事情</p>
 <ul>
-<li>​    只有哈希冲突才会锁住bin,否则使用CAS </li>
-<li>​    多线程帮助扩容</li>
-<li>​    当链表过长树化,提高查询速度,防止锁住时间过长    </li>
+<li>​	只有哈希冲突才会锁住bin,否则使用CAS </li>
+<li>​	多线程帮助扩容</li>
+<li>​	当链表过长树化,提高查询速度,防止锁住时间过长</li>
 </ul>
+<p>	</p>
 <p>More details to continues …..</p>
 
       
@@ -1604,13 +1770,13 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>J.U.C_ConcurrentHashMap</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">7k</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">7.1k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-06-24, 19:03:29</p>
     <p><span class="copy-title">最后更新:</span>2020-04-14, 15:33:05</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/06/24/J-U-C-ConcurrentHashMap/" title="J.U.C_ConcurrentHashMap">http://yoursite.com/2019/06/24/J-U-C-ConcurrentHashMap/</a>
     <p>
-        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
 </div>
 
@@ -1643,15 +1809,15 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
 <div class="acParent"></div>
 
 </body>
-<script src="/js/jquery.pjax.js?v=1.0.1"></script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
 
-<script src="/js/script.js?v=1.0.1"></script>
+<script src="/js/script.js?v=1.0.1" ></script>
 <script>
     var img_resize = 'default';
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#netty','#nio','#framework','#zookeeper','#Spec','#gc','#summary','#classLoader','#juc','#hotspot','#j2ee','#spring','#hbase','#spark','#redis','#thread','#tomcat','#mysql','#lang','#elasticsearch','#kafka','#servlet','#ioc','#io','#serialization','#file','#ejb','#collections','#event','#aop','#job','#map','#applicationContext','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
+            'data': ['#week','#hide','#jvm','#gc','#summary','#juc','#jdk','#map','#classLoader','#packages','#io','#serialization','#file','#nio','#lang','#spring','#doc','#utils','#hotspot','#collections','#java','#note','#j2ee','#ejb','#distributed','#hbase','#framework','#spark','#elasticsearch','#kafka','#mysql','#netty','#redis','#servlet','#tomcat','#zookeeper','#Spec','#thread','#applicationContext','#ioc','#event','#aop','#job','#spring-mvc','#spring-webflux','#beanFactory',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

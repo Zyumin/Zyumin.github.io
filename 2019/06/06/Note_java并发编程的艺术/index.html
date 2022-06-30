@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
   <meta charset="utf-8">
   <title>Note_java并发编程的艺术 | Zyumin</title>
-  <meta name="keywords" content=" java , note , juc ">
+  <meta name="keywords" content=" juc , java , note ">
   <meta name="description" content="Note_java并发编程的艺术 | Zyumin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta name="keywords" content="java">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
 <meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="Zyumin">
 <meta property="og:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-23T07:09:56.946Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-03-23T07:09:38.000Z">
+<meta property="article:modified_time" content="2019-03-23T07:09:56.000Z">
+<meta property="article:author" content="zhengyumin">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="为了将事情做好，首先你得喜欢做这件事，而不是喜欢这件事的结果，那仅仅是第二位。">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -30,7 +30,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="/js/jquery.autocomplete.min.js?v=1.0.1"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
 
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script>
@@ -41,11 +41,11 @@
 
 
 
-<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
 
-<script src="/js/iconfont.js?v=1.0.1"></script>
+<script src="/js/iconfont.js?v=1.0.1" ></script>
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="false">
@@ -56,7 +56,7 @@
 <aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.png">
+    <img class="avatar" src="/img/avatar.png" />
 </a>
 <div class="author">
     <span>zhengyumin</span>
@@ -68,7 +68,7 @@
         <a title="github" href="https://github.com/Zyumin" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-github"/>
+                    <use xlink:href="#icon-github"></use>
                 </svg>
             
         </a>
@@ -78,7 +78,7 @@
         <a title="neteasemusic" href="https://music.163.com/#/user/home?id=60037019" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-neteasemusic"/>
+                    <use xlink:href="#icon-neteasemusic"></use>
                 </svg>
             
         </a>
@@ -94,7 +94,7 @@
     
         
             
-            <li><div data-rel="jdk">jdk<small>(13)</small></div>
+            <li><div data-rel="java">java<small>(9)</small></div>
                 
             </li>
             
@@ -102,7 +102,7 @@
     
         
             
-            <li><div data-rel="java">java<small>(9)</small></div>
+            <li><div data-rel="jdk">jdk<small>(13)</small></div>
                 
             </li>
             
@@ -118,7 +118,7 @@
     
         
             
-            <li><div data-rel="redis">redis<small>(4)</small></div>
+            <li><div data-rel="mysql">mysql<small>(2)</small></div>
                 
             </li>
             
@@ -126,7 +126,7 @@
     
         
             
-            <li><div data-rel="mysql">mysql<small>(2)</small></div>
+            <li><div data-rel="redis">redis<small>(4)</small></div>
                 
             </li>
             
@@ -143,7 +143,7 @@
     <div></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="55">
-<input type="hidden" id="yelog_site_word_count" value="185.6k">
+<input type="hidden" id="yelog_site_word_count" value="189.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -166,11 +166,11 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off" id="local-search-input">
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
         <i class="cross"></i>
         <span>
             <label for="tagswitch">Tags:</label>
-            <input id="tagswitch" type="checkbox" style="display: none">
+            <input id="tagswitch" type="checkbox" style="display: none" />
             <i id="tagsWitchIcon"></i>
         </span>
     </form>
@@ -185,51 +185,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">jdk</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">packages</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">utils</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">java</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">note</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">jvm</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">distributed</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">netty</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">nio</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">framework</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">zookeeper</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">Spec</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -241,67 +197,23 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">classLoader</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color4">juc</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">hotspot</a>
+        <a href="javascript:" class="color4">jdk</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">j2ee</a>
+        <a href="javascript:" class="color4">map</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">spring</a>
+        <a href="javascript:" class="color2">classLoader</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">hbase</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">spark</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">redis</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">thread</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">tomcat</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">mysql</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">lang</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">elasticsearch</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">kafka</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">servlet</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ioc</a>
+        <a href="javascript:" class="color4">packages</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -317,11 +229,111 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">ejb</a>
+        <a href="javascript:" class="color4">nio</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">lang</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">doc</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">utils</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">hotspot</a>
     </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color2">collections</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">note</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">j2ee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ejb</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">distributed</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">hbase</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">framework</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">spark</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">elasticsearch</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">kafka</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">mysql</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">netty</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">redis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">tomcat</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">zookeeper</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Spec</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">thread</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">applicationContext</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">ioc</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -337,18 +349,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">map</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">applicationContext</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">beanFactory</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color1">spring-mvc</a>
     </li>
     
@@ -357,7 +357,7 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">doc</a>
+        <a href="javascript:" class="color2">beanFactory</a>
     </li>
     
     <div class="clearfix"></div>
@@ -370,279 +370,444 @@
     
     <nav id="title-list-nav">
         
-        <a id="top" class="java " href="/2019/02/02/Overview_java/" data-tag="summary" data-author="">
-            <span class="post-title" title="Overview_java">Overview_java</span>
-            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
-        </a>
-        
-        <a id="top" class="spring " href="/2019/03/02/Overview_Spring/" data-tag="framework,spring" data-author="">
-            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
-            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
-        </a>
-        
-        <a id="top" class="jdk " href="/2019/06/13/Overview_JDK/" data-tag="jdk,hotspot" data-author="">
-            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
-            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
-        </a>
-        
-        <a id="top" class="java " href="/2020/05/10/面试常见知识点梳理/" data-tag="job" data-author="">
-            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
-            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
-        </a>
-        
-        <a class="java " href="/2021/01/13/GC调优总结/" data-tag="jvm,gc,summary" data-author="">
-            <span class="post-title" title="GC调优总结">GC调优总结</span>
-            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Hbase/" data-tag="distributed,framework,hbase" data-author="">
-            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
-            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
-        </a>
-        
-        <a class="" href="/2020/03/18/Overview-Spark/" data-tag="distributed,framework,spark" data-author="">
-            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
-            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis集群篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
-            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis实战篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
-            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
-        </a>
-        
-        <a class="redis " href="/2020/02/28/Redis原理篇/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
-            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/23/spring-aop/" data-tag="spring,aop" data-author="">
-            <span class="post-title" title="spring-aop">spring-aop</span>
-            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
-        </a>
-        
-        <a class="spring " href="/2020/01/16/Spring-ApplicationContext/" data-tag="spring,applicationContext" data-author="">
-            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
-            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/05/spring-BeanFactory/" data-tag="spring,beanFactory" data-author="">
-            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
-            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
-        </a>
-        
-        <a class="spring " href="/2019/12/02/spring-Q-A/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
-            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
-        </a>
-        
-        <a class="spring " href="/2019/10/29/Documentation-Spring-Core-IOC/" data-tag="spring,doc" data-author="">
-            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
-            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/26/JDK-Packages-java-nio/" data-tag="jdk,packages,nio" data-author="">
-            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
-            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/09/23/JDK-Packages-java-io/" data-tag="jdk,packages,io,serialization,file" data-author="">
-            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
-            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Class/" data-tag="jdk" data-author="">
-            <span class="post-title" title="JDK_Class">JDK_Class</span>
-            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/31/JDK-Thread/" data-tag="jdk,jvm,hotspot" data-author="">
-            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
-            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
-        </a>
-        
-        <a class="java " href="/2019/08/29/JVM-main方法分析/" data-tag="java,jvm" data-author="">
-            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
-            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/24/JDK-ReentrantLock/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
-            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
-        </a>
-        
-        <a class="java " href="/2019/08/17/JVM-Synchronized/" data-tag="jvm" data-author="">
-            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
-            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
-        </a>
-        
-        <a class="java " href="/2019/08/11/Overview-Java-Virtual-Machine/" data-tag="jvm" data-author="">
-            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
-            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-lang/" data-tag="jdk,packages,lang" data-author="">
-            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
-            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/11/JDK-Packages-java-utils/" data-tag="jdk,packages,utils" data-author="">
-            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
-            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
-        </a>
-        
-        <a class="jdk " href="/2019/08/10/JDK-The-Concurrent-Framework/" data-tag="jdk,juc" data-author="">
-            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
-            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/29/JDK-The-Collections-Framework/" data-tag="jdk,collections" data-author="">
-            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
-            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
-        </a>
-        
-        <a class="" href="/2019/07/10/Note-码农翻身/" data-tag="java,note" data-author="">
-            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
-            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
-        </a>
-        
-        <a class="jdk " href="/2019/07/06/JDK-ClassLoader/" data-tag="jdk,classLoader" data-author="">
-            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
-            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
-        </a>
-        
-        <a class="spring " href="/2019/07/03/spring-ApplicationContext启动流程和事件机制/" data-tag="classLoader,spring,tomcat,servlet,event" data-author="">
-            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
-            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/26/Overview_Elasticsearch/" data-tag="framework,elasticsearch" data-author="">
-            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
-            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/24/J-U-C-ConcurrentHashMap/" data-tag="juc,map" data-author="">
-            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
-            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
-        </a>
-        
-        <a class="java " href="/2019/06/19/JVM-Garbage-Collection/" data-tag="jvm,gc" data-author="">
-            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
-            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
-        </a>
-        
-        <a class="jdk " href="/2019/06/16/J-U-C-InterruptedException/" data-tag="juc" data-author="">
-            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
-            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
-        </a>
-        
-        <a class="java " href="/2019/06/14/Spec-JSR133/" data-tag="jvm,Spec,thread" data-author="">
-            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
-            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
-        </a>
-        
-        <a class="java " href="/2019/06/13/Spec-Java-Virtual-Machine/" data-tag="jvm,Spec" data-author="">
-            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
-            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
-        </a>
-        
-        <a class="" href="/2019/06/12/Overview_Kafka/" data-tag="framework,kafka" data-author="">
-            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
-            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
-        </a>
-        
-        <a class="redis " href="/2019/06/10/Overview_Redis/" data-tag="framework,redis" data-author="">
-            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
-            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
-        </a>
-        
-        <a class="" href="/2019/06/06/Note_java并发编程的艺术/" data-tag="java,note,juc" data-author="">
-            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
-            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Overview_Netty/" data-tag="netty,nio,framework" data-author="">
-            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
-            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
-        </a>
-        
-        <a class="" href="/2019/06/05/Note_深入理解java虚拟机/" data-tag="java,note,jvm" data-author="">
-            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
-            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
-        </a>
-        
-        <a class="mysql " href="/2019/06/04/Overview_MySQL/" data-tag="mysql" data-author="">
-            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
-            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Zookeeper/" data-tag="distributed,framework,zookeeper" data-author="">
-            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
-            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
-        </a>
-        
-        <a class="" href="/2019/06/03/Overview_Distributed/" data-tag="distributed" data-author="">
-            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
-            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
-        </a>
-        
-        <a class="spring " href="/2019/04/10/spring-api-1-0/" data-tag="spring" data-author="">
-            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
-            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
-        </a>
-        
-        <a class="" href="/2019/04/01/3月第四周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/04/01/3%E6%9C%88%E7%AC%AC%E5%9B%9B%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第四周知识点记录">3月第四周知识点记录</span>
             <span class="post-date" title="2019-04-01 09:51:07">2019/04/01</span>
         </a>
         
-        <a class="mysql " href="/2019/03/30/记一次mysql查询in的思考/" data-tag="mysql" data-author="">
-            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
-            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
-        </a>
-        
-        <a class="" href="/2019/03/26/记一次Broken-pipe问题的思考/" data-tag="tomcat" data-author="">
-            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
-            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
-        </a>
-        
-        <a class="" href="/2019/03/24/3月第三周知识点记录/" data-tag="week,hide" data-author="">
+        <a  class=""
+           href="/2019/03/24/3%E6%9C%88%E7%AC%AC%E4%B8%89%E5%91%A8%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"
+           data-tag="week,hide"
+           data-author="" >
             <span class="post-title" title="3月第三周知识点记录">3月第三周知识点记录</span>
             <span class="post-date" title="2019-03-24 20:55:31">2019/03/24</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert One-on-One-J2EE-Development-without-EJB/" data-tag="j2ee,spring,ejb" data-author="">
+        <a  class="java "
+           href="/2021/01/13/GC%E8%B0%83%E4%BC%98%E6%80%BB%E7%BB%93/"
+           data-tag="jvm,gc,summary"
+           data-author="" >
+            <span class="post-title" title="GC调优总结">GC调优总结</span>
+            <span class="post-date" title="2021-01-13 21:36:01">2021/01/13</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/16/J-U-C-InterruptedException/"
+           data-tag="juc"
+           data-author="" >
+            <span class="post-title" title="J.U.C_InterruptedException">J.U.C_InterruptedException</span>
+            <span class="post-date" title="2019-06-16 16:09:43">2019/06/16</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Class/"
+           data-tag="jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_Class">JDK_Class</span>
+            <span class="post-date" title="2019-08-31 19:38:34">2019/08/31</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/06/24/J-U-C-ConcurrentHashMap/"
+           data-tag="juc,map"
+           data-author="" >
+            <span class="post-title" title="J.U.C_ConcurrentHashMap">J.U.C_ConcurrentHashMap</span>
+            <span class="post-date" title="2019-06-24 19:03:29">2019/06/24</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/06/JDK-ClassLoader/"
+           data-tag="jdk,classLoader"
+           data-author="" >
+            <span class="post-title" title="JDK_ClassLoader">JDK_ClassLoader</span>
+            <span class="post-date" title="2019-07-06 23:12:51">2019/07/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/23/JDK-Packages-java-io/"
+           data-tag="jdk,packages,io,serialization,file"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_io">JDK_Packages_java_io</span>
+            <span class="post-date" title="2019-09-23 16:07:43">2019/09/23</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/09/26/JDK-Packages-java-nio/"
+           data-tag="jdk,packages,nio"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_nio">JDK_Packages_java_nio</span>
+            <span class="post-date" title="2019-09-26 10:39:22">2019/09/26</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-lang/"
+           data-tag="jdk,packages,lang"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_lang">JDK_Packages_java_lang</span>
+            <span class="post-date" title="2019-08-11 19:04:56">2019/08/11</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/10/29/Documentation-Spring-Core-IOC/"
+           data-tag="spring,doc"
+           data-author="" >
+            <span class="post-title" title="Documentation-Spring_Core_IOC">Documentation-Spring_Core_IOC</span>
+            <span class="post-date" title="2019-10-29 21:51:07">2019/10/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/11/JDK-Packages-java-utils/"
+           data-tag="jdk,packages,utils"
+           data-author="" >
+            <span class="post-title" title="JDK_Packages_java_utils">JDK_Packages_java_utils</span>
+            <span class="post-date" title="2019-08-11 19:04:25">2019/08/11</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/31/JDK-Thread/"
+           data-tag="jvm,jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="JDK_Thread">JDK_Thread</span>
+            <span class="post-date" title="2019-08-31 18:16:08">2019/08/31</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/19/JVM-Garbage-Collection/"
+           data-tag="jvm,gc"
+           data-author="" >
+            <span class="post-title" title="JVM_Garbage Collection">JVM_Garbage Collection</span>
+            <span class="post-date" title="2019-06-19 00:28:10">2019/06/19</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/07/29/JDK-The-Collections-Framework/"
+           data-tag="jdk,collections"
+           data-author="" >
+            <span class="post-title" title="JDK_The Collections Framework">JDK_The Collections Framework</span>
+            <span class="post-date" title="2019-07-29 15:26:01">2019/07/29</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/24/JDK-ReentrantLock/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_ReentrantLock">JDK_ReentrantLock</span>
+            <span class="post-date" title="2019-08-24 18:48:54">2019/08/24</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/29/JVM-main%E6%96%B9%E6%B3%95%E5%88%86%E6%9E%90/"
+           data-tag="jvm,java"
+           data-author="" >
+            <span class="post-title" title="JVM_main方法分析">JVM_main方法分析</span>
+            <span class="post-date" title="2019-08-29 23:38:13">2019/08/29</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/08/17/JVM-Synchronized/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="JVM_Synchronized">JVM_Synchronized</span>
+            <span class="post-date" title="2019-08-17 17:01:54">2019/08/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/07/10/Note-%E7%A0%81%E5%86%9C%E7%BF%BB%E8%BA%AB/"
+           data-tag="java,note"
+           data-author="" >
+            <span class="post-title" title="Note_码农翻身">Note_码农翻身</span>
+            <span class="post-date" title="2019-07-10 22:18:56">2019/07/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert%20One-on-One-J2EE-Development-without-EJB/"
+           data-tag="spring,j2ee,ejb"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Development without EJB">Expert One-on-One J2EE Development without EJB</span>
             <span class="post-date" title="2019-03-10 19:45:57">2019/03/10</span>
         </a>
         
-        <a class="" href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/" data-tag="j2ee,spring" data-author="">
+        <a  class=""
+           href="/2019/06/06/Note_java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/"
+           data-tag="juc,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_java并发编程的艺术">Note_java并发编程的艺术</span>
+            <span class="post-date" title="2019-06-06 19:05:01">2019/06/06</span>
+        </a>
+        
+        <a  class="jdk "
+           href="/2019/08/10/JDK-The-Concurrent-Framework/"
+           data-tag="juc,jdk"
+           data-author="" >
+            <span class="post-title" title="JDK_The Concurrent Framework">JDK_The Concurrent Framework</span>
+            <span class="post-date" title="2019-08-10 19:45:39">2019/08/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2020/03/18/Overview-Hbase/"
+           data-tag="distributed,hbase,framework"
+           data-author="" >
+            <span class="post-title" title="Overview_Hbase">Overview_Hbase</span>
+            <span class="post-date" title="2020-03-18 22:00:51">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Note_%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA/"
+           data-tag="jvm,java,note"
+           data-author="" >
+            <span class="post-title" title="Note_深入理解java虚拟机">Note_深入理解java虚拟机</span>
+            <span class="post-date" title="2019-06-05 21:12:25">2019/06/05</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/10/Note_Expert-One-on-One-J2EE-Design-and-Development/"
+           data-tag="spring,j2ee"
+           data-author="" >
             <span class="post-title" title="Expert One-on-One J2EE Design and Development">Expert One-on-One J2EE Design and Development</span>
             <span class="post-date" title="2019-03-10 19:45:18">2019/03/10</span>
         </a>
         
-        <a class="spring " href="/2019/03/03/spring-Core-Container预览/" data-tag="spring,ioc" data-author="">
-            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
-            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        <a  class="java "
+           href="/2019/08/11/Overview-Java-Virtual-Machine/"
+           data-tag="jvm"
+           data-author="" >
+            <span class="post-title" title="Overview_Java Virtual Machine">Overview_Java Virtual Machine</span>
+            <span class="post-date" title="2019-08-11 19:05:38">2019/08/11</span>
         </a>
         
-        <a class="spring " href="/2019/02/03/spring-mvc/" data-tag="spring,servlet,spring-mvc,spring-webflux" data-author="">
-            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
-            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        <a  class=""
+           href="/2019/06/03/Overview_Distributed/"
+           data-tag="distributed"
+           data-author="" >
+            <span class="post-title" title="分布式理论基础">分布式理论基础</span>
+            <span class="post-date" title="2019-06-03 20:34:37">2019/06/03</span>
         </a>
         
-        <a class="" href="/2019/02/03/Overview_Tomcat/" data-tag="tomcat,servlet" data-author="">
+        <a  class=""
+           href="/2020/03/18/Overview-Spark/"
+           data-tag="distributed,framework,spark"
+           data-author="" >
+            <span class="post-title" title="Overview_Spark">Overview_Spark</span>
+            <span class="post-date" title="2020-03-18 22:00:43">2020/03/18</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/26/Overview_Elasticsearch/"
+           data-tag="framework,elasticsearch"
+           data-author="" >
+            <span class="post-title" title="Overview_Elasticsearch">Overview_Elasticsearch</span>
+            <span class="post-date" title="2019-06-26 18:06:48">2019/06/26</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/12/Overview_Kafka/"
+           data-tag="framework,kafka"
+           data-author="" >
+            <span class="post-title" title="kafka深入浅出">kafka深入浅出</span>
+            <span class="post-date" title="2019-06-12 20:05:37">2019/06/12</span>
+        </a>
+        
+        <a id="top" class="jdk "
+           href="/2019/06/13/Overview_JDK/"
+           data-tag="jdk,hotspot"
+           data-author="" >
+            <span class="post-title" title="Overview_JDK">Overview_JDK</span>
+            <span class="post-date" title="2019-06-13 19:36:54">2019/06/13</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/06/04/Overview_MySQL/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="MySQL深入浅出">MySQL深入浅出</span>
+            <span class="post-date" title="2019-06-04 22:02:31">2019/06/04</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/06/05/Overview_Netty/"
+           data-tag="nio,framework,netty"
+           data-author="" >
+            <span class="post-title" title="Netty深入浅出">Netty深入浅出</span>
+            <span class="post-date" title="2019-06-05 22:01:31">2019/06/05</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2019/06/10/Overview_Redis/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="redis深入浅出">redis深入浅出</span>
+            <span class="post-date" title="2019-06-10 18:33:40">2019/06/10</span>
+        </a>
+        
+        <a id="top" class="spring "
+           href="/2019/03/02/Overview_Spring/"
+           data-tag="spring,framework"
+           data-author="" >
+            <span class="post-title" title="Overview-Spring">Overview-Spring</span>
+            <span class="post-date" title="2019-03-02 12:29:06">2019/03/02</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/03/Overview_Tomcat/"
+           data-tag="servlet,tomcat"
+           data-author="" >
             <span class="post-title" title="servlet_tomcat">servlet_tomcat</span>
             <span class="post-date" title="2019-02-03 15:49:08">2019/02/03</span>
         </a>
         
-        <a class="" href="/2019/02/02/Spec_Servlet/" data-tag="j2ee,servlet" data-author="">
+        <a  class=""
+           href="/2019/06/03/Overview_Zookeeper/"
+           data-tag="distributed,framework,zookeeper"
+           data-author="" >
+            <span class="post-title" title="Zookeeper深入浅出">Zookeeper深入浅出</span>
+            <span class="post-date" title="2019-06-03 21:15:05">2019/06/03</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2019/02/02/Overview_java/"
+           data-tag="summary"
+           data-author="" >
+            <span class="post-title" title="Overview_java">Overview_java</span>
+            <span class="post-date" title="2019-02-02 20:43:14">2019/02/02</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%8E%9F%E7%90%86%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis原理篇">Redis原理篇</span>
+            <span class="post-date" title="2020-02-28 18:52:35">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E5%AE%9E%E6%88%98%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis实战篇">Redis实战篇</span>
+            <span class="post-date" title="2020-02-28 18:52:43">2020/02/28</span>
+        </a>
+        
+        <a  class="redis "
+           href="/2020/02/28/Redis%E9%9B%86%E7%BE%A4%E7%AF%87/"
+           data-tag="framework,redis"
+           data-author="" >
+            <span class="post-title" title="Redis集群篇">Redis集群篇</span>
+            <span class="post-date" title="2020-02-28 18:52:52">2020/02/28</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/14/Spec-JSR133/"
+           data-tag="jvm,Spec,thread"
+           data-author="" >
+            <span class="post-title" title="Spec_JSR133">Spec_JSR133</span>
+            <span class="post-date" title="2019-06-14 19:26:57">2019/06/14</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/06/13/Spec-Java-Virtual-Machine/"
+           data-tag="jvm,Spec"
+           data-author="" >
+            <span class="post-title" title="Spec_Java Virtual Machine">Spec_Java Virtual Machine</span>
+            <span class="post-date" title="2019-06-13 17:25:17">2019/06/13</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/02/02/Spec_Servlet/"
+           data-tag="j2ee,servlet"
+           data-author="" >
             <span class="post-title" title="j2ee_servlet">j2ee_servlet</span>
             <span class="post-date" title="2019-02-02 18:05:54">2019/02/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/16/Spring-ApplicationContext/"
+           data-tag="spring,applicationContext"
+           data-author="" >
+            <span class="post-title" title="Spring-ApplicationContext">Spring-ApplicationContext</span>
+            <span class="post-date" title="2020-01-16 21:04:45">2020/01/16</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/03/03/spring-Core-Container%E9%A2%84%E8%A7%88/"
+           data-tag="spring,ioc"
+           data-author="" >
+            <span class="post-title" title="spring-Core-Container预览">spring-Core-Container预览</span>
+            <span class="post-date" title="2019-03-03 14:51:56">2019/03/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/02/spring-Q-A/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring Q&amp;A">spring Q&amp;A</span>
+            <span class="post-date" title="2019-12-02 18:20:38">2019/12/02</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/07/03/spring-ApplicationContext%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/"
+           data-tag="classLoader,spring,servlet,tomcat,event"
+           data-author="" >
+            <span class="post-title" title="spring-ApplicationContext启动流程和事件机制">spring-ApplicationContext启动流程和事件机制</span>
+            <span class="post-date" title="2019-07-03 09:37:08">2019/07/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/04/10/spring-api-1-0/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring-api-1.0">spring-api-1.0</span>
+            <span class="post-date" title="2019-04-10 09:45:25">2019/04/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2019/03/26/%E8%AE%B0%E4%B8%80%E6%AC%A1Broken-pipe%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="tomcat"
+           data-author="" >
+            <span class="post-title" title="记一次Broken pipe问题的思考">记一次Broken pipe问题的思考</span>
+            <span class="post-date" title="2019-03-26 10:53:37">2019/03/26</span>
+        </a>
+        
+        <a  class="mysql "
+           href="/2019/03/30/%E8%AE%B0%E4%B8%80%E6%AC%A1mysql%E6%9F%A5%E8%AF%A2in%E7%9A%84%E6%80%9D%E8%80%83/"
+           data-tag="mysql"
+           data-author="" >
+            <span class="post-title" title="记一次mysql查询in的思考">记一次mysql查询in的思考</span>
+            <span class="post-date" title="2019-03-30 20:39:49">2019/03/30</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2020/01/23/spring-aop/"
+           data-tag="spring,aop"
+           data-author="" >
+            <span class="post-title" title="spring-aop">spring-aop</span>
+            <span class="post-date" title="2020-01-23 23:54:29">2020/01/23</span>
+        </a>
+        
+        <a id="top" class="java "
+           href="/2020/05/10/%E9%9D%A2%E8%AF%95%E5%B8%B8%E8%A7%81%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86/"
+           data-tag="job"
+           data-author="" >
+            <span class="post-title" title="面试常见知识点梳理">面试常见知识点梳理</span>
+            <span class="post-date" title="2020-05-10 23:46:06">2020/05/10</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/02/03/spring-mvc/"
+           data-tag="spring,servlet,spring-mvc,spring-webflux"
+           data-author="" >
+            <span class="post-title" title="servlet_spring-mvc">servlet_spring-mvc</span>
+            <span class="post-date" title="2019-02-03 15:50:16">2019/02/03</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2019/12/05/spring-BeanFactory/"
+           data-tag="spring,beanFactory"
+           data-author="" >
+            <span class="post-title" title="spring-BeanFactory">spring-BeanFactory</span>
+            <span class="post-date" title="2019-12-05 21:28:57">2019/12/05</span>
         </a>
         
     </nav>
@@ -657,7 +822,7 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Note_java并发编程的艺术" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <article id="post-Note_java并发编程的艺术" class="article article-type-post" itemscope itemprop="blogPost">
     
         <h1 class="article-title">Note_java并发编程的艺术</h1>
     
@@ -668,18 +833,18 @@
         
         <span class="tag">
             
+            <a href="javascript:" class="color4">juc</a>
+            
             <a href="javascript:" class="color5">java</a>
             
             <a href="javascript:" class="color5">note</a>
-            
-            <a href="javascript:" class="color4">juc</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2019-08-31 18:30:30">2019-06-06 19:05</time>
+        创建时间:<time class="date" title='更新时间: 2019-08-31 18:30:30'>2019-06-06 19:05</time>
         
     </div>
     <div class="article-meta">
@@ -703,7 +868,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#并发编程的挑战"><span class="toc-text">并发编程的挑战</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java并发机制的底层实现原理"><span class="toc-text">Java并发机制的底层实现原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile的应用"><span class="toc-text">volatile的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cpu术语"><span class="toc-text">cpu术语</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lock前缀指令"><span class="toc-text">lock前缀指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#volatile优化"><span class="toc-text">volatile优化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronnized的实现原理与应用"><span class="toc-text">synchronnized的实现原理与应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jdk1-6的改进"><span class="toc-text">jdk1.6的改进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现同步的基础"><span class="toc-text">实现同步的基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对象头"><span class="toc-text">对象头</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#32bit"><span class="toc-text">32bit</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#64bit"><span class="toc-text">64bit</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#锁的升级和对比"><span class="toc-text">锁的升级和对比</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原子操作的实现原理"><span class="toc-text">原子操作的实现原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#术语"><span class="toc-text">术语</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#处理器"><span class="toc-text">处理器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#使用总线锁保证原子性"><span class="toc-text">使用总线锁保证原子性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用缓存锁定来保证原子性"><span class="toc-text">使用缓存锁定来保证原子性</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java"><span class="toc-text">Java</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#锁"><span class="toc-text">锁</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CAS"><span class="toc-text">CAS</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java内存模型"><span class="toc-text">Java内存模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java内存模型的基础"><span class="toc-text">Java内存模型的基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#并发编程模型的两个关键问题"><span class="toc-text">并发编程模型的两个关键问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程之间的通信机制"><span class="toc-text">线程之间的通信机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java内存模型的抽象结构"><span class="toc-text">Java内存模型的抽象结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#并发编程模型的分类"><span class="toc-text">并发编程模型的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#写缓冲区（写读的顺序）"><span class="toc-text">写缓冲区（写读的顺序）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#内存屏障"><span class="toc-text">内存屏障</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#happens-before简介"><span class="toc-text">happens-before简介</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重排序（为了提高并行度）"><span class="toc-text">重排序（为了提高并行度）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据依赖性"><span class="toc-text">数据依赖性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#as-if-serial语义"><span class="toc-text">as-if-serial语义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#程序顺序规则"><span class="toc-text">程序顺序规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对多线程的影响"><span class="toc-text">对多线程的影响</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#顺序一致性"><span class="toc-text">顺序一致性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据竞争"><span class="toc-text">数据竞争</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#顺序一致性内存模型"><span class="toc-text">顺序一致性内存模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#同步程序的顺序一致性效果"><span class="toc-text">同步程序的顺序一致性效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#未同步程序的执行特性"><span class="toc-text">未同步程序的执行特性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile的内存语义"><span class="toc-text">volatile的内存语义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#特征"><span class="toc-text">特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#建立的happens-before关系"><span class="toc-text">建立的happens-before关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#volatile写-读的内存语义"><span class="toc-text">volatile写-读的内存语义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#锁的内存语义"><span class="toc-text">锁的内存语义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CAS-1"><span class="toc-text">CAS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#concurrent包的实现"><span class="toc-text">concurrent包的实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#final域的内存语义"><span class="toc-text">final域的内存语义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#final域的重排序规则"><span class="toc-text">final域的重排序规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#写final域的重排序规则"><span class="toc-text">写final域的重排序规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#读final域的重排序规则"><span class="toc-text">读final域的重排序规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#final引用不能从构造函数内‘溢出’"><span class="toc-text">final引用不能从构造函数内‘溢出’</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#语义"><span class="toc-text">语义</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#happens-before"><span class="toc-text">happens-before</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JMM的设计"><span class="toc-text">JMM的设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#规则"><span class="toc-text">规则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双重检查锁定与延迟初始化"><span class="toc-text">双重检查锁定与延迟初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#错误的根源"><span class="toc-text">错误的根源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解决方式"><span class="toc-text">解决方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类对初始化"><span class="toc-text">类对初始化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java内存模型综述"><span class="toc-text">Java内存模型综述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#处理器的内存模型"><span class="toc-text">处理器的内存模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#各种内存模型之间的关系"><span class="toc-text">各种内存模型之间的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JMM的内存可见性保证"><span class="toc-text">JMM的内存可见性保证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JSR-133对内存语义的修复"><span class="toc-text">JSR-133对内存语义的修复</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java并发编程基础"><span class="toc-text">Java并发编程基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线程简介"><span class="toc-text">线程简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动和终止线程"><span class="toc-text">启动和终止线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程间通信"><span class="toc-text">线程间通信</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#通知-等待"><span class="toc-text">通知/等待</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#等待方"><span class="toc-text">等待方</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通知方"><span class="toc-text">通知方</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java中的锁"><span class="toc-text">Java中的锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lock"><span class="toc-text">Lock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AQS"><span class="toc-text">AQS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与锁的关系"><span class="toc-text">与锁的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同步队列"><span class="toc-text">同步队列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReenLock"><span class="toc-text">ReenLock</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java中的线程池"><span class="toc-text">Java中的线程池</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么使用线程池"><span class="toc-text">为什么使用线程池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现原理"><span class="toc-text">实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参数"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#提交任务方式"><span class="toc-text">提交任务方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关闭线程池"><span class="toc-text">关闭线程池</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#合理使用"><span class="toc-text">合理使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#任务性质"><span class="toc-text">任务性质</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#任务优先级"><span class="toc-text">任务优先级</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#任务执行时间"><span class="toc-text">任务执行时间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#任务的依赖性"><span class="toc-text">任务的依赖性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#监控"><span class="toc-text">监控</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E6%8C%91%E6%88%98"><span class="toc-text">并发编程的挑战</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E5%B9%B6%E5%8F%91%E6%9C%BA%E5%88%B6%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">Java并发机制的底层实现原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">volatile的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cpu%E6%9C%AF%E8%AF%AD"><span class="toc-text">cpu术语</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lock%E5%89%8D%E7%BC%80%E6%8C%87%E4%BB%A4"><span class="toc-text">lock前缀指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#volatile%E4%BC%98%E5%8C%96"><span class="toc-text">volatile优化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronnized%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8"><span class="toc-text">synchronnized的实现原理与应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jdk1-6%E7%9A%84%E6%94%B9%E8%BF%9B"><span class="toc-text">jdk1.6的改进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%90%8C%E6%AD%A5%E7%9A%84%E5%9F%BA%E7%A1%80"><span class="toc-text">实现同步的基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%A4%B4"><span class="toc-text">对象头</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#32bit"><span class="toc-text">32bit</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#64bit"><span class="toc-text">64bit</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%81%E7%9A%84%E5%8D%87%E7%BA%A7%E5%92%8C%E5%AF%B9%E6%AF%94"><span class="toc-text">锁的升级和对比</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">原子操作的实现原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AF%E8%AF%AD"><span class="toc-text">术语</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-text">处理器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BA%BF%E9%94%81%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7"><span class="toc-text">使用总线锁保证原子性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98%E9%94%81%E5%AE%9A%E6%9D%A5%E4%BF%9D%E8%AF%81%E5%8E%9F%E5%AD%90%E6%80%A7"><span class="toc-text">使用缓存锁定来保证原子性</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java"><span class="toc-text">Java</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%81"><span class="toc-text">锁</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CAS"><span class="toc-text">CAS</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="toc-text">Java内存模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%9F%BA%E7%A1%80"><span class="toc-text">Java内存模型的基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%85%B3%E9%94%AE%E9%97%AE%E9%A2%98"><span class="toc-text">并发编程模型的两个关键问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6"><span class="toc-text">线程之间的通信机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%BB%93%E6%9E%84"><span class="toc-text">Java内存模型的抽象结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">并发编程模型的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%99%E7%BC%93%E5%86%B2%E5%8C%BA%EF%BC%88%E5%86%99%E8%AF%BB%E7%9A%84%E9%A1%BA%E5%BA%8F%EF%BC%89"><span class="toc-text">写缓冲区（写读的顺序）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E5%B1%8F%E9%9A%9C"><span class="toc-text">内存屏障</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#happens-before%E7%AE%80%E4%BB%8B"><span class="toc-text">happens-before简介</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E6%8E%92%E5%BA%8F%EF%BC%88%E4%B8%BA%E4%BA%86%E6%8F%90%E9%AB%98%E5%B9%B6%E8%A1%8C%E5%BA%A6%EF%BC%89"><span class="toc-text">重排序（为了提高并行度）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BE%9D%E8%B5%96%E6%80%A7"><span class="toc-text">数据依赖性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#as-if-serial%E8%AF%AD%E4%B9%89"><span class="toc-text">as-if-serial语义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E9%A1%BA%E5%BA%8F%E8%A7%84%E5%88%99"><span class="toc-text">程序顺序规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">对多线程的影响</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-text">顺序一致性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%AB%9E%E4%BA%89"><span class="toc-text">数据竞争</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="toc-text">顺序一致性内存模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7%E6%95%88%E6%9E%9C"><span class="toc-text">同步程序的顺序一致性效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AA%E5%90%8C%E6%AD%A5%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%89%A7%E8%A1%8C%E7%89%B9%E6%80%A7"><span class="toc-text">未同步程序的执行特性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile%E7%9A%84%E5%86%85%E5%AD%98%E8%AF%AD%E4%B9%89"><span class="toc-text">volatile的内存语义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%BE%81"><span class="toc-text">特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E7%9A%84happens-before%E5%85%B3%E7%B3%BB"><span class="toc-text">建立的happens-before关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#volatile%E5%86%99-%E8%AF%BB%E7%9A%84%E5%86%85%E5%AD%98%E8%AF%AD%E4%B9%89"><span class="toc-text">volatile写-读的内存语义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E7%9A%84%E5%86%85%E5%AD%98%E8%AF%AD%E4%B9%89"><span class="toc-text">锁的内存语义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CAS-1"><span class="toc-text">CAS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#concurrent%E5%8C%85%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">concurrent包的实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#final%E5%9F%9F%E7%9A%84%E5%86%85%E5%AD%98%E8%AF%AD%E4%B9%89"><span class="toc-text">final域的内存语义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#final%E5%9F%9F%E7%9A%84%E9%87%8D%E6%8E%92%E5%BA%8F%E8%A7%84%E5%88%99"><span class="toc-text">final域的重排序规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99final%E5%9F%9F%E7%9A%84%E9%87%8D%E6%8E%92%E5%BA%8F%E8%A7%84%E5%88%99"><span class="toc-text">写final域的重排序规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%BBfinal%E5%9F%9F%E7%9A%84%E9%87%8D%E6%8E%92%E5%BA%8F%E8%A7%84%E5%88%99"><span class="toc-text">读final域的重排序规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#final%E5%BC%95%E7%94%A8%E4%B8%8D%E8%83%BD%E4%BB%8E%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%86%85%E2%80%98%E6%BA%A2%E5%87%BA%E2%80%99"><span class="toc-text">final引用不能从构造函数内‘溢出’</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E4%B9%89"><span class="toc-text">语义</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#happens-before"><span class="toc-text">happens-before</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JMM%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">JMM的设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%84%E5%88%99"><span class="toc-text">规则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E9%87%8D%E6%A3%80%E6%9F%A5%E9%94%81%E5%AE%9A%E4%B8%8E%E5%BB%B6%E8%BF%9F%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">双重检查锁定与延迟初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E7%9A%84%E6%A0%B9%E6%BA%90"><span class="toc-text">错误的根源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F"><span class="toc-text">解决方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E5%AF%B9%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">类对初始化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E7%BB%BC%E8%BF%B0"><span class="toc-text">Java内存模型综述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E5%99%A8%E7%9A%84%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="toc-text">处理器的内存模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%84%E7%A7%8D%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">各种内存模型之间的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JMM%E7%9A%84%E5%86%85%E5%AD%98%E5%8F%AF%E8%A7%81%E6%80%A7%E4%BF%9D%E8%AF%81"><span class="toc-text">JMM的内存可见性保证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JSR-133%E5%AF%B9%E5%86%85%E5%AD%98%E8%AF%AD%E4%B9%89%E7%9A%84%E4%BF%AE%E5%A4%8D"><span class="toc-text">JSR-133对内存语义的修复</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80"><span class="toc-text">Java并发编程基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%AE%80%E4%BB%8B"><span class="toc-text">线程简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%92%8C%E7%BB%88%E6%AD%A2%E7%BA%BF%E7%A8%8B"><span class="toc-text">启动和终止线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="toc-text">线程间通信</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E7%9F%A5-x2F-%E7%AD%89%E5%BE%85"><span class="toc-text">通知&#x2F;等待</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AD%89%E5%BE%85%E6%96%B9"><span class="toc-text">等待方</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E7%9F%A5%E6%96%B9"><span class="toc-text">通知方</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E4%B8%AD%E7%9A%84%E9%94%81"><span class="toc-text">Java中的锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lock"><span class="toc-text">Lock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AQS"><span class="toc-text">AQS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E9%94%81%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">与锁的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E9%98%9F%E5%88%97"><span class="toc-text">同步队列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReenLock"><span class="toc-text">ReenLock</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-text">Java中的线程池</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-text">为什么使用线程池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E4%BB%BB%E5%8A%A1%E6%96%B9%E5%BC%8F"><span class="toc-text">提交任务方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-text">关闭线程池</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%88%E7%90%86%E4%BD%BF%E7%94%A8"><span class="toc-text">合理使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E6%80%A7%E8%B4%A8"><span class="toc-text">任务性质</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">任务优先级</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4"><span class="toc-text">任务执行时间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E7%9A%84%E4%BE%9D%E8%B5%96%E6%80%A7"><span class="toc-text">任务的依赖性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7"><span class="toc-text">监控</span></a></li></ol></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -720,23 +885,26 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g3rn5ridk4j30rs0czgo9.jpg" alt="image-20190606190506267"></p>
-<a id="more"></a>
-<h2 id="并发编程的挑战"><a href="#并发编程的挑战" class="headerlink" title="并发编程的挑战"></a>并发编程的挑战</h2><p>​        </p>
+<span id="more"></span>
+
+
+
+<h2 id="并发编程的挑战"><a href="#并发编程的挑战" class="headerlink" title="并发编程的挑战"></a>并发编程的挑战</h2><p>​		</p>
 <p>多线程一定快吗</p>
 <p>上下文切换<br>            上下文切换次数和时长<br>            如何减少上下文切换</p>
 <p>死锁</p>
 <p>资源限制的挑战</p>
-<h2 id="Java并发机制的底层实现原理"><a href="#Java并发机制的底层实现原理" class="headerlink" title="Java并发机制的底层实现原理"></a>Java并发机制的底层实现原理</h2><h3 id="volatile的应用"><a href="#volatile的应用" class="headerlink" title="volatile的应用"></a>volatile的应用</h3><h4 id="cpu术语"><a href="#cpu术语" class="headerlink" title="cpu术语"></a>cpu术语</h4><p>​        内存屏障</p>
-<h4 id="lock前缀指令"><a href="#lock前缀指令" class="headerlink" title="lock前缀指令"></a>lock前缀指令</h4><p>​        缓存写回内存<br>​        其他处理器的缓存无效</p>
-<h4 id="volatile优化"><a href="#volatile优化" class="headerlink" title="volatile优化"></a>volatile优化</h4><p>​                队列集合类LinkedTransferQueue、队列64位</p>
-<h3 id="synchronnized的实现原理与应用"><a href="#synchronnized的实现原理与应用" class="headerlink" title="synchronnized的实现原理与应用"></a>synchronnized的实现原理与应用</h3><h4 id="jdk1-6的改进"><a href="#jdk1-6的改进" class="headerlink" title="jdk1.6的改进"></a>jdk1.6的改进</h4><p>​        偏向锁<br>​        轻量级锁<br>​        锁的存储结构<br>​        升级过程</p>
-<h4 id="实现同步的基础"><a href="#实现同步的基础" class="headerlink" title="实现同步的基础"></a>实现同步的基础</h4><p>​        普通同步方法，锁是当前实例对象<br>​        静态同步方法，锁是当前类的Class对象<br>​        同步方法块，锁是括号里配置的对象</p>
-<h4 id="对象头"><a href="#对象头" class="headerlink" title="对象头"></a>对象头</h4><h5 id="32bit"><a href="#32bit" class="headerlink" title="32bit"></a>32bit</h5><p>​                    锁状态<br>​                    25bit 对象的hascode<br>​                    4bit 对象的分代年龄<br>​                    1bit 是否偏向锁<br>​                    2bit 锁标志位</p>
-<h5 id="64bit"><a href="#64bit" class="headerlink" title="64bit"></a>64bit</h5><h4 id="锁的升级和对比"><a href="#锁的升级和对比" class="headerlink" title="锁的升级和对比"></a>锁的升级和对比</h4><p>​        偏向锁<br>​                    偏向锁标识<br>​        轻量级锁<br>​                    CAS、自旋<br>​        重量级锁<br>​        追求吞吐</p>
-<h3 id="原子操作的实现原理"><a href="#原子操作的实现原理" class="headerlink" title="原子操作的实现原理"></a>原子操作的实现原理</h3><h4 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h4><p>​        比较并交换<br>​        CPU流水线<br>​                    将一条执行分成5-6步再由这些电路单元分别执行<br>​        内存顺序冲突</p>
-<h4 id="处理器"><a href="#处理器" class="headerlink" title="处理器"></a>处理器</h4><h5 id="使用总线锁保证原子性"><a href="#使用总线锁保证原子性" class="headerlink" title="使用总线锁保证原子性"></a>使用总线锁保证原子性</h5><p>​    把CPU和内存之间的通信都锁住了</p>
-<h5 id="使用缓存锁定来保证原子性"><a href="#使用缓存锁定来保证原子性" class="headerlink" title="使用缓存锁定来保证原子性"></a>使用缓存锁定来保证原子性</h5><p>​    某个内存地址的操作是原子性即可<br>失效场景<br>​        操作数据不能备缓存在处理器内存，或操作的数据跨多个缓存行<br>​        有些处理器不支持</p>
-<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><h5 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h5><h5 id="CAS"><a href="#CAS" class="headerlink" title="CAS"></a>CAS</h5><p>​            处理器提供的CMPXCHG指令<br>​            存在的问题<br>​                        ABA问题<br>​                        循环时间开销大<br>​                        只能保证一个共享变量的原子操作</p>
+<h2 id="Java并发机制的底层实现原理"><a href="#Java并发机制的底层实现原理" class="headerlink" title="Java并发机制的底层实现原理"></a>Java并发机制的底层实现原理</h2><h3 id="volatile的应用"><a href="#volatile的应用" class="headerlink" title="volatile的应用"></a>volatile的应用</h3><h4 id="cpu术语"><a href="#cpu术语" class="headerlink" title="cpu术语"></a>cpu术语</h4><p>​		内存屏障</p>
+<h4 id="lock前缀指令"><a href="#lock前缀指令" class="headerlink" title="lock前缀指令"></a>lock前缀指令</h4><p>​		缓存写回内存<br>​		其他处理器的缓存无效</p>
+<h4 id="volatile优化"><a href="#volatile优化" class="headerlink" title="volatile优化"></a>volatile优化</h4><p>​				队列集合类LinkedTransferQueue、队列64位</p>
+<h3 id="synchronnized的实现原理与应用"><a href="#synchronnized的实现原理与应用" class="headerlink" title="synchronnized的实现原理与应用"></a>synchronnized的实现原理与应用</h3><h4 id="jdk1-6的改进"><a href="#jdk1-6的改进" class="headerlink" title="jdk1.6的改进"></a>jdk1.6的改进</h4><p>​		偏向锁<br>​		轻量级锁<br>​		锁的存储结构<br>​		升级过程</p>
+<h4 id="实现同步的基础"><a href="#实现同步的基础" class="headerlink" title="实现同步的基础"></a>实现同步的基础</h4><p>​		普通同步方法，锁是当前实例对象<br>​		静态同步方法，锁是当前类的Class对象<br>​		同步方法块，锁是括号里配置的对象</p>
+<h4 id="对象头"><a href="#对象头" class="headerlink" title="对象头"></a>对象头</h4><h5 id="32bit"><a href="#32bit" class="headerlink" title="32bit"></a>32bit</h5><p>​					锁状态<br>​					25bit 对象的hascode<br>​					4bit 对象的分代年龄<br>​					1bit 是否偏向锁<br>​					2bit 锁标志位</p>
+<h5 id="64bit"><a href="#64bit" class="headerlink" title="64bit"></a>64bit</h5><h4 id="锁的升级和对比"><a href="#锁的升级和对比" class="headerlink" title="锁的升级和对比"></a>锁的升级和对比</h4><p>​		偏向锁<br>​					偏向锁标识<br>​		轻量级锁<br>​					CAS、自旋<br>​		重量级锁<br>​		追求吞吐</p>
+<h3 id="原子操作的实现原理"><a href="#原子操作的实现原理" class="headerlink" title="原子操作的实现原理"></a>原子操作的实现原理</h3><h4 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h4><p>​		比较并交换<br>​		CPU流水线<br>​					将一条执行分成5-6步再由这些电路单元分别执行<br>​		内存顺序冲突</p>
+<h4 id="处理器"><a href="#处理器" class="headerlink" title="处理器"></a>处理器</h4><h5 id="使用总线锁保证原子性"><a href="#使用总线锁保证原子性" class="headerlink" title="使用总线锁保证原子性"></a>使用总线锁保证原子性</h5><p>​	把CPU和内存之间的通信都锁住了</p>
+<h5 id="使用缓存锁定来保证原子性"><a href="#使用缓存锁定来保证原子性" class="headerlink" title="使用缓存锁定来保证原子性"></a>使用缓存锁定来保证原子性</h5><p>​	某个内存地址的操作是原子性即可<br>失效场景<br>​		操作数据不能备缓存在处理器内存，或操作的数据跨多个缓存行<br>​		有些处理器不支持</p>
+<h4 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h4><h5 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h5><h5 id="CAS"><a href="#CAS" class="headerlink" title="CAS"></a>CAS</h5><p>​			处理器提供的CMPXCHG指令<br>​			存在的问题<br>​						ABA问题<br>​						循环时间开销大<br>​						只能保证一个共享变量的原子操作</p>
 <h2 id="Java内存模型"><a href="#Java内存模型" class="headerlink" title="Java内存模型"></a>Java内存模型</h2><h3 id="Java内存模型的基础"><a href="#Java内存模型的基础" class="headerlink" title="Java内存模型的基础"></a>Java内存模型的基础</h3><h4 id="并发编程模型的两个关键问题"><a href="#并发编程模型的两个关键问题" class="headerlink" title="并发编程模型的两个关键问题"></a>并发编程模型的两个关键问题</h4><ul>
 <li>如何通信—何种机制来交换信息</li>
 <li>何时同步—控制发生相对顺序的机制</li>
@@ -752,7 +920,7 @@
 <li><p>指令级并行的重排序<br>  现代处理器采用了指令级并行技术来将多条指令重叠执行</p>
 </li>
 <li><p>内存系统的重排序</p>
-<p>  缓存和读/写缓冲区</p>
+<p>  缓存和读&#x2F;写缓冲区</p>
 </li>
 </ul>
 <h4 id="并发编程模型的分类"><a href="#并发编程模型的分类" class="headerlink" title="并发编程模型的分类"></a>并发编程模型的分类</h4><h5 id="写缓冲区（写读的顺序）"><a href="#写缓冲区（写读的顺序）" class="headerlink" title="写缓冲区（写读的顺序）"></a>写缓冲区（写读的顺序）</h5><p>写缓冲区可以保证指令流水线持续运行，它可以避免由于处理器停顿下来等待向内存写入数据而产生的延迟<br>通过以批处理的方式刷新写缓冲区，以及合并写缓存区中对一内存地址的多次写，减少内存总线的占用<br>存在的问题<br>        写缓存区仅对自己的处理器可见，它会导致处理器执行内存操作的顺序可能会与内存实际操作顺序不一致</p>
@@ -763,73 +931,52 @@
 <li>StoreLoad<br>  确保了Store的数据对其他处理器变得可见（指刷新到内存）</li>
 </ul>
 <h4 id="happens-before简介"><a href="#happens-before简介" class="headerlink" title="happens-before简介"></a>happens-before简介</h4><p>阐述操作之间的内存可见性<br>两个操作之间存在happens- before关系，并不意味着前一个操作必须在后一个操作之前执行</p>
-<h3 id="重排序（为了提高并行度）"><a href="#重排序（为了提高并行度）" class="headerlink" title="重排序（为了提高并行度）"></a>重排序（为了提高并行度）</h3><h4 id="数据依赖性"><a href="#数据依赖性" class="headerlink" title="数据依赖性"></a>数据依赖性</h4><p>​                编译器和处理器不会改变存在数据依赖关系的两个操作的执行顺序，前提是单个处理器执行的指令续集和单个线程中执行的操作</p>
-<h4 id="as-if-serial语义"><a href="#as-if-serial语义" class="headerlink" title="as-if-serial语义"></a>as-if-serial语义</h4><p>​                不管怎么重排序，程序执行结果不能改变（单线程）</p>
-<h4 id="程序顺序规则"><a href="#程序顺序规则" class="headerlink" title="程序顺序规则"></a>程序顺序规则</h4><h4 id="对多线程的影响"><a href="#对多线程的影响" class="headerlink" title="对多线程的影响"></a>对多线程的影响</h4><h3 id="顺序一致性"><a href="#顺序一致性" class="headerlink" title="顺序一致性"></a>顺序一致性</h3><h4 id="数据竞争"><a href="#数据竞争" class="headerlink" title="数据竞争"></a>数据竞争</h4><p>​                在一个线程中写一个变量<br>​                在另一个线程读同一个变量<br>​                而且写和读没有通过同步来排序</p>
-<h4 id="顺序一致性内存模型"><a href="#顺序一致性内存模型" class="headerlink" title="顺序一致性内存模型"></a>顺序一致性内存模型</h4><p>​                特征<br>​                    一个线程中所有操作必须按照程序的顺序来执行<br>​                    所有线程都只能看到一个单一的操作执行顺序，每个操作都必须原子执行且立即对所有线程所见<br>​                任意时间点最多只能有一个线程可以连接到内存，串行化</p>
-<h4 id="同步程序的顺序一致性效果"><a href="#同步程序的顺序一致性效果" class="headerlink" title="同步程序的顺序一致性效果"></a>同步程序的顺序一致性效果</h4><p>​                JMM临界区内的代码可以重排序</p>
-<h4 id="未同步程序的执行特性"><a href="#未同步程序的执行特性" class="headerlink" title="未同步程序的执行特性"></a>未同步程序的执行特性</h4><p>​                JMM只提供最小安全性，线程执行时读取到的值，要么时之前某个线程写入的值，要么时默认值<br>​                差异<br>​                    JMM不保证对64位的long和double型的变量具有原子性，而顺序一致模型保证所有内存读/写都具有原子性</p>
-<h3 id="volatile的内存语义"><a href="#volatile的内存语义" class="headerlink" title="volatile的内存语义"></a>volatile的内存语义</h3><h4 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h4><p>​                可见性<br>​                原子性<br>​                    复合操作不支持，支持64 long/double</p>
-<h4 id="建立的happens-before关系"><a href="#建立的happens-before关系" class="headerlink" title="建立的happens-before关系"></a>建立的happens-before关系</h4><h4 id="volatile写-读的内存语义"><a href="#volatile写-读的内存语义" class="headerlink" title="volatile写-读的内存语义"></a>volatile写-读的内存语义</h4><p>​                当写一个volatile变量时，JMM会把该线程对应的本地内存中的共享变量刷新到主内存<br>​                当读一个volatile变量时，JMM会把该线程对应的本地内存置为无效，从主内存中读取共享变量</p>
-<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>​                编译器<br>​                    生成字节码时，会在指令序列中插入内存屏障来禁止特定类型的处理器重排序，采用保守的方式<br>​                    在volatile读后插入内存屏障<br>​                        LoadLoad<br>​                        LoadStore<br>​                    在volatile写前后插入内存屏障<br>​                        StoreStore 前<br>​                        StoreLoad 后<br>​                            也可以读前插入StoreLoad，但考虑读多写少情况<br>​                优化<br>​                    省略不必要的屏障<br>​                    不同处理器，入x86仅会对写-读操作做重排序</p>
+<h3 id="重排序（为了提高并行度）"><a href="#重排序（为了提高并行度）" class="headerlink" title="重排序（为了提高并行度）"></a>重排序（为了提高并行度）</h3><h4 id="数据依赖性"><a href="#数据依赖性" class="headerlink" title="数据依赖性"></a>数据依赖性</h4><p>​				编译器和处理器不会改变存在数据依赖关系的两个操作的执行顺序，前提是单个处理器执行的指令续集和单个线程中执行的操作</p>
+<h4 id="as-if-serial语义"><a href="#as-if-serial语义" class="headerlink" title="as-if-serial语义"></a>as-if-serial语义</h4><p>​				不管怎么重排序，程序执行结果不能改变（单线程）</p>
+<h4 id="程序顺序规则"><a href="#程序顺序规则" class="headerlink" title="程序顺序规则"></a>程序顺序规则</h4><h4 id="对多线程的影响"><a href="#对多线程的影响" class="headerlink" title="对多线程的影响"></a>对多线程的影响</h4><h3 id="顺序一致性"><a href="#顺序一致性" class="headerlink" title="顺序一致性"></a>顺序一致性</h3><h4 id="数据竞争"><a href="#数据竞争" class="headerlink" title="数据竞争"></a>数据竞争</h4><p>​				在一个线程中写一个变量<br>​				在另一个线程读同一个变量<br>​				而且写和读没有通过同步来排序</p>
+<h4 id="顺序一致性内存模型"><a href="#顺序一致性内存模型" class="headerlink" title="顺序一致性内存模型"></a>顺序一致性内存模型</h4><p>​				特征<br>​					一个线程中所有操作必须按照程序的顺序来执行<br>​					所有线程都只能看到一个单一的操作执行顺序，每个操作都必须原子执行且立即对所有线程所见<br>​				任意时间点最多只能有一个线程可以连接到内存，串行化</p>
+<h4 id="同步程序的顺序一致性效果"><a href="#同步程序的顺序一致性效果" class="headerlink" title="同步程序的顺序一致性效果"></a>同步程序的顺序一致性效果</h4><p>​				JMM临界区内的代码可以重排序</p>
+<h4 id="未同步程序的执行特性"><a href="#未同步程序的执行特性" class="headerlink" title="未同步程序的执行特性"></a>未同步程序的执行特性</h4><p>​				JMM只提供最小安全性，线程执行时读取到的值，要么时之前某个线程写入的值，要么时默认值<br>​				差异<br>​					JMM不保证对64位的long和double型的变量具有原子性，而顺序一致模型保证所有内存读&#x2F;写都具有原子性</p>
+<h3 id="volatile的内存语义"><a href="#volatile的内存语义" class="headerlink" title="volatile的内存语义"></a>volatile的内存语义</h3><h4 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h4><p>​				可见性<br>​				原子性<br>​					复合操作不支持，支持64 long&#x2F;double</p>
+<h4 id="建立的happens-before关系"><a href="#建立的happens-before关系" class="headerlink" title="建立的happens-before关系"></a>建立的happens-before关系</h4><h4 id="volatile写-读的内存语义"><a href="#volatile写-读的内存语义" class="headerlink" title="volatile写-读的内存语义"></a>volatile写-读的内存语义</h4><p>​				当写一个volatile变量时，JMM会把该线程对应的本地内存中的共享变量刷新到主内存<br>​				当读一个volatile变量时，JMM会把该线程对应的本地内存置为无效，从主内存中读取共享变量</p>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>​				编译器<br>​					生成字节码时，会在指令序列中插入内存屏障来禁止特定类型的处理器重排序，采用保守的方式<br>​					在volatile读后插入内存屏障<br>​						LoadLoad<br>​						LoadStore<br>​					在volatile写前后插入内存屏障<br>​						StoreStore 前<br>​						StoreLoad 后<br>​							也可以读前插入StoreLoad，但考虑读多写少情况<br>​				优化<br>​					省略不必要的屏障<br>​					不同处理器，入x86仅会对写-读操作做重排序</p>
 <p>旧模型不允许volatile变量之间重排序，但旧的Java模型允许volatile变量与普通变量重排序</p>
 <h3 id="锁的内存语义"><a href="#锁的内存语义" class="headerlink" title="锁的内存语义"></a>锁的内存语义</h3><p>锁是java并发变成中最重要的同步机制，除了让临界区互斥执行，还可以让释放锁的线程向获取同一个锁的线程发送消息<br>释放锁时，会把线程对应的本地内存中的共享变量刷新到主内存中<br>获取锁时，会把线程对应的本地内存置为无效</p>
-<h4 id="CAS-1"><a href="#CAS-1" class="headerlink" title="CAS"></a>CAS</h4><p>​                同时具有volatile读和写的内存语义<br>​                程序根据处理器是否为cmpxchg指令添加lock前缀<br>​                intel对lock前缀的解释<br>​                    缓存锁定<br>​                    禁止指令重排<br>​                    把写缓冲区中的所有数据刷新到内存</p>
-<h4 id="concurrent包的实现"><a href="#concurrent包的实现" class="headerlink" title="concurrent包的实现"></a>concurrent包的实现</h4><p>​                通用化模式<br>​                    声明共享变量<br>​                    使用CAS的条件更新来实现线程之间的同步<br>​                    配合以volatile读/写 和 CAS所具有的volatile读/写 语义来实现线程之间的通信</p>
-<h3 id="final域的内存语义"><a href="#final域的内存语义" class="headerlink" title="final域的内存语义"></a>final域的内存语义</h3><h4 id="final域的重排序规则"><a href="#final域的重排序规则" class="headerlink" title="final域的重排序规则"></a>final域的重排序规则</h4><p>​                在构造函数内对一个final域的写入，与随后把这个被构造对象的引用赋值给一个引用变量，这两个操作之间不能重排序<br>​                初次读一个包含final域的对象的引用，与随后初次读取这个final域，这两个操作之间不能重排序</p>
-<h4 id="写final域的重排序规则"><a href="#写final域的重排序规则" class="headerlink" title="写final域的重排序规则"></a>写final域的重排序规则</h4><p>​                JMM禁止编译器把final域的写重排序到构造函数之外</p>
-<h4 id="读final域的重排序规则"><a href="#读final域的重排序规则" class="headerlink" title="读final域的重排序规则"></a>读final域的重排序规则</h4><p>​                在读一个对象的final域之前，一定先读包含这个final域的对象引用</p>
-<h4 id="final引用不能从构造函数内‘溢出’"><a href="#final引用不能从构造函数内‘溢出’" class="headerlink" title="final引用不能从构造函数内‘溢出’"></a>final引用不能从构造函数内‘溢出’</h4><h4 id="语义"><a href="#语义" class="headerlink" title="语义"></a>语义</h4><p>​                写final域的重排序规则会要求编译器在final域写之后，构造函数return之前插入一个StoreStore屏障<br>​                读final域的重排序规则要求编译器在读final域的操作前面插入一个LoadLoad</p>
-<h3 id="happens-before"><a href="#happens-before" class="headerlink" title="happens-before"></a>happens-before</h3><h4 id="JMM的设计"><a href="#JMM的设计" class="headerlink" title="JMM的设计"></a>JMM的设计</h4><p>​                两个关键因素<br>​                    程序员对内存模型对使用<br>​                    编译器和处理器对内存模型对实现<br>​                happens-before要求禁止对重排序<br>​                    会改变程序执行结果对重排序<br>​                        JMM禁止<br>​                    不会改变程序执行结果的重排序<br>​                        JMM不禁止</p>
-<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>​                as-if-serial语义保证单线程的执行结果不被改变，happens-before关系保证正确同步的多线程执行结果不被改变</p>
-<h4 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h4><p>​                程序顺序规则<br>​                监视器锁规则<br>​                volatile变量规则<br>​                传递性<br>​                start规则<br>​                join规则</p>
-<h3 id="双重检查锁定与延迟初始化"><a href="#双重检查锁定与延迟初始化" class="headerlink" title="双重检查锁定与延迟初始化"></a>双重检查锁定与延迟初始化</h3><h4 id="错误的根源"><a href="#错误的根源" class="headerlink" title="错误的根源"></a>错误的根源</h4><p>​                1.分配对象的内存空间<br>​                2.初始化对象<br>​                3.设置instance执行分配的内存地址<br>​            重排序 2 和 3，获取一个未初始化的对象</p>
-<h4 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h4><p>​                不允许2和3重排序<br>​                    volatile<br>​                允许2和3重排序，但不允许其他线程‘看到’这个重排序<br>​                    在执行类初始化期间，JVM会去获取一个锁，这个锁可以同步多个线程对同一个类对初始化</p>
-<h4 id="类对初始化"><a href="#类对初始化" class="headerlink" title="类对初始化"></a>类对初始化</h4><p>​                一个类或接口类型立即被初始化对情况<br>​                    T是一个类，T对示例被创建<br>​                    T是一个类，且T中声明对一个静态方法被调用<br>​                    T中声明对一个静态字段被赋值<br>​                    T中声明对一个静态字段被使用，而且这个字段不是一个常量字段<br>​                    T是一个顶级类，而且一个断言语句嵌套在T内部被执行</p>
-<h3 id="Java内存模型综述"><a href="#Java内存模型综述" class="headerlink" title="Java内存模型综述"></a>Java内存模型综述</h3><h4 id="处理器的内存模型"><a href="#处理器的内存模型" class="headerlink" title="处理器的内存模型"></a>处理器的内存模型</h4><p>​                JMM屏蔽了不同处理器内存模型的差异</p>
-<h4 id="各种内存模型之间的关系"><a href="#各种内存模型之间的关系" class="headerlink" title="各种内存模型之间的关系"></a>各种内存模型之间的关系</h4><p>​                处理器内存模型是硬件级的内存模型<br>​                JMM语言级内存模型<br>​                顺序一致性内存模型是一个理论参考模型</p>
-<h4 id="JMM的内存可见性保证"><a href="#JMM的内存可见性保证" class="headerlink" title="JMM的内存可见性保证"></a>JMM的内存可见性保证</h4><h4 id="JSR-133对内存语义的修复"><a href="#JSR-133对内存语义的修复" class="headerlink" title="JSR-133对内存语义的修复"></a>JSR-133对内存语义的修复</h4><h2 id="Java并发编程基础"><a href="#Java并发编程基础" class="headerlink" title="Java并发编程基础"></a>Java并发编程基础</h2><h3 id="线程简介"><a href="#线程简介" class="headerlink" title="线程简介"></a>线程简介</h3><h3 id="启动和终止线程"><a href="#启动和终止线程" class="headerlink" title="启动和终止线程"></a>启动和终止线程</h3><h3 id="线程间通信"><a href="#线程间通信" class="headerlink" title="线程间通信"></a>线程间通信</h3><h4 id="通知-等待"><a href="#通知-等待" class="headerlink" title="通知/等待"></a>通知/等待</h4><p>​    监视器<br>​    对象<br>​    等待队列<br>​    同步队列</p>
-<h4 id="等待方"><a href="#等待方" class="headerlink" title="等待方"></a>等待方</h4><p>​                获取对象锁<br>​                如果条件不满足，那么调用对象的wait()方法，被通知后仍要检查条件<br>​                条件满足则执行对应逻辑</p>
-<h4 id="通知方"><a href="#通知方" class="headerlink" title="通知方"></a>通知方</h4><p>​                获得对象的锁<br>​                改变条件<br>​                通知所有等待在对象上的线程<br>​        </p>
-<h2 id="Java中的锁"><a href="#Java中的锁" class="headerlink" title="Java中的锁"></a>Java中的锁</h2><h3 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a>Lock</h3><h3 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h3><p>​            主要使用方式是继承，推荐被定义为自定义同步组件的静态内部类</p>
-<h3 id="与锁的关系"><a href="#与锁的关系" class="headerlink" title="与锁的关系"></a>与锁的关系</h3><p>​                锁是面向使用者，它定义了使用者与锁交互的接口，隐藏了实现细节<br>​                同步器面向的是锁的实现者，它简化了锁的实现方式，屏蔽了同步状态管理，线程的排队，等待与唤醒等底层操作</p>
-<h3 id="同步队列"><a href="#同步队列" class="headerlink" title="同步队列"></a>同步队列</h3><p>​                    节点<br>​                        是什么<br>​                            当前线程获取同步状态失败时，同步器会将当前线程以及等待状态等信息构成一个节点，当同步状态释放时，会把首节点唤醒，再次尝试获取同步状态<br>​                        属性<br>​                            等待状态<br>​                            前驱节点<br>​                            后继节点<br>​                            等待队列中的后继节点<br>​                            获取同步状态的线程<br>​                    FIFO双向队列<br>​                        通过CAS设置尾节点</p>
-<h3 id="ReenLock"><a href="#ReenLock" class="headerlink" title="ReenLock"></a>ReenLock</h3><h2 id="Java中的线程池"><a href="#Java中的线程池" class="headerlink" title="Java中的线程池"></a>Java中的线程池</h2><h3 id="为什么使用线程池"><a href="#为什么使用线程池" class="headerlink" title="为什么使用线程池"></a>为什么使用线程池</h3><p>​            降低资源消耗<br>​                通过重复利用已创建的线程降低线程创建和销毁造成的消耗<br>​            提高响应速度<br>​                当任务到达时，任务可以不需要等到线程创建就能立即执行<br>​            提高线程的可管理性<br>​                线程是稀有资源，使用线程池可以进行统一分配、调优和监控</p>
-<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>​            线程池处理流程<br>​                1.首先，判断核心线程池里的线程是否都在执行任务，如果不是，创建任务，否则进入下个流程<br>​                2.判断工作队列是否已经满了，如果不是，存储在工作队列，否则进入下个流程<br>​                3.判断线程池的线程是否都处于工作状态，如果没有，创建一个新的线程执行任务（需要全局锁），否则交给饱和策略来处理<br>​            为什么<br>​                尽可能地避免获取全局锁，因为从处理流程来看，在完成预热后，几乎执行步骤都是落在2上</p>
+<h4 id="CAS-1"><a href="#CAS-1" class="headerlink" title="CAS"></a>CAS</h4><p>​				同时具有volatile读和写的内存语义<br>​				程序根据处理器是否为cmpxchg指令添加lock前缀<br>​				intel对lock前缀的解释<br>​					缓存锁定<br>​					禁止指令重排<br>​					把写缓冲区中的所有数据刷新到内存</p>
+<h4 id="concurrent包的实现"><a href="#concurrent包的实现" class="headerlink" title="concurrent包的实现"></a>concurrent包的实现</h4><p>​				通用化模式<br>​					声明共享变量<br>​					使用CAS的条件更新来实现线程之间的同步<br>​					配合以volatile读&#x2F;写 和 CAS所具有的volatile读&#x2F;写 语义来实现线程之间的通信</p>
+<h3 id="final域的内存语义"><a href="#final域的内存语义" class="headerlink" title="final域的内存语义"></a>final域的内存语义</h3><h4 id="final域的重排序规则"><a href="#final域的重排序规则" class="headerlink" title="final域的重排序规则"></a>final域的重排序规则</h4><p>​				在构造函数内对一个final域的写入，与随后把这个被构造对象的引用赋值给一个引用变量，这两个操作之间不能重排序<br>​				初次读一个包含final域的对象的引用，与随后初次读取这个final域，这两个操作之间不能重排序</p>
+<h4 id="写final域的重排序规则"><a href="#写final域的重排序规则" class="headerlink" title="写final域的重排序规则"></a>写final域的重排序规则</h4><p>​				JMM禁止编译器把final域的写重排序到构造函数之外</p>
+<h4 id="读final域的重排序规则"><a href="#读final域的重排序规则" class="headerlink" title="读final域的重排序规则"></a>读final域的重排序规则</h4><p>​				在读一个对象的final域之前，一定先读包含这个final域的对象引用</p>
+<h4 id="final引用不能从构造函数内‘溢出’"><a href="#final引用不能从构造函数内‘溢出’" class="headerlink" title="final引用不能从构造函数内‘溢出’"></a>final引用不能从构造函数内‘溢出’</h4><h4 id="语义"><a href="#语义" class="headerlink" title="语义"></a>语义</h4><p>​				写final域的重排序规则会要求编译器在final域写之后，构造函数return之前插入一个StoreStore屏障<br>​				读final域的重排序规则要求编译器在读final域的操作前面插入一个LoadLoad</p>
+<h3 id="happens-before"><a href="#happens-before" class="headerlink" title="happens-before"></a>happens-before</h3><h4 id="JMM的设计"><a href="#JMM的设计" class="headerlink" title="JMM的设计"></a>JMM的设计</h4><p>​				两个关键因素<br>​					程序员对内存模型对使用<br>​					编译器和处理器对内存模型对实现<br>​				happens-before要求禁止对重排序<br>​					会改变程序执行结果对重排序<br>​						JMM禁止<br>​					不会改变程序执行结果的重排序<br>​						JMM不禁止</p>
+<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>​				as-if-serial语义保证单线程的执行结果不被改变，happens-before关系保证正确同步的多线程执行结果不被改变</p>
+<h4 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h4><p>​				程序顺序规则<br>​				监视器锁规则<br>​				volatile变量规则<br>​				传递性<br>​				start规则<br>​				join规则</p>
+<h3 id="双重检查锁定与延迟初始化"><a href="#双重检查锁定与延迟初始化" class="headerlink" title="双重检查锁定与延迟初始化"></a>双重检查锁定与延迟初始化</h3><h4 id="错误的根源"><a href="#错误的根源" class="headerlink" title="错误的根源"></a>错误的根源</h4><p>​				1.分配对象的内存空间<br>​				2.初始化对象<br>​				3.设置instance执行分配的内存地址<br>​			重排序 2 和 3，获取一个未初始化的对象</p>
+<h4 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h4><p>​				不允许2和3重排序<br>​					volatile<br>​				允许2和3重排序，但不允许其他线程‘看到’这个重排序<br>​					在执行类初始化期间，JVM会去获取一个锁，这个锁可以同步多个线程对同一个类对初始化</p>
+<h4 id="类对初始化"><a href="#类对初始化" class="headerlink" title="类对初始化"></a>类对初始化</h4><p>​				一个类或接口类型立即被初始化对情况<br>​					T是一个类，T对示例被创建<br>​					T是一个类，且T中声明对一个静态方法被调用<br>​					T中声明对一个静态字段被赋值<br>​					T中声明对一个静态字段被使用，而且这个字段不是一个常量字段<br>​					T是一个顶级类，而且一个断言语句嵌套在T内部被执行</p>
+<h3 id="Java内存模型综述"><a href="#Java内存模型综述" class="headerlink" title="Java内存模型综述"></a>Java内存模型综述</h3><h4 id="处理器的内存模型"><a href="#处理器的内存模型" class="headerlink" title="处理器的内存模型"></a>处理器的内存模型</h4><p>​				JMM屏蔽了不同处理器内存模型的差异</p>
+<h4 id="各种内存模型之间的关系"><a href="#各种内存模型之间的关系" class="headerlink" title="各种内存模型之间的关系"></a>各种内存模型之间的关系</h4><p>​				处理器内存模型是硬件级的内存模型<br>​				JMM语言级内存模型<br>​				顺序一致性内存模型是一个理论参考模型</p>
+<h4 id="JMM的内存可见性保证"><a href="#JMM的内存可见性保证" class="headerlink" title="JMM的内存可见性保证"></a>JMM的内存可见性保证</h4><h4 id="JSR-133对内存语义的修复"><a href="#JSR-133对内存语义的修复" class="headerlink" title="JSR-133对内存语义的修复"></a>JSR-133对内存语义的修复</h4><h2 id="Java并发编程基础"><a href="#Java并发编程基础" class="headerlink" title="Java并发编程基础"></a>Java并发编程基础</h2><h3 id="线程简介"><a href="#线程简介" class="headerlink" title="线程简介"></a>线程简介</h3><h3 id="启动和终止线程"><a href="#启动和终止线程" class="headerlink" title="启动和终止线程"></a>启动和终止线程</h3><h3 id="线程间通信"><a href="#线程间通信" class="headerlink" title="线程间通信"></a>线程间通信</h3><h4 id="通知-x2F-等待"><a href="#通知-x2F-等待" class="headerlink" title="通知&#x2F;等待"></a>通知&#x2F;等待</h4><p>​	监视器<br>​	对象<br>​	等待队列<br>​	同步队列</p>
+<h4 id="等待方"><a href="#等待方" class="headerlink" title="等待方"></a>等待方</h4><p>​				获取对象锁<br>​				如果条件不满足，那么调用对象的wait()方法，被通知后仍要检查条件<br>​				条件满足则执行对应逻辑</p>
+<h4 id="通知方"><a href="#通知方" class="headerlink" title="通知方"></a>通知方</h4><p>​				获得对象的锁<br>​				改变条件<br>​				通知所有等待在对象上的线程<br>​		</p>
+<h2 id="Java中的锁"><a href="#Java中的锁" class="headerlink" title="Java中的锁"></a>Java中的锁</h2><h3 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a>Lock</h3><h3 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h3><p>​			主要使用方式是继承，推荐被定义为自定义同步组件的静态内部类</p>
+<h3 id="与锁的关系"><a href="#与锁的关系" class="headerlink" title="与锁的关系"></a>与锁的关系</h3><p>​				锁是面向使用者，它定义了使用者与锁交互的接口，隐藏了实现细节<br>​				同步器面向的是锁的实现者，它简化了锁的实现方式，屏蔽了同步状态管理，线程的排队，等待与唤醒等底层操作</p>
+<h3 id="同步队列"><a href="#同步队列" class="headerlink" title="同步队列"></a>同步队列</h3><p>​					节点<br>​						是什么<br>​							当前线程获取同步状态失败时，同步器会将当前线程以及等待状态等信息构成一个节点，当同步状态释放时，会把首节点唤醒，再次尝试获取同步状态<br>​						属性<br>​							等待状态<br>​							前驱节点<br>​							后继节点<br>​							等待队列中的后继节点<br>​							获取同步状态的线程<br>​					FIFO双向队列<br>​						通过CAS设置尾节点</p>
+<h3 id="ReenLock"><a href="#ReenLock" class="headerlink" title="ReenLock"></a>ReenLock</h3><h2 id="Java中的线程池"><a href="#Java中的线程池" class="headerlink" title="Java中的线程池"></a>Java中的线程池</h2><h3 id="为什么使用线程池"><a href="#为什么使用线程池" class="headerlink" title="为什么使用线程池"></a>为什么使用线程池</h3><p>​			降低资源消耗<br>​				通过重复利用已创建的线程降低线程创建和销毁造成的消耗<br>​			提高响应速度<br>​				当任务到达时，任务可以不需要等到线程创建就能立即执行<br>​			提高线程的可管理性<br>​				线程是稀有资源，使用线程池可以进行统一分配、调优和监控</p>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>​			线程池处理流程<br>​				1.首先，判断核心线程池里的线程是否都在执行任务，如果不是，创建任务，否则进入下个流程<br>​				2.判断工作队列是否已经满了，如果不是，存储在工作队列，否则进入下个流程<br>​				3.判断线程池的线程是否都处于工作状态，如果没有，创建一个新的线程执行任务（需要全局锁），否则交给饱和策略来处理<br>​			为什么<br>​				尽可能地避免获取全局锁，因为从处理流程来看，在完成预热后，几乎执行步骤都是落在2上</p>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><ul>
 <li><p>corePoolSize（线程池的基本大小）<br>  提交一个任务到线程池时，线程池会创建一个任务，即使其他空闲到基本线程能够执行新任务，等需要执行的任务数大于线程池基本大小时就不再创建<br>  可以提前调用prestartAllCoreThreads提前创建并启动所有基本线程</p>
 </li>
-<li><p>runnableTaskQueue（任务队列）</p>
-<pre><code>                  ArrayBlockingQueue
-                      基于数组结构的有界阻塞队列，FIFO
-                  LinkedBlockingQueue
-                      基于链表的阻塞队列，FIFO
-                  SynchronousQueue
-                      不存储元素的阻塞队列(使用场景是防止服务器重启或者down了 丢失队列中的数据)
-                  PriorityBlockQueue
-                      具有优先级的无限阻塞队列
-</code></pre><p>  注意 , 建议使用有界队列</p>
+<li><p>runnableTaskQueue（任务队列）<br>                  ArrayBlockingQueue<br>                      基于数组结构的有界阻塞队列，FIFO<br>                  LinkedBlockingQueue<br>                      基于链表的阻塞队列，FIFO<br>                  SynchronousQueue<br>                      不存储元素的阻塞队列(使用场景是防止服务器重启或者down了 丢失队列中的数据)<br>                  PriorityBlockQueue<br>                      具有优先级的无限阻塞队列<br>  注意 , 建议使用有界队列</p>
 </li>
-<li><p>maximumPoolSize(线程池最大数量)</p>
-<pre><code>  注意，如果使用无界的任务队列，这个参数就没有意义了, 建议指定线程最大值,每个线程在分配时候的大小默认是512K
-</code></pre></li>
+<li><p>maximumPoolSize(线程池最大数量)<br>  注意，如果使用无界的任务队列，这个参数就没有意义了, 建议指定线程最大值,每个线程在分配时候的大小默认是512K</p>
+</li>
 <li><p>ThreadFactory<br>  用于创建线程的工厂，可以通过线程工厂给每个创建出来的线程设置更有意义的名字,方便问题定位</p>
 </li>
-<li><p>RejectedExecutionHandler(饱和策略)</p>
-<pre><code>                  AbortPolicy（默认）
-                      直接抛出异常
-                  CallerRunsPolicy
-                      只用调用者所在线程来运行任务
-                  DiscardOldestPolicy
-                      丢弃队列里最近的一个任务，并执行当前任务
-                  DiscardPolicy
-                      丢弃不处理
-</code></pre><p>  注意 也可以实现RejectExecutionHandler接口自定义策略,一般比较重要的,可以持久化到文件,或者另外的队列</p>
+<li><p>RejectedExecutionHandler(饱和策略)<br>                  AbortPolicy（默认）<br>                      直接抛出异常<br>                  CallerRunsPolicy<br>                      只用调用者所在线程来运行任务<br>                  DiscardOldestPolicy<br>                      丢弃队列里最近的一个任务，并执行当前任务<br>                  DiscardPolicy<br>                      丢弃不处理<br>  注意 也可以实现RejectExecutionHandler接口自定义策略,一般比较重要的,可以持久化到文件,或者另外的队列</p>
 </li>
-<li><p>keepAliveTime(线程活动保持时间)</p>
-<pre><code>                  线程池的工作线程空闲后，保持存活的时间
-                  TimeUnit(单位)
-</code></pre></li>
+<li><p>keepAliveTime(线程活动保持时间)<br>                  线程池的工作线程空闲后，保持存活的时间<br>                  TimeUnit(单位)</p>
+</li>
 </ul>
 <h4 id="提交任务方式"><a href="#提交任务方式" class="headerlink" title="提交任务方式"></a>提交任务方式</h4><ul>
 <li>execute 不带返回结果</li>
@@ -842,12 +989,12 @@
 <p>  都是设置中断标记, 两者的差异只是在于shutdownNow不会执行等待队列中的任务</p>
 </li>
 </ul>
-<h4 id="合理使用"><a href="#合理使用" class="headerlink" title="合理使用"></a>合理使用</h4><h5 id="任务性质"><a href="#任务性质" class="headerlink" title="任务性质"></a>任务性质</h5><p>​                    CPU密集型<br>​                        Cpu+1<br>​                    IO密集型<br>​                        2*Cpu</p>
-<h5 id="任务优先级"><a href="#任务优先级" class="headerlink" title="任务优先级"></a>任务优先级</h5><p>​                    优先级队列</p>
-<h5 id="任务执行时间"><a href="#任务执行时间" class="headerlink" title="任务执行时间"></a>任务执行时间</h5><p>​                    使用优先级队列，让时间短的任务先执行<br>​                    交给不同规模的线程池处理</p>
-<h5 id="任务的依赖性"><a href="#任务的依赖性" class="headerlink" title="任务的依赖性"></a>任务的依赖性</h5><p>​                    依赖数据库链接池的任务，因为提交需要等待数据库返回结果，等待时间越长，空闲时间越长，所以设置线程数应该尽量大，同时注意针对这种昂贵的资源，记得使用超时机制</p>
-<h5 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h5><p>​        largestPoolSize-最大线程数<br>​        getPoolSize-线程池的线程数量<br>​        getActiveCount-获取活动的线程数</p>
-<p>​        扩展，继承线程池</p>
+<h4 id="合理使用"><a href="#合理使用" class="headerlink" title="合理使用"></a>合理使用</h4><h5 id="任务性质"><a href="#任务性质" class="headerlink" title="任务性质"></a>任务性质</h5><p>​					CPU密集型<br>​						Cpu+1<br>​					IO密集型<br>​						2*Cpu</p>
+<h5 id="任务优先级"><a href="#任务优先级" class="headerlink" title="任务优先级"></a>任务优先级</h5><p>​					优先级队列</p>
+<h5 id="任务执行时间"><a href="#任务执行时间" class="headerlink" title="任务执行时间"></a>任务执行时间</h5><p>​					使用优先级队列，让时间短的任务先执行<br>​					交给不同规模的线程池处理</p>
+<h5 id="任务的依赖性"><a href="#任务的依赖性" class="headerlink" title="任务的依赖性"></a>任务的依赖性</h5><p>​					依赖数据库链接池的任务，因为提交需要等待数据库返回结果，等待时间越长，空闲时间越长，所以设置线程数应该尽量大，同时注意针对这种昂贵的资源，记得使用超时机制</p>
+<h5 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h5><p>​		largestPoolSize-最大线程数<br>​		getPoolSize-线程池的线程数量<br>​		getActiveCount-获取活动的线程数</p>
+<p>​		扩展，继承线程池</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 951488791@qq.com </span>
@@ -862,9 +1009,9 @@
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="zhengyumin">zhengyumin</a></p>
     <p><span class="copy-title">发布时间:</span>2019-06-06, 19:05:01</p>
     <p><span class="copy-title">最后更新:</span>2019-08-31, 18:30:30</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/06/06/Note_java并发编程的艺术/" title="Note_java并发编程的艺术">http://yoursite.com/2019/06/06/Note_java并发编程的艺术/</a>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/06/06/Note_java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/" title="Note_java并发编程的艺术">http://yoursite.com/2019/06/06/Note_java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E8%89%BA%E6%9C%AF/</a>
     <p>
-        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
 </div>
 
@@ -897,15 +1044,15 @@
 <div class="acParent"></div>
 
 </body>
-<script src="/js/jquery.pjax.js?v=1.0.1"></script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
 
-<script src="/js/script.js?v=1.0.1"></script>
+<script src="/js/script.js?v=1.0.1" ></script>
 <script>
     var img_resize = 'default';
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#week','#hide','#jdk','#packages','#utils','#java','#note','#jvm','#distributed','#netty','#nio','#framework','#zookeeper','#Spec','#gc','#summary','#classLoader','#juc','#hotspot','#j2ee','#spring','#hbase','#spark','#redis','#thread','#tomcat','#mysql','#lang','#elasticsearch','#kafka','#servlet','#ioc','#io','#serialization','#file','#ejb','#collections','#event','#aop','#job','#map','#applicationContext','#beanFactory','#spring-mvc','#spring-webflux','#doc',],
+            'data': ['#week','#hide','#jvm','#gc','#summary','#juc','#jdk','#map','#classLoader','#packages','#io','#serialization','#file','#nio','#lang','#spring','#doc','#utils','#hotspot','#collections','#java','#note','#j2ee','#ejb','#distributed','#hbase','#framework','#spark','#elasticsearch','#kafka','#mysql','#netty','#redis','#servlet','#tomcat','#zookeeper','#Spec','#thread','#applicationContext','#ioc','#event','#aop','#job','#spring-mvc','#spring-webflux','#beanFactory',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
