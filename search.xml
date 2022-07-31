@@ -743,9 +743,9 @@
       
         <tags>
             
-            <tag> spring </tag>
-            
             <tag> classLoader </tag>
+            
+            <tag> spring </tag>
             
             <tag> servlet </tag>
             
